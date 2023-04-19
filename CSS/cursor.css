@@ -1,0 +1,11 @@
+body {
+    cursor: url(https://pic.imgdb.cn/item/6432e2140d2dde5777d5b37e.png), auto;
+  }
+
+  a {
+    cursor: url('https://pic.imgdb.cn/item/6432e22d0d2dde5777d5dd6c.png'), auto;
+  }
+
+  a:active {
+    cursor: url(https://cdn.jsdelivr.net/gh/moezx/cdn@3.1.9/img/Sakura/cursor/work.cur), alias
+  }
