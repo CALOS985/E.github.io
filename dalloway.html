@@ -2,204 +2,220 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>如何暴富</title>
-  <style>
-    @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Petemoss&display=swap");
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>如何暴富</title>
+    <style>
+        @import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Petemoss&display=swap");
 
-    * {
-      box-sizing: border-box;
-      font-family: "Cinzel", serif;
-    }
+        * {
+            box-sizing: border-box;
+            font-family: "Cinzel", serif;
+        }
 
-    body {
-      margin: 0;
-      padding: 0;
+        body {
+            margin: 0;
+            padding: 0;
 
-    }
-    @media only screen and (max-width: 600px) {
-  .book {
-    --book-height: 50vh;
-    transform: scale(0.5);
-  }
-}
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    p {
-      margin: 0;
-    }
+        }
 
-    main {
-      display: flex;
-      justify-content: center;
-      background-color: #d9d9d9;
-    }
+        @media only screen and (max-width: 600px) {
+            .book {
+                --book-height: 50vh;
+                transform: scale(0.5);
+            }
+        }
 
-    .book {
-      --book-height: 100vh;
-      --book-ratio: 1.4;
-    }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        p {
+            margin: 0;
+        }
 
-    .book>div {
-      height: var(--book-height);
-      width: calc(var(--book-height) / var(--book-ratio));
-      overflow: auto;
-      background-color: #0a0a0a;
-      transform: scale(0.9);
-      border-radius: 6px;
-      transform-origin: left;
-    }
+        main {
+            display: flex;
+            justify-content: center;
+            background-color: #d9d9d9;
+        }
 
-    .book-cover {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      position: absolute;
-      z-index: 9;
-      text-align: center;
-      background: linear-gradient(135deg, black 25%, transparent 25%) -50px 0,
-        linear-gradient(225deg, black 25%, transparent 25%) -50px 0,
-        linear-gradient(315deg, black 25%, transparent 25%),
-        linear-gradient(45deg, black 25%, transparent 25%);
-      background-size: 2em 2em;
-      background-color: #232323;
-      color: white;
-      transition: transform 2s;
-    }
+        .book {
+            --book-height: 100vh;
+            --book-ratio: 1.4;
+        }
 
-    .book-cover::before {
-      content: "";
-      position: absolute;
-      width: 20px;
-      right: 20px;
-      top: 0;
-      bottom: 0;
-      background-color: #b11509;
-    }
+        .book>div {
+            height: var(--book-height);
+            width: calc(var(--book-height) / var(--book-ratio));
+            overflow: auto;
+            background-color: #0a0a0a;
+            transform: scale(0.9);
+            border-radius: 6px;
+            transform-origin: left;
+        }
 
-    h1 {
-      font-family: "Petemoss", cursive;
-      font-size: 98px;
-      font-weight: 300;
-      color: #dbd75d;
-    }
+        .book-cover {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            z-index: 9;
+            text-align: center;
+            background: linear-gradient(135deg, black 25%, transparent 25%) -50px 0,
+                linear-gradient(225deg, black 25%, transparent 25%) -50px 0,
+                linear-gradient(315deg, black 25%, transparent 25%),
+                linear-gradient(45deg, black 25%, transparent 25%);
+            background-size: 2em 2em;
+            background-color: #232323;
+            color: white;
+            transition: transform 2s;
+        }
 
-    h2 {
-      font-size: 16px;
-    }
+        .book-cover::before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            right: 20px;
+            top: 0;
+            bottom: 0;
+            background-color: #b11509;
+        }
 
-    .separator {
-      --separator-size: 8px;
-      width: var(--separator-size);
-      height: var(--separator-size);
-      background-color: #dbd75d;
-      margin: 50px auto 60px auto;
-      border-radius: 50%;
-      position: relative;
-    }
+        h1 {
+            font-family: "Petemoss", cursive;
+            font-size: 98px;
+            font-weight: 300;
+            color: #dbd75d;
+        }
 
-    .separator::after,
-    .separator::before {
-      content: "";
-      position: absolute;
-      width: 12px;
-      background-color: white;
-      height: 2px;
-      top: calc(50% - 1px);
-    }
+        h2 {
+            font-size: 16px;
+        }
 
-    .separator::after {
-      left: 15px;
-    }
+        .separator {
+            --separator-size: 8px;
+            width: var(--separator-size);
+            height: var(--separator-size);
+            background-color: #dbd75d;
+            margin: 50px auto 60px auto;
+            border-radius: 50%;
+            position: relative;
+        }
 
-    .separator::before {
-      right: 15px;
-    }
+        .separator::after,
+        .separator::before {
+            content: "";
+            position: absolute;
+            width: 12px;
+            background-color: white;
+            height: 2px;
+            top: calc(50% - 1px);
+        }
 
-    .book-content {
-      transform: scale(0.9) translateY(30px);
-      background-color: white !important;
-      transition: all 0.3s 1s;
-    }
+        .separator::after {
+            left: 15px;
+        }
 
-    .book-content h3,
-    .book-content p {
-      opacity: 0;
-      transition: all 0.3s 0.3s;
-    }
+        .separator::before {
+            right: 15px;
+        }
 
-    h3 {
-      padding: 30px;
-    }
+        .book-content {
+            transform: scale(0.9) translateY(30px);
+            background-color: white !important;
+            transition: all 0.3s 1s;
+        }
 
-    p {
-      padding: 0px 30px 10px 30px;
-      text-align: justify;
-      font-size: 14px;
-    }
+        .book-content h3,
+        .book-content p {
+            opacity: 0;
+            transition: all 0.3s 0.3s;
+        }
 
-    .book-cover>div {
-      transition: opacity 0s 0.6s;
-    }
+        h3 {
+            padding: 30px;
+        }
 
-    .book:hover>.book-cover {
-      transform: rotateY(180deg) scale(0.9);
-    }
+        p {
+            padding: 0px 30px 10px 30px;
+            text-align: justify;
+            font-size: 14px;
+        }
 
-    .book:hover>.book-cover>div {
-      opacity: 0;
-    }
+        .book-cover>div {
+            transition: opacity 0s 0.6s;
+        }
 
-    .book:hover>.book-content {
-      transform: scale(0.9) translateY(0px);
-    }
+        .book:hover>.book-cover {
+            transform: rotateY(180deg) scale(0.9);
+        }
 
-    .book:hover>.book-content h3,
-    .book:hover>.book-content p {
-      opacity: 1;
-    }
-  </style>
+        .book:hover>.book-cover>div {
+            opacity: 0;
+        }
+
+        .book:hover>.book-content {
+            transform: scale(0.9) translateY(0px);
+        }
+
+        .book:hover>.book-content h3,
+        .book:hover>.book-content p {
+            opacity: 1;
+        }
+    </style>
 </head>
 
 <body>
-  <main>
-    <div class="book">
-      <div class="book-cover">
-        <div>
-          <h1>Mrs. Dalloway</h1>
-          <div class="separator"></div>
-          <h2>by Calos</h2>
+    <main>
+        <div class="book">
+            <div class="book-cover">
+                <div>
+                    <h1>Mrs. Dalloway</h1>
+                    <div class="separator"></div>
+                    <h2>by Calos</h2>
+                </div>
+            </div>
+            <div class="book-content">
+                <h3>请我喝咖啡</h3>
+
+                <p>大家好，我是卡洛斯，感谢大家的支持!</p>
+
+                <!-- <p>首先，我们要有一个好的创意。比如说，你可以想想如何发明一种新型的手机，或者是一种可以让人瞬间瘦身的药物。当然，如果你没有这样的头脑风暴，也可以考虑开一家猫咖啡馆或者是狗狗美容院，这些都是很有市场的哦！
+                </p>
+
+                <p>
+                    其次，我们要有一定的投资。如果你手头比较宽裕，可以考虑投资股票或者是房地产。如果你不是很有钱，也可以考虑去做一些副业，比如说打酱油、代购等等。只要你肯努力，就一定能够赚到钱！</p>
+
+
+
+                <p>
+                    再次，我们要有一颗勇敢的心。做任何事情都会有风险，但是如果我们总是害怕失败，那么就永远也不可能成功。所以，不要怕失败，要敢于尝试！如果你失败了，也不要气馁，要继续努力！</p>
+
+                <p>最后，我们要有一个好的团队。一个人的力量是有限的，只有和志同道合的人一起合作，才能够实现更大的目标。所以，如果你想暴富，就要找到一些志同道合的朋友一起合作。</p>
+
+                <p>当然，以上只是一些简单的建议，如果你想真正暴富，还需要更多的努力和智慧。但是我相信只要你肯努力，就一定能够实现自己的梦想！加油！</p>
+                <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--CALOS
+                </p> -->
+
+                <div style="display: flex; justify-content: center;">
+                    <div
+                        style="border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); overflow: hidden; margin: 10px;">
+                        <img src="https://res.cloudinary.com/dg3urvo89/image/upload/v1682753059/zhifu_fdlu3j.png"
+                            style="width: 200px; ">
+                    </div>
+                    <div
+                        style="border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); overflow: hidden; margin: 10px;">
+                        <img src="https://res.cloudinary.com/dg3urvo89/image/upload/v1682753089/WEINXIN_wg4dau.png"
+                            style="width: 200px; ">
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
-      <div class="book-content">
-        <h3>如何暴富</h3>
-
-        <p>大家好，今天我来给大家分享一下如何暴富的秘诀！当然，这些都是我从网上搜集来的，不保证百分之百有效，但是相信只要你有耐心和恒心，一定能够成功！</p>
-
-        <p>首先，我们要有一个好的创意。比如说，你可以想想如何发明一种新型的手机，或者是一种可以让人瞬间瘦身的药物。当然，如果你没有这样的头脑风暴，也可以考虑开一家猫咖啡馆或者是狗狗美容院，这些都是很有市场的哦！</p>
-
-        <p>
-          其次，我们要有一定的投资。如果你手头比较宽裕，可以考虑投资股票或者是房地产。如果你不是很有钱，也可以考虑去做一些副业，比如说打酱油、代购等等。只要你肯努力，就一定能够赚到钱！</p>
-
-   
-
-        <p>
-          再次，我们要有一颗勇敢的心。做任何事情都会有风险，但是如果我们总是害怕失败，那么就永远也不可能成功。所以，不要怕失败，要敢于尝试！如果你失败了，也不要气馁，要继续努力！</p>
-
-        <p>最后，我们要有一个好的团队。一个人的力量是有限的，只有和志同道合的人一起合作，才能够实现更大的目标。所以，如果你想暴富，就要找到一些志同道合的朋友一起合作。</p>
-
-        <p>当然，以上只是一些简单的建议，如果你想真正暴富，还需要更多的努力和智慧。但是我相信只要你肯努力，就一定能够实现自己的梦想！加油！</p>
-         <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;--CALOS</p>
-
-
-      </div>
-    </div>
-  </main>
+    </main>
 </body>
 
 </html>
