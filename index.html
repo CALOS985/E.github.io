@@ -252,16 +252,22 @@ a:hover {
     
   </div>
 </div>
-<style>video {
-    width: 100%;
-    max-width: 100%;
-    height: auto;
-    object-fit: cover;
-  }
-  </style>
-<video  autoplay muted loop>
-  <source src="https://calos-1g7aysz0fedde7e5-1302868602.tcloudbaseapp.com/A.mp4" type="video/mp4">
-</video>
-
+<style>
+    body {
+        background-color: black;
+        background-image: url('https://pic2.imgdb.cn/item/644ec4470d2dde5777874010.jpg');
+        background-size: cover;
+        background-position: center;
+        animation: fadein 2s;
+    }
+    @keyframes fadein {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+</style>
 </body>
 </html>
