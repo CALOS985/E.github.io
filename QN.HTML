@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全女格斗发布页</title>
+    <link rel="stylesheet" href="styles.css"> <!-- 这里的链接指向你的CSS文件 -->
+    <link rel="shortcut icon" href="https://pic.imgdb.cn/item/62618f38239250f7c5391c92.png">
+</head>
+
+<body>
+
+    <header>
+        <h1>全女格斗发布页</h1>
+        <nav>
+            <ul>
+                <li><a target="_blank" href="https://calos985.github.io/A.github.io/">首页</a></li>
+                <!-- <li><a target="_blank" href="">关于我</a></li> -->
+                <li><a target="_blank" href="https://calos985.github.io/">博客</a></li>
+                <li><a target="_blank" href="https://calos985.github.io/A.github.io/lianxi/lianxi.html">联系我</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <style>
+        /* styles.css */
+
+        /* 设置页面背景颜色和文本颜色 */
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            font-family: Arial, sans-serif;
+            box-sizing: border-box;
+        }
+
+        /* 标题样式 */
+        h1 {
+            color: #ff6600;
+        }
+
+        /* 导航菜单样式 */
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #333;
+        }
+
+        /* 博客文章样式 */
+        .blog-post {
+            background-color: #fff;
+            padding: 20px;
+            margin: 20px 100px 20px 100px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+
+        }
+
+        .container1 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px;
+
+        }
+
+        .sub-container .left-container
+         {
+            flex: 1;
+            margin: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            align-items: center;
+        }
+
+        .sub-container {
+            flex: 1;
+            margin: 10px;
+            align-items: center;
+        }
+
+        .sub1-container {
+            display: flex;
+        }
+
+        .sub1-container .left-container {
+            flex: 1;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 480px;
+            margin: 10px;
+            /* border: 1px solid black; */
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        .container img {
+            width: 100%;
+            max-width: 90%;
+            margin-top: 10px;
+        }
+
+        .container button {
+            margin: 10px;
+        }
+
+        /* 页脚样式 */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 8px 8px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #af4c72;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+        }
+
+        .button:hover {
+            background-color: #b33163
+        }
+
+        .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+        }
+    </style>
+
+    <main>
+        <section class="blog-post">
+            <div class="container1">
+                <div class="sub-container">
+                    <!-- 上部内容 -->
+                    <h2>橙子全女格斗</h2>
+                    <p>记住一句话，谁倒卖，谁是狗。此网页简单制作，后续会慢慢优化，配B站视频窗口介绍。</p>
+                </div>
+
+
+                <div class="sub1-container">
+                    <!-- 下部内容 -->
+
+                    <div class="left-container">
+                        <!-- 左侧内容 -->
+                        <div class="container">
+                            <!-- <iframe src="//player.bilibili.com/player.html?aid=62589136&bvid=BV1nt411T7do&cid=108762225&p=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe> -->
+                            <img src="https://pic.imgdb.cn/item/625d84a8239250f7c5f9b7f8.png" alt="Image">
+                            <button onclick="openBAIDU()" class="button" onclick="showModal()">百度网盘</button>
+                            <button onclick="openAliyun()" class="button" onclick="showModal()">阿里云盘</button>
+                        </div>
+                    </div>
+
+                    <!-- 右侧内容 -->
+                </div>
+            </div>
+            </div>
+
+
+
+        </section>
+
+
+    </main>
+
+    <script>
+            function openBAIDU() {
+            window.open('https://pan.baidu.com/s/1cW7dgk4Xe23IG3H7M9XgtA?pwd=6666#list/path=%2F', '_blank');
+        }
+        function openAliyun() {
+            window.open('https://www.aliyundrive.com/s/wY6VqGQas9z', '_blank');
+        }
+    </script>
+    <footer>
+        <p>&copy; 2023 卡洛研究所</p>
+    </footer>
+</body>
+
+</html>
