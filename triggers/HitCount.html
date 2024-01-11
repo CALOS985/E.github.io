@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>HitCount</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">HitCount</p>
+<p>返回玩家当前攻击招式击中一个或更多对手的次数.该值仅在单个状态内有效;任何状态改变之后,复位到0.<br />
+  为了防止它复位到0,请查看StateDef中的hitcountpersist(查看cns文档获得更多详情).HitCount和UniqHitCount触发器不同之处仅在于玩家正攻击1个以上的对手时体现出来.<br />
+  当玩家正用相同攻击击中2个对手时,HitCount在每次击中时增加1,而UniqHitCount在每次击中时增加2.</p>
+<p><span class="STYLE2">格式: </span><br />
+  <span class="STYLE3">HitCount</span></p>
+<p><span class="STYLE2">参数: </span><br />
+无</p>
+<p><span class="STYLE2">返回值类型: </span><br />
+整型</p>
+<p><span class="STYLE2">错误条件:</span><br />
+无</p>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = HitCount &gt; 8<br />
+当玩家的攻击招式开始后已完成对对手大于8次连击则触发.</p>
+</body>
+</html>

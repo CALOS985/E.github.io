@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>FVar (math)</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">FVar (math)</p>
+<p>此触发器使用强制变量号作为参数.<br />
+  将返回玩家指定的浮点型变量值.</p>
+<p><span class="STYLE2">格式:</span><br />
+  <span class="STYLE3">FVar(表达式)</span></p>
+<p><span class="STYLE2">参数:</span><br />
+  表达式<br />
+  需要计算参数号的表达式.<br />
+目前有效号是0-39.</p>
+<p><span class="STYLE2">返回值类型:</span><br />
+浮点型</p>
+<p><span class="STYLE2">错误条件:</span><br />
+  如果表达式计算出bottom,<br />
+或者表达式计算出无效的变量索引则返回bottom.</p>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = FVar(5) = -1.23<br />
+如果变量索引为5的浮点数 值为-1.23则触发.</p>
+<p><span class="STYLE2">特列:</span><br />
+绝大部分情况下可用Fvar来代替Var</p>
+<p><span class="STYLE2">注意:</span><br />
+在设置变量时,变量不能以大写字母开头,例如:<br />
+[State ]<br />
+type = VarSet<br />
+trigger1 = 1<br />
+FVar(0) = 0  ;这是错误的写法<br />
+<br />
+[State ]<br />
+type = VarSet<br />
+trigger1 = 1<br />
+fvar(1) = 0  ;这是正确的写法<br />
+</p>
+</body>
+</html>

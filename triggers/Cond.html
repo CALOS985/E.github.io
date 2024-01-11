@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>Cond (math)</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">Cond (math)</p>
+<p>此触发器由3个参数构成.<br />
+  第1个参数是条件参数.如果条件为真(即非0),Cond计算并返回第2个参数.<br />
+  如果第1个参数为假,Cond计算并返回第3个参数.<br />
+  如果条件是bottom,那么Cond返回bottom而不需要计算第2个第3个参数.</p>
+<p>在所有情况下,任何未使用的参数就不需要计算了.<br />
+  因此,Cond可以用来代替ifelse而避免任何由于计算不需要使用的参数而所引起的副作用.<br />
+  (比如说,给变量赋值或执行一次会产生bottom的计算)</p>
+<p>Cond仅支持mugen1.0及以上的版本. 而ifelse支持所有mugen版本.</p>
+<p><span class="STYLE2">格式: </span><br />
+  <span class="STYLE3">Cond(exp_cond,exp_true,exp_false)</span></p>
+<p><span class="STYLE2">参数: </span><br />
+  exp_cond<br />
+  需要测试的表达式<br />
+  <br />
+  exp_true<br />
+  如果 exp_cond 为非0则返回此表达式指定的值.<br />
+  <br />
+  exp_false<br />
+如果 exp_cond 为0则返回此表达式指定的值.</p>
+<p><span class="STYLE2">返回值类型:</span> <br />
+  如果 exp_true 被返回,则返回类型和 exp_true 相同.<br />
+如果 exp_false 被返回,则返回类型和 exp_false 相同.</p>
+<p><span class="STYLE2">错误条件: </span><br />
+  返回bottom如果 exp_cond 计算出bottom,<br />
+或者 exp_true 或 exp_false (任何一个被使用了) 计算出bottom.</p>
+<p><span class="STYLE2">示例:</span><br />
+  value = Cond(var(3),1,2)<br />
+  当var(3)是非0时,value值为1.<br />
+当var(3)是0时,value值为2.</p>
+<p><span class="STYLE2">特列:</span><br />
+  ifelse可以用Cond来代用(反过来也可)<br />
+Cond(var(3),1,2)相当于ifelse(var(3),1,2)</p>
+<p>两者的区别请查看表达式部分关于bottom中特殊格式的章节.</p>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>IsHelper</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">IsHelper</p>
+<p>此触发器拥有一个可选参数-ID号.<br />
+  1.ID号被省略,如果玩家是一个helper人物则ishelper返回1,否则返回0.<br />
+  2.包含了ID号,如果玩家是一个指定ID号的helper人物则ishelper返回1,否则返回0.</p>
+<p><span class="STYLE2">格式: </span><br />
+  <span class="STYLE3">1.IsHelper <br />
+2.IsHelper(表达式)</span></p>
+<p><span class="STYLE2">参数: </span><br />
+无</p>
+<p><span class="STYLE2">返回值类型: </span><br />
+布尔型整数(1或0)</p>
+<p><span class="STYLE2">错误条件:</span><br />
+如果表达式计算出bottom则返回bottom.</p>
+<p><span class="STYLE2">示例:</span><br />
+  1. trigger1 = !IsHelper<br />
+  如果这个玩家不是helper类型人物则触发.<br />
+  2. trigger1 = IsHelper(1234)<br />
+如果这个玩家是ID号为1234的helper类型人物则触发.</p>
+<p><span class="STYLE2">特列:</span><br />
+这个条件通常添加在 StateDef -1~-3 里面防止helper误触发 StateDef -1~-3 的控制器.</p>
+</body>
+</html>

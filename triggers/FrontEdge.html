@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>FrontEdge</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">FrontEdge</p>
+<p>FrontEdge返回玩家前方屏幕边缘X方向位置(背景舞台的绝对坐标).</p>
+<p><span class="STYLE2">格式:</span><br />
+  <span class="STYLE3">FrontEdge</span><br />
+  </p>
+<p><span class="STYLE2">参数:</span><br />
+  无<br />
+  </p>
+<p><span class="STYLE2">返回值类型:</span><br />
+  浮点型<br />
+  </p>
+<p><span class="STYLE2">错误条件:</span><br />
+  无<br />
+  </p>
+<p><span class="STYLE2">注意:</span><br />
+  此触发器与表达式&quot;ifelse(facing = 1, RightEdge, LeftEdge)&quot;相同.<br />
+  </p>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = facing * (Pos X + CameraPos X) &lt; facing * (FrontEdge)<br />
+如果玩家在前方屏幕边缘后面触发.</p>
+</body>
+</html>

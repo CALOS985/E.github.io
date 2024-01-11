@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>GameHeight</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">GameHeight</p>
+<p>返回游戏空间(玩家自定坐标空间中的)的高度.<br />
+  游戏空间被定义为一个空间映射到玩家互动的屏幕可见区域.<br />
+  直观的,它能够被想象成包含游戏的图形区域.<br />
+  游戏空间的尺寸由mugen.cfg中的GameWidth和GameHeight指定.<br />
+  请注意: 在mugen 1.1场景中,mugen.cfg中的GameHeight并不是游戏中的实际变量GameHeight的值,游戏中的GameHeight变量是随着CameraZoom来变化的.通常在CameraZoom=1时,GameHeight=240(4:3游戏屏幕),或者GameHeight=180(16:9游戏屏幕)</p>
+<p><span class="STYLE2">格式: </span><br />
+  <span class="STYLE3">GameHeight</span></p>
+<p><span class="STYLE2">参数: </span><br />
+无</p>
+<p><span class="STYLE2">返回值类型: </span><br />
+浮点型</p>
+<p><span class="STYLE2">错误条件: </span><br />
+  无</p>
+<p><span class="STYLE2">注意:</span><br />
+GameWidth和GameHeight的缩放与摄像机缩放系数相反.<br />
+例如,如果摄像机缩放系数是0.5,GameWidth和GameHeight的返回值将是缩放系数为1时的2倍.</p>
+<p>ScreenWidth和ScreenHeight是等价的触发器,将不会被摄像机缩放系数影响.</p>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = ScreenPos Y &lt; GameHeight / 2<br />
+如果玩家在屏幕中心上方则触发.</p>
+</body>
+</html>

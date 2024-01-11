@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>HitVel</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">HitVel</p>
+<p>获得攻击中给予玩家速度的值.你必须指定要检测的分量,比如,&quot;HitVel Y&quot;检测垂直方向速度.</p>
+<p><span class="STYLE2">格式: </span><br />
+  <span class="STYLE3">HitVel [分量]</span></p>
+<p><span class="STYLE2">参数:</span> <br />
+  [分量] <br />
+X, Y</p>
+<p><span class="STYLE2">返回值类型: </span><br />
+浮点型</p>
+<p><span class="STYLE2">错误条件: </span><br />
+无</p>
+<p><span class="STYLE2">详情: </span><br />
+  HitVel Y的正值表示玩家向上运动.<br />
+  HitVel X的正值表示玩家向后运动.<br />
+注意HitVel X与Vel X触发条件相反.</p>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = HitVel X &gt; 0.5<br />
+当玩家受击x方向速度大于0.5 像素/帧 则为真.</p>
+</body>
+</html>

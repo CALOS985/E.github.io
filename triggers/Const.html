@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>Const (*)</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">Const (*)</p>
+<p>返回玩家的一些常数.</p>
+<p><span class="STYLE2">格式:</span><br />
+Const(参数名)</p>
+<p><span class="STYLE2">参数:</span><br />
+  参数名<br />
+需要检测的常数名.有效参数为:</p>
+<p><span class="STYLE2">返回值类型:</span><br />
+取决于指定的打击参数.查看详细信息.</p>
+<p><span class="STYLE2">错误条件:</span><br />
+无</p>
+<p><span class="STYLE2">详细信息:</span><br />
+  下面参数名的值将返回玩家的cns中[Data]组中指定的值.<br />
+</p>
+<ul>
+  <li><span class="STYLE3">data.life</span>:返回&quot;life(生命值)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">data.power</span>:返回&quot;power(能量值)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">data.attack</span>:返回&quot;attack(攻击力)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">data.defence</span>:返回&quot;defence(防御力)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">data.fall.defence_mul</span>:返回defence multiplier(防御系数值),公式为 100/(f+100),这里的f指的是&quot;fall.defence_up&quot;参数.(浮点型)<br />
+    </li>
+  <li><span class="STYLE3">data.liedown.time</span>:返回&quot;liedown.time(倒地起身时间)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">data.airjuggle</span>:返回&quot;airjuggle(控制连击的参数)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">data.sparkno</span>:返回&quot;sparkno(火花号)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">data.guard.sparkno</span>:返回&quot;guard.sparkno(防御火花号)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">data.KO.echo</span>:返回&quot;KO.echo(被KO时有没有回声)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">data.IntPersistIndex</span>:返回&quot;IntPersistIndex(控制var参数初始化)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">data.FloatPersistIndex</span>:返回&quot;FloatPersistIndex(控制fvar参数初始化)&quot;参数值. (整型)</li>
+</ul>
+<p>下面参数名的值将返回玩家的cns中[Size]组中指定的值.<br />
+  </p>
+<ul>
+  <li><span class="STYLE3">size.xscale</span>:返回&quot;xscale(x方向缩放)&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">size.yscale</span>:返回&quot;yscale(y方向缩放)&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">size.ground.back</span>:返回&quot;ground.back(后方宽度)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">size.ground.front</span>:返回&quot;ground.front(前方宽度)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">size.air.back</span>:返回&quot;aie.back(空中后方宽度)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">size.air.front</span>:返回&quot;aie.front(空中前方宽度)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">size.height</span>:返回&quot;height(高度)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">size.attack.dist</span>:返回&quot;attack.dist(攻击距离,对手超出这个距离无法做出防御动作)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">size.proj.attack.dist</span>:返回&quot;proj.attack.dist(飞行道具攻击距离)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">size.proj.doscale</span>:返回&quot;proj.doscale(飞行道具是否受size.xscale和size.yscale影响)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">size.head.pos.x</span>:返回&quot;head.pos(头部位置)&quot;x方向参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">size.head.pos.y</span>:返回&quot;head.pos(头部位置)&quot;y方向参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">size.mid.pos.x</span>:返回&quot;mid.pos(身体中部位置)&quot;x方向参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">size.mid.pos.y</span>:返回&quot;mid.pos(身体中部位置)&quot;y方向参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">size.shadowoffset</span>:返回&quot;shadowoffset(影子偏移)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">size.draw.offset.x</span>:返回&quot;draw.offset(人物偏移)&quot;x方向参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">size.draw.offset.y</span>:返回&quot;draw.offset(人物偏移)&quot;y方向参数值. (整型)</li>
+</ul>
+<p>下面参数名的值将返回玩家的cns中[Velocity]组中指定的值.<br />
+  </p>
+<ul>
+  <li><span class="STYLE3">velocity.walk.fwd.x</span>:返回&quot;walk.fwd(向前走速度)&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.walk.back.x</span>:返回&quot;walk.back(向后走速度)&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.run.fwd.x</span>:返回&quot;run.fwd(向前跑)&quot;x方向参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.run.fwd.y</span>:返回&quot;run.fwd(向前跑)&quot;y方向参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.run.back.x</span>:返回&quot;run.back(向后跑)&quot;x方向参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.run.back.y</span>:返回&quot;run.back(向后跑)&quot;y方向参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.jump.y</span>:返回&quot;jump.neu(正向上跳)&quot;y方向参数值. 注意: 这不是&quot;velocity.jump.neu.y&quot;. 仅仅是&quot;neu&quot;参数取y方向的值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.jump.neu.x</span>:返回&quot;jump.neu(正向上跳)&quot;x方向参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.jump.back.x</span>:返回&quot;jump.back(向后跳)&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.jump.fwd.x</span>:返回&quot;jump.fwd(向前跳)&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.runjump.back.x</span>:返回&quot;runjump.back(向后跑跳)&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.runjump.fwd.x</span>:返回&quot;runjump.fwd(向前跑跳)&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.airjump.y</span>:返回&quot;airjump.neu(正向上连跳)&quot;y方向参数值. 注意: 这不是&quot;velocity.airjump.neu.y&quot;. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.airjump.neu.x</span>:返回&quot;airjump.neu(正向上连跳)&quot;x方向参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.airjump.back.x</span>:返回&quot;airjump.back(正向后连跳)&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.airjump.fwd.x</span>:返回&quot;airjump.fwd(正向前连跳)&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.air.gethit.groundrecover.x</span>:返回&quot;air.gethit.groundrecover&quot;x方向参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.air.gethit.groundrecover.y</span>:返回&quot;air.gethit.groundrecover&quot;y方向参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.air.gethit.airrecover.mul.x</span>:返回&quot;air.gethit.airrecover.mul&quot;x方向参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.air.gethit.airrecover.mul.y</span>:返回&quot;air.gethit.airrecover.mul&quot;y方向参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.air.gethit.airrecover.add.x</span>:返回&quot;air.gethit.airrecover.add&quot;x方向参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.air.gethit.airrecover.add.y</span>:返回&quot;air.gethit.airrecover.add&quot;y方向参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.air.gethit.airrecover.back</span>:返回&quot;air.gethit.airrecover.back&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.air.gethit.airrecover.fwd</span>:返回&quot;air.gethit.airrecover.fwd&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.air.gethit.airrecover.up</span>:返回&quot;air.gethit.airrecover.up&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">velocity.air.gethit.airrecover.down</span>:返回&quot;air.gethit.airrecover.down&quot;参数值. (浮点型)</li>
+</ul>
+<p>下面参数名的值将返回玩家的cns中[Movement]组中指定的值.<br />
+  </p>
+<ul>
+  <li><span class="STYLE3">movement.airjump.num</span>:返回&quot;airjump.num(空中连跳数)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">movement.airjump.height</span>:返回&quot;airjump.height(空中连跳需要的高度)&quot;参数值. (整型)<br />
+    </li>
+  <li><span class="STYLE3">movement.yaccel</span>:返回&quot;yaccel(下落加速度)&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">movement.stand.friction</span>:返回&quot;stand.friction(站立受到的摩擦力)&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">movement.crouch.friction</span>:返回&quot;crouch.friction(蹲下受到的摩擦力)&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">movement.stand.friction.threshold</span>:返回&quot;stand.friction.threshold(站立摩擦力阈值)&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">movement.crouch.friction.threshold</span>:返回&quot;crouch.friction.threshold(蹲下摩擦力阈值)&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">movement.jump.changeanim.threshold</span>:返回&quot;jump.changeanim.threshold&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">movement.air.gethit.groundlevel</span>:返回&quot;air.gethit.groundlevel&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">movement.air.gethit.groundrecover.ground.threshold</span>:返回&quot;air.gethit.groundrecover.ground.threshold&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">movement.air.gethit.groundrecover.groundlevel</span>:返回&quot;air.gethit.groundrecover.groundlevel&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">movement.air.gethit.airrecover.threshold</span>:返回&quot;air.gethit.airrecover.threshold&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">movement.air.gethit.airrecover.yaccel</span>:返回&quot;air.gethit.airrecover.yaccel&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">movement.air.gethit.trip.groundlevel</span>:返回&quot;air.gethit.trip.groundlevel&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">movement.down.bounce.offset.x</span>:返回&quot;down.bounce.offset&quot;x方向参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">movement.down.bounce.offset.y</span>:返回&quot;down.bounce.offset&quot;y方向参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">movement.down.bounce.yaccel</span>:返回&quot;down.bounce.yaccel&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">movement.down.bounce.groundlevel</span>:返回&quot;down.bounce.groundlevel&quot;参数值. (浮点型)<br />
+    </li>
+  <li><span class="STYLE3">movement.down.friction.threshold</span>:返回&quot;down.friction.threshold&quot;参数值. (浮点型)</li>
+</ul>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = Const(velocity.walk.fwd.x) &gt; 4<br />
+如果向前走的速度大于4则触发.</p>
+<p>(关于参数具体含义请查看&quot;cns变量设置&quot;)</p>
+<p></p>
+</body>
+</html>

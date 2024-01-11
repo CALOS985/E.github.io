@@ -1,0 +1,114 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>GetHitVar(*)</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">GetHitVar(*)</p>
+<p>当玩家处于gethit(受击状态)状态中,返回指定的hit参数.</p>
+<p><span class="STYLE2">格式: </span><br />
+  <span class="STYLE3">GetHitVar(参数名)</span></p>
+<p><span class="STYLE2">参数: </span><br />
+  参数名 <br />
+  有效的可用于检测的参数名有下列: <br />
+xveladd, yveladd, type, animtype, airtype, groundtype, damage, hitcount, fallcount, hitshaketime, hittime, slidetime, ctrltime, recovertime, xoff, yoff, zoff, xvel, yvel, yaccel, hitid, chainid, guarded, fall, fall.damage, fall.xvel, fall.yvel, fall.recover, fall.time, fall.recovertime.</p>
+<p><span class="STYLE2">返回值类型: </span><br />
+取决于指定的hit参数.查看详情.</p>
+<p><span class="STYLE2">错误条件: </span><br />
+无</p>
+<p><span class="STYLE2">详情:</span><br />
+</p>
+<ul>
+  <li><span class="STYLE3">xveladd</span>: 返回玩家被KO时施加给自身的x方向速度增量.(浮点型)<br />
+    </li>
+  <li><span class="STYLE3">yveladd</span>: 返回玩家被KO时施加给自身的y方向速度增量.(浮点型)<br />
+    </li>
+  <li><span class="STYLE3">type</span>: 返回hit的类型:0-无,1-高,2-低,3-绊倒(在地面时有效)<br />
+    </li>
+  <li><span class="STYLE3">animtype</span>: 返回hit的动画类型:0-轻,1-中,2-重,3-向后,4-向上,5-旋转向上.<br />
+    </li>
+  <li><span class="STYLE3">airtype</span>: 返回Hitdef中空中hit的指定类型.<br />
+    </li>
+  <li><span class="STYLE3">groundtype</span>: 返回Hitdef中地面hit的指定类型.<br />
+    </li>
+  <li><span class="STYLE3">damage</span>: 返回hit的伤害值.(整型)<br />
+    </li>
+  <li><span class="STYLE3">hitcount</span>: 返回玩家在当前连击中产生的连击数.(整型)<br />
+    </li>
+  <li><span class="STYLE3">fallcount</span>: 返回玩家在当前连击中倒地次数.(整型)<br />
+    </li>
+  <li><span class="STYLE3">hitshaketime</span>: 返回玩家在攻击中被&quot;冻结&quot;的时间.此数字每帧减1,到0时停止.(整型)<br />
+    </li>
+  <li><span class="STYLE3">hittime</span>: 返回玩家受控制之前的时间,在受攻击之后返回一个空闲状态.<br />
+    只要hitshaketime大于0,则这个数字每帧减1,直到到达-1.(整型)<br />
+&quot;GetHitVar(hittime) &lt; 0&quot; 等价于HitOver被触发.<br />
+    </li>
+  <li><span class="STYLE3">slidetime</span>: 返回玩家被击中后向后滑动(在地面上)的时间.(整型)<br />
+    </li>
+  <li><span class="STYLE3">ctrltime</span>: 返回玩家防御hit之后恢复控制之前的时间.(整型)<br />
+    </li>
+  <li><span class="STYLE3">recovertime</span>: 返回玩家从倒地状态到起身前的时间.此数字在玩家倒地后每帧减1直到0(此时玩家正好起身),如果你在此期间按键,此数字将减少的更快.(整型)<br />
+    </li>
+  <li><span class="STYLE3">xoff</span>: hit时&quot;短暂的&quot;x方向偏移(不推荐)<br />
+    </li>
+  <li><span class="STYLE3">yoff</span>: hit时&quot;短暂的&quot;y方向偏移(不推荐)<br />
+    </li>
+  <li><span class="STYLE3">xvel</span>: 由hit给予的x方向固定的速度.(浮点型) <br />
+    </li>
+  <li><span class="STYLE3">yvel</span>: 由hit给予的y方向固定的速度.(浮点型) <br />
+    </li>
+  <li><span class="STYLE3">yaccel</span>: 由hit设置的y方向加速度.(浮点型)<br />
+    </li>
+  <li><span class="STYLE3">chainid</span>: 由玩家指定的上一次hit中的chainID. (整型) <br />
+    </li>
+  <li><span class="STYLE3">guarded</span>: 如果上一次hit被防御住则返回真,否则返回假.<br />
+    </li>
+  <li><span class="STYLE3">isbound</span>: 如果玩家是攻击者TargetBind控制器的主体则返回真.对防止在抓投状态中被卡住有用处.(整型)<br />
+    </li>
+  <li><span class="STYLE3">fall</span>: 如果处于下落状态则返回真,否则返回假.(整型)<br />
+    </li>
+  <li><span class="STYLE3">fall.damage</span>: 下落状态设定的伤害值.(整型) <br />
+    </li>
+  <li><span class="STYLE3">fall.xvel</span>: 从地面反弹后x方向的速度.(浮点型)<br />
+    </li>
+  <li><span class="STYLE3">fall.yvel</span>: 从地面反弹后y方向的速度.(浮点型) <br />
+    </li>
+  <li><span class="STYLE3">fall.recover</span>: 如果玩家可以recover(恢复)则返回真,否则返回假.<br />
+    </li>
+  <li><span class="STYLE3">fall.recovertime</span>: 玩家可以recover前的时间.(整型)<br />
+    </li>
+  <li><span class="STYLE3">fall.kill</span>: 攻击者hitdef中fall.kill的数值.(整型)<br />
+    </li>
+  <li><span class="STYLE3">fall.envshake.time</span>: 看下面. (整型) <br />
+    </li>
+  <li><span class="STYLE3">fall.envshake.freq</span>: 看下面. (浮点型) <br />
+    </li>
+  <li><span class="STYLE3">fall.envshake.ampl</span>: 看下面. (整型) <br />
+    </li>
+  <li><span class="STYLE3">fall.envshake.phase</span>: 返回攻击者fall.envshake.*参数数值.(浮点型)</li>
+</ul>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = GetHitVar(yvel) &lt; -5.5<br />
+hit的指定y速度小于-5.5则触发.</p>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>HitPauseTime</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">HitPauseTime</p>
+<p>返回玩家hitpause(打击停顿)过期前的时间.<br />
+  当玩家的攻击接触到对手时便进入了hitpause状态.<br />
+  hitpause的初始时间等于玩家的hitdef中pausetime参数的第一个值.<br />
+  如果不设置ignorehitpause该触发器将总是返回0.</p>
+<p><span class="STYLE2">格式: </span><br />
+  <span class="STYLE3">HitPauseTime</span></p>
+<p><span class="STYLE2">参数: </span><br />
+无</p>
+<p><span class="STYLE2">返回值类型: </span><br />
+整型</p>
+<p><span class="STYLE2">错误条件: </span><br />
+无</p>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = HitPauseTime = 0<br />
+当玩家在攻击中未停顿则触发.</p>
+</body>
+</html>

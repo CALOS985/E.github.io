@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>HitDefAttr(*,***)</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+.STYLE4 {
+	color: #FF0000
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">HitDefAttr(*,***)</p>
+<p>检测玩家当前活动的 <a href="../sctrls/HitDef.html">HitDef</a> 中属性参数&quot;attr&quot;.<br />
+  如果玩家当前不处于攻击状态,则没有参数会匹配.<br />
+  能被用于CMD文件中由弱到强攻击的简单move-interrupts(招式中断).</p>
+<p><span class="STYLE2">注意: </span><br />
+  <span class="STYLE3">HitDefAttr != value1, value2</span> 逻辑上等价于 <span class="STYLE3">!(HitDefAttr = value1, value2)</span>.</p>
+<p><span class="STYLE4"><a class="reference internal" id="bug">【BUG】</a>注意: &quot;HitDefAttr != &quot;和&quot;!(HitDefAttr = )&quot;都是有BUG的(mugen 1.1.0.650实测)! 请不要使用这两种运算符, 而要直接使用&quot;HitDefAttr = &quot;, 切记!</span></p>
+<p><span class="STYLE2">格式: </span><br />
+  <span class="STYLE3">HitDefAttr [运算符] 值1, 值2</span></p>
+<p><span class="STYLE2">参数:</span> <br />
+  [运算符] <br />
+  =, <span class="STYLE4"><s>!=</s></span> <br />
+  <br />
+  值1 <br />
+  一个至少由&quot;S&quot;(站立),&quot;C&quot;(蹲下),&quot;A&quot;(空中)3个字母中的一个组成的字符串.<br />
+  例如:&quot;SA&quot;表示站立和空中.<br />
+  <br />
+  值2 <br />
+  一组由2字母组成的字符串,用逗号分隔(可以是多组逗号分隔的字符串).<br />
+  每组2个字母字符串必须符合下面的描述:<br />
+  第1个字母可以是&quot;N&quot;(普通),&quot;S&quot;(特殊),&quot;H&quot;(超级),&quot;A&quot;(普通+特殊+超级)中的任何一个.<br />
+  第2个字母必须是&quot;A&quot;(Attack直接攻击),&quot;T&quot;(Throw投掷),&quot;P&quot;(Projectile飞行道具)中任意一个.<br />
+例如,&quot;NA,ST&quot;表示普通攻击和特殊抓投.</p>
+<p>假设玩家的hitdef控制器&quot;attr&quot;参数是这类格式:<br />
+  arg1(参数1), arg2(参数2)<br />
+  则触发条件只有当参数1是值1的子集,且参数2是值2的子集时才确定为真.<br />
+  请查看 <a href="../sctrls/HitDef.html">HitDef</a>控制器的&quot;attr&quot;参数获得详细信息.</p>
+<p><span class="STYLE2">返回值类型: </span><br />
+布尔型整数(1或0)</p>
+<p><span class="STYLE2">错误条件: </span><br />
+无</p>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = HitDefAttr = A, HA<br />
+  当玩家处于攻击状态中,当目前的hitdef有如下的属性:<br />
+  1.是空中的攻击.<br />
+  2.是超级的攻击.<br />
+则触发.</p>
+<p>trigger1 = HitDefAttr = SC, NA, SA<br />
+  当玩家处于攻击状态中,当目前的hitdef有如下的属性:<br />
+  1.是站立攻击或者蹲下攻击中的任何一种.<br />
+  2.是普通攻击或者特殊攻击中的任何一种.<br />
+  则触发.</p>
+</body>
+</html>

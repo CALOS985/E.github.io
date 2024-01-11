@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>ID</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">ID</p>
+<p>返回玩家的ID号.在一场比赛中ID号对每个玩家来说是唯一的.<br />
+  此时创建的任何helper将同样获得它自身唯一的ID号.<br />
+  此触发器也许对获得对手的ID号有用,之后用&quot;playerID&quot;重定向键值(查看exp文档).<br />
+  不要把玩家ID和targetID混淆.</p>
+  <p>玩家1~4本体(即p1,p2,p3,p4)的ID号分别为: 56 57 58 59.</p>
+<p><span class="STYLE2">格式: </span><br />
+  <span class="STYLE3">ID</span></p>
+<p><span class="STYLE2">参数: </span><br />
+无</p>
+<p><span class="STYLE2">返回值类型:</span> <br />
+整型</p>
+<p><span class="STYLE2">错误条件: </span><br />
+无</p>
+<p><span class="STYLE2">示例:</span><br />
+  value = ID<br />
+  设置value为当前玩家的ID号.<br />
+  value = EnemyNear, ID<br />
+设置value为最近距离对手的ID号.</p>
+</body>
+</html>
