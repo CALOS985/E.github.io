@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>NumProjID (math)</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   NumProjID (math)
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,23 +23,57 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">NumProjID (math)</p>
-<p>�˴�����ӵ��һ������Ĳ���ID��.<br />
-  ��������ҵ�ǰӵ�е�ָ��ID�ŵķ��е�������.</p>
-<p><span class="STYLE2">��ʽ: </span><br />
-  <span class="STYLE3">NumProjID(����ʽ)</span></p>
-<p><span class="STYLE2">����:</span> <br />
-  ����ʽ <br />
-�����ID�ŵı���ʽ</p>
-<p><span class="STYLE2">����ֵ����: </span><br />
-����</p>
-<p><span class="STYLE2">��������:</span><br />
-���ָ��ID��λ����,��ID��Ĭ��Ϊ0.�������ʽ�����bottom�򷵻�bottom.</p>
-<p><span class="STYLE2">ʾ��:</span><br />
-  trigger1 = NumProjID(1234) = 1<br />
-  �����ҵ�ǰ��ӵ��1��ID��Ϊ1234�ķ��е����򴥷�.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   NumProjID (math)
+  </p>
+  <p>
+   此触发器拥有一个必须的参数ID号.
+   <br/>
+   它返回玩家当前拥有的指定ID号的飞行道具数量.
+  </p>
+  <p>
+   <span class="STYLE2">
+    格式:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    NumProjID(表达式)
+   </span>
+  </p>
+  <p>
+   <span class="STYLE2">
+    参数:
+   </span>
+   <br/>
+   表达式
+   <br/>
+   计算出ID号的表达式
+  </p>
+  <p>
+   <span class="STYLE2">
+    返回值类型:
+   </span>
+   <br/>
+   整型
+  </p>
+  <p>
+   <span class="STYLE2">
+    错误条件:
+   </span>
+   <br/>
+   如果指定ID号位负数,则ID号默认为0.如果表达式计算出bottom则返回bottom.
+  </p>
+  <p>
+   <span class="STYLE2">
+    示例:
+   </span>
+   <br/>
+   trigger1 = NumProjID(1234) = 1
+   <br/>
+   如果玩家当前仅拥有1个ID号为1234的飞行道具则触发.
+  </p>
+ </body>
 </html>

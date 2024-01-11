@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>ProjHit(*,***)</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   ProjHit(*,***)
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,41 +23,93 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">ProjHit(*,***)</p>
-<p>�˴�����ӵ��һ����ѡ��ID����Ϊ��׺.<br />
-  ���ID��ʡ��,����ҵ��κη��е���ֻҪ�ɹ����ж���ProjHit����������.<br />
-  ��ID�ű�ָ��,��ֻ�е���ҵ��κ�ӵ��ָ��ID�ŵķ��е��߳ɹ����ж���ProjHit�Ż᷵����.</p>
-<p><span class="STYLE2">��ʽ: </span><br />
-  <span class="STYLE3">ProjHit[ID] = ֵ <br />
-ProjHit[ID] = ֵ, [�����] ֵ2</span></p>
-<p><span class="STYLE2">����: </span><br />
-  [ID] (����)<br />
-  ��ѡ��ID��<br />
-  <br />
-  ֵ (������) <br />
-  ���бȽϵ�ֵ.0��ʾfalse(��),1��ʾtrue(��).<br />
-  <br />
-  [�����] <br />
-  =, !=, &lt;, &gt;, &lt;=, &gt;=<br />
-  <br />
-  ֵ2 <br />
-���бȽϵ�ʱ��.</p>
-<p><span class="STYLE2">����ֵ����: </span><br />
-����������</p>
-<p><span class="STYLE2">��������: </span><br />
-��</p>
-<p><span class="STYLE2">����: </span><br />
-  ÿ�η��е��ߵĴ������ʹProjHit����һ��,����multi-hit(��ι���)�ķ��е����ܶ�δ���.<br />
-  ����д����ProjHit��1�ָ�ʽ�������е��߻���1֡����Ч������MoveHit.<br />
-  ��2�ָ�ʽ,������е�����n֡ǰ������ProjHit������,�����n��һ�������ϵʽ&quot;n [�����] ֵ2&quot;�ķǸ���.<br />
-ָ��ID��Ϊ0��ʡ��ID��(��������еķ��е���)����ͬ������(Ч��).</p>
-<p><span class="STYLE2">ʾ��:</span><br />
-  1. trigger1 = ProjHit1234 = 1<br />
-  ���һ��ID��Ϊ1234�ķ��е��߸ճɹ����ж����򴥷�.<br />
-  2. trigger1 = ProjHit1234 = 1, &lt; 15<br />
-��������15֮֡����ҵ�������е��߳ɹ����ж����򴥷�.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   ProjHit(*,***)
+  </p>
+  <p>
+   此触发器拥有一个可选正ID号作为后缀.
+   <br/>
+   如果ID号省略,则玩家的任何飞行道具只要成功击中对手ProjHit都将返回真.
+   <br/>
+   当ID号被指定,则只有当玩家的任何拥有指定ID号的飞行道具成功击中对手ProjHit才会返回真.
+  </p>
+  <p>
+   <span class="STYLE2">
+    格式:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    ProjHit[ID] = 值
+    <br/>
+    ProjHit[ID] = 值, [运算符] 值2
+   </span>
+  </p>
+  <p>
+   <span class="STYLE2">
+    参数:
+   </span>
+   <br/>
+   [ID] (整型)
+   <br/>
+   可选的ID号
+   <br/>
+   <br/>
+   值 (布尔型)
+   <br/>
+   进行比较的值.0表示false(假),1表示true(真).
+   <br/>
+   <br/>
+   [运算符]
+   <br/>
+   =, !=, &lt;, &gt;, &lt;=, &gt;=
+   <br/>
+   <br/>
+   值2
+   <br/>
+   进行比较的时间.
+  </p>
+  <p>
+   <span class="STYLE2">
+    返回值类型:
+   </span>
+   <br/>
+   布尔型整数
+  </p>
+  <p>
+   <span class="STYLE2">
+    错误条件:
+   </span>
+   <br/>
+   无
+  </p>
+  <p>
+   <span class="STYLE2">
+    详情:
+   </span>
+   <br/>
+   每次飞行道具的打击都将使ProjHit触发一次,所以multi-hit(多段攻击)的飞行道具能多次触发.
+   <br/>
+   上面写出的ProjHit第1种格式仅当飞行道具击中1帧后有效而不像MoveHit.
+   <br/>
+   第2种格式,如果飞行道具在n帧前击中则ProjHit返回真,这里的n是一个满足关系式"n [运算符] 值2"的非负数.
+   <br/>
+   指定ID号为0和省略ID号(将检测所有的飞行道具)有相同的特征(效果).
+  </p>
+  <p>
+   <span class="STYLE2">
+    示例:
+   </span>
+   <br/>
+   1. trigger1 = ProjHit1234 = 1
+   <br/>
+   如果一个ID号为1234的飞行道具刚成功击中对手则触发.
+   <br/>
+   2. trigger1 = ProjHit1234 = 1, &lt; 15
+   <br/>
+   如果在最近15帧之内玩家的任意飞行道具成功击中对手则触发.
+  </p>
+ </body>
 </html>
