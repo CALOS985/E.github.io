@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>AILevel</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">AILevel</p>
+<p>返回玩家的AI难度等级.</p>
+<p><span class="STYLE2">格式:</span><br />
+  <span class="STYLE3">AILevel</span></p>
+<p><span class="STYLE2">参数:</span><br />
+无</p>
+<p><span class="STYLE2">返回值类型:</span><br />
+整数型</p>
+<p><span class="STYLE2">错误条件:</span><br />
+无</p>
+<p><span class="STYLE2">详情: </span><br />
+  如果玩家开了AI,AILevel的范围是从1(最简单)到8(最难).<br />
+如果玩家没开AI,AILevel返回0.</p>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = Random &lt; AILevel * 10<br />
+  AILevel为1的时候有10%的可能触发.<br />
+  AILevel为2的时候有20%的可能触发.<br />
+等等...</p>
+
+<p><span class="STYLE2"><a class="reference internal" id="bug">注意事项:</a></span><br />
+如果当前Player是Helper,返回的是Helper的难度等级而不是人物本体的! 解决办法是加上重定向前缀: root,AILevel  </p>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>AnimTime</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">AnimTime</p>
+<p>给出了当前动画动作的循环时间与玩家的animation-time(动画时间)的不同.<br />
+  对了解距动画结束还有多久(何时动画会结束)有帮助.<br />
+  (animation-time(动画时间)用游戏帧来体现,表示玩家在当前动画中经过的时间).<br />
+  这名字也许会引起混乱.<br />
+  尝试把它思考成&quot;距离动画结束的时间&quot;.<br />
+  在这段动画中,AnimTime将总是返回一个非正数.</p>
+<p><span class="STYLE2">格式: </span><br />
+  <span class="STYLE3">AnimTime</span></p>
+<p><span class="STYLE2">参数: </span><br />
+无</p>
+<p><span class="STYLE2">返回值类型: </span><br />
+整数型</p>
+<p><span class="STYLE2">错误条件: </span><br />
+无</p>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = AnimTime = 0<br />
+当动画时间等于动作的循环时间时触发,即动作已结束.</p>
+</body>
+</html>

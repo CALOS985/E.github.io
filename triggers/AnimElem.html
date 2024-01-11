@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>AnimElem(*,***)</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">AnimElem(*,***)</p>
+<p>获得从当前动画动作指定元素开始逝去的动画时间.<br />
+  用于动画动作元素的同步事件.<br />
+记住:动作元素的起始是1不是0.</p>
+<p>AnimElemTime与AnimElem有相似的功能, 但AnimElemTime可以用表达式作为参数.</p>
+<p><span class="STYLE2">首先注明:</span><br />
+element按照直译是元素的意思,动画元素就是指组成动画的图片.</p>
+<p><span class="STYLE2">格式: </span><br />
+  <span class="STYLE3">AnimElem = 值1 <br />
+AnimElem = 值1, [运算符] 值2</span></p>
+<p><span class="STYLE2">参数: </span><br />
+  [运算符] <br />
+=, !=, &lt;, &gt;, &lt;=, &gt;= </p>
+<p>值1 (整型) <br />
+  检测元素号.</p>
+<p>值2 (整型) <br />
+  用来比较的动画时间值.</p>
+<p><span class="STYLE2">返回值类型: </span><br />
+布尔整数型(1或0)</p>
+<p><span class="STYLE2">错误条件: </span><br />
+如果这个动作指定元素号不存在(比如太大或者太小)则返回bottom.</p>
+<p><span class="STYLE2">详情: </span><br />
+  如果玩家的动画在指定值1元素号的起始则格式1为真.<br />
+换句话说,如果值1等于n,则该动画的第n个元素首个game-tick(游戏帧)为真.</p>
+<p>格式2比较玩家的动画时间到t+值2,这里的t指的是值1指定元素号的起始animation-time(动画时间).</p>
+<p><span class="STYLE2">注意:</span><br />
+  AnimElem在一个有限循环次数的动画的第二次或者更后面次数循环的首个game-tick不会触发.<br />
+  (简而言之就是第一次条件合格会触发,然后循环情况下会无视)<br />
+  例如,&quot;AnimElem=1&quot;在动画改变时的首帧会触发,循环的时候则不会触发.<br />
+如想让这种情况下也能触发,你得每次都使用&quot;AnimElem = 1 || AnimTime = 0&quot;.</p>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = AnimElem = 2<br />
+  动画的第2元素首帧为真.也就是:<br />
+trigger1 = AnimElem = 2, = 0</p>
+<p>trigger1 = AnimElem = 2, = 4<br />
+  动画的第2元素首帧过后的第4帧为真.</p>
+<p>trigger1 = AnimElem = 2, &gt;= 0<br />
+  trigger1 = AnimElem = 3, &lt; 0<br />
+  动画的整个第2元素都为真,假设有第3个元素存在.<br />
+  如果不存在第3个元素,那<br />
+  trigger1 = AnimElem = 3, &lt; 0<br />
+  就等同于<br />
+  trigger1 = AnimTime &lt;= 0</p>
+<p><span class="STYLE2">特例: </span><br />
+  AnimElem = 2, = 0 相当于AnimElemTime(2) = 0<br />
+AnimElem = 2, &gt; 0 相当于AnimElemTime(2) &gt; 0</p>
+<p><span class="STYLE2">格式:</span><br />
+Animelem格式写法:<br />
+假设一个动画由3张图构成,第1张图有2帧,第2张图有3帧,第3张图有4帧.</p>
+<p>第1张图首帧:(帧数都是从0开始的,元素号从1开始)<br />
+  animelem=1;<br />
+  animelem=1,0;<br />
+  animelem=1,=0;</p>
+<p>第1张图第2帧:<br />
+animelem=1,1;<br />
+animelem=1,=1; </p>
+<p>表示第2张图开始的帧:<br />
+animelem=2,&gt;=0;</p>
+<p>表示第3张图之前的帧:<br />
+animelem=3,&lt;0;</p>
+<p>表示第2张图开始第3张图之前的帧:<br />
+  animelem=2,&gt;=0&amp;&amp;animelem=3,&lt;0;<br /> 
+  animelem=2,[0,2] ;
+  <br />
+animelem=2,=[0,2];<br />
+</p>
+</body>
+</html>

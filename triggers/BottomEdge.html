@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>BottomEdge</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">BottomEdge</p>
+<p>BottomEdge返回屏幕底部边缘y轴位置(绝对舞台坐标).</p>
+<p><span class="STYLE2">格式:</span><br />
+  <span class="STYLE3">BottomEdge</span></p>
+<p><span class="STYLE2">参数:</span><br />
+无</p>
+<p><span class="STYLE2">返回值类型:</span><br />
+浮点型</p>
+<p><span class="STYLE2">错误条件:</span><br />
+无</p>
+<p><span class="STYLE2">注意:</span><br />
+此触发器与表达式&quot;Pos Y - ScreenPos Y + GameHeight&quot;相同.</p>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = Pos Y &lt; BottomEdge<br />
+  如果玩家在屏幕底部边缘上方则触发.<br />
+(目测用于检测玩家或者地面是否已在屏幕下方,由于缩放背景,摄像机移动太高等关系)</p>
+</body>
+</html>
