@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>AfterImage</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE11 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE13 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">AfterImage</p>
+<p>实现玩家的残影效果.<br />
+  人物的画面存入一个历史缓存区,一段时间之后作为残影被显示出来.</p>
+<p><span class="STYLE11">必要参数: </span><br />
+无</p>
+<p><span class="STYLE11">可选参数:</span><br />
+  <span class="STYLE13">time = duration(整型) </span><br />
+指定残影将被显示的帧数.设置-1将被永久显示.默认值为1.</p>
+<p><span class="STYLE13">length = no_of_frames (整型) </span><br />
+  设置画面历史缓存区的容量.历史缓存区将容纳no_of_frames幅人物最近保存的画面.<br />
+  假设timegap和framegap是常数,增加长度能增加一段时间中残影显示的数量和&quot;寿命&quot;(缺少更好的词来形容).<br />
+最大长度是60,默认是20.</p>
+<p><span class="STYLE13">palcolor = col (整型) </span><br />
+见下方.</p>
+<p><span class="STYLE13">palinvertall = invertall (布尔型整数) </span><br />
+见下方.</p>
+<p><span class="STYLE13">palbright = add_r, add_g, add_b (整型) </span><br />
+见下方.</p>
+<p><span class="STYLE13">palcontrast = mul_r, mul_g, mul_b (整型) </span><br />
+见下方.</p>
+<p><span class="STYLE13">palpostbright = add2_r, add2_g, add2_b (整型) </span><br />
+  这些参数决定了应用到所有残影上的色表效果.<br />
+  首先,色彩等级通过palcolor的值调整,然后如果palinvertall的值是非0则颜色会反向.<br />
+  然后,palbright分量增加到玩家色表的相对应分量之上,每一分量乘以相对应的palcontrast分量除以256,最后加上palpostbright的分量.<br />
+  palcolor取值范围是0(灰度)到256(正常色).例如,如果人物色表上的红色分量记作pal_r,那么残影色表上红色分量就是(pal_r + add_r) * mul_r / 256 + add2_r,假定palcolor和palinvert保留默认值.<br />
+palcolor有效值为0-256,palbright和palpostbright的分量有效值为0-255,palcontrast分量的取值为非负整数.</p>
+<p>默认值为:<br />
+  palcolor = 256<br />
+  palinvertall = 0<br />
+  palbright = 30,30,30<br />
+  palcontrast = 120,120,220<br />
+  palpostbright = 0,0,0</p>
+<p><span class="STYLE13">paladd = add_r, add_g, add_b (整型) </span><br />
+见下方.</p>
+<p><span class="STYLE13">palmul = mul_r, mul_g, mul_b (浮点型) </span><br />
+  这些参数指定了多次应用到残影连续画面的色表效果.<br />
+  在一个色表效果的应用中,首先paladd分量被加到残影的色表上,然后此分量乘以palmul的分量.<br />
+  这些效果应用方式如下：<br />
+  最新的残影画面没有效果,第2新的残影画面应用1次,第3新的残影画面应用2次,等等.<br />
+paladd分量有效值为0-255,palmul乘数有效值为任何非负浮点数.</p>
+<p>默认值为:<br />
+  paladd = 10,10,25<br />
+  palmul = .65,.65,.75</p>
+<p><span class="STYLE13">timegap = value (整型) </span><br />
+  保存玩家画面至历史缓存区并作为残影显示 此过程中跳过的画面数.<br />
+  默认值是1(不跳过任何画面).<br />
+如果每3幅画面保存一次(举个例子),你将使用timegap = 3.</p>
+<p><span class="STYLE13">framegap = value (整型) </span><br />
+  历史缓存区中每value幅画面将被当成残影显示.<br />
+例如,如果framegap = 4(默认值),则第1幅,第5幅,第9幅...历史缓存区中的画面将被当做残影显示.</p>
+<p><span class="STYLE13">trans = type (字符串型) </span><br />
+指定残影的透明模式.有效值类型为&quot;none&quot;(不透明),&quot;add&quot;,&quot;add1&quot;,&quot;sub&quot;.默认为&quot;none&quot; (详见trans控制器)</p>
+<p><span class="STYLE11">示例: </span><br />
+  无<br />
+</p>
+</body>
+</html>
