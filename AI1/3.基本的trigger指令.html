@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>3.������triggerָ��</title>
+<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+<title>3.基本的trigger指令</title>
 <style type="text/css">
 <!--
 body,td,th {
@@ -24,154 +24,154 @@ body,td,th {
 </style></head>
 
 <body>
-<p class="STYLE1">3.������triggerָ��</p>
-<span class="STYLE3">������������������ҳ������net����׫д. �ɡ�softmgr�������༭.</span><br />
+<p class="STYLE1">3.基本的trigger指令</p>
+<span class="STYLE3">　　　　　　　　本页内容由net教授撰写. 由【softmgr】整理编辑.</span><br />
 
 <p>
-<span class="STYLE2">�����������˽�һ�������triggerָ��</span><br />
-statetype ��p2statetype= S or C or A or L<br />
-statetype���Լ���״̬��p2statetype�Ƕ��ֵ�״̬��p2�ͱ�ʾ�Ƕ��ֵģ����涼������<br />
-S��վ����C�Ƕ��£�A�ǿ��У�L�ǵ���<br />
-��Ҳ����stand��crouch��air��lie������ĸ��<br />
+<span class="STYLE2">首先我们来了解一点基本的trigger指令</span><br />
+statetype 或p2statetype= S or C or A or L<br />
+statetype是自己的状态，p2statetype是对手的状态。p2就表示是对手的，下面都是这样<br />
+S是站立，C是蹲下，A是空中，L是倒地<br />
+（也就是stand，crouch，air，lie的首字母）<br />
 <br />
-Movetype��p2movetype = I or A or H<br />
-���Ƕ���״̬��I��ͨ����A�ǹ�����H���ܻ����������������ܻ���<br />
+Movetype或p2movetype = I or A or H<br />
+这是动作状态，I是通常，A是攻击，H是受击（被打或防御都算受击）<br />
 <br />
-stateno ��p2stateno = ����<br />
-state�źͶ��ֵ�state�š�State�žͿ��Կ����Ƕ����Ĵ��š�<br />
+stateno 或p2stateno = 数字<br />
+state号和对手的state号。State号就可以看作是动作的代号。<br />
 <br />
-ctrl = 0 or 1��<br />
-�ж��ǲ��Ǵ��ڿɿ���״̬�����������������ϸ˵��<br />
+ctrl = 0 or 1；<br />
+判断是不是处于可控制状态，下面的文章里有详细说明<br />
 <br />
-canrecover = 0 or 1 ��<br />
-�ж��ǲ��ǿ���������0=�������ɡ�1=��������<br />
+canrecover = 0 or 1 ；<br />
+判断是不是可以受身、0=受身不可、1=受身可能<br />
 <br />
-P2dist x��p2bodydist X ����ֵ�ˮƽ�������<br />
-P2dist y ��p2bodydist Y ����ֵĴ�ֱ������룬��2����������ϸ˵��<br />
-Backedgebodydist �뱳���ߵľ���<br />
-Frontedgebodydist ����ǰ��ߵľ���<br />
+P2dist x或p2bodydist X 与对手的水平方向距离<br />
+P2dist y 或p2bodydist Y 与对手的垂直方向距离，这2个下面有详细说明<br />
+Backedgebodydist 与背后版边的距离<br />
+Frontedgebodydist 与面前版边的距离<br />
 <br />
-random �������������˵<br />
+random 随机数，下面有说<br />
 <br />
-movecontact�����Ӵ������֣��򵽻򱻷���<br />
-movehit �����ɹ����ж���<br />
-moveguarded���������ַ�ס<br />
+movecontact攻击接触到对手（打到或被防）<br />
+movehit 攻击成功击中对手<br />
+moveguarded攻击被对手防住<br />
 <br />
-life��p2life �Լ�����ֵ�Ѫ��<br />
-power ����ֵ��<br />
+life或p2life 自己或对手的血量<br />
+power 能量值。<br />
 <br />
-enemy, �Ե���Ϊ���󣬶�ȡ���˵���ֵ��˫��սʱָ����Զ���Ǹ�����<br />
-enemynear, �������ֻ࣬������˫��սʱ��ȡ���Լ��Ͻ��ĵ��ˡ�<br />
-����Trigger1 = enemy,power < 1000�����ǵ����ֵ�����ֵС��1000ʱ<br />
+enemy, 以敌人为对象，读取敌人的数值。双人战时指定较远的那个敌人<br />
+enemynear, 和上面差不多，只不过是双人战时读取离自己较近的敌人。<br />
+比如Trigger1 = enemy,power < 1000，就是当对手的能量值小于1000时<br />
 </p>
 
 <p>
-<span class="STYLE2">Stateno�Ĳ���</span><br />
-Ai����д�ú����Ǿ���ʽ��ʼдai��<br />
-��Ҫдai��������Ҫ֪��ʲô�ж�Ӧ����ʲôstate�š�State�ž��Ǹ�����ʽ�Ͷ����Ĵ��š�<br />
-������ҳ���ʽ��stateno�أ���2�ַ���<br />
+<span class="STYLE2">Stateno的查找</span><br />
+Ai开关写好后，我们就正式开始写ai。<br />
+但要写ai，我们先要知道什么招对应的是什么state号。State号就是各种招式和动作的代号。<br />
+那如何找出招式的stateno呢？有2种方法<br />
 <br />
-ע��������ʱ�������ֱ�ʾ��������ʲô���ֱ�ʾɶ���򣬿����С���̾�֪���ˣ�����624b����ǰ�º�b<br />
+注：下面有时会用数字表示方向，至于什么数字表示啥方向，看你的小键盘就知道了，比如624b就是前下后b<br />
 <br />
-1 ��cmd<br />
-Cmd�ļ��������Ƕ��塰��ʲô����ʲô�С����ļ�������������ĳ��бȽ��죬���Կ�cmd������Ӧ��stateno<br />
-�ٸ����ӣ�<br />
-����Ҫ������ǰa���е�stateno�������ȴ�cmd��<br />
-[Command]�����ʽ���岿��Ӧ�û���˰ɣ������Ļ�ȥ��ϰepisode 1��<br />
+1 看cmd<br />
+Cmd文件本身就是定义“按什么键出什么招”的文件。如果你对人物的出招比较熟，可以看cmd查找相应的stateno<br />
+举个例子：<br />
+比如要查找下前a这招的stateno，我们先打开cmd。<br />
+[Command]里的招式定义部分应该会读了吧，不懂的回去复习episode 1。<br />
 <br />
-�����ԣ���ǰa���������df�ǹ��ɣ�<br />
+很明显，下前a就是这个（df是过渡）<br />
 [Command]<br />
 Name    = "236a"<br />
 Command = ~D, DF, F, a<br />
 Time = 14<br />
 <br />
-Ȼ�����ǿ�������б�������һ�����ֽС�236a����Ȼ�������������236a<br />
-�����ҵ������Ƕ�<br />
+然后我们看到这个招被定义了一个名字叫“236a”，然后我们搜索这个236a<br />
+可以找到下面那段<br />
 [State -1]<br />
-Type = ChangeState ;�����ʾ�л�״̬������������ǰ��˵����<br />
-Value = 1300    ;�����state�ţ�����valueҲ�п���д������<br />
+Type = ChangeState ;这个表示切换状态，即做动作，前面说过了<br />
+Value = 1300    ;这就是state号，不过value也有可能写在下面<br />
 TriggerAll = Var(59) = 0<br />
 TriggerAll = Command = "236a"<br />
 TriggerAll = StateType != A<br />
 Trigger1 = Ctrl<br />
 <br />
-�����Ȳ��ùܣ�����Ҫ֪���ľ�����ǰa���е�stateno����1300<br />
+其他先不用管，我们要知道的就是下前a这招的stateno就是1300<br />
 <br />
-2 ����debugģʽ<br />
-��winmugen\dataĿ¼���mugen.cfg<br />
-�����ַ�����debug��<br />
-�ҵ����<br />
+2 进入debug模式<br />
+打开winmugen\data目录里的mugen.cfg<br />
+查找字符串“debug”<br />
+找到这段<br />
 [Debug]<br />
  ;Set to 0 to disable starting in debug mode by default.<br />
 Debug =0<br />
-��Debug = 0����ΪDebug = 1���ɡ�<br />
-Ȼ�����mugen������ѵ��ģʽ����1pѡ����Ҫ�޸�ai�Ľ�ɫ���ᷢ�����½ǳ����˲����֡�<br />
+把Debug = 0，改为Debug = 1即可。<br />
+然后进入mugen，进入训练模式，用1p选你所要修改ai的角色，会发现左下角出现了不少字。<br />
 <p><img src="../pic/debug1.jpg" width="278" height="50" /></p>
-ע�⵽�Ǹ���STATE NO������ô����ʱ��ֻҪ���У����е�stateno�ͻ��Զ����֡�<br />
+注意到那个“STATE NO：”了么？这时你只要出招，这招的stateno就会自动出现。<br />
 </p>
 
 <p>
 <span class="STYLE2">common1.cns</span><br />
-��ʱ���ǻᷢ�֣���Щ����������state��cmd��û�ж���ָ������������Ծɶ�ġ�<br />
-��Ϊ���Ƕ�����common��cns��ġ��ĸ��Ƕ���common��cns�أ�Ҫ��def<br />
+有时我们会发现，有些基本动作的state在cmd里没有定义指令。比如防御，跳跃啥的。<br />
+因为这是定义在common的cns里的。哪个是定义common的cns呢？要看def<br />
 <br />
-def��һ��������<br />
+def里一般有这行<br />
 stcommon = common1.cns<br />
-�����common1.cns������������Ŀ¼���Ҳ���<br />
+但这个common1.cns，可能在人物目录里找不到<br />
 <br />
-������������������ļ��е���û�ҵ����common1.cns��������ļ�����ָwinmugen\data���µ�common1.cns<br />
-����һ��ϵͳĬ�ϵ�ͨ�ö��������ļ����������һ�����ﶼ�еķ�������Ծ��ǰ���ȶ�����������ô�������ﲻ�������ֻҪ֪��common1.cns�����һЩ������state�ž��С�<br />
+如果我们在这个人物的文件夹底下没找到这个common1.cns，那这个文件就是指winmugen\data底下的common1.cns<br />
+这是一个系统默认的通用动作定义文件。定义的是一般人物都有的防御，跳跃，前进等动作。具体怎么定义这里不深究，我们只要知道common1.cns定义的一些动作的state号就行。<br />
 <br />
-д�����Ƚ���Ҫ��<br />
-0 վ�� ��<br />
-20 ���� ��<br />
-40 ��Ծ����(�ڵ���) �����������ʱ<br />
-100 ��ǰ��/���� ��<br />
-105 ���� ��<br />
-120 ����-����<br />
-130 ����-վ-���� ��<br />
-131 ����-��-���� ��<br />
-132 ����-��-���� ������ʱ����������������������δ�ܻ���<br />
-140 ����-վ-����<br />
-141 ����-��-����<br />
-142 ����-��-����<br />
-150 ����-վ-״̬<br />
-151 ����-��-״̬<br />
-152 ����-��-״̬<br />
--------�ܴ�--------��5000-5300��<br />
-5110 �ɵ� ��<br />
-5120 ���� ��<br />
-5121 opt ���� ����Щ������2��������ʽ�� ��<br />
-5201 �ָ����� ��������������<br />
-5210 �ָ����� ������������<br />
-5300 ѣ�� ��<br />
+写几个比较重要的<br />
+0 站立 　<br />
+20 步行 　<br />
+40 跳跃启动(在地面) 仅在人物离地时<br />
+100 向前跑/急冲 　<br />
+105 急退 　<br />
+120 防御-启动<br />
+130 防御-站-摆势 　<br />
+131 防御-蹲-摆势 　<br />
+132 防御-空-摆势 　（此时人物做出防御动作，但并未受击）<br />
+140 防御-站-结束<br />
+141 防御-蹲-结束<br />
+142 防御-空-结束<br />
+150 防御-站-状态<br />
+151 防御-蹲-状态<br />
+152 防御-空-状态<br />
+-------受创--------（5000-5300）<br />
+5110 躺倒 　<br />
+5120 起身 　<br />
+5121 opt 起身 （有些人物有2种起身方式） 　<br />
+5201 恢复近地 （地面受身）　<br />
+5210 恢复近空 （空中受身）<br />
+5300 眩晕 　<br />
 </p>
 
 <p>
-<span class="STYLE2">����ai�������Լ�ai�Ļ�������</span><br />
+<span class="STYLE2">简易ai的制作以及ai的基本立回</span><br />
 <br />
-�����Ƽ�дaiʱ�������鷳�Ļ������أ����Σ�ѹ�ƣ��𹥣��嶯�ȵ���÷ֿ�д���Ҽ���ע�ͣ������Ļ��Ƚ�������<br />
+个人推荐写ai时，不怕麻烦的话，立回，连段，压制，起攻，插动等等最好分开写，且加上注释，这样的话比较清晰。<br />
 <br />
-���Ƚ���һ�����صĺ��壺���ǵ���˫�����������ж���״̬��û��һ����ѹ�ƣ������Σ����ڵ��صȸ����ж����ܵ�״̬��<br />
+首先介绍一下立回的含义：就是敌我双方都能自由行动的状态，没有一方被压制，被连段，或处于倒地等各种行动不能的状态。<br />
 <br />
-��ai����ô�����أ�����������һ������ai�Ĵ���<br />
+在ai上怎么体现呢？我们先来看一个立回ai的代码<br />
 <br />
-[State -3,��x]<br />
+[State -3,立x]<br />
 type = ChangeState<br />
 value = 200<br />
-triggerall = Var��59��= 1 && roundstate  = 2 ;ai���ؿ����ҶԾֽ�����<br />
-triggerall = Statetype != A  && p2statetype !=L;���ڿ����Ҷ��ֲ��ǵ���<br />
-triggerall = p2movetype != H ;���ֲ����ܻ�״̬������������������<br />
-triggerall = ctrl ;���Կ��ƣ������������ж�<br />
-trigger1 = P2dist X = [0,40] ;����������ľ�����0��40���ص������<br />
-trigger1 = random < 300 ;�����С��300�������м�һ�����ʣ�<br />
+triggerall = Var（59）= 1 && roundstate  = 2 ;ai开关开启且对局进行中<br />
+triggerall = Statetype != A  && p2statetype !=L;不在空中且对手不是倒地<br />
+triggerall = p2movetype != H ;对手不是受击状态，表明不是在连段中<br />
+triggerall = ctrl ;可以控制，即可以自由行动<br />
+trigger1 = P2dist X = [0,40] ;在与对手中心距离在0到40像素的情况下<br />
+trigger1 = random < 300 ;随机数小于300（给出招加一个概率）<br />
 <br />
-�������x������ai<br />
-���ص���Ҫ������ctrl���ɿ��ƣ������������ж����Լ�p2movetype !=H�����ֲ��ܻ���<br />
-P2statetype !=L����Ҳ���ԣ���Ϊһ����ֵ���ʱ��ϵͳ���ж�p2movetype=H��<br />
+这就是立x的立回ai<br />
+立回的重要特征是ctrl（可控制，即可以自由行动）以及p2movetype !=H（对手不受击）<br />
+P2statetype !=L不加也可以，因为一般对手倒地时，系统是判断p2movetype=H的<br />
 <br />
-�޸�һ��ai��ʱ�򣬾����ῴ��ԭai���߰����κ����ص�һ��д��<br />
-��������<br />
+修改一个ai的时候，经常会看到原ai作者把连段和立回的一起写。<br />
+像这样：<br />
 [State -1, 236B]<br />
 type = ChangeState<br />
 triggerall = var(59) > 0 && RoundState = 2 && !ishelper && var(41)%10 = 0<br />
@@ -181,87 +181,87 @@ trigger1 = Ctrl && random <=300<br />
 trigger2 = stateno = 230 && movecontact<br />
 value = 1210<br />
 <br />
-����trigger1�����أ�trigger2�����Ρ�<br />
-��������trigger1����ֻ��ctrl��û��p2movetype !=H���������236B���ܻ�Ӱ��ĳЩĿѺ���Ρ�<br />
+其中trigger1是立回，trigger2是连段。<br />
+但是由于trigger1里面只有ctrl，没有p2movetype !=H，所以这个236B可能会影响某些目押连段。<br />
 </p>
 
 <p>
-<span class="STYLE2">����ctrl״̬</span><br />
-Ctrl�����������ж���״̬����ʲô�����ctrl = 0��<br />
-1 ���е�ʱ��<br />
-2 �ܻ���ʱ�����۷���������ֱ�ӱ���<br />
-3 ���ص�ʱ���Լ��������ܿ��Ƶ�ʱ��<br />
+<span class="STYLE2">关于ctrl状态</span><br />
+Ctrl即可以自由行动的状态，那什么情况下ctrl = 0呢<br />
+1 出招的时候<br />
+2 受击的时候（无论防御，还是直接被打）<br />
+3 倒地的时候以及其他不能控制的时候<br />
 <br />
-д����ʱ��ai����ctrl����������صĺ����<br />
-����ǹ��������������������x��˵��дaiʱ����ctrl�Ļ�����ֻҪ�������������������������0��40֮�䣩��������������£��᲻�ϵĳ���x�����һ�����x����û�����������û�����ж�������£���ǿ����ͷ����x�Ķ�����<br />
-��ͻᷢ��ai������������ڹ������ظ�����x�Ķ��������Һܿ��ܴ����ˡ�����Ϊ�ܿ����ж���û���������³���x�ˣ�����ʱ��Ϸ���ܻῨ��<br />
-��ʹ����������ʱ�����У�Ҳ�����������еĶ���������ǿ�г���x��<br />
-����Ƿ�������û��ctrl�����ڳ��κ��еĹ����У���������Ӳֱǿ�����з��������������ˣ�����ǿ��ת�������һ��bug����ʹ˵�����<br />
+写立回时的ai不加ctrl会产生很严重的后果。<br />
+如果是攻击动作，就拿上面的立x来说，写ai时不加ctrl的话，那只要符合条件（比如上文里距离在0到40之间），那在这种情况下，会不断的出立x，而且会在立x动作没有完成甚至还没产生判定的情况下，再强行重头做立x的动作。<br />
+你就会发现ai会在这个距离内鬼畜般的重复做立x的动作，而且很可能打不中人。（因为很可能判定还没出来又重新出立x了），这时游戏可能会卡。<br />
+即使被对手在这时候命中，也不会做被打中的动作，还是强行出立x。<br />
+如果是防御动作没加ctrl，那在出任何招的过程中，都能无视硬直强行收招防御，甚至被打了，都能强行转入防御，一个bug人物就此诞生。<br />
 <br />
-����д����ai��ʱ��һ��Ҫ��ctrl�������Ρ�ȡ������ʱ�򣬲��ܼ�ctrl���������Σ��¸��̳̻�˵����<br />
+所以写立回ai的时候，一定要加ctrl。但连段“取消”的时候，不能加ctrl（关于连段，下个教程会说明）<br />
 </p>
 
 <p>
-<span class="STYLE2">����p2dist��p2bodydist</span><br />
-P2dist��ʾp1��p2��������֮�����Ծ��룬p2bodydist��ʾ2�������֮�����Ծ��룬һ����˵��𲻴󡣳���ĳЩ��������£�һ��2�߶���������á�<br />
-һ��������Ƽ���p2bodydist��ĳЩ�����������p2dist<br />
-P2dist��p2dist x��p2dist y֮�֣�p2bodydistҲһ����<br />
-P2dist x��ʾx���򣬼�ˮƽ����ľ��룬y���ʾ��ֱ����ľ���<br />
-P2dist x����ֵ����0 ��ʾp2��p1ǰ�棬С��0�����ں���<br />
-P2dist y����ֵ����0��ʾp2��p1���棬С��0��ʾ������<br />
+<span class="STYLE2">关于p2dist和p2bodydist</span><br />
+P2dist表示p1与p2两者中心之间的相对距离，p2bodydist表示2者人物框之间的相对距离，一般来说差别不大。除非某些特殊情况下，一般2者都可以随便用。<br />
+一般情况下推荐用p2bodydist。某些特殊情况才用p2dist<br />
+P2dist有p2dist x和p2dist y之分，p2bodydist也一样。<br />
+P2dist x表示x方向，即水平方向的距离，y则表示垂直方向的距离<br />
+P2dist x的数值大于0 表示p2在p1前面，小于0就是在后面<br />
+P2dist y的数值大于0表示p2在p1下面，小于0表示在上面<br />
 <br />
-�����Լ��Ͷ�������ڵ���ľ��Ը߶ȿ�����pos Y��enemy, pos Y��ʾ��enemyҲ���Ի���enemynear����ʾ���Լ�����ĵ��ˣ���˫���������á�<br />
-��enemy��enemynear��ֻ���Զ�ȡ���ֵ�λ�ã����Զ�ȡ���ֵĸ��ֲ�������ai�п��������ж϶���״̬�������á�<br />
+另外自己和对手相对于地面的绝对高度可以用pos Y和enemy, pos Y表示，enemy也可以换成enemynear，表示离自己最近的敌人，在双人赛里有用。<br />
+用enemy和enemynear不只可以读取对手的位置，可以读取对手的各种参数，在ai中可以用来判断对手状态，很有用。<br />
 <br />
-���ϵĸ��ֲ������������trigger��<br />
+以上的各种参数具体请参阅trigger表<br />
 </p>
 
 <p>
-<span class="STYLE2">����random���������</span><br />
-ϵͳÿһF�������һ��0��999��������������random��ÿF���ڱ仯<br />
-random�ǿ��Ƹ����õģ�random<300������ÿF��30���ĸ��ʡ�Random>700Ҳ��30�����ʡ�Random<=1000����100���ĸ��ʣ�random=500��ֻ��ǧ��֮һ�ĸ��ʡ���ע�ⲻ��random<=500��<br />
-�����Ǹ���x������ai���ǵ�������0,40֮�䣬ÿF����30���ĸ��ʳ���x��<br />
-ʣ��70���Ŀ��ܾ�����������������������<br />
+<span class="STYLE2">关于random（随机数）</span><br />
+系统每一F都会产生一个0到999的随机数，这就是random，每F都在变化<br />
+random是控制概率用的，random<300，就是每F有30％的概率。Random>700也是30％概率。Random<=1000就是100％的概率，random=500就只有千分之一的概率。（注意不是random<=500）<br />
+比如那个立x的立回ai就是当对手在0,40之间，每F都有30％的概率出立x。<br />
+剩下70％的可能就是做其他动作，包括发呆<br />
 </p>
 
 <p>
-<span class="STYLE2">��debugģʽ��������</span><br />
-��ν����ai������֪����ֻ֪����ʲô�����³�ʲô�е�ai��<br />
-��������Ҫ������ai����Ҫ֪����ʽ����Ч����Ϊ���١����������Ҳ�����ص�����Ҫģʽ<br />
-����ô���ܲ����ʽ�ľ����أ���ʱ���Ǿͼ���ʹ�����ܵ�debugģʽ��<br />
+<span class="STYLE2">用debug模式测量距离</span><br />
+所谓简易ai，就是知道且只知道在什么距离下出什么招的ai。<br />
+所以我们要做简易ai，就要知道招式的有效距离为多少。按距离出招也是立回的最主要模式<br />
+那怎么才能测出招式的距离呢？这时我们就继续使用万能的debug模式。<br />
 <br />
-��state -2����state -3�м���DisplaytoClipboard��type<br />
-��Ȼֻ����ʾ����Ļ���д�����ﶼ���ԣ���Ҫ��ʾ����var��fvar�ȱ����Ļ�<br />
-һ��ai��д��state -3���д��state -3�������档<br />
-ûstate -3��д��-2���棬����Ҫд����Ҫ��ʾ��var�Ķ���ָ������<br />
-��֮����ֻ����ʾ����Ļ������ù���ô�ࡣû�еĻ������д�����ֳɵ�type = DisplaytoClipboard��ָ�����������ֱ�Ӹľͺ���<br />
+在state -2或者state -3中加入DisplaytoClipboard的type<br />
+当然只是显示距离的话，写在哪里都可以，但要显示其他var或fvar等变量的话<br />
+一般ai是写在state -3里就写在state -3的最下面。<br />
+没state -3就写在-2里面，不过要写在所要显示的var的定义指令下面<br />
+总之现在只是显示距离的话，不用管这么多。没有的话就随便写，有现成的type = DisplaytoClipboard的指令就在这上面直接改就好了<br />
 <br />
-ֻ��Ҫ��ʾ����Ļ���������ô����<br />
-ֱ�Ӹ��ƽ�ȥ�����ָ��͹��ˣ���ʵ�����Ƽ���p2bodydist x��p2bodydist y����ͼ����ʾp2dist�ģ������ٽ�һ��ͼ�ˣ�<br />
-[State -2, Display] ;����state -3<br />
+只是要显示距离的话，不必那么复杂<br />
+直接复制进去下面的指令就够了（其实下面推荐用p2bodydist x和p2bodydist y，但图是显示p2dist的，懒得再截一幅图了）<br />
+[State -2, Display] ;或者state -3<br />
 type = DisplaytoClipboard<br />
 trigger1 = 1<br />
 text = "p2dist x : %d | p2dist y: %| eposY : %d| frontedgedist: %d"<br />
 params = ceil(p2dist x) , ceil(p2dist y) , ceil(enemy,pos Y), ceil(frontedgedist)<br />
 <br />
-text����Ļ����ʾ�����֣�%d���������paramsһһ��Ӧ��ceil��ȡ������Ϊ%d��Ӧ�������ͱ�������������<br />
-��%f���Զ�Ӧ�����ͱ�����С�����������ò��š�<br />
-Frontedgedist��ʾ�Լ���ǰ���ߵľ��룬�ڰ�ߵ��ж���������<br />
+text是屏幕上显示的文字，%d则与下面的params一一对应。ceil是取整，因为%d对应的是整型变量（整数）。<br />
+而%f可以对应浮点型变量（小数）。这里用不着。<br />
+Frontedgedist表示自己离前面版边的距离，在版边的行动中有作用<br />
 <br />
-Ȼ����1p����mugen��ѵ��ģʽ���Ϳ��Կ������·�����Ϣ�����1�����Ǹղ����ӵ���Ϣ��<br />
+然后以1p进入mugen的训练模式，就可以看到左下方的信息中最后1条就是刚才添加的信息。<br />
 <p><img src="../pic/debug2.jpg" width="234" height="54" /></p>
-��Ҫ��p2dist x���ڲ�ͬ������У����ܷ���У������ܴ��е�p2dist x��ֵ�ķ�Χ��<br />
-����p2dist y��������������ʱ�߶Ȳ��ϱ仯�����Ѳ⣬Ҫ�󲻸ߵĻ���żǵø���Χ�Ϳ����ˡ�<br />
-���漼�ĶԿշ�ΧҲ������enemy,pos Y��ʾ<br />
-һ��վ�����ߣ�һ��վ���Ұ�ߵĻ�<br />
-˫��p2dist x 290��300��p2bodydist x���Ϊ260��<br />
-����Ļ���µľ�����150���ң����������Լ��ٲ��ɣ���<br />
+主要看p2dist x。在不同距离出招，看能否打中，记下能打中的p2dist x的值的范围。<br />
+至于p2dist y，由于人物跳起时高度不断变化，很难测，要求不高的话大概记得个范围就可以了。<br />
+地面技的对空范围也可以用enemy,pos Y表示<br />
+一人站在左版边，一人站在右版边的话<br />
+双方p2dist x 290－300，p2bodydist x大概为260。<br />
+而屏幕上下的距离大概150左右（可能有误，自己再测测吧）。<br />
 <br />
-Ȼ��Ͱ�����������ӣ�дÿһ�е�����ai�Ϳ�����<br />
-[State -3,��x]<br />
+然后就按照上面的例子，写每一招的立回ai就可以了<br />
+[State -3,立x]<br />
 type = ChangeState<br />
 value = 200<br />
-triggerall = Var��59��= 1 && roundstate  = 2<br />
+triggerall = Var（59）= 1 && roundstate  = 2<br />
 triggerall = Statetype != A<br />
 triggerall = p2movetype != H<br />
 triggerall = ctrl<br />
@@ -269,49 +269,49 @@ trigger1 = P2dist X = [0,40]<br />
 trigger1 = p2dist y = [-30,30]<br />
 trigger1 = random < 300<br />
 <br />
-[State -3,��y]<br />
+[State -3,立y]<br />
 type = ChangeState<br />
 value = 201<br />
-triggerall = Var��59��= 1 && roundstate  = 2<br />
+triggerall = Var（59）= 1 && roundstate  = 2<br />
 triggerall = Statetype != A<br />
 triggerall = p2movetype != H<br />
 triggerall = ctrl<br />
 trigger1 = P2dist X = [0,60]<br />
-trigger1 = p2statetype= S || p2statetype = C ;���ĳһ�л���ֻ�ܴ��ڵ��������ģ��Ϳ�������д�����ù�p2dist y�ˡ�<br />
+trigger1 = p2statetype= S || p2statetype = C ;如果某一招基本只能打到在地面的人物的，就可以这样写，不用管p2dist y了。<br />
 trigger1 = random < 350<br />
-�������ơ�<br />
+依次类推。<br />
 <br />
-ע��<br />
+注意<br />
 Trigger1 = p2dist x =[0,40] && random < 300<br />
-����ϵͳ�ǲ��ϵģ������������ĳ�����<br />
+这样系统是不认的，会出错，必须改成这样<br />
 Trigger1 = (p2dist x = [0,40]) && random < 300<br />
 <br />
-С���ɣ���debugģʽ�����ʽ�ķ����ٶ�<br />
-Debug״̬�£����Ǹ�time<br />
-һ����ʽ���ж���ʱ������ͣһ�¡�<br />
-�����˲�俴time��xx/yy����ߵ�xx�������еķ����ٶ�<br />
-���и��취������fight factory��mcm��air�ļ��ˡ�����Ƚ��鷳��<br />
+小技巧：在debug模式里测招式的发生速度<br />
+Debug状态下，看那个time<br />
+一般招式击中对手时，会暂停一下。<br />
+趁这个瞬间看time：xx/yy，左边的xx就是这招的发生速度<br />
+还有个办法就是用fight factory或mcm看air文件了。这个比较麻烦。<br />
 </p>
 
 <p>
-<span class="STYLE2">Ͷ���ľ����ж�</span><br />
-һ�㡰ǰ+ǿ������������ʽ������Ͷ����cmd��һ��������ָ���Ѿ��涨�þ���ġ�����Ϊ����Ͷ����Χ�ڰ�ǰ��ǿ�������ͻ���ǿ������<br />
-�ҵ��������д��ai�Ｔ��<br />
-��ЩͶ�����á�ab�����ַ�ʽ���ģ�������ָ��Ͷ��ֻ���Լ���debugģʽ�����Ծ�����<br />
-ע��дͶ��������aiʱͨ��Ҫ��һ��<br />
+<span class="STYLE2">投技的距离判断</span><br />
+一般“前+强攻击”这种形式发生的投技，cmd里一般在人用指令已经规定好距离的。（因为不在投技范围内按前＋强攻击，就会变成强攻击）<br />
+找到这个距离写在ai里即可<br />
+有些投技是用“ab”这种方式按的，或者是指令投，只好自己在debug模式里试试距离了<br />
+注意写投技的立回ai时通常要加一句<br />
 Triggerall = p2movetype != H<br />
-��Ϊ�������Ͷ����Ͷ�����ڷ���Ӳֱ�еĶ��֡�<br />
+因为决大多数投技，投不了在防御硬直中的对手。<br />
 </p>
 
 <p>
-<span class="STYLE2">Ai��������ʽ����д˳��</span><br />
-Ai��������ʽ����д˳��Ҳ�н�������Ϊϵͳ��ai��ʱ��ÿһF���Ǵ������¶��ġ����������һЩ���⡣<br />
+<span class="STYLE2">Ai里立回招式的书写顺序</span><br />
+Ai里立回招式的书写顺序也有讲究。因为系统读ai的时候，每一F都是从上往下读的。这样会造成一些问题。<br />
 <br />
-����<br />
-[State -3,��x]<br />
+比如<br />
+[State -3,立x]<br />
 type = ChangeState<br />
 value = 200<br />
-triggerall = Var��59��= 1 && roundstate  = 2<br />
+triggerall = Var（59）= 1 && roundstate  = 2<br />
 triggerall = Statetype != A<br />
 triggerall = p2movetype != H<br />
 triggerall = ctrl<br />
@@ -319,10 +319,10 @@ trigger1 = P2dist X = [0,40]<br />
 trigger1 = p2dist y = [-30,30]<br />
 trigger1 = random < 300<br />
 <br />
-[State -3,��a]<br />
+[State -3,立a]<br />
 type = ChangeState<br />
 value = 230<br />
-triggerall = Var��59��= 1 && roundstate  = 2<br />
+triggerall = Var（59）= 1 && roundstate  = 2<br />
 triggerall = Statetype != A<br />
 triggerall = p2movetype != H<br />
 triggerall = ctrl<br />
@@ -330,26 +330,26 @@ trigger1 = P2dist X = [0,30]<br />
 trigger1 = p2dist y = [-30,30]<br />
 trigger1 = random < 300<br />
 <br />
-��������д�Ļ�����ᷢ��ai��ˮƽ����0��40�ķ�Χ��ֻ�����x���������a��<br />
-��Ϊ��������a������ʱ���ض�������x����ai�����϶��¶�ȡ�ģ�������������ʱ�ض���ִ����x��<br />
-������ǰ���aд����xǰ���أ���ˮƽ������0��30��Χ�ڻ����a����ˮƽ������30��40֮��ʱ�����x<br />
-��������ǰ���a��random<300���������ĳ�random = [300,600]������0,30�ľ����ڣ��ͼȿ��ܳ���aҲ���ܳ���x�ˡ�<br />
- <span class="STYLE3">ע�⣺�˴�ԭ���������ڴ���randomӦ����ÿ�ε��ö��᷵�ز�һ���Ľ���������������ἰ��ÿ֡Ϊһ�����������ʵ������a��Ȼ����ִ�У�������x�������Ϊ400����a�������Ϊ100������ϣ����������������Ч������Ҫ��random�Ľ����ֵ��������ʵ�֡�</span><br />
+比如这样写的话。你会发现ai在水平距离0，40的范围里只会出立x，不会出立a。<br />
+因为当满足立a的条件时，必定满足立x，而ai是自上而下读取的，所以条件满足时必定先执行立x。<br />
+如果我们把立a写在立x前面呢，那水平距离在0，30范围内会出立a，而水平距离在30，40之间时会出立x<br />
+但如果我们把立a的random<300的条件，改成random = [300,600]，那在0,30的距离内，就既可能出立a也可能出立x了。<br />
+ <span class="STYLE3">注意：此处原文描述存在错误。random应该是每次调用都会返回不一样的结果，而并非文中提及的每帧为一个结果，所以实际上立a依然可以执行（例如立x的随机数为400，立a的随机数为100）。若希望做到文中描述的效果，需要把random的结果赋值给变量来实现。</span><br />
 <br />
-���Ҫ��ai�ȼ��Ļ���ͨ��������random�Ϳ���ai�ȼ��ı������������м���<br />
-������var(59)��Ϊai�ȼ����ǿ��Ը�ĳ�м���<br />
+如果要做ai等级的话，通常就是用random和控制ai等级的变量来调整出招几率<br />
+比如用var(59)作为ai等级，那可以给某招加上<br />
 Triggerall = random <= 50*var(59)<br />
-����var��59��Խ�ߣ����м��ʾ�Խ���ˡ�<br />
+这样var（59）越高，出招几率就越高了。<br />
 <br />
-��������д����ai��ʱ��<br />
-ԭ���ϰ�ʹ���������̵���д��ǰ�棨�糬ɱ�ȣ�<br />
-����д�ڷ���ǰ��<br />
-�����������ʵ��ϵ�<br />
-������ͨ��ɶ��д�ں���<br />
+所以我们写立回ai的时候<br />
+原则上把使用条件苛刻的招写在前面（如超杀等）<br />
+凹技写在防御前面<br />
+主力技可以适当上调<br />
+其他普通技啥的写在后面<br />
 <br />
-����������ƺþ�����Ļ�������������ȭ����Ż�Ͷ���о������У���ȭ�ţ�Զ������÷��е��ߡ��������ڼ����������벻̫������ж��ԣ�˳��Ҳ��̫��Ҫ��<br />
+另外如果控制好距离差距的话，近距离用轻拳，轻脚或投，中距离用中，重拳脚，远距离才用飞行道具。这样对于几个攻击距离不太相近的招而言，顺序也不太重要。<br />
 <br />
-Ҳ��һ��Ҫ�������ԭ����ʱ�������Ҫ������������Կ�һ���ֳɵ�ai������Ҫ����Ҫ����������Ǹ�ʲô�õģ��������ܺ���ȷ������Ӧ��д��ai���ĸ�λ�á�<br />
+也不一定要死套这个原则，有时具体情况要具体分析，可以看一个现成的ai。最主要的是要明白这个招是干什么用的，这样才能合理确定这招应该写在ai的哪个位置。<br />
 </p>
 
 <p></p>
