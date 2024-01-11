@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>Const (*)</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   Const (*)
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,185 +23,600 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">Const (*)</p>
-<p>·µ»ØÍæ¼ÒµÄÒ»Ğ©³£Êı.</p>
-<p><span class="STYLE2">¸ñÊ½:</span><br />
-Const(²ÎÊıÃû)</p>
-<p><span class="STYLE2">²ÎÊı:</span><br />
-  ²ÎÊıÃû<br />
-ĞèÒª¼ì²âµÄ³£ÊıÃû.ÓĞĞ§²ÎÊıÎª:</p>
-<p><span class="STYLE2">·µ»ØÖµÀàĞÍ:</span><br />
-È¡¾öÓÚÖ¸¶¨µÄ´ò»÷²ÎÊı.²é¿´ÏêÏ¸ĞÅÏ¢.</p>
-<p><span class="STYLE2">´íÎóÌõ¼ş:</span><br />
-ÎŞ</p>
-<p><span class="STYLE2">ÏêÏ¸ĞÅÏ¢:</span><br />
-  ÏÂÃæ²ÎÊıÃûµÄÖµ½«·µ»ØÍæ¼ÒµÄcnsÖĞ[Data]×éÖĞÖ¸¶¨µÄÖµ.<br />
-</p>
-<ul>
-  <li><span class="STYLE3">data.life</span>:·µ»Ø&quot;life(ÉúÃüÖµ)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">data.power</span>:·µ»Ø&quot;power(ÄÜÁ¿Öµ)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">data.attack</span>:·µ»Ø&quot;attack(¹¥»÷Á¦)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">data.defence</span>:·µ»Ø&quot;defence(·ÀÓùÁ¦)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">data.fall.defence_mul</span>:·µ»Ødefence multiplier(·ÀÓùÏµÊıÖµ),¹«Ê½Îª 100/(f+100),ÕâÀïµÄfÖ¸µÄÊÇ&quot;fall.defence_up&quot;²ÎÊı.(¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">data.liedown.time</span>:·µ»Ø&quot;liedown.time(µ¹µØÆğÉíÊ±¼ä)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">data.airjuggle</span>:·µ»Ø&quot;airjuggle(¿ØÖÆÁ¬»÷µÄ²ÎÊı)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">data.sparkno</span>:·µ»Ø&quot;sparkno(»ğ»¨ºÅ)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">data.guard.sparkno</span>:·µ»Ø&quot;guard.sparkno(·ÀÓù»ğ»¨ºÅ)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">data.KO.echo</span>:·µ»Ø&quot;KO.echo(±»KOÊ±ÓĞÃ»ÓĞ»ØÉù)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">data.IntPersistIndex</span>:·µ»Ø&quot;IntPersistIndex(¿ØÖÆvar²ÎÊı³õÊ¼»¯)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">data.FloatPersistIndex</span>:·µ»Ø&quot;FloatPersistIndex(¿ØÖÆfvar²ÎÊı³õÊ¼»¯)&quot;²ÎÊıÖµ. (ÕûĞÍ)</li>
-</ul>
-<p>ÏÂÃæ²ÎÊıÃûµÄÖµ½«·µ»ØÍæ¼ÒµÄcnsÖĞ[Size]×éÖĞÖ¸¶¨µÄÖµ.<br />
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   Const (*)
   </p>
-<ul>
-  <li><span class="STYLE3">size.xscale</span>:·µ»Ø&quot;xscale(x·½ÏòËõ·Å)&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">size.yscale</span>:·µ»Ø&quot;yscale(y·½ÏòËõ·Å)&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">size.ground.back</span>:·µ»Ø&quot;ground.back(ºó·½¿í¶È)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">size.ground.front</span>:·µ»Ø&quot;ground.front(Ç°·½¿í¶È)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">size.air.back</span>:·µ»Ø&quot;aie.back(¿ÕÖĞºó·½¿í¶È)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">size.air.front</span>:·µ»Ø&quot;aie.front(¿ÕÖĞÇ°·½¿í¶È)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">size.height</span>:·µ»Ø&quot;height(¸ß¶È)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">size.attack.dist</span>:·µ»Ø&quot;attack.dist(¹¥»÷¾àÀë,¶ÔÊÖ³¬³öÕâ¸ö¾àÀëÎŞ·¨×ö³ö·ÀÓù¶¯×÷)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">size.proj.attack.dist</span>:·µ»Ø&quot;proj.attack.dist(·ÉĞĞµÀ¾ß¹¥»÷¾àÀë)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">size.proj.doscale</span>:·µ»Ø&quot;proj.doscale(·ÉĞĞµÀ¾ßÊÇ·ñÊÜsize.xscaleºÍsize.yscaleÓ°Ïì)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">size.head.pos.x</span>:·µ»Ø&quot;head.pos(Í·²¿Î»ÖÃ)&quot;x·½Ïò²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">size.head.pos.y</span>:·µ»Ø&quot;head.pos(Í·²¿Î»ÖÃ)&quot;y·½Ïò²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">size.mid.pos.x</span>:·µ»Ø&quot;mid.pos(ÉíÌåÖĞ²¿Î»ÖÃ)&quot;x·½Ïò²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">size.mid.pos.y</span>:·µ»Ø&quot;mid.pos(ÉíÌåÖĞ²¿Î»ÖÃ)&quot;y·½Ïò²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">size.shadowoffset</span>:·µ»Ø&quot;shadowoffset(Ó°×ÓÆ«ÒÆ)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">size.draw.offset.x</span>:·µ»Ø&quot;draw.offset(ÈËÎïÆ«ÒÆ)&quot;x·½Ïò²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">size.draw.offset.y</span>:·µ»Ø&quot;draw.offset(ÈËÎïÆ«ÒÆ)&quot;y·½Ïò²ÎÊıÖµ. (ÕûĞÍ)</li>
-</ul>
-<p>ÏÂÃæ²ÎÊıÃûµÄÖµ½«·µ»ØÍæ¼ÒµÄcnsÖĞ[Velocity]×éÖĞÖ¸¶¨µÄÖµ.<br />
+  <p>
+   è¿”å›ç©å®¶çš„ä¸€äº›å¸¸æ•°.
   </p>
-<ul>
-  <li><span class="STYLE3">velocity.walk.fwd.x</span>:·µ»Ø&quot;walk.fwd(ÏòÇ°×ßËÙ¶È)&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.walk.back.x</span>:·µ»Ø&quot;walk.back(Ïòºó×ßËÙ¶È)&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.run.fwd.x</span>:·µ»Ø&quot;run.fwd(ÏòÇ°ÅÜ)&quot;x·½Ïò²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.run.fwd.y</span>:·µ»Ø&quot;run.fwd(ÏòÇ°ÅÜ)&quot;y·½Ïò²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.run.back.x</span>:·µ»Ø&quot;run.back(ÏòºóÅÜ)&quot;x·½Ïò²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.run.back.y</span>:·µ»Ø&quot;run.back(ÏòºóÅÜ)&quot;y·½Ïò²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.jump.y</span>:·µ»Ø&quot;jump.neu(ÕıÏòÉÏÌø)&quot;y·½Ïò²ÎÊıÖµ. ×¢Òâ: Õâ²»ÊÇ&quot;velocity.jump.neu.y&quot;. ½ö½öÊÇ&quot;neu&quot;²ÎÊıÈ¡y·½ÏòµÄÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.jump.neu.x</span>:·µ»Ø&quot;jump.neu(ÕıÏòÉÏÌø)&quot;x·½Ïò²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.jump.back.x</span>:·µ»Ø&quot;jump.back(ÏòºóÌø)&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.jump.fwd.x</span>:·µ»Ø&quot;jump.fwd(ÏòÇ°Ìø)&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.runjump.back.x</span>:·µ»Ø&quot;runjump.back(ÏòºóÅÜÌø)&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.runjump.fwd.x</span>:·µ»Ø&quot;runjump.fwd(ÏòÇ°ÅÜÌø)&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.airjump.y</span>:·µ»Ø&quot;airjump.neu(ÕıÏòÉÏÁ¬Ìø)&quot;y·½Ïò²ÎÊıÖµ. ×¢Òâ: Õâ²»ÊÇ&quot;velocity.airjump.neu.y&quot;. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.airjump.neu.x</span>:·µ»Ø&quot;airjump.neu(ÕıÏòÉÏÁ¬Ìø)&quot;x·½Ïò²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.airjump.back.x</span>:·µ»Ø&quot;airjump.back(ÕıÏòºóÁ¬Ìø)&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.airjump.fwd.x</span>:·µ»Ø&quot;airjump.fwd(ÕıÏòÇ°Á¬Ìø)&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.air.gethit.groundrecover.x</span>:·µ»Ø&quot;air.gethit.groundrecover&quot;x·½Ïò²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.air.gethit.groundrecover.y</span>:·µ»Ø&quot;air.gethit.groundrecover&quot;y·½Ïò²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.air.gethit.airrecover.mul.x</span>:·µ»Ø&quot;air.gethit.airrecover.mul&quot;x·½Ïò²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.air.gethit.airrecover.mul.y</span>:·µ»Ø&quot;air.gethit.airrecover.mul&quot;y·½Ïò²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.air.gethit.airrecover.add.x</span>:·µ»Ø&quot;air.gethit.airrecover.add&quot;x·½Ïò²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.air.gethit.airrecover.add.y</span>:·µ»Ø&quot;air.gethit.airrecover.add&quot;y·½Ïò²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.air.gethit.airrecover.back</span>:·µ»Ø&quot;air.gethit.airrecover.back&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.air.gethit.airrecover.fwd</span>:·µ»Ø&quot;air.gethit.airrecover.fwd&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.air.gethit.airrecover.up</span>:·µ»Ø&quot;air.gethit.airrecover.up&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">velocity.air.gethit.airrecover.down</span>:·µ»Ø&quot;air.gethit.airrecover.down&quot;²ÎÊıÖµ. (¸¡µãĞÍ)</li>
-</ul>
-<p>ÏÂÃæ²ÎÊıÃûµÄÖµ½«·µ»ØÍæ¼ÒµÄcnsÖĞ[Movement]×éÖĞÖ¸¶¨µÄÖµ.<br />
+  <p>
+   <span class="STYLE2">
+    æ ¼å¼:
+   </span>
+   <br/>
+   Const(å‚æ•°å)
   </p>
-<ul>
-  <li><span class="STYLE3">movement.airjump.num</span>:·µ»Ø&quot;airjump.num(¿ÕÖĞÁ¬ÌøÊı)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">movement.airjump.height</span>:·µ»Ø&quot;airjump.height(¿ÕÖĞÁ¬ÌøĞèÒªµÄ¸ß¶È)&quot;²ÎÊıÖµ. (ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">movement.yaccel</span>:·µ»Ø&quot;yaccel(ÏÂÂä¼ÓËÙ¶È)&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">movement.stand.friction</span>:·µ»Ø&quot;stand.friction(Õ¾Á¢ÊÜµ½µÄÄ¦²ÁÁ¦)&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">movement.crouch.friction</span>:·µ»Ø&quot;crouch.friction(¶×ÏÂÊÜµ½µÄÄ¦²ÁÁ¦)&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">movement.stand.friction.threshold</span>:·µ»Ø&quot;stand.friction.threshold(Õ¾Á¢Ä¦²ÁÁ¦ãĞÖµ)&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">movement.crouch.friction.threshold</span>:·µ»Ø&quot;crouch.friction.threshold(¶×ÏÂÄ¦²ÁÁ¦ãĞÖµ)&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">movement.jump.changeanim.threshold</span>:·µ»Ø&quot;jump.changeanim.threshold&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">movement.air.gethit.groundlevel</span>:·µ»Ø&quot;air.gethit.groundlevel&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">movement.air.gethit.groundrecover.ground.threshold</span>:·µ»Ø&quot;air.gethit.groundrecover.ground.threshold&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">movement.air.gethit.groundrecover.groundlevel</span>:·µ»Ø&quot;air.gethit.groundrecover.groundlevel&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">movement.air.gethit.airrecover.threshold</span>:·µ»Ø&quot;air.gethit.airrecover.threshold&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">movement.air.gethit.airrecover.yaccel</span>:·µ»Ø&quot;air.gethit.airrecover.yaccel&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">movement.air.gethit.trip.groundlevel</span>:·µ»Ø&quot;air.gethit.trip.groundlevel&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">movement.down.bounce.offset.x</span>:·µ»Ø&quot;down.bounce.offset&quot;x·½Ïò²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">movement.down.bounce.offset.y</span>:·µ»Ø&quot;down.bounce.offset&quot;y·½Ïò²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">movement.down.bounce.yaccel</span>:·µ»Ø&quot;down.bounce.yaccel&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">movement.down.bounce.groundlevel</span>:·µ»Ø&quot;down.bounce.groundlevel&quot;²ÎÊıÖµ. (¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">movement.down.friction.threshold</span>:·µ»Ø&quot;down.friction.threshold&quot;²ÎÊıÖµ. (¸¡µãĞÍ)</li>
-</ul>
-<p><span class="STYLE2">Ê¾Àı:</span><br />
-  trigger1 = Const(velocity.walk.fwd.x) &gt; 4<br />
-Èç¹ûÏòÇ°×ßµÄËÙ¶È´óÓÚ4Ôò´¥·¢.</p>
-<p>(¹ØÓÚ²ÎÊı¾ßÌåº¬ÒåÇë²é¿´&quot;cns±äÁ¿ÉèÖÃ&quot;)</p>
-<p></p>
-</body>
+  <p>
+   <span class="STYLE2">
+    å‚æ•°:
+   </span>
+   <br/>
+   å‚æ•°å
+   <br/>
+   éœ€è¦æ£€æµ‹çš„å¸¸æ•°å.æœ‰æ•ˆå‚æ•°ä¸º:
+  </p>
+  <p>
+   <span class="STYLE2">
+    è¿”å›å€¼ç±»å‹:
+   </span>
+   <br/>
+   å–å†³äºæŒ‡å®šçš„æ‰“å‡»å‚æ•°.æŸ¥çœ‹è¯¦ç»†ä¿¡æ¯.
+  </p>
+  <p>
+   <span class="STYLE2">
+    é”™è¯¯æ¡ä»¶:
+   </span>
+   <br/>
+   æ— 
+  </p>
+  <p>
+   <span class="STYLE2">
+    è¯¦ç»†ä¿¡æ¯:
+   </span>
+   <br/>
+   ä¸‹é¢å‚æ•°åçš„å€¼å°†è¿”å›ç©å®¶çš„cnsä¸­[Data]ç»„ä¸­æŒ‡å®šçš„å€¼.
+   <br/>
+  </p>
+  <ul>
+   <li>
+    <span class="STYLE3">
+     data.life
+    </span>
+    :è¿”å›"life(ç”Ÿå‘½å€¼)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     data.power
+    </span>
+    :è¿”å›"power(èƒ½é‡å€¼)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     data.attack
+    </span>
+    :è¿”å›"attack(æ”»å‡»åŠ›)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     data.defence
+    </span>
+    :è¿”å›"defence(é˜²å¾¡åŠ›)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     data.fall.defence_mul
+    </span>
+    :è¿”å›defence multiplier(é˜²å¾¡ç³»æ•°å€¼),å…¬å¼ä¸º 100/(f+100),è¿™é‡Œçš„fæŒ‡çš„æ˜¯"fall.defence_up"å‚æ•°.(æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     data.liedown.time
+    </span>
+    :è¿”å›"liedown.time(å€’åœ°èµ·èº«æ—¶é—´)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     data.airjuggle
+    </span>
+    :è¿”å›"airjuggle(æ§åˆ¶è¿å‡»çš„å‚æ•°)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     data.sparkno
+    </span>
+    :è¿”å›"sparkno(ç«èŠ±å·)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     data.guard.sparkno
+    </span>
+    :è¿”å›"guard.sparkno(é˜²å¾¡ç«èŠ±å·)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     data.KO.echo
+    </span>
+    :è¿”å›"KO.echo(è¢«KOæ—¶æœ‰æ²¡æœ‰å›å£°)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     data.IntPersistIndex
+    </span>
+    :è¿”å›"IntPersistIndex(æ§åˆ¶varå‚æ•°åˆå§‹åŒ–)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     data.FloatPersistIndex
+    </span>
+    :è¿”å›"FloatPersistIndex(æ§åˆ¶fvarå‚æ•°åˆå§‹åŒ–)"å‚æ•°å€¼. (æ•´å‹)
+   </li>
+  </ul>
+  <p>
+   ä¸‹é¢å‚æ•°åçš„å€¼å°†è¿”å›ç©å®¶çš„cnsä¸­[Size]ç»„ä¸­æŒ‡å®šçš„å€¼.
+   <br/>
+  </p>
+  <ul>
+   <li>
+    <span class="STYLE3">
+     size.xscale
+    </span>
+    :è¿”å›"xscale(xæ–¹å‘ç¼©æ”¾)"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     size.yscale
+    </span>
+    :è¿”å›"yscale(yæ–¹å‘ç¼©æ”¾)"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     size.ground.back
+    </span>
+    :è¿”å›"ground.back(åæ–¹å®½åº¦)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     size.ground.front
+    </span>
+    :è¿”å›"ground.front(å‰æ–¹å®½åº¦)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     size.air.back
+    </span>
+    :è¿”å›"aie.back(ç©ºä¸­åæ–¹å®½åº¦)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     size.air.front
+    </span>
+    :è¿”å›"aie.front(ç©ºä¸­å‰æ–¹å®½åº¦)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     size.height
+    </span>
+    :è¿”å›"height(é«˜åº¦)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     size.attack.dist
+    </span>
+    :è¿”å›"attack.dist(æ”»å‡»è·ç¦»,å¯¹æ‰‹è¶…å‡ºè¿™ä¸ªè·ç¦»æ— æ³•åšå‡ºé˜²å¾¡åŠ¨ä½œ)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     size.proj.attack.dist
+    </span>
+    :è¿”å›"proj.attack.dist(é£è¡Œé“å…·æ”»å‡»è·ç¦»)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     size.proj.doscale
+    </span>
+    :è¿”å›"proj.doscale(é£è¡Œé“å…·æ˜¯å¦å—size.xscaleå’Œsize.yscaleå½±å“)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     size.head.pos.x
+    </span>
+    :è¿”å›"head.pos(å¤´éƒ¨ä½ç½®)"xæ–¹å‘å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     size.head.pos.y
+    </span>
+    :è¿”å›"head.pos(å¤´éƒ¨ä½ç½®)"yæ–¹å‘å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     size.mid.pos.x
+    </span>
+    :è¿”å›"mid.pos(èº«ä½“ä¸­éƒ¨ä½ç½®)"xæ–¹å‘å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     size.mid.pos.y
+    </span>
+    :è¿”å›"mid.pos(èº«ä½“ä¸­éƒ¨ä½ç½®)"yæ–¹å‘å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     size.shadowoffset
+    </span>
+    :è¿”å›"shadowoffset(å½±å­åç§»)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     size.draw.offset.x
+    </span>
+    :è¿”å›"draw.offset(äººç‰©åç§»)"xæ–¹å‘å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     size.draw.offset.y
+    </span>
+    :è¿”å›"draw.offset(äººç‰©åç§»)"yæ–¹å‘å‚æ•°å€¼. (æ•´å‹)
+   </li>
+  </ul>
+  <p>
+   ä¸‹é¢å‚æ•°åçš„å€¼å°†è¿”å›ç©å®¶çš„cnsä¸­[Velocity]ç»„ä¸­æŒ‡å®šçš„å€¼.
+   <br/>
+  </p>
+  <ul>
+   <li>
+    <span class="STYLE3">
+     velocity.walk.fwd.x
+    </span>
+    :è¿”å›"walk.fwd(å‘å‰èµ°é€Ÿåº¦)"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.walk.back.x
+    </span>
+    :è¿”å›"walk.back(å‘åèµ°é€Ÿåº¦)"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.run.fwd.x
+    </span>
+    :è¿”å›"run.fwd(å‘å‰è·‘)"xæ–¹å‘å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.run.fwd.y
+    </span>
+    :è¿”å›"run.fwd(å‘å‰è·‘)"yæ–¹å‘å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.run.back.x
+    </span>
+    :è¿”å›"run.back(å‘åè·‘)"xæ–¹å‘å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.run.back.y
+    </span>
+    :è¿”å›"run.back(å‘åè·‘)"yæ–¹å‘å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.jump.y
+    </span>
+    :è¿”å›"jump.neu(æ­£å‘ä¸Šè·³)"yæ–¹å‘å‚æ•°å€¼. æ³¨æ„: è¿™ä¸æ˜¯"velocity.jump.neu.y". ä»…ä»…æ˜¯"neu"å‚æ•°å–yæ–¹å‘çš„å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.jump.neu.x
+    </span>
+    :è¿”å›"jump.neu(æ­£å‘ä¸Šè·³)"xæ–¹å‘å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.jump.back.x
+    </span>
+    :è¿”å›"jump.back(å‘åè·³)"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.jump.fwd.x
+    </span>
+    :è¿”å›"jump.fwd(å‘å‰è·³)"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.runjump.back.x
+    </span>
+    :è¿”å›"runjump.back(å‘åè·‘è·³)"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.runjump.fwd.x
+    </span>
+    :è¿”å›"runjump.fwd(å‘å‰è·‘è·³)"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.airjump.y
+    </span>
+    :è¿”å›"airjump.neu(æ­£å‘ä¸Šè¿è·³)"yæ–¹å‘å‚æ•°å€¼. æ³¨æ„: è¿™ä¸æ˜¯"velocity.airjump.neu.y". (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.airjump.neu.x
+    </span>
+    :è¿”å›"airjump.neu(æ­£å‘ä¸Šè¿è·³)"xæ–¹å‘å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.airjump.back.x
+    </span>
+    :è¿”å›"airjump.back(æ­£å‘åè¿è·³)"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.airjump.fwd.x
+    </span>
+    :è¿”å›"airjump.fwd(æ­£å‘å‰è¿è·³)"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.air.gethit.groundrecover.x
+    </span>
+    :è¿”å›"air.gethit.groundrecover"xæ–¹å‘å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.air.gethit.groundrecover.y
+    </span>
+    :è¿”å›"air.gethit.groundrecover"yæ–¹å‘å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.air.gethit.airrecover.mul.x
+    </span>
+    :è¿”å›"air.gethit.airrecover.mul"xæ–¹å‘å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.air.gethit.airrecover.mul.y
+    </span>
+    :è¿”å›"air.gethit.airrecover.mul"yæ–¹å‘å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.air.gethit.airrecover.add.x
+    </span>
+    :è¿”å›"air.gethit.airrecover.add"xæ–¹å‘å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.air.gethit.airrecover.add.y
+    </span>
+    :è¿”å›"air.gethit.airrecover.add"yæ–¹å‘å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.air.gethit.airrecover.back
+    </span>
+    :è¿”å›"air.gethit.airrecover.back"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.air.gethit.airrecover.fwd
+    </span>
+    :è¿”å›"air.gethit.airrecover.fwd"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.air.gethit.airrecover.up
+    </span>
+    :è¿”å›"air.gethit.airrecover.up"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     velocity.air.gethit.airrecover.down
+    </span>
+    :è¿”å›"air.gethit.airrecover.down"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+   </li>
+  </ul>
+  <p>
+   ä¸‹é¢å‚æ•°åçš„å€¼å°†è¿”å›ç©å®¶çš„cnsä¸­[Movement]ç»„ä¸­æŒ‡å®šçš„å€¼.
+   <br/>
+  </p>
+  <ul>
+   <li>
+    <span class="STYLE3">
+     movement.airjump.num
+    </span>
+    :è¿”å›"airjump.num(ç©ºä¸­è¿è·³æ•°)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     movement.airjump.height
+    </span>
+    :è¿”å›"airjump.height(ç©ºä¸­è¿è·³éœ€è¦çš„é«˜åº¦)"å‚æ•°å€¼. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     movement.yaccel
+    </span>
+    :è¿”å›"yaccel(ä¸‹è½åŠ é€Ÿåº¦)"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     movement.stand.friction
+    </span>
+    :è¿”å›"stand.friction(ç«™ç«‹å—åˆ°çš„æ‘©æ“¦åŠ›)"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     movement.crouch.friction
+    </span>
+    :è¿”å›"crouch.friction(è¹²ä¸‹å—åˆ°çš„æ‘©æ“¦åŠ›)"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     movement.stand.friction.threshold
+    </span>
+    :è¿”å›"stand.friction.threshold(ç«™ç«‹æ‘©æ“¦åŠ›é˜ˆå€¼)"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     movement.crouch.friction.threshold
+    </span>
+    :è¿”å›"crouch.friction.threshold(è¹²ä¸‹æ‘©æ“¦åŠ›é˜ˆå€¼)"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     movement.jump.changeanim.threshold
+    </span>
+    :è¿”å›"jump.changeanim.threshold"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     movement.air.gethit.groundlevel
+    </span>
+    :è¿”å›"air.gethit.groundlevel"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     movement.air.gethit.groundrecover.ground.threshold
+    </span>
+    :è¿”å›"air.gethit.groundrecover.ground.threshold"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     movement.air.gethit.groundrecover.groundlevel
+    </span>
+    :è¿”å›"air.gethit.groundrecover.groundlevel"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     movement.air.gethit.airrecover.threshold
+    </span>
+    :è¿”å›"air.gethit.airrecover.threshold"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     movement.air.gethit.airrecover.yaccel
+    </span>
+    :è¿”å›"air.gethit.airrecover.yaccel"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     movement.air.gethit.trip.groundlevel
+    </span>
+    :è¿”å›"air.gethit.trip.groundlevel"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     movement.down.bounce.offset.x
+    </span>
+    :è¿”å›"down.bounce.offset"xæ–¹å‘å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     movement.down.bounce.offset.y
+    </span>
+    :è¿”å›"down.bounce.offset"yæ–¹å‘å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     movement.down.bounce.yaccel
+    </span>
+    :è¿”å›"down.bounce.yaccel"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     movement.down.bounce.groundlevel
+    </span>
+    :è¿”å›"down.bounce.groundlevel"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     movement.down.friction.threshold
+    </span>
+    :è¿”å›"down.friction.threshold"å‚æ•°å€¼. (æµ®ç‚¹å‹)
+   </li>
+  </ul>
+  <p>
+   <span class="STYLE2">
+    ç¤ºä¾‹:
+   </span>
+   <br/>
+   trigger1 = Const(velocity.walk.fwd.x) &gt; 4
+   <br/>
+   å¦‚æœå‘å‰èµ°çš„é€Ÿåº¦å¤§äº4åˆ™è§¦å‘.
+  </p>
+  <p>
+   (å…³äºå‚æ•°å…·ä½“å«ä¹‰è¯·æŸ¥çœ‹"cnså˜é‡è®¾ç½®")
+  </p>
+  <p>
+  </p>
+ </body>
 </html>

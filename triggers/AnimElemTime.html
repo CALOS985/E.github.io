@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>AnimElemTime (math)</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   AnimElemTime (math)
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,43 +23,109 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">AnimElemTime (math)</p>
-<p>��ôӵ�ǰ��������ָ��Ԫ�ؿ�ʼ��ȥ�Ķ���ʱ��.<br />
-  ���ڶ�������Ԫ�ص�ͬ���¼�.<br />
-��ס:����Ԫ�ص���ʼ��1����0.</p>
-<p><span class="STYLE2">����ע��:</span><br />
-element����ֱ����Ԫ�ص���˼,����Ԫ�ؾ���ָ��ɶ�����ͼƬ.</p>
-<p><span class="STYLE2">��ʽ: </span><br />
-  <span class="STYLE3">AnimElemTime(����ʽ)</span></p>
-<p><span class="STYLE2">����: </span><br />
-  ����ʽ<br />
-�����Ҫ���Ԫ�غŵı���ʽ.(����)</p>
-<p><span class="STYLE2">����ֵ����: </span><br />
-����</p>
-<p><span class="STYLE2">��������:</span> <br />
-  �������ʽ�����bottom�򷵻�bottom.<br />
-�������ʽ������ĵ�ǰ����Ԫ�غŲ�������AnimElemTime(����ʽ)����bottom.</p>
-<p><span class="STYLE2">ע��: </span><br />
-  AnimElemTime��һ������ѭ�������Ķ����ĵڶ��λ��߸��������ѭ�����׸���Ϸ֡���ᴥ��.<br />
-  ����,&quot;AnimElemTime(1) = 0&quot;�ڶ����ı�ʱ����֡�ᴥ��,ѭ����ʱ���򲻻ᴥ��.<br />
-���������������Ҳ�ܴ���,���ÿ�ζ�ʹ��&quot;AnimElemTime(1) = 0 || AnimTime = 0&quot;.</p>
-<p><span class="STYLE2">ʾ��:</span><br />
-  trigger1 = AnimElemTime(2) = 0<br />
-  �����ĵ�2Ԫ����֡Ϊ��.Ҳ����:<br />
-trigger1 = AnimElem = 2</p>
-<p>trigger1 = AnimElemTime(2) = 4<br />
-  �����ĵ�2Ԫ����֡����ĵ�4֡Ϊ��.</p>
-<p>trigger1 = AnimElemTime(2) &gt;= 0<br />
-  trigger1 = AnimElemTime(3) &lt; 0<br />
-  ������������2Ԫ�ض�Ϊ��,�����е�3��Ԫ�ش���.<br />
-  ��������ڵ�3��Ԫ��,�ǵ�2��Ҳ�͵ȼ���:<br />
-  trigger1 = AnimTime &lt;= 0</p>
-<p><span class="STYLE2">����: </span><br />
-  AnimElemTime(2) = 0�൱��AnimElem = 2, = 0 <br />
-AnimElemTime(2) &gt; 0�൱��AnimElem = 2, &gt; 0</p>
-<p class="STYLE2">����������鿴AnimElem������.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   AnimElemTime (math)
+  </p>
+  <p>
+   获得从当前动画动作指定元素开始逝去的动画时间.
+   <br/>
+   用于动画动作元素的同步事件.
+   <br/>
+   记住:动作元素的起始是1不是0.
+  </p>
+  <p>
+   <span class="STYLE2">
+    首先注明:
+   </span>
+   <br/>
+   element按照直译是元素的意思,动画元素就是指组成动画的图片.
+  </p>
+  <p>
+   <span class="STYLE2">
+    格式:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    AnimElemTime(表达式)
+   </span>
+  </p>
+  <p>
+   <span class="STYLE2">
+    参数:
+   </span>
+   <br/>
+   表达式
+   <br/>
+   计算出要检测元素号的表达式.(整型)
+  </p>
+  <p>
+   <span class="STYLE2">
+    返回值类型:
+   </span>
+   <br/>
+   整型
+  </p>
+  <p>
+   <span class="STYLE2">
+    错误条件:
+   </span>
+   <br/>
+   如果表达式计算出bottom则返回bottom.
+   <br/>
+   如果表达式计算出的当前动作元素号不存在则AnimElemTime(表达式)返回bottom.
+  </p>
+  <p>
+   <span class="STYLE2">
+    注意:
+   </span>
+   <br/>
+   AnimElemTime在一个有限循环次数的动画的第二次或者更后面次数循环的首个游戏帧不会触发.
+   <br/>
+   例如,"AnimElemTime(1) = 0"在动画改变时的首帧会触发,循环的时候则不会触发.
+   <br/>
+   如想让这种情况下也能触发,你得每次都使用"AnimElemTime(1) = 0 || AnimTime = 0".
+  </p>
+  <p>
+   <span class="STYLE2">
+    示例:
+   </span>
+   <br/>
+   trigger1 = AnimElemTime(2) = 0
+   <br/>
+   动画的第2元素首帧为真.也就是:
+   <br/>
+   trigger1 = AnimElem = 2
+  </p>
+  <p>
+   trigger1 = AnimElemTime(2) = 4
+   <br/>
+   动画的第2元素首帧过后的第4帧为真.
+  </p>
+  <p>
+   trigger1 = AnimElemTime(2) &gt;= 0
+   <br/>
+   trigger1 = AnimElemTime(3) &lt; 0
+   <br/>
+   动画的整个第2元素都为真,假设有第3个元素存在.
+   <br/>
+   如果不存在第3个元素,那第2行也就等价于:
+   <br/>
+   trigger1 = AnimTime &lt;= 0
+  </p>
+  <p>
+   <span class="STYLE2">
+    特例:
+   </span>
+   <br/>
+   AnimElemTime(2) = 0相当于AnimElem = 2, = 0
+   <br/>
+   AnimElemTime(2) &gt; 0相当于AnimElem = 2, &gt; 0
+  </p>
+  <p class="STYLE2">
+   更多详情请查看AnimElem触发器.
+  </p>
+ </body>
 </html>

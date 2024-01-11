@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>AnimElemNo (math)</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   AnimElemNo (math)
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,36 +23,90 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">AnimElemNo (math)</p>
-<p>���ؽ���ָ��ʱ�䲥�ŵĵ�ǰ�����Ķ���Ԫ�غ�.<br />
-  AnimElemNo�Ĳ�����ʾ��Ҫ����ʱ��,���ʱ������������Ϸ֡����ʾ.</p>
-<p><span class="STYLE2">����ע��:</span><br />
-element����ֱ����Ԫ�ص���˼,����Ԫ�ؾ���ָ��ɶ�����ͼƬ.</p>
-<p><span class="STYLE2">��ʽ: </span><br />
-  <span class="STYLE3">AnimElemNo(����ʽ)</span></p>
-<p><span class="STYLE2">����: </span><br />
-  ����ʽ <br />
-����ʽ��ʾ�������ʱ��ƫ����(����).</p>
-<p><span class="STYLE2">����ֵ����: </span><br />
-����</p>
-<p><span class="STYLE2">��������:</span> <br />
-  �����ͼ����ڵ�ǰ������ʼǰ������ʱ����AnimElemNo(����ʽ)����bottom.</p>
-<p><span class="STYLE2">ע��: </span><br />
-  �������������ѭ������,�Ҽٶ�������ѭ��.<br />
-  �����˵,����֮ǰ����˶��,AnimElemNo�����Ƿ����������ѭ�������е�һ��Ԫ�غ�.</p>
-<p><span class="STYLE2">ʾ��:</span><br />
-  trigger1 = AnimElemNo(0) = 2<br />
-  ������Ԫ�ؾ���0֮֡���ǵ�2��Ԫ����Ϊ��.<br />
-  ���ͬ��:<br />
-  trigger1 = AnimElem = 2, &gt;= 0<br />
-trigger1 = AnimElem = 3, &lt; 0</p>
-<p>trigger1 = AnimElemNo(2) = 4<br />
-  ������Ԫ�ؾ���2֮֡���ǵ�4��Ԫ����Ϊ��.<br />
-  ���ͬ��:<br />
-  trigger1 = AnimElem = 4, &gt;= -2<br />
-  trigger1 = AnimElem = 5, &lt; -2</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   AnimElemNo (math)
+  </p>
+  <p>
+   返回将在指定时间播放的当前动作的动画元素号.
+   <br/>
+   AnimElemNo的参数表示需要检测的时间,这个时间在这里用游戏帧来表示.
+  </p>
+  <p>
+   <span class="STYLE2">
+    首先注明:
+   </span>
+   <br/>
+   element按照直译是元素的意思,动画元素就是指组成动画的图片.
+  </p>
+  <p>
+   <span class="STYLE2">
+    格式:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    AnimElemNo(表达式)
+   </span>
+  </p>
+  <p>
+   <span class="STYLE2">
+    参数:
+   </span>
+   <br/>
+   表达式
+   <br/>
+   表达式表示计算出的时间偏移量(整型).
+  </p>
+  <p>
+   <span class="STYLE2">
+    返回值类型:
+   </span>
+   <br/>
+   整型
+  </p>
+  <p>
+   <span class="STYLE2">
+    错误条件:
+   </span>
+   <br/>
+   如果试图检测在当前动画开始前结束的时间则AnimElemNo(表达式)返回bottom.
+  </p>
+  <p>
+   <span class="STYLE2">
+    注意:
+   </span>
+   <br/>
+   如果动作正处于循环部分,且假定已永久循环.
+   <br/>
+   这就是说,无论之前检测了多久,AnimElemNo将总是返回这个动作循环部分中的一个元素号.
+  </p>
+  <p>
+   <span class="STYLE2">
+    示例:
+   </span>
+   <br/>
+   trigger1 = AnimElemNo(0) = 2
+   <br/>
+   当动画元素经过0帧之后是第2个元素则为真.
+   <br/>
+   这等同于:
+   <br/>
+   trigger1 = AnimElem = 2, &gt;= 0
+   <br/>
+   trigger1 = AnimElem = 3, &lt; 0
+  </p>
+  <p>
+   trigger1 = AnimElemNo(2) = 4
+   <br/>
+   当动画元素经过2帧之后是第4个元素则为真.
+   <br/>
+   这等同于:
+   <br/>
+   trigger1 = AnimElem = 4, &gt;= -2
+   <br/>
+   trigger1 = AnimElem = 5, &lt; -2
+  </p>
+ </body>
 </html>

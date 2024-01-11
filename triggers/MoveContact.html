@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>MoveContact</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   MoveContact
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,35 +23,86 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">MoveContact</p>
-<p>�˴�����������Ҵ��ڹ���״̬ʱ��Ч.<br />
-  ���p2(p1�Ķ���)��p1���л��߷���סp1�Ĺ�����MoveContact����һ����0ֵ,�������0.<br />
-  ͨ���������&quot;StateNo&quot;��&quot;Command&quot;������һ��ʹ�ü��CMD�ļ��еĹ����ж�(����A��ʽ���к��������B��ʽ).</p>
-<p><span class="STYLE2">��ʽ: </span><br />
-  <span class="STYLE3">MoveContact</span></p>
-<p><span class="STYLE2">����: </span><br />
-��</p>
-<p><span class="STYLE2">����ֵ����: </span><br />
-����</p>
-<p><span class="STYLE2">��������:</span><br />
-��</p>
-<p><span class="STYLE2">����: </span><br />
-  ����һ�Ӵ���(����),MoveContact�㷵��1.<br />
-  �Ӵ���֮��,��p1û��ͣ��(p1��ʽ�Ӵ������ֺ�����ͣ��;�鿴hitdef��������pausetime����)ʱMoveContact���ص�ֵ��ÿ����Ϸ֡����1.<br />
-MoveGuarded, MoveHit��MoveReversed��ֵ������ͬ�ķ�ʽ����.</p>
-<p>ע��1: MoveContact, MoveGuarded, MoveHit��MoveReversed�Ǳ�ͬʱ���õ�.<br />
-  ����,һ����ʽ�е�HitDef�ɹ������˶���,MoveHit�᷵�ط�0(��MoveHit�������ֵ).<br />
-  �����ͬ��ʽ�е���һ��HitDef������ס,MoveGuarded�᷵�ط�0.<br />
-  (MoveGuarded��MoveContact ���� MoveHit��MoveContact ͨ������»�ͬʱ������ֵ.)</p>
-<p>ע��2:��4��Move*��������״̬���ɺ��ָ���0��ֹͣ����.<br />
-  ��Ҫ֪����θ�����������,�鿴StateDefs(CNS�ĵ�)��&quot;movehitpersist&quot;����.</p>
-<p><span class="STYLE2">ʾ��:</span><br />
-  trigger1 = MoveContact<br />
-  ���p1��p2�Ĺ���û�г�miss��Ϊ��.<br />
-  trigger1 = MoveContact = 1<br />
-��p1�Ĺ����Ӵ�p2��p1��pausetime���øս������ʱ��Ϊ��.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   MoveContact
+  </p>
+  <p>
+   此触发器仅当玩家处于攻击状态时有效.
+   <br/>
+   如果p2(p1的对手)被p1击中或者防御住p1的攻击则MoveContact给出一个非0值,否则给出0.
+   <br/>
+   通常情况下与"StateNo"和"Command"触发器一起使用检测CMD文件中的攻击中断(例如A招式击中后可以连接B招式).
+  </p>
+  <p>
+   <span class="STYLE2">
+    格式:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    MoveContact
+   </span>
+  </p>
+  <p>
+   <span class="STYLE2">
+    参数:
+   </span>
+   <br/>
+   无
+  </p>
+  <p>
+   <span class="STYLE2">
+    返回值类型:
+   </span>
+   <br/>
+   整型
+  </p>
+  <p>
+   <span class="STYLE2">
+    错误条件:
+   </span>
+   <br/>
+   无
+  </p>
+  <p>
+   <span class="STYLE2">
+    详情:
+   </span>
+   <br/>
+   攻击一接触到(对手),MoveContact便返回1.
+   <br/>
+   接触了之后,在p1没有停顿(p1招式接触到对手后会产生停顿;查看hitdef控制器中pausetime参数)时MoveContact返回的值将每个游戏帧增加1.
+   <br/>
+   MoveGuarded, MoveHit和MoveReversed的值都以相同的方式增长.
+  </p>
+  <p>
+   注意1: MoveContact, MoveGuarded, MoveHit和MoveReversed是被同时设置的.
+   <br/>
+   例如,一个招式中的HitDef成功击中了对手,MoveHit会返回非0(即MoveHit会产生数值).
+   <br/>
+   如果相同招式中的下一次HitDef被防御住,MoveGuarded会返回非0.
+   <br/>
+   (MoveGuarded和MoveContact 或者 MoveHit和MoveContact 通常情况下会同时出现数值.)
+  </p>
+  <p>
+   注意2:这4个Move*触发器在状态过渡后会恢复到0并停止增长.
+   <br/>
+   想要知道如何覆盖这种特征,查看StateDefs(CNS文档)中"movehitpersist"参数.
+  </p>
+  <p>
+   <span class="STYLE2">
+    示例:
+   </span>
+   <br/>
+   trigger1 = MoveContact
+   <br/>
+   如果p1对p2的攻击没有出miss则为真.
+   <br/>
+   trigger1 = MoveContact = 1
+   <br/>
+   从p1的攻击接触p2到p1的pausetime正好刚结束这段时间为真.
+  </p>
+ </body>
 </html>

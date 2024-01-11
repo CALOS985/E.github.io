@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>GetHitVar(*)</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   GetHitVar(*)
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,94 +23,299 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">GetHitVar(*)</p>
-<p>µ±Íæ¼Ò´¦ÓÚgethit(ÊÜ»÷×´Ì¬)×´Ì¬ÖĞ,·µ»ØÖ¸¶¨µÄhit²ÎÊı.</p>
-<p><span class="STYLE2">¸ñÊ½: </span><br />
-  <span class="STYLE3">GetHitVar(²ÎÊıÃû)</span></p>
-<p><span class="STYLE2">²ÎÊı: </span><br />
-  ²ÎÊıÃû <br />
-  ÓĞĞ§µÄ¿ÉÓÃÓÚ¼ì²âµÄ²ÎÊıÃûÓĞÏÂÁĞ: <br />
-xveladd, yveladd, type, animtype, airtype, groundtype, damage, hitcount, fallcount, hitshaketime, hittime, slidetime, ctrltime, recovertime, xoff, yoff, zoff, xvel, yvel, yaccel, hitid, chainid, guarded, fall, fall.damage, fall.xvel, fall.yvel, fall.recover, fall.time, fall.recovertime.</p>
-<p><span class="STYLE2">·µ»ØÖµÀàĞÍ: </span><br />
-È¡¾öÓÚÖ¸¶¨µÄhit²ÎÊı.²é¿´ÏêÇé.</p>
-<p><span class="STYLE2">´íÎóÌõ¼ş: </span><br />
-ÎŞ</p>
-<p><span class="STYLE2">ÏêÇé:</span><br />
-</p>
-<ul>
-  <li><span class="STYLE3">xveladd</span>: ·µ»ØÍæ¼Ò±»KOÊ±Ê©¼Ó¸ø×ÔÉíµÄx·½ÏòËÙ¶ÈÔöÁ¿.(¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">yveladd</span>: ·µ»ØÍæ¼Ò±»KOÊ±Ê©¼Ó¸ø×ÔÉíµÄy·½ÏòËÙ¶ÈÔöÁ¿.(¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">type</span>: ·µ»ØhitµÄÀàĞÍ:0-ÎŞ,1-¸ß,2-µÍ,3-°íµ¹(ÔÚµØÃæÊ±ÓĞĞ§)<br />
-    </li>
-  <li><span class="STYLE3">animtype</span>: ·µ»ØhitµÄ¶¯»­ÀàĞÍ:0-Çá,1-ÖĞ,2-ÖØ,3-Ïòºó,4-ÏòÉÏ,5-Ğı×ªÏòÉÏ.<br />
-    </li>
-  <li><span class="STYLE3">airtype</span>: ·µ»ØHitdefÖĞ¿ÕÖĞhitµÄÖ¸¶¨ÀàĞÍ.<br />
-    </li>
-  <li><span class="STYLE3">groundtype</span>: ·µ»ØHitdefÖĞµØÃæhitµÄÖ¸¶¨ÀàĞÍ.<br />
-    </li>
-  <li><span class="STYLE3">damage</span>: ·µ»ØhitµÄÉËº¦Öµ.(ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">hitcount</span>: ·µ»ØÍæ¼ÒÔÚµ±Ç°Á¬»÷ÖĞ²úÉúµÄÁ¬»÷Êı.(ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">fallcount</span>: ·µ»ØÍæ¼ÒÔÚµ±Ç°Á¬»÷ÖĞµ¹µØ´ÎÊı.(ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">hitshaketime</span>: ·µ»ØÍæ¼ÒÔÚ¹¥»÷ÖĞ±»&quot;¶³½á&quot;µÄÊ±¼ä.´ËÊı×ÖÃ¿Ö¡¼õ1,µ½0Ê±Í£Ö¹.(ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">hittime</span>: ·µ»ØÍæ¼ÒÊÜ¿ØÖÆÖ®Ç°µÄÊ±¼ä,ÔÚÊÜ¹¥»÷Ö®ºó·µ»ØÒ»¸ö¿ÕÏĞ×´Ì¬.<br />
-    Ö»Òªhitshaketime´óÓÚ0,ÔòÕâ¸öÊı×ÖÃ¿Ö¡¼õ1,Ö±µ½µ½´ï-1.(ÕûĞÍ)<br />
-&quot;GetHitVar(hittime) &lt; 0&quot; µÈ¼ÛÓÚHitOver±»´¥·¢.<br />
-    </li>
-  <li><span class="STYLE3">slidetime</span>: ·µ»ØÍæ¼Ò±»»÷ÖĞºóÏòºó»¬¶¯(ÔÚµØÃæÉÏ)µÄÊ±¼ä.(ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">ctrltime</span>: ·µ»ØÍæ¼Ò·ÀÓùhitÖ®ºó»Ö¸´¿ØÖÆÖ®Ç°µÄÊ±¼ä.(ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">recovertime</span>: ·µ»ØÍæ¼Ò´Óµ¹µØ×´Ì¬µ½ÆğÉíÇ°µÄÊ±¼ä.´ËÊı×ÖÔÚÍæ¼Òµ¹µØºóÃ¿Ö¡¼õ1Ö±µ½0(´ËÊ±Íæ¼ÒÕıºÃÆğÉí),Èç¹ûÄãÔÚ´ËÆÚ¼ä°´¼ü,´ËÊı×Ö½«¼õÉÙµÄ¸ü¿ì.(ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">xoff</span>: hitÊ±&quot;¶ÌÔİµÄ&quot;x·½ÏòÆ«ÒÆ(²»ÍÆ¼ö)<br />
-    </li>
-  <li><span class="STYLE3">yoff</span>: hitÊ±&quot;¶ÌÔİµÄ&quot;y·½ÏòÆ«ÒÆ(²»ÍÆ¼ö)<br />
-    </li>
-  <li><span class="STYLE3">xvel</span>: ÓÉhit¸øÓèµÄx·½Ïò¹Ì¶¨µÄËÙ¶È.(¸¡µãĞÍ) <br />
-    </li>
-  <li><span class="STYLE3">yvel</span>: ÓÉhit¸øÓèµÄy·½Ïò¹Ì¶¨µÄËÙ¶È.(¸¡µãĞÍ) <br />
-    </li>
-  <li><span class="STYLE3">yaccel</span>: ÓÉhitÉèÖÃµÄy·½Ïò¼ÓËÙ¶È.(¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">chainid</span>: ÓÉÍæ¼ÒÖ¸¶¨µÄÉÏÒ»´ÎhitÖĞµÄchainID. (ÕûĞÍ) <br />
-    </li>
-  <li><span class="STYLE3">guarded</span>: Èç¹ûÉÏÒ»´Îhit±»·ÀÓù×¡Ôò·µ»ØÕæ,·ñÔò·µ»Ø¼Ù.<br />
-    </li>
-  <li><span class="STYLE3">isbound</span>: Èç¹ûÍæ¼ÒÊÇ¹¥»÷ÕßTargetBind¿ØÖÆÆ÷µÄÖ÷ÌåÔò·µ»ØÕæ.¶Ô·ÀÖ¹ÔÚ×¥Í¶×´Ì¬ÖĞ±»¿¨×¡ÓĞÓÃ´¦.(ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">fall</span>: Èç¹û´¦ÓÚÏÂÂä×´Ì¬Ôò·µ»ØÕæ,·ñÔò·µ»Ø¼Ù.(ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">fall.damage</span>: ÏÂÂä×´Ì¬Éè¶¨µÄÉËº¦Öµ.(ÕûĞÍ) <br />
-    </li>
-  <li><span class="STYLE3">fall.xvel</span>: ´ÓµØÃæ·´µ¯ºóx·½ÏòµÄËÙ¶È.(¸¡µãĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">fall.yvel</span>: ´ÓµØÃæ·´µ¯ºóy·½ÏòµÄËÙ¶È.(¸¡µãĞÍ) <br />
-    </li>
-  <li><span class="STYLE3">fall.recover</span>: Èç¹ûÍæ¼Ò¿ÉÒÔrecover(»Ö¸´)Ôò·µ»ØÕæ,·ñÔò·µ»Ø¼Ù.<br />
-    </li>
-  <li><span class="STYLE3">fall.recovertime</span>: Íæ¼Ò¿ÉÒÔrecoverÇ°µÄÊ±¼ä.(ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">fall.kill</span>: ¹¥»÷ÕßhitdefÖĞfall.killµÄÊıÖµ.(ÕûĞÍ)<br />
-    </li>
-  <li><span class="STYLE3">fall.envshake.time</span>: ¿´ÏÂÃæ. (ÕûĞÍ) <br />
-    </li>
-  <li><span class="STYLE3">fall.envshake.freq</span>: ¿´ÏÂÃæ. (¸¡µãĞÍ) <br />
-    </li>
-  <li><span class="STYLE3">fall.envshake.ampl</span>: ¿´ÏÂÃæ. (ÕûĞÍ) <br />
-    </li>
-  <li><span class="STYLE3">fall.envshake.phase</span>: ·µ»Ø¹¥»÷Õßfall.envshake.*²ÎÊıÊıÖµ.(¸¡µãĞÍ)</li>
-</ul>
-<p><span class="STYLE2">Ê¾Àı:</span><br />
-  trigger1 = GetHitVar(yvel) &lt; -5.5<br />
-hitµÄÖ¸¶¨yËÙ¶ÈĞ¡ÓÚ-5.5Ôò´¥·¢.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   GetHitVar(*)
+  </p>
+  <p>
+   å½“ç©å®¶å¤„äºgethit(å—å‡»çŠ¶æ€)çŠ¶æ€ä¸­,è¿”å›æŒ‡å®šçš„hitå‚æ•°.
+  </p>
+  <p>
+   <span class="STYLE2">
+    æ ¼å¼:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    GetHitVar(å‚æ•°å)
+   </span>
+  </p>
+  <p>
+   <span class="STYLE2">
+    å‚æ•°:
+   </span>
+   <br/>
+   å‚æ•°å
+   <br/>
+   æœ‰æ•ˆçš„å¯ç”¨äºæ£€æµ‹çš„å‚æ•°åæœ‰ä¸‹åˆ—:
+   <br/>
+   xveladd, yveladd, type, animtype, airtype, groundtype, damage, hitcount, fallcount, hitshaketime, hittime, slidetime, ctrltime, recovertime, xoff, yoff, zoff, xvel, yvel, yaccel, hitid, chainid, guarded, fall, fall.damage, fall.xvel, fall.yvel, fall.recover, fall.time, fall.recovertime.
+  </p>
+  <p>
+   <span class="STYLE2">
+    è¿”å›å€¼ç±»å‹:
+   </span>
+   <br/>
+   å–å†³äºæŒ‡å®šçš„hitå‚æ•°.æŸ¥çœ‹è¯¦æƒ….
+  </p>
+  <p>
+   <span class="STYLE2">
+    é”™è¯¯æ¡ä»¶:
+   </span>
+   <br/>
+   æ— 
+  </p>
+  <p>
+   <span class="STYLE2">
+    è¯¦æƒ…:
+   </span>
+   <br/>
+  </p>
+  <ul>
+   <li>
+    <span class="STYLE3">
+     xveladd
+    </span>
+    : è¿”å›ç©å®¶è¢«KOæ—¶æ–½åŠ ç»™è‡ªèº«çš„xæ–¹å‘é€Ÿåº¦å¢é‡.(æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     yveladd
+    </span>
+    : è¿”å›ç©å®¶è¢«KOæ—¶æ–½åŠ ç»™è‡ªèº«çš„yæ–¹å‘é€Ÿåº¦å¢é‡.(æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     type
+    </span>
+    : è¿”å›hitçš„ç±»å‹:0-æ— ,1-é«˜,2-ä½,3-ç»Šå€’(åœ¨åœ°é¢æ—¶æœ‰æ•ˆ)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     animtype
+    </span>
+    : è¿”å›hitçš„åŠ¨ç”»ç±»å‹:0-è½»,1-ä¸­,2-é‡,3-å‘å,4-å‘ä¸Š,5-æ—‹è½¬å‘ä¸Š.
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     airtype
+    </span>
+    : è¿”å›Hitdefä¸­ç©ºä¸­hitçš„æŒ‡å®šç±»å‹.
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     groundtype
+    </span>
+    : è¿”å›Hitdefä¸­åœ°é¢hitçš„æŒ‡å®šç±»å‹.
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     damage
+    </span>
+    : è¿”å›hitçš„ä¼¤å®³å€¼.(æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     hitcount
+    </span>
+    : è¿”å›ç©å®¶åœ¨å½“å‰è¿å‡»ä¸­äº§ç”Ÿçš„è¿å‡»æ•°.(æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     fallcount
+    </span>
+    : è¿”å›ç©å®¶åœ¨å½“å‰è¿å‡»ä¸­å€’åœ°æ¬¡æ•°.(æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     hitshaketime
+    </span>
+    : è¿”å›ç©å®¶åœ¨æ”»å‡»ä¸­è¢«"å†»ç»“"çš„æ—¶é—´.æ­¤æ•°å­—æ¯å¸§å‡1,åˆ°0æ—¶åœæ­¢.(æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     hittime
+    </span>
+    : è¿”å›ç©å®¶å—æ§åˆ¶ä¹‹å‰çš„æ—¶é—´,åœ¨å—æ”»å‡»ä¹‹åè¿”å›ä¸€ä¸ªç©ºé—²çŠ¶æ€.
+    <br/>
+    åªè¦hitshaketimeå¤§äº0,åˆ™è¿™ä¸ªæ•°å­—æ¯å¸§å‡1,ç›´åˆ°åˆ°è¾¾-1.(æ•´å‹)
+    <br/>
+    "GetHitVar(hittime) &lt; 0" ç­‰ä»·äºHitOverè¢«è§¦å‘.
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     slidetime
+    </span>
+    : è¿”å›ç©å®¶è¢«å‡»ä¸­åå‘åæ»‘åŠ¨(åœ¨åœ°é¢ä¸Š)çš„æ—¶é—´.(æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     ctrltime
+    </span>
+    : è¿”å›ç©å®¶é˜²å¾¡hitä¹‹åæ¢å¤æ§åˆ¶ä¹‹å‰çš„æ—¶é—´.(æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     recovertime
+    </span>
+    : è¿”å›ç©å®¶ä»å€’åœ°çŠ¶æ€åˆ°èµ·èº«å‰çš„æ—¶é—´.æ­¤æ•°å­—åœ¨ç©å®¶å€’åœ°åæ¯å¸§å‡1ç›´åˆ°0(æ­¤æ—¶ç©å®¶æ­£å¥½èµ·èº«),å¦‚æœä½ åœ¨æ­¤æœŸé—´æŒ‰é”®,æ­¤æ•°å­—å°†å‡å°‘çš„æ›´å¿«.(æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     xoff
+    </span>
+    : hitæ—¶"çŸ­æš‚çš„"xæ–¹å‘åç§»(ä¸æ¨è)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     yoff
+    </span>
+    : hitæ—¶"çŸ­æš‚çš„"yæ–¹å‘åç§»(ä¸æ¨è)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     xvel
+    </span>
+    : ç”±hitç»™äºˆçš„xæ–¹å‘å›ºå®šçš„é€Ÿåº¦.(æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     yvel
+    </span>
+    : ç”±hitç»™äºˆçš„yæ–¹å‘å›ºå®šçš„é€Ÿåº¦.(æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     yaccel
+    </span>
+    : ç”±hitè®¾ç½®çš„yæ–¹å‘åŠ é€Ÿåº¦.(æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     chainid
+    </span>
+    : ç”±ç©å®¶æŒ‡å®šçš„ä¸Šä¸€æ¬¡hitä¸­çš„chainID. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     guarded
+    </span>
+    : å¦‚æœä¸Šä¸€æ¬¡hitè¢«é˜²å¾¡ä½åˆ™è¿”å›çœŸ,å¦åˆ™è¿”å›å‡.
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     isbound
+    </span>
+    : å¦‚æœç©å®¶æ˜¯æ”»å‡»è€…TargetBindæ§åˆ¶å™¨çš„ä¸»ä½“åˆ™è¿”å›çœŸ.å¯¹é˜²æ­¢åœ¨æŠ“æŠ•çŠ¶æ€ä¸­è¢«å¡ä½æœ‰ç”¨å¤„.(æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     fall
+    </span>
+    : å¦‚æœå¤„äºä¸‹è½çŠ¶æ€åˆ™è¿”å›çœŸ,å¦åˆ™è¿”å›å‡.(æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     fall.damage
+    </span>
+    : ä¸‹è½çŠ¶æ€è®¾å®šçš„ä¼¤å®³å€¼.(æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     fall.xvel
+    </span>
+    : ä»åœ°é¢åå¼¹åxæ–¹å‘çš„é€Ÿåº¦.(æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     fall.yvel
+    </span>
+    : ä»åœ°é¢åå¼¹åyæ–¹å‘çš„é€Ÿåº¦.(æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     fall.recover
+    </span>
+    : å¦‚æœç©å®¶å¯ä»¥recover(æ¢å¤)åˆ™è¿”å›çœŸ,å¦åˆ™è¿”å›å‡.
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     fall.recovertime
+    </span>
+    : ç©å®¶å¯ä»¥recoverå‰çš„æ—¶é—´.(æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     fall.kill
+    </span>
+    : æ”»å‡»è€…hitdefä¸­fall.killçš„æ•°å€¼.(æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     fall.envshake.time
+    </span>
+    : çœ‹ä¸‹é¢. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     fall.envshake.freq
+    </span>
+    : çœ‹ä¸‹é¢. (æµ®ç‚¹å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     fall.envshake.ampl
+    </span>
+    : çœ‹ä¸‹é¢. (æ•´å‹)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     fall.envshake.phase
+    </span>
+    : è¿”å›æ”»å‡»è€…fall.envshake.*å‚æ•°æ•°å€¼.(æµ®ç‚¹å‹)
+   </li>
+  </ul>
+  <p>
+   <span class="STYLE2">
+    ç¤ºä¾‹:
+   </span>
+   <br/>
+   trigger1 = GetHitVar(yvel) &lt; -5.5
+   <br/>
+   hitçš„æŒ‡å®šyé€Ÿåº¦å°äº-5.5åˆ™è§¦å‘.
+  </p>
+ </body>
 </html>

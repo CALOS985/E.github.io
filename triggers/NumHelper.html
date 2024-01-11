@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>NumHelper</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   NumHelper
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,27 +23,65 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">NumHelper</p>
-<p>´Ë´¥·¢Æ÷ÓµÓĞÒ»¸öIDºÅ×÷Îª¿ÉÑ¡²ÎÊı.Èç¹ûIDºÅÊ¡ÂÔ,NumHelper·µ»ØÍæ¼ÒÄ¿Ç°ÓµÓĞµÄhelper(Ô®Öú)ÊıÁ¿.<br />
-  Èç¹û°üº¬ÁËIDºÅ,ÔòNumHelper·µ»ØÍæ¼ÒÓµÓĞµÄ´ËIDºÅµÄhelperÊıÁ¿.IDºÅ±ØĞë´óÓÚ0.<br />
-  Èç¹ûIDºÅĞ¡ÓÚµÈÓÚ0,ÔòËùÓĞhelper¶¼»á¼ÆËãÔÚÄÚ.</p>
-<p><span class="STYLE2">¸ñÊ½: </span><br />
-  <span class="STYLE3">NumHelper <br />
-NumHelper(±í´ïÊ½)</span></p>
-<p><span class="STYLE2">²ÎÊı: </span><br />
-  ±í´ïÊ½ <br />
-¼ÆËã³öIDºÅµÄ±í´ïÊ½(ÕûĞÍ).</p>
-<p><span class="STYLE2">·µ»ØÖµÀàĞÍ: </span><br />
-ÕûĞÍ</p>
-<p><span class="STYLE2">´íÎóÌõ¼ş:</span><br />
-Èç¹û±í´ïÊ½¼ÆËã³öbottomÔò·µ»Øbottom.</p>
-<p><span class="STYLE2">Ê¾Àı:</span><br />
-  1. trigger1 = NumHelper &lt; 2<br />
-  Èç¹ûÍæ¼Òµ±Ç°ÓµÓĞµÄhelperÊıÁ¿Ğ¡ÓÚ2Ôò´¥·¢.<br />
-  2. trigger1 = NumHelper(1234) &lt; 2<br />
-Èç¹ûÍæ¼Òµ±Ç°ÓµÓĞIDºÅÎª1234µÄhelperÊıÁ¿Ğ¡ÓÚ2Ôò´¥·¢.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   NumHelper
+  </p>
+  <p>
+   æ­¤è§¦å‘å™¨æ‹¥æœ‰ä¸€ä¸ªIDå·ä½œä¸ºå¯é€‰å‚æ•°.å¦‚æœIDå·çœç•¥,NumHelperè¿”å›ç©å®¶ç›®å‰æ‹¥æœ‰çš„helper(æ´åŠ©)æ•°é‡.
+   <br/>
+   å¦‚æœåŒ…å«äº†IDå·,åˆ™NumHelperè¿”å›ç©å®¶æ‹¥æœ‰çš„æ­¤IDå·çš„helperæ•°é‡.IDå·å¿…é¡»å¤§äº0.
+   <br/>
+   å¦‚æœIDå·å°äºç­‰äº0,åˆ™æ‰€æœ‰helperéƒ½ä¼šè®¡ç®—åœ¨å†….
+  </p>
+  <p>
+   <span class="STYLE2">
+    æ ¼å¼:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    NumHelper
+    <br/>
+    NumHelper(è¡¨è¾¾å¼)
+   </span>
+  </p>
+  <p>
+   <span class="STYLE2">
+    å‚æ•°:
+   </span>
+   <br/>
+   è¡¨è¾¾å¼
+   <br/>
+   è®¡ç®—å‡ºIDå·çš„è¡¨è¾¾å¼(æ•´å‹).
+  </p>
+  <p>
+   <span class="STYLE2">
+    è¿”å›å€¼ç±»å‹:
+   </span>
+   <br/>
+   æ•´å‹
+  </p>
+  <p>
+   <span class="STYLE2">
+    é”™è¯¯æ¡ä»¶:
+   </span>
+   <br/>
+   å¦‚æœè¡¨è¾¾å¼è®¡ç®—å‡ºbottomåˆ™è¿”å›bottom.
+  </p>
+  <p>
+   <span class="STYLE2">
+    ç¤ºä¾‹:
+   </span>
+   <br/>
+   1. trigger1 = NumHelper &lt; 2
+   <br/>
+   å¦‚æœç©å®¶å½“å‰æ‹¥æœ‰çš„helperæ•°é‡å°äº2åˆ™è§¦å‘.
+   <br/>
+   2. trigger1 = NumHelper(1234) &lt; 2
+   <br/>
+   å¦‚æœç©å®¶å½“å‰æ‹¥æœ‰IDå·ä¸º1234çš„helperæ•°é‡å°äº2åˆ™è§¦å‘.
+  </p>
+ </body>
 </html>

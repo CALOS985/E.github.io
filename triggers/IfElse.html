@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>IfElse (math)</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   IfElse (math)
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,36 +23,88 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">IfElse (math)</p>
-<p>´Ë´¥·¢Æ÷ÓÉ3ºÍ²ÎÊý¹¹³É.Èç¹ûµÚÒ»¸ö²ÎÊý·Ç0,ifelse·µ»ØµÚ2¸ö²ÎÊýÖµ,·ñÔò,·µ»ØµÚ3¸ö²ÎÊýÖµ.<br />
-  ËùÓÐ²ÎÊýÔÚifelseÖ´ÐÐÇ°¶¼½«Ô¤ÏÈ¼ÆËã.ÌØ±ðµÄ,»áÒýÆðÈÎºÎÓÉÓÚ¼ÆËã²ÎÊý(ÀýÈç¸ø±äÁ¿¸³Öµ»òÕßÖ´ÐÐÒ»¸ö»á²úÉú¾¯¸æµÄÔËËã)Ëù²úÉúµÄ¸±×÷ÓÃ.<br />
-  Èç¹ûÄãÏë±ÜÃâ²úÉúÕâÐ©¸±×÷ÓÃ,ÇëÊ¹ÓÃCond.</p>
-<p>Cond½öÖ§³Ömugen1.0¼°ÒÔÉÏµÄ°æ±¾. ¶øifelseÖ§³ÖËùÓÐmugen°æ±¾.</p>
-<p><span class="STYLE2">¸ñÊ½: </span><br />
-  <span class="STYLE3">IfElse(exp_cond,exp_true,exp_false)</span></p>
-<p><span class="STYLE2">²ÎÊý: </span><br />
-  exp_cond<br />
-  ÐèÒª²âÊÔµÄ±í´ïÊ½<br />
-  exp_true<br />
-  Èç¹û exp_cond Îª·Ç0Ôò·µ»Ø´Ë±í´ïÊ½Ö¸¶¨µÄÖµ.<br />
-  exp_false<br />
-Èç¹û exp_cond Îª0Ôò·µ»Ø´Ë±í´ïÊ½Ö¸¶¨µÄÖµ.</p>
-<p><span class="STYLE2">·µ»ØÖµÀàÐÍ: </span><br />
-  Èç¹û exp_true ±»·µ»Ø,Ôò·µ»ØÀàÐÍºÍ exp_true ÏàÍ¬.<br />
-Èç¹û exp_false ±»·µ»Ø,Ôò·µ»ØÀàÐÍºÍ exp_false ÏàÍ¬.</p>
-<p><span class="STYLE2">´íÎóÌõ¼þ: </span><br />
-  ·µ»ØbottomÈç¹û exp_cond ¼ÆËã³öbottom,<br />
-»òÕß exp_true »ò exp_false (ÈÎºÎÒ»¸ö±»Ê¹ÓÃÁË) ¼ÆËã³öbottom.</p>
-<p><span class="STYLE2">Ê¾Àý:</span><br />
-  value = IfElse(var(3),1,2)<br />
-  µ±var(3)ÊÇ·Ç0Ê±,valueÖµÎª1.<br />
-µ±var(3)ÊÇ0Ê±,valueÖµÎª2.</p>
-<p><span class="STYLE2">ÌØÁÐ:</span><br />
-  ifelse¿ÉÒÔÓÃCondÀ´´úÓÃ(·´¹ýÀ´Ò²¿É)<br />
-Cond(var(3),1,2)Ïàµ±ÓÚifelse(var(3),1,2)</p>
-<p>Á½ÕßµÄÇø±ðÇë²é¿´±í´ïÊ½²¿·Ö¹ØÓÚbottomÖÐÌØÊâ¸ñÊ½µÄÕÂ½Ú.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   IfElse (math)
+  </p>
+  <p>
+   æ­¤è§¦å‘å™¨ç”±3å’Œå‚æ•°æž„æˆ.å¦‚æžœç¬¬ä¸€ä¸ªå‚æ•°éž0,ifelseè¿”å›žç¬¬2ä¸ªå‚æ•°å€¼,å¦åˆ™,è¿”å›žç¬¬3ä¸ªå‚æ•°å€¼.
+   <br/>
+   æ‰€æœ‰å‚æ•°åœ¨ifelseæ‰§è¡Œå‰éƒ½å°†é¢„å…ˆè®¡ç®—.ç‰¹åˆ«çš„,ä¼šå¼•èµ·ä»»ä½•ç”±äºŽè®¡ç®—å‚æ•°(ä¾‹å¦‚ç»™å˜é‡èµ‹å€¼æˆ–è€…æ‰§è¡Œä¸€ä¸ªä¼šäº§ç”Ÿè­¦å‘Šçš„è¿ç®—)æ‰€äº§ç”Ÿçš„å‰¯ä½œç”¨.
+   <br/>
+   å¦‚æžœä½ æƒ³é¿å…äº§ç”Ÿè¿™äº›å‰¯ä½œç”¨,è¯·ä½¿ç”¨Cond.
+  </p>
+  <p>
+   Condä»…æ”¯æŒmugen1.0åŠä»¥ä¸Šçš„ç‰ˆæœ¬. è€Œifelseæ”¯æŒæ‰€æœ‰mugenç‰ˆæœ¬.
+  </p>
+  <p>
+   <span class="STYLE2">
+    æ ¼å¼:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    IfElse(exp_cond,exp_true,exp_false)
+   </span>
+  </p>
+  <p>
+   <span class="STYLE2">
+    å‚æ•°:
+   </span>
+   <br/>
+   exp_cond
+   <br/>
+   éœ€è¦æµ‹è¯•çš„è¡¨è¾¾å¼
+   <br/>
+   exp_true
+   <br/>
+   å¦‚æžœ exp_cond ä¸ºéž0åˆ™è¿”å›žæ­¤è¡¨è¾¾å¼æŒ‡å®šçš„å€¼.
+   <br/>
+   exp_false
+   <br/>
+   å¦‚æžœ exp_cond ä¸º0åˆ™è¿”å›žæ­¤è¡¨è¾¾å¼æŒ‡å®šçš„å€¼.
+  </p>
+  <p>
+   <span class="STYLE2">
+    è¿”å›žå€¼ç±»åž‹:
+   </span>
+   <br/>
+   å¦‚æžœ exp_true è¢«è¿”å›ž,åˆ™è¿”å›žç±»åž‹å’Œ exp_true ç›¸åŒ.
+   <br/>
+   å¦‚æžœ exp_false è¢«è¿”å›ž,åˆ™è¿”å›žç±»åž‹å’Œ exp_false ç›¸åŒ.
+  </p>
+  <p>
+   <span class="STYLE2">
+    é”™è¯¯æ¡ä»¶:
+   </span>
+   <br/>
+   è¿”å›žbottomå¦‚æžœ exp_cond è®¡ç®—å‡ºbottom,
+   <br/>
+   æˆ–è€… exp_true æˆ– exp_false (ä»»ä½•ä¸€ä¸ªè¢«ä½¿ç”¨äº†) è®¡ç®—å‡ºbottom.
+  </p>
+  <p>
+   <span class="STYLE2">
+    ç¤ºä¾‹:
+   </span>
+   <br/>
+   value = IfElse(var(3),1,2)
+   <br/>
+   å½“var(3)æ˜¯éž0æ—¶,valueå€¼ä¸º1.
+   <br/>
+   å½“var(3)æ˜¯0æ—¶,valueå€¼ä¸º2.
+  </p>
+  <p>
+   <span class="STYLE2">
+    ç‰¹åˆ—:
+   </span>
+   <br/>
+   ifelseå¯ä»¥ç”¨Condæ¥ä»£ç”¨(åè¿‡æ¥ä¹Ÿå¯)
+   <br/>
+   Cond(var(3),1,2)ç›¸å½“äºŽifelse(var(3),1,2)
+  </p>
+  <p>
+   ä¸¤è€…çš„åŒºåˆ«è¯·æŸ¥çœ‹è¡¨è¾¾å¼éƒ¨åˆ†å…³äºŽbottomä¸­ç‰¹æ®Šæ ¼å¼çš„ç« èŠ‚.
+  </p>
+ </body>
 </html>
