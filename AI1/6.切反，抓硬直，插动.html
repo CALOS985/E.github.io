@@ -1,0 +1,102 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>6.切反，抓硬直，插动</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">6.切反，抓硬直，插动</p>
+<span class="STYLE3">　　　　　　　　本页内容由net教授撰写. 由【softmgr】整理编辑.</span><br />
+
+<p>
+切反就是在11区人编写的ai中常看见的“切り替えし”<br />
+有点类似于凹招。<br />
+<br />
+先解释下凹的定义，凹其实就是对手攻击时，用带无敌的升龙或超杀等技，利用无敌时间，躲过对手的判定，打中对手。<br />
+连段中用升龙或超杀不算凹<br />
+<br />
+再说下切反和凹的同异。<br />
+相同点是2者都是在p2movetype = A时做的动作。而且必须写在防御前面，不能加!inguarddist。<br />
+不同点是凹必须是用攻击反击回去，而且一般是在立回态。<br />
+切反不一定是用攻击，用带无敌的44后退，无敌的移动技（阿修罗闪空之类）躲避对手攻击也可以。<br />
+而且也包括了在防御硬直中才能发动的防反技。<br />
+其实写起来很简单，p2movetype = A的时候，出对应的招就行。。。<br />
+</p>
+
+<p>
+<span class="STYLE2">超反应相关</span><br />
+在p2movetype = A的时候，不考虑对手的出招整体时间的快慢，在符合条件的情况下立刻用各种切反，那就是超反应。<br />
+如果在某些情况下，不要超反应，那就得加个限制。<br />
+可以用random限制下几率<br />
+也可以设置反应时间<br />
+举个例子：<br />
+[state -3,626c]<br />
+type = changestate<br />
+value = 1320<br />
+triggerall = roundstate = 2 && var(59) > 0 && statetype !=A<br />
+triggerall = power >= 1000<br />
+trigger1 = ctrl && p2movetype = A<br />
+如果你不要超反应，那再加个条件：<br />
+triggerall = enemynear,time >= 30。<br />
+这样你的反应就是30F，当对手出招时间超过30F时再反应过来凹。<br />
+如果你想ai等级11以上开启超反应。<br />
+那么就这么写：<br />
+triggerall = enemynear,time >= 30 || var(59) >= 11 ;这里假设var(59)是控制ai等级的<br />
+或者使ai等级直接与反应时间挂钩也行：<br />
+triggerall = enemynear,time >= (33-3*var(59))<br />
+<br />
+一般凹招必须再加一句triggerall = enemynear,animtime < -X<br />
+免得出现对手都快收招了你再凹结果被防的杯具。<br />
+X是升龙的发生时间，用前面教程里提到的方法测一下。<br />
+triggerall = enemynear,animtime < -X || var(59) < 9<br />
+写成这样的话,ai等级9以下就不计算对手收招时间了.。<br />
+最好再用random限制下概率：<br />
+triggerall = random <= 90*var(59)<br />
+做对人向的ai时，不推荐加入超反应。<br />
+</p>
+
+<p>
+<span class="STYLE2">抓硬直（隙付き）</span><br />
+先用前面教程里所讲的测招式发生速度的办法，测下某招的发生速度<br />
+假设测出某招是15F，那在这招的state下加入：<br />
+triggerN = !inguarddist && enemynear,animtime < -15<br />
+triggerN = p2movetype = A || (p2movetype = I && !enemynear,ctrl)  ;对手在攻击时或做无法控制的非攻击动作时。<br />
+推荐把作为起手连段伤害高的招写在前面<br />
+</p>
+
+<p>
+<span class="STYLE2">插动（抢招）</span><br />
+这个是一种赌博般的行动。<br />
+不是用无敌技凹，是用发生快的轻拳，轻脚打掉对手的攻击，一般写在防御前面，不写!inguarddist。<br />
+11区那边写的ai里以“暴発”表示<br />
+一般含有类似语句：<br />
+triggerall = p2movetype = A<br />
+triggerall = ctrl<br />
+triggerall = enemynear,time <= 1 ;重点是这句，必须在对手出手后1F以内。否则风险大增。<br />
+trigger1 = random <= 100         ;概率不能太高，毕竟是赌博。<br />
+trigger1 = p2stateno != 200 && p2stateno != 400  ;可以考虑加这句，一般对手的轻拳和蹲下轻拳是这2个state号，出轻拳时一般插不掉。<br />
+通常用来插动的轻拳或轻脚发生要快点，最好5F以下，7F以上的还是免了。攻击范围越长越好。<br />
+</p>
+
+<p></p>
+</body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>4.防御</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">4.防御</p>
+<span class="STYLE3">　　　　　　　　本页内容由net教授撰写. 由【softmgr】整理编辑.</span><br />
+
+<p>
+虽说进入防御状态时，就脱离立回的状态了。<br />
+但是防御的确是格斗里最重要的一种动作。<br />
+当攻击无法打到对手，或者攻击处于不利的局面的时候，就是该防御的时候了。<br />
+这里先说点基本的。<br />
+一般的防御代码是这样的。<br />
+;---------------------------------------------------------------------------<br />
+[State -3,蹲防]<br />
+type = ChangeState<br />
+value = 131                ;蹲防的stateno<br />
+triggerall = var(59) && statetype !=A         ;ai开启且自身不在空中<br />
+triggerall = p2statetype = C<br />
+triggerall = ctrl && p2statetype !=A          ;这里加一个对手不在空中保险起见。<br />
+trigger1 = inguarddist              ;inguarddist下面再详细解释<br />
+trigger2 = p2bodydist x < 0 && p2movetype = A       ;当对手在你背后时不算在inguarddist内<br />
+;---------------------------------------------------------------------------<br />
+[State -3,立防]<br />
+type = ChangeState<br />
+value = 130                ;站防stateno<br />
+triggerall = var(59) && statetype !=A<br />
+triggerall = p2statetype != C<br />
+triggerall = ctrl<br />
+trigger1 = inguarddist<br />
+trigger2 = p2bodydist x < 0 && p2movetype = A<br />
+;---------------------------------------------------------------------------<br />
+[State -3,空防]<br />
+type = ChangeState<br />
+value = 132         ;空防stateno<br />
+triggerall = var(59)<br />
+triggerall = statetype = A                  ;自身在空中<br />
+trigger1 = inguarddist<br />
+trigger2 = p2bodydist x < 0 && p2movetype = A<br />
+;---------------------------------------------------------------------------<br />
+</p>
+
+<p>
+<span class="STYLE2">INGUARDDIST</span><br />
+什么叫inguarddist？字面意思是在防御距离以内。<br />
+那防御距离如何定义？<br />
+具体来说，当敌人的攻击接近你到一定距离以内，此时你按后，不再是后退，而是做防御动作，这个距离以内就叫做防御距离。此时也就是inguarddist。<br />
+对手不攻击或攻击离你太远，自然就!inguarddist。注意并不是说打得到你才是inguarddist，得看是不是在某个距离以内。<br />
+这个要看对手攻击的attackdist的定义。没有的话就用默认的值（好像是普通攻击160，道具90）<br />
+如果有一招把attackdist定义为0，那这招就算不是投技也没法防御。<br />
+其实实际运用时，你根本不需要知道inguarddist的定义，但这里解释下清楚一点。<br />
+</p>
+
+<p>
+<span class="STYLE2">防御和进攻的平衡</span><br />
+众所周知，防御的时候是不能进攻的，但不进攻就不能赢。<br />
+进攻的时候是无法防御的（除非你防御代码不加ctrl，这样是作弊），进攻必定出现破绽。<br />
+这就是防御与进攻平衡的难题。<br />
+给大家2个建议<br />
+1 强烈推荐除了可以用来凹的招以外，所有其他招都加上triggerall = !inguarddist。这样在对手先出手的情况下不会贸然进攻。<br />
+2 有特殊防御系统的（比如精防，弹刀），但进攻不是很强的可以适当限制下进攻。<br />
+如对手0.5秒内不攻击，才先出手。不过别太ws，比如等个10s再出招。这样会打得很难看。<br />
+</p>
+
+<p>
+<span class="STYLE2">蹲防和站防</span><br />
+在地面时，一般是对手蹲下时或对手的攻击属性为C时选择蹲防，其他的时候选择站防。<br />
+一般在空中不太会打出下段（这种情况也有，但极少，比如efz的狐狸的2424系列的空中扫射），<br />
+蹲下时一般不可能打出中段。<br />
+<br />
+要注意中段才是蹲防不能，上段是蹲防和站防皆可，这是格斗基本知识，很多人搞错<br />
+但站立时既能打出下段的攻击，又能打出中段的攻击，经常见到ai被这种攻击打中。<br />
+<br />
+原因就是对手站立时出招的属性难以判断。<br />
+这种时候可能需要用ai记忆攻击来做对策，我对这方面也不太清楚。<br />
+偷懒的话，可以尝试用蹲防完全代替站防，因为蹲防可以防下大部分的地面攻击，<br />
+<br />
+对手在地面只能用中段技来打蹲防。<br />
+但中段技通常发生很慢，通常有足够空隙让你凹，甚至直接轻拳插掉。<br />
+话说回来，正因为如此，所以推荐让ai在有道具掩护等有利情况下再用中段技崩对手的蹲防。<br />
+所以对于完美的ai来说并不推荐这样偷懒的方法。。。<br />
+</p>
+
+<p>
+<span class="STYLE3">另外还有一个大问题，上面写的蹲防，站防代码只适用于第1次攻击。</span><br />
+对于之后ai在连携压制中的站蹲转换，系统是随机切换站蹲防的。。。<br />
+所以要改common1.cns。一般就是前面所说的winmugen\data下的那个系统默认的common1.cns<br />
+（不一定所有人物都用这个文件，看def里定义的stcommon）<br />
+如果是要改那个系统默认的common1.cns，请复制到此人物自己的目录里再改，最好再新建个文件夹（比如ai）<br />
+def里改一下stcommon = ai/common1.cns<br />
+因为这个common1是公用的，你改了这个会影响到所有人物。<br />
+我们一般要改的是common1.cns里的120-155这段的state<br />
+先看120，首先找到<br />
+[statedef 120]<br />
+<br />
+看到这2段没有？<br />
+[State 120, Hi to Lo]<br />
+type = StateTypeSet<br />
+trigger1 = statetype = S && command = "holddown"<br />
+statetype = C<br />
+physics = C<br />
+<br />
+[State 120, Lo to Hi]<br />
+type = StateTypeSet<br />
+trigger1 = statetype = C && command != "holddown"<br />
+statetype = S<br />
+physics = S<br />
+这就是人操作时的站蹲防切换指令。<br />
+<br />
+我们把这2段改一下。<br />
+<br />
+[state 120，Hi to Lo]<br />
+type = StateTypeSet<br />
+triggerall = statetype = S<br />
+trigger1 = var(59) = 0<br />
+trigger1 = command = "holddown"<br />
+trigger2 = var(59) > 0<br />
+trigger2 = p2statetype = C || (p2statetype = S && random >= 500)  ;对手蹲下时蹲防，对手站立时，50%概率蹲防。<br />
+statetype = C<br />
+physics = C<br />
+<br />
+[state 120，Lo to Hi]<br />
+type = StateTypeSet<br />
+triggerall = statetype = C<br />
+trigger1 = var(59) = 0<br />
+trigger1 = command != "holddown"<br />
+trigger2 = var(59) > 0<br />
+trigger2 = p2statetype = A || (p2statetype = S && random < 500)  ;对手空中时立防，对手站立时，50%概率立防。<br />
+statetype = S<br />
+physics = S<br />
+<br />
+然后再把<br />
+[State 120, Stop Guarding]<br />
+type = ChangeState<br />
+trigger1 = command != "holdback"<br />
+trigger2 = !inguarddist<br />
+value = 140<br />
+trigger1下面再加一行trigger1 = var(59) = 0<br />
+下面130-132的stop guarding也一样修改。就不多说了。<br />
+<br />
+接着看state 130和131<br />
+[State 130, Hi to Lo]<br />
+type = ChangeState<br />
+trigger1 = command = "holddown"<br />
+value = 131<br />
+<br />
+这里改成<br />
+[State 130, Hi to Lo]<br />
+type = ChangeState<br />
+trigger1 = var(59) = 0<br />
+trigger1 = command = "holddown"<br />
+trigger2 = var(59) > 0<br />
+trigger2 = p2statetype = C || (p2statetype = S && random >= 500)<br />
+value = 131<br />
+<br />
+[State 131, Lo to Hi]<br />
+type = ChangeState<br />
+trigger1 = command != "holddown"<br />
+value = 130<br />
+改成<br />
+[State 131, Lo to Hi]<br />
+type = ChangeState<br />
+trigger1 = var(59) = 0<br />
+trigger1 = command != "holddown"<br />
+trigger2 = var(59) > 0<br />
+trigger2 = p2statetype = A || (p2statetype = S && random < 500)<br />
+value = 130<br />
+<br />
+下面的state 140-142,state 150-153的<br />
+hi to lo和lo to hi的改法和120的基本一致，就不说了，注意state号别写错就行。<br />
+最后就是改state 150-155了<br />
+<br />
+[State 150, 2]<br />
+type = ChangeState<br />
+trigger1 = HitShakeOver<br />
+value = 151 + 2*(command = "holddown")<br />
+这里改成<br />
+[State 150, 2]<br />
+type = ChangeState<br />
+trigger1 = HitShakeOver<br />
+value = 151 + 2*ifelse(var(59) = 0,(command = "holddown"),(p2statetype = C || (p2statetype = S && random >=500)))<br />
+<br />
+[State 152, 3]<br />
+type = ChangeState<br />
+trigger1 = HitShakeOver<br />
+value = 151 + 2*(command = "holddown")<br />
+这里也一样改成:<br />
+[State 152, 3]<br />
+type = ChangeState<br />
+trigger1 = HitShakeOver<br />
+value = 151 + 2*ifelse(var(59) = 0,(command = "holddown"),(p2statetype = C || (p2statetype = S && random >=500)))<br />
+这样，防御中对敌人的中下段切换就会做出应对了。<br />
+</p>
+
+<p></p>
+</body>
+</html>

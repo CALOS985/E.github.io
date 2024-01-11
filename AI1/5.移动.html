@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>5.移动</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">5.移动</p>
+<span class="STYLE3">　　　　　　　　本页内容由net教授撰写. 由【softmgr】整理编辑.</span><br />
+
+<p>
+下面会出现triggerN，就表示triggerall底下的trigger1，2，3，4这些，那数字就用N泛指了。<br />
+<br />
+先介绍个新的trigger<br />
+以下由trigger表精简＋补充<br />
+<br />
+HitDefAttr(*,***)（击中定义属性）<br />
+获得游戏者当前活动HitDef中的属性参数。若游戏者不在攻击状态中，则该条件不触发。<br />
+能在CMD文件内从弱攻击到强攻击的简单招式中断中使用。<br />
+Format:（格式：）<br />
+HitDefAttr = value1, value2<br />
+value1<br />
+  一个至少含有“S”、“C”和“A”其中之一的字母分别表示<br />
+  站、蹲和空中攻击。例如，“SA”表示站立和空中攻击。<br />
+value2<br />
+  2字符的字符串集，由逗号格开。每2字符的字符串必须是如下描<br />
+  述的形式：<br />
+  第一个字符可以是“N”表示“普通”，“S”表示“必杀”，<br />
+  或“H”表示“超（必杀）”，“A”表示“所有”<br />
+  第二个字符必须是“A"表示“打击”  （一个普通hit打击），<br />
+  “T”表示“投掷”，“P”表示“道具”<br />
+Example:（示例：）<br />
+1 trigger1 = A, NA，SA，HA<br />
+  当游戏者在攻击状态，且当前攻击是空中的普通打击攻击，必杀打击攻击，或超杀打击攻击时触发<br />
+2 trigger1 = SCA, AT<br />
+  当游戏者在攻击状态，且当前攻击是地面，蹲下，空中的所有种类投技时触发。<br />
+</p>
+
+<p>
+<span class="STYLE2">跳跃</span><br />
+如果你的人物的空中攻击性能很好，可以以空战为主的话。<br />
+那就不必加限制<br />
+如果你的人物空战能力相当弱的话，<br />
+我只推荐在1个时候跳，就是对手的攻击是投技的时候,即enemynear,hitdefattr = SC,AT。<br />
+不过要注意，当对手的攻击hitdefattr属性出来的时候，对手的判定也出来了。<br />
+当跳跃不是0F开始就对投无敌的话，那也没办法。还是指望无敌技凹吧。<br />
+其他的时候可以作一下限制<br />
+<br />
+[State -3,跳跃限制]<br />
+type = ChangeState<br />
+value = 0<br />
+triggerall = var(59)<br />
+triggerall = statetype != A<br />
+triggerall = roundstate = 2<br />
+triggerall = enemynear,hitdefattr != SC,AT ;对手出投技时不限制起跳<br />
+trigger1 = stateno = 40<br />
+ctrl = 1  ;重新设置ctrl状态<br />
+IgnoreHitPause = 1 ;忽略暂停，即暂停的时候也继续执行trigger<br />
+这样就限制了人物的起跳了。其实其他动作也可以这样限制，不过除了跳跃外，要用到的不多。<br />
+另外跳跃性能高的话。还可以用来回避飞行道具。<br />
+</p>
+
+<p>
+<span class="STYLE2">跳跃方向的控制</span><br />
+一般def里使用默认的common1.cns定义跳跃的话。<br />
+无论往前跳还是往后跳，起跳动作都只有1个stateno，就是stateno 40。<br />
+注意这个stateno 40，定义的是起跳一瞬间的动作，此时人物还在地面上。<br />
+而在这瞬间，便决定了到底是往前还是往后还是原地笔直的跳。<br />
+人操作时，很明显，跳跃时按前后或者不按就可以操纵跳跃的方向。<br />
+但要控制ai的起跳方向就必须改点东西。<br />
+<br />
+这里要用到一个系统变量sysvar(1)<br />
+这个就是控制起跳方向的变量。<br />
+sysvar(1) = 1就是往前跳，= 0就是原地跳，= -1就是往后跳<br />
+<br />
+那我们就通过varset，让ai在某个条件下，向某个方向跳跃。<br />
+到def里stcommon指定的cns里找<br />
+[statedef 40]<br />
+一般可以看到下面有这2段文字<br />
+[State 40, 2]<br />
+type = VarSet<br />
+trigger1 = command = "holdfwd"<br />
+sysvar(1) = 1<br />
+<br />
+[State 40, 3]<br />
+type = VarSet<br />
+trigger1 = command = "holdback"<br />
+sysvar(1) = -1<br />
+把2者改成<br />
+<br />
+[State 40, 2]<br />
+type = VarSet<br />
+Trigger1 = var(59) = 0<br />
+Trigger1 = command = "holdfwd"<br />
+Trigger2 = var(59) > 0<br />
+Trigger2 = EnemyNear,StateType != L || P2BodyDist X >= (30左右)<br />
+Trigger2 = EnemyNear,MoveType = H || Random <= 333 || EnemyNear,StateType = L<br />
+Trigger2 = p2bodydist x >= 0<br />
+sysvar(1) = 1<br />
+<br />
+[State 40, 3]<br />
+type = VarSet<br />
+Trigger1 = var(59) = 0<br />
+Trigger1 = command = "holdback"<br />
+Trigger2 = var(59) < 0<br />
+Trigger2 = EnemyNear,StateType != L<br />
+Trigger2 = EnemyNear,MoveType != H<br />
+Trigger2 = BackEdgeBodyDist>60<br />
+Trigger2 = Random <= 500 || p2bodydist x < 0<br />
+sysvar(1) = -1<br />
+<br />
+注意<br />
+Trigger2 = EnemyNear,StateType != L || P2BodyDist X >= (30左右)<br />
+后面的p2bodydist >=(30左右)是为了起攻打逆用的个。具体多少数字看人物的跳跃和空中技性能。要是空中技没法打逆的话就删了吧。<br />
+</p>
+
+<p>
+<span class="STYLE2">回避</span><br />
+最主要的就是用来回避飞行道具。一般这么写<br />
+[State -1, 回避飞道]<br />
+type = changestate<br />
+value = 61    ;回避的stateno，这里随便写了个，具体你那个人物的回避动作是啥请自己到debug模式里看<br />
+triggerall = roundstate = 2 && ctrl && var(59)<br />
+triggerall = random <= 300<br />
+triggerall = prevstateno != 61 ;别连续回避<br />
+triggerall = facing !=enemy,facing ;和敌人的脸朝向不相同，面对面（如果朝向相同的话，就代表要么在敌人背后，要么敌人在自己背后）<br />
+trigger1 = enemynear,numproj >=1 || (enemynear,numhelper >=1 && p2movetype = A) ;敌人的project数大于等于1或敌人的helper数大于等于1且在进攻。<br />
+trigger1 = inguarddist<br />
+注意这里用了inguarddist，判断飞行道具是否接近你，这样就不会道具还远在天边的时候就开始回避了。。。<br />
+注意躲道具的回避动作要写在防御前面<br />
+<br />
+道具有用project定义的，也有用helper定义的（这2东西具体区别就不说了，很麻烦，只要知道名字就行），但helper并不一定是用来攻击的。<br />
+所以enemy,numhelper>=1后要加个p2movetype = A。最好再加个p2bodydist x > 160之类的，因为有些人物近身普通攻击也带helper。<br />
+距离远的话，这攻击是道具的可能性就大大增加了<br />
+<br />
+如果用来闪避近身攻击的话，<br />
+最好是闪避到对手身后，这个在debug模式里测下距离就行，通常做攻击动作时对手还会稍微接近点。<br />
+<br />
+而且通常我们希望闪避完以后，对手还没收招。这样就可以确反了。<br />
+进debug模式训练时，左下角看见那个time没有?<br />
+通常以xx/xx的形式表示的，xx是数字。作不同动作时那个数字会变化<br />
+左边那个xx就是你当前这个动作进行了多少帧，右边那个是这个动作的全体时间。<br />
+我们要作的是先用一次闪避，搞清楚你的闪避动作的全体时间，假设是30F<br />
+那我们接下来写ai时就这么写,比如triggerN = ctrl && p2movetype = A && p2statetype !=A && enemynear,animtime <-30<br />
+animtime就是读取动作的剩余时间，总是负数,animtime = 0表示动作正好做完。<br />
+没有好的防空技的话，当对手从空中冲过来攻击的时候，闪避也可以防空用。<br />
+闪避性能好的话一般可以写在防御的前面。不过由于不加!inguarddist的条件，所以除了躲道具用的回避动作，其他写在防御后面好像也可以。<br />
+</p>
+
+<p>
+<span class="STYLE2">前冲</span><br />
+一般stateno = 100。主要是接近用，记得加!inguarddist。<br />
+对手倒地时(p2statetype = L)如果要压制也可以冲过去，当然你那人物压制能力要强。<br />
+不强的话，还是原地做蓄气，或者加buff之类的动作吧。<br />
+在有道具掩护的情况下跑上前压制也很常见.<br />
+<br />
+前冲停止<br />
+到def里stcommon指定的cns里找<br />
+[statedef 100]<br />
+然后往下看能看到类似的文字。<br />
+[State 100, 4]<br />
+type = ChangeState<br />
+trigger1 = command != "holdfwd"<br />
+value = 0        ;某些人物这里写的是101，不用改<br />
+改成<br />
+[State 100, 4]<br />
+type = ChangeState<br />
+triggerall = roundstate = 2<br />
+trigger1 = var(59) = 0<br />
+trigger1 = command != "holdfwd"<br />
+trigger2 = var(59) > 0<br />
+Trigger2 = EnemyNear,MoveType!=H<br />
+Trigger2 = P2BodyDist X<=(約90)<br />
+Trigger2 = P2BodyDist Y>=(約-120)<br />
+trigger3 = var(59) > 0<br />
+Trigger3 = P2BodyDist X<=(約10)<br />
+value = 0<br />
+ctrl = 1          ;设置为ctrl态<br />
+距离可以更改，只要攻击打得到人就行<br />
+</p>
+
+<p>
+<span class="STYLE2">后退</span><br />
+一般stateno = 105。后退带无敌的可以躲攻击。<br />
+对手倒地后，也可以用来拉开距离<br />
+招式挥空，或者被防也可以后退弥补破绽。（用向后闪避也可以）<br />
+[State -1, 后退]<br />
+type = changestate<br />
+value = 105<br />
+triggerall = roundstate = 2 && ctrl && var(59)<br />
+triggerall = random <= 300<br />
+triggerall = facing !=enemy,facing<br />
+trigger1 ＝stateno = 430 && (movecontact = 0 || moveguarded) ;stateno是430的那招被防了或者挥空了（其实可以简化为!movehit）<br />
+trigger1 = animtime = 0                 ;动作必须做完<br />
+<br />
+总之这里只说了点基本的，具体的移动立回如何写，还得看人物性能具体问题具体分析<br />
+有些人物空中也有dash和backdash，这些人物的立回更复杂。<br />
+推荐看看别人写的ai作为参考。<br />
+</p>
+
+<p>
+<span class="STYLE2">受身</span><br />
+[State -3, 空中受身]<br />
+Type = ChangeState<br />
+TriggerAll = Vel Y > -1<br />
+TriggerAll = Alive && var(59) > 0<br />
+TriggerAll = CanRecover<br />
+trigger1 = stateno = 5050<br />
+Trigger1 = (p2movetype = A && enemynear,hitdefattr = sca,aa,ap,at) || p2movetype = H || p2statetype = L<br />
+Value = 5210<br />
+推荐这么写。<br />
+能受身的时候别着急受身，等对手攻击的瞬间再受身，利用受身无敌时间躲过对手的判定，这样比较有利。<br />
+太早受身的话，由于mugen默认受身后一段时间内无法防御，被对手抓受身的话会很惨。。。<br />
+</p>
+
+<p></p>
+</body>
+</html>

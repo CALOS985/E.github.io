@@ -1,0 +1,173 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>2.def，cmd和cns</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">2.def，cmd和cns</p>
+<span class="STYLE3">　　　　　　　　本页内容由net教授撰写. 由【softmgr】整理编辑.</span><br />
+
+<p>
+<span class="STYLE2">（一）ai写在什么地方？</span><br />
+最常见的有2种情况<br />
+1 写在cmd里，使用state -1<br />
+2 写在cns里，使用state -3<br />
+一般state -2的cns是定义声音，效果，修正和各种辅助变量（各种var和fvar）用的。<br />
+虽然也有少数人会把ai写在state -2里，但一般不这么做。<br />
+而0以上的state是定义招式性质用的。<br />
+新手的话推荐先写在cmd里，用state -1，因为可以方便查找state号。另外不容易出错。<br />
+要写在cns里也行，用state -3。写在cns里有个好处就是不必和人用的指令混在一起，不会影响其他文件。老手推荐写在-3里面。<br />
+1 如果决定写在cmd里面，就直接在下面接着写就可以了。<br />
+2 如果决定写在cns里面<br />
+如果有现成的含state -3的cns，就接着写在下面即可。<br />
+如果没有就新建个-3.cns或ai.cns（名字随便你改）<br />
+然后首先加入下面一行<br />
+[Statedef -3]　　;定义state -3，如果没有cns定义过state -3则一定要定义，有其他cns定义过state -3就不要写。<br />
+然后在下面写ai，最后别忘记def文件要加入你新建的那个cns。<br />
+举个例子：<br />
+[Files]<br />
+Cmd      = Meirin.cmd<br />
+Cns          = Meirin.cns<br />
+St           = Meirin.cns<br />
+St0          = Meirin_Special.Cns<br />
+St1          = Meirin_Spell.Cns<br />
+St2          = Helper.Cns<br />
+St3          = -2.cns<br />
+St4          = -3.cns    ;这个就是你新加的cns，加个st的定义就可以，注意和trigger一样别跳号。<br />
+StCommon     = Meirin_Common.cns<br />
+Sprite       = Meirin.Sff<br />
+Anim         = Meirin.Air<br />
+Sound        = Meirin.Snd<br />
+Pal1         = Meirin1.Act<br />
+Pal2         = Meirin2.Act<br />
+<br />
+ai绿色化<br />
+有时我们想在写ai的同时，保持原有文件，可以有以下2种做法。<br />
+先把def复制一下，改一个文件名（比如meirin ai.def）。<br />
+记得在select.def里指定这个def载入人物<br />
+A<br />
+把要改的文件复制后改名，比如要改meirin.cmd，我们可以复制个复件，然后把复件改名为meirin ai.cmd<br />
+再进入meirin ai.def里就改一下相关的cmd文件名。<br />
+[Files]<br />
+Cmd      = Meirin ai.cmd<br />
+这样原有的def，cmd就全保留着。要用ai启动时载入meirin ai.def就行了。cns啥的也一样<br />
+不过有些人物不支持这种方法。可以试试下面的<br />
+B<br />
+在要改的人物的目录底下新建一个文件夹，比如ai<br />
+然后把要改的文件复制进去，再改就行。<br />
+def里就这么改<br />
+[Files]<br />
+Cmd      = ai/Meirin.cmd ;注意是正斜杠<br />
+个人推荐用方法B<br />
+<br />
+PS：注意def的info里<br />
+name不可以改，displayname可以改。<br />
+</p>
+
+<p>
+<span class="STYLE2">（二）AI开关的书写</span><br />
+首先我们先做一个ai开关（改别人的ai的话，ai开关肯定已经做好了，你只要找到就可以了）<br />
+第1部分的ai指令，这个必须写在cmd里面。<br />
+然后是第2部分。<br />
+假设是从零开始写ai的话，如果要写在cmd里，就写在cmd最下面。如果要写在cns里，就直接写在[Statedef -3]下面<br />
+举个例子，首先在cmd里写ai开关第一部分。这里为了举例方便，只写了5个ai指令，实际上最好多写点，这样会灵敏点（发呆时间少点，cmd一共支持128个指令，蛋疼的话全部用上也无所谓，不过一般50-60个足够了）<br />
+指令稍微写复杂点，time最好都写0，免得人操作的时候误触发<br />
+; AI<br />
+[Command]<br />
+Name    = "AI_01"<br />
+Command = a, b, c, x, y, z, s<br />
+Time = 0<br />
+[Command]<br />
+Name    = "AI_02"<br />
+Command = x, y, z, a, b, c, s<br />
+Time = 0<br />
+[Command]<br />
+Name    = "AI_03"<br />
+Command = z, y, x, c, b, a, s<br />
+Time = 0<br />
+[Command]<br />
+Name    = "AI_04"<br />
+Command = c, b, a, z, y, x, s<br />
+Time = 0<br />
+[Command]<br />
+Name    = "AI_05"<br />
+Command = a, b, c, z, y, x, s<br />
+Time = 0<br />
+然后在如果cmd里写，就在文件底部写一个state（改ai的话直接查找"ai_01"就能看到ai开关了）<br />
+[State -1, AI] ;逗号后面的内容可以当注释随便改，方便你自己记忆就行。记得别漏了另一半方括号<br />
+Type = VarSet<br />
+TriggerAll = Var(59) = 0 && RoundState != 3<br />
+Trigger1   = command = "AI_01"<br />
+Trigger2   = command = "AI_02"<br />
+Trigger3   = command = "AI_03"<br />
+Trigger4   = command = "AI_04"<br />
+Trigger5   = command = "AI_05"<br />
+;trigger6 = 1<br />
+V = 59<br />
+Value = 1<br />
+IgnoreHitPause = 1<br />
+如果是在-3.cns里写，就把state -1改成state -3，其他不必改，写在[Statedef -3]下面即可<br />
+偷懒的话，直接复制前面教程里的ai开关也可以。。。。<br />
+然后再把具体的ai写在ai开关的下面<br />
+</p>
+
+<p>
+<span class="STYLE2">（三）人用指令和ai的区别</span><br />
+不多说，直接看例子。要注意到因为我们已经写好了ai开关，var(59)这个变量就在这里起到了作用。<br />
+state号就是动作的代号<br />
+这是cmd里的人用指令的定义<br />
+;立a<br />
+[State －1]<br />
+Type = ChangeState ;转换动作(可以理解为做动作)<br />
+Value = 200<br />
+TriggerAll = Var(59) = 0  ;ai没有开启<br />
+TriggerAll = Command = "a"  ;输入了"a"<br />
+TriggerAll = Command != "holddown" ;没有按着“下”<br />
+TriggerAll = StateType != A ;不在空中<br />
+Trigger1 = Ctrl ;可以自由行动的状态<br />
+解读下就是在ai没开启的状态下，输入了a，没有按着下，不在空中，可以自由行动的状态下，出立a（做出立a的动作）。<br />
+<br />
+这是ai<br />
+;立a<br />
+[State -3]<br />
+Type = ChangeState<br />
+Value = 200<br />
+TriggerAll = Var(59) > 0　　　;ai开启<br />
+TriggerAll = StateType != A<br />
+Trigger1 = Ctrl<br />
+这个应该能自己解读了吧。。。<br />
+看出来ai和人用指令的最大区别在哪里了么？<br />
+首先是var(59)的值<br />
+第2就是ai出招不用输入指令。<br />
+所以我们要把人用指令转换为ai指令<br />
+首先triggerall里面除了var(59)和command，其他条件一定要完全复制，这样才能保证ai不会做出系统所不允许的动作。否则ai就可能做出不满气都能出超杀，或者还没到条件就直接用死星技，在空中出地面技等作弊行为。<br />
+这也意味着，我们最好把这些系统所限制的条件都写到triggerall里面。而不是写在trigger1，2里面。<br />
+然后var(59) = 0改为var(59) > 0。<br />
+没有关于var(59)的triggeall就加上var(59) > 0（所有人用指令最好也加上var(59)=0，以免mugen自带的ai捣乱）<br />
+最后把command的部分删除。<br />
+至于trigger1，2的ai具体怎么写，下一章再详细讲。<br />
+</p>
+
+<p></p>
+</body>
+</html>
