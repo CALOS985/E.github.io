@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>3 ״̬ StateDef</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   3 状态 StateDef
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,35 +23,71 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">3 ״̬ StateDef</p>
-<p>������������һ��mugen�����м�����ʵʱ���ֵ�,�������������&quot;����&quot;������CNS�ļ�.<br />
-CNS�ļ�,ͬʱ����Ϊ�����&quot;state(״̬)&quot;�ļ�,�����˸������﹦�ܵĴ���.<br />
-����,����ָ��ʱ�ܳ���,�������,����������������.</p>
-<p>CNS�ļ��Ľṹ�Ǽ򵥵�.���뱻��֯��һ����(��Ϊ[StateDef]).<br />
-[Statedef]�鱻���,һ�����͵�������ܺ��гɰ���ǧ��[Statedef]��.<br />
-ÿ��[Statedef]������һЩ[State]��,Ҳ����Ϊ״̬������.<br />
-ÿ��״̬��������һ�Դ�������,��ָ���������ȡ��һЩ�ж�,�ҿ���������ָ���˽�Ҫִ�е�����.</p>
-<p>����Ϸ��ÿ��ʱ��(��Ϸ��ʱ�䵥λ����Ϸ֡),����ִ��һЩ[StateDef]���µĴ���.<br />
-����,���������е�վ����,��ͨ����ִ��[StateDef 0]�����.�����֮,���Ǿ�˵������&quot;state 0&quot;��.<br />
-  ������&quot;state 0&quot;��ÿһ֡ʱ����,����ͷ��β�ļ���[StateDef 0]�����״̬������,�������,��ȡָ�����ж�.<br />
-  �������Ҫת������������[StateDef]�����(�ٶ�Ҫ����state 417),���Ǿ͸���&quot;state 417&quot;��ΪҪִ��һ���ж�,����ִ��ChangeState�������Գɹ�ת��״̬.<br />
-�����������ȫ��ͬ�ķ�ʽִ��[StateDef 417]������µĴ���.</p>
-<p>ÿ��mugen���������3�������״̬,���Ϊ-1,-2,-3.��Щ����ǽ�����ʹ�õĸ������.<br />
-&quot;[StateDef -1]&quot;ͨ����������״̬�л����û�����ָ��ת�������״̬������.<br />
-&quot;[StateDef -2]&quot;������Ҫÿ֡����������״̬������.<br />
-&quot;[StateDef -3]&quot;����ÿ֡��Ҫ����״̬�����������������ʱʹ��������ҵ�����.(���类Ͷ��������)<br />
-(Ҳ����˵����p2stateno����targetstate��,&quot;[statedef -3]&quot;������ִ��)</p>
-<p>�ܶ���֮:<span class="STYLE3">��ÿ����Ϸ֡,mugen��ÿ��ָ��״̬����һ�δ�ͷ��β�ĵ���(���),����-3,-2,-1������˳��.</span><br />
-  ÿ��״̬�����������������,���������ʹ�����������,�����������,����������ִ��.<br />
-  Ȼ����̽�����,ִ��״̬�е���һ��������.�κ�ָ��״̬�е�״̬ת��(ChangeState)��������ҵ�ǰ״̬��,�ҽ�����ִ��(ԭ״̬)ʣ�µĿ�����.<br />
-ָ��״̬�����п�������������,�����������ڵ�ǰ״̬,����һ�ζԴ�״̬�Ŀ�������ͷ��β(��������Ϊ���ϵ���)�ļ��.<br />
-  ���ִ����״̬ת���뿪�˵�ǰ״̬,��״̬ʣ�µĿ�����(������κ�)��������,���������Ľ��̽����µ�״̬��ʼ.<br />
-  ����ǰ״̬������û��ִ��״̬ת��,���̽��ȴ�.<br />
-</p>
-<p>��������и�����.���������һ��&quot;helper&quot;������,��,��helper����������,�����ｫ������ָ����-3,-2.<br />
-ͬʱҲ������ָ����-1,�����ܽ��ܼ�������.(����helper״̬�������ڴ���ʱ����)</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   3 状态 StateDef
+  </p>
+  <p>
+   动画和声音在一个mugen人物中几乎是实时表现的,但是人物的真正"心脏"是他的CNS文件.
+   <br/>
+   CNS文件,同时被称为人物的"state(状态)"文件,包含了给予人物功能的代码.
+   <br/>
+   例如,输入指令时能出招,打击对手,或者遵守重力规律.
+  </p>
+  <p>
+   CNS文件的结构是简单的.代码被组织成一个组(称为[StateDef]).
+   <br/>
+   [Statedef]块被编号,一个典型的人物可能含有成百上千个[Statedef]块.
+   <br/>
+   每个[Statedef]块中有一些[State]块,也被称为状态控制器.
+   <br/>
+   每个状态控制器是一对触发动作,他指定了人物采取的一些行动,且控制器下面指定了将要执行的条件.
+  </p>
+  <p>
+   在游戏的每个时刻(游戏的时间单位是游戏帧),人物执行一些[StateDef]块下的代码.
+   <br/>
+   例如,人物正空闲的站立着,则通常会执行[StateDef 0]程序块.简而言之,我们就说人物在"state 0"中.
+   <br/>
+   人物在"state 0"的每一帧时间内,将从头到尾的计算[StateDef 0]程序块状态控制器,检测条件,采取指定的行动.
+   <br/>
+   如果人物要转换进入其他的[StateDef]程序块(假定要进入state 417),我们就告诉"state 417"因为要执行一次行动,他能执行ChangeState控制器试成功转换状态.
+   <br/>
+   人物随后将以完全相同的方式执行[StateDef 417]程序块下的代码.
+  </p>
+  <p>
+   每个mugen人物额外有3个特殊的状态,编号为-1,-2,-3.这些编号是仅允许使用的负数编号.
+   <br/>
+   "[StateDef -1]"通常包含决定状态中基于用户输入指令转换规则的状态控制器.
+   <br/>
+   "[StateDef -2]"包含需要每帧都检测的其他状态控制器.
+   <br/>
+   "[StateDef -3]"包含每帧都要检测的状态控制器除非玩家正临时使用其他玩家的数据.(例如被投掷技击中)
+   <br/>
+   (也就是说处于p2stateno或者targetstate中,"[statedef -3]"将不会执行)
+  </p>
+  <p>
+   总而言之:
+   <span class="STYLE3">
+    对每个游戏帧,mugen对每个指定状态创建一次从头到尾的单向(检测),按照-3,-2,-1这样的顺序.
+   </span>
+   <br/>
+   每个状态控制器都是这种情况,他的条件型触发器被计算,如果满足条件,控制器将被执行.
+   <br/>
+   然后进程将继续,执行状态中的下一个控制器.任何指定状态中的状态转换(ChangeState)将更新玩家当前状态号,且将放弃执行(原状态)剩下的控制器.
+   <br/>
+   指定状态中所有控制器都被检测后,玩家如果还处于当前状态,将再一次对此状态的控制器从头到尾(或者理解为从上到下)的检测.
+   <br/>
+   如果执行了状态转换离开了当前状态,此状态剩下的控制器(如果有任何)将被跳过,检测控制器的进程将从新的状态开始.
+   <br/>
+   若当前状态结束且没有执行状态转换,进程将等待.
+   <br/>
+  </p>
+  <p>
+   上述情况有个例外.如果人物是一个"helper"型人物,即,被helper控制器创建,此人物将不含有指定的-3,-2.
+   <br/>
+   同时也不含有指定的-1,除非能接受键盘输入.(这由helper状态控制器在创建时控制)
+  </p>
+ </body>
 </html>

@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>3.1.2 ����</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   3.1.2 控制
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,18 +23,32 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">3.1.2 ����</p>
-<p>������˵���&quot;�ܿ���&quot;,����˵��׼�����˿�ʼ��,�����߹���.<br />
-���ܿ��Ƶ���ҽ���������������ָ��(�Ӽ��̻��ֱ�).<br />
-����,��p1������վ��״̬,�����ܿ��Ƶ�,����㰴��ǰ�İ�ť�ͻ���ǰ����.<br />
-����ڹ���״̬��ͨ���ǲ��ܿ��Ƶ�,�������ڳ�ȭ����һ���ʱ������߿���.</p>
-<p>����Ҳ�и�����.��ʱ����������ҽ���ĳЩָ�ʹ�����ܿ���.<br />
-�ⱻ��Ϊ&quot;��ʽ���&quot;,����&quot;��ʽȡ��&quot;.�鿴CMD�ĵ��������.<br />
-(ͨ�������г��о����������).</p>
-<p>���Ǿ������ᵽ��ҵ�&quot;���Ʊ�ʾ&quot;.һ��&quot;��ʾ&quot;��һ�����ٵ�ֵ(0��1).<br />
-�������˵��ҵĿ��Ʊ�ʾΪ��,����˵���ܿ���.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   3.1.2 控制
+  </p>
+  <p>
+   当我们说玩家"受控制",就是说他准备好了开始走,跳或者攻击.
+   <br/>
+   不受控制的玩家将不会接受你的输入指令(从键盘或手柄).
+   <br/>
+   例如,当p1在他的站立状态,他是受控制的,如果你按向前的按钮就会向前行走.
+   <br/>
+   玩家在攻击状态中通常是不受控制的,否则你在出拳出到一般的时候就能走开了.
+  </p>
+  <p>
+   但是也有个例外.有时候你想让玩家接受某些指令即使他不受控制.
+   <br/>
+   这被称为"招式打断",或者"招式取消".查看CMD文档获得详情.
+   <br/>
+   (通常的连招出招就是这类情况).
+  </p>
+  <p>
+   我们经常会提到玩家的"控制标示".一个"标示"是一个真或假的值(0或1).
+   <br/>
+   如果我们说玩家的控制标示为真,就是说他受控制.
+  </p>
+ </body>
 </html>

@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>6.11 ´úÂëĞ§ÂÊ</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   6.11 ä»£ç æ•ˆç‡
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,65 +23,135 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">6.11 ´úÂëĞ§ÂÊ</p>
-<p>´¦Àí±í´ïÊ½²»ÊÇÏòµçÄÔÊÕ·Ñ,ËùÒÔÄã´úÂëµÄ¿É¶ÁĞÔ±ÈÎ¢ÓÅ»¯±í´ïÊ½¸üÖØÒª.<br />
-È»¶ø,ÏÂÃæµÄÄ³Ğ©ºÃµÄ×ö·¨½«Ìá¸ßĞ§ÂÊÍ¬Ê±²»Ó°Ïì×îÖÕµÄĞ§¹û.</p>
-<p>MUGENÔÚ×´Ì¬¿ØÖÆÆ÷ÖĞ¼ÆËãÌõ¼şĞÍ´¥·¢Æ÷×ñÑ­ÈçÏÂÔ­Ôò:<br />
-  Ê×ÏÈ¼ÆËãtriggerall,´ÓÉÏµ½ÏÂË³Ğò¼ÆËã.<br />
-  Èç¹ûÈÎºÎtriggerall¼ÆËã³ö0,ÔòÊ£ÓàµÄ´¥·¢Æ÷½«±»Ìø¹ıÇÒ½«¼ÆËãÏÂÒ»¸ö¿ØÖÆÆ÷.<br />
-  Èç¹ûËùÓĞtriggerall¼ÆËã½á¹û¶¼ÊÇ·Ç0,ÔòÒıÇæ¿ªÊ¼¼ÆËãtrigger1,Ò²ÊÇ´ÓÉÏµ½ÏÂË³Ğò¼ÆËã.<br />
-  Èç¹ûËüÃÇÖĞÈÎºÎÒ»¸ö¼ÆËã³ö0,ÔòÌø¹ıËùÓĞÊ£ÏÂµÄtrigger1×ª¶ø¼ÆËãµÚÒ»¸ötrigger2,ÖîÈç´ËÀàµÈµÈ.<br />
-  Èç¹ûÒ»¸ö¿éÖĞµÄËùÓĞtrigger(³ıÁËtriggerall)¶¼¼ÆËã³ö·Ç0,Ôò½«¿ªÊ¼¼ÆËã×´Ì¬¿ØÖÆÆ÷²ÎÊıÇÒ¿ØÖÆÆ÷±»´¥·¢.</p>
-<p>»»¾ä»°Ëµ,´¥·¢Æ÷¼ÆËãµÄÂß¼­ÊÇÀàËÆ¶ÌÂ·ĞÍµÄ.ÔÚÀàËÆCÓïÑÔµÄ±ê¼Ç·¨ÖĞ,ÕâÖÖ·½Ê½Ò²Ğí±»¼ÇÎª<br />
-  triggerall,1 &amp;&amp; triggerall,2 &amp;&amp; ... &amp;&amp; ((trigger1,1 &amp;&amp; trigger1,2 &amp;&amp; ...) || (trigger2,1 &amp;&amp; trigger2,2 &amp;&amp; ...) || ... )<br />
-  ÕâÀï trigger1,2 ¼Ç×÷ trigger1 µÚ2ĞĞ; trigger2,1 ¼Ç×÷ trigger2 µÚ1ĞĞ,µÈµÈ. <br />
-  Õâ¸ötrigger×éµÄÂß¼­¼ÆËã½«ÊÇ¶ÌÂ·ĞÍµÄ,¾ÍÏñCÒ»Ñù.</p>
-<p>(×¢:Í¨¹ıÄÇ¸öÂß¼­¹ØÏµÊ½,±íÊ¾ÁËtriggerall×éÓëºóÃætrigger1,trigger2µÈËùÓĞ×é¹ØÏµÊÇ'&amp;&amp;',Ò²¾ÍÊÇËµÖ»Òªtriggerall×éÒ»¸öÊÇ0,¾Í²»ÄÜ´¥·¢.<br />
-  Í¨Ë×Ëµ·¨¾ÍÊÇtriggerallÀïÃæÖ»ÒªÓĞ1¸öÊÇ0¾Í²»ÄÜ´¥·¢,Òª´¥·¢±ØĞëtriggerallÈ«²¿·Ç0.<br />
-  Âß¼­¹ØÏµÊ½»¹ÄÜ¿´³ötrigger1×éºÍtrigger2×é...Ö®¼ä¶¼ÊÇ'||',Ò²¾ÍÊÇÕâĞ©×éÖĞÖ»ÒªÓĞÒ»¸ö×éÎª1¾ÍÄÜ´¥·¢(Ç°ÌáÊÇtriggerallÒÑ¾­¼ì²âÎª·Ç0.)<br />
-  ¶øÔÚÃ¿¸ötrigger×éÖĞ,ËûÃÇÖ®¼äµÄ¹ØÏµÊÇ'&amp;&amp;',±ÈÈçtrigger1×éÖĞ,Òª±£Ö¤trigger1µÄÇé¿öÏÂ´¥·¢,±ØĞëÃ¿¸ötrigger1¶¼·Ç0.<br />
-  ¿ØÖÆÆ÷±»´¥·¢µÄÍ¨Ë×Ëµ·¨¾ÍÊÇ:Ê×ÏÈÃ¿¸ötriggerall¶¼Òª·Ç0,È»ºóÃ¿¸ö triggerN×é ÖĞ×îÉÙÒªÓĞ1¸ö·Ç0,triggerN×é Òª·Ç0,±ØĞëÃ¿¸ötriggerN¶¼·Ç0. )</p>
-<p>ÓÉÓÚÕâ¸öÏµÍ³,¿ÉÒÔÍ¨¹ı ×éÖ¯ºÃ±í´ïÊ½ÒÔ±ãÌõ¼şĞÍ´¥·¢Æ÷ÀïµÄÊı×Ö¾¡¿ÉÄÜµÄ¼´Ğ¡ÓÖÉÙ À´ÊµÏÖ´ó´óÌá¸ßĞ§ÂÊ.<br />
-  ×´Ì¬¿ØÖÆÆ÷²ÎÊı¿ÉÒÔ¼õÉÙ¹¤×÷Á¿(´úÂëÁ¿),ÕâĞ©²ÎÊıÔÚ´¥·¢Ê±½ö¼ÆËãÒ»´Î,¶ø²»ÊÇÍæ¼ÒÔÚ×´Ì¬ÖĞÃ¿Ö¡¶¼¼ÆËã.ÀıÈç</p>
-<p>[State -1]<br />
-  type = ChangeState<br />
-  trigger1 = command = &quot;a&quot;<br />
-  trigger1 = power &lt; 1000<br />
-  value = 3000</p>
-<p>[State -1]<br />
-  type = ChangeState<br />
-  trigger1 = command = &quot;a&quot;<br />
-  trigger1 = power &gt;= 1000<br />
-  value = 3001</p>
-<p>[State -1]<br />
-  type = ChangeState<br />
-  trigger1 = command = &quot;a&quot;<br />
-  trigger1 = power &gt;= 2000<br />
-  value = 3002<br />
-  ¿ÉÒÔ½øÒ»²½¼ò»¯Îª:</p>
-<p>[State -1]<br />
-  type = ChangeState<br />
-  trigger1 = command = &quot;a&quot;<br />
-  value = 3000 + (power &gt;= 1000) + (power &gt;= 2000)<br />
-  ÄãÍ¬Ê±ÄÜÎªÒıÇæÅÅÓÇ½âÄÑ,Í¨¹ı°Ñ×îÈİÒ×¼ÆËã³öfalseµÄtriggerall·ÅÔÚtriggerall¿éµÄ¶¥²¿.(¿ÉÒÔ¼õÉÙÒıÇæ¼ÆËãÁ¿)<br />
-  Í¬Ñù,trigger1¿éÓ¦¸ÃÊÇ×î¿ÉÄÜ±»´¥·¢µÄ¿é,µ«ÊÇÔÚtrigger1¿éÄÚ²¿,×îÓĞ¿ÉÄÜ¼ÆËã³ö0µÄtrigger1Ó¦¸Ã·ÅÖÃÔÚ¶¥²¿.<br />
-  ¶ÔÓÚÓĞºÜ¶à°üº¬ÖØ¸´Ìõ¼ştriggerµÄ×´Ì¬¿ØÖÆÆ÷,×îºÃ½«Õâ¸ö¿ØÖÆÆ÷´ò¶ÏÎª2¸ö¶ÀÁ¢µÄ¿é,Ã¿¸ö¿é¶ÀÁ¢ÉèÖÃtriggerall.</p>
-<p>Èç¹ûÄãÓĞÒ»¸ö¸´ÔÓµÄÌõ¼ş,Õâ¸öÌõ¼şÊÇĞí¶àÁ¬Ğø×´Ì¬¿ØÖÆÆ÷µÄ´¥·¢Ìõ¼ş,Äã¿ÉÒÔ°ÑÕâ¸öÌõ¼şµÄÖµ´æ´¢µ½Ò»¸ö±äÁ¿ÖĞ,È»ºó°ÑÕâ¸ö±äÁ¿×÷ÎªºóÃæ´¥·¢Æ÷µÄ¿ØÖÆÌõ¼ş.<br />
-  ÀıÈç:</p>
-<p>trigger1 = (command=&quot;abc&quot; &amp;&amp; command!=&quot;holddown&quot; &amp;&amp; power&gt;=1000) || (command=&quot;abc&quot; &amp;&amp; command!=&quot;holddown&quot; &amp;&amp; var(5)) || ((command != &quot;abc&quot; || command = &quot;holddown&quot;) &amp;&amp; power&gt;=2000)<br />
-  ¿ÉÒÔ±»Ğ´³É (Ö±½Ó¸ø var(0) ¸³ÖµÊÇ¿ÉĞĞµÄ):</p>
-<p>trigger1 = (var(0):=(command=&quot;abc&quot; &amp;&amp; command !=&quot;holddown&quot;) &amp;&amp; power&gt;=1000) || (var(0) &amp;&amp; var(5)) || (!var(0) &amp;&amp; power&gt;=2000)<br />
-  ÕâÀï,Äã±ØĞëÈ¨ºâÌá¸ß¿É¶ÁĞÔ.(ÔÚÊ¹ÓÃ×Ó±í´ïÊ½ºÍÊ¹ÓÃ:=ÔËËã·ûÕâÁ½ÖÖÇé¿öÖĞÈ¨ºâ,Õâ2ÖÖÇé¿ö¶¼»á½µµÍ¿É¶ÁĞÔ)<br />
-  (»òÕßÊ¹ÓÃvarset¿ØÖÆÆ÷:<br />
-  [State -1]<br />
-  type = varset <br />
-  ...<br />
-  var(0) = command=&quot;abc&quot; &amp;&amp; command !=&quot;holddown&quot;<br />
-  È»ºó:<br />
-  trigger1 = var(0)&amp;&amp;power&gt;=1000 || var(0)&amp;&amp;var(5) || !var(0)&amp;&amp;power&gt;=2000<br />
-  ÓÉÓÚ&amp;&amp;ÔËËãµÈ¼¶¸ßÓÚ||,ËùÒÔÕâÃ´Ğ´²»Î¥±³Ô­Òâ.)</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   6.11 ä»£ç æ•ˆç‡
+  </p>
+  <p>
+   å¤„ç†è¡¨è¾¾å¼ä¸æ˜¯å‘ç”µè„‘æ”¶è´¹,æ‰€ä»¥ä½ ä»£ç çš„å¯è¯»æ€§æ¯”å¾®ä¼˜åŒ–è¡¨è¾¾å¼æ›´é‡è¦.
+   <br/>
+   ç„¶è€Œ,ä¸‹é¢çš„æŸäº›å¥½çš„åšæ³•å°†æé«˜æ•ˆç‡åŒæ—¶ä¸å½±å“æœ€ç»ˆçš„æ•ˆæœ.
+  </p>
+  <p>
+   MUGENåœ¨çŠ¶æ€æ§åˆ¶å™¨ä¸­è®¡ç®—æ¡ä»¶å‹è§¦å‘å™¨éµå¾ªå¦‚ä¸‹åŸåˆ™:
+   <br/>
+   é¦–å…ˆè®¡ç®—triggerall,ä»ä¸Šåˆ°ä¸‹é¡ºåºè®¡ç®—.
+   <br/>
+   å¦‚æœä»»ä½•triggerallè®¡ç®—å‡º0,åˆ™å‰©ä½™çš„è§¦å‘å™¨å°†è¢«è·³è¿‡ä¸”å°†è®¡ç®—ä¸‹ä¸€ä¸ªæ§åˆ¶å™¨.
+   <br/>
+   å¦‚æœæ‰€æœ‰triggerallè®¡ç®—ç»“æœéƒ½æ˜¯é0,åˆ™å¼•æ“å¼€å§‹è®¡ç®—trigger1,ä¹Ÿæ˜¯ä»ä¸Šåˆ°ä¸‹é¡ºåºè®¡ç®—.
+   <br/>
+   å¦‚æœå®ƒä»¬ä¸­ä»»ä½•ä¸€ä¸ªè®¡ç®—å‡º0,åˆ™è·³è¿‡æ‰€æœ‰å‰©ä¸‹çš„trigger1è½¬è€Œè®¡ç®—ç¬¬ä¸€ä¸ªtrigger2,è¯¸å¦‚æ­¤ç±»ç­‰ç­‰.
+   <br/>
+   å¦‚æœä¸€ä¸ªå—ä¸­çš„æ‰€æœ‰trigger(é™¤äº†triggerall)éƒ½è®¡ç®—å‡ºé0,åˆ™å°†å¼€å§‹è®¡ç®—çŠ¶æ€æ§åˆ¶å™¨å‚æ•°ä¸”æ§åˆ¶å™¨è¢«è§¦å‘.
+  </p>
+  <p>
+   æ¢å¥è¯è¯´,è§¦å‘å™¨è®¡ç®—çš„é€»è¾‘æ˜¯ç±»ä¼¼çŸ­è·¯å‹çš„.åœ¨ç±»ä¼¼Cè¯­è¨€çš„æ ‡è®°æ³•ä¸­,è¿™ç§æ–¹å¼ä¹Ÿè®¸è¢«è®°ä¸º
+   <br/>
+   triggerall,1 &amp;&amp; triggerall,2 &amp;&amp; ... &amp;&amp; ((trigger1,1 &amp;&amp; trigger1,2 &amp;&amp; ...) || (trigger2,1 &amp;&amp; trigger2,2 &amp;&amp; ...) || ... )
+   <br/>
+   è¿™é‡Œ trigger1,2 è®°ä½œ trigger1 ç¬¬2è¡Œ; trigger2,1 è®°ä½œ trigger2 ç¬¬1è¡Œ,ç­‰ç­‰.
+   <br/>
+   è¿™ä¸ªtriggerç»„çš„é€»è¾‘è®¡ç®—å°†æ˜¯çŸ­è·¯å‹çš„,å°±åƒCä¸€æ ·.
+  </p>
+  <p>
+   (æ³¨:é€šè¿‡é‚£ä¸ªé€»è¾‘å…³ç³»å¼,è¡¨ç¤ºäº†triggerallç»„ä¸åé¢trigger1,trigger2ç­‰æ‰€æœ‰ç»„å…³ç³»æ˜¯'&amp;&amp;',ä¹Ÿå°±æ˜¯è¯´åªè¦triggerallç»„ä¸€ä¸ªæ˜¯0,å°±ä¸èƒ½è§¦å‘.
+   <br/>
+   é€šä¿—è¯´æ³•å°±æ˜¯triggerallé‡Œé¢åªè¦æœ‰1ä¸ªæ˜¯0å°±ä¸èƒ½è§¦å‘,è¦è§¦å‘å¿…é¡»triggerallå…¨éƒ¨é0.
+   <br/>
+   é€»è¾‘å…³ç³»å¼è¿˜èƒ½çœ‹å‡ºtrigger1ç»„å’Œtrigger2ç»„...ä¹‹é—´éƒ½æ˜¯'||',ä¹Ÿå°±æ˜¯è¿™äº›ç»„ä¸­åªè¦æœ‰ä¸€ä¸ªç»„ä¸º1å°±èƒ½è§¦å‘(å‰ææ˜¯triggerallå·²ç»æ£€æµ‹ä¸ºé0.)
+   <br/>
+   è€Œåœ¨æ¯ä¸ªtriggerç»„ä¸­,ä»–ä»¬ä¹‹é—´çš„å…³ç³»æ˜¯'&amp;&amp;',æ¯”å¦‚trigger1ç»„ä¸­,è¦ä¿è¯trigger1çš„æƒ…å†µä¸‹è§¦å‘,å¿…é¡»æ¯ä¸ªtrigger1éƒ½é0.
+   <br/>
+   æ§åˆ¶å™¨è¢«è§¦å‘çš„é€šä¿—è¯´æ³•å°±æ˜¯:é¦–å…ˆæ¯ä¸ªtriggeralléƒ½è¦é0,ç„¶åæ¯ä¸ª triggerNç»„ ä¸­æœ€å°‘è¦æœ‰1ä¸ªé0,triggerNç»„ è¦é0,å¿…é¡»æ¯ä¸ªtriggerNéƒ½é0. )
+  </p>
+  <p>
+   ç”±äºè¿™ä¸ªç³»ç»Ÿ,å¯ä»¥é€šè¿‡ ç»„ç»‡å¥½è¡¨è¾¾å¼ä»¥ä¾¿æ¡ä»¶å‹è§¦å‘å™¨é‡Œçš„æ•°å­—å°½å¯èƒ½çš„å³å°åˆå°‘ æ¥å®ç°å¤§å¤§æé«˜æ•ˆç‡.
+   <br/>
+   çŠ¶æ€æ§åˆ¶å™¨å‚æ•°å¯ä»¥å‡å°‘å·¥ä½œé‡(ä»£ç é‡),è¿™äº›å‚æ•°åœ¨è§¦å‘æ—¶ä»…è®¡ç®—ä¸€æ¬¡,è€Œä¸æ˜¯ç©å®¶åœ¨çŠ¶æ€ä¸­æ¯å¸§éƒ½è®¡ç®—.ä¾‹å¦‚
+  </p>
+  <p>
+   [State -1]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = command = "a"
+   <br/>
+   trigger1 = power &lt; 1000
+   <br/>
+   value = 3000
+  </p>
+  <p>
+   [State -1]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = command = "a"
+   <br/>
+   trigger1 = power &gt;= 1000
+   <br/>
+   value = 3001
+  </p>
+  <p>
+   [State -1]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = command = "a"
+   <br/>
+   trigger1 = power &gt;= 2000
+   <br/>
+   value = 3002
+   <br/>
+   å¯ä»¥è¿›ä¸€æ­¥ç®€åŒ–ä¸º:
+  </p>
+  <p>
+   [State -1]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = command = "a"
+   <br/>
+   value = 3000 + (power &gt;= 1000) + (power &gt;= 2000)
+   <br/>
+   ä½ åŒæ—¶èƒ½ä¸ºå¼•æ“æ’å¿§è§£éš¾,é€šè¿‡æŠŠæœ€å®¹æ˜“è®¡ç®—å‡ºfalseçš„triggerallæ”¾åœ¨triggerallå—çš„é¡¶éƒ¨.(å¯ä»¥å‡å°‘å¼•æ“è®¡ç®—é‡)
+   <br/>
+   åŒæ ·,trigger1å—åº”è¯¥æ˜¯æœ€å¯èƒ½è¢«è§¦å‘çš„å—,ä½†æ˜¯åœ¨trigger1å—å†…éƒ¨,æœ€æœ‰å¯èƒ½è®¡ç®—å‡º0çš„trigger1åº”è¯¥æ”¾ç½®åœ¨é¡¶éƒ¨.
+   <br/>
+   å¯¹äºæœ‰å¾ˆå¤šåŒ…å«é‡å¤æ¡ä»¶triggerçš„çŠ¶æ€æ§åˆ¶å™¨,æœ€å¥½å°†è¿™ä¸ªæ§åˆ¶å™¨æ‰“æ–­ä¸º2ä¸ªç‹¬ç«‹çš„å—,æ¯ä¸ªå—ç‹¬ç«‹è®¾ç½®triggerall.
+  </p>
+  <p>
+   å¦‚æœä½ æœ‰ä¸€ä¸ªå¤æ‚çš„æ¡ä»¶,è¿™ä¸ªæ¡ä»¶æ˜¯è®¸å¤šè¿ç»­çŠ¶æ€æ§åˆ¶å™¨çš„è§¦å‘æ¡ä»¶,ä½ å¯ä»¥æŠŠè¿™ä¸ªæ¡ä»¶çš„å€¼å­˜å‚¨åˆ°ä¸€ä¸ªå˜é‡ä¸­,ç„¶åæŠŠè¿™ä¸ªå˜é‡ä½œä¸ºåé¢è§¦å‘å™¨çš„æ§åˆ¶æ¡ä»¶.
+   <br/>
+   ä¾‹å¦‚:
+  </p>
+  <p>
+   trigger1 = (command="abc" &amp;&amp; command!="holddown" &amp;&amp; power&gt;=1000) || (command="abc" &amp;&amp; command!="holddown" &amp;&amp; var(5)) || ((command != "abc" || command = "holddown") &amp;&amp; power&gt;=2000)
+   <br/>
+   å¯ä»¥è¢«å†™æˆ (ç›´æ¥ç»™ var(0) èµ‹å€¼æ˜¯å¯è¡Œçš„):
+  </p>
+  <p>
+   trigger1 = (var(0):=(command="abc" &amp;&amp; command !="holddown") &amp;&amp; power&gt;=1000) || (var(0) &amp;&amp; var(5)) || (!var(0) &amp;&amp; power&gt;=2000)
+   <br/>
+   è¿™é‡Œ,ä½ å¿…é¡»æƒè¡¡æé«˜å¯è¯»æ€§.(åœ¨ä½¿ç”¨å­è¡¨è¾¾å¼å’Œä½¿ç”¨:=è¿ç®—ç¬¦è¿™ä¸¤ç§æƒ…å†µä¸­æƒè¡¡,è¿™2ç§æƒ…å†µéƒ½ä¼šé™ä½å¯è¯»æ€§)
+   <br/>
+   (æˆ–è€…ä½¿ç”¨varsetæ§åˆ¶å™¨:
+   <br/>
+   [State -1]
+   <br/>
+   type = varset
+   <br/>
+   ...
+   <br/>
+   var(0) = command="abc" &amp;&amp; command !="holddown"
+   <br/>
+   ç„¶å:
+   <br/>
+   trigger1 = var(0)&amp;&amp;power&gt;=1000 || var(0)&amp;&amp;var(5) || !var(0)&amp;&amp;power&gt;=2000
+   <br/>
+   ç”±äº&amp;&amp;è¿ç®—ç­‰çº§é«˜äº||,æ‰€ä»¥è¿™ä¹ˆå†™ä¸è¿èƒŒåŸæ„.)
+  </p>
+ </body>
 </html>

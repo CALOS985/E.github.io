@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>3.1 ״̬����</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   3.1 状态介绍
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,18 +23,34 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">3.1 ״̬����</p>
-<p>�����������ѵĲ��־��Ǳ�д״̬.��Ҫ�����Ĺ���,����,���»���Ҫ��������.<br />
-���ǳ�״̬�����༭����Ϊp1,���Ķ�����p2.</p>
-<p>������һ�ζ���ƪ�����кܶ಻���׵ĵط��벻Ҫ����.<br />
-�������״̬��õķ�������,���Ȱ�Ūһ��1�����������CNS����,Ȼ�󿴿���Щ��ֵ����(��)��ʲô����.<br />
-����CNS����ûʲô���µ�;mugen����Ƴɻ����﷨����Ȼ�󱨳���.</p>
-<p>mugen����ѹ�����а���������Kung Fu Man������(���KFM).<br />
-������·��chars/kfm���ҵ�.</p>
-<p>CMD�ļ�����commandָ���state -1����(���ڿ���������γ��е�ָ��״̬)������,</p>
-<p>������һЩ������˵�������õĸ���.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   3.1 状态介绍
+  </p>
+  <p>
+   创建人物最难的部分就是编写状态.需要大量的工作,测试,有事还需要不断摸索.
+   <br/>
+   我们称状态正被编辑的人为p1,他的对手是p2.
+  </p>
+  <p>
+   如果你第一次读此篇文章有很多不明白的地方请不要灰心.
+   <br/>
+   理解关于状态最好的方法就是,首先摆弄一下1个完整人物的CNS变量,然后看看这些数值对他(她)起什么作用.
+   <br/>
+   调整CNS代码没什么可怕的;mugen被设计成会检测语法错误然后报出来.
+  </p>
+  <p>
+   mugen程序压缩包中包含了名叫Kung Fu Man的人物(简称KFM).
+   <br/>
+   你能在路径chars/kfm中找到.
+  </p>
+  <p>
+   CMD文件包含command指令和state -1定义(用于控制人物如何出招的指定状态)的申明,
+  </p>
+  <p>
+   下面是一些对你来说将很有用的概念.
+  </p>
+ </body>
 </html>

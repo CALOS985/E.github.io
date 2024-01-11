@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>3.4.3 ³£ÓÃ¿ØÖÆÆ÷</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   3.4.3 å¸¸ç”¨æ§åˆ¶å™¨
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,134 +23,259 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">3.4.3 ³£ÓÃ¿ØÖÆÆ÷</p>
-<p>null¿ØÖÆÆ÷³£ÓÃÓÚµ÷ÊÔ.null¿ØÖÆÆ÷»ù±¾ÉÏÃ»Ê²Ã´ÓÃ.ÄãÄÜÓÃËûÁÙÊ±¹Ø±ÕÄ³Ğ©¿ØÖÆÆ÷,¶ø²»ĞèÒª°ÑÕû¸öÕÂ½Ú×¢ÊÍµô.<br />
-ÀıÈç,ÄãÒ²ĞíÏë·ÏÆúÕâĞ©´úÂë:</p>
-<ul>
-  <li>[State 300, 1] <br />
-    type = VelAdd<br />
-    trigger1 = Time &gt;= 0<br />
-    x = .8<br />
-  </li>
-</ul>
-<p>Ö»Òª¼òµ¥µÄ×¢ÊÍÒ»ÏÂtypeÍ¬Ê±²åÈënull;</p>
-<ul>
-  <li>[State 300, 1]<br />
-    type = null ;VelAdd<br />
-    trigger1 = Time &gt;= 0<br />
-    x = .8<br />
-  </li>
-</ul>
-<p>Ö®ºóÈç¹ûÄãÒªÖØĞÂÊ¹ÓÃÖ®Ç°µÄ¿ØÖÆÆ÷,Ö»Òª°Ñtype¸Ä³ÉÔ­À´µÄ.</p>
-<p>ÈÃÎÒÃÇ»Ø¿´Õâ¸öÀı×Ó:</p>
-<ul>
-  <li>[Statedef 200]<br />
-    type = S<br />
-    physics = S<br />
-    movetype = I<br />
-    ctrl = 0<br />
-    anim = 200<br />
-    velset = 0<br />
-    <br />
-    [State 200, 1]<br />
-  type = ChangeState<br />
-  trigger1 = AnimTime = 0<br />
-  value = 0<br />
-  ctrl = 1<br />
-  </li>
-</ul>
-<p>[State 200, 1]ÊÇChangeState¿ØÖÆÆ÷.¹ËÃûË¼Òå,¸Ä±äp1µÄ×´Ì¬ºÅ.value²ÎÊıÒª°üº¬¸Ä±äÎªµÄ×´Ì¬ºÅ.<br />
-¿ÉÑ¡µÄctrl²ÎÊıÄÜ±»ÉèÖÃ³Éµ±×ª»»×´Ì¬Ê±µÄ¿ØÖÆ±êÊ¾(½øÈëÏÂÒ»×´Ì¬Ê±ÊÇ·ñÊÜ¿Ø).</p>
-<p>ÏÖÔÚÎÒÃÇÀ´´´½¨Ò»¸ö¹¥»÷×´Ì¬.Ê×ÏÈ,¶¯»­¶¯×÷ĞèÒª»æÖÆ¹¥»÷¿ò.<br />
-¿ìËÙ¿´Ò»ÏÂAIRÎÄµµµÄ¸ñÊ½:clsn1ÊÇ¹¥»÷¿ò,clsn2ÊÇÊÜ»÷¿ò.<br />
-ËùÒÔÖ»Òªp1µÄÈÎºÎclsn1¿ò½Ó´¥ÁËp2µÄÈÎºÎclsn2¿ò,p1¾Í»÷ÖĞÁËp2.</p>
-<p>Õâ¸öÀı×Ó,ÎÒÃÇ¼Ù¶¨p1µÄ¶¯»­¾ÍÏñÏÂÃæÕâÑù:</p>
-<ul>
-  <li>[Begin Action 200]<br />
-    200,0, 0,0, 3<br />
-    200,1, 0,0, 4<br />
-    200,2, 0,0, 4<br />
-    200,3, 0,0, 3<br />
-  </li>
-</ul>
-<p>¶¨ÒåÁË¹¥»÷/ÊÜ»÷¿òÖ®ºó,¿´ÉÏÈ¥¾ÍÊÇ:</p>
-<ul>
-  <li>[Begin Action 200]<br />
-    Clsn2: 1<br />
-    Clsn2[0] = -10,0, 10,-80<br />
-    200,0, 0,0, 3<br />
-    Clsn1: 1<br />
-    Clsn1[0] =  10,-70, 40,-60<br />
-    Clsn2: 2<br />
-    Clsn2[0] = -10,  0, 10,-80<br />
-    Clsn2[1] =  10,-70, 40,-60<br />
-    200,1, 0,0, 4<br />
-    Clsn2Default: 1<br />
-    Clsn2[0] = -10,0, 10,-80<br />
-    200,2, 0,0, 4<br />
-    200,3, 0,0, 3<br />
-  </li>
-</ul>
-<p>ÈçÄãËù¼û,Ã¿¸öÔªËØº¬ÓĞ¶¼ÓĞclsn2¿ò¶¨Òå(ÖÁÉÙÓĞ2¸öÔªËØÊ¹ÓÃÏàÍ¬µÄ¿ò).<br />
-½öº¬ÓĞClsn1¿òµÄÊÇµÚ¶ş¸öÔªËØ.</p>
-<p>×¢Òâ:¶Ô¶¯»­ÖĞÃ¿¸öÔªËØ¶¨Òåclsn1¿òÊÇÃ»ÎÊÌâµÄ,µ«ÔÚµÚÒ»¸öÔªËØÖĞ¶¨Òåclsn1¿ò,´Ë´Î¹¥»÷½«±äÎªË²¼äµÄ,±äµÃ²»ÄÜ·ÀÓù(ÒòÎªÃ»ÓĞ³öÕĞÊ±¼ä,¶ÔÊÖÀ´²»¼°·ÀÓù).<br />
-×îºó,ÍÆ¼öÔÚµÚÒ»¸öÔªËØÖ®ºó¶¨Òåclsn1¿ò.</p>
-<p>ÏÂÃæÎÒÃÇ¿ªÊ¼ÉèÖÃCNSÖĞµÄ×´Ì¬.ÏÂÃæ½«½âÊÍÒ»Ğ©¸Ä±ä.</p>
-<ul>
-  <li>[Statedef 200]<br />
-    type = S<br />
-    physics = S<br />
-    movetype = A  ;&lt;-- changed from &quot;I&quot; to &quot;A&quot;<br />
-    ctrl = 0<br />
-    anim = 200<br />
-    velset = 0<br />
-    <br />
-    [State 200, 1] ;&lt;-- Added this state controller<br />
-  type = HitDef<br />
-  trigger1 = AnimElem = 2<br />
-  attr = S, NA<br />
-  animtype  = Light<br />
-  damage    = 10<br />
-  guardflag = MA<br />
-  pausetime = 12,12<br />
-  sparkxy = 0,-55<br />
-  hitsound   = 5,0<br />
-  guardsound = 6,0<br />
-  ground.type = High<br />
-  ground.slidetime = 12<br />
-  ground.hittime  = 15<br />
-  ground.velocity = -5<br />
-  air.velocity = -2.5,-3.5<br />
-  <br />
-  [State 200, 2]<br />
-  type = ChangeState<br />
-  trigger1 = AnimTime = 0<br />
-  value = 0<br />
-  ctrl = 1<br />
-  </li>
-</ul>
-<p>statedefÏÂmovetype²ÎÊıÉèÖÃ³ÉA±íÊ¾&quot;¹¥»÷&quot;.¼Ç×¡ÔÚËùÓĞ¹¥»÷×´Ì¬ÖĞÉèÖÃ´Ë²ÎÊıÎªA.<br />
-ÈçÇ°,p1ÔÚ¶¯×÷½áÊøºó·µ»ØÕ¾Á¢×´Ì¬.</p>
-<p>hitdef¿ØÖÆÆ÷¿´ÆğÀ´ºÜ¿Ö²À!±ğµ£ĞÄ,ÎÒÃÇÏÂÃæ»áÂıÂı½éÉÜ.</p>
-<ul>
-  <li>type = HitDef<br />
-    trigger1 = AnimElem = 2</li>
-</ul>
-<p>Ö¸¶¨ÁË¿ØÖÆÆ÷ÀàĞÍÎªhitdef,±íÊ¾&quot;¹¥»÷¶¨Òå&quot;.<br />
-ÔÚ¶¯»­µÄµÚ2ÔªËØÊ±±»´¥·¢.ÈÎºÎ´ËÊ±¼äµãµÄclsn2¿ò,´¥·¢Æ÷±»¼¤»îÊ±,½«Ğ¯´ø´Ë¹¥»÷¶¨Òå.</p>
-<p>¼ÙÈç,¾ÙÀı,ÄãÔÚµÚ2,µÚ3ÔªËØÖĞ¶¼ÓĞclsn1¿ò,ÔÚµÚ2ÔªËØ´¥·¢µ¥¸öhitdef½«Ê¹ËûÍ¬Ê±×÷ÓÃÓÚÁ½¸öÔªËØ.<br />
-ËùÒÔp1ÖÁÉÙ½«´ò»÷1´Î:Èç¹ûµÚ2ÔªËØ»÷ÖĞÁË,µÚ3ÔªËØ½«miss.Èç¹ûµÚ3ÔªËØ»÷ÖĞÁË,µÚ2ÔªËØ½«miss.<br />
-  ÒªÊ¹¹¥»÷hit2´Î,Äã±ØĞëÃ¿¸öÔªËØ¶¼´¥·¢hitdef¿ØÖÆÆ÷.<br />
-</p>
-<ul>
-  <li>attr = S, NA<br />
-  </li>
-</ul>
-<p>¹¥»÷µÄÊôĞÔ.ÓÃÓÚ¾ö¶¨ÊÇ·ñ¹¥»÷ÄÜ»÷ÖĞp2.<br />
-´ËÀıÖĞ,ÕâÊÇÒ»¸öÕ¾Á¢ÆÕÍ¨¹¥»÷.</p>
-<p>ÏÂÃæµÄËùÓĞ²ÎÊıÏê¼ûhitdef¿ØÖÆÆ÷,ÔÚ´Ë²»Ò»Ò»½âÊÍÁË.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   3.4.3 å¸¸ç”¨æ§åˆ¶å™¨
+  </p>
+  <p>
+   nullæ§åˆ¶å™¨å¸¸ç”¨äºè°ƒè¯•.nullæ§åˆ¶å™¨åŸºæœ¬ä¸Šæ²¡ä»€ä¹ˆç”¨.ä½ èƒ½ç”¨ä»–ä¸´æ—¶å…³é—­æŸäº›æ§åˆ¶å™¨,è€Œä¸éœ€è¦æŠŠæ•´ä¸ªç« èŠ‚æ³¨é‡Šæ‰.
+   <br/>
+   ä¾‹å¦‚,ä½ ä¹Ÿè®¸æƒ³åºŸå¼ƒè¿™äº›ä»£ç :
+  </p>
+  <ul>
+   <li>
+    [State 300, 1]
+    <br/>
+    type = VelAdd
+    <br/>
+    trigger1 = Time &gt;= 0
+    <br/>
+    x = .8
+    <br/>
+   </li>
+  </ul>
+  <p>
+   åªè¦ç®€å•çš„æ³¨é‡Šä¸€ä¸‹typeåŒæ—¶æ’å…¥null;
+  </p>
+  <ul>
+   <li>
+    [State 300, 1]
+    <br/>
+    type = null ;VelAdd
+    <br/>
+    trigger1 = Time &gt;= 0
+    <br/>
+    x = .8
+    <br/>
+   </li>
+  </ul>
+  <p>
+   ä¹‹åå¦‚æœä½ è¦é‡æ–°ä½¿ç”¨ä¹‹å‰çš„æ§åˆ¶å™¨,åªè¦æŠŠtypeæ”¹æˆåŸæ¥çš„.
+  </p>
+  <p>
+   è®©æˆ‘ä»¬å›çœ‹è¿™ä¸ªä¾‹å­:
+  </p>
+  <ul>
+   <li>
+    [Statedef 200]
+    <br/>
+    type = S
+    <br/>
+    physics = S
+    <br/>
+    movetype = I
+    <br/>
+    ctrl = 0
+    <br/>
+    anim = 200
+    <br/>
+    velset = 0
+    <br/>
+    <br/>
+    [State 200, 1]
+    <br/>
+    type = ChangeState
+    <br/>
+    trigger1 = AnimTime = 0
+    <br/>
+    value = 0
+    <br/>
+    ctrl = 1
+    <br/>
+   </li>
+  </ul>
+  <p>
+   [State 200, 1]æ˜¯ChangeStateæ§åˆ¶å™¨.é¡¾åæ€ä¹‰,æ”¹å˜p1çš„çŠ¶æ€å·.valueå‚æ•°è¦åŒ…å«æ”¹å˜ä¸ºçš„çŠ¶æ€å·.
+   <br/>
+   å¯é€‰çš„ctrlå‚æ•°èƒ½è¢«è®¾ç½®æˆå½“è½¬æ¢çŠ¶æ€æ—¶çš„æ§åˆ¶æ ‡ç¤º(è¿›å…¥ä¸‹ä¸€çŠ¶æ€æ—¶æ˜¯å¦å—æ§).
+  </p>
+  <p>
+   ç°åœ¨æˆ‘ä»¬æ¥åˆ›å»ºä¸€ä¸ªæ”»å‡»çŠ¶æ€.é¦–å…ˆ,åŠ¨ç”»åŠ¨ä½œéœ€è¦ç»˜åˆ¶æ”»å‡»æ¡†.
+   <br/>
+   å¿«é€Ÿçœ‹ä¸€ä¸‹AIRæ–‡æ¡£çš„æ ¼å¼:clsn1æ˜¯æ”»å‡»æ¡†,clsn2æ˜¯å—å‡»æ¡†.
+   <br/>
+   æ‰€ä»¥åªè¦p1çš„ä»»ä½•clsn1æ¡†æ¥è§¦äº†p2çš„ä»»ä½•clsn2æ¡†,p1å°±å‡»ä¸­äº†p2.
+  </p>
+  <p>
+   è¿™ä¸ªä¾‹å­,æˆ‘ä»¬å‡å®šp1çš„åŠ¨ç”»å°±åƒä¸‹é¢è¿™æ ·:
+  </p>
+  <ul>
+   <li>
+    [Begin Action 200]
+    <br/>
+    200,0, 0,0, 3
+    <br/>
+    200,1, 0,0, 4
+    <br/>
+    200,2, 0,0, 4
+    <br/>
+    200,3, 0,0, 3
+    <br/>
+   </li>
+  </ul>
+  <p>
+   å®šä¹‰äº†æ”»å‡»/å—å‡»æ¡†ä¹‹å,çœ‹ä¸Šå»å°±æ˜¯:
+  </p>
+  <ul>
+   <li>
+    [Begin Action 200]
+    <br/>
+    Clsn2: 1
+    <br/>
+    Clsn2[0] = -10,0, 10,-80
+    <br/>
+    200,0, 0,0, 3
+    <br/>
+    Clsn1: 1
+    <br/>
+    Clsn1[0] =  10,-70, 40,-60
+    <br/>
+    Clsn2: 2
+    <br/>
+    Clsn2[0] = -10,  0, 10,-80
+    <br/>
+    Clsn2[1] =  10,-70, 40,-60
+    <br/>
+    200,1, 0,0, 4
+    <br/>
+    Clsn2Default: 1
+    <br/>
+    Clsn2[0] = -10,0, 10,-80
+    <br/>
+    200,2, 0,0, 4
+    <br/>
+    200,3, 0,0, 3
+    <br/>
+   </li>
+  </ul>
+  <p>
+   å¦‚ä½ æ‰€è§,æ¯ä¸ªå…ƒç´ å«æœ‰éƒ½æœ‰clsn2æ¡†å®šä¹‰(è‡³å°‘æœ‰2ä¸ªå…ƒç´ ä½¿ç”¨ç›¸åŒçš„æ¡†).
+   <br/>
+   ä»…å«æœ‰Clsn1æ¡†çš„æ˜¯ç¬¬äºŒä¸ªå…ƒç´ .
+  </p>
+  <p>
+   æ³¨æ„:å¯¹åŠ¨ç”»ä¸­æ¯ä¸ªå…ƒç´ å®šä¹‰clsn1æ¡†æ˜¯æ²¡é—®é¢˜çš„,ä½†åœ¨ç¬¬ä¸€ä¸ªå…ƒç´ ä¸­å®šä¹‰clsn1æ¡†,æ­¤æ¬¡æ”»å‡»å°†å˜ä¸ºç¬é—´çš„,å˜å¾—ä¸èƒ½é˜²å¾¡(å› ä¸ºæ²¡æœ‰å‡ºæ‹›æ—¶é—´,å¯¹æ‰‹æ¥ä¸åŠé˜²å¾¡).
+   <br/>
+   æœ€å,æ¨èåœ¨ç¬¬ä¸€ä¸ªå…ƒç´ ä¹‹åå®šä¹‰clsn1æ¡†.
+  </p>
+  <p>
+   ä¸‹é¢æˆ‘ä»¬å¼€å§‹è®¾ç½®CNSä¸­çš„çŠ¶æ€.ä¸‹é¢å°†è§£é‡Šä¸€äº›æ”¹å˜.
+  </p>
+  <ul>
+   <li>
+    [Statedef 200]
+    <br/>
+    type = S
+    <br/>
+    physics = S
+    <br/>
+    movetype = A  ;&lt;-- changed from "I" to "A"
+    <br/>
+    ctrl = 0
+    <br/>
+    anim = 200
+    <br/>
+    velset = 0
+    <br/>
+    <br/>
+    [State 200, 1] ;&lt;-- Added this state controller
+    <br/>
+    type = HitDef
+    <br/>
+    trigger1 = AnimElem = 2
+    <br/>
+    attr = S, NA
+    <br/>
+    animtype  = Light
+    <br/>
+    damage    = 10
+    <br/>
+    guardflag = MA
+    <br/>
+    pausetime = 12,12
+    <br/>
+    sparkxy = 0,-55
+    <br/>
+    hitsound   = 5,0
+    <br/>
+    guardsound = 6,0
+    <br/>
+    ground.type = High
+    <br/>
+    ground.slidetime = 12
+    <br/>
+    ground.hittime  = 15
+    <br/>
+    ground.velocity = -5
+    <br/>
+    air.velocity = -2.5,-3.5
+    <br/>
+    <br/>
+    [State 200, 2]
+    <br/>
+    type = ChangeState
+    <br/>
+    trigger1 = AnimTime = 0
+    <br/>
+    value = 0
+    <br/>
+    ctrl = 1
+    <br/>
+   </li>
+  </ul>
+  <p>
+   statedefä¸‹movetypeå‚æ•°è®¾ç½®æˆAè¡¨ç¤º"æ”»å‡»".è®°ä½åœ¨æ‰€æœ‰æ”»å‡»çŠ¶æ€ä¸­è®¾ç½®æ­¤å‚æ•°ä¸ºA.
+   <br/>
+   å¦‚å‰,p1åœ¨åŠ¨ä½œç»“æŸåè¿”å›ç«™ç«‹çŠ¶æ€.
+  </p>
+  <p>
+   hitdefæ§åˆ¶å™¨çœ‹èµ·æ¥å¾ˆææ€–!åˆ«æ‹…å¿ƒ,æˆ‘ä»¬ä¸‹é¢ä¼šæ…¢æ…¢ä»‹ç».
+  </p>
+  <ul>
+   <li>
+    type = HitDef
+    <br/>
+    trigger1 = AnimElem = 2
+   </li>
+  </ul>
+  <p>
+   æŒ‡å®šäº†æ§åˆ¶å™¨ç±»å‹ä¸ºhitdef,è¡¨ç¤º"æ”»å‡»å®šä¹‰".
+   <br/>
+   åœ¨åŠ¨ç”»çš„ç¬¬2å…ƒç´ æ—¶è¢«è§¦å‘.ä»»ä½•æ­¤æ—¶é—´ç‚¹çš„clsn2æ¡†,è§¦å‘å™¨è¢«æ¿€æ´»æ—¶,å°†æºå¸¦æ­¤æ”»å‡»å®šä¹‰.
+  </p>
+  <p>
+   å‡å¦‚,ä¸¾ä¾‹,ä½ åœ¨ç¬¬2,ç¬¬3å…ƒç´ ä¸­éƒ½æœ‰clsn1æ¡†,åœ¨ç¬¬2å…ƒç´ è§¦å‘å•ä¸ªhitdefå°†ä½¿ä»–åŒæ—¶ä½œç”¨äºä¸¤ä¸ªå…ƒç´ .
+   <br/>
+   æ‰€ä»¥p1è‡³å°‘å°†æ‰“å‡»1æ¬¡:å¦‚æœç¬¬2å…ƒç´ å‡»ä¸­äº†,ç¬¬3å…ƒç´ å°†miss.å¦‚æœç¬¬3å…ƒç´ å‡»ä¸­äº†,ç¬¬2å…ƒç´ å°†miss.
+   <br/>
+   è¦ä½¿æ”»å‡»hit2æ¬¡,ä½ å¿…é¡»æ¯ä¸ªå…ƒç´ éƒ½è§¦å‘hitdefæ§åˆ¶å™¨.
+   <br/>
+  </p>
+  <ul>
+   <li>
+    attr = S, NA
+    <br/>
+   </li>
+  </ul>
+  <p>
+   æ”»å‡»çš„å±æ€§.ç”¨äºå†³å®šæ˜¯å¦æ”»å‡»èƒ½å‡»ä¸­p2.
+   <br/>
+   æ­¤ä¾‹ä¸­,è¿™æ˜¯ä¸€ä¸ªç«™ç«‹æ™®é€šæ”»å‡».
+  </p>
+  <p>
+   ä¸‹é¢çš„æ‰€æœ‰å‚æ•°è¯¦è§hitdefæ§åˆ¶å™¨,åœ¨æ­¤ä¸ä¸€ä¸€è§£é‡Šäº†.
+  </p>
+ </body>
 </html>

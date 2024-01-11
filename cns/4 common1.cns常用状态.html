@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>4 common1.cns³£ÓÃ×´Ì¬</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   4 common1.cnså¸¸ç”¨çŠ¶æ€
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,53 +23,100 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">4 common1.cns³£ÓÃ×´Ì¬</p>
-<p>Èç¹ûÄã¿´ÁËÍæ¼ÒµÄDEFÎÄ¼ş,»á¿´¼ûÈçÏÂÄÚÈİ:</p>
-<ul>
-  <li>stcommon = common1.cns  ;Common states</li>
-</ul>
-<p>Ã¿¸öÍæ¼Ò·ÖÏíÁËÒ»Ğ©³£ÓÃ×´Ì¬,ÕâÊÇÓÎÏ·ÒıÇæµÄ»ù´¡²¿·Ö.ÕâĞ©³£ÓÃ×´Ì¬¿ÉÒÔÔÚdata/common1.cnsÖĞÕÒµ½.<br />
-Ò»Ğ©Àı×ÓÊÇÅÜ²½ºÍÊÜ»÷µÄ×´Ì¬.ÔÚÌØÊâ×´Ì¬ºÅÖĞÍêÕûµÄÁĞ±íÊÇÓĞĞ§µÄ.</p>
-<p>Èç¹ûÄãÏëÎªÄ³Ğ©Íæ¼Ò¸²¸Ç³£ÓÃ×´Ì¬,Ö»ÒªÔÚÍæ¼ÒCNSÖĞ´´½¨Ò»¸öÏàÍ¬×´Ì¬ºÅ(ºÍĞèÒª¸²¸ÇµÄ×´Ì¬ºÅÏàÍ¬)µÄ×´Ì¬.<br />
-Ôòµ±Íæ¼Ò¸Ä±äµ½ÄÇ¸öÖ¸¶¨µÄ×´Ì¬ºÅÊ±,Ëû½«½øÈëĞÂµÄ×´Ì¬,¶ø²»ÊÇcommon1.cnsÖĞµÄÄÇ¸ö.<br />
-(ÒòÎªstcommon = common1.cnsÖ´ĞĞÓÅÏÈ¼¶ºÜµÍ,´ó¶àÊıCNSÎÄ¼şµÄÓÅÏÈ¼¶¶¼¸ßÓÚËû)</p>
-<p>Òª¼Ç×¡µ±¸²¸ÇmugenÖĞÄ³Ğ©ÓĞÌØÊâ´úÂëµÄ×´Ì¬Ê±,ĞÂ´´½¨µÄ×´Ì¬Ò²ÓĞÕâĞ©ÌØÊâ´úÂë.<br />
-ÀıÈç,ÅÜ¶¯µÄ×´Ì¬(state 100)ÖĞ,ÉèÖÃÍæ¼ÒµÄËÙ¶ÈÎªÄãÔÚÍæ¼Ò±äÁ¿ÖĞÖ¸¶¨µÄÖµ.<br />
-Èç¹ûÄã¸²¸ÇÁËstate 100,ĞÂ×´Ì¬½«ÈÔÈ»º¬ÓĞÕâĞ©Éè¶¨.</p>
-<p>Ò»¸öÆÕÍ¨µÄÀı×Ó¾ÍÊÇ¸²¸ÇÅÜ¶¯×´Ì¬.<br />
-  mugenÅÜ¶¯×´Ì¬µÄÄ¬ÈÏÌØÕ÷¾ÍÊÇÈÃÍæ¼ÒÒÔºã¶¨µÄËÙ¶È³ÖĞøÏòÇ°ÔË¶¯,Ö±µ½Äã·Å¿ªÏòÇ°µÄ°´¼ü.<br />
-Ö®ºó¾Í»Øµ½ÁËÕ¾Á¢µÄ×´Ì¬.</p>
-<p>ÏÖÔÚ,ÎÒÃÇÏ£ÍûÈÃÍæ¼Ò(ÕâÀï³ÆÎªp1)ÓÃÇ°ÌøÀ´´úÌæÅÜ,¾ÍÏñ°´Á½´ÎÏòºó¼ü¾Í»áºóÌøÄÇÑù.<br />
-Äã¿ÉÒÔÔÚp1µÄcnsÎÄ¼şÖĞÕâÃ´ÉèÖÃ.</p>
-<ul>
-  <li>; RUN_FWD (overridden to dash-type)<br />
-    [Statedef 100]<br />
-    type    = S   ;Running is on the ground<br />
-    physics = N   ;We'll define our own physics<br />
-    anim = 100    ;Anim action 100<br />
-    ctrl = 0      ;No control for duration of dash<br />
-    <br />
-    [State 100, 1] ;To start dashing forwards<br />
-  type = VelSet<br />
-  trigger1 = Time = [0,5]<br />
-  x = 6<br />
-  <br />
-  [State 100, 2] ;Friction after initial dash<br />
-  type = VelMul<br />
-  trigger1 = Time &gt; 5<br />
-  x = .85<br />
-  <br />
-  [State 100, 3] ;<br />
-  type = ChangeState<br />
-  trigger1 = AnimTime = 0<br />
-  value = 0<br />
-  ctrl = 1<br />
-  </li>
-</ul>
-<p>ÕâÀïÎÒÃÇ¼Ù¶¨action 100ÊÇÓĞÏŞÑ­»·µÄ.<br />
-[Velocity]ÏÂÉèÖÃµÄrun.fwdËÙ¶ÈÃ»ÓĞÕæµÄ±»ºöÂÔ,µ«ÊÇ[State 100,1]ÉèÖÃÁËx·½ÏòËÙ¶ÈÎª6¸²¸ÇÁËÕâ¸öÏ¸½Ú.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   4 common1.cnså¸¸ç”¨çŠ¶æ€
+  </p>
+  <p>
+   å¦‚æœä½ çœ‹äº†ç©å®¶çš„DEFæ–‡ä»¶,ä¼šçœ‹è§å¦‚ä¸‹å†…å®¹:
+  </p>
+  <ul>
+   <li>
+    stcommon = common1.cns  ;Common states
+   </li>
+  </ul>
+  <p>
+   æ¯ä¸ªç©å®¶åˆ†äº«äº†ä¸€äº›å¸¸ç”¨çŠ¶æ€,è¿™æ˜¯æ¸¸æˆå¼•æ“çš„åŸºç¡€éƒ¨åˆ†.è¿™äº›å¸¸ç”¨çŠ¶æ€å¯ä»¥åœ¨data/common1.cnsä¸­æ‰¾åˆ°.
+   <br/>
+   ä¸€äº›ä¾‹å­æ˜¯è·‘æ­¥å’Œå—å‡»çš„çŠ¶æ€.åœ¨ç‰¹æ®ŠçŠ¶æ€å·ä¸­å®Œæ•´çš„åˆ—è¡¨æ˜¯æœ‰æ•ˆçš„.
+  </p>
+  <p>
+   å¦‚æœä½ æƒ³ä¸ºæŸäº›ç©å®¶è¦†ç›–å¸¸ç”¨çŠ¶æ€,åªè¦åœ¨ç©å®¶CNSä¸­åˆ›å»ºä¸€ä¸ªç›¸åŒçŠ¶æ€å·(å’Œéœ€è¦è¦†ç›–çš„çŠ¶æ€å·ç›¸åŒ)çš„çŠ¶æ€.
+   <br/>
+   åˆ™å½“ç©å®¶æ”¹å˜åˆ°é‚£ä¸ªæŒ‡å®šçš„çŠ¶æ€å·æ—¶,ä»–å°†è¿›å…¥æ–°çš„çŠ¶æ€,è€Œä¸æ˜¯common1.cnsä¸­çš„é‚£ä¸ª.
+   <br/>
+   (å› ä¸ºstcommon = common1.cnsæ‰§è¡Œä¼˜å…ˆçº§å¾ˆä½,å¤§å¤šæ•°CNSæ–‡ä»¶çš„ä¼˜å…ˆçº§éƒ½é«˜äºä»–)
+  </p>
+  <p>
+   è¦è®°ä½å½“è¦†ç›–mugenä¸­æŸäº›æœ‰ç‰¹æ®Šä»£ç çš„çŠ¶æ€æ—¶,æ–°åˆ›å»ºçš„çŠ¶æ€ä¹Ÿæœ‰è¿™äº›ç‰¹æ®Šä»£ç .
+   <br/>
+   ä¾‹å¦‚,è·‘åŠ¨çš„çŠ¶æ€(state 100)ä¸­,è®¾ç½®ç©å®¶çš„é€Ÿåº¦ä¸ºä½ åœ¨ç©å®¶å˜é‡ä¸­æŒ‡å®šçš„å€¼.
+   <br/>
+   å¦‚æœä½ è¦†ç›–äº†state 100,æ–°çŠ¶æ€å°†ä»ç„¶å«æœ‰è¿™äº›è®¾å®š.
+  </p>
+  <p>
+   ä¸€ä¸ªæ™®é€šçš„ä¾‹å­å°±æ˜¯è¦†ç›–è·‘åŠ¨çŠ¶æ€.
+   <br/>
+   mugenè·‘åŠ¨çŠ¶æ€çš„é»˜è®¤ç‰¹å¾å°±æ˜¯è®©ç©å®¶ä»¥æ’å®šçš„é€Ÿåº¦æŒç»­å‘å‰è¿åŠ¨,ç›´åˆ°ä½ æ”¾å¼€å‘å‰çš„æŒ‰é”®.
+   <br/>
+   ä¹‹åå°±å›åˆ°äº†ç«™ç«‹çš„çŠ¶æ€.
+  </p>
+  <p>
+   ç°åœ¨,æˆ‘ä»¬å¸Œæœ›è®©ç©å®¶(è¿™é‡Œç§°ä¸ºp1)ç”¨å‰è·³æ¥ä»£æ›¿è·‘,å°±åƒæŒ‰ä¸¤æ¬¡å‘åé”®å°±ä¼šåè·³é‚£æ ·.
+   <br/>
+   ä½ å¯ä»¥åœ¨p1çš„cnsæ–‡ä»¶ä¸­è¿™ä¹ˆè®¾ç½®.
+  </p>
+  <ul>
+   <li>
+    ; RUN_FWD (overridden to dash-type)
+    <br/>
+    [Statedef 100]
+    <br/>
+    type    = S   ;Running is on the ground
+    <br/>
+    physics = N   ;We'll define our own physics
+    <br/>
+    anim = 100    ;Anim action 100
+    <br/>
+    ctrl = 0      ;No control for duration of dash
+    <br/>
+    <br/>
+    [State 100, 1] ;To start dashing forwards
+    <br/>
+    type = VelSet
+    <br/>
+    trigger1 = Time = [0,5]
+    <br/>
+    x = 6
+    <br/>
+    <br/>
+    [State 100, 2] ;Friction after initial dash
+    <br/>
+    type = VelMul
+    <br/>
+    trigger1 = Time &gt; 5
+    <br/>
+    x = .85
+    <br/>
+    <br/>
+    [State 100, 3] ;
+    <br/>
+    type = ChangeState
+    <br/>
+    trigger1 = AnimTime = 0
+    <br/>
+    value = 0
+    <br/>
+    ctrl = 1
+    <br/>
+   </li>
+  </ul>
+  <p>
+   è¿™é‡Œæˆ‘ä»¬å‡å®šaction 100æ˜¯æœ‰é™å¾ªç¯çš„.
+   <br/>
+   [Velocity]ä¸‹è®¾ç½®çš„run.fwdé€Ÿåº¦æ²¡æœ‰çœŸçš„è¢«å¿½ç•¥,ä½†æ˜¯[State 100,1]è®¾ç½®äº†xæ–¹å‘é€Ÿåº¦ä¸º6è¦†ç›–äº†è¿™ä¸ªç»†èŠ‚.
+  </p>
+ </body>
 </html>

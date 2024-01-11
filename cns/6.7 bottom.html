@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>6.7 bottom</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   6.7 bottom
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,40 +23,75 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">6.7 bottom</p>
-<p>±í´ïÊ½ÖĞÓĞ¼¸ÖÖÎŞ·¨²¹¾ÈµÄ´íÎó.<br />
-  ÀıÈç,¿ÉÄÜÊÔÍ¼È¥³ıÒÔ0,¼ÆËã¸ºÊıµÄÆ½·½¸ù,»òÕßÊÔÍ¼ÖØ¶¨Ïò´¥·¢Æ÷µ½²»´æÔÚµÄµØÖ·.<br />
-  ÔÚÕâĞ©Çé¿öÏÂ,bottom±»ÓÃÓÚÓÅÑÅµÄÍê³É±í´ïÊ½¼ÆËãµÄÒ»ÖÖ·½Ê½.<br />
-  Èç¹ûbottom³öÏÖÔÚ±í´ïÊ½µÄÈÎºÎµØ·½(×¢ÒâÏÂÃæÁ½¸öÒì³£: ¼ûSpecial Forms),ÔòÕû¸ö±í´ïÊ½µÄ»á±ä³Ébottom.<br />
-ÀıÈç,Ë¼¿¼Õâ¸ö±í´ïÊ½:</p>
-<ul>
-  <li>5 + fvar(0) ** 0.5<br />
-    Èç¹ûfvar(0)¼ÆËã³ö-1,Ôò´Ë±í´ïÊ½±äÎª5+bottom,²úÉúbottom.</li>
-</ul>
-<p>bottomÔÚÌõ¼şĞÍ´¥·¢Æ÷ÖĞ±»ÈÏÎªÊÇ0.<br />
-  Òò´Ë,Ò»¸ö²úÉú´íÎóµÄ±í´ïÊ½½«²»»áÒıÆğ´¥·¢Æ÷±ÀÀ£.ËùÒÔ,ÀıÈç,ÔÚ</p>
-<ul>
-  <li>type = ChangeState<br />
-    trigger1 = helper, statetype = A<br />
-    value = 0</li>
-</ul>
-<p>ÖĞ,ChangeState¿ØÖÆÆ÷½«ÓÀÔ¶²»»á±»Ö´ĞĞÈç¹ûÃ»ÓĞhelper´æÔÚ,ÒòÎª±í´ïÊ½&quot;helper, statetype = A&quot;½«¼ÆËã³öbottom,±»ÈÏÎªÊÇ0.<br />
-  (×¢:´ËÖÖÇé¿öÔÚdebugÊ±»á³öwarning,½â¾ö·½Ê½¾ÍÊÇÔÚÕâÌõ´¥·¢Ìõ¼şÉÏ·½¼ÓÉÏ:<br />
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   6.7 bottom
   </p>
-<ul>
-  <li>type = ChangeState<br />
-    <span class="STYLE3">trigger1 = numhelper</span><br />
-    trigger1 = helper, statetype = A<br />
-    value = 0<br />
-  </li>
-</ul>
-<p>ÓÉÓÚ¿ØÖÆÆ÷¼ì²âµÄÊ±ºò×ñÑ­´ÓÉÏµ½ÏÂµÄË³Ğò,ËùÒÔ»áÏÈ¼ì²âtrigger1 = numhelper,Èç¹ûnumhelper·Ç0,±íÊ¾ÓĞhelper,Ôò½«¼ÌĞø¼ì²âtrigger1 = helper, statetype = A<br />
-  ÒòÎªÓĞÁËhelper´æÔÚ,²Å²»»áÊ¹¿ØÖÆÆ÷ÖØ¶¨Ïòµ½²»´æÔÚµÄµØÖ·.Èç¹ûnumhelper²»´æÔÚ,Ôò¸ù¾İ¼ì²âË³ĞòÔ­Àí,¾Í²»»áÔÙ¼ì²âtrigger1 = helper, statetype = A,Ò²¾Í²»»á³öwarning. )</p>
-<p>Í¨³£µ±²úÉúbottomÊ±,MUGENµÄµ÷ÊÔ¿ØÖÆÌ¨»áÊä³öwarning.<br />
-  ÕâÊÇÒòÎªbottomµÄ´æÔÚÖ¸Ê¾Ò»¸ö¿ÉÄÜµÄÂß¼­ÉÏµÄ´íÎó»òÕßÊÇÆçÒå.<br />
-  ÀıÈç,ÔÚÉÏÃæµÄChangeStateµÄÀı×ÓÖĞ,Èç¹û²»´æÔÚhelper,ÔòÉùÃ÷&quot;helper, statetype = A&quot;ÊÇ¿ÕµÄ,ÇÒÎŞ·¨ÅĞ¶Ï¸ÃÈÏÎªÊÇÕæ»¹ÊÇ¼Ù.</p>
-</body>
+  <p>
+   è¡¨è¾¾å¼ä¸­æœ‰å‡ ç§æ— æ³•è¡¥æ•‘çš„é”™è¯¯.
+   <br/>
+   ä¾‹å¦‚,å¯èƒ½è¯•å›¾å»é™¤ä»¥0,è®¡ç®—è´Ÿæ•°çš„å¹³æ–¹æ ¹,æˆ–è€…è¯•å›¾é‡å®šå‘è§¦å‘å™¨åˆ°ä¸å­˜åœ¨çš„åœ°å€.
+   <br/>
+   åœ¨è¿™äº›æƒ…å†µä¸‹,bottomè¢«ç”¨äºä¼˜é›…çš„å®Œæˆè¡¨è¾¾å¼è®¡ç®—çš„ä¸€ç§æ–¹å¼.
+   <br/>
+   å¦‚æœbottomå‡ºç°åœ¨è¡¨è¾¾å¼çš„ä»»ä½•åœ°æ–¹(æ³¨æ„ä¸‹é¢ä¸¤ä¸ªå¼‚å¸¸: è§Special Forms),åˆ™æ•´ä¸ªè¡¨è¾¾å¼çš„ä¼šå˜æˆbottom.
+   <br/>
+   ä¾‹å¦‚,æ€è€ƒè¿™ä¸ªè¡¨è¾¾å¼:
+  </p>
+  <ul>
+   <li>
+    5 + fvar(0) ** 0.5
+    <br/>
+    å¦‚æœfvar(0)è®¡ç®—å‡º-1,åˆ™æ­¤è¡¨è¾¾å¼å˜ä¸º5+bottom,äº§ç”Ÿbottom.
+   </li>
+  </ul>
+  <p>
+   bottomåœ¨æ¡ä»¶å‹è§¦å‘å™¨ä¸­è¢«è®¤ä¸ºæ˜¯0.
+   <br/>
+   å› æ­¤,ä¸€ä¸ªäº§ç”Ÿé”™è¯¯çš„è¡¨è¾¾å¼å°†ä¸ä¼šå¼•èµ·è§¦å‘å™¨å´©æºƒ.æ‰€ä»¥,ä¾‹å¦‚,åœ¨
+  </p>
+  <ul>
+   <li>
+    type = ChangeState
+    <br/>
+    trigger1 = helper, statetype = A
+    <br/>
+    value = 0
+   </li>
+  </ul>
+  <p>
+   ä¸­,ChangeStateæ§åˆ¶å™¨å°†æ°¸è¿œä¸ä¼šè¢«æ‰§è¡Œå¦‚æœæ²¡æœ‰helperå­˜åœ¨,å› ä¸ºè¡¨è¾¾å¼"helper, statetype = A"å°†è®¡ç®—å‡ºbottom,è¢«è®¤ä¸ºæ˜¯0.
+   <br/>
+   (æ³¨:æ­¤ç§æƒ…å†µåœ¨debugæ—¶ä¼šå‡ºwarning,è§£å†³æ–¹å¼å°±æ˜¯åœ¨è¿™æ¡è§¦å‘æ¡ä»¶ä¸Šæ–¹åŠ ä¸Š:
+   <br/>
+  </p>
+  <ul>
+   <li>
+    type = ChangeState
+    <br/>
+    <span class="STYLE3">
+     trigger1 = numhelper
+    </span>
+    <br/>
+    trigger1 = helper, statetype = A
+    <br/>
+    value = 0
+    <br/>
+   </li>
+  </ul>
+  <p>
+   ç”±äºæ§åˆ¶å™¨æ£€æµ‹çš„æ—¶å€™éµå¾ªä»ä¸Šåˆ°ä¸‹çš„é¡ºåº,æ‰€ä»¥ä¼šå…ˆæ£€æµ‹trigger1 = numhelper,å¦‚æœnumhelperé0,è¡¨ç¤ºæœ‰helper,åˆ™å°†ç»§ç»­æ£€æµ‹trigger1 = helper, statetype = A
+   <br/>
+   å› ä¸ºæœ‰äº†helperå­˜åœ¨,æ‰ä¸ä¼šä½¿æ§åˆ¶å™¨é‡å®šå‘åˆ°ä¸å­˜åœ¨çš„åœ°å€.å¦‚æœnumhelperä¸å­˜åœ¨,åˆ™æ ¹æ®æ£€æµ‹é¡ºåºåŸç†,å°±ä¸ä¼šå†æ£€æµ‹trigger1 = helper, statetype = A,ä¹Ÿå°±ä¸ä¼šå‡ºwarning. )
+  </p>
+  <p>
+   é€šå¸¸å½“äº§ç”Ÿbottomæ—¶,MUGENçš„è°ƒè¯•æ§åˆ¶å°ä¼šè¾“å‡ºwarning.
+   <br/>
+   è¿™æ˜¯å› ä¸ºbottomçš„å­˜åœ¨æŒ‡ç¤ºä¸€ä¸ªå¯èƒ½çš„é€»è¾‘ä¸Šçš„é”™è¯¯æˆ–è€…æ˜¯æ­§ä¹‰.
+   <br/>
+   ä¾‹å¦‚,åœ¨ä¸Šé¢çš„ChangeStateçš„ä¾‹å­ä¸­,å¦‚æœä¸å­˜åœ¨helper,åˆ™å£°æ˜"helper, statetype = A"æ˜¯ç©ºçš„,ä¸”æ— æ³•åˆ¤æ–­è¯¥è®¤ä¸ºæ˜¯çœŸè¿˜æ˜¯å‡.
+  </p>
+ </body>
 </html>

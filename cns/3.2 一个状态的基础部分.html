@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>3.2 һ��״̬�Ļ�������</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   3.2 一个状态的基础部分
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,33 +23,68 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">3.2 һ��״̬�Ļ�������</p>
-<p>ע��:���½ڼٶ������������AIR�ļ�������ĵ�,�����˶����ĸ���,ͬʱ�˽���һ�������еĹؼ����ֺͶ���.����(action(����)��element(Ԫ��),���animelem������)</p>
-<p>����һ����̵�p1״̬������:</p>
-<p>[Statedef 200]<br />
-  type = S<br />
-  physics = S<br />
-  movetype = I<br />
-  ctrl = 0<br />
-  anim = 200<br />
-  velset = 0</p>
-<p>[State 200, 1]<br />
-  type = ChangeState<br />
-  trigger1 = AnimTime = 0<br />
-  value = 0<br />
-  ctrl = 1</p>
-<p>��״̬������P1�����е� Action 200,���������󷵻���p1��վ��״̬.<br />
-�ڴ������,�ٶ�Action 200 ������ѭ��������.����˵, Action 200 û�м����ʱ��Ϊ-1��Ԫ��.</p>
-<p>�����,�㲻�ص�������.�����Ǵ�����һ��״̬����ɿ�ʼ.</p>
-<p>���е�״̬���뺬��һ��������Statedef�½�,��һ��������State�½�.</p>
-<p>Statedef������һ��״̬��ʼ��״̬��Ϣ,�����״̬������(վ��,����,����),��ʽ����(����,����).</p>
-<p>ÿ��State�½��漰������״̬���������߼�̵Ŀ�����.<br />
-���������߳����p1��ʲô,ʲôʱ����.�кܶ����͵Ŀ�����,ÿ�������Լ��ĺ���.<br />
-����,��Щ���������ڸı���ҵ�λ�ú��ٶ�,���幥����Ч��,�������е���,�ı䶯��,�ı�״̬,�ȵ�.<br />
-ÿ������������Ҫ����һ����������.����������ʹ�����������һ���¼�.<br />
-����:״̬��ʼʱ����,��������ʱ����,��ĳ������������ĳ��Ԫ��ʱ����,��p2��p1ĳ����Χ��ʱ����,�ȵ�.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   3.2 一个状态的基础部分
+  </p>
+  <p>
+   注意:此章节假定你至少浏览过AIR文件的相关文档,理解了动画的概念,同时了解了一个动画中的关键名字和短语.例如(action(动作)和element(元素),详见animelem控制器)
+  </p>
+  <p>
+   这是一个简短的p1状态的例子:
+  </p>
+  <p>
+   [Statedef 200]
+   <br/>
+   type = S
+   <br/>
+   physics = S
+   <br/>
+   movetype = I
+   <br/>
+   ctrl = 0
+   <br/>
+   anim = 200
+   <br/>
+   velset = 0
+  </p>
+  <p>
+   [State 200, 1]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = AnimTime = 0
+   <br/>
+   value = 0
+   <br/>
+   ctrl = 1
+  </p>
+  <p>
+   此状态播放了P1动画中的 Action 200,动画结束后返回了p1的站立状态.
+   <br/>
+   在此情况下,假定Action 200 是有限循环次数的.就是说, Action 200 没有计算出时间为-1的元素.
+  </p>
+  <p>
+   这点上,你不必担心详情.让我们从理解一个状态的组成开始.
+  </p>
+  <p>
+   所有的状态必须含有一个单独的Statedef章节,且一个或更多的State章节.
+  </p>
+  <p>
+   Statedef包含了一个状态开始的状态信息,就像此状态的类型(站立,蹲下,空中),招式类型(攻击,空闲).
+  </p>
+  <p>
+   每个State章节涉及到诸如状态控制器或者简短的控制器.
+   <br/>
+   控制器告诉程序对p1做什么,什么时候做.有很多类型的控制器,每个都有自己的函数.
+   <br/>
+   例如,有些控制器用于改变玩家的位置和速度,定义攻击的效果,创建飞行道具,改变动画,改变状态,等等.
+   <br/>
+   每个控制器至少要含有一个触发条件.触发条件是使控制器激活的一个事件.
+   <br/>
+   例如:状态开始时触发,动画结束时触发,当某个动画播放至某个元素时触发,当p2在p1某个范围内时触发,等等.
+  </p>
+ </body>
 </html>

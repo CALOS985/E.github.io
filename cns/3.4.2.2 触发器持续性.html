@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>3.4.2.2 ´¥·¢Æ÷³ÖĞøĞÔ</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   3.4.2.2 è§¦å‘å™¨æŒç»­æ€§
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,36 +23,69 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">3.4.2.2 ´¥·¢Æ÷³ÖĞøĞÔ</p>
-<p>Èç¹ûÄã²»ÏëÔÚÃ¿´ÎÌõ¼şÎªÕæµÄÊ±ºò¶¼´¥·¢,ÔòÄãĞèÒª¼ÓÉÏÒ»¸ö²ÎÊıpersistent.ÈÃÎÒÃÇ¿ªÊ¼Ò»¸öÀı×Ó:</p>
-<ul>
-  <li>[State 310, 1]<br />
-    type = PosAdd<br />
-    trigger1 = Vel Y &gt; 1<br />
-    x = 10</li>
-</ul>
-<p>´Ë¿ØÖÆÆ÷Ê¹p1Ã¿Ö¡³¯Ç°ÒÆ¶¯10ÏñËØ,Ö»Òªp1µÄy·½ÏòËÙ¶È´óÓÚ1.<br />
-¾ÍÊÇËµ,Ã¿´Î´¥·¢Ìõ¼şÎªÕæ¶¼ÄÜ¼¤»î¿ØÖÆÆ÷.Èç¹ûÎÒÃÇÖ»Òª¿ØÖÆÆ÷±»¼¤»î1´Î,ÎÒÃÇÒª¼ÓÉÏÕâĞĞ:</p>
-<ul>
-  <li>[State 310, 1]<br />
-    type = PosAdd<br />
-    trigger1 = Vel Y &gt; 1<br />
-    persistent = 0       ;&lt;-- ¼ÓÉÏÕâĞĞ<br />
-    x = 10</li>
-</ul>
-<p>persistentÄ¬ÈÏÖµÎª1,±íÊ¾Ö»Òª´¥·¢Ìõ¼şÎªÕæ¿ØÖÆÆ÷Ã¿´Î¶¼ÄÜ±»¼¤»î.<br />
-persistentÉèÖÃÎª0Ö»ÔÊĞíÔÚ´Ë×´Ì¬ÖĞ¼¤»î¿ØÖÆÆ÷1´Î.<br />
-Ö±µ½p1Àë¿ª´Ë×´Ì¬¶¼»á±£ÁôÕæ.Èç¹ûp1Ö®ºóÔÙ´Î½øÈë´Ë×´Ì¬,´Ë¿ØÖÆÆ÷»¹ÊÇÖ»¼¤»î1´Î.</p>
-<p>persistentµÄ²ÎÊıÒ²ÄÜÈ¡0,1Ö®ÍâµÄÊı:</p>
-<p>[State 310, 1]<br />
-type = PosAdd<br />
-trigger1 = Vel Y &gt; 1<br />
-persistent = 2       ;&lt;-- ¸Ä±ä´ËĞĞ<br />
-x = 10</p>
-<p>´ËÇé¿öÏÂ,ÉèÖÃpersistentÎª2±íÊ¾Ã¿2´Î´¥·¢Ìõ¼şÎªÕæ,¿ØÖÆÆ÷±»¼¤»î1´Î.<br />
-ÉèÖÃpersistentÎª3±íÊ¾Ã¿3´Î´¥·¢Ìõ¼şÎªÕæ,¿ØÖÆÆ÷±»¼¤»î1´Î.µÈµÈ.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   3.4.2.2 è§¦å‘å™¨æŒç»­æ€§
+  </p>
+  <p>
+   å¦‚æœä½ ä¸æƒ³åœ¨æ¯æ¬¡æ¡ä»¶ä¸ºçœŸçš„æ—¶å€™éƒ½è§¦å‘,åˆ™ä½ éœ€è¦åŠ ä¸Šä¸€ä¸ªå‚æ•°persistent.è®©æˆ‘ä»¬å¼€å§‹ä¸€ä¸ªä¾‹å­:
+  </p>
+  <ul>
+   <li>
+    [State 310, 1]
+    <br/>
+    type = PosAdd
+    <br/>
+    trigger1 = Vel Y &gt; 1
+    <br/>
+    x = 10
+   </li>
+  </ul>
+  <p>
+   æ­¤æ§åˆ¶å™¨ä½¿p1æ¯å¸§æœå‰ç§»åŠ¨10åƒç´ ,åªè¦p1çš„yæ–¹å‘é€Ÿåº¦å¤§äº1.
+   <br/>
+   å°±æ˜¯è¯´,æ¯æ¬¡è§¦å‘æ¡ä»¶ä¸ºçœŸéƒ½èƒ½æ¿€æ´»æ§åˆ¶å™¨.å¦‚æœæˆ‘ä»¬åªè¦æ§åˆ¶å™¨è¢«æ¿€æ´»1æ¬¡,æˆ‘ä»¬è¦åŠ ä¸Šè¿™è¡Œ:
+  </p>
+  <ul>
+   <li>
+    [State 310, 1]
+    <br/>
+    type = PosAdd
+    <br/>
+    trigger1 = Vel Y &gt; 1
+    <br/>
+    persistent = 0       ;&lt;-- åŠ ä¸Šè¿™è¡Œ
+    <br/>
+    x = 10
+   </li>
+  </ul>
+  <p>
+   persistenté»˜è®¤å€¼ä¸º1,è¡¨ç¤ºåªè¦è§¦å‘æ¡ä»¶ä¸ºçœŸæ§åˆ¶å™¨æ¯æ¬¡éƒ½èƒ½è¢«æ¿€æ´».
+   <br/>
+   persistentè®¾ç½®ä¸º0åªå…è®¸åœ¨æ­¤çŠ¶æ€ä¸­æ¿€æ´»æ§åˆ¶å™¨1æ¬¡.
+   <br/>
+   ç›´åˆ°p1ç¦»å¼€æ­¤çŠ¶æ€éƒ½ä¼šä¿ç•™çœŸ.å¦‚æœp1ä¹‹åå†æ¬¡è¿›å…¥æ­¤çŠ¶æ€,æ­¤æ§åˆ¶å™¨è¿˜æ˜¯åªæ¿€æ´»1æ¬¡.
+  </p>
+  <p>
+   persistentçš„å‚æ•°ä¹Ÿèƒ½å–0,1ä¹‹å¤–çš„æ•°:
+  </p>
+  <p>
+   [State 310, 1]
+   <br/>
+   type = PosAdd
+   <br/>
+   trigger1 = Vel Y &gt; 1
+   <br/>
+   persistent = 2       ;&lt;-- æ”¹å˜æ­¤è¡Œ
+   <br/>
+   x = 10
+  </p>
+  <p>
+   æ­¤æƒ…å†µä¸‹,è®¾ç½®persistentä¸º2è¡¨ç¤ºæ¯2æ¬¡è§¦å‘æ¡ä»¶ä¸ºçœŸ,æ§åˆ¶å™¨è¢«æ¿€æ´»1æ¬¡.
+   <br/>
+   è®¾ç½®persistentä¸º3è¡¨ç¤ºæ¯3æ¬¡è§¦å‘æ¡ä»¶ä¸ºçœŸ,æ§åˆ¶å™¨è¢«æ¿€æ´»1æ¬¡.ç­‰ç­‰.
+  </p>
+ </body>
 </html>

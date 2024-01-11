@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>3.4.1 ¿ØÖÆÆ÷¸ñÊ½ State¸ñÊ½</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   3.4.1 æŽ§åˆ¶å™¨æ ¼å¼ Stateæ ¼å¼
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,53 +23,107 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">3.4.1 ¿ØÖÆÆ÷¸ñÊ½ State¸ñÊ½</p>
-<p>ËùÓÐµÄ×´Ì¬±ØÐë°üº¬ÖÁÉÙÒ»¸ö×´Ì¬¿ØÖÆÆ÷,·ñÔò»á±¨´í.×´Ì¬¿ØÖÆÆ÷×éÓÐÈçÏÂµÄ¸ñÊ½:</p>
-<ul>
-  <li>[State state_number, some_number]<br />
-    type = controller_type<br />
-    trigger1 = condition_exp<br />
-  &lt;universal optional parameters&gt;<br />
-  &lt;additional parameters depending on controller&gt;</li>
-</ul>
-<p>state_number±ØÐëÓë´Ë×´Ì¬ <a href="3.3%20StatedefµÄÏêÇé.html">StateDef</a> Éè¶¨µÄºÅÂëÏàÍ¬.<br />
-some_number¿ÉÒÔÊÇÈÎºÎÄãËùÑ¡µÄºÅÂë;<br />
-µ±Óöµ½´íÎóÊ±»áÏÔÊ¾Õâ¸öºÅÂë,ÒÔ±ãÄãÖªµÀÄÄ¸ö¿ØÖÆÆ÷ÐèÒªÐÞ¸´.<br />
-(ÆäÊµstate_number,some_numberÔÚ×öÈËÎïÊ±¿ÉÒÔÈÎÒâÖ¸¶¨(»­Ãæ°ü,±³¾°ÖÆ×÷Ê±±ØÐëstate_numberºÍdefµÄÒ»Ñù),Ö÷Òª»¹ÊÇÎªÁËÑø³ÉÒ»¸öºÃÏ°¹ß,²»½ö×Ô¼º¿´¶®´Ë´úÂëµÄÒâÒå,Ò²ÓÐÖúÓÚ±ðÈË¿´¶®,Í¬Ê±±¨´íµÄÊ±ºòÄÜ¼°Ê±ÕÒµ½ÎÊÌâËùÔÚ)<br />
-ÈËÎïStateµÄstate_numberºÍsome_number¶¼ÊÇ¿ÉÑ¡µÄ,¿ÉÒÔ¶¼²»Ð´.</p>
-<p>Í¨ÓÃ(ÄÜÓ¦ÓÃÓÚÈÎºÎ¿ØÖÆÆ÷)¿ÉÑ¡²ÎÊýÊÇignorehitpauseºÍpersistent.<br />
-Èç¹ûignorehitpauseÉè³É1,mugen»áÔÚ´ò»÷Í£¶ÙµÄÊ±ºòÒ²¼ì²â´Ë¿ØÖÆÆ÷.·ñÔòÔÚ´ò»÷Í£¶ÙµÄÊ±ºò²»»á¼ì²â.<br />
-Ä¬ÈÏÖµÊÇ0,ÍÆ¼öÊ¹ÓÃÕâ¸öÖµ,³ýÁËÉÙÊýÇé¿ö(±íÊöÒ»¸ö³ÖÐøÐÔµÄ²ÎÊý,Ïê¼û´¥·¢Æ÷³ÖÐøÐÔ).</p>
-<p>controller_typeÊÇ¿ØÖÆÆ÷µÄÃû×Ö.Ã¿¸ö¿ØÖÆÆ÷ÓÐ²»Í¬µÄÃû×Ö,ÐèÒª²»Í¬µÄ²ÎÊý.Ïê¼û¿ØÖÆÆ÷µÄÏà¹Ø½éÉÜ.</p>
-<p>¿ØÖÆÆ÷µÄË³ÐòÊÇÖµµÃ×¢ÒâµÄ.µÚÒ»¸öÁÐ³öµÄ¿ØÖÆÆ÷Ê×ÏÈ±»¼ì²â,Èç¹û±ØÒª,Ê×ÏÈ±»Ö´ÐÐ.</p>
-<p>ÕâÀïÊÇÒ»¸ö¸øÓèp1ÔÚ×´Ì¬¿ªÊ¼Ê±¿ØÖÆÈ¨µÄÀý×Ó:<br />
-(ÔÚStateDefÏÂÃæÉèÖÃ²ÎÊýctrl = 1ÓÐÏàÍ¬µÄÐ§¹û)</p>
-<ul>
-  <li>[State 300, 1] ;State 300. Ö»ÊÇÒ»¸öÖ÷¹ÛÉÏµÄºÅÂë.<br />
-    type = CtrlSet ;¸Ä±ä¿ØÖÆ±êÊ¾.<br />
-    trigger1 = Time = 0<br />
-    value = 1<br />
-  </li>
-</ul>
-<p>´ËÀýÖÐ,CtrlSetÊ¹Äã¸Ä±äp1µÄ¿ØÖÆ±êÊ¾.<br />
-trigger1 = Time = 0ÕâÐÐ±íÊ¾×´Ì¬Ê±¼äÎª0µÄÊ±ºò¼¤»î,¼´,×´Ì¬µÄÆðÊ¼.<br />
-value = 1 ÕâÐÐ±íÊ¾ÎÒÃÇÒª°Ñ¿ØÖÆ±êÊ¾ÉèÖÃ³É1,±íÊ¾Õæ.<br />
-Èç¹ûÎÒÃÇÒªÈÃ×´Ì¬ÆðÊ¼Ê±p1²»ÊÜ¿ØÖÆ,Ö»Òª°Ñ×îºóÒ»ÐÐ¸Ä³Évalue = 0.</p>
-<p>¿´ÁíÒ»¸öÀý×Ó.´Ë¿ØÖÆÆ÷Ê¹p1ÏòÇ°ÒÆ¶¯10ÏñËØ2´Î:ÔÚµ±Ç°¶¯»­²¥·Åµ½µÚ2µÚ3ÔªËØµÄÊ±ºò.<br />
-Èç¹ûÄã²»ÖªµÀÊ²Ã´²ÎÊýÆ¥ÅäÊ²Ã´ÑùµÄ¿ØÖÆÇë²»Òªµ£ÐÄ.<br />
-Çë²Î¿´¹ØÓÚ¿ØÖÆÆ÷µÄÏêÏ¸ËµÃ÷.</p>
-<ul>
-  <li>[State 300, 2]<br />
-    type = PosAdd ;Ôö¼Óp1Î»ÖÃ<br />
-    trigger1 = AnimElem = 2 ;µÚ2ÔªËØÊ±´¥·¢.<br />
-    trigger2 = AnimElem = 3 ;µÚ3ÔªËØÊ±´¥·¢.<br />
-    x = 10<br />
-  </li>
-</ul>
-<p>ÈçÄãËù¼û,Ã¿¸ö¿ØÖÆÆ÷±ØÐëÖÁÉÙº¬ÓÐ1¸ö´¥·¢Ìõ¼þ.<br />
-Ò»¸ö´¥·¢Ìõ¼þÄÜÊ¹¿ØÖÆÆ÷±»¼¤»î.´ËÀýÓÐ2¸ö´¥·¢Ìõ¼þ,Ö»ÒªÆäÖÐÒ»¸öÎªÕæ,¿ØÖÆÆ÷¾ÍÄÜ±»¼¤»î.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   3.4.1 æŽ§åˆ¶å™¨æ ¼å¼ Stateæ ¼å¼
+  </p>
+  <p>
+   æ‰€æœ‰çš„çŠ¶æ€å¿…é¡»åŒ…å«è‡³å°‘ä¸€ä¸ªçŠ¶æ€æŽ§åˆ¶å™¨,å¦åˆ™ä¼šæŠ¥é”™.çŠ¶æ€æŽ§åˆ¶å™¨ç»„æœ‰å¦‚ä¸‹çš„æ ¼å¼:
+  </p>
+  <ul>
+   <li>
+    [State state_number, some_number]
+    <br/>
+    type = controller_type
+    <br/>
+    trigger1 = condition_exp
+    <br/>
+    &lt;universal optional parameters&gt;
+    <br/>
+    &lt;additional parameters depending on controller&gt;
+   </li>
+  </ul>
+  <p>
+   state_numberå¿…é¡»ä¸Žæ­¤çŠ¶æ€
+   <a href="3.3%20Statedefçš„è¯¦æƒ….html">
+    StateDef
+   </a>
+   è®¾å®šçš„å·ç ç›¸åŒ.
+   <br/>
+   some_numberå¯ä»¥æ˜¯ä»»ä½•ä½ æ‰€é€‰çš„å·ç ;
+   <br/>
+   å½“é‡åˆ°é”™è¯¯æ—¶ä¼šæ˜¾ç¤ºè¿™ä¸ªå·ç ,ä»¥ä¾¿ä½ çŸ¥é“å“ªä¸ªæŽ§åˆ¶å™¨éœ€è¦ä¿®å¤.
+   <br/>
+   (å…¶å®žstate_number,some_numberåœ¨åšäººç‰©æ—¶å¯ä»¥ä»»æ„æŒ‡å®š(ç”»é¢åŒ…,èƒŒæ™¯åˆ¶ä½œæ—¶å¿…é¡»state_numberå’Œdefçš„ä¸€æ ·),ä¸»è¦è¿˜æ˜¯ä¸ºäº†å…»æˆä¸€ä¸ªå¥½ä¹ æƒ¯,ä¸ä»…è‡ªå·±çœ‹æ‡‚æ­¤ä»£ç çš„æ„ä¹‰,ä¹Ÿæœ‰åŠ©äºŽåˆ«äººçœ‹æ‡‚,åŒæ—¶æŠ¥é”™çš„æ—¶å€™èƒ½åŠæ—¶æ‰¾åˆ°é—®é¢˜æ‰€åœ¨)
+   <br/>
+   äººç‰©Stateçš„state_numberå’Œsome_numberéƒ½æ˜¯å¯é€‰çš„,å¯ä»¥éƒ½ä¸å†™.
+  </p>
+  <p>
+   é€šç”¨(èƒ½åº”ç”¨äºŽä»»ä½•æŽ§åˆ¶å™¨)å¯é€‰å‚æ•°æ˜¯ignorehitpauseå’Œpersistent.
+   <br/>
+   å¦‚æžœignorehitpauseè®¾æˆ1,mugenä¼šåœ¨æ‰“å‡»åœé¡¿çš„æ—¶å€™ä¹Ÿæ£€æµ‹æ­¤æŽ§åˆ¶å™¨.å¦åˆ™åœ¨æ‰“å‡»åœé¡¿çš„æ—¶å€™ä¸ä¼šæ£€æµ‹.
+   <br/>
+   é»˜è®¤å€¼æ˜¯0,æŽ¨èä½¿ç”¨è¿™ä¸ªå€¼,é™¤äº†å°‘æ•°æƒ…å†µ(è¡¨è¿°ä¸€ä¸ªæŒç»­æ€§çš„å‚æ•°,è¯¦è§è§¦å‘å™¨æŒç»­æ€§).
+  </p>
+  <p>
+   controller_typeæ˜¯æŽ§åˆ¶å™¨çš„åå­—.æ¯ä¸ªæŽ§åˆ¶å™¨æœ‰ä¸åŒçš„åå­—,éœ€è¦ä¸åŒçš„å‚æ•°.è¯¦è§æŽ§åˆ¶å™¨çš„ç›¸å…³ä»‹ç».
+  </p>
+  <p>
+   æŽ§åˆ¶å™¨çš„é¡ºåºæ˜¯å€¼å¾—æ³¨æ„çš„.ç¬¬ä¸€ä¸ªåˆ—å‡ºçš„æŽ§åˆ¶å™¨é¦–å…ˆè¢«æ£€æµ‹,å¦‚æžœå¿…è¦,é¦–å…ˆè¢«æ‰§è¡Œ.
+  </p>
+  <p>
+   è¿™é‡Œæ˜¯ä¸€ä¸ªç»™äºˆp1åœ¨çŠ¶æ€å¼€å§‹æ—¶æŽ§åˆ¶æƒçš„ä¾‹å­:
+   <br/>
+   (åœ¨StateDefä¸‹é¢è®¾ç½®å‚æ•°ctrl = 1æœ‰ç›¸åŒçš„æ•ˆæžœ)
+  </p>
+  <ul>
+   <li>
+    [State 300, 1] ;State 300. åªæ˜¯ä¸€ä¸ªä¸»è§‚ä¸Šçš„å·ç .
+    <br/>
+    type = CtrlSet ;æ”¹å˜æŽ§åˆ¶æ ‡ç¤º.
+    <br/>
+    trigger1 = Time = 0
+    <br/>
+    value = 1
+    <br/>
+   </li>
+  </ul>
+  <p>
+   æ­¤ä¾‹ä¸­,CtrlSetä½¿ä½ æ”¹å˜p1çš„æŽ§åˆ¶æ ‡ç¤º.
+   <br/>
+   trigger1 = Time = 0è¿™è¡Œè¡¨ç¤ºçŠ¶æ€æ—¶é—´ä¸º0çš„æ—¶å€™æ¿€æ´»,å³,çŠ¶æ€çš„èµ·å§‹.
+   <br/>
+   value = 1 è¿™è¡Œè¡¨ç¤ºæˆ‘ä»¬è¦æŠŠæŽ§åˆ¶æ ‡ç¤ºè®¾ç½®æˆ1,è¡¨ç¤ºçœŸ.
+   <br/>
+   å¦‚æžœæˆ‘ä»¬è¦è®©çŠ¶æ€èµ·å§‹æ—¶p1ä¸å—æŽ§åˆ¶,åªè¦æŠŠæœ€åŽä¸€è¡Œæ”¹æˆvalue = 0.
+  </p>
+  <p>
+   çœ‹å¦ä¸€ä¸ªä¾‹å­.æ­¤æŽ§åˆ¶å™¨ä½¿p1å‘å‰ç§»åŠ¨10åƒç´ 2æ¬¡:åœ¨å½“å‰åŠ¨ç”»æ’­æ”¾åˆ°ç¬¬2ç¬¬3å…ƒç´ çš„æ—¶å€™.
+   <br/>
+   å¦‚æžœä½ ä¸çŸ¥é“ä»€ä¹ˆå‚æ•°åŒ¹é…ä»€ä¹ˆæ ·çš„æŽ§åˆ¶è¯·ä¸è¦æ‹…å¿ƒ.
+   <br/>
+   è¯·å‚çœ‹å…³äºŽæŽ§åˆ¶å™¨çš„è¯¦ç»†è¯´æ˜Ž.
+  </p>
+  <ul>
+   <li>
+    [State 300, 2]
+    <br/>
+    type = PosAdd ;å¢žåŠ p1ä½ç½®
+    <br/>
+    trigger1 = AnimElem = 2 ;ç¬¬2å…ƒç´ æ—¶è§¦å‘.
+    <br/>
+    trigger2 = AnimElem = 3 ;ç¬¬3å…ƒç´ æ—¶è§¦å‘.
+    <br/>
+    x = 10
+    <br/>
+   </li>
+  </ul>
+  <p>
+   å¦‚ä½ æ‰€è§,æ¯ä¸ªæŽ§åˆ¶å™¨å¿…é¡»è‡³å°‘å«æœ‰1ä¸ªè§¦å‘æ¡ä»¶.
+   <br/>
+   ä¸€ä¸ªè§¦å‘æ¡ä»¶èƒ½ä½¿æŽ§åˆ¶å™¨è¢«æ¿€æ´».æ­¤ä¾‹æœ‰2ä¸ªè§¦å‘æ¡ä»¶,åªè¦å…¶ä¸­ä¸€ä¸ªä¸ºçœŸ,æŽ§åˆ¶å™¨å°±èƒ½è¢«æ¿€æ´».
+  </p>
+ </body>
 </html>

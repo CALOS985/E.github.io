@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>3.3 StatedefµÄÏêÇé</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   3.3 Statedefçš„è¯¦æƒ…
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,56 +23,156 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">3.3 StatedefµÄÏêÇé</p>
-<p>Ã¿¸ö×´Ì¬±ØĞë´ÓÒ»¸ö¾«È·µÄStateDef×é¿ªÊ¼,Ò²±»³ÆÎªStateDefÕÂ½Ú.<br />
-Ò»¸öStateDef×é±ØĞë¿´ÉÏÈ¥ÏñÕâÑù(ÔÚĞ¡Ô²µãµÄµØ·½ÉèÖÃÒ»¸ö»ò¸ü¶àµÄ²ÎÊı):</p>
-<p>[Statedef state_number]<br />
-  . state_parameters<br />
-  .<br />
-  .<br />
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   3.3 Statedefçš„è¯¦æƒ…
   </p>
-<p>½«state_number¸ü»»³ÉÄãÒª±àĞ´µÄ×´Ì¬ºÅ.³ıÁËÌØ±ğµÄ×éºÅ(¼û¸½Â¼A <a href="5%20ÌØÊâ×´Ì¬ºÅ.html">ÌØÊâ×´Ì¬ºÅ</a>),ÄãÔÊĞíÊ¹ÓÃÈÎºÎÌôÑ¡µÄ×´Ì¬ºÅÂë.<br />
-ÎªÁË±ÜÃâÑ¡ÔñÌØÊâµÄ×´Ì¬ºÅÂë,ÇëºÃ²»ÒªÑ¡Ôñ0-199,5000-5999.<br />
-Ã¿¸öStateDefµÄstate_number±ØĞëÊÇÕû¸öÈËÎïÖĞÎ¨Ò»µÄ.</p>
-<p>Ö®ºó½«°üº¬ÏÂÃæµÄ»ù±¾²ÎÊı:</p>
-<ul>
-  <li><a href="3.3.1%20type.html">type</a><br />
-    </li>
-  <p>Çë²ÎÔÄ <a href="../triggers/StateType.html">StateType</a><br />
-  ÈôÒª±£³ÖÓëÉÏÒ»¸ö×´Ì¬ÏàÍ¬µÄtype,ÉèÖÃÎªU.</p>
-  <li><a href="3.3.2%20movetype.html">movetype</a><br />
-    </li>
-  <p>Çë²ÎÔÄ <a href="../triggers/MoveType.html">MoveType</a><br />
-  ÈôÒª±£³ÖÓëÉÏÒ»¸ö×´Ì¬ÏàÍ¬µÄmovetype,ÉèÖÃÎªU.</p>
-  <li><a href="3.3.3%20physics.html">physics</a><br />
-    </li>
-  ÈôÒª±£³ÖÓëÉÏÒ»¸ö×´Ì¬ÏàÍ¬µÄphysics,ÉèÖÃÎªU.</p>
-  <li><a href="3.3.4%20anim.html">anim</a><br />
-  <p>Çë²ÎÔÄ <a href="../triggers/Anim.html">Anim</a></p>
-    </li>
-</ul>
-<p>ÕâÀïÒ²ÄÜ°üº¬¶îÍâµÄ¿ÉÑ¡²ÎÊı.</p>
-<ul>
-  <li><a href="3.3.5%20velset.html">velset</a><br />
-    </li><br />
-  <li><a href="3.3.6%20ctrl.html">ctrl</a><br />
-    </li><br />
-  <li><a href="3.3.7%20poweradd.html">poweradd</a><br />
-    </li><br />
-  <li><a href="3.3.8%20juggle.html">juggle</a><br />
-    </li><br />
-  <li><a href="3.3.9%20facep2.html">facep2</a><br />
-    </li><br />
-  <li><a href="3.3.10%20hitdefpersist.html">hitdefpersist</a><br />
-    </li><br />
-  <li><a href="3.3.11%20movehitpersist.html">movehitpersist</a><br />
-    </li><br />
-  <li><a href="3.3.12%20hitcountpersist.html">hitcountpersist</a><br />
-    </li><br />
-  <li><a href="3.3.13%20sprpriority.html">sprpriority</a></li><br />
-</ul>
-</body>
+  <p>
+   æ¯ä¸ªçŠ¶æ€å¿…é¡»ä»ä¸€ä¸ªç²¾ç¡®çš„StateDefç»„å¼€å§‹,ä¹Ÿè¢«ç§°ä¸ºStateDefç« èŠ‚.
+   <br/>
+   ä¸€ä¸ªStateDefç»„å¿…é¡»çœ‹ä¸Šå»åƒè¿™æ ·(åœ¨å°åœ†ç‚¹çš„åœ°æ–¹è®¾ç½®ä¸€ä¸ªæˆ–æ›´å¤šçš„å‚æ•°):
+  </p>
+  <p>
+   [Statedef state_number]
+   <br/>
+   . state_parameters
+   <br/>
+   .
+   <br/>
+   .
+   <br/>
+  </p>
+  <p>
+   å°†state_numberæ›´æ¢æˆä½ è¦ç¼–å†™çš„çŠ¶æ€å·.é™¤äº†ç‰¹åˆ«çš„ç»„å·(è§é™„å½•A
+   <a href="5%20ç‰¹æ®ŠçŠ¶æ€å·.html">
+    ç‰¹æ®ŠçŠ¶æ€å·
+   </a>
+   ),ä½ å…è®¸ä½¿ç”¨ä»»ä½•æŒ‘é€‰çš„çŠ¶æ€å·ç .
+   <br/>
+   ä¸ºäº†é¿å…é€‰æ‹©ç‰¹æ®Šçš„çŠ¶æ€å·ç ,è¯·å¥½ä¸è¦é€‰æ‹©0-199,5000-5999.
+   <br/>
+   æ¯ä¸ªStateDefçš„state_numberå¿…é¡»æ˜¯æ•´ä¸ªäººç‰©ä¸­å”¯ä¸€çš„.
+  </p>
+  <p>
+   ä¹‹åå°†åŒ…å«ä¸‹é¢çš„åŸºæœ¬å‚æ•°:
+  </p>
+  <ul>
+   <li>
+    <a href="3.3.1%20type.html">
+     type
+    </a>
+    <br/>
+   </li>
+   <p>
+    è¯·å‚é˜…
+    <a href="../triggers/StateType.html">
+     StateType
+    </a>
+    <br/>
+    è‹¥è¦ä¿æŒä¸ä¸Šä¸€ä¸ªçŠ¶æ€ç›¸åŒçš„type,è®¾ç½®ä¸ºU.
+   </p>
+   <li>
+    <a href="3.3.2%20movetype.html">
+     movetype
+    </a>
+    <br/>
+   </li>
+   <p>
+    è¯·å‚é˜…
+    <a href="../triggers/MoveType.html">
+     MoveType
+    </a>
+    <br/>
+    è‹¥è¦ä¿æŒä¸ä¸Šä¸€ä¸ªçŠ¶æ€ç›¸åŒçš„movetype,è®¾ç½®ä¸ºU.
+   </p>
+   <li>
+    <a href="3.3.3%20physics.html">
+     physics
+    </a>
+    <br/>
+   </li>
+   è‹¥è¦ä¿æŒä¸ä¸Šä¸€ä¸ªçŠ¶æ€ç›¸åŒçš„physics,è®¾ç½®ä¸ºU.
+   <li>
+    <a href="3.3.4%20anim.html">
+     anim
+    </a>
+    <br/>
+    <p>
+     è¯·å‚é˜…
+     <a href="../triggers/Anim.html">
+      Anim
+     </a>
+    </p>
+   </li>
+  </ul>
+  <p>
+   è¿™é‡Œä¹Ÿèƒ½åŒ…å«é¢å¤–çš„å¯é€‰å‚æ•°.
+  </p>
+  <ul>
+   <li>
+    <a href="3.3.5%20velset.html">
+     velset
+    </a>
+    <br/>
+   </li>
+   <br/>
+   <li>
+    <a href="3.3.6%20ctrl.html">
+     ctrl
+    </a>
+    <br/>
+   </li>
+   <br/>
+   <li>
+    <a href="3.3.7%20poweradd.html">
+     poweradd
+    </a>
+    <br/>
+   </li>
+   <br/>
+   <li>
+    <a href="3.3.8%20juggle.html">
+     juggle
+    </a>
+    <br/>
+   </li>
+   <br/>
+   <li>
+    <a href="3.3.9%20facep2.html">
+     facep2
+    </a>
+    <br/>
+   </li>
+   <br/>
+   <li>
+    <a href="3.3.10%20hitdefpersist.html">
+     hitdefpersist
+    </a>
+    <br/>
+   </li>
+   <br/>
+   <li>
+    <a href="3.3.11%20movehitpersist.html">
+     movehitpersist
+    </a>
+    <br/>
+   </li>
+   <br/>
+   <li>
+    <a href="3.3.12%20hitcountpersist.html">
+     hitcountpersist
+    </a>
+    <br/>
+   </li>
+   <br/>
+   <li>
+    <a href="3.3.13%20sprpriority.html">
+     sprpriority
+    </a>
+   </li>
+   <br/>
+  </ul>
+ </body>
 </html>

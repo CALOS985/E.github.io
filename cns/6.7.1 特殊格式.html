@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>6.7.1 ÌØÊâ¸ñÊ½</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   6.7.1 ç‰¹æ®Šæ ¼å¼
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,24 +23,44 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">6.7.1 ÌØÊâ¸ñÊ½</p>
-<p>ifelseºÍcond´¥·¢Æ÷ÓÃÒ»ÖÖÌØÊâµÄ·½Ê½´¦Àíbottom.ËûÃÇµÄ¸ñÊ½¶¼Îª:</p>
-<ul>
-  <li>&lt;trigger_name&gt;(&lt;exp_cond&gt;,&lt;exp_true&gt;,&lt;exp_false&gt;)</li>
-</ul>
-<p>&lt;exp_cond&gt;ÊÇÌõ¼þ±í´ïÊ½,¸ù¾ÝÊÇ·ñÎª·Ç0,¿ØÖÆ&lt;exp_true&gt;ºÍ&lt;exp_false&gt;ÄÄ¸ö½«±»·µ»Ø.<br />
-  Èç¹û»¹Ã»ÓÐ±»·µ»ØÇ°²úÉúÁËbottom,Ôò½«²»»á°Ñbottom´«²¥ÖÁ±í´ïÊ½ÆäÓà²¿·Ö.<br />
-  ÀýÈç,Ë¼¿¼±í´ïÊ½IfElse(time &gt; 0, 1.0/time, 2)),Èç¹ûtime&gt;0,Ôò±í´ïÊ½µÄÖµÎª1.0/time,Ò»¸öÓÐÐ§µÄ¸¡µãÖµ.<br />
-  Èç¹ûtime=0,Ôò±í´ïÊ½µÄÖµÎª2,¼´Ê¹ÊÇ²»Ê¹ÓÃµÄ²¿·Ö³ýÒÔ0²úÉúÁËbottom.</p>
-<p>È»¶ø,¼´Ê¹ÉÏÃæµÄifelse´¥·¢Æ÷´Ó²»·µ»Øbottom,ËüÈÔÈ»ÓÐÒ»¸ö·³ÈËµÄÌØÕ÷:³ýÒÔ0ÈÔÈ»»áÉú²úÒ»¸öwarningÔÚdebugµÄÊ±ºò.<br />
-  ÕâÊÇÒòÎªifelse¼ÆËãÁËËùÓÐµÄ²ÎÊý,ÉõÖÁÊÇÃ»ÓÃµ½µÄÄÇ²¿·Ö.Ïà·´,Cond½«Ö»¼ÆËãÊµ¼ÊÓÃµ½µÄ²ÎÊý.<br />
-  Òò´Ë,Èç¹ûÎÒÃÇÖØÐ´±í´ïÊ½Îª Cond(time &gt; 0, 1.0/time, 2),µ±timeµÈÓÚ0µÄÊ±ºò²ÎÊý 1.0/time ½«ÓÀÔ¶²»»á±»¼ÆËã,ËùÒÔÒ²¾Í²»»áÉú²úwarningÁË.</p>
-<p>ÄãÒ²ÐíÏëÖªµÀºÎÊ±Ê¹ÓÃCongºÍIfElse.<br />
-  »Ø´ðÊÇÄã¼¸ºõ¾­³£ÒªÓÃµ½Cond,³ý·ÇÄãÐèÒª&lt;exp_true&gt;»ò&lt;exp_false&gt;ÖÐµÄ¸±×÷ÓÃ.<br />
-  »»¾ä»°Ëµ,Èç¹ûÄãÕýÔÚ¸ø±äÁ¿¸³Öµ(ÔÚÒ»¸ö¾­³£ÐèÒª±»Ö´ÐÐµÄ·ÖÖ§ÖÐ,ÎÞÂÛ&lt;exp_cond&gt;µÄÖµÊÇÊ²Ã´),ÔòÄãÐèÒªÊ¹ÓÃifelse.<br />
-  ·ñÔò,ÄãÓ¦¸ÃÊ¹ÓÃCond,ÓÈÆäÊÇÎªÁË¸ôÀëbottom.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   6.7.1 ç‰¹æ®Šæ ¼å¼
+  </p>
+  <p>
+   ifelseå’Œcondè§¦å‘å™¨ç”¨ä¸€ç§ç‰¹æ®Šçš„æ–¹å¼å¤„ç†bottom.ä»–ä»¬çš„æ ¼å¼éƒ½ä¸º:
+  </p>
+  <ul>
+   <li>
+    &lt;trigger_name&gt;(&lt;exp_cond&gt;,&lt;exp_true&gt;,&lt;exp_false&gt;)
+   </li>
+  </ul>
+  <p>
+   &lt;exp_cond&gt;æ˜¯æ¡ä»¶è¡¨è¾¾å¼,æ ¹æ®æ˜¯å¦ä¸ºéž0,æŽ§åˆ¶&lt;exp_true&gt;å’Œ&lt;exp_false&gt;å“ªä¸ªå°†è¢«è¿”å›ž.
+   <br/>
+   å¦‚æžœè¿˜æ²¡æœ‰è¢«è¿”å›žå‰äº§ç”Ÿäº†bottom,åˆ™å°†ä¸ä¼šæŠŠbottomä¼ æ’­è‡³è¡¨è¾¾å¼å…¶ä½™éƒ¨åˆ†.
+   <br/>
+   ä¾‹å¦‚,æ€è€ƒè¡¨è¾¾å¼IfElse(time &gt; 0, 1.0/time, 2)),å¦‚æžœtime&gt;0,åˆ™è¡¨è¾¾å¼çš„å€¼ä¸º1.0/time,ä¸€ä¸ªæœ‰æ•ˆçš„æµ®ç‚¹å€¼.
+   <br/>
+   å¦‚æžœtime=0,åˆ™è¡¨è¾¾å¼çš„å€¼ä¸º2,å³ä½¿æ˜¯ä¸ä½¿ç”¨çš„éƒ¨åˆ†é™¤ä»¥0äº§ç”Ÿäº†bottom.
+  </p>
+  <p>
+   ç„¶è€Œ,å³ä½¿ä¸Šé¢çš„ifelseè§¦å‘å™¨ä»Žä¸è¿”å›žbottom,å®ƒä»ç„¶æœ‰ä¸€ä¸ªçƒ¦äººçš„ç‰¹å¾:é™¤ä»¥0ä»ç„¶ä¼šç”Ÿäº§ä¸€ä¸ªwarningåœ¨debugçš„æ—¶å€™.
+   <br/>
+   è¿™æ˜¯å› ä¸ºifelseè®¡ç®—äº†æ‰€æœ‰çš„å‚æ•°,ç”šè‡³æ˜¯æ²¡ç”¨åˆ°çš„é‚£éƒ¨åˆ†.ç›¸å,Condå°†åªè®¡ç®—å®žé™…ç”¨åˆ°çš„å‚æ•°.
+   <br/>
+   å› æ­¤,å¦‚æžœæˆ‘ä»¬é‡å†™è¡¨è¾¾å¼ä¸º Cond(time &gt; 0, 1.0/time, 2),å½“timeç­‰äºŽ0çš„æ—¶å€™å‚æ•° 1.0/time å°†æ°¸è¿œä¸ä¼šè¢«è®¡ç®—,æ‰€ä»¥ä¹Ÿå°±ä¸ä¼šç”Ÿäº§warningäº†.
+  </p>
+  <p>
+   ä½ ä¹Ÿè®¸æƒ³çŸ¥é“ä½•æ—¶ä½¿ç”¨Congå’ŒIfElse.
+   <br/>
+   å›žç­”æ˜¯ä½ å‡ ä¹Žç»å¸¸è¦ç”¨åˆ°Cond,é™¤éžä½ éœ€è¦&lt;exp_true&gt;æˆ–&lt;exp_false&gt;ä¸­çš„å‰¯ä½œç”¨.
+   <br/>
+   æ¢å¥è¯è¯´,å¦‚æžœä½ æ­£åœ¨ç»™å˜é‡èµ‹å€¼(åœ¨ä¸€ä¸ªç»å¸¸éœ€è¦è¢«æ‰§è¡Œçš„åˆ†æ”¯ä¸­,æ— è®º&lt;exp_cond&gt;çš„å€¼æ˜¯ä»€ä¹ˆ),åˆ™ä½ éœ€è¦ä½¿ç”¨ifelse.
+   <br/>
+   å¦åˆ™,ä½ åº”è¯¥ä½¿ç”¨Cond,å°¤å…¶æ˜¯ä¸ºäº†éš”ç¦»bottom.
+  </p>
+ </body>
 </html>
