@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>静态型背景元素</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p><span class="STYLE1">静态型背景元素</span><br />
+</p>
+<p><span class="STYLE3">type = normal ; (必要) (字符串型)</span><br />
+  指定这个背景元素是静态图片素材,既不是动画型也不是视差型. (normal-普通,所以也称普通型)<br />
+</p>
+<p><span class="STYLE3">spriteno = groupno, imageno ; (必要) (整型,整型)</span><br />
+  groupno, imageno在背景元素中显示的SFF文件中的图像素材.<br />
+</p>
+<p><span class="STYLE3">layerno = layer ; (可选) (整型)</span><br />
+  如果layerno = 0,则此背景元素绘制在人物下方.<br />
+  如果layerno = 1,则此背景元素绘制在人物上方.<br />
+  在背景元素层绘制顺序方面,是按照DEF文件中出现的顺序,从底层到顶层绘制.layerno默认为0.<br />
+</p>
+<p><span class="STYLE3">start = x,y ; (可选) (浮点型, 浮点型)</span><br />
+  指定背景元素(相对于屏幕顶部中心)初始位置.(正y朝下)<br />
+  背景元素的坐标原点就在这个地方.缺省默认是0,0.<br />
+</p>
+<p><span class="STYLE3">delta = dx,dy ; (可选) (浮点型, 浮点型)</span><br />
+  摄像机水平,垂直方向每移动1像素时背景元素应该移动多少像素.<br />
+  设置 delta=1,1 将导致背景元素与摄像机移动速度相同.这对于脚下地面来说是合适的.<br />
+  对于远景中的元素,将delta的值设置的小一点来创建深度错觉.<br />
+  相同的,前景中的(layerno=1)元素一般设置的delta值大于1.<br />
+  可以把delta的值设置成负数,但是会有意想不到的效果.缺省默认为1,1.<br />
+</p>
+<p><span class="STYLE3">mask = mask ; (可选) (布尔型)</span><br />
+  如果设置为1,图片色表上的0位置颜色将不会绘制出来.用来绘制不规则形状的物体.(也就是色表最后一格颜色会透明)<br />
+  由于运行速度的关系,当不需要时尽量将mask设置为0.默认为0.<br />
+</p>
+<p><span class="STYLE3">tile = x_tile,y_tile ; (可选) (浮点型, 浮点型)</span><br />
+  分别设置背景元素在水平,垂直方向是否被平铺.<br />
+  0表示不平铺,1表示无限平铺,若tile大于1,比如tile=3,表示元素被平铺3次.<br />
+  缺省默认不平铺.(主要用于制作无缝背景,以及使背景能平移)<br />
+</p>
+<p><span class="STYLE3">tilespacing = x_spacing,y_spacing ; (可选) (整型,整型)</span><br />
+  如果设置了元素可以平铺,此参数分别指定平铺时相邻两张实例图片的水平,垂直间隔.<br />
+  如果不可以平铺,则此参数无效.tilespacing默认为0,0.<br />
+</p>
+<p>其他参数请参阅 <a href="高级参数.html">背景元素高级参数</a>.</p>
+</body>
+</html>

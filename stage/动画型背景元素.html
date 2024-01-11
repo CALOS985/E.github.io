@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>动画型背景元素</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">动画型背景元素</p>
+<p>指定动画型背景元素的格式几乎完全和静态型背景元素相同.<br />
+下面将介绍:</p>
+<ul>
+  <li>[BG my_animated_element]<br />
+    type = anim<br />
+    <span class="STYLE3">actionno = 55</span><br />
+    (除了spriteno之外的所有参数都与静态性背景元素相同)</li>
+</ul>
+<p>首先,要使元素成为一个动画型,必须指定类型为anim.其次,必须指定动画号(actionno).<br />
+  这个地方代替了原来静态性元素的spriteno参数.<br />
+  actionno的值必须是定义在此DEF文件中的一个动画.<br />
+  在此例中,因为actionno是55,所以55号动作必须以类似下面的方式被定义:</p>
+<ul>
+  <li>[Begin Action 55]<br />
+    0,0,0,0,5<br />
+    0,1,0,0,5<br />
+  </li>
+</ul>
+<p>格式同指定在air文件中的动画是相同的,所以详细过程就省略了.<br />
+  动作定义可以写在源[BGDef]组下面任何位置.<br />
+  典型的做法是即可以在他所属的元素下方立即定义,也可以把用到的所有动作都写在一起,位置放在[BGDef]组的开始或者末尾处.</p>
+<p>注意动画中使用的每张图片素材都有它自己的坐标.(SFF文件中指定)<br />
+  当播放动画时,每张图片素材的坐标将被排列,对应背景元素自身的坐标.</p>
+<p>tilespacing参数效果对于动画型元素和普通型元素是不同的.<br />
+  对于普通型元素,此参数的x值指定了第1次平铺的右边缘与第2次平铺的左边缘之间的水平距离.<br />
+  在任何动画型元素中,x值指定了第1次平铺的左边缘与第2次平铺的左边缘之间的水平距离.<br />
+  y方向也相似.产生不同的原因在于动画的尺寸未必是常量.(因为图片是静态的,所以尺寸是常量,动画是图片构成的,每张图片尺寸不一定相同)<br />
+  tilespacing需要动画型元素使用平铺参数的这种特征.</p>
+<p>动画型和普通型元素最后一个区别是动画型元素总是有mask = 1.</p>
+<p>其他参数请参阅 <a href="高级参数.html">背景元素高级参数</a>.</p>
+</body>
+</html>

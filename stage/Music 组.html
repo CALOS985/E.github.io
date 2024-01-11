@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>Music 组</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">Music 组</p>
+<p><span class="STYLE3">bgmusic = bgm_filename ;(可选) </span><br />
+  bgm_filename是背景音乐的名字.声音文件一般放置在sound/路径下.<br />
+  缺省将不播放背景音乐.如果指定的音乐文件不存在,也将不会播放音乐.<br />
+  若要播放CD音频,写出音轨号然后写上&quot;.da&quot;.使用音轨号0将随机播放一个音轨.例如,要从CD音乐中播放音轨3,使用bgmusic = 3.da.<br />
+缺省默认没有音乐.</p>
+<p><span class="STYLE3">bgvolume = volume_offset ;(可选) </span><br />
+  此参数调整背景音乐的音量.0是普通,负值变小,正值变大(仅对mp3,mod,cda格式音频起作用).<br />
+  有效值从-255到255.缺省默认是0.</p>
+<p><span class="STYLE3">bgmloop = 1<br />
+  bgmloopstart = 0<br />
+bgmloopend = -1</span><br />
+此3个参数配合可以制作无缝循环BGM.<br />
+bgmloop = 1指定此BGM支持循环.<br />
+bgmloopstart:此参数指定BGM开始循环的起始位置.在播放一遍BGM之后,便开始从这个位置循环播放.<br />
+首先用音频编辑工具打开这段BGM,之后找出这个时间点,以时间形式给出,比如2.234秒这个时间点.<br />
+随后用这个时间乘以BGM的采样率,一般都是44100,48000等.上例中2.234*44100=98519.<br />
+bgmloopend:与上面参数类似,设置的是循环的结束点,设置-1表示结束点就是BGM播放完的时候.</p>
+</body>
+</html>

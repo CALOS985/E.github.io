@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>简单举例</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">简单举例</p>
+<p>假设我们要创建一个从(-300,0)到(300,0)来回走动的人,正好在主人物的后面.<br />
+我们将使用背景控制器来打到目的.</p>
+<p>首先定义行走动画.人物的行走图像是从10,0到10,3,朝右.</p>
+<ul>
+  <li>; Walk right<br />
+    [Begin Action 10]<br />
+    10,0,0,0,6<br />
+    10,1,0,0,6<br />
+    10,2,0,0,6<br />
+    10,3,0,0,6<br />
+    <br />
+    ; Walk left<br />
+  [Begin Action 11]<br />
+  10,0,0,0,6,H<br />
+  10,1,0,0,6,H<br />
+  10,2,0,0,6,H<br />
+  10,3,0,0,6,H<br />
+  </li>
+</ul>
+<p>现在把这个角色放置在他范围的左边缘.</p>
+<ul>
+  <li>[BGDef]<br />
+    (...)<br />
+    <br />
+    [BG Peregrinator]<br />
+  type = anim<br />
+  actionno = 10<br />
+  id = 10<br />
+  start = -300, 0<br />
+  delta = 1,1<br />
+  </li>
+</ul>
+<p>设置速度为每帧2像素.单程是600像素,所以要用去300帧.所以,一个来回要600帧.<br />
+运用这个知识,适当的设置背景控制器:因为每600帧重复这个情况,我们设置全局循环时间为600.</p>
+<ul>
+  <li>[BGCtrlDef Peregrinator]<br />
+    ; reset the whole deal every 600 ticks.<br />
+    looptime = 600<br />
+    ctrlID = 10<br />
+    <br />
+    ; Set velocity of 2 pixels/sec rightward at time 0.<br />
+  [BGCtrl Walk Right]<br />
+  type = VelSet<br />
+  time = 0<br />
+  x = 2<br />
+  <br />
+  ; Set velocity of 2 pixels/sec leftward at time 300.<br />
+  [BGCtrl Walk Left]<br />
+  type = VelSet<br />
+  time = 300<br />
+  x = -2<br />
+  </li>
+</ul>
+<p>完成!如果能使人物在走到尽头时速度放缓同时显示一个转身的动作那就看起来更好了.这要用到VelAdd和Anim控制器<br />
+如果要人物定期停止,启动.你需要创建更多的velset,anim控制器,设置单独的循环时间.</p>
+</body>
+</html>
