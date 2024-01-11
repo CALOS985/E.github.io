@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>Bound 组</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">Bound 组</p>
+<p><span class="STYLE3">screenleft = min_dist_left </span><br />
+玩家与屏幕左边界允许的最小距离.必须是正值.</p>
+<p><span class="STYLE3">screenright = min_dist_right </span><br />
+  玩家与屏幕右边界允许的最小距离.必须是正值.</p>
+<p>注：这两个数值在不同的localcoord中是不同的,通常在localcoord=320,240情况下,推荐为15--30.<br />
+如果是更大的localcoord,一般设置为x轴方向的倍数. 如640,480或640,360情况下,推荐为30--60.<br />
+更大的localcoord按照320,240的x轴倍数即可,以此类推.</p>
+</body>
+</html>
