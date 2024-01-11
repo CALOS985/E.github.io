@@ -1,0 +1,142 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>CNS变量设置</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">CNS变量设置</p>
+<p><span class="STYLE2">[Data]</span><br />
+  <span class="STYLE3">life</span> = 1000 <br />
+  ;起始的生命值 <br />
+</p>
+<p><span class="STYLE3">attack</span> = 100 <br />
+  ;攻击力(数值越高越强)<br />
+</p>
+<p><span class="STYLE3">defence</span> = 100 <br />
+  ;防御力(数值越高越强)<br />
+</p>
+<p><span class="STYLE3">fall.defence_up</span> = 50 <br />
+  ;玩家倒下时每时间单位增加的防御力百分比<br />
+</p>
+<p><span class="STYLE3">liedown.time</span> = 60 <br />
+  ;玩家倒地起身前的时间(持续按键会加速起身时间)<br />
+</p>
+<p><span class="STYLE3">airjuggle = 15</span> <br />
+  ;默认连击点数(通常,连招中每招的连击点数之和超过这个数字就无法继续连击) <br />
+</p>
+<p><span class="STYLE3">sparkno</span> = 2 <br />
+  ;HitDef中默认的击中火花号<br />
+</p>
+<p><span class="STYLE3">guard.sparkno</span> = 40 <br />
+  ;默认的防御火花号 <br />
+  <br />
+  <span class="STYLE3">KO.echo</span> = 0<br />
+  ;设置1实现KO时回声效果 <br />
+</p>
+<p><span class="STYLE3">volume</span> = 0 <br />
+;音量(负值声音变小) </p>
+<p><span class="STYLE3">IntPersistIndex</span> = 60<br />
+  <span class="STYLE3">FloatPersistIndex</span> = 40<br />
+  ;大于等于此索引号的变量在round或match之间将不会复位(初始化)到0.<br />
+  ;有60个整型变量(索引号从0到59)和40个浮点型变量(索引号从0到39)供使用.<br />
+  ;如果缺省,默认分别有60个整型变量和40个浮点型变量,意味着没有一个变量被persist(指保留上一回合的数据),即所有变量都复位.<br />
+  ;如果你想让变量在回合结束时能保留上一回合的数据,你需要覆盖common1.cns中的[statedef 5900](此状态管理每回合结束时的变量初始化). <br />
+</p>
+<p><span class="STYLE2">[Size]</span><br />
+  <span class="STYLE3">xscale</span> = 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;水平方向缩放因数<br />
+  <span class="STYLE3">yscale</span> = 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; ;垂直方向缩放因数<br />
+  <span class="STYLE3">ground.back</span> = 15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;玩家在地面时的后方宽度<br />
+  <span class="STYLE3">ground.front</span> = 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;玩家在地面时的前方宽度<br />
+  <span class="STYLE3">air.back</span> = 12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;玩家在空中时的后方宽度<br />
+  <span class="STYLE3">air.front</span> = 12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;玩家在空中时的前方宽度<br />
+  <span class="STYLE3">height</span> = 60&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;玩家的高度 (对手能否跳过你的身体)<br />
+  <span class="STYLE3">attack.dist</span> = 160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;默认的攻击距离 (在此距离之内攻击对手,对手可作出防御动作,超出这个距离就不能了) <br />
+  <span class="STYLE3">proj.attack.dist</span> = 90&nbsp;&nbsp; ;飞行道具的默认攻击距离<br />
+  <span class="STYLE3">proj.doscale</span> = 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;设置为1使得飞行道具也受xscale和yscale影响<br />
+  <span class="STYLE3">head.pos</span> = -5, -90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;近似头部位置<br />
+  <span class="STYLE3">mid.pos</span> = -5, -60&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;近似中部位置<br />
+  <span class="STYLE3">shadowoffset</span> = 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;影子垂直偏移量像素值<br />
+  <span class="STYLE3">draw.offset</span> = 0,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;玩家显示在屏幕上的x,y偏移量像素值,建议0,0.</p>
+<p><span class="STYLE2">[Velocity]</span><br />
+  <span class="STYLE3">walk.fwd</span> = 2.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;向前走的速度<br />
+  <span class="STYLE3">walk.back</span> = -2.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;向后走的速度<br />
+  <span class="STYLE3">run.fwd</span> = 4.6, 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;向前跑x,y方向速度(y方向非0表示跳跃前进)<br />
+  <span class="STYLE3">run.back</span> = -4.5,-3.8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;向后小跳x,y方向速度<br />
+  <span class="STYLE3">jump.neu</span> = 0,-8.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;正向上跳x,y方向速度<br />
+  <span class="STYLE3">jump.back</span> = -2.55&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;向后跳x,y方向速度<br />
+  <span class="STYLE3">jump.fwd</span> = 2.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;向前跳x,y方向速度<br />
+  <span class="STYLE3">runjump.back</span> = -2.55,-8.1&nbsp;&nbsp; ;跑动中跳跃 (可选) <br />
+  <span class="STYLE3">runjump.fwd</span> = 4,-8.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br />
+  <span class="STYLE3">airjump.neu</span> = 0,-8.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;空中跳跃 (可选) <br />
+  <span class="STYLE3">airjump.back</span> = -2.55&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br />
+  <span class="STYLE3">airjump.fwd</span> = 2.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br />
+  <span class="STYLE3">air.gethit.groundrecover</span> = -.15,-3.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;地面受身状态的x,y速度 **MUGEN 1.0**<br />
+  <span class="STYLE3">air.gethit.airrecover.mul</span> = .5,.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;空中受身状态x,y速度的乘数 **MUGEN 1.0**<br />
+  <span class="STYLE3">air.gethit.airrecover.add</span> = 0,-4.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;空中受身的x,y速度偏移量 **MUGEN 1.0**<br />
+  <span class="STYLE3">air.gethit.airrecover.back</span> = -1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;空中受身按住向后键时给予x方向额外的速度 **MUGEN 1.0**<br />
+  <span class="STYLE3">air.gethit.airrecover.fwd</span> = 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;空中受身按住向前键时给予x方向额外的速度 **MUGEN 1.0**<br />
+  <span class="STYLE3">air.gethit.airrecover.up</span> = -2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;空中受身按住向上键时给予y方向额外的速度 **MUGEN 1.0**<br />
+  <span class="STYLE3">air.gethit.airrecover.down</span> = 1.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;空中受身按住向下键时给予y方向额外的速度 **MUGEN 1.0**</p>
+<p><span class="STYLE2">[Movement]</span><br />
+  <span class="STYLE3">airjump.num</span> = 1 ;空中允许跳跃的次数(可选)<br />
+  <span class="STYLE3">airjump.height</span> = 35 ;空中跳跃时应满足的最低高度 (可选)<br />
+  <span class="STYLE3">yaccel</span> = .44 ;垂直方向加速度<br />
+  <span class="STYLE3">stand.friction</span> = .85 ;站立时的摩擦系数<br />
+  <span class="STYLE3">crouch.friction</span> = .82 ;蹲下时的摩擦系数<br />
+  <span class="STYLE3">stand.friction.threshold</span> = 2 ;站立时如果玩家的速度降低到低于这个界限,他会停止运动 **MUGEN 1.0**<br />
+  <span class="STYLE3">crouch.friction.threshold</span> = .05 ;蹲下时如果玩家的速度降低到低于这个界限,他会停止运动 **MUGEN 1.0**<br />
+  <span class="STYLE3">air.gethit.groundlevel</span> = 25 ;指定一个Y方向位置,当下落中的玩家低于这个位置时被认为是落地了 **MUGEN 1.0**<br />
+  <span class="STYLE3">air.gethit.groundrecover.ground.threshold</span> = -20 ;指定一个Y方向位置,当下落中的玩家低于这个位置时才能使用(地面)受身指令 **MUGEN 1.0**<br />
+  <span class="STYLE3">air.gethit.groundrecover.groundlevel</span> = 10 ;指定一个Y方向位置,玩家进入地面受身状态到达此位置被认为触及地面 **MUGEN 1.0**<br />
+  <span class="STYLE3">air.gethit.airrecover.threshold</span> = -1 ;指定一个Y方向位置,在此位置之上玩家可以使用空中受身指令 **MUGEN 1.0**<br />
+  <span class="STYLE3">air.gethit.airrecover.yaccel</span> = .35 ;玩家在空中受身状态时的垂直加速度 **MUGEN 1.0**<br />
+  <span class="STYLE3">air.gethit.trip.groundlevel</span> = 15 ;指定一个Y方向位置,玩家在被绊倒状态中到达此位置被认为触及地面 **MUGEN 1.0**<br />
+  <span class="STYLE3">down.bounce.offset</span> = 0, 20 ;玩家从地面弹起的x,y偏移量 **MUGEN 1.0**<br />
+  <span class="STYLE3">down.bounce.yaccel</span> = .4 ;玩家从地面弹起的垂直方向加速度 **MUGEN 1.0**<br />
+  <span class="STYLE3">down.bounce.groundlevel</span> = 12 ;指定一个Y方向位置,玩家从地面反弹又落下,到达此位置被认为触及地面 **MUGEN 1.0**<br />
+  <span class="STYLE3">down.friction.threshold</span> = .05 ;倒下时如果玩家的速度降低到低于这个界限,他会停止运动 **MUGEN 1.0**</p>
+<p>;默认的胜利引语语种 (可选). **MUGEN 1.0**<br />
+  ;如果包含了此章节, 默认的胜利引语语种必须是英语.<br />
+  <span class="STYLE2">[Quotes]</span><br />
+  ; 每个语种能指定100个胜利引语 (victory0 - victory99)<br />
+  <span class="STYLE3">victory1 = &quot;You must defeat Tu Shou to stand a chance.&quot;<br />
+  victory2 = &quot;You need a lot of training. Come back in ten years.&quot;<br />
+  victory3 = &quot;You look familiar. Did I see you on TV &quot;<br />
+  victory4 = &quot;Your moves are too predictable. You want to learn Kung Fu Palm  It's not for novices.&quot;<br />
+  victory5 = &quot;That was a good workout.&quot;<br />
+  victory6 = &quot;I want to challenge more skilled fighters.&quot;<br />
+  victory7 = &quot;What do you mean my girlfriend is in another temple &quot;</span></p>
+<p>;胜利引语替代语种 (可选).<br />
+  ;可以增加替代语种, 前面加上ISO 639-1 代码再加上&quot;.&quot;,例如&quot;[ja.Quotes]&quot;<br />
+  ;详情见mugen.cfg中语言设置<br />
+  <span class="STYLE2">[ja.Quotes]</span><br />
+  <span class="STYLE3">victory1 = &quot;カンフー突き手を破らぬ限り、お前に勝ち目はない！&quot;<br />
+  victory2 = &quot;十年早いんだぞ&quot;<br />
+  victory3 = &quot;お前は見覚えがあるな.テレビにでも…？&quot;<br />
+  victory4 = &quot;お前の動きは見破りやすすぎる.　なに、カンフー突き手が覚えたいんだと？　素人には無理だぞ&quot;<br />
+  victory5 = &quot;ふー.　いい汗だった&quot;<br />
+  victory6 = &quot;もっと強い相手に挑戦したい&quot;<br />
+  victory7 = &quot;なんだと！彼女はここにもいないと？&quot;</span></p>
+<p></p>
+</body>
+</html>

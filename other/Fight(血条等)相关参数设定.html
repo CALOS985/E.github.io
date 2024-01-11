@@ -1,0 +1,503 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>FIGHT(血条等)相关参数设定 </title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">FIGHT(血条等)相关参数设定</p>
+<p class="STYLE2">如何自定义</p>
+<p>首先在[Files]下面设置文件名.</p>
+<p>其次,你能自定义fight画面中的任何部件.<br />
+  部件可以是从血条到K.O.文字的任何东西.</p>
+<p>每个部件从名字开始,然后是点,最后是它元素的名字.<br />
+  例如&quot;bg&quot;部件中的&quot;anim&quot;元素应该是这样表示&quot;bg.anim&quot;</p>
+<p>这是几个主要的元素类型<br />
+  <span class="STYLE3">1. anim (动画)<br />
+  2. spr (图片)<br />
+  3. font (文字)<br />
+  4. snd (声音)</span></p>
+<p><span class="STYLE3">1. anim</span><br />
+  格式: anim = actionno<br />
+  actionno是动作号.你必须指定定义在这个文件中的有效动作号.<br />
+  动作中的图片来自于[Files]组下面设定的&quot;sff&quot;.<br />
+  你能在此文件中任何位置定义动作,只要不在一个组模块之间<br />
+  例如,要是用p1.bg0部件的第5号动作:p1.bg0.anim = 5<br />
+  <span class="STYLE3">2. spr</span><br />
+  格式: spr = spritegrp, spriteno<br />
+  这是图片的一对识别号.例如,要显示 p1.throw部件的103,0图片素材:p1.throw.spr = 103,0<br />
+  <span class="STYLE3">3. font</span><br />
+  格式: font = fontno, fontbank, alignmnt, R, G, B<br />
+  text = text<br />
+  设置字体(和可选的文本内容).fontno是定义在[Files]下面的字体号.<br />
+  例如,对于&quot;font2 = font/num1.fnt&quot;,则fontno就是2.<br />
+  fontbank字体使用的color bank(颜色库?).指的是此字体拥有的color bank. <br />
+  alignmt是字体对齐方式.1-左对齐,0-中间对齐,-1-右对齐<br />
+  R,G,B是字体颜色的校准值.默认是256,256,256(无颜色校准)<br />
+  所有字体值都是可选的.如果缺省fontno,将不会显示任何字体.<br />
+  &quot;text&quot;(文字)元素应该伴随着字体元素出现,必要时.<br />
+  下面的例子将显示&quot;FIGHT!&quot;使用1号字体,1号库,中间对齐方式.<br />
+  fight.font = 1,1, 0<br />
+  fight.text = FIGHT!<br />
+  <span class="STYLE3">4. snd</span><br />
+  格式: snd = sndgrp, sndno<br />
+  声音的一对识别符.<br />
+  例子:<br />
+  level1.snd = 21,0<br />
+注意,anim,spr,font元素类型是互斥的,你只能部件中使用他们中的一个.</p>
+<p>支持的元素类型随部件的变化而变化.通常anim,spr,font元素对部件是通用的.但是在某些情况下,只能使用1种元素类型.<br />
+  能在[Combo]下发现这样的例子:counter.font = 2,4(连击数的字体),你不能用动画或者图片来表示连击数,所以这种情况只能定义一个使用的字体.</p>
+<p>还有一些元素类型,他们自身不起什么作用.他们能用于更精确控制元素类型.<br />
+  对于snd元素无效.<br />
+  <span class="STYLE3">5. offset (偏移量) <br />
+  6. displaytime (显示时间) <br />
+  7. facing (水平倒转) <br />
+  8. vfacing (垂直倒转)<br />
+  9. layerno (层号) <br />
+  10. scale (缩放)</span></p>
+<p><span class="STYLE3">5. offset </span><br />
+  格式: offset = x, y <br />
+  设置元素x,y方向偏移量.缺省默认是0,0.<br />
+  <span class="STYLE3">6. displaytime</span><br />
+  格式: displaytime = time_in_ticks<br />
+  定义元素显示的时间.若缺省,默认值随元素类型而变化.<br />
+  对于spr和font元素,默认显示时间是1.对anim,是动画的循环时间.<br />
+  显示&quot;FIGHT!&quot;文字45帧:<br />
+  fight.font = 1,1, 0<br />
+  fight.text = FIGHT!<br />
+  fight.displaytime = 45<br />
+  <span class="STYLE3">7. facing</span><br />
+  格式: facing = dir<br />
+  设置显示的元素是否水平翻转.1是不翻转,-1翻转.<br />
+  对字体无效,缺省默认是1.<br />
+  <span class="STYLE3">8. vfacing</span><br />
+  格式: vfacing = dir<br />
+  垂直方向的翻转.<br />
+  <span class="STYLE3">9. layerno</span><br />
+  格式: layerno = no<br />
+  设置层号.0-在背景的上方,但是在人物的下方.1-在玩家上方,但是在前景下方.2-在前景上方.<br />
+  大多数情况下设置为0.如果你要让血条和能量条显示在最上方,就把相关部件都设置layerno = 2.<br />
+  <span class="STYLE3">10. scale</span><br />
+  格式: scale = xscale, yscale<br />
+  设置x,y方向缩放系数.默认是1,1.不支持字体.<br />
+  一些部件还有他们独特的元素.<br />
+</p>
+<p> </p>
+<p> </p>
+<p>; 定义fight画面</p>
+<p>; 这部分同system.def</p>
+<p>[Files]<br />
+  sff = fight.sff<br />
+  snd = fight.snd<br />
+  font1 = jg.fnt<br />
+  font2 = num1.fnt<br />
+  font3 = name1.fnt<br />
+  fightfx.sff = fightfx.sff<br />
+  fightfx.air = fightfx.air<br />
+  common.snd = common.snd</p>
+<p>;-----------------------------------------------------------<br />
+  <span class="STYLE2">[FightFx]</span><br />
+  scale = 1</p>
+<p>;-----------------------------------------------------------<br />
+  <span class="STYLE2">[Lifebar]</span><br />
+  ;Player 1<br />
+  p1.pos = 140,12<br />
+  p1.bg0.anim = 10 ;指的是血条相应的框架背景,血条框架背景由几个图像元素构成,也就是bg0,bg1...貌似只能指定到2还是3 <br />
+  p1.bg1.spr = 11,0<br />
+  p1.mid.spr = 12,0 ;扣血时的红血印 <br />
+  p1.front.spr = 13,0 ;血条图像<br />
+  p1.range.x = 0,-127 ;血条的范围,扣血就会在这个范围里进行,例如血条的左边缘位置是10,右边缘是100,难么范围也要用这个值,如果指定的范围不在10-100之间,就不正常了<br />
+  ;(这里只是举例子,坐标位置不一定就是这个,具体要看血条的边缘位置.) <br />
+  ;Player 2<br />
+  p2.pos = 178,12<br />
+  p2.bg0.anim = 10<br />
+  p2.bg0.facing = -1<br />
+  p2.bg1.spr = 11,0<br />
+  p2.bg1.facing = -1<br />
+  p2.mid.spr = 12,0<br />
+  p2.mid.facing = -1<br />
+  p2.front.spr = 13,0<br />
+  p2.front.facing = -1<br />
+  p2.range.x = 0,127</p>
+<p>[Begin Action 10] ;Darkened lifebar background <br />
+  10,0, 0,0, 1, , S</p>
+<p><span class="STYLE2">[Simul Lifebar]</span> ;2v2时的血条 <br />
+  ;Player 1<br />
+  p1.pos = 140,12<br />
+  p1.bg0.anim = 20<br />
+  p1.bg1.spr = 21,0<br />
+  p1.mid.offset = 0,-1<br />
+  p1.mid.spr = 22,0<br />
+  p1.front.offset = 0,-1<br />
+  p1.front.spr = 23,0<br />
+  p1.range.x = 0,-127<br />
+  ;Player 2<br />
+  p2.pos = 178,12<br />
+  p2.bg0.anim = 20<br />
+  p2.bg0.facing = -1<br />
+  p2.bg1.spr = 21,0<br />
+  p2.bg1.facing = -1<br />
+  p2.mid.offset = 0,-1<br />
+  p2.mid.spr = 22,0<br />
+  p2.mid.facing = -1<br />
+  p2.front.offset = 0,-1<br />
+  p2.front.spr = 23,0<br />
+  p2.front.facing = -1<br />
+  p2.range.x = 0,127<br />
+  ;Player 3<br />
+  p3.pos = 140,15<br />
+  p3.mid.spr = 22,0<br />
+  p3.front.spr = 23,0<br />
+  p3.range.x = 0,-127<br />
+  ;Player 4<br />
+  p4.pos = 178,15<br />
+  p4.mid.spr = 22,0<br />
+  p4.mid.facing = -1<br />
+  p4.front.spr = 23,0<br />
+  p4.front.facing = -1<br />
+p4.range.x = 0,127</p>
+<p>[Begin Action 20] ;Darkened lifebar background (team)<br />
+  20,0, 0,0, 1, , S</p>
+<p><span class="STYLE2">[Turns Lifebar]</span>;turn模式的血条<br />
+  ;Player 1<br />
+  p1.pos = 140,12<br />
+  p1.bg0.anim = 10<br />
+  p1.bg1.spr = 11,0<br />
+  p1.mid.spr = 12,0<br />
+  p1.front.spr = 13,0<br />
+  p1.range.x = 0,-127<br />
+  ;Player 2<br />
+  p2.pos = 178,12<br />
+  p2.bg0.anim = 10<br />
+  p2.bg0.facing = -1<br />
+  p2.bg1.spr = 11,0<br />
+  p2.bg1.facing = -1<br />
+  p2.mid.spr = 12,0<br />
+  p2.mid.facing = -1<br />
+  p2.front.spr = 13,0<br />
+  p2.front.facing = -1<br />
+p2.range.x = 0,127</p>
+<p>;-----------------------------------------------------------<br />
+  <span class="STYLE2">[Powerbar]</span>;能量条(原理和血条一样)<br />
+  ;Player 1<br />
+  p1.pos = 140,22<br />
+  p1.bg0.anim = 40 <br />
+  p1.bg1.spr = 41,0<br />
+  ;p1.mid.spr = 42,0<br />
+  p1.front.spr = 43,0<br />
+  p1.range.x = 0,-107<br />
+  p1.counter.offset = -108,6<br />
+  p1.counter.font = 1,0, 0</p>
+<p>;Player 2<br />
+  p2.pos = 178,22<br />
+  p2.bg0.anim = 40<br />
+  p2.bg0.facing = -1<br />
+  p2.bg1.spr = 41,0<br />
+  p2.bg1.facing = -1<br />
+  ;p2.mid.spr = 42,0<br />
+  ;p2.mid.facing = -1<br />
+  p2.front.spr = 43,0<br />
+  p2.front.facing = -1<br />
+  p2.range.x = 0,107<br />
+  p2.counter.offset = 109,6<br />
+  p2.counter.font = 1,0, 0</p>
+<p>; --等级的声音---<br />
+  ;1000power称为等级1,能量蓄满1000时的声音<br />
+  level1.snd = 21,0<br />
+  level2.snd = 21,0<br />
+  level3.snd = 21,0</p>
+<p>[Begin Action 40] ;Darkened powerbar background <br />
+  40,0, 0,0, 1, , S<br />
+  ;-----------------------------------------------------------<br />
+  <span class="STYLE2">[Face]</span> ;血条上的头像 <br />
+  ;Player 1<br />
+  p1.pos = 2,12<br />
+  p1.bg.spr = 50,0<br />
+  p1.face.spr = 9000,0<br />
+  p1.face.facing = 1<br />
+  p1.face.offset = 0,10<br />
+  ;Player 2<br />
+  p2.pos = 316,12<br />
+  p2.bg.spr = 50,0<br />
+  p2.bg.facing = -1<br />
+  p2.face.spr = 9000,0<br />
+  p2.face.facing = -1<br />
+  p2.face.offset = 0,10</p>
+<p><span class="STYLE2">[Simul Face]</span>;2v2<br />
+  ;Player 1<br />
+  p1.pos = 1,12<br />
+  p1.bg.spr = 60,0<br />
+  p1.face.spr = 9000,0<br />
+  p1.face.scale = 0.6,0.6<br />
+  p1.face.facing = 1<br />
+  p1.face.offset = 0,10<br />
+  ;Player 2<br />
+  p2.pos = 317,12<br />
+  p2.bg.spr = 60,0<br />
+  p2.bg.facing = -1<br />
+  p2.face.spr = 9000,0<br />
+  p2.face.scale = 0.6,0.6<br />
+  p2.face.facing = -1<br />
+  p2.face.offset = 0,10<br />
+  ;Player 3<br />
+  p3.pos = 2,12<br />
+  p3.face.spr = 9000,0<br />
+  p3.face.scale = 0.6,0.6<br />
+  p3.face.facing = 1<br />
+  p3.face.offset = 11,10<br />
+  ;Player 4<br />
+  p4.pos = 316,12<br />
+  p4.bg.facing = -1<br />
+  p4.face.spr = 9000,0<br />
+  p4.face.scale = 0.6,0.6<br />
+  p4.face.facing = -1<br />
+p4.face.offset = -11,10</p>
+<p><span class="STYLE2">[Turns Face]</span>;turn模式<br />
+  ;Player 1<br />
+  p1.pos = 2,12<br />
+  p1.bg.spr = 50,0<br />
+  p1.face.spr = 9000,0<br />
+  p1.face.facing = 1<br />
+  p1.face.offset = 0,10<br />
+  p1.teammate.pos = 1,49<br />
+  p1.teammate.spacing = 13,0<br />
+  p1.teammate.bg.spr = 70,0<br />
+  p1.teammate.ko.spr = 71,0<br />
+  p1.teammate.face.spr = 9000,0<br />
+  p1.teammate.face.scale = 0.5,0.53<br />
+  p1.teammate.face.facing = 1<br />
+  p1.teammate.face.offset = 1,0<br />
+  ;Player 2<br />
+  p2.pos = 316,12<br />
+  p2.bg.spr = 50,0<br />
+  p2.bg.facing = -1<br />
+  p2.face.spr = 9000,0<br />
+  p2.face.facing = -1<br />
+  p2.face.offset = 0,10<br />
+  p2.teammate.pos = 317,49<br />
+  p2.teammate.spacing = -13,0<br />
+  p2.teammate.bg.spr = 70,0<br />
+  p2.teammate.bg.facing = -1<br />
+  p2.teammate.ko.spr = 71,0<br />
+  p2.teammate.ko.facing = -1<br />
+  p2.teammate.face.spr = 9000,0<br />
+  p2.teammate.face.scale = 0.5,0.53<br />
+  p2.teammate.face.facing = -1<br />
+p2.teammate.face.offset = -1,0</p>
+<p>;-----------------------------------------------------------<br />
+  <span class="STYLE2">[Name]</span>;名字<br />
+  p1.pos = 14,10<br />
+  ;p1.bg. =<br />
+  p1.name.font = 3,0, 1<br />
+  ;p2.bg. =<br />
+  p2.pos = 305,10<br />
+  p2.name.font = 3,0, -1</p>
+<p>[Simul Name]<br />
+  p1.pos = 14,10<br />
+  p1.name.font = 3,0, 1<br />
+  p2.pos = 305,10<br />
+  p2.name.font = 3,0, -1<br />
+  p3.pos = 138,10<br />
+  p3.name.font = 3,0, -1<br />
+  p4.pos = 181,10<br />
+  p4.name.font = 3,0, 1</p>
+<p>[Turns Name]<br />
+  p1.pos = 14,10<br />
+  ;p1.bg. =<br />
+  p1.name.font = 3,0, 1<br />
+  ;p2.bg. =<br />
+  p2.pos = 305,10<br />
+  p2.name.font = 3,0, -1</p>
+<p>;-----------------------------------------------------------<br />
+  <span class="STYLE2">[Time]</span>;时间<br />
+  pos = 160,23</p>
+<p>;bg.spr = ;时间的框架背景 <br />
+  counter.offset = 0,0<br />
+  counter.font = 2,0, 0 ;时间字体 <br />
+  ; 每倒记1时间经过多少帧 <br />
+  framespercount = 60</p>
+<p>;-----------------------------------------------------------<br />
+  <span class="STYLE2">[Combo]</span> ;连击数 <br />
+  team1.pos = 10,80 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;起始坐标<br />
+  team1.start.x = -40 &nbsp;&nbsp;&nbsp;&nbsp; ;初始x坐标<br />
+  team1.counter.font = 2,4,1<br />
+  team1.counter.shake = 1 ;击中时连击数能震动<br />
+  team1.text.text = Rush! ;%i表示连击数,比如KOF98中是 RUSH 10 HITS,则写法是 RUSH %i HITS. <br />
+  team1.text.font = 1,0,1<br />
+  team1.text.offset = 3,0 <br />
+  team1.displaytime = 90 ;连击数显示的时间<br />
+  team2.pos = 309,80 <br />
+  team2.start.x = 359 <br />
+  team2.counter.font = 2,4,-1<br />
+  team2.counter.shake = 1 <br />
+  team2.text.text = Rush! <br />
+  team2.text.font = 1,0,-1<br />
+  team2.text.offset = 3,0 <br />
+  team2.displaytime = 90</p>
+<p>;-----------------------------------------------------------<br />
+  <span class="STYLE2">[Round]</span> ;回合相关<br />
+  match.wins = 2 ;要赢几局才能最终获胜<br />
+  match.maxdrawgames = 1 ;允许几次平局(-1表示无限) *2001.11.01 NEW*<br />
+  start.waittime = 30 ;开场介绍前等待的时间</p>
+<p>; 所有元素的默认位置<br />
+  pos = 0,0</p>
+<p>; ROUND X<br />
+  round.time = 0 ;显示round字样的时间<br />
+  round.default.offset = 160, 100<br />
+  ;默认每局显示的问题.Round %i表示第几回合<br />
+  ; 使用&quot;round.default.anim&quot;代替输出文字<br />
+  round.default.font = 1,0, 0<br />
+  round.default.text = Round %i<br />
+  round.default.displaytime = 60<br />
+  ; 每回合的声音(最多指定9个回合)<br />
+  round1.snd = 0,1<br />
+  round2.snd = 0,2<br />
+  round3.snd = 0,3<br />
+  round.sndtime = 0 ;播放声音的时间<br />
+  ; 设置每回合图像元素的参数(最多指定9个回合)<br />
+  ;round1.offset = 160, 100<br />
+  ;round1.anim =</p>
+<p>; FIGHT<br />
+  fight.time = 0 ;显示FIGHT的时间<br />
+  fight.offset = 160, 110 <br />
+  fight.anim = 80 <br />
+  fight.snd = 1,0 <br />
+  fight.sndtime = 0</p>
+<p>ctrl.time = 30 ;&quot;Fight&quot;出现后多久player才能受控制</p>
+<p>; 显示KO字样相关设置<br />
+  KO.time = 0 <br />
+  KO.offset = 160, 70 <br />
+  KO.anim = 200 <br />
+  KO.snd = 2,0 <br />
+  ; Double KO字样相关设置<br />
+  DKO.offset = 160, 70<br />
+  DKO.font = 1,5<br />
+  DKO.text = Double K.O.<br />
+  DKO.displaytime = 60<br />
+  DKO.snd = 2,1<br />
+  ; Time Over字样相关设置<br />
+  TO.offset = 160, 70<br />
+  TO.font = 1,5<br />
+  TO.text = Time Over<br />
+  TO.displaytime = 60<br />
+  TO.snd = 2,2<br />
+  KO.sndtime = 0 ; KO, DKO ,TO播放的时间.<br />
+  slow.time = 60 ;Time for KO slowdown (in ticks)<br />
+  over.waittime = 45 ;KO结束后player停止前的时间<br />
+  over.hittime = 10 ;KO结束后player还能攻击的时间<br />
+  over.wintime = 45 ;player进入胜利状态前的时间<br />
+  over.time = 210 ;回合结束前等待的时间<br />
+  ; win/draw信息显示前的时间<br />
+  win.time = 60<br />
+  ; Win text<br />
+  win.offset = 160, 70<br />
+  win.font = 1,0<br />
+  win.text = %s Wins<br />
+  win.displaytime = 540<br />
+  ; 2-player win text<br />
+  win2.offset = 160, 70<br />
+  win2.font = 1,0<br />
+  win2.text = %s and %s Win<br />
+  win2.displaytime = 540<br />
+  ; Draw text<br />
+  draw.offset = 160, 70<br />
+  draw.font = 1,0<br />
+  draw.text = Draw Game<br />
+  draw.displaytime = 540</p>
+<p>;&quot;Fight!&quot; Animation<br />
+  [Begin Action 80]<br />
+  80,0, 0,0, 1<br />
+  80,6, 0,0, 1<br />
+  80,7, 0,0, 1<br />
+  80,6, 0,0, 1<br />
+  80,0, 0,0, 30<br />
+  80,1, 0,0, 1<br />
+  80,2, 0,0, 1<br />
+  80,3, 0,0, 1<br />
+  80,4, 0,0, 1<br />
+  80,5, 0,0, 1</p>
+<p>;&quot;K.O.&quot; Animation<br />
+  [Begin Action 200]<br />
+  -1,-1, 0,0, 5<br />
+  200,2, 0,0, 2, ,A1<br />
+  200,1, 0,0, 2, ,A<br />
+  200,2, 0,0, 2, ,A<br />
+  200,2, 0,0, 18, ,A1<br />
+  200,4, 0,0, 2, ,A1<br />
+  200,3, 0,0, 2, ,A<br />
+  200,4, 0,0, 2, ,A<br />
+  200,4, 0,0, 18, ,A1<br />
+  200,0, 0,0, 2, ,A1<br />
+  200,5, 0,0, 2, ,A1<br />
+  200,5, 0,0, 2, ,A<br />
+  200,5, 0,0, 2, ,A1<br />
+  200,0, 0,0, 2, ,A1<br />
+  200,0, 0,0, 50<br />
+  200,6, 0,0, 1, ,A1<br />
+  200,7, 0,0, 1, ,A1<br />
+  200,8, 0,0, 1, ,A1<br />
+  200,9, 0,0, 1, ,A1<br />
+  200,10, 0,0, 1, ,A1</p>
+<p>;-----------------------------------------------------------<br />
+  <span class="STYLE2">[WinIcon] </span>;胜利图标 <br />
+  p1.pos = 34,43 ;33,43<br />
+  p2.pos = 284,43 ;286,43<br />
+  ; 下个图标的位移 (x,y)<br />
+  p1.iconoffset = 12,0 <br />
+  p2.iconoffset = -12,0<br />
+  ; Counter字体和位移<br />
+  p1.counter.offset = 0,0 <br />
+  p1.counter.font = 2,1 <br />
+  p2.counter.offset = 0,0<br />
+  p2.counter.font = 2,1<br />
+  ; Win by normal<br />
+  p1.n.spr = 100,0<br />
+  p2.n.spr = 100,0<br />
+  ; Win by special<br />
+  p1.s.spr = 101,0<br />
+  p2.s.spr = 101,0<br />
+  ; Win by hyper (super)<br />
+  p1.h.spr = 102,0<br />
+  p2.h.spr = 102,0<br />
+  ; Win by normal throw<br />
+  p1.throw.spr = 103,0<br />
+  p2.throw.spr = 103,0<br />
+  ; Win by cheese<br />
+  p1.c.spr = 104,0<br />
+  p2.c.spr = 104,0<br />
+  ; Win by time over<br />
+  p1.t.spr = 105,0<br />
+  p2.t.spr = 105,0<br />
+  ; Win by suicide (here's a fun one)对手自杀<br />
+  p1.suicide.spr = 106,0<br />
+  p2.suicide.spr = 106,0<br />
+  ; Opponent beaten by his own teammate (another fun one)被自己队友杀死<br />
+  p1.teammate.spr = 107,0<br />
+  p2.teammate.spr = 107,0<br />
+  ; Win by perfect (overlay icon)<br />
+  p1.perfect.spr = 110,0<br />
+  p2.perfect.spr = 110,0<br />
+  ; Use icons up until this number of wins 最多能使用的图标数量<br />
+  useiconupto = 4<br />
+</p>
+</body>
+</html>

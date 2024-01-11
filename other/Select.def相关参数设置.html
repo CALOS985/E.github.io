@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>Select.def相关参数设置</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">Select.def相关参数设置</p>
+<span class="STYLE3">　　　　　　　　本页内容由【softmgr】撰写.</span><br />
+<p>select.def一般位于data目录中，定义于system.def文件的:</p>
+<p>[Files]<br />
+select = select.def</p>
+<p>select.def整个文件共有3个小节，分别为:</p>
+<p>　[Characters]<br />
+　[ExtraStages]<br />
+　[Options]</p>
+<p>下面分别对这3个小节进行介绍:</p>
+<p>;----------------------------</p>
+  <span class="STYLE2">[Characters]</span><br />
+  游戏中的所有人物和一部分场景都在此小节中.人物定义格式为:<br />
+  人物目录名/人物.def,场景目录名/场景.def,music=背景音乐名,includestage=1或0,order=出场顺序号 ;注释<br />
+  　人物目录名/人物.def  如果人物.def与人物目录名相同,则可以只输入人物目录名.<br />
+  　场景目录名/场景.def  场景目录名通常为stages,也可以自定义目录名.在arcade模式该人物为电脑出场时使用的场景.<br />
+  　music=背景音乐名  通常为mp3音乐文件.在arcade模式该人物为电脑出场时使用的背景音乐.<br />
+  　includestage=1或0  如果定义了上述场景,则该项才有意义.值为1时,在arcade模式的其他人物出场时,也可以随机调用该场景.值为0时,在arcade模式只有该人物才能使用该场景.<br />
+  　order=出场顺序号  在arcade模式的出场顺序.从1开始,到本def文件的[Options]中定义的关数为止之间的数字.如果不让该人物出场,定义为0即可.<br />
+  　注释    分号;之后的内容为注释.<br />
+  <br />
+  其中: 场景目录名/场景.def,music=背景音乐名 为可选项,即如果不定义,不用输入多余的逗号. 而如果要定义order,就必须先输入includestage或多加一个逗号.<br />
+  示例:<br />
+  Mai/Mai.def,stages/stage0-720.def,music=sound/sample.mp3,includestage=1,order=1<br />
+  Mai,stages/stage0-720.def,includestage=1,order=2<br />
+  Mai,includestage=0,order=3<br />
+  Mai,,order=4<br />
+  Mai  ;这是注释<br />
+  <br />
+  另外,输入BLANK或一个不存在的人物名,则该格子显示为空白(用于选单界面摆放成各种形状).<br />
+  输入randomselect显示一个"?"按钮,即随机选择一个人物.<br />
+  <br />
+<p>;----------------------------</p>
+  <span class="STYLE2">[ExtraStages]</span><br />
+  在[Characters]之外,还允许在这儿定义多个场景,一行一个.格式为:<br />
+  场景目录名/场景.def<br />
+  进入游戏之后的显示顺序为先显示[Characters]中定义的,后显示[ExtraStages]中定义的.<br />
+  如果这儿定义了与[Characters]中相同的场景名,会忽略重复场景,不会显示两遍.<br />
+<br />
+<p>;----------------------------</p>
+  <span class="STYLE2">[Options]</span><br />
+  本小节共有2个设置项: arcade.maxmatches 和 team.maxmatches, 分别为arcade(单人街机模式)和team(多人街机模式)的关数配置项.与[Characters]中人物定义的order有对应关系.<br />
+  这两项的设置方法相同,以arcade.maxmatches为例, 每个逗号分隔的数字代表该关卡一共有多少个随机人物(即要打多少个电脑人物才能过这一关).<br />
+  例如:<br />
+  arcade.maxmatches = 25,5,1,0,0,0,0,0,0,0<br />
+  以上示例代表:第1关,一共有25个电脑随机人物,会在[Characters]中人物order=1或者未定义order的所有人物中进行随机抽取,共进行25场.<br />
+  第2关,一共有5个电脑随机人物,会在[Characters]中人物order=2或者未定义order的所有人物中进行随机抽取,共进行5场.<br />
+  第3关,一共有1个电脑随机人物,会在[Characters]中人物order=3或者未定义order的所有人物中进行随机抽取,共进行1场.<br />
+  由于第4个数字为0,则第3关之后就会显示ending画面(即人物def中定义的ending.storyboard,如未定义,会显示mugen默认的ending画面).之后进入Game Over并重新进入主菜单.<br />
+<br />
+  通过以上介绍,我们知道关数与人物order是有对应关系的,故人物中的order如果定义太大或太小,则该人物都不会被街机模式抽取,从而不能与该人物对战.<br />
+  如人物order=5或order=0,而arcade.maxmatches = 25,5,1,0,0,0,0,0,0,0 那么该人物也不会出现.如果要该人物出现,那么人物order=1-3之间.<br />
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p></p>
+</body>
+</html>

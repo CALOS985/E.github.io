@@ -1,0 +1,540 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>System(画面包等)相关参数设置</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">System(画面包等)相关参数设置</p>
+<p>; 定义系统画面</p>
+<p>; 具体的格式类似背景定义.</p>
+<p>; 关于字体的注意事项:<br />
+  ; - [Files]章节最多能指定10个字体<br />
+  ; - 这里的字体索引不是指的fight.def中的<br />
+  ; - 按下面的顺序搜索字体:<br />
+  ; 1. 系统目录<br />
+  ; 2. mugen程序目录(不建议把字体放在这里)<br />
+  ; 3. data/ (不建议把字体放在这里)<br />
+  ; 4. font/</p>
+<p>;----------------------------<br />
+  <span class="STYLE2">[Info]</span><br />
+  name = &quot;Default&quot; ;主题的名称<br />
+  author = &quot;Elecbyte&quot; ;主题作者名<br />
+  versiondate = 09,01,2009 ;主题版本日期 (MM-DD-YYYY) (MUGEN 2009 新增)<br />
+  mugenversion = 1.0 ;适用的mugen版本号 (MUGEN 2009 新增)<br />
+  localcoord = 320,240 ;局部坐标空间的宽高 (MUGEN 2009 新增)</p>
+<p>;----------------------------<br />
+  ;路径检测顺序:<br />
+  ;1. system.def所在的当前路径<br />
+  ;2. data/<br />
+  ;3. 你MUGEN路径</p>
+<p><span class="STYLE2">[Files]</span><br />
+  spr = system.sff ;图片数据名称<br />
+  snd = system.snd ;声音数据名称<br />
+  logo.storyboard = ;标志剧情介绍 (可选)<br />
+  intro.storyboard = ;开场剧情定义 (可选)<br />
+  select = select.def ;人物,舞台选择列表<br />
+  fight = fight.def ;fight(血条,能量条等)定义<br />
+  font1 = f-4x6.def ;系统字体<br />
+  font2 = f-6x9.def ;系统字体<br />
+font3 = jg.fnt ;系统字体</p>
+<p>;----------------------------<br />
+  <span class="STYLE2">[Music]</span><br />
+  ;把MOD,MP3,MIDI文件的文件名放置在这里,或者如果你没有声音就空着<br />
+  ;如果给出一个不存在的文件名,则不会播放声音<br />
+  ;要从sound/路径播放mymusic.mp3,写上:<br />
+  ; title.bgm = sound/mymusic.mp3<br />
+  ;如果文件名相同则声音将持续在屏幕中播放,且同时背景音乐被设置为循环播放</p>
+<p>;在标题画面中播放的音乐.<br />
+  ;<span class="STYLE3">loop</span>-循环,<span class="STYLE3">loopstart</span>-循环开始的时间,<span class="STYLE3">loopend</span>-循环结束的时间<br />
+  title.bgm = <br />
+  title.bgm.volume = 100 ;调节音量,默认100<br />
+  title.bgm.loop = 1 ;声音是否循环<br />
+  title.bgm.loopstart = <br />
+  title.bgm.loopend = <br />
+  ;人物选择画面音乐<br />
+  select.bgm = <br />
+  select.bgm.volume = <br />
+  select.bgm.loop = 1<br />
+  select.bgm.loopstart =<br />
+  select.bgm.loopend = <br />
+  ;VS画面音乐<br />
+  vs.bgm = <br />
+  vs.bgm.volume = <br />
+  vs.bgm.loop = 0<br />
+  vs.bgm.loopstart =<br />
+  vs.bgm.loopend = <br />
+  ;胜利画面音乐<br />
+  victory.bgm = <br />
+  victory.bgm.volume =<br />
+  victory.bgm.loop = 0<br />
+  victory.bgm.loopstart =<br />
+  victory.bgm.loopend = </p>
+<p>;-------------------------------------------------------------------<br />
+  ;标题画面定义(模式选项画面)<br />
+  <span class="STYLE2">[Title Info]</span><br />
+  fadein.time = 10 ;画面淡入时间,设置一个透明渐变过渡,刚进入标题画面时画面从全黑渐渐变为标题画面.(貌似对字体无效)<br />
+  fadeout.time = 10 ; 画面淡出时间,选择完模式后标题画面变为全黑.<br />
+  menu.pos = 159,158 ;选项菜单的位置(屏幕左上角为0,0) <br />
+  menu.item.font = 3,0,0 ;选项菜单字体(第1组数字是要调用的字体编号,第3组数字为对齐方式,0-居中对齐,1-左对齐,-1-右对齐) <br />
+  menu.item.active.font = 3,5,0, 150,240,240 ;当光标放在这个选项上时的字体,后3组为指定字体遮罩颜色RGB数值. <br />
+  menu.item.spacing = 0, 13 ;每个选项纵向间距 <br />
+  ;菜单中每个选项的名称.名字必须在引号中.要禁用某个选项,使用&quot;&quot;.如果所有选项都禁止,直接进入demo(观看)模式.(按Esc可以退出demo模式)<br />
+  menu.itemname.arcade = &quot;ARCADE&quot;<br />
+  menu.itemname.versus = &quot;VS MODE&quot;<br />
+  menu.itemname.teamarcade = &quot;TEAM ARCADE&quot;<br />
+  menu.itemname.teamversus = &quot;TEAM VS&quot;<br />
+  menu.itemname.teamcoop = &quot;TEAM CO-OP&quot;<br />
+  menu.itemname.survival = &quot;SURVIVAL&quot;<br />
+  menu.itemname.survivalcoop = &quot;SURVIVAL CO-OP&quot;<br />
+  menu.itemname.training = &quot;TRAINING&quot;<br />
+  menu.itemname.watch = &quot;WATCH&quot;<br />
+  menu.itemname.options = &quot;OPTIONS&quot;<br />
+  menu.itemname.exit = &quot;EXIT&quot;<br />
+  ;定义选项菜单可见性<br />
+  menu.window.margins.y = 12, 8 ;定义选项菜单上方的可见范围 <br />
+  menu.window.visibleitems = 5 ;总共有多少项设置为可见 <br />
+  menu.boxcursor.visible = 1 ;设置选项光标是否可见，1为显示，0反之.<br />
+  menu.boxcursor.coords = -120,-27,120,2;设置选项光标位置大小. 是由4个点组成的矩形.<br />
+  ; 选项中的声音<br />
+  cursor.move.snd = 100,0 ;移动光标的声音 <br />
+  cursor.done.snd = 100,1 ;确认选项的声音(光标选中的声音) <br />
+  cancel.snd = 100,2 ;退出的声音(返回主界面时的声音) </p>
+<p><img src="../pic/title.png" width="468" height="208" /></p>
+<p>;传统字体的概念即为定义字符,其实mugen的字体严格上来说不叫字体,更确切的说法其实是图像,字体中其实是通过定义图像上的某一部分区域来表示一个字母的.<br />
+  ;所以可以利用字体图像的特征结合菜单选项做出非传统mugen的选单效果.<br />
+  ;例如:设置<br />
+  ;menu.itemname.arcade = &quot;A&quot;<br />
+  ;menu.itemname.versus = &quot;B&quot;<br />
+  ;然后可以将字体绘制成图像模式,将字体A和B的区域定义成不同图像来实现特殊效果.</p>
+<p><img src="../pic/title_ex1.jpg" width="640" height="480" /></p>
+<p><img src="../pic/title_ex2.jpg" width="640" height="480" /></p>
+<p>;此种方式应用很广泛,在背景预览,血条,能量条上都有用到.</p>
+<p>;----------------------------<br />
+  ;标题背景定义 <br />
+  ;除上述设置外的其他元素都要定义在这里(具体说明详见背景教程)<br />
+  [TitleBGdef]<br />
+  bgclearcolor = 0,0,0</p>
+<p>[TitleBG 0]<br />
+  type = parallax<br />
+  spriteno = 5, 1<br />
+  start = 0, 145<br />
+  width = 400, 1200<br />
+  yscalestart = 100<br />
+  yscaledelta = 1<br />
+  tile = 1,1<br />
+  velocity = -1</p>
+<p>[TitleBG 1]<br />
+  type = normal<br />
+  spriteno = 5, 2<br />
+  start = -160, 145<br />
+  trans = sub</p>
+<p>[TitleBG 2]<br />
+  type = normal<br />
+  spriteno = 5,0<br />
+  start = 0, 10<br />
+  tile = 1,2<br />
+  velocity = -1<br />
+  mask = 0</p>
+<p>[TitleBG 3]<br />
+  type = normal<br />
+  spriteno = 0,0<br />
+  start = 0, 40<br />
+  mask = 1<br />
+  trans = add</p>
+<p>;-------------------------------------------------------------------<br />
+  ;选人画面定义<br />
+  <span class="STYLE2">[Select Info]</span><br />
+  fadein.time = 10 ;淡入时间 <br />
+  fadeout.time = 10 ;淡出时间 <br />
+  ; *** 注意 ***<br />
+  ; 你想增加更多的行和列吗 <br />
+  ; 在 MUGEN 1.0, 默认画面包定义是在 data/mugen1/system.def.<br />
+  ; 你同时可以编辑 mugen.cfg 来选择&quot;big&quot;主题.</p>
+<p>;注:大多数时候可以对图像素材(图片或者动画)进行缩放,例如:p1.cursor.done.spr =,则缩放的语句为p1.cursor.done.scale = <br />
+  ;除非有说明,否则使用图片的地方也可以使用动画,即p1.cursor.active.spr =也可以使用p1.cursor.active.anim = <br />
+  ;大多数时候,可以从最后一组字符串中猜到具体含义.<br />
+  ;<span class="STYLE3">spr</span>-图像,<span class="STYLE3">anim</span>-动画,<span class="STYLE3">offset</span>-位置偏移量,<span class="STYLE3">snd</span>-声音,<span class="STYLE3">font</span>-字体,<span class="STYLE3">scale</span>-缩放,<span class="STYLE3">facing</span>-朝向,<span class="STYLE3">text</span>-文字,<span class="STYLE3">spacing</span>-间距,<span class="STYLE3">layerno</span>-层号,<span class="STYLE3">time</span>-时间<br />
+  ;总之就这么多花样,要注意的地方会另外注明.</p>
+<p>rows = 2 ;设置行数和列数,都从0开始 <br />
+  columns = 5<br />
+  wrapping = 0 ;设置1,使得光标移到最右边时,再按一次右就能回到最左边<br />
+  pos = 90,170 ;第一个选人格子的起始位置<br />
+  showemptyboxes = 0 ;是否显示空的格子<br />
+  moveoveremptyboxes = 0 ;是否可以移动到空的格子上<br />
+  cell.size = 27,27 ;每个选人框的x,y大小(像素).<br />
+  cell.spacing = 2 ;选人框间距<br />
+  cell.bg.spr = 150,0 ;选人框的图片.(不要使用动画)<br />
+  cell.random.spr = 151,0 ;随机图标(不要使用动画)<br />
+  cell.random.switchtime = 4;随机选择时变化的频率(时间帧数)<br />
+  p1.cursor.startcell = 0,0 ;p1起始选人光标停留在选人框什么位置 <br />
+  p1.cursor.active.spr = 160,0 ;p1选人光标的图片(可使用动画即p1.cursor.active.anim = ) <br />
+  p1.cursor.done.spr = 161,0 ;p1光标选定时的图片<br />
+  p1.cursor.move.snd = 100,0 ;p1光标移动时的声音<br />
+  p1.cursor.done.snd = 100,1 ;p1光标选定时的声音<br />
+  p1.random.move.snd = 100,0 ;p1随机选择的声音 <br />
+  p2.cursor.startcell = 0,4 ;同p1 <br />
+  p2.cursor.active.spr = 170,0<br />
+  p2.cursor.done.spr = 171,0<br />
+  p2.cursor.blink = 1 ;若p1光标和p2重叠是否闪烁<br />
+  p2.cursor.move.snd = 100,0<br />
+  p2.cursor.done.snd = 100,1<br />
+  p2.random.move.snd = 100,0<br />
+  random.move.snd.cancel = 0;设置1,随机声音反复播放时取消<br />
+  stage.move.snd = 100,0 ;选舞台时,移动的声音<br />
+  stage.done.snd = 100,1 ;选舞台时,选定时的声音<br />
+  cancel.snd = 100,2 ;取消的声音 <br />
+  portrait.spr = 9000,0 ;选人格中小头像的图片(9000,0不要改)<br />
+  portrait.offset = 0,0 ;选人格中小头像的位置(相对于选人格子)<br />
+  portrait.scale = 1,1 ;缩放 <br />
+  title.offset = 159,13 ;指定此模式的标题位置<br />
+  title.font = 3,0,0 ;标题字体<br />
+  ;<img src="../pic/charselect%20title.png" width="195" height="137" /><br />
+  ;大头像<br />
+  p1.face.spr = 9000,1 ;9000,1不要改<br />
+  p1.face.offset = 18,13 ;位置<br />
+  p1.face.scale = 1,1 <br />
+  p1.face.facing = 1 ;朝向 <br />
+  p2.face.spr = 9000,1<br />
+  p2.face.offset = 301,13<br />
+  p2.face.scale = 1,1<br />
+  p2.face.facing = -1<br />
+  ;名字<br />
+  p1.name.offset = 10,162 ;名字的位置<br />
+  p1.name.font = 3,4,1 ;-1不显示<br />
+  p1.name.spacing = 0,-27 ;名字间距,旧版本貌似不能设置 <br />
+  p2.name.offset = 309,162<br />
+  p2.name.font = 3,1,-1<br />
+  p2.name.spacing = 0,-27<br />
+  ;舞台选择<br />
+  stage.pos = 160,237<br />
+  stage.active.font = 3,0,0<br />
+  stage.active2.font = 3,2<br />
+  stage.done.font = 3,0<br />
+  ;队伍菜单(此部分用图示)<br />
+  teammenu.move.wrapping = 1<br />
+  p1.teammenu.pos = 20, 30<br />
+  ;p1.teammenu.bg.spr = ;team菜单背景框 <br />
+  p1.teammenu.selftitle.font = 3,0, 1<br />
+  p1.teammenu.selftitle.text = Select team mode<br />
+  p1.teammenu.enemytitle.font = 3,0, 1<br />
+  p1.teammenu.enemytitle.text = Opponent team mode<br />
+  p1.teammenu.move.snd = 100,0<br />
+  p1.teammenu.value.snd = 100,0<br />
+  p1.teammenu.done.snd = 100,1<br />
+  p1.teammenu.item.offset = 0,20<br />
+  p1.teammenu.item.spacing = 0,15<br />
+  p1.teammenu.item.font = 3,0, 1<br />
+  p1.teammenu.item.active.font = 3,3, 1<br />
+  p1.teammenu.item.active2.font = 3,0, 1 ;闪烁时第2种字体<br />
+  p1.teammenu.item.cursor.offset = -10, 0 ;光标 <br />
+  p1.teammenu.item.cursor.anim = 180<br />
+  p1.teammenu.value.icon.offset = 60,1<br />
+  p1.teammenu.value.icon.spr = 181,0<br />
+  p1.teammenu.value.empty.icon.offset = 60,1<br />
+  p1.teammenu.value.empty.icon.spr = 182,0<br />
+  p1.teammenu.value.spacing = 6,0<br />
+  ;p2 team<br />
+  p2.teammenu.pos = 299, 30<br />
+  ;p2.teammenu.bg.spr =<br />
+  p2.teammenu.selftitle.font = 3,0, -1<br />
+  p2.teammenu.selftitle.text = Select team mode<br />
+  p2.teammenu.enemytitle.font = 3,0, -1<br />
+  p2.teammenu.enemytitle.text = Opponent team mode<br />
+  p2.teammenu.move.snd = 100,0<br />
+  p2.teammenu.value.snd = 100,0<br />
+  p2.teammenu.done.snd = 100,1<br />
+  p2.teammenu.item.offset = 0,20<br />
+  p2.teammenu.item.spacing = 0,15<br />
+  p2.teammenu.item.font = 3,0, -1<br />
+  p2.teammenu.item.active.font = 3,1, -1<br />
+  p2.teammenu.item.active2.font = 3,0, -1<br />
+  p2.teammenu.item.cursor.offset = 10, 0<br />
+  p2.teammenu.item.cursor.anim = 190<br />
+  p2.teammenu.value.icon.offset = -60,1<br />
+  p2.teammenu.value.icon.spr = 191,0<br />
+  p2.teammenu.value.empty.icon.offset = -60,1<br />
+  p2.teammenu.value.empty.icon.spr = 192,0<br />
+  p2.teammenu.value.spacing = -6,0<br />
+  ;<img src="../pic/charselect%20exp.jpg" width="640" height="480" /></p>
+<p>[Begin Action 180] ;P1 Team mode cursor<br />
+  180,0, 0,0, 1<br />
+  180,0, 1,0, 1<br />
+  180,0, 2,0, 1<br />
+  180,0, 3,0, 1<br />
+  180,0, 4,0, 1<br />
+  180,0, 5,0, 1<br />
+  180,0, 6,0, 1<br />
+  180,0, 7,0, 1</p>
+<p>[Begin Action 190] ;P2 Team mode cursor<br />
+  190,0, 0,0, 1<br />
+  190,0,-1,0, 1<br />
+  190,0,-2,0, 1<br />
+  190,0,-3,0, 1<br />
+  190,0,-4,0, 1<br />
+  190,0,-5,0, 1<br />
+  190,0,-6,0, 1<br />
+  190,0,-7,0, 1</p>
+<p>;-----------------------<br />
+  ;定义选人画面背景元素<br />
+  [SelectBGdef]<br />
+  ;spr = graphics/selectbg.sff ;Filename of sprite data</p>
+<p>[SelectBG 0] ;Scrolling background<br />
+  type = normal<br />
+  spriteno = 100,0<br />
+  layerno = 0<br />
+  start = 0,0<br />
+  tile = 1,1<br />
+  velocity = -1, -1</p>
+<p>[SelectBG 1] ;Dark box<br />
+  type = normal<br />
+  spriteno = 100,1<br />
+  layerno = 0<br />
+  start = 0, 166<br />
+  delta = 0,0<br />
+  tile = 1,0<br />
+  trans = sub<br />
+  window = 85,0, 235,239<br />
+  velocity = -1, 0</p>
+<p>[SelectBG 2.A] ;Title background<br />
+  type = normal<br />
+  spriteno = 102,0<br />
+  layerno = 0<br />
+  start = 0, 2<br />
+  delta = 0,0<br />
+  tile = 1,0<br />
+  trans = sub<br />
+  velocity = -1, 0</p>
+<p>[SelectBG 2.B] ;Title background B<br />
+  type = normal<br />
+  spriteno = 102,1<br />
+  layerno = 0<br />
+  start = 0, 2<br />
+  delta = 0,0<br />
+  tile = 1,0<br />
+  trans = add<br />
+  velocity = -3, 0</p>
+<p>[SelectBG 2.C] ;Title background C<br />
+  type = normal<br />
+  spriteno = 102,2<br />
+  layerno = 0<br />
+  start = 0, 2<br />
+  delta = 0,0<br />
+  tile = 1,0<br />
+  trans = add<br />
+  velocity = -6, 0</p>
+<p>;-------------------------------------------------------------------<br />
+  <span class="STYLE2">[VS Screen]</span><br />
+  time = 150 ;显示的时间<br />
+  fadein.time = 15<br />
+  fadeout.time = 15<br />
+  ;arcade模式中的文字<br />
+  match.text = &quot;Match %i&quot; ;%i表示局数<br />
+  match.offset = 159, 12<br />
+  match.font = 3,0,0<br />
+  ;大头像<br />
+  p1.spr = 9000, 1<br />
+  p1.offset = 20,31<br />
+  p1.facing = 1<br />
+  p1.scale = 1,1<br />
+  p2.spr = 9000, 1<br />
+  p2.offset = 299,31<br />
+  p2.facing = -1<br />
+  p2.scale = 1,1<br />
+  ;名字<br />
+  p1.name.offset = 78,190<br />
+  p1.name.font = 3,0,0<br />
+  p2.name.offset = 241,190<br />
+  p2.name.font = 3,0,0</p>
+<p>;-----------------------<br />
+  ;VS背景定义<br />
+  [VersusBGdef] </p>
+<p>[VersusBG 1] <br />
+  type = normal<br />
+  spriteno = 100,0<br />
+  start = 0,0<br />
+  tile = 1,1<br />
+  velocity = 0,1.5</p>
+<p>[VersusBG 2] ;VS Screen<br />
+  type = normal<br />
+  spriteno = 100,1<br />
+  start = 20,13<br />
+  tile = 1,1<br />
+  trans = sub<br />
+  window = 19,30, 140,171<br />
+  velocity = -2, 0</p>
+<p>[VersusBG 3] ;VS Screen<br />
+  type = normal<br />
+  spriteno = 100,1<br />
+  start = 20,13<br />
+  tile = 1,1<br />
+  trans = sub<br />
+  window = 179,30, 300,171<br />
+  velocity = 2, 0</p>
+<p>[VersusBG 4] ;VS Logo<br />
+  type = anim<br />
+  actionno = 200<br />
+  layerno = 1 ; Front<br />
+  start = 0,95</p>
+<p>[Begin Action 200]<br />
+  200,4, 0,0, 1<br />
+  200,3, 0,0, 2<br />
+  200,2, 0,0, 3<br />
+  200,1, 0,0, 4<br />
+  200,0, 0,0, 8<br />
+  200,5, 0,0, 3<br />
+  200,6, 0,0, 3<br />
+  200,7, 0,0, 3<br />
+  200,8, 0,0, 3<br />
+  200,0, 0,0, -1</p>
+<p>;-------------------------------------------------------------------<br />
+  ;Demo模式定义<br />
+  <span class="STYLE2">[Demo Mode]</span><br />
+  enabled = 1 ;设置0禁用Demo<br />
+  select.enabled = 0 ;设置1在demo里面显示选人画面<br />
+  vsscreen.enabled = 0 ;设置1在demo里面显示VS画面<br />
+  title.waittime = 600 ;设置title画面显示多久(也就是进入游戏后什么都不按)后进入demo<br />
+  fight.endtime = 1500 ;demo里电脑打多久<br />
+  fight.playbgm = 0 ;demo中对战时是否播放BGM<br />
+  fight.stopbgm = 1	;是否禁止title的BGM(仅当playbgm = 0)<br />
+  fight.bars.display = 0 ;是否显示血条<br />
+  intro.waitcycles = 1 ;过场动画再次播放前是否等待<br />
+  debuginfo = 0 ;debug模式中是否隐藏debug信息</p>
+<p>;-------------------------------------------------------------------<br />
+  ;续关画面定义<br />
+  <span class="STYLE2">[Continue Screen]</span><br />
+  enabled = 1 ;是否禁用</p>
+<p>;-------------------------------------------------------------------<br />
+  ;Game over画面定义<br />
+  <span class="STYLE2">[Game Over Screen]</span><br />
+  enabled = 0 ;是否禁用<br />
+  storyboard = ;如有情节,设置SFF名称</p>
+<p>;-------------------------------------------------------------------<br />
+  ;胜利者画面定义<br />
+  ;arcade模式获胜一场后显示<br />
+  ;不是显示在arcade模式最后一场获胜后<br />
+  <span class="STYLE2">[Victory Screen]</span><br />
+  enabled = 1<br />
+  time = 300 ;持续时间<br />
+  fadein.time = 8<br />
+  fadeout.time = 15<br />
+  ;胜利者的头像和名字<br />
+  p1.offset = 100,20<br />
+  p1.spr = 9000,2<br />
+  p1.facing = 1<br />
+  p1.scale = 1,1<br />
+  p1.window = 0,0, 319,160<br />
+  p1.name.offset = 20,180<br />
+  p1.name.font = 3,0,1<br />
+  ;胜利后的文字<br />
+  winquote.text = &quot;Winner!&quot; ;默认就是这个<br />
+  winquote.offset = 20,192<br />
+  winquote.font = 2,0,1<br />
+  winquote.window = 18,171, 301,228<br />
+  winquote.textwrap = w ;自动换行</p>
+<p>;-----------------------<br />
+  ;Victory screen background<br />
+  [VictoryBGdef] </p>
+<p>[VictoryBG 1] <br />
+  type = normal<br />
+  spriteno = 100,0<br />
+  start = 0,0<br />
+  tile = 1,1<br />
+  velocity = 0,1.5</p>
+<p>[VictoryBG 2]<br />
+  type = normal<br />
+  spriteno = 100,1<br />
+  start = 20,13<br />
+  tile = 1,1<br />
+  trans = sub<br />
+  window = 0,19, 319,160<br />
+  velocity = -2, 0</p>
+<p>[VictoryBG 3]<br />
+  type = normal<br />
+  spriteno = 100,1<br />
+  start = 10,170<br />
+  tile = 1,1<br />
+  trans = sub<br />
+  window = 15,170, 304,229<br />
+  velocity = 0, 0</p>
+<p>;-------------------------------------------------------------------<br />
+  ;胜利画面定义<br />
+  ;arc模式获胜后显示<br />
+  ;如果你有剧情ending就不会显示<br />
+  <span class="STYLE2">[Win Screen]</span><br />
+  enabled = 1 ;是否禁用<br />
+  wintext.text = &quot;Congratulations!&quot;<br />
+  wintext.font = 2,0,0<br />
+  wintext.offset = 159,70<br />
+  wintext.displaytime = -1<br />
+  wintext.layerno = 2<br />
+  fadein.time = 32<br />
+  pose.time = 300<br />
+  fadeout.time = 64</p>
+<p>;-------------------------------------------------------------------<br />
+  ;Game ending画面定义<br />
+  ;Win Screen后显示<br />
+  ;如果你有剧情ending就不会显示<br />
+  <span class="STYLE2">[Default Ending]</span><br />
+  enabled = 0 ;是否显示<br />
+  storyboard = ;默认的剧情ending名字</p>
+<p>;-------------------------------------------------------------------<br />
+  ;片尾字幕定义<br />
+  ;Win Screen和Ending之后显示<br />
+  <span class="STYLE2">[End Credits]</span><br />
+  enabled = 0 ;是否禁用<br />
+  storyboard = ;文件名</p>
+<p>;-------------------------------------------------------------------<br />
+  ;Survival模式结果画面<br />
+  ;生存模式胜利后显示<br />
+  ;有剧情ending的人物不会显示<br />
+  <span class="STYLE2">[Survival Results Screen]</span><br />
+  enabled = 1<br />
+  winstext.text = &quot;Rounds survived: %i&quot; ;%i 胜利局数<br />
+  winstext.font = 3,0,0<br />
+  winstext.offset = 159,70<br />
+  winstext.displaytime = -1<br />
+  winstext.layerno = 2<br />
+  fadein.time = 32<br />
+  show.time = 300<br />
+  fadeout.time = 64<br />
+  roundstowin = 5 </p>
+<p>;-------------------------------------------------------------------<br />
+  ;Options画面定义<br />
+  <span class="STYLE2">[Option Info]</span><br />
+  cursor.move.snd = 100,0<br />
+  cursor.done.snd = 100,1<br />
+  cancel.snd = 100,2</p>
+<p>;-------------------<br />
+  ;Options screen background<br />
+  [OptionBGdef] </p>
+<p>[OptionBG 1]<br />
+  type = normal<br />
+  spriteno = 100,0<br />
+  start = 0,0<br />
+  tile = 1,1<br />
+  velocity = -1, -1</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p></p>
+</body>
+</html>

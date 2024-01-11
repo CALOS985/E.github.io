@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>DEF变量设置</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">DEF变量设置</p>
+<p>; player信息 <br />
+  <span class="STYLE2">[Info]</span><br />
+  name = &quot;Player&quot; ;人物名字<br />
+  displayname = &quot;Player&quot; ;人物显示的名字<br />
+  versiondate = 09,09,2009 ;人物版本日期 (MM-DD-YYYY或X.XX)<br />
+  mugenversion = 1.0 ;人物运行的MUGEN版本(X.XX)<br />
+  author = &quot;My Name&quot; ;人物作者名<br />
+  pal.defaults = 1,2,3,4 ;默认的色表优先顺序 ,从1开始编号<br />
+  localcoord = 320,240 ;本地坐标空间宽和高</p>
+<p>; player文件 <br />
+  <span class="STYLE2">[Files]</span><br />
+  cmd = player.cmd ;设置Command文件<br />
+  cns = player.cns ;设置Constants文件<br />
+  st = player.cns ;设置States文件<br />
+  stcommon = common1.cns ;公共状态 (从 data/ 或 motif)<br />
+  sprite = player.sff ;图像资源素材<br />
+  anim = player.air ;动画文件<br />
+  sound = ;声音文件(没有就别设)<br />
+  ai = kfm.ai ;AI文件</p>
+<p>;将选择键与色表映射<br />
+  [Palette Keymap]<br />
+  x = 1 ;按X键选择色表1,等等<br />
+  y = 2<br />
+  z = 3<br />
+  a = 4<br />
+  b = 5<br />
+  c = 6<br />
+  ;x2 = 7 ;按住start再按X键选择色表7,等等<br />
+  ;y2 = 8<br />
+  ;z2 = 9<br />
+  ;a2 = 10<br />
+  ;b2 = 11<br />
+;c2 = 12</p>
+<p>; 街机模式<br />
+  ;一般街机格斗游戏中每个人都有简单的故事情节<br />
+  <span class="STYLE2">[Arcade]</span><br />
+  intro.storyboard = ;开场剧情<br />
+  ending.storyboard = ;结束剧情</p>
+<p> </p>
+</body>
+</html>
