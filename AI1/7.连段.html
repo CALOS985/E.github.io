@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>7.����</title>
+<meta content="text/html; charset=utf-8" http-equiv="content-type" />
+<title>7.连段</title>
 <style type="text/css">
 <!--
 body,td,th {
@@ -24,59 +24,59 @@ body,td,th {
 </style></head>
 
 <body>
-<p class="STYLE1">7.����</p>
-<span class="STYLE3">������������������ҳ������net����׫д. �ɡ�softmgr�������༭.</span><br />
+<p class="STYLE1">7.连段</p>
+<span class="STYLE3">　　　　　　　　本页内容由net教授撰写. 由【softmgr】整理编辑.</span><br />
 
 <p>
-�Ƚ��������κ���Я������<br />
-����ж����ˣ�֮����е������Ρ�<br />
-���ַ�ס�ˣ���֮����е�����Я��Ҳ����һ����˵��ѹ�ơ�<br />
+先介绍下连段和连携的区别。<br />
+你打中对手了，之后进行的是连段。<br />
+对手防住了，你之后进行的是连携，也就是一般所说的压制。<br />
 </p>
 
 <p>
-<span class="STYLE2">��1�����ο���</span><br />
-��Ҫ�����ε�ai����Ȼ���Լ��û���������ai��<br />
-������������ﲻ��Ϥզ�죿<br />
-��ò�����ص�����wiki������������ʲô���Ρ���Щ�����readme�ļ���Ҳ��д���Ρ�<br />
-�����ԭ�����û������������ϣ��Ǿ͵��Լ��������ο�����<br />
+<span class="STYLE2">（1）连段开发</span><br />
+你要做连段的ai，当然你自己得会这个人物的ai。<br />
+如果你对这个人物不熟悉咋办？<br />
+最好查阅相关的资料wiki，看这人物有什么连段。有些人物的readme文件里也有写连段。<br />
+如果是原创人物，没有相关连段资料，那就得自己进行连段开发。<br />
 <br />
 <br />
-���ο�������Ϲ���������й��ɵġ�<br />
-����Ҫ����Ҫ֪����������ȡ������<br />
-��ν��֪��ȡ�����������׻�˵����֪�������к�����Խ����С���<br />
-�����е�΢��Ĳ�ͬ����ʱ��������Ҳûɶ���⡣<br />
+连段开发不是瞎摸索，是有规律的。<br />
+最主要的是要知道这个人物的取消链。<br />
+所谓“知道取消链”，用俗话说就是知道“哪招后面可以接哪招”，<br />
+不过有点微妙的不同，暂时这样理解也没啥问题。<br />
 <br />
 <br />
-��˵��ʲô��ȡ����<br />
-A�к���B���ȡ�ȡ����A������Ӳֱ����Ȼ���B�У��ǽ���ȡ����<br />
-A�к��A��Ȼ���У��ٳ�B�У��ǾͲ���ȡ����<br />
+先说下什么叫取消：<br />
+A招后用B招先“取消了A的收招硬直”，然后出B招，那叫做取消。<br />
+A招后等A自然收招，再出B招，那就不算取消。<br />
 <br />
 <br />
-һ���������ȡ�����ǣ�<br />
-A����ͨ����������a��b��zɶ�ģ������⼼��6a��6x���֣�����ɱ��24a��626c���֣�����ɱ��2624��426426֮�ࣩ<br />
-B����ͨ�������⼼ - ��ɱ��ɱ<br />
+一般性人物的取消链是：<br />
+A：普通技（单发的a，b，z啥的）－特殊技（6a，6x这种）－必杀（24a，626c这种）－超杀（2624，426426之类）<br />
+B：普通技或特殊技 - 必杀或超杀<br />
 <br />
-A���͵�ȡ�����ͱȽϳ���<br />
-B���͵�ȡ�����ͱȽ϶̡�����ͨ�������⼼����ɱ�ͳ�ɱ֮�䲻���໥ȡ����<br />
+A类型的取消链就比较长，<br />
+B类型的取消链就比较短。（普通技和特殊技，必杀和超杀之间不能相互取消）<br />
 <br />
-��Щϵͳ��ͨ���п��԰���ȭ��A������ȭ��B������ȭ��C���ķ�ʽȡ������Ҳ�ǱȽϳ�����abcϵͳ��<br />
+有些系统普通技中可以按轻拳（A）－中拳（B）－重拳（C）的方式取消，那也是比较常见的abc系统。<br />
 <br />
-ĳЩϵͳ�и������ȡ����<br />
-����mbac���֣�����A-B-C��Ҳ����C-B-A����A-B-C-B-A�ǲ��еģ�ǰ��ȡ���ù����в������á�������C��ȫ�����Ժ��ٳ�b�ǿ��еģ���Ϊ�ⲻ��ȡ���ˣ�<br />
-��efz��ĳЩ��ɱ������ɱ�󣬶�������22cǿ��ȡ��������Ҫ����RF�ۡ�<br />
-��Щ�������ϵͳ��˵����֪���ˡ�<br />
-<br />
-<br />
-<br />
-�в���ϵͳ����ĳЩ�����������Ծȡ�����Ǿ�����ȡ����jump cancel����<br />
-��ЩϵͳĳЩ���������66֮���ǰdashȡ�����Ǿ���ǰ��ȡ��(dash cancel)�����еľ��ǿ�dash cancel��<br />
-��������ľͲ���˵�ˡ�<br />
-<br />
-һ��ȡ����������Ŀ¼�µ�readme�ļ�����д����Щreadme���滹ֱ�Ӹ����������Σ��������á�<br />
+某些系统有更特殊的取消链<br />
+比如mbac这种，可以A-B-C，也可以C-B-A。但A-B-C-B-A是不行的，前面取消用过的招不能再用。（但等C完全收招以后，再出b是可行的，因为这不算取消了）<br />
+像efz在某些必杀甚至超杀后，都可以用22c强制取消，不过要消耗RF槽。<br />
+这些看看相关系统的说明就知道了。<br />
 <br />
 <br />
-��Ҳ���Կ�cmd�ļ��������ָ�<br />
-�ٸ�����<br />
+<br />
+有不少系统，在某些技后可以用跳跃取消，那就是跳取消（jump cancel）。<br />
+有些系统某些技后可以用66之类的前dash取消，那就是前冲取消(dash cancel)，空中的就是空dash cancel。<br />
+其他更多的就不多说了。<br />
+<br />
+一般取消链在人物目录下的readme文件里有写，有些readme里面还直接给出几个连段，那样更好。<br />
+<br />
+<br />
+你也可以看cmd文件里的人用指令：<br />
+举个例子<br />
 [State -1, 623A]<br />
 Type = ChangeState<br />
 Value = 1002<br />
@@ -93,44 +93,44 @@ Trigger6 = ((StateNo = 251) && (Time > 33))<br />
 Trigger7 = ((StateNo = 252) && (Time > 35))<br />
 Trigger8 = ((StateNo = 450) && (Time > 13))<br />
 <br />
-����trigger1�����أ�trigger2���¾���ȡ���ˡ�<br />
-������˵��<br />
-trigger2��ʾstate��1002���У�����ȡ��statenoΪ200��204����ʽ��Ҳ���ǿ��Խ�����Щ�еĺ��棩�������и�������movecontact��<br />
-��˵������200��204���⼸���У�����򵽶��֣�����Ҳ���ԣ�������ȡ��1002���ӿվ��޷�ȡ����ֻ�ܵ���ʽ���С�����<br />
-��ֻҪ�ǻ��ж��֣���200-204����֮ǰ�����ۺ�ʱ������ȡ��1002���С�<br />
-����204ȫ�嶯����60F��Լ1�룩����ֻҪ���У���60F֮�����ۺ�ʱ��������ȡ��1002��<br />
+其中trigger1是立回，trigger2以下就是取消了。<br />
+挑几个说，<br />
+trigger2表示state号1002这招，可以取消stateno为200到204的招式（也就是可以接在这些招的后面），不过有个条件是movecontact。<br />
+这说明，你200－204，这几个招，必须打到对手（被防也可以），才能取消1002。挥空就无法取消，只能等招式收招。。。<br />
+但只要是击中对手，在200-204收招之前，无论何时都可以取消1002这招。<br />
+假设204全体动作有60F（约1秒），那只要击中，那60F之内无论何时都能自由取消1002。<br />
 <br />
-trigger3����stateno = 205���и�time��˵�����д��к󣬲������̾���ȡ��1002�ģ�Ҫ�ȵ�35F�Ժ����ȡ�����ӿ�ͬ������ȡ����<br />
-��trigger5��ע��û��movecontact��˵�����ܴ��ж������ֻҪtime>22��������ȡ��1002�����ֽ���������ȡ������<br />
+trigger3里面stateno = 205后有个time，说明这招打中后，不是立刻就能取消1002的，要等到35F以后才能取消。挥空同样不能取消。<br />
+在trigger5里注意没有movecontact，说明不管打中对手与否，只要time>22，都可以取消1002。这种叫做“空振取消”。<br />
 <br />
-����ӿ�cmd���鷳�Ļ��������Լ���ѵ��ģʽ�����ɡ�<br />
+如果嫌看cmd很麻烦的话，还是自己进训练模式摸索吧。<br />
 <br />
 <br />
-����˵��д���ε�ԭ��<br />
-һ������Ϊ�˷�ֹ���ޡ����ǻ�Ӹ������Ƶġ�<br />
-���縡��ʱ��������º󣬶��ֽ����ٱ���ͨ�����С�������Щ��ɱ��ʱ���Ի��У���Ȼ��ɱһ���ǲ��������õģ�<br />
-��������һ��ֵ���޷�����֮�ࡣ<br />
+另外说点写连段的原则<br />
+一般人物为了防止无限。总是会加各种限制的。<br />
+比如浮空时，打过几下后，对手将不再被普通技击中。（但有些超杀此时可以击中，当然超杀一般是不能无限用的）<br />
+修正低于一定值后无法命中之类。<br />
 <br />
-������Щ���ﻹ�������޵ġ�����Щ������Ȼ��Ϊ�������Ѵ����ˣ�������������ʱ�䣩<br />
-��������˵���ܺ�ϲ�������ޣ�<br />
-������������������Ǻ����ĵĶ�����<br />
-��Ϊ����൱�ڰѰ������أ�ѹ�ƣ��������ֹ���ת���ĸ���Ϸ����˵�����һ����������Ϸ��<br />
+不过有些人物还是有无限的。（有些无限虽然因为修正很难打死人，但可以用来拖时间）<br />
+格斗新手来说可能很喜欢玩无限，<br />
+但在老手眼里，无限连是很无聊的东西。<br />
+因为这就相当于把包含立回，压制，充满各种攻防转换的格斗游戏变成了单纯的一方的连招游戏。<br />
 <br />
-������дai�ĸ�λ���أ�������Ҫд��������<br />
-���������д��Ҳ����Ӹ�var�����أ�������ai�ȼ��ҹ�Ҳ���ԣ������������ɿ�����ر����ޡ�<br />
-������ʱ������readme����ע����<br />
-���ĵͣ��Ѷȵ͵�10����Ҳ������������<br />
-�������������׿񼶱��������������ô��������Լ�д����ai�����硣<br />
+所以请写ai的各位自重，尽量不要写无限连。<br />
+如果还是想写，也必须加个var做开关（或者与ai等级挂钩也可以），能让人自由开启或关闭无限。<br />
+发布的时候请在readme里面注明。<br />
+消耗低，难度低的10割连也请这样处理。<br />
+除非你是想做凶狂级别的人物。否则最好这么做，免得自己写出的ai被人喷。<br />
 </p>
 
 <p>
-<span class="STYLE2">��2����ʽ���ν̳�</span><br />
+<span class="STYLE2">（2）正式连段教程</span><br />
 <br />
-<span class="STYLE3">A ȡ��ʽ����</span><br />
-ͨ��ȡ���γɵ����Ρ��������ε��������ʽ��<br />
-�����������Ӱɡ�<br />
+<span class="STYLE3">A 取消式连段</span><br />
+通过取消形成的连段。这是连段的最基本形式。<br />
+还是来看例子吧。<br />
 <br />
-���Ȼ��ǿ�cmd�������ָ�����������ĳ�к���623a<br />
+首先还是看cmd里的人用指令。假设你想在某招后连623a<br />
 <br />
 [State -1, 623A]<br />
 Type = ChangeState<br />
@@ -148,65 +148,65 @@ Trigger6 = ((StateNo = 251) && (Time > 33))<br />
 Trigger7 = ((StateNo = 252) && (Time > 35))<br />
 Trigger8 = StateNo = 450<br />
 <br />
-��������ָ��<br />
+这是人用指令<br />
 <br />
 <br />
-����trigger1�������trigger�����㣬��ô���к��ǿ��Խ�1002�ġ�<br />
-�����ǲ���Ҫд��ô�ࡣҲ���ܰ���Щ���붼ԭ�ⲻ���հᵽai��ȥ��<br />
-Ϊʲô�أ�<br />
-����Ҫ����Щ�о������<br />
-<br />
-<br />
-<br />
-������д����һ��abcϵͳ�����У�<br />
-����������Щtrigger��������ǣ�a������Խ���623a��1022���У���b����Ҳ���ԣ�c��Ҳ������,<br />
-2a,2b,2c�Լ�����ĳЩ�к�Ҳ������<br />
-<br />
-�����ǲ�������a���ֱ�����Ǹ�623a�İɣ�<br />
-ԭ��1��a�����Ӳֱ����������623a<br />
-ԭ��2�����������ϣ��˺��������ŵġ�a b c 623a�����˺����ߡ�<br />
-<br />
-��������ֻҪ��дc��2c����623a������<br />
-Ȼ����������дa����b����2b����b����c����2c���Ĵ��롣<br />
+不看trigger1，后面的trigger告诉你，这么多招后都是可以接1002的。<br />
+但我们不需要写那么多。也不能把这些代码都原封不动照搬到ai上去。<br />
+为什么呢？<br />
+我们要对这些招具体分析<br />
 <br />
 <br />
 <br />
-����������д���Σ�����Ӧ�ð�movecontact�ĳ�movehit��ȷ�����к��ٽ�623a��<br />
-��Ȼ���623a��������Ȼ�����Ļ����Ǳ���movecontact����Ҳ���ԣ�����һ��Ҫ�ĳ�movehit��<br />
-���������мȿ����������Σ�Ҳ��������Я�ġ�<br />
+假设你写的是一个abc系统的连招，<br />
+假设上面那些trigger告诉你的是，a后面可以接这623a（1022这招），b后面也可以，c后也可以连,<br />
+2a,2b,2c以及其他某些招后也都可以<br />
+<br />
+但我们不可能让a后就直接连那个623a的吧？<br />
+原因1：a后面的硬直可能连不上623a<br />
+原因2：就算能连上，伤害并非最优的。a b c 623a这样伤害更高。<br />
+<br />
+所以我们只要就写c或2c后连623a就行了<br />
+然后在下面再写a后连b（或2b），b后连c（或2c）的代码。<br />
 <br />
 <br />
 <br />
-����ע��trigger5�Ժ������ǿ���ȡ�������������movehit���Ǽ�ʹstateno = 250���лӿ��ˣ�Ҳ��ȡ��623a�����ܻ���ɺܴ��������<br />
-���������ǿ�������ԣ�Ҳ������ô�ã�250�ӿ�ʱ���������ץס�����������������ȡ��623a���������ֵĹ�������Ȼ���623a�����޵�ʱ�䣩<br />
+由于我们是写连段，所以应该把movecontact改成movehit。确认命中后再接623a。<br />
+当然如果623a被防后仍然有利的话，那保持movecontact不改也可以，否则，一定要改成movehit。<br />
+不是所有招既可以用来连段，也能用来连携的。<br />
 <br />
-���251��252���623aû�м�ֵ����������̫�ͣ�û�˺������߸����Ӳ��ϣ���������ֻ��Ҫд������ֹ���ֽ����Ĵ�������ˡ�<br />
 <br />
-����450�����Ǹ���μ������Կ�������ȫ�̶�����ȡ��623a��<br />
-���ǵ�Ȼϣ��Ҫ�������μ����ж��������ٽ�623a�������ǵ�1�¾ͽ�623a����ʱ�Ͳ�Ҫֱ��дmovehit<br />
-����дһ��time >= 39��time = 39Ҳ���ԣ�������>=���յ㣩 ������39F�Ժ���Ǵ�����֮����дmovehit��<br />
-����Ҳ�����ӳ�ȡ��<br />
 <br />
-PS����ʵ����д��movehit >= 39��<br />
-�����Ϳ�����movehit = X��[a,b]������ʽ��ָ�����л��к��ʱ�䡣<br />
-�������˸о�����дtime >= 39���յ㡣<br />
+接着注意trigger5以后。由于是空振取消，你如果不加movehit，那即使stateno = 250那招挥空了，也会取消623a，可能会造成很大的破绽。<br />
+不过由于是空振的属性，也可以这么用，250挥空时如果对手想抓住这个破绽进攻，可以取消623a，凹掉对手的攻击（当然这个623a得有无敌时间）<br />
+<br />
+如果251或252后接623a没有价值（比如修正太低，没伤害，或者根本接不上），那我们只需要写空振后防止对手进攻的代码就行了。<br />
+<br />
+假设450这招是个多段技，可以看出这招全程都可以取消623a。<br />
+我们当然希望要让这个多段技所有段数打满再接623a，而不是第1下就接623a，这时就不要直接写movehit<br />
+而是写一个time >= 39（time = 39也可以，不过用>=保险点） ，假设39F以后才是打满，之后再写movehit。<br />
+这种也算是延迟取消<br />
+<br />
+PS：其实可以写成movehit >= 39。<br />
+本来就可以用movehit = X或[a,b]这种形式来指定这招击中后的时间。<br />
+不过个人感觉还是写time >= 39保险点。<br />
 <br />
 <br />
 [State -1, 623A]<br />
 Type = ChangeState<br />
 Value = 1002<br />
-TriggerAll = var(59) > 0    ;ai����ʱ��������������ָ���������ˡ�<br />
-TriggerAll = var(50) != 101 ;triggerall�����command��ai��������Ķ��������ճ�����ʹ�㲻֪������ɶ��˼������Ϊ�˷�ֹai����ϵͳ�����������Ķ�����<br />
+TriggerAll = var(59) > 0    ;ai启动时，这样就与人用指令区别开来了。<br />
+TriggerAll = var(50) != 101 ;triggerall里除了command和ai开关以外的东西必须照抄，即使你不知道这是啥意思，这是为了防止ai做出系统不允许做出的动作。<br />
 TriggerAll = StateType != A<br />
-Trigger1 = (Ctrl || StateNo = 100) && p2movetype !=H  ;�Ӹ�p2movetype != H��Ϊ�˷�ֹӰ��ĳЩ��ȡ�������Ρ���ʵ��ð�����ָ��д�ڱ�ĵط���<br />
-trigger2 = stateno = 202 || stateno = 402) && movehit ;������2�о���c��2c��stateno������2�к��623a<br />
-Trigger3 = StateNo = 250 && Time > 22 && (movehit || p2movetype = A) ;Ҫô���ϣ�Ҫô���ִ�ʱ�ڽ��������ֲ������Ͳ�ȡ��������������ע��movehit��ʱ��p2movetype�ض�ΪH��������A��<br />
+Trigger1 = (Ctrl || StateNo = 100) && p2movetype !=H  ;加个p2movetype != H是为了防止影响某些非取消性连段。其实最好把立回指令写在别的地方。<br />
+trigger2 = stateno = 202 || stateno = 402) && movehit ;假设这2招就是c和2c的stateno，在这2招后接623a<br />
+Trigger3 = StateNo = 250 && Time > 22 && (movehit || p2movetype = A) ;要么接上，要么对手此时在进攻，对手不进攻就不取消，否则破绽大（注意movehit的时候，p2movetype必定为H，而不是A）<br />
 Trigger4 = StateNo = 251 && Time > 33 && p2movetype = A<br />
-Trigger5 = StateNo = 252 && Time > 35 && p2movetype = A ;��2�������μ�ֵ��ֻ��Ҫд������ֽ����Ĵ��������<br />
+Trigger5 = StateNo = 252 && Time > 35 && p2movetype = A ;这2招无连段价值，只需要写提防对手进攻的代码就行了<br />
 Trigger6 = StateNo = 450<br />
-trigger6 = (Time >= 39 && movehit) ||  p2movetype = A ;�����˵�ȻҪ�����д����ٽ�623a��û���еĻ�ֻҪ���ֽ������͵����̷�����������������<br />
+trigger6 = (Time >= 39 && movehit) ||  p2movetype = A ;打中了当然要等这招打满再接623a，没打中的话只要对手进攻，就得立刻反击，否则来不及。<br />
 <br />
-Ȼ��������дa��b��2b��b��c��2c��ָ��<br />
+然后下面再写a接b或2b，b接c或2c的指令<br />
 <br />
 <br />
 [State -1, c]<br />
@@ -214,9 +214,9 @@ type = changestate<br />
 value = 202<br />
 triggerall = var(59) > 0 && roundstate = 2<br />
 triggerall = statetype !=A<br />
-triggerall = p2statetype !=C  ;����c�򲻵����µ���<br />
-trigger1 = stateno = 201 || stateno = 401 ;����b����2b�ĺ���<br />
-trigger1 = movecontact && random < 500     ;�����μӵ�仯��b������Խ�2cҲ���Խ�c����movecontact������ʹb������ȡ��cҲûɶ��ϵ������ȷ�����С�<br />
+triggerall = p2statetype !=C  ;假设c打不到蹲下的人<br />
+trigger1 = stateno = 201 || stateno = 401 ;接在b或者2b的后面<br />
+trigger1 = movecontact && random < 500     ;给连段加点变化，b后面可以接2c也可以接c。用movecontact表明即使b被防，取消c也没啥关系，不用确认命中。<br />
 <br />
 <br />
 <br />
@@ -226,7 +226,7 @@ value = 402<br />
 triggerall = var(59) > 0 && roundstate = 2<br />
 triggerall = statetype !=A<br />
 trigger1 = stateno = 201 || stateno = 401<br />
-trigger1 = movecontact                    ;���ﲻ��random�����ܱ�֤��û��c�������һ������2c����Ϊ���������϶��¶�ȡִ�еġ�<br />
+trigger1 = movecontact                    ;这里不加random，就能保证在没接c的情况下一定接上2c，因为代码是自上而下读取执行的。<br />
 <br />
 <br />
 <br />
@@ -235,9 +235,9 @@ type = changestate<br />
 value = 201<br />
 triggerall = var(59) > 0 && roundstate = 2<br />
 triggerall = statetype !=A<br />
-triggerall = p2bodydist x < 50       ;��b�Ƚ϶̣��������ȽϽ����ܽ���<br />
-trigger1 = stateno = 200 || stateno = 400 ;����a��2a����<br />
-trigger1 = movecontact && random < 600   ;�����˺��Ըߣ�������߼���<br />
+triggerall = p2bodydist x < 50       ;这b比较短，必须距离比较近才能接上<br />
+trigger1 = stateno = 200 || stateno = 400 ;接在a或2a后面<br />
+trigger1 = movecontact && random < 600   ;由于伤害稍高，可以提高几率<br />
 <br />
 <br />
 <br />
@@ -249,40 +249,40 @@ triggerall = statetype !=A<br />
 trigger1 = stateno = 200 || stateno = 400<br />
 trigger1 = movecontact<br />
 <br />
-a��ָ��������ָ���aǰ����Ȼûɶ���������ġ�<br />
+a的指令在立回指令里，a前面自然没啥东西好连的。<br />
 <br />
-����a/2a - b/2b - c/2c - 623a��һ�����ξ������<br />
+这样a/2a - b/2b - c/2c - 623a的一套连段就完成了<br />
 <br />
-һ��д�����Ƽ���ȡ�����ȼ��Ƚϸߵ���д�����糬ɱ����ɱ�����ȼ��Ƚϵͣ���ȭɶ�ģ�д�ں��档<br />
+一般写连段推荐把取消链等级比较高的先写（比如超杀，必杀），等级比较低（轻拳啥的）写在后面。<br />
 <br />
 <br />
-����ʱ����뷴��������������2aaa��㼸������b����ô�͵ð�2aд��bǰ�棬����2aһ�κ�ֱ����b�ˡ�<br />
-����Ҫ�ӵ����ƣ���Ȼ����ϵͳ�����϶���ִ��ָ������һֱ��2a������b<br />
+但有时候必须反过来。比如想让2aaa多点几次再连b，那么就得把2a写在b前面，否则2a一次后直接连b了。<br />
+不过要加点限制，不然由于系统是自上而下执行指令，会造成一直点2a而不接b<br />
 <br />
-��������<br />
+比如这样<br />
 [state -1, c]<br />
-��<br />
+略<br />
 <br />
 [state -1, 2a]<br />
 type = changestate<br />
 value = 400<br />
 triggerall = var(59) > 0 && roundstate = 2<br />
 triggerall = statetype !=A<br />
-trigger1 = ctrl && p2movetype !=H && !inguarddist    ;������<br />
-trigger2 = stateno = 400 && movecontact && (p2bodydist x = [0,30]) ;����ľ�������Ҫ������������������������û�������ƻ�һֱ��2a����b��ֱ�����벻���ӿ�Ϊֹ��<br />
+trigger1 = ctrl && p2movetype !=H && !inguarddist    ;立回用<br />
+trigger2 = stateno = 400 && movecontact && (p2bodydist x = [0,30]) ;后面的距离限制要用括号括起来，否则会出错。没距离限制会一直点2a不接b，直到距离不够挥空为止。<br />
 <br />
 [state -1, b]<br />
-��<br />
+略<br />
 <br />
 <br />
-����ȡ�������Ļ�Ҳ��࣬����дһ��2abc 5c jbc jbc ��j��������˼��<br />
-ǰ��Ͱ�����ȡ������д��5c���Ǹ���ȡ����������<br />
+用跳取消空连的话也差不多，比如写一个2abc 5c jbc jbc （j是跳的意思）<br />
+前面就按地面取消那样写，5c后那个跳取消就这样。<br />
 <br />
 [state -1, varset]<br />
 triggerall = var(59) > 0 && roundstate = 2<br />
 trigger1 = p2movetype = A && p2movetype = H<br />
 trigger1 = p2dist x >= 0<br />
-sysvar(1) = 1                              ;����ǰ��̳��ｲ������֤�����������ǰ����<br />
+sysvar(1) = 1                              ;这里前面教程里讲过，保证连段里必须往前跳。<br />
 <br />
 <br />
 <br />
@@ -290,8 +290,8 @@ sysvar(1) = 1                              ;����ǰ��̳��ｲ������֤�����������
 type = changestate<br />
 value = 40<br />
 triggerall = var(59) > 0 && roundstate = 2<br />
-triggerall = statetype != A               ;ע��stateno 40������˲�䣬��ʱ�˻��ڵ��ϡ�<br />
-trigger1 = stateno = 202 && movehit && p2statetype = A ;�����ڿ��У����ֲ��ڿ������˻�������<br />
+triggerall = statetype != A               ;注意stateno 40是起跳瞬间，此时人还在地上。<br />
+trigger1 = stateno = 202 && movehit && p2statetype = A ;对手在空中，对手不在空中跳了会连不上<br />
 <br />
 <br />
 <br />
@@ -299,10 +299,10 @@ trigger1 = stateno = 202 && movehit && p2statetype = A ;�����ڿ��У����ֲ��ڿ���
 type = changestate<br />
 value = 601<br />
 triggerall = var(59) > 0 && roundstate = 2<br />
-triggerall = statetype = A               ; �����Լ��ڿ�����<br />
+triggerall = statetype = A               ; 这里自己在空中了<br />
 trigger1 = p2bodydist x = [0,40]<br />
-trigger1 = p2bodydist y = [-40,20]       ;�޶����룬�������ȥ�����ֻ����ԶԶ�ľͳ�jb�ˣ���jb���ж��Լ�����<br />
-trigger1 = ctrl && p2movetype = H && p2statetype = A && (p2stateno != [120,159])       ;��ȡ������ctrl̬�������ǿ����ܻ�̬���Ҳ��ڷ�������ʵ�������ǿ���ĿѺ��<br />
+trigger1 = p2bodydist y = [-40,20]       ;限定距离，别刚跳上去，对手还离得远远的就出jb了，看jb的判定自己调整<br />
+trigger1 = ctrl && p2movetype = H && p2statetype = A && (p2stateno != [120,159])       ;跳取消后处于ctrl态，对手是空中受击态，且不在防御，其实这里算是空中目押。<br />
 <br />
 <br />
 <br />
@@ -311,43 +311,43 @@ type = changestate<br />
 value = 602<br />
 triggerall = var(59) > 0 && roundstate = 2<br />
 triggerall = statetype = A<br />
-trigger1 = stateno = 601 && movehit     ;һ��jb���к�ض��ܽ���jc�Ļ����Ͳ������ƾ�����<br />
+trigger1 = stateno = 601 && movehit     ;一般jb打中后必定能接上jc的话，就不用限制距离了<br />
 <br />
 <br />
 <br />
 [state -1, air jump cancel]<br />
 type = changestate<br />
-value = 45                          ;��������state<br />
+value = 45                          ;空中跳的state<br />
 triggerall = var(59) > 0 && roundstate = 2<br />
 triggerall = statetype = A<br />
-triggerall = var(6) <= 1             ;һ�㶼�и��޶�������ȡ�������ı��������������һֱjbc jbcͻ����ʵ�- =<br />
+triggerall = var(6) <= 1             ;一般都有个限定空中跳取消次数的变量，否则会让你一直jbc jbc突破天际的- =<br />
 trigger1 = stateno = 602 && movehit<br />
 <br />
-Ȼ��jb��jc�Ͳ���д�ˡ�<br />
+然后jb，jc就不必写了。<br />
 <br />
 <br />
-��Ϊ��2��jbc�͵�1�ε�����ûɶ2����<br />
+因为第2次jbc和第1次的条件没啥2样。<br />
 <br />
-������ȡ��ʽ����Ҳ������������࿴������д��ai����õ����⡣<br />
-<br />
-<br />
+其他的取消式连段也是类似情况。多看看别人写的ai会更好的理解。<br />
 <br />
 <br />
-<span class="STYLE3">B ��ȡ��ʽ����</span><br />
-<br />
-����ȡ���Ļ������ǵõ�ĳ����ȫ���к�������<br />
-��2�������һ�������٣�һ����ĿѺ��<br />
-�����ĿѺ��һ��������ϵĲ�ͬ�����Ƿ�ָ��ȡ��ʽ�����Ρ�<br />
-��һ����������ϸ��ĿѺ����ʱ�����Ƶ����壬�����ڼ�F�ڣ�������Ҳ��������������ai��˵��ĿѺ���ѶȲ�����ʱ��ĳ��̡���<br />
-��ȡ�������������Ҳ�������ĿѺ�ڣ�������Ƚ����⣬���Էֿ�����<br />
 <br />
 <br />
-<li>1) ����</li><br />
-������ĳһ�����к����̳���һ��<br />
-2������<br />
-һ��������animtime = 0��һ��������prevstateno��<br />
+<span class="STYLE3">B 非取消式连段</span><br />
 <br />
-��������<br />
+不是取消的话，就是得等某招完全收招后再连。<br />
+分2种情况，一种是最速，一种是目押。<br />
+这里的目押和一般格斗意义上的不同，就是泛指非取消式的连段。<br />
+（一般格斗意义里严格的目押还有时间限制的意义，必须在几F内，不能早也不能晚。不过对ai来说，目押的难度不在于时间的长短。）<br />
+非取消连段里的最速也算包含在目押内，但情况比较特殊，所以分开讲。<br />
+<br />
+<br />
+<li>1) 最速</li><br />
+就是在某一招收招后，立刻出另一招<br />
+2种做法<br />
+一种是利用animtime = 0，一种是利用prevstateno。<br />
+<br />
+还是例子<br />
 <br />
 [state -1, 26a]<br />
 type = changestate<br />
@@ -360,29 +360,29 @@ trigger2 = p2movetype = H && p2statetype = A<br />
 <br />
 <br />
 <br />
-��2�ֶ��Ǳ�ʾ��state��1201���к����ٽ�26a(stateno 1000)����ʵ2��triggerֻҪ��1�������ˡ�<br />
-��2����Щ΢�������<br />
+这2种都是表示在state号1201的招后最速接26a(stateno 1000)。其实2个trigger只要用1个就行了。<br />
+这2者有些微妙的区别。<br />
 <br />
 <br />
-trigger1��ʾ��ʱ������state�Ż���Ϊ1201�������Ѿ����е����1F�ˣ�����ʱ����ctrl̬�����ҿ�����movehitȷ��1201�Ƿ����С�<br />
-trigger2��ʾǰ��������1201����ʱ����ctrl̬���������Ѿ�����1201�ˣ�һ���ʱ��������0����ʱ������movehitȷ����������ˣ���������������ȷ�ϡ�<br />
-�ϸ���˵trigger1��trigger2��һ��㣬��trigger2�������ܹ������ģ�trigger1�ǲ����ܵģ���ΪҪ������ɫ������ctrl̬��<br />
-����һ��2�߿�����ɶ�����Ҹ����Ƽ������trigger2����ʽ����ʱ��trigger1����ʽ����ֵ�bug��<br />
-����trigger1��ȷ��movehit�͵�������ȷ�ʣ���ʱ�����㡣<br />
-<br />
-<br />
-<br />
-PS��trigger2������ʽ��Ҳ��һ�������٣���Ϊmugen�Դ�ai�ĸ��ţ���С���ʻ������¶ף���Ծ�ȶ����������ᵼ������ʧ�ܡ�<br />
-��ʱ���Կ�����trigger1������ʽ�����߶��ض�״̬�µ��¶׺���Ծ�����ơ�<br />
+trigger1表示此时动作的state号还是为1201，不过已经进行到最后1F了，但此时并非ctrl态，而且可以用movehit确认1201是否命中。<br />
+trigger2表示前面那招是1201，此时处于ctrl态，动作号已经不是1201了，一般此时动作号是0，此时不能用movehit确认命中情况了，必须用其他方法确认。<br />
+严格来说trigger1比trigger2快一点点，但trigger2是人类能够做到的，trigger1是不可能的，因为要操作角色必须在ctrl态。<br />
+不过一般2者看不出啥区别。我个人推荐最好用trigger2的形式，有时用trigger1的形式会出现点bug。<br />
+不过trigger1能确认movehit和调整连段确率，有时更方便。<br />
 <br />
 <br />
 <br />
-��˵��prevstateno���÷�<br />
+PS：trigger2那种形式的也不一定是最速，因为mugen自带ai的干扰，有小概率会做出下蹲，跳跃等动作，这样会导致连段失败。<br />
+此时可以考虑用trigger1那种形式。或者对特定状态下的下蹲和跳跃做限制。<br />
 <br />
-����A��B����Խ�C����D��B��ֻ�ܽ�E��<br />
-����stateno = B���е�ʱ�򣬿�����prevstateno�ж�ǰ�����е�����A����D��<br />
 <br />
-��������<br />
+<br />
+再说个prevstateno的用法<br />
+<br />
+假设A接B后可以接C，但D接B后只能接E，<br />
+那在stateno = B命中的时候，可以用prevstateno判断前面那招到底是A还是D。<br />
+<br />
+比如这样<br />
 [state -3]<br />
 type = changestate<br />
 value = 202<br />
@@ -401,10 +401,10 @@ trigger1 = stateno = 201 && movehit<br />
 <br />
 <br />
 <br />
-<li>2) ĿѺ</li><br />
-�����ٵĲ�ͬ���ڲ������̳���һ�У��������ĳЩ�����²ų���<br />
+<li>2) 目押</li><br />
+和最速的不同在于不能立刻出另一招，必须得在某些条件下才出招<br />
 <br />
-��������ö����������䵽ĳһ���߶��ٽ�ĳ�У�<br />
+比如必须让对手自由下落到某一个高度再接某招：<br />
 [state -1, b]<br />
 type = changestate<br />
 value = 201<br />
@@ -413,69 +413,69 @@ triggerall = statetype != A<br />
 trigger1 = prevstateno = 1300 && ctrl<br />
 trigger1 = p2movetype = H && p2statetype = A<br />
 trigger1 = p2stateno != [120,159]<br />
-trigger1 = enemynear, vel y > 0 && enemynear, pos Y >= -80 ;ǰ���Ǳ�ʾ�����������ٶȴ���0ʱ��С��0������������ȷ���䴦������׶Σ�������ȷ�����ֵľ��Ը߶ȣ�����statetype != A�����Կ��Բ���p2dist y������Ը߶���������<br />
+trigger1 = enemynear, vel y > 0 && enemynear, pos Y >= -80 ;前面是表示当对手下落速度大于0时（小于0就是上升），确认其处于下落阶段，后面是确定对手的绝对高度（由于statetype != A，所以可以不用p2dist y这种相对高度来测量）<br />
 <br />
-���ǱȽϻ�����ĿѺ��һ��Ҫ�󲻸߾��������ˡ�<br />
-���Ҫ��߾��ȵĻ������԰��ٶȼ����ȥ�����������ͺ��鷳�ˣ���Ҫ���㣬���䲻�Ǻ��ٵĻ�Ҫ����ٶȡ��������Ҫ���ر�߲���������<br />
+这是比较基本的目押，一般要求不高就这样好了。<br />
+如果要提高精度的话，可以把速度计算进去。不过这样就很麻烦了，需要计算，下落不是恒速的还要算加速度。如果不是要求特别高不必这样。<br />
 <br />
-����Щ��������������Ƹ߶��ٳ��У�ʹ��j�����������ϵ�����ͨ������Ҳ��һ��ĿѺ��<br />
-����Ŀ�������д��ai�ɡ�<br />
-<br />
-<br />
-<br />
-һЩ����ϵͳ������<br />
-<br />
-����ûɶʵ�������ݡ�ֻ���µ�ۡ�<br />
-��bbb��������ggxx��efz��ǽ���ĵȸ񶷵������Ǻܸ��ӵģ�һ��û10����20��hit�²�����<br />
-Ҫ���������ú�һ�㣬���ǿ��򵥵�ȡ���Ϳ�����ɵĵġ�<br />
-Ҫ������var��fvar�����ơ�<br />
-<br />
-��Щ���Σ�����ȥ������񹤣�ʵ���������Լ��Թ���֪����ȫ�����ǻ��¡�<br />
-�ܶ����������������̽�j����������ѹ�͸߶�ĿѺ��j������Ϊ��֮�����з��㡣<br />
-��ʱΪ������˺���jb������ӳ�ȡ��jc��������غ���ܽ��ϵ����������˺���<br />
-��������б���Ҫ����߶ȣ�Ҫ��ȷĿѺ�Ļ���Ҫ�����������ٶȡ�<br />
-����ɱ���ÿ����������أ�������˳�ɱû�˺������˷�����<br />
-��������var���������Ϳ�dash������<br />
-���ÿ������κ�������<br />
-<br />
-ǽ���ĺͱ���Ҳ���Կ�������ʱ���ӳٵ������<br />
-<br />
-����ʵ�ʱ���ai���ܸ��ӣ������ࡣ���ֵĻ����Ƽ����������αȽϸ��ӵ�ϵͳ��ai��<br />
-ʵ���а��Ļ��������þ�����ô��Ѿ��е�ai����<br />
-Ҫ��ai�Թ������ɲ����Ǻ����׵����飬��һ������û��þͻᾭ����״����<br />
-<br />
-<br />
-����˵��ԭ��<br />
-1 �����������Ѿ��еı������������Σ�����������hit��(��enemynear,gethitvar(hitcount)����ȡ)֮�ࡣ<br />
-ʵ�ڲ��в����Լ����õı�������������������������б�����ͻ��<br />
+还有些就像空连后最后控制高度再出招，使得j攻击后能连上地面普通技，这也是一种目押。<br />
+具体的看其他人写的ai吧。<br />
 <br />
 <br />
 <br />
-2 ���Լ����õı���Ҳ���������һ��������Ӧ�������Σ��������ö��������Ӧ�������<br />
+一些复杂系统的连招<br />
 <br />
-������һ��fvar(20)�Ϳ��Զ�Ӧ�ܶ������<br />
+这里没啥实质性内容。只是吐点槽。<br />
+如bbb，北斗，ggxx，efz，墙角心等格斗的连招是很复杂的，一套没10几，20几hit下不来。<br />
+要把连招做得好一点，不是靠简单的取消就可以完成的的。<br />
+要靠各种var或fvar来控制。<br />
+<br />
+有些连段，看上去好像很民工，实际上无论自己试过就知道完全不是那回事。<br />
+很多连段起跳后不能立刻接j攻击，必须压低高度目押出j攻击，为了之后连招方便。<br />
+有时为了提高伤害，jb后必须延迟取消jc，这样落地后才能接上地面招增加伤害。<br />
+而地面接招必须要计算高度，要精确目押的话还要计算重力加速度。<br />
+连超杀还得考虑修正因素，否则接了超杀没伤害反而浪费气。<br />
+还必须有var限制起跳和空dash次数。<br />
+还得考虑连段后的起攻情况<br />
+<br />
+墙角心和北斗也可以看出空连时有延迟的情况。<br />
+<br />
+所以实际编起ai来很复杂，很辛苦。新手的话不推荐编这种连段比较复杂的系统的ai。<br />
+实在有爱的话，请做好觉悟。最好从已经有的ai改起。<br />
+要让ai乖乖听话可并不是很容易的事情，有一个变量没搞好就会经常出状况。<br />
+<br />
+<br />
+这里说点原则<br />
+1 尽量用人物已经有的变量来控制连段，比如修正，hit数(用enemynear,gethitvar(hitcount)来读取)之类。<br />
+实在不行才用自己设置的变量。而且这个变量不能与已有变量冲突。<br />
+<br />
+<br />
+<br />
+2 用自己设置的变量也最好做到用一个变量对应几个连段，而不是用多个变量对应多个连段<br />
+<br />
+比如用一个fvar(20)就可以对应很多情况了<br />
 [state -3]<br />
 type = varset<br />
-trigger1 = ����1<br />
+trigger1 = 条件1<br />
 fv = 20<br />
-value = 0.1   ;fvar��������ַ�ʽ���壬��Ҫֱ��дfvar(20) = 0.1���������׳���<br />
+value = 0.1   ;fvar最好用这种方式定义，不要直接写fvar(20) = 0.1，否则容易出错<br />
 <br />
 [state -3]<br />
 type = varset<br />
-trigger1 = ����2<br />
+trigger1 = 条件2<br />
 fv = 20<br />
 value = 1.5<br />
 <br />
-������������<br />
+。。。。。。<br />
 <br />
 <br />
 <br />
-3 һ�����������var(0)-var(59),fvar(0)-fvar(39)��60��var��40��fvar<br />
-������������˿��Զ���һ��helper<br />
-helper�Լ���var(0),fvar(0)���뱾���var����ͻ��<br />
+3 一般人物可以用var(0)-var(59),fvar(0)-fvar(39)共60个var，40个fvar<br />
+变量如果用完了可以定义一个helper<br />
+helper自己的var(0),fvar(0)等与本体的var不冲突。<br />
 <br />
 <br />
-��������<br />
+比如这样<br />
 [State -3,ai helper]<br />
 Type           = Helper<br />
 Trigger1       = NumHelper(7777) = 0<br />
@@ -490,38 +490,38 @@ SuperMoveTime  = 99999<br />
 PauseMoveTime  = 99999<br />
 SprPriority = 7<br />
 <br />
-ע��stateno��id��Ҫ�����е�helper��ͻ��<br />
+注意stateno和id不要与已有的helper冲突。<br />
 <br />
 <br />
-Ȼ����ai�ļ����½���<br />
+然后在ai文件里新建个<br />
 [Statedef 7777]<br />
 Anim    = 9999<br />
 Ctrl    = 0<br />
 <br />
-�������涨���������<br />
+再在下面定义变量即可<br />
 <br />
 [State 7777,fv26]<br />
 Type     = VarSet<br />
 TriggerAll = Parent,Var(59)>0<br />
-trigger1 = Parent,stateno = 1020        ;���ڱ���ĸ������ݱ������parentǰ׺����helper(7777)�Լ��ı�����stateno�Ͳ�Ҫ��ǰ׺��<br />
+trigger1 = Parent,stateno = 1020        ;对于本体的各种数据必须加上parent前缀，是helper(7777)自己的变量或stateno就不要加前缀了<br />
 trigger1 = enemynear,movetype = H && enemynear,statetype = A<br />
 trigger1 = enemynear,stateno != [120,159]<br />
 Fv = 26<br />
 value = 1<br />
 IgnoreHitPause = 1<br />
 <br />
-����Ͷ�����һ��helper(7777)��fvar(26)<br />
-��ai���õ�ʱ�������д<br />
-trigger1 = helper(7777),fvar(26) = 1   ;һ����������helper(7777)��ǰ׺������ϵͳ���ж�Ϊ�����fvar(26)<br />
+这里就定义了一个helper(7777)的fvar(26)<br />
+在ai里用的时候就这样写<br />
+trigger1 = helper(7777),fvar(26) = 1   ;一定不能忘记helper(7777)的前缀，否则系统会判定为本体的fvar(26)<br />
 </p>
 
 <p>
-<span class="STYLE2">��3�����εĲ���</span><br />
-����һ�������ܵ������ԡ���ֱ�ӽ�watchģʽ��ai��ս��Ч��ʵ��̫�ͣ���һ�������л������õ����д�����Ρ�<br />
-�����Ƽ�һ��С���ɣ���������ai���ء�<br />
+<span class="STYLE2">（3）连段的测试</span><br />
+编了一套连段总得做测试。但直接进watch模式看ai对战，效率实在太低，不一定正好有机会能用到你编写的连段。<br />
+这里推荐一个小技巧，就是利用ai开关。<br />
 <br />
-������Ҫ����2abc 5c jbc jbc�Ŀ�����<br />
-ǰ���ȡ������ûɶ���⣬�ؼ��ǿ�5c����c�����п��еĵ��˺�ai�ǲ��ǻ�úõĿ�����<br />
+比如你要测试2abc 5c jbc jbc的空连。<br />
+前面的取消基本没啥问题，关键是看5c（立c）打中空中的敌人后，ai是不是会好好的空连。<br />
 <br />
 [State -3, ai switch]<br />
 Type = VarSet<br />
@@ -547,18 +547,18 @@ trigger18 = Command = "AI51" || Command = "AI52" || Command = "AI53"<br />
 trigger19 = Command = "AI54" || Command = "AI55" || Command = "AI56"<br />
 trigger20 = Command = "AI57" || Command = "AI58" || Command = "AI59"<br />
 trigger21 = Command = "AI60"<br />
-trigger22 = stateno = 202    ;��������trigger������202����5c��stateno<br />
+trigger22 = stateno = 202    ;加上这条trigger，假设202就是5c的stateno<br />
 <br />
-Ȼ�����ѵ��ģʽ<br />
-�Լ���2abc 5c���������5c��ai�ͽӹܿ���Ȩ�ˣ����Լ����޷����������ˡ�������֪��ai�Ƿ���˳�����֮��Ŀ����ˡ�<br />
+然后进入训练模式<br />
+自己连2abc 5c，当你出完5c后，ai就接管控制权了，你自己就无法继续控制了。这样就知道ai是否能顺利完成之后的空连了。<br />
 </p>
 
 <p>
-<span class="STYLE2">֮���Ԥ��</span><br />
-��Я����<br />
-helper��var<br />
+<span class="STYLE2">之后的预定</span><br />
+连携与起攻<br />
+helper与var<br />
 <br />
-����С����������ȵ�<br />
+各种小技巧与问题等等<br />
 <p>
 
 <p></p>
