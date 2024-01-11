@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>SuperPause</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">SuperPause</p>
+<p>冻结游戏,使屏幕变黑.当每个玩家被冻结后,他们的time(状态中的时间)将停止.<br />
+  用于超级攻击前的突然暂停.</p>
+<p><span class="STYLE2">必要参数: </span><br />
+无</p>
+<p><span class="STYLE2">可选参数:</span> <br />
+  SuperPause接受Pause控制器拥有的所有可选参数.另外,SuperPause还拥有如下的参数:<br />
+  <span class="STYLE3">time = pause_time (整型) </span><br />
+指定暂停将持续的时间.默认30帧.(默认速度下的半秒)</p>
+<p><span class="STYLE3">anim = anim_no (整型) </span><br />
+  指定SuperPause期间播放的指定动画号(从fightx.air中).默认是30,那是一个充电效果.(可能就是超必杀前的那种闪光)如果动画号是-1,则将不播放动画.<br />
+如果在anim_no前加上&quot;S&quot;,将使用玩家的air文件中动画文件来播放.例如,anim = S10.</p>
+<p><span class="STYLE3">sound = snd_grp, snd_no (整型, 整型) </span><br />
+  指定SuperPause期间播放的一个声音(从common.snd).默认是-1,表示不播放任何声音.<br />
+如果在snd_grp前加上&quot;S&quot;,将使用玩家的snd文件中的声音来播放.例如,anim = S10,0.</p>
+<p><span class="STYLE3">pos = x_pos, y_pos (浮点型) </span><br />
+指定超级闪光将要显示的位置(相对于玩家的坐标轴).默认0,0.</p>
+<p><span class="STYLE3">darken = bvalue (布尔型) </span><br />
+如果是1,则在SuperPause期间屏幕将变黑(半透明的黑色).设置为0无此效果.默认值是1.</p>
+<p><span class="STYLE3">p2defmul = def_mul (浮点型) </span><br />
+  此数值用来暂时乘以玩家拥有的任何目标的防御值.<br />
+  使一套连招在超级暂停中拥有较少的伤害值.设置为1不改变玩家的防御值.<br />
+  0是一个特殊的值,将设置防御值为mugen.cfg中[Rules]中的Super.TargetDefenceMul.<br />
+默认值为0,有效值大于等于0.</p>
+<p><span class="STYLE3">poweradd = value (整型) </span><br />
+增加给玩家的能量数.默认是0.(一般情况超必杀-1000,max超必杀-2000或者减的更多)</p>
+<p><span class="STYLE3">unhittable = bvalue (布尔型) </span><br />
+如果设置为1,玩家在SuperPause期间将无敌.设置为0无此效果.默认是1.</p>
+<p><span class="STYLE2">注意:</span><br />
+  如果之前执行了Pause控制器,且行动还被暂停中,此时执行SuperPasue控制器将抢占Pause控制器的效果.<br />
+在SuperPause期间,剩下的状态时间要等到Pause控制器效果过期才继续计数.</p>
+<p><span class="STYLE2">示例: </span><br />
+无</p>
+<p></p>
+</body>
+</html>

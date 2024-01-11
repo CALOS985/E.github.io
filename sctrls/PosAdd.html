@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>PosAdd</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">PosAdd</p>
+<p>玩家位置的指定偏移量.<br />
+  X坐标相对于玩家的坐标轴,正值向玩家所朝的方向移动.<br />
+  Y坐标相对于玩家的坐标轴,负值向上移动.</p>
+<p><span class="STYLE2">必要参数: </span><br />
+无</p>
+<p><span class="STYLE2">可选参数: </span><br />
+  <span class="STYLE3">x = x_value (浮点型) </span><br />
+使玩家向前移动x_value像素.默认是0.</p>
+<p><span class="STYLE3">y = y_value (浮点型) </span><br />
+使玩家向下移动y_value像素.默认是0.</p>
+<p><span class="STYLE2">示例: </span><br />
+无</p>
+<p><span class="STYLE2">特例:</span><br />
+  此控制器来用来模拟打击停顿时的人物颤动效果:<br />
+  [State 0, PosAdd]<br />
+  type = PosAdd<br />
+  trigger1 = time%2 = 0<br />
+x = 1</p>
+<p>[State 0, PosAdd]<br />
+  type = PosAdd<br />
+  trigger1 = time%2 = 1<br />
+  x = -1</p>
+<p>也能实现不规则颤动效果:</p>
+<p>先用有固定效果的控制器固定位置<br />
+  [State 0, PosSet]<br />
+  type = PosSet<br />
+  trigger1 = 1<br />
+  x = 20<br />
+  y = 15</p>
+<p>添加颤动效果<br />
+  [State 0, PosAdd]<br />
+  type = PosAdd<br />
+  trigger1 = 1<br />
+  x = -2+Random%5<br />
+  y = -2+Random%5</p>
+</body>
+</html>

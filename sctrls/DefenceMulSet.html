@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>DefenceMulSet</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">DefenceMulSet</p>
+<p>设置玩家的防御系数.玩家受到的所有伤害将会按此系数缩放.</p>
+<p><span class="STYLE2">必要参数: </span><br />
+  <span class="STYLE3">value = defense_mul (浮点型) </span><br />
+指定的防御系数.</p>
+<p><span class="STYLE2">可选参数:</span> <br />
+无</p>
+<p><span class="STYLE2">注意:</span> <br />
+LifeAdd控制器不会被玩家的防御系数影响.</p>
+<p><span class="STYLE2">示例:</span><br />
+  ;玩家受到的所有伤害减半.<br />
+  type = DefenceMulSet<br />
+  value = .5<br />
+</p>
+</body>
+</html>

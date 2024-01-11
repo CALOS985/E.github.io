@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>VarRandom</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">VarRandom</p>
+<p>设定指定整型变量为随机数.浮点型变量不能用此控制器设置.</p>
+<p><span class="STYLE2">必要参数: </span><br />
+  <span class="STYLE3">v = var_no (整型) </span><br />
+var_no是要影响的整型变量索引号.必须是0-59的整数.</p>
+<p><span class="STYLE2">可选参数: </span><br />
+  <span class="STYLE3">range = least_val, greatest_val (整型) </span><br />
+  least_val和greatest_val指定此控制器分别指定的最大和最小值.<br />
+  给变量指定的值是将在这个范围中随机选择的一个整数.<br />
+范围默认是[0,1000].如果只指定一个参数,则被认为的指定范围是[0,参数].</p>
+<p><span class="STYLE2">注意: </span><br />
+  如果你成功击中P2将他置于自定义状态,不要在自定义状态中给变量赋值.否则,你将覆盖P2的变量,这将引起对手未知错误.<br />
+  (也就是说,不要在p2stateno,targetstate指定P2进入的状态里面使用varset,varrangeset,varadd,parentvaradd,parentvarset等等(除非你做整合或者你知道自己在做什么)<br />
+否则你设置的其实是P2或者他父级的var/fvar参数,所以将会引起未知错误.)</p>
+<p><span class="STYLE2">示例:</span><br />
+  ;指定一个0-500之间的随机数给var(5).<br />
+  type = VarRandom<br />
+  v = 5<br />
+  range = 500<br />
+</p>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>DestroySelf</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">DestroySelf</p>
+<p>如果(此控制器)被helper类型人物调用,DestroySelf将导致此人物从游戏画面中被移除.<br />
+  DestroySelf对非helper人物无效.</p>
+<p><span class="STYLE2">必要参数: </span><br />
+  无</p>
+<p><span class="STYLE2">可选参数:</span><br />
+  <span class="STYLE3">recursive = recursive_flag (int)</span><br />
+若值为1,此helper派生出的所有helper将同时被销毁.默认为0.</p>
+<p><span class="STYLE3">removeexplods = remove_explods (int)</span><br />
+  若值为1,所有属于此helper的explod也将被移除.<br />
+若recursive_flag值为1,派生出的所有helper的explod也将被移除.默认为0</p>
+<p><span class="STYLE2">注意:</span><br />
+  任何束缚于此helper的玩家或explod,在DestroySelf执行时将强制解除束缚.<br />
+任何此helper没有被移除的explod都会被孤立.</p>
+<p><span class="STYLE2">示例:</span><br />
+无</p>
+</body>
+</html>

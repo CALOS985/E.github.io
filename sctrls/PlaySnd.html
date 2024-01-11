@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>PlaySnd</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">PlaySnd</p>
+<p>播放一个声音.</p>
+<p><span class="STYLE2">必要参数: </span><br />
+  <span class="STYLE3">value = group_no, sound_no (整型, 整型) </span><br />
+  group_no和sound_no对应你在玩家的snd文件中给每个声音指定的一对识别码.<br />
+如果要从common.snd中播放声音,在group_no前加上&quot;F&quot;.</p>
+<p><span class="STYLE2">可选参数: </span><br />
+  <span class="STYLE3">volumescale = volume_scale (浮点型)</span><br />
+  volume_scale控制音量.数值为100表示音量为100%,50为50%,等等.<br />
+有效值从0-100.默认为100.</p>
+<p><span class="STYLE3">channel = channel_no (整型) </span><br />
+  channel_no指定哪个声音通道将播放声音.一个特定通道在同一时间也许只能播放一个声音.<br />
+  例如,如果你在通道2播放一个声音,然后在第一个声音播放后相同的通道播放任何声音,则默认第一个声音在第二个声音播放时将停止.<br />
+  通道0是预留给玩家的特殊通道,当玩家被击中时通道0的声音(说话声)将停止.<br />
+建议你在通道0播放你人物的(说话声)声音.缺省默认为-1,表示声音将在任何空闲的声道播放.</p>
+<p><span class="STYLE3">lowpriority = pr (整型) </span><br />
+此参数仅在通道不是-1的时候有效.如果pr非0,则当前在此通道播放的声音(从上一个PlaySnd中调用)不能被此声音打断.</p>
+<p><span class="STYLE3">freqmul = f (浮点型) </span><br />
+声音频率将乘以f.例如.设置f为1.1将造成高分贝的声音.默认为1.0(不改变频率).</p>
+<p><span class="STYLE3">loop = loop_flag (整型) </span><br />
+设置loop_flag为非0使得声音样本反复循环.默认是0.</p>
+<p><span class="STYLE3">pan = p (整型) </span><br />
+  声音(音源)的位置偏移,计量单位是像素.<br />
+  如果p&gt;0则声音偏移到玩家的前方.如果p&lt;0则声音偏移到玩家的后方.默认为0.<br />
+  这个参数与abspan是互斥的.<br />
+(也就是说如果pan=1000,那么即使你人站在左边脸朝右,你的声音听起来也是从右面播放出来的.)</p>
+<p><span class="STYLE3">abspan = p (整型) </span><br />
+  和pan一样,只是声音从屏幕中心开始平移,而不是从玩家的位置.<br />
+这个参数与pan是互斥的.</p>
+<p><span class="STYLE2">示例:</span><br />
+  ;从玩家的SND文件中播放声音2,0.<br />
+  type = PlaySnd<br />
+value = 2,0</p>
+<p>;从fight.snd中播放声音5,2.<br />
+  type = PlaySnd<br />
+  value = F5,2</p>
+<p><span class="STYLE2">注意:</span><br />
+  1.0 RC8 版本之前,volume参数用来取代volumescale.<br />
+volume参数不再被使用.</p>
+</body>
+</html>

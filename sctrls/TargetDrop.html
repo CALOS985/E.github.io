@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>TargetDrop</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">TargetDrop</p>
+<p>丢弃玩家目标列表中的所有目标,除了像那些有指定ID号的目标.<br />
+  对仅给某些目标提供效果时有用.</p>
+<p><span class="STYLE2">必要参数: </span><br />
+无</p>
+<p><span class="STYLE2">可选参数: </span><br />
+  <span class="STYLE3">excludeID = id_no (整型) </span><br />
+  任何ID号不等于id_no的目标将从玩家的目标列表中被丢弃.<br />
+默认为-1.(丢弃所有目标)</p>
+<p><span class="STYLE3">keepone = keep_flag (布尔型) </span><br />
+  如果keep_flag是非0,则至少在玩家目标列表中保留一个目标.<br />
+  如果有多个目标他们的ID号都等于id_no,将随机保留一个目标其余的都将丢弃.此特征在投掷中有用,用来阻止同时投掷多个对手.<br />
+如果keep_flag是0,则此相应ID号的所有目标将被保留.keep_flag默认是1.</p>
+<p><span class="STYLE2">示例: </span><br />
+  无<br />
+</p>
+</body>
+</html>

@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>HitDef</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">HitDef</p>
+<p>定义玩家攻击中的单个hit(属性).<br />
+  如果玩家的Clsn1框(即红框/攻击框)与对手的Clsn2框(即兰框/受击框)接触,且HitDef被定义在这个特定时间点或之前,则将应用指定的效果.<br />
+  这是一个较复杂的,但是最常用的控制器.单个HitDef仅对单个hit有效.<br />
+  要使一个招式产生多次hit,你必须在攻击中触发多个HitDef.</p>
+<p><span class="STYLE2">必要参数: </span><br />
+  <span class="STYLE3">attr = hit_attribute (字符串型) </span><br />
+  这是攻击的属性.用来确定是否攻击可以击中P2.格式为:<br />
+  attr = arg1, arg2<br />
+  这里:arg1是&quot;S&quot;,&quot;C&quot;,&quot;A&quot;任意组合(Stand Crouch Air).
+  类似于 <a href="../cns/3.3%20Statedef的详情.html">StateDef</a> 中的 <a href="../triggers/StateType.html">StateType</a> ,这里说明攻击类型为站立(S),蹲下(C)或者空中(A).<br />
+  arg2是由2个字符组成的字符串.首字符是&quot;N&quot;(Normal普通),&quot;S&quot;(Special特殊),&quot;H&quot;(Hyper超级),&quot;A&quot;(普通+特殊+超级)中的一个.<br />
+第2个字符必须是&quot;A&quot;(Attack直接攻击),&quot;T&quot;(Throw投掷),&quot;P&quot;(Projectile飞行道具)中一个.<br />
+<br />
+触发器<a href="../triggers/HitDefAttr.html">HitDefAttr</a> 检测的也正是这个值.该参数同时也与<a href="HitBy.html">HitBy</a>、<a href="NotHitBy.html">NotHitBy</a>遥相呼应.<br />
+它的格式和HitBy一样,例如:<br />
+SCA, AA,AT,AP （即 SCA,NA,SA,HA,NP,SP,HP,NT,ST,HT）</p>
+<p><span class="STYLE2">可选参数: </span><br />
+  <span class="STYLE3">hitflag = hit_flags (字符串型) </span><br />
+  此参数说明如果P1要击中P2,则P2必须处于的状态类型.<br />
+hit_flags是一个包含了下列组合的字符串（可选值 HLAFDP+-）:</p>
+<p>&quot;H&quot;(上段),&quot;L&quot;(下段),&quot;A&quot;(空中).<br />
+  &quot;M&quot;(中段)等于&quot;HL&quot;.<br />
+  &quot;F&quot;作用于下落状态,如果包含了&quot;F&quot;将允许P1对处于空中下落状态的对手进行连击.<br />
+  &quot;D&quot;作用于&quot;躺下&quot;的时候,如果包含了&quot;D&quot;将允许P1击中躺在地上的对手.<br />
+  &quot;P&quot;飞行道具.<br />
+  &quot;H&quot;,&quot;L&quot;或&quot;A&quot; (或&quot;M&quot;)必须出现在hitflag字符串中.<br />
+  注意：AF都在空中,但本质不同,挨打movetype=H的空中算F不算A.</p>
+<p>&quot;+&quot;和&quot;-&quot;是2个可选字符.<br />
+  +加号表示该次攻击只能命中&quot;已经挨打的角色&quot;.<br />
+  -减号表示该次攻击只能命中&quot;没有挨打的角色&quot;,如普通投.<br />
+  如果加上了&quot;+&quot;,则hit仅在别人处于受击状态时有效.<br />
+  这也许对chain-moves(招式连击)有用,而将不会对某些对手起作用,这些对手指的是没有被招式连击中第一招击中的对手.<br />
+  (上面这句话举例子说就是,连招中只有第1招击中了对手,第2招才能击中(&quot;+&quot;字符用于此种情况下).<br />
+  如果第1招没击中,即使第2招动作做出来,且红框与对手兰框接触,也不会判定击中对手(因为此时对手没有处于受击状态)) <br />
+  如果加上了&quot;-&quot;,则hit仅在玩家不处于受击状态时有效.<br />
+  你应该在投掷攻击和其他不想让P1能够连击的招式中使用&quot;-&quot;.(KOF98中大部分的慢性投掷技都是这类判定)<br />
+  &quot;+&quot;和&quot;-&quot;是互斥的,即,不能同时使用.缺省hitflag默认值为&quot;MAF&quot;.</p>
+<p><span class="STYLE3">guardflag = hit_flags (字符串型) </span><br />
+  (感觉guardflag = guard_flags更形象)<br />
+  此参数决定P2要如何防御住这次攻击.guard_flags是一个包含了下列字符组合的字符串（可选值 MHLA）:<br />
+  &quot;H&quot;(上段),&quot;L&quot;(下段),&quot;A&quot;(空中).&quot;M&quot;(中段)等于&quot;HL&quot;.<br />
+  还有一个隐含参数 &quot;N&quot;或者不写,表示完全的不可防御.<br />
+缺省默认是一个empty(空的)字符串,意味着P2无法防御这次攻击.</p>
+<p>PS:hitflag用于在对方【非防御】时决定能否命中,guardflag用于在对方【防御】时决定能否命中.</p>
+<p><span class="STYLE3">affectteam = team_type (字符串型) </span><br />
+  team_type指定HitDef能击中哪个队伍的玩家.<br />
+  使用 B 表示2个队伍(所有玩家),E 表示敌方队伍(对手)或者 F 表示友方队伍(你自己的队伍).<br />
+默认为E.</p>
+<p><span class="STYLE3">animtype = anim_type (字符串型) </span><br />
+  指的是当被击中时P2将进入的动画类型.<br />
+  从&quot;light&quot;, &quot;medium&quot;, &quot;hard&quot;, &quot;back&quot;, &quot;up&quot;,或 &quot;diagup&quot;中选择.前3个(意思)是不言自明的(受 轻,中,重 攻击).<br />
+  &quot;Back&quot;是P2被打翻天时的动画.&quot;Up&quot;应该在人物笔直向上被打到空中时使用(例如,被上勾拳).<br />
+&quot;DiagUp&quot;应被用于人物被打到空中,向后,最终头着地. 默认值是&quot;Light&quot;.</p>
+<p><span class="STYLE3">air.animtype = anim_type (字符串型) </span><br />
+  同&quot;animtype&quot;参数相似,此动画类型设置的是P2在空中而不是地面.<br />
+缺省默认值和&quot;animtype&quot;参数相同.</p>
+<p><span class="STYLE3">fall.animtype = anim_type (字符串型) </span><br />
+  同&quot;animtype&quot;参数相似,此动画类型设置P2在下落时被击中.<br />
+如果air.animtype是Up则fall.animtype默认是Up否则是Back.</p>
+<p><span class="STYLE3">priority = hit_prior (整型), hit_type (字符串型) </span><br />
+  指定hit的优先级(优先顺序).高优先级的hit优先于低优先级的hit.<br />
+hit_prior的有效值是1-7,默认是4.</p>
+<p>如果指定了hit_type则给出了hit的优先级类别.<br />
+  有效的优先级类别是Dodge,Hit,Miss.<br />
+  优先级类别决定了当相同hit优先级的P1和P2相互同时击中对方时的决定性特征.<br />
+  P1 vs. P2 时的特征如下:</p>
+<p>Hit vs. Hit: P1和P2同时击中对方. <br />
+  Hit vs. Miss: P1击中,P2没击中. <br />
+  Hit vs. Dodge: 都没击中.<br />
+  Dodge vs. Dodge: 都没击中.<br />
+  Dodge vs. Miss: 都没击中.<br />
+  Miss vs. Miss: 都没击中.<br />
+  在都没击中的情况下,各自的HitDef仍保持有效.<br />
+  &quot;Miss&quot; 或 &quot;Dodge&quot; 通常用于投掷,因为这里P1和P2不应该能同时击中对手.<br />
+  hit_type默认值是&quot;Hit&quot;.</p>
+<p><span class="STYLE3">damage = hit_damage, guard_damage (整型, 整型) </span><br />
+  hit_damage是P2被击中时的伤害值.可选的guard_damage参数是P2防御住攻击时的伤害值.<br />
+如果都忽略,则默认为0.</p>
+<p><span class="STYLE3">pausetime = p1_pausetime, p2_shaketime (整型, 整型) </span><br />
+  这是hit时每个玩家将会停止(停顿)的时间(打击停顿,ignorehitpause就是针对这个参数).<br />
+  p1_pausetime是冻结P1的时间,单位是游戏帧数.<br />
+  p2_pausetime是在被击中后退前造成P2震动的时间.<br />
+缺省则默认为0,0.</p>
+<p><span class="STYLE3">guard.pausetime = p1_pausetime, p2_shaketime (整型, 整型) </span><br />
+  同&quot;pausetime&quot;参数相似,如果攻击被防御住,这参数是使每个玩家停止的时间.<br />
+缺省默认和&quot;pausetime&quot;参数值相同.</p>
+<p><span class="STYLE3">sparkno = action_no (整型) </span><br />
+  如果成功击中显示的火花动作号.要播放玩家的.air文件之外的火花(data目录中的FightFX.air和FightFX.sff),在动作号前面加上S,例如&quot;sparkno = S10&quot;.<br />
+  如果火花动作号没有S前缀,则只会播放FightFX.air中的火花.不能加F前缀.<br />
+缺省默认为玩家变量中设置的值.(在cns文件[Data]组下面的sparkno)</p>
+<p><span class="STYLE3">guard.sparkno = action_no (整型) </span><br />
+  如果hit被防御住显示的火花动作号.要播放玩家的.air文件之外的火花(data目录中的FightFX.air和FightFX.sff),在动作号前面加上S.<br />
+  如果火花动作号没有S前缀,则只会播放FightFX.air中的火花.不能加F前缀.<br />
+缺省默认为玩家变量中设置的值.(在cns文件[Data]组下面的guard.sparkno)</p>
+<p><span class="STYLE3">sparkxy = spark_x, spark_y (整型, 整型) </span><br />
+  这是创建 击中/防御 火花的位置.spark_x是相对于P2前方的坐标值.负值使火花更深入P2内部.<br />
+  这里说的&quot;前方&quot;指的是P2坐标轴指向P1的x方向偏移量除去P2玩家变量[Size]组中相应的宽度值.<br />
+  (就是说如果spark_x=0,那这个位置相对于P2就是他的前方(也就是p2[Size]组中ground.front这个位置.)<br />
+  相对于P1来说就是P1和P2坐标原点的距离减去P2的ground.front,也就是上面说的指向P2的距离减去了P2的宽度参数. )<br />
+  spark_y相对于P1.负值使火花更高.<br />
+  你能使用AirView这类工具来测定这些值.(通过将光标放在 &quot;attack spot&quot; 然后读出y方向数值)<br />
+缺省默认是0,0.</p>
+<p><span class="STYLE3">hitsound = snd_grp, snd_item (整型, 整型) </span><br />
+  在hit时播放的声音(从common.snd中).内置的fight.snd可让你选择从5,0(轻击声音)到5,4(痛苦重击).<br />
+  要从玩家自己的SND文件中播放声音,在第一个数字前加上&quot;S&quot;.例如,&quot;hitsound = S1,0&quot;.<br />
+缺省默认为玩家变量中设置的值.</p>
+<p><span class="STYLE3">guardsound = snd_grp, snd_item (整型, 整型) </span><br />
+  在hit被防御住时播放的声音(从common.snd中).目前仅有6,0可用.<br />
+  要从玩家自己的SND文件中播放声音,在第一个数字前加上&quot;S&quot;.<br />
+  没有设备支持从对手的SND文件中播放声音.<br />
+缺省默认为玩家变量中设置的值.</p>
+<p><span class="STYLE3">ground.type = attack_type (字符串型) </span><br />
+  如果P2在地面上的攻击类型.选择如下:<br />
+  - &quot;High&quot;: 攻击使对手头向后移. <br />
+  - &quot;Low&quot;: 击中对手腹部.<br />
+  - &quot;Trip&quot;: 扫腿攻击.(一般蹲下重脚就是这种)<br />
+  如果使用&quot;Trip&quot;类型,则ground.velocity参数y方向速度应非0,且fall参数应该设置为1.<br />
+  对手如果被绊倒,将不会通过反弹下落到地面.(也就是说不会落地后弹起再落地)<br />
+  - &quot;None&quot;: 攻击除了在pausetime参数指定的时间内使P1和P2停顿外没有任何效果.<br />
+  如果P2被从后方攻击,&quot;High&quot;将被当成&quot;Low&quot;显示,反之亦然.<br />
+  如果AnimType参数是&quot;Back&quot;,则P2的&quot;High&quot;,&quot;Low&quot;类型动画将被替代.<br />
+缺省默认是&quot;High&quot;.</p>
+<p><span class="STYLE3">air.type = attack_type (字符串型) </span><br />
+P2在空中时的攻击种类.缺省默认和&quot;ground.type&quot;的值一样.</p>
+<p><span class="STYLE3">ground.slidetime = slide_time (整型) </span><br />
+  这是P2被击中后向后滑动的时间(游戏帧数).(这时间不包括p2的pausetime)<br />
+应用于使P2保持在地面上的hit.缺省默认为0.</p>
+<p><span class="STYLE3">guard.slidetime = slide_time (整型) </span><br />
+  同&quot;ground.slidetime&quot;相同,但这个值是P2防御住攻击时的.<br />
+默认值和&quot;ground.slidetime&quot;一样.</p>
+<p><span class="STYLE3">ground.hittime = hit_time (整型) </span><br />
+  P2被击中后停留在受击状态的时间.请小心调整此参数值使得有可能连击.<br />
+应用于使P2保持在地面上的hit.缺省默认为0.</p>
+<p><span class="STYLE3">guard.hittime = hit_time (整型) </span><br />
+  同&quot;ground.hittime&quot;相同,但这个值是P2防御住攻击时的.<br />
+默认值和&quot;ground.hittime&quot;一样.</p>
+<p><span class="STYLE3">air.hittime = hit_time (整型) </span><br />
+  P2被击中(在空中被击中或者击飞致空中,又能防御之前)后停留在hit状态的时间.<br />
+如果&quot;fall&quot;参数设置为1则此参数无效.缺省默认为20.</p>
+<p><span class="STYLE3">guard.ctrltime = ctrl_time (整型) </span><br />
+  P2在地面防御状态中恢复控制之前的时间.<br />
+缺省默认为&quot;guard.slidetime&quot;的值.</p>
+<p><span class="STYLE3">guard.dist = x_dist (整型) </span><br />
+  距P1的x方向距离.在此距离中如果P2向P1反方向运动就会进入防御状态.<br />
+  缺省默认为玩家变量中设置的值.(在cns文件[Size]组下面)通常你不需要使用这个参数.<br />
+  (主要用于远程攻击,不设置此参数对手无法防御,因为超出了防御距离<br />
+或者用于近程投掷攻击,一般设置guard.dist=0使对手做不出防御动作)</p>
+<p><span class="STYLE3">yaccel = accel (浮点型) </span><br />
+击中后给予P2y方向的加速度.默认是0.35(240p),0.7(480p),1.4(720p).</p>
+<p><span class="STYLE3">ground.velocity = x_velocity, y_velocity (浮点型, 浮点型) </span><br />
+  P2被击中后的初始速度,如果P2在地面上.如果y_velocity非0,P2将被打致空中.<br />
+缺省默认都是0.如果想让P2保持在地面上你可以缺省y_velocity.</p>
+<p><span class="STYLE3">guard.velocity = x_velocity (浮点型) </span><br />
+  给予P2的速度,如果P2在地面上防御住了攻击.<br />
+缺省默认值是&quot;ground.velocity&quot;中x_velocity参数.</p>
+<p><span class="STYLE3">air.velocity = x_velocity, y_velocity (浮点型, 浮点型) </span><br />
+给予P2的初始速度,如果P2在空中被击中.缺省默认是0,0.</p>
+<p><span class="STYLE3">airguard.velocity = x_velocity, y_velocity (浮点型, 浮点型) </span><br />
+  给予P2的速度,如果P2在空中防御住攻击.<br />
+默认值是x_velocity * 1.5, y_velocity / 2,这里的 x_velocity和y_velocity是&quot;air.velocity&quot;参数的值.</p>
+<p><span class="STYLE3">ground.cornerpush.veloff = x_velocity (浮点型) </span><br />
+  确定给予玩家的额外速度(速度偏移量)如果他在地面版边攻击.<br />
+  (也就是版边攻击会使自己后退的速度)<br />
+  此数值设置的越高将导致玩家反弹离版边更远.<br />
+  缺省默认值取决于attr参数.如果attr中arg1是&quot;A&quot;,默认是0.<br />
+否则,默认值是1.3*guard.velocity.</p>
+<p><span class="STYLE3">air.cornerpush.veloff = x_velocity (浮点型) </span><br />
+  确定给予玩家的额外速度(速度偏移量)如果他在版边攻击空中的对手.<br />
+  此数值设置的越高将导致玩家反弹离版边更远.<br />
+缺省默认值是ground.cornerpush.veloff.</p>
+<p><span class="STYLE3">down.cornerpush.veloff = x_velocity (浮点型) </span><br />
+  确定给予玩家的额外速度(速度偏移量)如果他在版边攻击蹲下的对手.<br />
+  此数值设置的越高将导致玩家反弹离版边更远.<br />
+缺省默认值是ground.cornerpush.veloff.</p>
+<p><span class="STYLE3">guard.cornerpush.veloff = x_velocity (浮点型) </span><br />
+  确定给予玩家的额外速度(速度偏移量)如果他在版边的攻击被对手防御住.<br />
+  此数值设置的越高将导致玩家反弹离版边更远.<br />
+缺省默认值是ground.cornerpush.veloff.</p>
+<p><span class="STYLE3">airguard.cornerpush.veloff = x_velocity (浮点型) </span><br />
+  确定给予玩家的额外速度(速度偏移量)如果他在版边的攻击被对手空中防御住.<br />
+  此数值设置的越高将导致玩家反弹离版边更远.<br />
+缺省默认值是guard.cornerpush.veloff.</p>
+<p><span class="STYLE3">airguard.ctrltime = ctrl_time (浮点型) </span><br />
+P2在空防状态恢复控制前的时间.缺省默认为&quot;guard.ctrltime&quot;的值.</p>
+<p><span class="STYLE3">air.juggle = juggle_points (浮点型) </span><br />
+  hit要求的额外连击点数.不要与StateDef中的&quot;juggle&quot;参数混淆.<br />
+你通常不需要使用这个参数,除了HitDef中的飞行道具.缺省默认值是0.</p>
+<p><span class="STYLE3">mindist = x_pos, y_pos (整型, 整型) </span><br />
+见下方.</p>
+<p><span class="STYLE3">maxdist = x_pos, y_pos (整型, 整型) </span><br />
+  这些参数能让你控制在P2被击中后相对于P1最小和最大距离.<br />
+这些参数不常用.缺省默认不改变P2位置.</p>
+<p><span class="STYLE3">snap = x_pos, y_pos (整型, 整型) </span><br />
+  击中后移动P2到相对于P1的指定位置.这参数不常用.<br />
+  如果你想在投掷中捕捉P2到一个特定的位置,建议你在P1投掷状态中使用 <a href="TargetBind.html">TargetBind</a> 控制器来代替.<br />
+缺省默认不改变P2位置.</p>
+<p><span class="STYLE3">p1sprpriority = drawing_priority (整型) </span><br />
+  绘制P1图像的优先级如果招式击中或被P2防御住.<br />
+与p2sprpriority参数一起,控制是否P1绘制在P2上方或下方.默认值是1.</p>
+<p><span class="STYLE3">p2sprpriority = drawing_priority (整型) </span><br />
+  绘制P2图像的优先级如果招式击中或被P2防御住.<br />
+默认值是0.</p>
+<p><span class="STYLE3">p1facing = facing (整型) </span><br />
+  如果成功击中,设置-1使P1转向.<br />
+默认值保持P1朝向不变.</p>
+<p><span class="STYLE3">p1getp2facing = facing (整型) </span><br />
+  设置1让P1的朝向与P2被击中后一致,-1使P1和P2反向.<br />
+默认为0(不改变).如果非0,则此参数优先于p1facing.</p>
+<p><span class="STYLE3">p2facing = facing (整型) </span><br />
+  如果成功击中,设置1使P2与P1朝向相同,-1使P2朝向相反.<br />
+默认值是0,不改变P2朝向.</p>
+<p><span class="STYLE3">p1stateno = state_no (整型) </span><br />
+  如果成功击中,设置P1进入的状态号.这个状态必须是一个攻击状态(movetype = A)且至少要有1帧.<br />
+主要用于投掷.默认是-1,不改变.</p>
+<p><span class="STYLE3">p2stateno = state_no (整型) </span><br />
+  如果成功击中,设置P2进入的状态号.P2将获得P1(指定的)状态和动画数据.<br />
+  P2将保持P1(指定的)状态和动画数据直到P2开始攻击,或者SelfState控制器被使用,返回P2到他自己的状态.<br />
+  这个状态必须是一个受击状态(movetype = H)且至少要有1帧.<br />
+主要用于投掷.也可用于自定义攻击反应.默认是-1,不改变.</p>
+<p><span class="STYLE3">p2getp1state = bvalue (布尔型) </span><br />
+  设置0防止P2获得P1(指定的)状态和动画数据,假如你不想使用&quot;p2stateno&quot;参数默认的特征<br />
+默认为1如果&quot;p2stateno&quot;参数被使用.否则被忽略.</p>
+<p><span class="STYLE3">forcestand = bvalue (布尔型) </span><br />
+  设置1强制P2(原来处于蹲下状态)进入站立状态类型如果成功击中.如果P2在空中状态则无效.<br />
+通常默认为0,但如果&quot;ground.velocity&quot;中y_velocity参数是非0,则默认值是1.</p>
+<p><span class="STYLE3">fall = bvalue (布尔型) </span><br />
+  设置1如果你想让P2进入&quot;fall(下落)&quot;状态.(P2着地前不恢复控制)<br />
+如果你想用一招&quot;击倒&quot;P2就是用他.默认是0.</p>
+<p><span class="STYLE3">fall.xvelocity = x_velocity (布尔型) </span><br />
+当处于&quot;fall&quot;状态从地面反弹时P2获得的x方向速度.缺省默认为不变.</p>
+<p><span class="STYLE3">fall.yvelocity = y_velocity (布尔型) </span><br />
+  当处于&quot;fall&quot;状态从地面反弹时P2获得的y方向速度.<br />
+默认 -4.5(240p), -9(480p), -18(720p).</p>
+<p><span class="STYLE3">fall.recover = bvalue (布尔型) </span><br />
+  设置为0如果你不想让P2在&quot;fall&quot;状态中能够恢复.<br />
+缺省默认为1.(可以恢复)</p>
+<p><span class="STYLE3">fall.recovertime = recover_time (整型) </span><br />
+  在P2通过输入恢复指令,能够从&quot;fall&quot;状态恢复之前必须经过的时间.<br />
+不包含P2被停止(攻击中引起的震动)的时间.缺省默认为4.</p>
+<p><span class="STYLE3">fall.damage = damage_amt (整型) </span><br />
+指示当P2在下落状态之外撞击地面造成的伤害值.缺省默认为0.</p>
+<p><span class="STYLE3">air.fall = bvalue (布尔型) </span><br />
+  设置1如果你想让P2进入&quot;fall&quot;状态,如果hit发生时P2在空中.(P2着地前不恢复控制)<br />
+默认和fall的值相同.</p>
+<p><span class="STYLE3">forcenofall = bvalue (布尔型) </span><br />
+  设置1强制P2解除&quot;fall&quot;状态,如果他在这个状态内.如果P2不在&quot;fall&quot;状态内则此参数无效.<br />
+如果&quot;fall&quot;参数是1则此参数被忽略.缺省默认为0.</p>
+<p><span class="STYLE3">down.velocity = x_velocity, y_velocity (布尔型, 布尔型) </span><br />
+  当P2倒地被攻击时指定给P2的速度.如果y_velocity非0,P2将被打飞.<br />
+如果是0,则P2将在地面上向后滑动.缺省默认和&quot;air.velocity&quot;参数值相同.</p>
+<p><span class="STYLE3">down.hittime = hit_time (整型) </span><br />
+当P2倒地被攻击时将向后滑动的时间.此参数将被忽略如果&quot;down.velocity&quot;参数中的y_velocity非0.</p>
+<p><span class="STYLE3">down.bounce = bvalue (布尔型) </span><br />
+  设置为1如果你想让P2在撞击地面后立刻从地面反弹起来.(使用 fall.xvelocity和fall.yvelocity参数值)<br />
+如果&quot;down.velocity&quot;中y_velocity参数为0则此参数被忽略.缺省默认为0.(P2撞击地面不反弹)</p>
+<p><span class="STYLE3">id = id_number (整型) </span><br />
+  hit的识别号,用于招式连击.(连续攻击的招式)<br />
+  你能使用这个号码稍后检测玩家上一次是否被这个特定的HitDef击中.此号码被称为targetID.<br />
+  在 <a href="TargetBind.html">TargetBind</a> 控制器或者在 <a href="../cns/6.6%20触发器重定向.html">target(ID)重定向</a> 键值中被使用.<br />
+有效值是所有大于等于1的整数,缺省默认为0(无ID).不要把TargetID与玩家ID混淆.</p>
+<p><span class="STYLE3">chainID = id_number (整型) </span><br />
+  主要用于一套连续招式中.<br />
+  如果P2上一次(最近一次)被P1且此ID的招式击中,则他只能被此chainID号的HitDef击中.你能把这些用于招式连击的下一部分.<br />
+注意招式连击在没有使用&quot;id&quot;和&quot;chainid&quot;参数时仍可能有效.有效值是所有大于等于1的整数,缺省默认为-1(连击任何招式).</p>
+<p><span class="STYLE3">nochainID = nochain_1, nochain_2 (整型) </span><br />
+  nochainID指定2个在此次攻击中不能被连击的hit ID号.<br />
+  如果他们都是-1(默认值),则连击对任何hit ID号来说没有完全禁用.nochain_2能被省略.<br />
+  除了-1,指定的值不能与chainID的值吻合.<br />
+如果P2被P1上一HitDef和当前HitDef之中的第三方击中则此参数无效.</p>
+<p><span class="STYLE3">hitonce = hitonce_flag (布尔型) </span><br />
+  如果设置为1,此HitDef只作用于一个对手.如果成功击中,所有其他的目标将丢失.<br />
+  通常默认为0.异常情况是如果&quot;attr&quot;参数是投掷类型,将使它的默认值变成1.<br />
+(也就是说T属性的投掷攻击只能同时击中1个人,除非你用非T属性的投掷攻击)</p>
+<p><span class="STYLE3">kill = bvalue (布尔型) </span><br />
+设置此值为0能阻止此次攻击KO对手,当成功击中的时候.默认是1.</p>
+<p><span class="STYLE3">guard.kill = bvalue (布尔型) </span><br />
+设置此值为0能阻止此次攻击KO对手,当攻击被防御住的时候.默认是1.(类似kill)</p>
+<p><span class="STYLE3">fall.kill = bvalue (布尔型) </span><br />
+设置为0阻止这次攻击KO对手,当他落在地上的时候.(见fall.damage).默认为1.</p>
+<p><span class="STYLE3">numhits = hit_count (整型) </span><br />
+hit_count指示此hitdef应该加到combo counter(连击数)上的hits数目(也就是改动连击数).必须大于等于0.默认是1.</p>
+<p><span class="STYLE3">getpower = p1power, p1gpower (整型, 整型) </span><br />
+  p1power指定给予P1的能量值如果此HitDef成功击中.<br />
+  p1gpower指定给予P1的能量值如果此HitDef被防住.<br />
+  如果缺省,p1power默认是hit_damage(&quot;damage&quot;中的参数)乘以Default.Attack.LifeToPowerMul(data/mugen.cfg中指定的值).<br />
+如果p1gpower缺省,默认值指定为p1power除以2.</p>
+<p><span class="STYLE3">givepower = p2power, p2gpower (整型, 整型) </span><br />
+  p2power指定给予P2的能量值如果此HitDef成功击中.<br />
+  p2gpower指定给予P2的能量值如果此HitDef被防住.<br />
+  如果缺省,p2power默认是hit_damage(&quot;damage&quot;中的参数)乘以Default.GetHit.LifeToPowerMul(data/mugen.cfg中指定的值).<br />
+如果p2gpower缺省,默认值指定为p2power除以2.</p>
+<p><span class="STYLE3">palfx.time = palfx_time (整型) </span><br />
+见下方.</p>
+<p><span class="STYLE3">palfx.mul = r1, g1, b1 (整型, 整型, 整型) </span><br />
+见下方.</p>
+<p><span class="STYLE3">palfx.add = r2, g2, b2 (整型, 整型, 整型) </span><br />
+  如果包含这些参数,将能够实现P2的色表效果,如果成功击中的话.<br />
+  palfx_time是提供给P2色表效果的时间(游戏帧数表示).palfx_time默认是0.(无效果)<br />
+其余的参数和PalFX控制器中一样.</p>
+<p><span class="STYLE3">envshake.time = envshake_time (整型) </span><br />
+见下方.</p>
+<p><span class="STYLE3">envshake.freq = envshake_freq (浮点型) </span><br />
+见下方.</p>
+<p><span class="STYLE3">envshake.ampl = envshake_ampl (整型) </span><br />
+见下方.</p>
+<p><span class="STYLE3">envshake.phase = envshake_phase (浮点型) </span><br />
+  如果包含这些参数,将在成功击中时使屏幕震动.<br />
+  envshake_time是屏幕震动的时间.(游戏帧数表示)<br />
+其余参数和EnvShake控制器中一样.</p>
+<p><span class="STYLE3">fall.envshake.time = envshake_time (整型) </span><br />
+见下方.</p>
+<p><span class="STYLE3">fall.envshake.freq = envshake_freq (浮点型) </span><br />
+见下方.</p>
+<p><span class="STYLE3">fall.envshake.ampl = envshake_ampl (整型) </span><br />
+见下方.</p>
+<p><span class="STYLE3">fall.envshake.phase = envshake_phase (浮点型) </span><br />
+和envshake.*参数相似,只是仅当P2撞击地面时才有效果.</p>
+<p><span class="STYLE2">注意: </span><br />
+  当在一个[Statedef -2]块中被执行同时此玩家又(执行)另一个玩家的状态和动画数据时HitDef的特征是未定义的.<br />
+(比如在[Statedef -2]中执行HitDef同时你进入了对手指定的状态,p2stateno,targetstate这种)</p>
+<p><span class="STYLE2">示例: </span><br />
+无 </p>
+<p></p>
+</body>
+</html>

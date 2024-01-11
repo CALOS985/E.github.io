@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>ReversalDef</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+.STYLE4 {
+	color: #FF0000
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">ReversalDef</p>
+<p>定义一个攻击反弹.(攻击倒置)<br />
+  如果P2的一个Clns1框(红框)与P1的一个Clsn1框(红框)(且此时ReversalDef激活中),则P1将反弹P2的攻击.<br />
+  与p1stateno(可选p2stateno)一起使用,创建反弹攻击.<br />
+  ReversalDef携带了HitDef中pausetime, sparkno, hitsound, p1stateno和p2stateno参数,加上:</p>
+<p><span class="STYLE2">必要参数: </span><br />
+  <span class="STYLE3">reversal.attr = attr_string </span><br />
+  attr_string指定能被ReversalDef反弹的攻击属性列表.是一个标准的hit属性字符串.<br />
+  例如,reversal.attr = SA,NA,SA表示 站立+空中, 普通攻击, 特殊攻击.(对手的攻击类型如果包含在列出来的类型内将被反弹) <br />
+(另有字符&quot;A&quot;,用来表示All(所有的攻击类型),例如,reversal.attr = S,AT表示 站立,所有投掷类攻击)</p>
+<p><span class="STYLE2">可选参数: </span><br />
+无</p>
+<p><span class="STYLE2">注意: </span><br />
+  sparkxy参数被认为是到P2的hitdef的sparkxy的偏移量.<br />
+MoveHit触发器能被用来检测如果P1成功反弹了P2招式.</p>
+<p><span class="STYLE2">示例: </span><br />
+无</p>
+<p>(主要用于格挡技能,例如藤堂香澄的招式,刚体等.只要你的红框有反弹定义且接触到对手的红框,那么对手的招式就会被你反弹.<br />
+  所以,即使你处于无敌状态(比如使用了nothitby或者压根就没有受蓝色击框),也有可能被对手击中而少血,只要对手配合使用了p2stateno.<br />
+  <span class="STYLE4">当然,此控制器配合p2stateno使用也极易在非整合的MUGEN游戏对战中产生bug,最典型的就是多一个人出来.</span><br />
+  主要是由于ReversalDef反弹了对手的helper攻击,配合p2stateno,指定了对手的helper进入了指定状态.<br />
+  所以使用时一定要注意.)</p>
+</body>
+</html>

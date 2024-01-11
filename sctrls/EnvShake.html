@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>EnvShake</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">EnvShake</p>
+<p>引起屏幕垂直的震动.</p>
+<p><span class="STYLE2">必要参数: </span><br />
+  <span class="STYLE3">time = shake_time (整型) </span><br />
+指定屏幕将要震动的时间帧数.</p>
+<p><span class="STYLE2">可选参数: </span><br />
+  <span class="STYLE3">freq = shake_speed (浮点型) </span><br />
+shake_speed是一个0(缓慢的)到180(快速的)的浮点数.默认为60.</p>
+<p><span class="STYLE3">ampl = shake_amplitude (整型) </span><br />
+  振幅越大,屏幕上下震动的越远.<br />
+  振幅为负数意味着屏幕将首先向下震动.<br />
+默认值是-4(在240p设定下),-8(在480p设定下),-16(在720p设定下).</p>
+<p><span class="STYLE3">phase = phase_offset (浮点型) </span><br />
+  指定震动的相位偏移.默认为0.<br />
+频率乘数大于等于90时,默认相位偏移是90.</p>
+<p><span class="STYLE2">示例: </span><br />
+无</p>
+</body>
+</html>

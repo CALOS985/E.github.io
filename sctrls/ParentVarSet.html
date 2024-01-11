@@ -1,0 +1,55 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>ParentVarSet</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">ParentVarSet</p>
+<p>如果玩家是一个helper,设置玩家父级(起作用的)变量(var/fvar)数值.<br />
+  无论是整型变量还是浮点型变量都能被此控制器设置.<br />
+  如果此玩家不是helper,则此控制器无效.</p>
+<p><span class="STYLE2">必要参数(对应整型变量): </span><br />
+  <span class="STYLE3">v = var_no (整型) </span><br />
+var_no应该是0-59之中的一个整数.</p>
+<p><span class="STYLE3">value = int_expr (整型) </span><br />
+int_expr是赋给用var_no标明的(索引号为var_no的)整型变量的值.</p>
+<p><span class="STYLE2">必要参数(对应浮点型变量):</span><br />
+  <span class="STYLE3">fv = var_no (整型) </span><br />
+var_no应该是0-39之中的一个整数.</p>
+<p><span class="STYLE3">value = float_expr (浮点型)</span><br />
+float_expr是赋给索引号为var_no的浮点型变量上的值.</p>
+<p><span class="STYLE2">可选参数: </span><br />
+上述2种情况都没有.</p>
+<p><span class="STYLE2">替代语法:</span> <br />
+  <span class="STYLE3">var(var_no) = int_expr (整型版本)<br />
+fvar(var_no) = float_expr (浮点型版本)</span></p>
+<p><span class="STYLE2">注意: </span><br />
+  由于历史原因,注意上面列出的给变量赋值的替代语法,不能在一个表达式内给变量赋值.<br />
+  如果你成功击中P2将他置于自定义状态,不要在自定义状态中给变量赋值.否则,你将覆盖P2父级的变量,这将引起对手未知错误.<br />
+  (也就是说,不要在p2stateno,targetstate指定P2进入的状态里面使用varset,varrangeset,varadd,parentvaradd,parentvarset等等(除非你做整合或者你知道自己在做什么)<br />
+否则你设置的其实是P2或者他父级的var/fvar参数,所以将会引起未知错误).</p>
+<p><span class="STYLE2">示例: </span><br />
+无</p>
+<p> </p>
+</body>
+</html>

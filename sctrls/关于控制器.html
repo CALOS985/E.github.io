@@ -1,0 +1,115 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>关于控制器</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">关于控制器</p>
+<p>所有状态控制器都有2个可选参数&quot;persistent&quot;和&quot;ignorehitpause&quot;,且必须设置成整型常量.<br />
+  除非另有规定,任何数值型控制器参数都能被指定为算术表达式.<br />
+  所有情况下,如果用表达式作为参数,请注意表达式不能计算出bottom,此时参数将被设置为0.</p>
+<p><a href="AfterImage.html">AfterImage</a><br />
+  <a href="AfterImageTime.html">AfterImageTime</a><br />
+  <a href="AllPalFX.html">AllPalFX</a><br />
+  <a href="AngleAdd.html">AngleAdd</a><br />
+  <a href="AngleDraw.html">AngleDraw</a><br />
+  <a href="AngleMul.html">AngleMul</a><br />
+  <a href="AngleSet.html">AngleSet</a><br />
+  <a href="AppendToClipboard.html">AppendToClipboard</a><br />
+  <a href="AssertSpecial.html">AssertSpecial</a><br />
+  <a href="AttackDist.html">AttackDist</a><br />
+  <a href="AttackMulSet.html">AttackMulSet</a><br />
+  <a href="BGPalFX.html">BGPalFX</a><br />
+  <a href="BindToParent.html">BindToParent</a><br />
+  <a href="BindToRoot.html">BindToRoot</a><br />
+  <a href="BindToTarget.html">BindToTarget</a><br />
+  <a href="ChangeAnim.html">ChangeAnim</a><br />
+  <a href="ChangeAnim2.html">ChangeAnim2</a><br />
+  <a href="ChangeState.html">ChangeState</a><br />
+  <a href="ClearClipboard.html">ClearClipboard</a><br />
+  <a href="CtrlSet.html">CtrlSet</a><br />
+  <a href="DefenceMulSet.html">DefenceMulSet</a><br />
+  <a href="DestroySelf.html">DestroySelf</a><br />
+  <a href="DisplayToClipboard.html">DisplayToClipboard</a><br />
+  <a href="EnvColor.html">EnvColor</a><br />
+  <a href="EnvShake.html">EnvShake</a><br />
+  <a href="Explod.html">Explod</a><br />
+  <a href="ExplodBindTime.html">ExplodBindTime</a><br />
+  <a href="ForceFeedback.html">ForceFeedback</a><br />
+  <a href="FallEnvShake.html">FallEnvShake</a><br />
+  <a href="GameMakeAnim.html">GameMakeAnim</a><br />
+  <a href="Gravity.html">Gravity</a><br />
+  <a href="Helper.html">Helper</a><br />
+  <a href="HitAdd.html">HitAdd</a><br />
+  <a href="HitBy.html">HitBy</a><br />
+  <a href="HitDef.html">HitDef</a><br />
+  <a href="HitFallDamage.html">HitFallDamage</a><br />
+  <a href="HitFallSet.html">HitFallSet</a><br />
+  <a href="HitFallVel.html">HitFallVel</a><br />
+  <a href="HitOverride.html">HitOverride</a><br />
+  <a href="HitVelSet.html">HitVelSet</a><br />
+  <a href="LifeAdd.html">LifeAdd</a><br />
+  <a href="LifeSet.html">LifeSet</a><br />
+  <a href="MakeDust.html">MakeDust</a><br />
+  <a href="ModifyExplod.html">ModifyExplod</a><br />
+  <a href="MoveHitReset.html">MoveHitReset</a><br />
+  <a href="NotHitBy.html">NotHitBy</a><br />
+  <a href="Null.html">Null</a><br />
+  <a href="Offset.html">Offset</a><br />
+  <a href="PalFX.html">PalFX</a><br />
+  <a href="ParentVarAdd.html">ParentVarAdd</a><br />
+  <a href="ParentVarSet.html">ParentVarSet</a><br />
+  <a href="Pause.html">Pause</a><br />
+  <a href="PlayerPush.html">PlayerPush</a><br />
+  <a href="PlaySnd.html">PlaySnd</a><br />
+  <a href="PosAdd.html">PosAdd</a><br />
+  <a href="PosFreeze.html">PosFreeze</a><br />
+  <a href="PosSet.html">PosSet</a><br />
+  <a href="PowerAdd.html">PowerAdd</a><br />
+  <a href="PowerSet.html">PowerSet</a><br />
+  <a href="Projectile.html">Projectile</a><br />
+  <a href="RemapPal.html">RemapPal</a><br />
+  <a href="RemoveExplod.html">RemoveExplod</a><br />
+  <a href="ReversalDef.html">ReversalDef</a><br />
+  <a href="ScreenBound.html">ScreenBound</a><br />
+  <a href="SelfState.html">SelfState</a><br />
+  <a href="SprPriority.html">SprPriority</a><br />
+  <a href="StateTypeSet.html">StateTypeSet</a><br />
+  <a href="SndPan.html">SndPan</a><br />
+  <a href="StopSnd.html">StopSnd</a><br />
+  <a href="SuperPause.html">SuperPause</a><br />
+  <a href="TargetBind.html">TargetBind</a><br />
+  <a href="TargetDrop.html">TargetDrop</a><br />
+  <a href="TargetFacing.html">TargetFacing</a><br />
+  <a href="TargetLifeAdd.html">TargetLifeAdd</a><br />
+  <a href="TargetPowerAdd.html">TargetPowerAdd</a><br />
+  <a href="TargetState.html">TargetState</a><br />
+  <a href="TargetVelAdd.html">TargetVelAdd</a><br />
+  <a href="TargetVelSet.html">TargetVelSet</a><br />
+  <a href="Trans.html">Trans</a><br />
+  <a href="Turn.html">Turn</a><br />
+  <a href="VarAdd.html">VarAdd</a><br />
+  <a href="VarRandom.html">VarRandom</a><br />
+  <a href="VarRangeSet.html">VarRangeSet</a><br />
+  <a href="VarSet.html">VarSet</a><br />
+  <a href="VelAdd.html">VelAdd</a><br />
+  <a href="VelMul.html">VelMul</a><br />
+  <a href="VelSet.html">VelSet</a><br />
+  <a href="VictoryQuote.html">VictoryQuote</a><br />
+  <a href="Width.html">Width</a><br />
+  <a href="Zoom.html">Zoom</a></p>
+</body>
+</html>

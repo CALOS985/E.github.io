@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>PalFX</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">PalFX</p>
+<p>提供色表的临时效果.这些效果将会同时影响此玩家拥有的explod和helper的色表,除非它们已指定ownpal为非零.</p>
+<p><span class="STYLE2">必要参数: </span><br />
+无</p>
+<p><span class="STYLE2">可选参数: </span><br />
+  <span class="STYLE3">time = duration (整型) </span><br />
+  指定色表效果将持续的时间.(帧数)<br />
+指定-1使色表效果永久持续.指定0停止任何正在起作用的色表效果.</p>
+<p><span class="STYLE3">add = add_r, add_g, add_b (整型, 整型, 整型) </span><br />
+见下方.</p>
+<p><span class="STYLE3">mul = mul_r, mul_g, mul_b (整型, 整型, 整型) </span><br />
+  每部分add参数的分量被加到玩家色表相对应的分量上,结果乘以相对应的mul参数分量除以256.(提供算法)<br />
+  例如,如果pal_r是人物原色表的红色分量值,则新的红色分量值是(pal_r + add_r) * mul_r / 256.<br />
+mul的值必须&gt;=0.3个参数的默认值不变,例如 add = 0,0,0 且 mul = 256,256,256.</p>
+<p><span class="STYLE3">sinadd = ampl_r, ampl_g, ampl_b, period (整型, 整型, 整型) </span><br />
+  创建一个附加正弦波的色表加成效果.<br />
+  period指定了正弦波的周期(单位是帧数),amplitude参数控制正弦波每个分量的振幅.<br />
+例如,如果t表示从PalFX控制器激活时逝去的帧数,pal_r是人物原色表中红色分量值,则t时间点人物色表红色分量值为(pal_r + add_r + ampl_r * sin(2 * pi * t / period)) * mul_r / 256.</p>
+<p><span class="STYLE3">invertall = bvalue (布尔型) </span><br />
+  如果bvalue非0,则色表中的颜色会倒置,创建&quot;电影底片&quot;效果.<br />
+颜色倒置在add和mul生效前起作用.bvalue默认是0.</p>
+<p><span class="STYLE3">color = value (整型) </span><br />
+  此参数影响色表的色彩级别(饱和度).如果值为0,色表将会是灰度的.<br />
+  如果值为256,则色表中的颜色将不改变.0-256之间的值将会有过渡效果.<br />
+此参数在invertall,add,mul生效前起作用.值必须在[0,256]范围里.默认值为256.</p>
+<p><span class="STYLE2">示例:</span><br />
+  无<br />
+</p>
+</body>
+</html>

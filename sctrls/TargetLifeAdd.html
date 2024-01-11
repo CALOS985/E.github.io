@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>TargetLifeAdd</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">TargetLifeAdd</p>
+<p>增加目标生命值指定的数量,必要的话此数量会被目标的防御系数缩放.</p>
+<p><span class="STYLE2">必要参数: </span><br />
+  <span class="STYLE3">value = add_amt (整型) </span><br />
+  add_amt是增加到每个目标生命值的数量.</p>
+<p>可选参数: <br />
+  <span class="STYLE3">ID = target_id (整型) </span><br />
+  指定要作用的目标ID号.只有此ID号的目标将被影响.默认为-1.(对所有目标起作用)</p>
+<p><span class="STYLE3">kill = kill_flag (布尔型) </span><br />
+如果kill_flag是0,则不会杀死目标,最少保留目标1点血.默认是1.</p>
+<p><span class="STYLE3">absolute = abs_flag (布尔型) </span><br />
+如果abs_flag是1,则add_amt将不受缩放影响(比如攻击,防御系数将被忽略).默认为0.</p>
+<p><span class="STYLE2">示例: </span><br />
+  无<br />
+</p>
+</body>
+</html>

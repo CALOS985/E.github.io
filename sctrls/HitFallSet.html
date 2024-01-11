@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>HitFallSet</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">HitFallSet</p>
+<p>当玩家被击中,设置玩家的下落变量.</p>
+<p><span class="STYLE2">必要参数: </span><br />
+无</p>
+<p><span class="STYLE2">可选参数: </span><br />
+  <span class="STYLE3">value = fallset_flag (整型) </span><br />
+  如果fallset_flag是-1,则此控制器不会改变玩家是否将要下落.<br />
+如果fallset_flag是0,意味着玩家将不进入下落状态,1表示将进入下落状态.默认值为-1.</p>
+<p><span class="STYLE3">xvel = x_velocity (浮点型) </span><br />
+见下方.</p>
+<p><span class="STYLE3">yvel = y_velocity (浮点型) </span><br />
+  若指定,分别设置玩家的fall.xvel和fall.yvel参数.<br />
+详见HitDef对这些参数的描述.</p>
+<p><span class="STYLE2">示例: </span><br />
+无</p>
+<p><span class="STYLE2">特例:</span><br />
+  可作为特殊效果使用,比如对方空中被冰冻着地后再被非fall攻击不会被击飞.<br />
+  [State 0, HitFallSet]<br />
+  type = HitFallSet<br />
+  trigger1 = time = 0<br />
+value = 0</p>
+</body>
+</html>

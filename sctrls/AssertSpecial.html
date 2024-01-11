@@ -1,0 +1,84 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>AssertSpecial</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #0000FF;
+	font-weight: bold;
+}
+.STYLE3 {color: #FF00FF}
+.STYLE4 {color: #0000FF}
+.STYLE5 {color: #FF00FF; font-weight: bold; }
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">AssertSpecial</p>
+<p>此控制器此允许你同时断言3个特殊的标示.<br />
+  因为MUGEN会在每个游戏帧内自动撤销这些断言,所以如果想让他在一段时间内被激活,你必须在这段时间内每帧都断言.</p>
+<p><span class="STYLE5">必要参数:</span> <br />
+  <span class="STYLE4">flag = flag_name </span><br />
+flag_name是需要断言的指定字符串标示.</p>
+<p><span class="STYLE5">可选参数: </span><br />
+  <span class="STYLE4">flag2 = flag2_name </span><br />
+一个可选的断言标示.</p>
+<p><span class="STYLE4">flag3 = flag3_name</span> <br />
+另一个可选的断言标示.</p>
+<p><span class="STYLE5">详情: </span><br />
+标示名可以是以下的一种:</p>
+<p><span class="STYLE4">intro</span> <br />
+告诉MUGEN人物正在表演开场姿势.开场时(该标示)必须每帧都被断言.</p>
+<p><span class="STYLE4">invisible </span><br />
+断言后人物变的不可见.不会影响显示的残影.</p>
+<p><span class="STYLE4">roundnotover </span><br />
+告诉MUGEN人物正在表演胜利姿势.胜利时(此标示)每帧都该被断言.</p>
+<p><span class="STYLE4">nobardisplay </span><br />
+当断言后,血条,能量条等等将不被显示.</p>
+<p><span class="STYLE4">noBG </span><br />
+关闭背景,屏幕被清黑.</p>
+<p><span class="STYLE4">noFG </span><br />
+无法显示舞台的1号图层.</p>
+<p><span class="STYLE4">nostandguard </span><br />
+断言期间,人物将不能站立防御.</p>
+<p><span class="STYLE4">nocrouchguard </span><br />
+断言期间,人物将不能蹲下防御.</p>
+<p><span class="STYLE4">noairguard </span><br />
+断言期间,人物将不能空中防御.</p>
+<p><span class="STYLE4">noautoturn </span><br />
+断言期间,阻止人物自动转向对手.</p>
+<p><span class="STYLE4">nojugglecheck </span><br />
+断言期间,juggle(连击数)将不会被检测.无论连击点数是多少,P2都能被连击.</p>
+<p><span class="STYLE4">nokosnd </span><br />
+  阻止已被击败的玩家播放11,0号声音(被KO的声音).<br />
+对于拥有KO回声设定的玩家来说,为了压制住各种回声效果,nokosnd必须在玩家被KO之后断言大于等于50个帧数.</p>
+<p><span class="STYLE4">nokoslow </span><br />
+断言期间,阻止MUGEN用慢动作显示一局的结束.</p>
+<p><span class="STYLE4">noko </span><br />
+断言期间,阻止人物死亡.（Alive不变0,回合不结束,但是TU时还是会出胜负判定,用超即死很容易突破.）</p>
+<p><span class="STYLE4">noshadow </span><br />
+断言期间,将无法显示玩家的影子.</p>
+<p><span class="STYLE4">globalnoshadow </span><br />
+断言期间,所有玩家,helper,explod都不能显示影子.</p>
+<p><span class="STYLE4">nomusic </span><br />
+断言期间,停止播放背景音乐.</p>
+<p><span class="STYLE4">nowalk </span><br />
+断言期间,player不能进入行走状态,即使受控制.用于防止跑动状态取消为行走.</p>
+<p><span class="STYLE4">timerfreeze </span><br />
+断言期间,阻止回合的倒计时.用于阻止回合的TimeOver(时间终了).</p>
+<p><span class="STYLE4">unguardable </span><br />
+任何断言中玩家的Hitdef变得不可防御.即,他们的guardflag被忽略.</p>
+<p><span class="STYLE5">示例: </span><br />
+无</p>
+</body>
+</html>

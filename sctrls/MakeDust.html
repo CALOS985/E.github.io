@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>MakeDust</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">MakeDust</p>
+<p>不推荐使用此控制器,请使用Explod控制器.<br />
+  制造尘土效果.</p>
+<p><span class="STYLE2">必要参数: </span><br />
+无</p>
+<p><span class="STYLE2">可选参数: </span><br />
+  <span class="STYLE3">pos = x_pos, y_pos (整型) </span><br />
+指定尘土被画出的位置,相对于玩家的坐标轴.默认是0,0.</p>
+<p><span class="STYLE3">pos2 = x_pos, y_pos (浮点型) </span><br />
+指定同时画出的第2个尘土的位置.若缺省,则第2个尘土将不会被画出.</p>
+<p><span class="STYLE3">spacing = value (整型) </span><br />
+确定绘制尘土的时间间隔.例如,spacing = 3(默认值)将每隔3帧绘制一个新的尘土效果.spacing的值应大于等于1.</p>
+<p><span class="STYLE2">示例: </span><br />
+无</p>
+<p><span class="STYLE2">注:</span><br />
+此控制器直接调用fightfx内动画号为120的动画.</p>
+</body>
+</html>

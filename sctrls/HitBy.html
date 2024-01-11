@@ -1,0 +1,51 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>HitBy</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">HitBy</p>
+<p>临时指定允许击中玩家的攻击类型.</p>
+<p><span class="STYLE2">必要参数: </span><br />
+  <span class="STYLE3">value = attr_string 或者 value2 = attr_string</span><br />
+  上面的参数只有1种能被指定.<br />
+attr_string应该是一个标准的攻击属性字符串.见详情.</p>
+<p><span class="STYLE2">可选参数: </span><br />
+  <span class="STYLE3">time = effective_time (整型) </span><br />
+指定HitBy属性有效的时间帧数.默认为1.</p>
+<p><span class="STYLE2">详情: </span><br />
+  在HitBy控制器中,玩家有2个能被设定且运用的攻击属性槽value 或 value2.这些属性槽也能被NotHitBy控制器设定.<br />
+  当设置了一个属性槽,便会获得一个计时器(有效的时间),此计时器会朝0倒计时.<br />
+  计时到0之前属性槽被认为是激活的.<br />
+  仅当Hitdef的(attr)属性出现在当前所有激活的属性槽中,玩家才能被此HitDef击中.<br />
+使用HitBy控制器设置指定的属性槽包含仅那些出现在HitBy属性字符串中的攻击属性.</p>
+
+<p>HitBy同时也与HitDef的attr参数遥相呼应. 请参阅 <a href="HitDef.html">HitDef</a></p>
+
+<p><span class="STYLE2">示例:</span><br />
+  ; 仅能被站立普通攻击击中.<br />
+  trigger1 = 1<br />
+  type = HitBy<br />
+value = S, NA</p>
+</body>
+</html>

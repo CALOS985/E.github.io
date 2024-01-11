@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>Zoom</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">Zoom</p>
+<p>1.1新特性。对游戏进行整体缩放，常用于必杀特写。</p>
+<p><span class="STYLE2">必要参数: </span><br />
+无</p>
+<p><span class="STYLE2">可选参数: </span><br />
+  <span class="STYLE3">scale = value (float) </span><br />
+摄像机缩放比例，1为100%，2.5为缩放至原大小的250%，不能小于1，否则会无效。<br />
+注意：该比例以当前屏幕缩放(CameraZoom)为基础进行缩放，而不是在CameraZoom=1.0时候。<br />
+如当前CameraZoom=0.5，此参数scale=2.5，则最终得到的屏幕缩放比例为：0.5*2.5=1.25，即此时的屏幕大小为125%。<br />
+如果人物在不停的上下左右移动，导致CameraZoom数值变化，那么最终的屏幕缩放也会随之变化。<br />
+故如果在带有缩放的场景(zoomout zoomin)中使用此缩放时，需要在CameraZoom变化时做相应变化。
+</p>
+<p><span class="STYLE3">pos = x, y(int) </span><br />
+摄像机变焦的位置，该位置相对于场景中心。该位置为绝对屏幕坐标。</p>
+<p><span class="STYLE3">lag = value(float) </span><br />
+变焦的速度，大于和等于1会无效(必须大于0，小于1)，数值越小速度越快，数值越大速度越慢。</p>
+<p><span class="STYLE2">替代语法: </span><br />
+无</p>
+<p><span class="STYLE2">示例1: </span><br />
+[State -2]<br />
+type = Zoom<br />
+triggerall = !ishelper<br />
+trigger1 = win<br />
+scale = 1.5<br />
+pos = pos x,-15<br />
+lag = 0.1<br />
+<br />
+[State -2]<br />
+type = Zoom<br />
+triggerall = !ishelper<br />
+trigger1 = lose<br />
+scale = 1.5<br />
+pos = (enemy,pos x),-15<br />
+lag = 0.1<br />
+<br />
+</p>
+
+
+<p><span class="STYLE2">示例2: </span><br />
+[State -2, 1.5倍缩放,请确保p1在屏幕中央附近]<br />
+type = Zoom<br />
+triggerall = !ishelper<br />
+trigger1 = 1<br />
+scale = 1.5/CameraZoom<br />
+pos = pos x,pos y<br />
+lag = 0.1<br />
+<br />
+</p>
+
+
+<p><span class="STYLE2">示例3: </span><br />
+[State -2, 1.5倍缩放]<br />
+type = Zoom<br />
+triggerall = !ishelper<br />
+trigger1 = 1<br />
+scale = 1.5<br />
+pos = pos x,pos y<br />
+lag = 0.1<br />
+<br />
+[State -2]<br />
+type = ScreenBound<br />
+triggerall = !ishelper<br />
+trigger1 = 1<br />
+value = 1<br />
+<br />
+</p>
+
+</body>
+</html>
