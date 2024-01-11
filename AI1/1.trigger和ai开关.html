@@ -1,0 +1,263 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>1.trigger和ai开关</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">1.trigger和ai开关</p>
+<span class="STYLE3">　　　　　　　　本页内容由net教授撰写. 由【softmgr】整理编辑.</span><br />
+<p>
+从本章开始，教程由net教授提供，本网站会为排版做些内容调整，该教程内容会与口水轩的初级ai教程有一部分重复。<br />
+<br />
+先说一句，制作ai不是那么容易的，必须十分熟悉角色的各种性能，连段，立回，防御，压制都得考虑，是很耗时间的，<br />
+特别是要花大量时间作测试。万一出错还得debug……<br />
+即使如此你还是要做ai？那么……覚悟しろ！（师匠音）<br />
+本人才疏学浅，只是对mugen就ai方面有点了解，所以有错误欢迎各位高手指出。<br />
+</p>
+
+<p>
+<span class="STYLE2">注意事项</span><br />
+1 写ai时数学，标点符号请用英文半角，否则系统不认<br />
+2 永远记得改ai前把文件备份一次。否则后果自负……最好写到某个阶段就备份下，免得以后改出问题<br />
+3 未经过原人物作者同意，或原ai作者同意。<br />
+不得公开发布私自制作或改造的ai（主要就是别去mc新闻区这种公共场所发布）。 私底下小范围传播，自己用来做做视频没事。<br />
+4 请注意人物版本的对应。<br />
+要准备的东西<br />
+1 mugen主程序及人物。至少懂得加人物，打ai补丁之类的mugen基础知识。<br />
+2 记事本。推荐用notepad2，可以转码。<br />
+3 其他好像没啥要准备的了……<br />
+</p>
+
+<p>
+<span class="STYLE2">本文参考资料：</span><br />
+⑨氏主页上的ai相关资料<br />
+平成氏ai说明书<br />
+trigger表和script表，文档翻译版下载:<br />
+https://pan.baidu.com/s/1eQ4HoyA<br />
+其他……<br />
+</p>
+
+<p>
+<span class="STYLE2">Episode 0 trigger和type</span><br />
+最好看一下这2个表，尤其是trigger表，熟悉一下trigger（触发器）是啥东西。不看也无所谓……就在下面的教程中慢慢熟悉也可。<br />
+type表也有种说法是script表。<br />
+这2个表在\winmugen\docs里有。trigger.html和sctrls.html就是，不过是英文版<br />
+简单的说trigger就是“当发生啥情况的时候”，type就是“做什么”，trigger是条件，type是结果。<br />
+一般在ai里用得最多的type是changestate，其次是varset，其他的用的不多。<br />
+</p>
+
+<p>
+<span class="STYLE2">举个简单的例子</span><br />
+[state -1]<br />
+type = poweradd ;加气<br />
+triggerall = roundstate = 2 ;比赛必须在进行的时候（不是刚开始或者已经分出胜负的时候）<br />
+trigger1 = stateno = 500 ;处于state号为500的动作时（假设是聚气动作） trigger2 = life<=300 ;血小于300时<br />
+trigger2 = var(30) = 2 ;当某个变量var(30)为2的时候<br />
+value = 5 ;加气的值为5<br />
+其中triggerall是最主要的条件，满足后接下来才判断是否能满足trigger1或者trigger2。而trigger1和trigger2两者之间是或的关系。但2个trigger2之间是和的关系，2者都得满足，才算是真正满足trigger2。如果有3个trigger2，那3个的条件都得满足，依此类推。<br />
+只要满足triggerall，再满足trigger1或trigger2两者之一，就能执行type所定义的事情（这里是加气）。<br />
+注意：写的时候trigger1后面别直接跟trigger3，别跳号，会出问题的……<br />
+所以这个state的解读就是，当比赛进行中的前提下，在做state号为500的聚气动作的时候，或者血量小于300且var(30)=2的时候，就加5气。<br />
+由于mugen是每帧判断一次trigger，通常在60FPS下1秒有60帧，所以实际效果是在满足条件的时候，每秒钟回复300气。<br />
+PS：分号后是注释，你可以随便写点说明文字之类的话，程序不会把分号后的内容读进去的。但分号必须用英文半角（上面说过了）。<br />
+</p>
+
+<p>
+<span class="STYLE2">最后再介绍下常用的逻辑符号</span><br />
+&& 和<br />
+|| 或<br />
+! 否<br />
+比如trigger1 = (life > 500 && power<1000) || var(30)!=2<br />
+就是当血量大于500且能量小于1000，或var(30)不等于2的时候，trigger成立<br />
+另外像!var(59)这种表达，就相当于var(59)=0<br />
+</p>
+
+<p>
+<span class="STYLE2">Episode 1 ai开关</span><br />
+ai开关有什么用？是控制ai的开启和关闭的。<br />
+一个人物有被人操纵的时候，和被ai操纵的时候。<br />
+ai开关的作用，就是被人操纵的时候，不开启ai。而cpu操纵的时候，会自动判断并开启ai。所以说好的ai开关要判断出到底是人在操作，还是电脑在操纵。该开ai的时候开，不该开的时候不开。<br />
+首先要说明一点：mugen是有自带的ai的，只是这个ai是随机发招，防御而已，相当于乱按流，出招频率也不高，很纱布，但我们可以利用这个默认ai来判断是不是人在操作。<br />
+</p>
+
+<p>
+<span class="STYLE2">先给个ai开关的实例吧。</span><br />
+ai开关通常分2部分，第1部分通常在cmd里，就是为ai设计的指令，以下就是某体术青子的ai用cmd<br />
+; AI<br />
+[Command]<br />
+Name = "AI_01"<br />
+Command = a, b, c, x, y, z, s<br />
+Time = 0<br />
+[Command]<br />
+Name = "AI_02"<br />
+Command = x, y, z, a, b, c, s<br />
+Time = 0<br />
+[Command]<br />
+Name = "AI_03"<br />
+Command = z, y, x, c, b, a, s<br />
+Time = 0<br />
+[Command]<br />
+Name = "AI_04"<br />
+Command = c, b, a, z, y, x, s<br />
+Time = 0<br />
+[Command]<br />
+Name = "AI_05"<br />
+Command = a, b, c, z, y, x, s<br />
+Time = 0<br />
+[Command]<br />
+Name = "AI_06"<br />
+Command = z, y, x, a, b, c, s<br />
+Time = 0<br />
+[Command]<br />
+Name = "AI_07"<br />
+Command = x, y, z, c, b, a, s<br />
+Time = 0<br />
+[Command]<br />
+Name = "AI_08"<br />
+Command = c, b, a, x, y, z, s<br />
+Time = 0<br />
+[Command]<br />
+Name = "AI_09"<br />
+Command = a, a, a, a, a, s<br />
+Time = 0<br />
+[Command]<br />
+Name = "AI_10"<br />
+Command = b, b, b, b, b, s<br />
+Time = 0<br />
+[Command]<br />
+Name = "AI_11"<br />
+Command = c, c, c, c, c, s<br />
+Time = 0<br />
+[Command]<br />
+Name = "AI_12"<br />
+Command = x, x, x, x, x, s<br />
+Time = 0<br />
+[Command]<br />
+Name = "AI_13"<br />
+Command = y, y, y, y, y, s<br />
+Time = 0<br />
+[Command]<br />
+Name = "AI_14"<br />
+Command = z, z, z, z, z, s<br />
+Time = 0<br />
+[Command]<br />
+Name = "AI_15"<br />
+Command = s, s, s, s, s, s<br />
+Time = 0<br />
+[Command]<br />
+Name = "AI_16"<br />
+Command = U, U, U, U<br />
+Time = 0<br />
+[Command]<br />
+Name = "AI_17"<br />
+Command = D, D, D, D<br />
+Time = 0<br />
+[Command]<br />
+Name = "AI_18"<br />
+Command = F, F, F, F<br />
+Time = 0<br />
+[Command]<br />
+Name = "AI_19"<br />
+Command = B, B, B, B<br />
+Time = 0<br />
+这些指令应该能看懂吧，以防万一再说以下，U＝UP（上）,F＝forward（前），B＝back（后），D＝down（下）<br />
+小写的a,b,c,x,y,z就表示6个拳脚之类的攻击键,s是start键，time就是表示必须在几F内输入指令才会成功。<br />
+</p>
+
+<p>
+<span class="STYLE2">至于其他符号</span><br />
+1.保持状态 (/) 例如:/D 意思为必须保持 "下" 这个按键不放.<br />
+当然也可以用在一组命令里,意为在按下控制键之前方向键保持按下状态,当然/后可以用控制键,不光是方向键.<br />
+注意:标记“~”用于设置按键状态为放开 例如: ~a表示这个键不用保持按下状态,可以按下后即放开.<br />
+在~前加一个数字,用于表达按下时间的长短.例如:~30a<br />
+2.动作方向 ($) 例如:$D 意为DB,DF 也在.<br />
+3.按键同时 (+) 例如:a+b+c 意为这三个键同时按下.<br />
+这些命令是可以组合的,例如: ~30$D,a+b<br />
+所以第一个“ai_0”的command的意思是<br />
+必须在0F内输入a, b, c, x, y, z, s，显然这是人办不到的，以下19个ai指令都必须在0F内输入，都是人类完成不了的事。<br />
+所以当人操作的时候，是不会成功按出这19个ai指令的，永远都不可能发出ai指令。 但是当cpu操纵的时候就不一样。mugen自带的ai虽然纱布，但是ai和人不一样，不用“输入”，便可以直接成功发出指令。<br />
+mugen自带的ai是只要是定义过的指令都会随机用。那样就会有相当概率发出ai指令。<br />
+发出ai指令的后果是怎样？当然不能没结果，我们要的结果就是当有一个人类不能完成的ai指令被发动时，就判断出这是cpu在操纵人物，然后启动我们自己编写的ai<br />
+而这必须由ai开关的第二部分完成。看一下实例吧。<br />
+</p>
+
+<p>
+<span class="STYLE2">第2部分，ai的启动</span><br />
+[State -3, AI]<br />
+Type = VarSet ;设置变量的值<br />
+TriggerAll = Var(59) = 0 ;当var(59)=0(ai没有被开启的时候)<br />
+triggerall = RoundState = [1,2] ;当对局处于开始阶段或进行阶段的时候<br />
+Trigger1 = command = "AI_01"<br />
+Trigger2 = command = "AI_02"<br />
+Trigger3 = command = "AI_03"<br />
+Trigger4 = command = "AI_04"<br />
+Trigger5 = command = "AI_05"<br />
+Trigger6 = command = "AI_06"<br />
+Trigger7 = command = "AI_07"<br />
+Trigger8 = command = "AI_08"<br />
+Trigger9 = command = "AI_09"<br />
+Trigger10 = command = "AI_10"<br />
+Trigger11 = command = "AI_11"<br />
+Trigger12 = command = "AI_12"<br />
+Trigger13 = command = "AI_13"<br />
+Trigger14 = command = "AI_14"<br />
+Trigger15 = command = "AI_15"<br />
+Trigger16 = command = "AI_16"<br />
+Trigger17 = command = "AI_17"<br />
+Trigger18 = command = "AI_18"<br />
+Trigger19 = command = "AI_19" ;当以上19个ai指令中有一个被发动时<br />
+;trigger20 = 1 ;无条件触发，就是所谓的ai常时启动，不过此时这个trigger20被分号注释掉了，程序不会读<br />
+V = 59<br />
+Value = 1 ;这2行就是使var(59)这个变量的值为1<br />
+IgnoreHitPause = 1<br />
+这里var(59)这个变量就充当了ai的开关。<br />
+用其他var也可以，不过一般最常见的是var(59)，之后的文章里假设ai开关就是var(59)。<br />
+var(59)=0的时候，ai不开启。<br />
+当mugen默认ai发动任何一个人类不可能发动的ai指令的时候，设置var(59)=1，此时对应此人物的专门的ai就开启了。<br />
+简而言之，ai开关的作用机制就是：<br />
+检测到人在操作的时候－关闭ai<br />
+检测到mugen自带ai操作的时候－开启专门的ai<br />
+顺便说下<br />
+Trigger1 = command = "AI_01" 和<br />
+Trigger1 = command = "AI_01" = 1<br />
+是一回事，"= 1"可以省略。<br />
+当然"= 2"是不能省略的<br />
+</p>
+
+<p>
+<span class="STYLE2">ai的常时启动</span><br />
+注意下trigger20，如果把前面的分号去掉的话，程序就会读这一行trigger20 = 1，此时ai就会常时启动，这时你进训练模式，那ai也会自动启动，夺取你的控制权。<br />
+当然你要自己玩时，不可以让ai常时启动，但如果录ai比赛的视频时，推荐采取ai常时启动的方式。<br />
+为什么？因为前面说过，如果没有设置常时启动ai，要让自己编写的ai启动，得先让mugen自带的ai发动那19条ai指令之一，但mugen自带的ai又不聪明，它是随机发动指令的，要正好发动到那19条ai指令（而不是正常指令）需要一定时间，所以就会出现ai发呆的情况。<br />
+另外有些人物即使在ai已经启动的时候(var(59)=1时)，某些情况下会不明原因自动关掉ai(使var(59)=0)，这时ai又要花时间重新通过发动ai指令启动ai，在这段ai空白期内就会发生乱动或发呆的现象(mugen自带ai很纱布嘛)。所以有些人物ai常时启动与否可谓大不一样，比如GG的囧尼之类。<br />
+</p>
+
+<p>
+<span class="STYLE2">小技巧</span><br />
+通常ai开关也掌管ai等级。如果要在一片state里迅速找到控制ai等级的var，最好的方法就是搜索cmd里定义的ai指令的名字（比如"AI_15"）。<br />
+往下拉就能看到了<br />
+</p>
+
+<p></p>
+</body>
+</html>
