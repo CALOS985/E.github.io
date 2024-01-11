@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>3.3.5 velset</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">3.3.5 velset</p>
+<p>你能使用velset来设置状态起始时P1的速度.<br />
+  格式是一对数字,分别代表x和y方向速度.<br />
+缺省将不改变P1原来速度.例如:</p>
+<ul>
+  <li>velset = 4,-8<br />
+    </li>
+</ul>
+<p>使P1向上,向前移动.<br />
+  这里有个特例.即使你设置了velset=0,在版边攻击P2的时候P1将被弹开.</p>
+<p>注: 在Winmugen中,可以设置z轴,即velset=x,y,z,可是该语法放在mugen1.x中时运行会报错,解决办法是删除z轴参数.</p>
+</body>
+</html>

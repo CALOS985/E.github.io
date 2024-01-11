@@ -1,0 +1,154 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>3.4.3 常用控制器</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">3.4.3 常用控制器</p>
+<p>null控制器常用于调试.null控制器基本上没什么用.你能用他临时关闭某些控制器,而不需要把整个章节注释掉.<br />
+例如,你也许想废弃这些代码:</p>
+<ul>
+  <li>[State 300, 1] <br />
+    type = VelAdd<br />
+    trigger1 = Time &gt;= 0<br />
+    x = .8<br />
+  </li>
+</ul>
+<p>只要简单的注释一下type同时插入null;</p>
+<ul>
+  <li>[State 300, 1]<br />
+    type = null ;VelAdd<br />
+    trigger1 = Time &gt;= 0<br />
+    x = .8<br />
+  </li>
+</ul>
+<p>之后如果你要重新使用之前的控制器,只要把type改成原来的.</p>
+<p>让我们回看这个例子:</p>
+<ul>
+  <li>[Statedef 200]<br />
+    type = S<br />
+    physics = S<br />
+    movetype = I<br />
+    ctrl = 0<br />
+    anim = 200<br />
+    velset = 0<br />
+    <br />
+    [State 200, 1]<br />
+  type = ChangeState<br />
+  trigger1 = AnimTime = 0<br />
+  value = 0<br />
+  ctrl = 1<br />
+  </li>
+</ul>
+<p>[State 200, 1]是ChangeState控制器.顾名思义,改变p1的状态号.value参数要包含改变为的状态号.<br />
+可选的ctrl参数能被设置成当转换状态时的控制标示(进入下一状态时是否受控).</p>
+<p>现在我们来创建一个攻击状态.首先,动画动作需要绘制攻击框.<br />
+快速看一下AIR文档的格式:clsn1是攻击框,clsn2是受击框.<br />
+所以只要p1的任何clsn1框接触了p2的任何clsn2框,p1就击中了p2.</p>
+<p>这个例子,我们假定p1的动画就像下面这样:</p>
+<ul>
+  <li>[Begin Action 200]<br />
+    200,0, 0,0, 3<br />
+    200,1, 0,0, 4<br />
+    200,2, 0,0, 4<br />
+    200,3, 0,0, 3<br />
+  </li>
+</ul>
+<p>定义了攻击/受击框之后,看上去就是:</p>
+<ul>
+  <li>[Begin Action 200]<br />
+    Clsn2: 1<br />
+    Clsn2[0] = -10,0, 10,-80<br />
+    200,0, 0,0, 3<br />
+    Clsn1: 1<br />
+    Clsn1[0] =  10,-70, 40,-60<br />
+    Clsn2: 2<br />
+    Clsn2[0] = -10,  0, 10,-80<br />
+    Clsn2[1] =  10,-70, 40,-60<br />
+    200,1, 0,0, 4<br />
+    Clsn2Default: 1<br />
+    Clsn2[0] = -10,0, 10,-80<br />
+    200,2, 0,0, 4<br />
+    200,3, 0,0, 3<br />
+  </li>
+</ul>
+<p>如你所见,每个元素含有都有clsn2框定义(至少有2个元素使用相同的框).<br />
+仅含有Clsn1框的是第二个元素.</p>
+<p>注意:对动画中每个元素定义clsn1框是没问题的,但在第一个元素中定义clsn1框,此次攻击将变为瞬间的,变得不能防御(因为没有出招时间,对手来不及防御).<br />
+最后,推荐在第一个元素之后定义clsn1框.</p>
+<p>下面我们开始设置CNS中的状态.下面将解释一些改变.</p>
+<ul>
+  <li>[Statedef 200]<br />
+    type = S<br />
+    physics = S<br />
+    movetype = A  ;&lt;-- changed from &quot;I&quot; to &quot;A&quot;<br />
+    ctrl = 0<br />
+    anim = 200<br />
+    velset = 0<br />
+    <br />
+    [State 200, 1] ;&lt;-- Added this state controller<br />
+  type = HitDef<br />
+  trigger1 = AnimElem = 2<br />
+  attr = S, NA<br />
+  animtype  = Light<br />
+  damage    = 10<br />
+  guardflag = MA<br />
+  pausetime = 12,12<br />
+  sparkxy = 0,-55<br />
+  hitsound   = 5,0<br />
+  guardsound = 6,0<br />
+  ground.type = High<br />
+  ground.slidetime = 12<br />
+  ground.hittime  = 15<br />
+  ground.velocity = -5<br />
+  air.velocity = -2.5,-3.5<br />
+  <br />
+  [State 200, 2]<br />
+  type = ChangeState<br />
+  trigger1 = AnimTime = 0<br />
+  value = 0<br />
+  ctrl = 1<br />
+  </li>
+</ul>
+<p>statedef下movetype参数设置成A表示&quot;攻击&quot;.记住在所有攻击状态中设置此参数为A.<br />
+如前,p1在动作结束后返回站立状态.</p>
+<p>hitdef控制器看起来很恐怖!别担心,我们下面会慢慢介绍.</p>
+<ul>
+  <li>type = HitDef<br />
+    trigger1 = AnimElem = 2</li>
+</ul>
+<p>指定了控制器类型为hitdef,表示&quot;攻击定义&quot;.<br />
+在动画的第2元素时被触发.任何此时间点的clsn2框,触发器被激活时,将携带此攻击定义.</p>
+<p>假如,举例,你在第2,第3元素中都有clsn1框,在第2元素触发单个hitdef将使他同时作用于两个元素.<br />
+所以p1至少将打击1次:如果第2元素击中了,第3元素将miss.如果第3元素击中了,第2元素将miss.<br />
+  要使攻击hit2次,你必须每个元素都触发hitdef控制器.<br />
+</p>
+<ul>
+  <li>attr = S, NA<br />
+  </li>
+</ul>
+<p>攻击的属性.用于决定是否攻击能击中p2.<br />
+此例中,这是一个站立普通攻击.</p>
+<p>下面的所有参数详见hitdef控制器,在此不一一解释了.</p>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>6.7 bottom</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">6.7 bottom</p>
+<p>表达式中有几种无法补救的错误.<br />
+  例如,可能试图去除以0,计算负数的平方根,或者试图重定向触发器到不存在的地址.<br />
+  在这些情况下,bottom被用于优雅的完成表达式计算的一种方式.<br />
+  如果bottom出现在表达式的任何地方(注意下面两个异常: 见Special Forms),则整个表达式的会变成bottom.<br />
+例如,思考这个表达式:</p>
+<ul>
+  <li>5 + fvar(0) ** 0.5<br />
+    如果fvar(0)计算出-1,则此表达式变为5+bottom,产生bottom.</li>
+</ul>
+<p>bottom在条件型触发器中被认为是0.<br />
+  因此,一个产生错误的表达式将不会引起触发器崩溃.所以,例如,在</p>
+<ul>
+  <li>type = ChangeState<br />
+    trigger1 = helper, statetype = A<br />
+    value = 0</li>
+</ul>
+<p>中,ChangeState控制器将永远不会被执行如果没有helper存在,因为表达式&quot;helper, statetype = A&quot;将计算出bottom,被认为是0.<br />
+  (注:此种情况在debug时会出warning,解决方式就是在这条触发条件上方加上:<br />
+  </p>
+<ul>
+  <li>type = ChangeState<br />
+    <span class="STYLE3">trigger1 = numhelper</span><br />
+    trigger1 = helper, statetype = A<br />
+    value = 0<br />
+  </li>
+</ul>
+<p>由于控制器检测的时候遵循从上到下的顺序,所以会先检测trigger1 = numhelper,如果numhelper非0,表示有helper,则将继续检测trigger1 = helper, statetype = A<br />
+  因为有了helper存在,才不会使控制器重定向到不存在的地址.如果numhelper不存在,则根据检测顺序原理,就不会再检测trigger1 = helper, statetype = A,也就不会出warning. )</p>
+<p>通常当产生bottom时,MUGEN的调试控制台会输出warning.<br />
+  这是因为bottom的存在指示一个可能的逻辑上的错误或者是歧义.<br />
+  例如,在上面的ChangeState的例子中,如果不存在helper,则声明&quot;helper, statetype = A&quot;是空的,且无法判断该认为是真还是假.</p>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>6.11 代码效率</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">6.11 代码效率</p>
+<p>处理表达式不是向电脑收费,所以你代码的可读性比微优化表达式更重要.<br />
+然而,下面的某些好的做法将提高效率同时不影响最终的效果.</p>
+<p>MUGEN在状态控制器中计算条件型触发器遵循如下原则:<br />
+  首先计算triggerall,从上到下顺序计算.<br />
+  如果任何triggerall计算出0,则剩余的触发器将被跳过且将计算下一个控制器.<br />
+  如果所有triggerall计算结果都是非0,则引擎开始计算trigger1,也是从上到下顺序计算.<br />
+  如果它们中任何一个计算出0,则跳过所有剩下的trigger1转而计算第一个trigger2,诸如此类等等.<br />
+  如果一个块中的所有trigger(除了triggerall)都计算出非0,则将开始计算状态控制器参数且控制器被触发.</p>
+<p>换句话说,触发器计算的逻辑是类似短路型的.在类似C语言的标记法中,这种方式也许被记为<br />
+  triggerall,1 &amp;&amp; triggerall,2 &amp;&amp; ... &amp;&amp; ((trigger1,1 &amp;&amp; trigger1,2 &amp;&amp; ...) || (trigger2,1 &amp;&amp; trigger2,2 &amp;&amp; ...) || ... )<br />
+  这里 trigger1,2 记作 trigger1 第2行; trigger2,1 记作 trigger2 第1行,等等. <br />
+  这个trigger组的逻辑计算将是短路型的,就像C一样.</p>
+<p>(注:通过那个逻辑关系式,表示了triggerall组与后面trigger1,trigger2等所有组关系是'&amp;&amp;',也就是说只要triggerall组一个是0,就不能触发.<br />
+  通俗说法就是triggerall里面只要有1个是0就不能触发,要触发必须triggerall全部非0.<br />
+  逻辑关系式还能看出trigger1组和trigger2组...之间都是'||',也就是这些组中只要有一个组为1就能触发(前提是triggerall已经检测为非0.)<br />
+  而在每个trigger组中,他们之间的关系是'&amp;&amp;',比如trigger1组中,要保证trigger1的情况下触发,必须每个trigger1都非0.<br />
+  控制器被触发的通俗说法就是:首先每个triggerall都要非0,然后每个 triggerN组 中最少要有1个非0,triggerN组 要非0,必须每个triggerN都非0. )</p>
+<p>由于这个系统,可以通过 组织好表达式以便条件型触发器里的数字尽可能的即小又少 来实现大大提高效率.<br />
+  状态控制器参数可以减少工作量(代码量),这些参数在触发时仅计算一次,而不是玩家在状态中每帧都计算.例如</p>
+<p>[State -1]<br />
+  type = ChangeState<br />
+  trigger1 = command = &quot;a&quot;<br />
+  trigger1 = power &lt; 1000<br />
+  value = 3000</p>
+<p>[State -1]<br />
+  type = ChangeState<br />
+  trigger1 = command = &quot;a&quot;<br />
+  trigger1 = power &gt;= 1000<br />
+  value = 3001</p>
+<p>[State -1]<br />
+  type = ChangeState<br />
+  trigger1 = command = &quot;a&quot;<br />
+  trigger1 = power &gt;= 2000<br />
+  value = 3002<br />
+  可以进一步简化为:</p>
+<p>[State -1]<br />
+  type = ChangeState<br />
+  trigger1 = command = &quot;a&quot;<br />
+  value = 3000 + (power &gt;= 1000) + (power &gt;= 2000)<br />
+  你同时能为引擎排忧解难,通过把最容易计算出false的triggerall放在triggerall块的顶部.(可以减少引擎计算量)<br />
+  同样,trigger1块应该是最可能被触发的块,但是在trigger1块内部,最有可能计算出0的trigger1应该放置在顶部.<br />
+  对于有很多包含重复条件trigger的状态控制器,最好将这个控制器打断为2个独立的块,每个块独立设置triggerall.</p>
+<p>如果你有一个复杂的条件,这个条件是许多连续状态控制器的触发条件,你可以把这个条件的值存储到一个变量中,然后把这个变量作为后面触发器的控制条件.<br />
+  例如:</p>
+<p>trigger1 = (command=&quot;abc&quot; &amp;&amp; command!=&quot;holddown&quot; &amp;&amp; power&gt;=1000) || (command=&quot;abc&quot; &amp;&amp; command!=&quot;holddown&quot; &amp;&amp; var(5)) || ((command != &quot;abc&quot; || command = &quot;holddown&quot;) &amp;&amp; power&gt;=2000)<br />
+  可以被写成 (直接给 var(0) 赋值是可行的):</p>
+<p>trigger1 = (var(0):=(command=&quot;abc&quot; &amp;&amp; command !=&quot;holddown&quot;) &amp;&amp; power&gt;=1000) || (var(0) &amp;&amp; var(5)) || (!var(0) &amp;&amp; power&gt;=2000)<br />
+  这里,你必须权衡提高可读性.(在使用子表达式和使用:=运算符这两种情况中权衡,这2种情况都会降低可读性)<br />
+  (或者使用varset控制器:<br />
+  [State -1]<br />
+  type = varset <br />
+  ...<br />
+  var(0) = command=&quot;abc&quot; &amp;&amp; command !=&quot;holddown&quot;<br />
+  然后:<br />
+  trigger1 = var(0)&amp;&amp;power&gt;=1000 || var(0)&amp;&amp;var(5) || !var(0)&amp;&amp;power&gt;=2000<br />
+  由于&amp;&amp;运算等级高于||,所以这么写不违背原意.)</p>
+</body>
+</html>

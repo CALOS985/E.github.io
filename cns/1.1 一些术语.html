@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>1.1 一些术语</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">1.1 一些术语</p>
+<p>当我们提到&quot;group(组)&quot;,意味着任何块,行,文字由看上去像是由&quot;[groupname]&quot;开始,结束于下一个组之前.<br />
+例如,下面的Foo组包含了开始的三行:</p>
+<p>[Foo]<br />
+  line1<br />
+  line2</p>
+<p>[Group 2]<br />
+  more lines<br />
+  </p>
+<p>一个组中,参数能以任何顺序表现出来.所以,</p>
+<p>[SomeGroup]<br />
+  value1 = 1234<br />
+  value2 = &quot;A string&quot;</p>
+<p>与下面的相同:</p>
+<p>[SomeGroup]<br />
+  value2 = &quot;A string&quot;<br />
+  value1 = 1234</p>
+</body>
+</html>

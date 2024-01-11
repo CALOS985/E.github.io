@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>4 common1.cns常用状态</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">4 common1.cns常用状态</p>
+<p>如果你看了玩家的DEF文件,会看见如下内容:</p>
+<ul>
+  <li>stcommon = common1.cns  ;Common states</li>
+</ul>
+<p>每个玩家分享了一些常用状态,这是游戏引擎的基础部分.这些常用状态可以在data/common1.cns中找到.<br />
+一些例子是跑步和受击的状态.在特殊状态号中完整的列表是有效的.</p>
+<p>如果你想为某些玩家覆盖常用状态,只要在玩家CNS中创建一个相同状态号(和需要覆盖的状态号相同)的状态.<br />
+则当玩家改变到那个指定的状态号时,他将进入新的状态,而不是common1.cns中的那个.<br />
+(因为stcommon = common1.cns执行优先级很低,大多数CNS文件的优先级都高于他)</p>
+<p>要记住当覆盖mugen中某些有特殊代码的状态时,新创建的状态也有这些特殊代码.<br />
+例如,跑动的状态(state 100)中,设置玩家的速度为你在玩家变量中指定的值.<br />
+如果你覆盖了state 100,新状态将仍然含有这些设定.</p>
+<p>一个普通的例子就是覆盖跑动状态.<br />
+  mugen跑动状态的默认特征就是让玩家以恒定的速度持续向前运动,直到你放开向前的按键.<br />
+之后就回到了站立的状态.</p>
+<p>现在,我们希望让玩家(这里称为p1)用前跳来代替跑,就像按两次向后键就会后跳那样.<br />
+你可以在p1的cns文件中这么设置.</p>
+<ul>
+  <li>; RUN_FWD (overridden to dash-type)<br />
+    [Statedef 100]<br />
+    type    = S   ;Running is on the ground<br />
+    physics = N   ;We'll define our own physics<br />
+    anim = 100    ;Anim action 100<br />
+    ctrl = 0      ;No control for duration of dash<br />
+    <br />
+    [State 100, 1] ;To start dashing forwards<br />
+  type = VelSet<br />
+  trigger1 = Time = [0,5]<br />
+  x = 6<br />
+  <br />
+  [State 100, 2] ;Friction after initial dash<br />
+  type = VelMul<br />
+  trigger1 = Time &gt; 5<br />
+  x = .85<br />
+  <br />
+  [State 100, 3] ;<br />
+  type = ChangeState<br />
+  trigger1 = AnimTime = 0<br />
+  value = 0<br />
+  ctrl = 1<br />
+  </li>
+</ul>
+<p>这里我们假定action 100是有限循环的.<br />
+[Velocity]下设置的run.fwd速度没有真的被忽略,但是[State 100,1]设置了x方向速度为6覆盖了这个细节.</p>
+</body>
+</html>

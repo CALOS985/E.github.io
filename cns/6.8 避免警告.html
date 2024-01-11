@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>6.8 避免警告</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">6.8 避免警告</p>
+<p>一些常见的错误条件在人物中经常产生大量的warning.<br />
+下面是一些最常见的情况和如何避免他们.</p>
+<p class="STYLE2">强制转换浮点型为整型</p>
+<p>如果MUGEN期望某处是一个整型值(例如,一个var索引值),但却产生了一个浮点型值,则MUGEN将把浮点型转换成整型.<br />
+  然而,它会抱怨,因为这也许会对你来说表示一个错误.<br />
+  要摆脱warning,通过提供显式转换将浮点型转换为整型,也就是floor()或ceil().</p>
+<p class="STYLE2">重定向触发器到不存在的目标</p>
+<p>如果你重定向到一个不存在的目标,就像你根本没有helper而你重定向到了helper,则bottom会产生且记录了warning.<br />
+  这是因为表达式逻辑上模糊了(就是上篇文章提到的有歧义).你能通过在重定向前检测目标是否存在来避免warning.所以,</p>
+<p>trigger1 = helper(1234), time &gt; 20<br />
+  将产生warning如果helper1234不存在.</p>
+<p>trigger1 = numhelper(1234) &gt; 0<br />
+  trigger1 = helper(1234), time &gt; 20<br />
+  将不会.具体原因见上一篇文章的&quot;注意&quot;</p>
+<p>另外,你能使用Cond触发器来隔离能潜在产生warning的代码.<br />
+  假设我们要用一个表达式设定helper(1234)的生命值(如果他存在),如果不存在的话就设置player的生命值.则我们可以这么写:</p>
+<p>Cond(numhelper(1234) &gt; 0, (helper(1234), life), life)<br />
+  (围绕helper(1234),life有一个额外的括号,它不是必要的,但能提高可读性)</p>
+<p class="STYLE2">缺少必要的 动作/图片素材</p>
+<p>这不是表达式的问题.把缺失的补上!</p>
+</body>
+</html>

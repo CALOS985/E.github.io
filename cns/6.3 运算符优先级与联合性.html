@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>6.3 运算符优先级与联合性</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">6.3 运算符优先级与联合性</p>
+<p>如果你考虑这样一个表达式:3+2*5,先计算*和先计算+所得到的结果是不同的.<br />
+  为了消除表达式的这种歧义,运算符被分配了不同的优先级别.<br />
+  这种情况下,*的优先级要高于+的优先级,所以将先计算*再计算+,所以3+2*5的结果是13.</p>
+<p>如果两个运算符同级,则处理方式从左到右,除了单目运算符和赋值运算符,他们联合方式从右到左.<br />
+  例如,*和/是同级的,所以5.0*5/6等于25.0/6等于4.166667.<br />
+  另一方面,5/6*5.0等于0*5.0等于0.0.<br />
+  与此相反,单目运算符从右到左计算,-!0也就是-(!0),也就是-1.</p>
+<p>如果表达式的某个部分用使用了括号&quot;()&quot;,则此部分将最先运算.<br />
+  例如,表达式(3+2)*5,首先计算+,然后计算*,结果是25.<br />
+  如果嵌套多个括号,则最里层的括号首先运算.</p>
+<p>运算符优先级基本上和C一样.<br />
+  完整的运算符优先级列表,从高到底,如下:</p>
+<table border="1">
+  <colgroup>
+  <col width="59%" />
+  <col width="41%" />
+  </colgroup>
+  <thead valign="bottom">
+    <tr>
+      <th>运算符</th>
+      <th>优先级</th>
+    </tr>
+  </thead>
+  <tbody valign="top">
+    <tr>
+      <td>! ~ - (单目运算符)</td>
+      <td>最高级</td>
+    </tr>
+    <tr>
+      <td>**</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td>* / %</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td>+ -</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td>&gt; &gt;= &lt; &lt;=</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td>= != 区间运算符</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td>:=</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td>&amp;</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td>^</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td>|</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td>&amp;&amp;</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td>^^</td>
+      <td>?</td>
+    </tr>
+    <tr>
+      <td>||</td>
+      <td>最低级</td>
+    </tr>
+  </tbody>
+</table>
+<br />
+<p>鼓励程序员使用括号使表达式在必要时保持清晰(可读性).<br />
+  否则,由于运算符优先级细微的错误而产生的bug几乎很难被查明.</p>
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>3.3 Statedef的详情</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">3.3 Statedef的详情</p>
+<p>每个状态必须从一个精确的StateDef组开始,也被称为StateDef章节.<br />
+一个StateDef组必须看上去像这样(在小圆点的地方设置一个或更多的参数):</p>
+<p>[Statedef state_number]<br />
+  . state_parameters<br />
+  .<br />
+  .<br />
+  </p>
+<p>将state_number更换成你要编写的状态号.除了特别的组号(见附录A <a href="5%20特殊状态号.html">特殊状态号</a>),你允许使用任何挑选的状态号码.<br />
+为了避免选择特殊的状态号码,请好不要选择0-199,5000-5999.<br />
+每个StateDef的state_number必须是整个人物中唯一的.</p>
+<p>之后将包含下面的基本参数:</p>
+<ul>
+  <li><a href="3.3.1%20type.html">type</a><br />
+    </li>
+  <p>请参阅 <a href="../triggers/StateType.html">StateType</a><br />
+  若要保持与上一个状态相同的type,设置为U.</p>
+  <li><a href="3.3.2%20movetype.html">movetype</a><br />
+    </li>
+  <p>请参阅 <a href="../triggers/MoveType.html">MoveType</a><br />
+  若要保持与上一个状态相同的movetype,设置为U.</p>
+  <li><a href="3.3.3%20physics.html">physics</a><br />
+    </li>
+  若要保持与上一个状态相同的physics,设置为U.</p>
+  <li><a href="3.3.4%20anim.html">anim</a><br />
+  <p>请参阅 <a href="../triggers/Anim.html">Anim</a></p>
+    </li>
+</ul>
+<p>这里也能包含额外的可选参数.</p>
+<ul>
+  <li><a href="3.3.5%20velset.html">velset</a><br />
+    </li><br />
+  <li><a href="3.3.6%20ctrl.html">ctrl</a><br />
+    </li><br />
+  <li><a href="3.3.7%20poweradd.html">poweradd</a><br />
+    </li><br />
+  <li><a href="3.3.8%20juggle.html">juggle</a><br />
+    </li><br />
+  <li><a href="3.3.9%20facep2.html">facep2</a><br />
+    </li><br />
+  <li><a href="3.3.10%20hitdefpersist.html">hitdefpersist</a><br />
+    </li><br />
+  <li><a href="3.3.11%20movehitpersist.html">movehitpersist</a><br />
+    </li><br />
+  <li><a href="3.3.12%20hitcountpersist.html">hitcountpersist</a><br />
+    </li><br />
+  <li><a href="3.3.13%20sprpriority.html">sprpriority</a></li><br />
+</ul>
+</body>
+</html>

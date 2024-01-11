@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>3.4.2.2 触发器持续性</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">3.4.2.2 触发器持续性</p>
+<p>如果你不想在每次条件为真的时候都触发,则你需要加上一个参数persistent.让我们开始一个例子:</p>
+<ul>
+  <li>[State 310, 1]<br />
+    type = PosAdd<br />
+    trigger1 = Vel Y &gt; 1<br />
+    x = 10</li>
+</ul>
+<p>此控制器使p1每帧朝前移动10像素,只要p1的y方向速度大于1.<br />
+就是说,每次触发条件为真都能激活控制器.如果我们只要控制器被激活1次,我们要加上这行:</p>
+<ul>
+  <li>[State 310, 1]<br />
+    type = PosAdd<br />
+    trigger1 = Vel Y &gt; 1<br />
+    persistent = 0       ;&lt;-- 加上这行<br />
+    x = 10</li>
+</ul>
+<p>persistent默认值为1,表示只要触发条件为真控制器每次都能被激活.<br />
+persistent设置为0只允许在此状态中激活控制器1次.<br />
+直到p1离开此状态都会保留真.如果p1之后再次进入此状态,此控制器还是只激活1次.</p>
+<p>persistent的参数也能取0,1之外的数:</p>
+<p>[State 310, 1]<br />
+type = PosAdd<br />
+trigger1 = Vel Y &gt; 1<br />
+persistent = 2       ;&lt;-- 改变此行<br />
+x = 10</p>
+<p>此情况下,设置persistent为2表示每2次触发条件为真,控制器被激活1次.<br />
+设置persistent为3表示每3次触发条件为真,控制器被激活1次.等等.</p>
+</body>
+</html>

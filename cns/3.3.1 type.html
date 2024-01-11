@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>3.3.1 type</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">3.3.1 type</p>
+<p>这是P1在这个状态中的状态类型.定义了他是站立,蹲下,在空中,还是躺着.<br />
+  相对应的字母分别是&quot;S&quot;, &quot;C&quot; , &quot;A&quot; 和 &quot;L&quot;(不带引号).<br />
+  要保持上一个状态的状态类型,使用&quot;U&quot;.如果缺省这行,则假定为&quot;S&quot;.<br />
+你将经常用到&quot;S&quot;,&quot;C&quot;和&quot;A&quot;.例如,一个蹲下的状态类型必须是下面这行:</p>
+<ul>
+  <li>type = C</li>
+</ul>
+<p>这个状态用来决定几个因素,最重要的,P1被击中时将是什么反应.<br />
+  例如,在站立类型状态中,P1将作出犹如站在地面上一样的反应.<br />
+  如果类型是&quot;空中&quot;,则P1将作出相应的受击反应.</p>
+</body>
+</html>

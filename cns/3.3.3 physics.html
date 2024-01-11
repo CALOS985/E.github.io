@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>3.3.3 physics</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p><span class="STYLE1">3.3.3 physics</span><br />
+</p>
+<p>你需要指定在此状态中的物理属性.<br />
+  有效值是,&quot;S&quot;表示站立,&quot;C&quot;表示蹲下,&quot;A&quot;表示空中,&quot;N&quot;表示无.<br />
+  要保持上一个状态的物理属性,使用&quot;U&quot;.如果缺省这行,则假定为&quot;N&quot;.<br />
+物理属性的种类用来决定P1的行为特征.</p>
+<ul>
+  <li>对&quot;S&quot;物理属性来说,P1将经受地面摩擦力.摩擦力系数设置在player的变量中.<br />
+    </li>
+  <li>对&quot;C&quot;物理属性来说,P1将经受摩擦力,就像&quot;S&quot;状态.<br />
+    </li>
+  <li>对&quot;A&quot;物理属性来说,P1将加速向下,如果他的y方向位置大于0(即,他触及了地面),他将立即进入落地状态.</li>
+  <li>如果你使用&quot;N&quot;,P1将不会有这些程序设定的物理状态.<br />
+    </li>
+</ul>
+<p>不要把&quot;physics&quot;和&quot;type&quot;混淆.通常他们是相同的,但是给了你更好控制人物的机会.<br />
+  例如,你也许会选择使用&quot;N&quot;(没有物理属性),且在空中状态中指定你自己的加速度和落地检测.</p>
+</body>
+</html>

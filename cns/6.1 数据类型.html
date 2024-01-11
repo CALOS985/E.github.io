@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>6.1 数据类型</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">6.1 数据类型</p>
+<p>MUGEN使用3种数据类型:32位整数,32位浮点数,特殊null值&quot;bottom&quot;.<br />
+  整数代表从-2^31到2^31-1的所有数目,或者大约-20亿到20亿.<br />
+  浮点数是单精度浮点数.也就是说,这个数字有一个7位有效数字的小数部分.<br />
+浮点数能用来表示很小的分数或者是非常庞大的数字.</p>
+<p>当你在表达式中写数字时,MUGEN从存在的小数点中推导数据类型.<br />
+  因此&quot;7&quot;一直是一个整数,举个例子.如果你想让7变成和浮点数一样,则你要写成&quot;7.0&quot;.</p>
+<p>&quot;bottom&quot;是一个特殊的数据类型,任何出现&quot;bottom&quot;的表达式将被清零(除了一些非常有限的例外).<br />
+  它的出现标志着存在一些错误条件类型.你应该尝试如此的方式编程使bottom不再产生.<br />
+  关于详情,你可以查看bottom的专属章节.</p>
+<p>算术表达式的特征很大程度上取决于用来表示数字的基本数据类型.<br />
+  同时,状态控制器也许期望他们的输入以某种类型输出,如果提供了错误的类型将出错.<br />
+  (控制器指定的输出类型与实际输出类型不相符)</p>
+<p>当不同数据类型值需要通过一些方式合并时(例如,加),&quot;强制类型转换&quot;就会发生.<br />
+  通常,这表示一个整型将被转换成浮点型,同时有可能在此过程中产生误差.(强制转换)<br />
+  下面的章节中我们将注意任何有关强制类型转换情况.</p>
+</body>
+</html>

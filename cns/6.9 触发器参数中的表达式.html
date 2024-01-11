@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>6.9 触发器参数中的表达式</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">6.9 触发器参数中的表达式</p>
+<p>大多数函数型触发器要么没有参数要么有一个参数列表.<br />
+例如,time触发器没有参数,而ifelse却有3个参数.</p>
+<ul>
+  <li>ifelse(exp1,exp2,exp3)</li>
+</ul>
+<p>这里exp1, exp2, exp3是所有有效的表达式.<br />
+  在这种情况下,exp1, exp2, exp3都被认为是单独的子表达式,所以区间运算符可以出现在每个子表达式的最右方.<br />
+  参数表运算顺序是从左到右.</p>
+<p>由于不规则的语法,一些旧式函数型触发器不能使用表达式作为参数.<br />
+  因为这个原因,它们不能通过标准方式被纳入表达式中.<br />
+  对于这些类型的非标准触发器,触发器仅能与某些特定运算符和参数一起出现.<br />
+  特别是,这些触发器不能用表达式作为参数.例如,</p>
+<ul>
+  <li>trigger1 = AnimElem = (1+1)<br />
+    是一个无效表达式.</li>
+</ul>
+<p>旧式函数型触发器仅出现在&quot;trigger, relational operator, argument&quot;格式的&quot;条款&quot;中.<br />
+  这些条款被视为一个独立的单元(特别的,单个0元触发器)用于表达式的计算.<br />
+  这表示,在这些事物中,运算符优先级的概念在旧式函数型触发器条款中不适用.<br />
+  例如,在</p>
+<ul>
+  <li>trigger1 = AnimElem = 5 + 4<br />
+  中,表达式分为3部分.</li>
+  <li>AnimElem = 5    +   4<br />
+    |________|   |_| |_|</li>
+</ul>
+<p>&quot;AnimElem=5&quot;部分被视为0元触发器的名字,于是'+'运算符的等级不在'='之上,从&quot;AnimElem=5&quot;中就能看出来.<br />
+  换句话说,这个表达式意味着这样的计算方式&quot;执行触发器调用'Animelem=5',然后加上4得到结果&quot;</p>
+<p>一些旧式函数型触发器拥有可替换的触发器(可用表达式作为参数).它们是下面的:</p>
+<p>AnimElem, 被 AnimElemTime 取代<br />
+  TimeMod, 被 % 运算符取代 <br />
+  ProjHit, ProjContact, ProjGuarded; 被 ProjHitTime, ProjContactTime, ProjGuardedTime 取代<br />
+  完整的不规则触发器列表,详见trigger部分.不规则触发器用***标示出来.</p>
+</body>
+</html>

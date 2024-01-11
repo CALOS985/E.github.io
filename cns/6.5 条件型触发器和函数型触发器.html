@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>6.5 条件型触发器和函数型触发器</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">6.5 条件型触发器和函数型触发器</p>
+<p>由于历史原因,两种不同类型都被称为&quot;触发器&quot;.<br />
+  第一种也许更确切的叫法是&quot;条件型触发器&quot;,第二种也许更确切的叫法是&quot;函数型触发器&quot;.<br />
+例如,在CNS中,一个典型的状态控制器也许看起来像下面的:</p>
+<ul>
+  <li>[State 1234, 5]<br />
+    type = ChangeState<br />
+    trigger1 = time = 0<br />
+    value = 0<br />
+  </li>
+</ul>
+<p>&quot;trigger1 = time = 0&quot;就是一个条件型触发器.<br />
+  如果表达式&quot;time=0&quot;计算出非0值,则ChangeState控制器将被执行.<br />
+  如果表达式&quot;time=0&quot;计算出0,则ChangeState控制器将不被执行.<br />
+  也就是说条件是非0或0影响着控制器是否被触发.</p>
+<p>另一方面,表达式中出现的&quot;time&quot;是一个函数型触发器.<br />
+  它返回一个值,即,玩家在状态1234中的状态时间.<br />
+  注意一个函数型触发器不触发任何东西.它只是给出一个在表达式中起作用的值.</p>
+<p>为了进一步了解不同之处,让我们思考一个不同的状态控制器:</p>
+<ul>
+  <li>[State 1234, 5]<br />
+    type = VarSet<br />
+    trigger1 = 1<br />
+    v = 0<br />
+    value = time + 5<br />
+  </li>
+</ul>
+<p>注意条件型触发器&quot;trigger1 = 1&quot;此时不含有任何函数型触发器.<br />
+  因为表达式&quot;1&quot;总是计算出1,此控制器将每帧都触发.<br />
+  为了确定什么值被赋予给了var(0),就要计算&quot;time + 5&quot;的值.<br />
+  函数型触发器&quot;time&quot;返回玩家的状态时间.然后加上5,结果算出的值赋给var(0).</p>
+<p>完整的函数型触发器列表请详见触发器篇.</p>
+</body>
+</html>
