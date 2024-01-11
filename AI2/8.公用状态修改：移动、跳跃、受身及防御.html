@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>8.¹«ÓÃ×´Ì¬ĞŞ¸Ä£ºÒÆ¶¯¡¢ÌøÔ¾¡¢ÊÜÉí¼°·ÀÓù</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   8.å…¬ç”¨çŠ¶æ€ä¿®æ”¹ï¼šç§»åŠ¨ã€è·³è·ƒã€å—èº«åŠé˜²å¾¡
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,1383 +23,2495 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">8.¹«ÓÃ×´Ì¬ĞŞ¸Ä£ºÒÆ¶¯¡¢ÌøÔ¾¡¢ÊÜÉí¼°·ÀÓù</p>
-<span class="STYLE3">¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡¡±¾Ò³ÄÚÈİÓÉ¿ÚË®Ğù×«Ğ´. ÓÉ¡¾softmgr¡¿ÕûÀí±à¼­.</span><br />
-
-<p>
-ÖÕÓÚÕæÕıµÄ¿ªÊ¼Ğ´AIÁË¡£´ÓµÚ8ÕÂ¿ªÊ¼µ½µÚ13ÕÂ£¬¶¼ÊÇ¹ØÓÚAIµÄ±àĞ´¡£<br />
-´ÓÕâÕÂ¿ªÊ¼ÎÒÃÇÕıÊ½½Ó´¥ÈËÎïÀïÃæµÄ´úÂë¡£´úÂë±È½Ï³¤¿ÉÄÜ±È½ÏÄÑÀí½â£¬½¨ÒéÒ»¶ÎÒ»¶ÎµÄ¶Á£¬²»Òª±»³¤¶È¸øÏÅµ½£¬¶à×³¹ÛµÄ½¨Öş¶¼<br />
-ÊÇÒ»×©Ò»Íß´î³ÉµÄ£¬ÎŞÂÛ¶à³¤µÄ´úÂëÒ²ÊÇÈç´Ë£¬°ÑÃ¿¶Î´úÂëÖğ¸ö»÷ÆÆºÏÆğÀ´¾ÍÊÇÄãÏëÒªµÄ´ğ°¸¡£<br />
-Ê×ÏÈÎÒÃÇÏÈ´Ó¸÷¸öÈËÎï¼¸ºõ¶¼ÓĞµÄ×´Ì¬¿ªÊ¼ÈëÊÖ£¬Ò²¾ÍÊÇ¹«ÓÃ×´Ì¬¡£<br />
-</p>
-
-<p>
-==================================================<br />
-<span class="STYLE2">8.1¹«ÓÃ×´Ì¬ÓëStcommon¼ò½é</span><br />
-==================================================<br />
-<br />
---------------------------------------------------<br />
-¹«ÓÃ×´Ì¬ÊÇÒ»Ğ©¸÷¸öÈËÎï¼¸ºõ¶¼ÓĞµÄ×´Ì¬£¬¶øÕâĞ©×´Ì¬µÄ×´Ì¬ºÅ»ù±¾ÉÏÒ²ÊÇ¹Ì¶¨µÄ¡£<br />
-ÀıÈçÕ¾×Ë0£¬¶××Ë10~12£¬ĞĞ×ß20£¬ÆğÌø40£¬ÅÜ/Ç°³å100£¬ºó³·105£¬·ÀÓù120¡«155£¬µ¹µØ5110£¬ÆğÉí5120µÈµÈ¡£<br />
-<br />
-StcommonÊÇÒ»¸ö´æ·Å¹«ÓÃ×´Ì¬µÄÌØÊâstÎÄ¼ş¡£<br />
-Èç¹ûÆäËûstÎÄ¼şÃ»ÓĞÖØ¸´¶¨ÒåStcommonÀïÃæµÄ×´Ì¬£¬ÈËÎï½«»áÊ¹ÓÃStcommonÀïÃæ¶¨ÒåµÄ×´Ì¬¡£<br />
-MugenÔÚdataÎÄ¼ş¼ĞÀïÃæ¸½ÓĞÄ¬ÈÏµÄcommon1.cns£¬Èç¹ûÈËÎïÃ»ÓĞ×Ô´øStcommonÎÄ¼ş£¬ÄÇÃ´ÈËÎï»áµ÷ÓÃÕâ¸öcommon1.cns¡£<br />
-Òò´Ë£¬Èç¹ûÈËÎï×Ô´øStcommonÎÄ¼ş£¬ÄÇÃ´ÎÒÃÇ¾ÍÖ±½Ó¶ÔÄÇ¸öÎÄ¼ş½øĞĞĞŞ¸Ä£»Èç¹ûÈËÎïÃ»ÓĞ×Ô´øStcommonÎÄ¼şµÄ»°£¬¾ÍÒªÔÚÈËÎïÎÄ¼ş<br />
-¼ĞÄÚ×Ô¼ºĞÂ½¨/¸´ÖÆÒ»¸öStcommonÎÄ¼ş£¬²¢°ÑDefÎÄ¼şÄÚµÄStcommonÂ·¾¶¸Ä³ÉÄãÎÄ¼şµÄÂ·¾¶¡£<br />
-<br />
-´ò¿ªcommon1.cnsºóÎÒÃÇ¿ÉÒÔ·¢ÏÖ£¬ÆäÊµStcommonºÍÒ»°ãµÄstÎÄ¼şÃ»ÓĞÌ«¶à²»Í¬¡£<br />
-ÀïÃæºÜ¶àSctrlÆäÊµÊÇ²»ĞèÒª¹ÜµÄ£¬ÈçµÚ5ÕÂËùËµ£¬ÎÒÃÇÖ»ĞèÒª¿´»á±»commandÓ°ÏìµÄÄ³Ğ©Sctrl¡£<br />
-Ò»°ãÀ´ËµÕâĞ©Éæ¼°µÄÄÚÈİ°üÀ¨£ºÒÆ¶¯£¨ĞĞ×ß¡¢ÅÜ¡¢Ç°³å¡¢ºó³·¡¢ÌøÔ¾£©¡¢ÊÜÉí¼°·ÀÓù¡£<br />
-</p>
-
-<p>
-==================================================<br />
-<span class="STYLE2">8.2ĞĞ×ß</span><br />
-==================================================<br />
-<br />
---------------------------------------------------<br />
-ĞĞ×ßÊÇ¸ñ¶·ÓÎÏ·×îÎª³£¼ûµÄÒÆ¶¯·½Ê½Ö®Ò»¡£<br />
-ËäÈ»ÒÆ¶¯ËÙ¶È±È½ÏÂı£¬µ«ÊÇÈ«³Ì¶¼ÊÇÊôÓÚ¿É¿Ø×´Ì¬£¬¿ÉÒÔËæÊ±Ó¦¶Ô¸÷ÖÖÇé¿ö£¬ÊÇ×î°²È«µÄÒÆ¶¯·½Ê½¡£<br />
-<br />
-<br />
-Ä¬ÈÏµÄcommon1.cnsÖĞ´úÂëÈçÏÂ£º<br />
-<br />
-;--------------------------------------------------<br />
-; Walk<br />
-[Statedef 20]<br />
-type    = S<br />
-physics = S<br />
-sprpriority = 0<br />
-<br />
-[State 20, 1]<br />
-type = VelSet<br />
-trigger1 = command = "holdfwd"<br />
-x = const(velocity.walk.fwd.x)<br />
-<br />
-[State 20, 2]<br />
-type = VelSet<br />
-trigger1 = command = "holdback"<br />
-x = const(velocity.walk.back.x)<br />
-<br />
-[State 20, 3]<br />
-type = ChangeAnim<br />
-triggerall = vel x > 0<br />
-trigger1 = Anim != 20 && Anim != 5<br />
-trigger2 = Anim = 5 && AnimTime = 0<br />
-value = 20<br />
-<br />
-[State 20, 4]<br />
-type = ChangeAnim<br />
-triggerall = vel x < 0<br />
-trigger1 = Anim != 21 && Anim != 5<br />
-trigger2 = Anim = 5 && AnimTime = 0<br />
-value = 21<br />
-<br />
-<br />
-Èç´úÂëËùÊ¾£¬Ä¬ÈÏµÄĞĞ×ß·ÖÎªÏòÇ°×ßºÍÏòºó×ß£¬ÕâÁ½¸ö·½ÏòµÄĞĞ×ßÓÃµÄÊÇÍ¬Ò»¸ö×´Ì¬ºÅ20¡£<br />
-Õâ¸ö×´Ì¬»á¸ù¾İÊÖ²Ù°´¼üµÄ²»Í¬£¨Ò²¾ÍÊÇÇ°ºÍºó£©¶øÇĞ»»Îª¶ÔÓ¦µÄ¶¯»­£¨¶¯»­20ºÍ21£©ºÍËÙ¶È¡£<br />
-È»¶øÕâÑùÒ»¸ö×´Ì¬°üº¬Á½¸ö²»Í¬ÊôĞÔµÄ¶¯×÷µÄÇé¿öÊÇÏàµ±²»ÀûÓÚAI±àĞ´µÄ¡£<br />
-ÒòÎªÕâÑù²»µ«ÒªÔÚStatedef -1/-3ÀïÃæ¼ÓÈë¶ÔÓ¦µÄtriggerÊ¹Æä¶¯ÆğÀ´£¬»¹ÒªÔÚstcommonÎÄ¼şÀïÃæÇø·ÖÇ°ºóÁ½ÖÖÇé¿ö£¬<br />
-·Ö¿ªÁ½¸öµØ·½È¥¹ÜÀíÒ»ÀàĞÍ¶¯×÷¡£ÕâÃ´×öÏàµ±Âé·³»¹ÈİÒ×³ö´í£¬ËùÒÔÎÒÃÇÒª¶ÔÆä½øĞĞÒ»¶¨µÄµ÷Õû¡£<br />
-±È½Ï³£ÓÃµÄ·½·¨ÊÇĞÂ½¨Ò»¸ö£¨»òÕßÒ»Ğ©£©×´Ì¬À´Çø·Ö²»Í¬µÄ¶¯×÷£¬ÒÔºóĞ´×´Ì¬ÇĞ»»µÄÊ±ºò¾Í»á¼òµ¥²»ÉÙ¡£<br />
-<br />
-<br />
-ÊµÀıÈçÏÂ£º<br />
-<br />
-;ÏÂÃæÁ½¶Î·Åµ½[Statedef 20]¸½½ü<br />
-;--------------------------------------------------<br />
-; Walk B Ïòºó×ß<br />
-[Statedef 19]<br />
-type    = S<br />
-physics = S<br />
-sprpriority = 0<br />
-<br />
-[State 20, 2]<br />
-type = VelSet<br />
-trigger1 = 1<br />
-x = const(velocity.walk.back.x)<br />
-<br />
-[State 20, 4]<br />
-type = ChangeAnim<br />
-trigger1 = Anim != 21 && Anim != 5<br />
-trigger2 = Anim = 5 && AnimTime = 0<br />
-value = 21<br />
-<br />
-;--------------------------------------------------<br />
-; Walk F ÏòÇ°×ß<br />
-[Statedef 21]<br />
-type    = S<br />
-physics = S<br />
-sprpriority = 0<br />
-<br />
-[State 20, 1]<br />
-type = VelSet<br />
-trigger1 = 1<br />
-x = const(velocity.walk.fwd.x)<br />
-<br />
-[State 20, 3]<br />
-type = ChangeAnim<br />
-trigger1 = Anim != 20 && Anim != 5<br />
-trigger2 = Anim = 5 && AnimTime = 0<br />
-value = 20<br />
-<br />
-<br />
-Ö®ºóĞ´ÉÏÈÃÈËÎïĞĞ×ßµÄChangestate¾Í¿ÉÒÔÁË£º<br />
-<br />
-;ÏÂÃæÒ»¶Î·Åµ½[Statedef -1]»ò[Statedef -3]ÏÂÃæ<br />
-;--------------------------------------------------<br />
-[State -1, ÏòÇ°×ß]<br />
-type = ChangeState<br />
-value = 21<br />
-Triggerall = Var(59) > 0;AI¿ªÆôÊ±<br />
-Triggerall = Roundstate = 2;ÔÚ¸ñ¶·½×¶Î<br />
-Triggerall = Statetype != A;²»ÔÚ¿ÕÖĞ<br />
-Triggerall = Frontedgebodydist >= 10;²»ÔÚ»­Ãæ±ßÔµ<br />
-Triggerall = Stateno != 20 && Stateno != 100;²»ÊÇ²½ĞĞ×´Ì¬ºÍÅÜ²½×´Ì¬<br />
-Triggerall = ctrl;¿É¿ØÊ±<br />
-Trigger1 = P2bodydist X > 135 && Random < P2bodydist X * 2 - 250;Trigger1~4¸ù¾İ¾àÀë²»Í¬·Ö¶Î¸Ä±ä¸ÅÂÊ<br />
-Trigger2 = P2bodydist X > 100 && Random < P2bodydist X<br />
-Trigger3 = P2bodydist X > 50 && Random < 100<br />
-Trigger4 = P2bodydist X > 0 && Random < 25<br />
-<br />
-;--------------------------------------------------<br />
-[State -1, Ïòºó×ß]<br />
-type = ChangeState<br />
-value = 19<br />
-Triggerall = Var(59) > 0<br />
-Triggerall = Roundstate = 2<br />
-Triggerall = Statetype != A<br />
-Triggerall = Backedgebodydist >= 10<br />
-Triggerall = !inguarddist;·Ç·ÀÓù¾àÀë£¬ÒòÎª·ÀÓù¾àÀëÄÚ°´ºó»á±ä³É·ÀÓù¶ø²»ÊÇÏòºó×ß<br />
-Triggerall = ctrl<br />
-Trigger1 = P2bodydist X < 75 && Random > 950 + P2bodydist X / 2;½ü¾àÀëµÍ¼¸ÂÊ´¥·¢<br />
-<br />
-Ö®ºóÈËÎï¾Í»á¸ù¾İ²»Í¬µÄ¾àÀëÒÔ²»Í¬µÄ¸ÅÂÊËæ»úÇ°ºóĞĞ×ßÁË¡£<br />
-</p>
-
-<p>
-==================================================<br />
-<span class="STYLE2">8.3ÅÜ/Ç°³å/ºó³·</span><br />
-==================================================<br />
-<br />
---------------------------------------------------<br />
-ÅÜ/Ç°³åÒ²ÊÇ¸ñ¶·ÓÎÏ··Ç³£³£¼ûµÄÒÆ¶¯·½Ê½¡£<br />
-ËäÈ»ÒÆ¶¯ËÙ¶È±È½Ï¿ì£¬µ«ÊÇ¸úĞĞ×ß¶Ô±ÈÆğÀ´Ïà¶Ô²»Áé»î£¬ÓĞÒ»¶¨µÄ·çÏÕ¡£<br />
-È»¶ø½Ï¿ìµÄËÙ¶ÈÁîËüÔÚÇÀÓ²Ö±¡¢Á¬¶ÎÄ¿ÑºµÈĞèÒª¿ìËÙÒÆ¶¯µÄÇé¿ö´óÕ¹ÉíÊÖ¡£<br />
-<br />
-Ä¬ÈÏµÄcommon1.cnsÖĞ´úÂëÈçÏÂ£º<br />
-<br />
-;--------------------------------------------------<br />
-; Run forward<br />
-[Statedef 100]<br />
-type    = S<br />
-physics = S<br />
-anim = 100<br />
-sprpriority = 1<br />
-<br />
-[State 100, 1]<br />
-type = VelSet<br />
-trigger1 = 1<br />
-x = const(velocity.run.fwd.x)<br />
-<br />
-[State 100, 2] ;Prevent run from canceling into walk<br />
-type = AssertSpecial<br />
-trigger1 = 1<br />
-flag = NoWalk<br />
-<br />
-[State 100, 3] ;Prevent from turning<br />
-type = AssertSpecial<br />
-trigger1 = 1<br />
-flag = NoAutoTurn<br />
-<br />
-[State 100, 4]<br />
-type = ChangeState<br />
-trigger1 = command != "holdfwd"<br />
-value = 0<br />
-<br />
-Èç´úÂëËùÊ¾£¬Ä¬ÈÏµÄÊÇÅÜ£¬ÊÇ¿É¿ØµÄÔÈËÙÇ°½ø£¬²¢ÇÒ¿ÉÒÔËæÊ±Í£ÏÂ¡£<br />
-È»¶ø£¬ºÜ¶à¸ñ¶·ÓÎÏ·ÀïÃæµÄÅÜ²¢²»ÊÇÕâÃ´¼òµ¥µÄ£¬Í¨³£ÊÇÓÉÆğ²½¡¢ÔÈËÙÔË¶¯¡¢Í£Ö¹Ö®ÀàµÄ²¿·Ö×é³É¡£<br />
-ÒòÎªÆğ²½ºÍÍ£Ö¹¶¼ÊÇÓĞÒ»¶¨Ó²Ö±µÄ¶¯×÷£¬Èç¹ûÔÚ½Ï¶ÌµÄ¾àÀë¿ªÊ¼ÅÜ£¬¶Ô·½Ò»µ©Ê¹ÓÃ¹¥»÷£¬Äã½«Ã»·¨Í£ÏÂÀ´½øĞĞ·ÀÓù¡£<br />
-ºÍĞĞ×ß¶Ô±ÈÆğÀ´£¬ÕâÀàĞÍµÄÅÜÊ¹ÓÃÆğÀ´ĞèÒª¿¼ÂÇ¸ü¶àÎÊÌâ¡£<br />
-<br />
-<br />
-ËäÈ»ÅÜ²¢Ã»ÓĞĞĞ×ßÄÇÑùÓĞÁ½¸ö·½ÏòµÄ·³ÄÕ£¬µ«ÊÇÅÜµÄÆô¶¯ºÍÍ£Ö¹ÊÇ·Ö¿ª¿ØÖÆµÄ£¬²¢²»ÊÇÏñĞĞ×ßÄÇÑù²»ĞèÒª±äÎªState 0µÄSctrl¡£<br />
-ËùÒÔ³ıÁËÆô¶¯ÎÒÃÇ»¹Òª¸ÄĞ´Statedef 100ÏÂµÄÍ£Ö¹Ìõ¼ş£º<br />
-<br />
-;--------------------------------------------------<br />
-; Run forward<br />
-[Statedef 100]<br />
-<br />
-...<br />
-<br />
-[State 100, 4]<br />
-type = ChangeState<br />
-trigger1 = Var(59) = 0;AIÎ´¿ªÆôÊ±<br />
-trigger1 = command != "holdfwd";ºÍÔ­À´Ò»Ñù½ÓÊÜÊÖ²ÙÖ¸Áî<br />
-trigger2 = Var(59) > 0<br />
-trigger2 = EnemyNear,movetype != H || (EnemyNear,movetype = H && p2dist x < 0);¶Ô·½²»ÔÚÊÜ»÷×´Ì¬»òÕß¶Ô·½ÔÚÊÜ»÷×´Ì¬µ«ÅÜ¹ıÍ·ÁË<br />
-trigger2 = p2bodydist x <= (30+random/40) || Frontedgebodydist <= 10;±È½Ï½üµÄ¾àÀë»òÕß»­Ãæ±ßÔµ<br />
-trigger3 = Var(59) > 0<br />
-trigger3 = Roundstate != 2;·ÀÖ¹·ÇÕ½¶·½×¶ÎÊ±Ò»Ö±ÅÜ¸ù±¾Í£²»ÏÂÀ´<br />
-value = 0<br />
-<br />
-<br />
-Ö®ºóĞ´ÉÏÈÃÈËÎïÅÜµÄChangestate¾Í¿ÉÒÔÁË£º<br />
-<br />
-;ÏÂÃæÒ»¶Î·Åµ½[Statedef -1]»ò[Statedef -3]ÏÂÃæ<br />
-<br />
-;--------------------------------------------------<br />
-[State -1, Ç°ÅÜ]<br />
-type = ChangeState<br />
-value = 100<br />
-Triggerall = Var(59) > 0<br />
-Triggerall = Roundstate = 2<br />
-Triggerall = Statetype != A<br />
-Triggerall = Frontedgebodydist >= 20;±ÜÃâÔÚ»­Ãæ±ßÔµ¿ªÊ¼ÅÜ<br />
-Triggerall = ctrl<br />
-Trigger1 = P2bodydist X > 200 && Random < P2bodydist X*5 - 720;Trigger1~4¸ù¾İ¾àÀë²»Í¬·Ö¶Î¸Ä±ä¸ÅÂÊ<br />
-Trigger2 = P2bodydist X > 135 && Random < P2bodydist X*2 - 120<br />
-Trigger3 = P2bodydist X > 90 && Random < P2bodydist X*1.75 - 90<br />
-Trigger4 = (P2bodydist X = [45,90]) && Random < P2bodydist X *1.2 - 45<br />
-<br />
---------------------------------------------------<br />
-ËäÈ»MugenÄÚÄ¬ÈÏµÄ×´Ì¬100ÊÇÅÜ£¬µ«Ò»Ğ©ÓÎÏ·µ±ÖĞË«»÷Ç°·½Ïò¼ü£¨66£©²¢²»Ò»¶¨ÊÇÅÜ£¬»¹ÓĞ¿ÉÄÜÊÇÇ°³å£¨³å´Ì/Dash£©¡£<br />
-Ç°³åºÜÓĞ¿ÉÄÜÊÇ³¤Ê±¼äÓ²Ö±µÄÏòÇ°ÒÆ¶¯£¬ÈôÂÒÊ¹ÓÃ¿ÉÒÔËµÆÆÕÀ°Ù³ö£¬Ê¹ÓÃÊ±±ÈÆğÅÜÒª¸üĞ¡ĞÄ£¬·ñÔò¾ÍÊÇ¸ø¶Ô·½ËÍÓ²Ö±¡£<br />
-<br />
-ºó³·Ä¬ÈÏÊ¹ÓÃµÄÊÇ×´Ì¬105£¬ÊÇË«»÷ºó·½Ïò¼ü£¨44£©Ëù·¢³öÀ´µÄ¡£<br />
-ÔÚMugenÖĞ£¬ºó³·Ä¬ÈÏÎª¿ÕÖĞ×´Ì¬£¬Ò²¾ÍÊÇÆô¶¯µÄË²¼ä¾ÍÔÚ¿ÕÖĞ£¬ËùÒÔ¿ÉÒÔÀûÓÃÕâ¸öÌØĞÔ¶ã±ÜÍ¶¼¼¡£<br />
-¶øÔÚ²»ÉÙ¸ñ¶·ÓÎÏ·×÷Æ·µ±ÖĞ£¬ºó³·»áÓĞ¶ÌÔİÎŞµĞµÄĞÔÄÜ£¬ÎÒÃÇÒ²¿ÉÒÔÀûÓÃÕâĞÔÄÜ¶Ô¶Ô·½¹¥»÷½øĞĞÉÁ±Ü¡£<br />
-<br />
-<br />
-ÒòÎªÄ¬ÈÏ²¢Ã»ÓĞÇ°³å£¬ËùÒÔÔÚ´ËÖ»¸ø³öºó³·µÄÀı×Ó£º<br />
-<br />
-;ÏÂÃæÒ»¶Î·Åµ½[Statedef -1]»ò[Statedef -3]ÏÂÃæ<br />
-;--------------------------------------------------<br />
-[State -1, ºó³·]<br />
-type = ChangeState<br />
-value = 105<br />
-Triggerall = Var(59) > 0<br />
-Triggerall = Roundstate = 2<br />
-Triggerall = Statetype != A<br />
-Triggerall = (Random < Var(59)*200) || (Var(59) > 3)<br />
-Triggerall = ctrl<br />
-Trigger1 = EnemyNear,Movetype = A && EnemyNear,Stateno >= 200;¶Ô·½¹¥»÷×´Ì¬<br />
-Trigger1 = facing != EnemyNear,facing;Ë«·½Ãæ¶ÔÃæ<br />
-Trigger1 = EnemyNear,hitdefattr = SC,AT;¶ÔÊÖ¹¥»÷´øÍ¶¼¼ÅĞ¶¨<br />
-Trigger1 = P2bodydist X = [-20,100];Ò»¶¨¾àÀëÄÚ<br />
-</p>
-
-<p>
-==================================================<br />
-<span class="STYLE2">8.4ÌøÔ¾</span><br />
-==================================================<br />
-<br />
---------------------------------------------------<br />
-ÌøÔ¾Í¬ÑùÊÇ¸ñ¶·ÓÎÏ·³£¼ûµÄÒÆ¶¯·½Ê½¡£<br />
-ÒòÎªÌøÔ¾ÄÜÁî¹¥»÷·½Ê½¶àÑù»¯£¨ÉÏÏÂÔñºÍÂäµØÍ¶µÈ£©¶øÇÒÓĞ×ÅÏàµ±¸ßµÄ»Ø±¨£¬ÔÚÊÖ²ÙÀïÓĞ×ÅºÜÖØÒªµÄµØÎ»¡£<br />
-Í¬Ê±»¹¿ÉÒÔ¶ã±ÜÍ¶¼¼ºÍÔ¶´¦·ÉĞĞµÀ¾ß£¬²¢»ñµÃÏÈ»ú¡£<br />
-µ«ÊÇÏÈ²»Ëµmugenµ±ÖĞ¿Õ·À²¢²»ÄÜ·ÀÓùÏÂ¶Î¹¥»÷ºÍÒ»´ó¶ÑÎŞµĞÉıÁú£¬Í¨³£À´ËµÈËÎïÔÚ¿ÕÖĞÖ»ÄÜ°´ÕÕÒ»¶¨µÄ¹ì¼£ÒÆ¶¯£¬<br />
-¶øÇÒ¶àÊı¸ñ¶·ÓÎÏ·ÖĞÈËÎïÔÚµØÃæµÄĞÔÄÜ±È¿ÕÖĞÒªºÃ£¬ÌøÔ¾Ò²ĞèÒªºÃºÃ¿¼ÂÇÎ»ÖÃºÍÊ±»ú²ÅÄÜÔÚAIÕ½ÀïÃæÊ¹ÓÃ¡£<br />
-<br />
-Ä¬ÈÏµÄcommon1.cnsÖĞ´úÂëÈçÏÂ£º<br />
-<br />
-;--------------------------------------------------<br />
-; Jump Start<br />
-[Statedef 40]<br />
-type    = S<br />
-physics = S<br />
-anim = 40<br />
-ctrl = 0<br />
-sprpriority = 1<br />
-facep2 = 1<br />
-<br />
-[State 40, 1]<br />
-type = VarSet<br />
-trigger1 = Time = 0<br />
-sysvar(1) = 0<br />
-<br />
-[State 40, 2]<br />
-type = VarSet<br />
-trigger1 = command = "holdfwd"<br />
-sysvar(1) = 1<br />
-<br />
-[State 40, 3]<br />
-type = VarSet<br />
-trigger1 = command = "holdback"<br />
-sysvar(1) = -1<br />
-<br />
-[State 40, 4]<br />
-type = VelSet<br />
-trigger1 = AnimTime = 0<br />
-x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x), const(velocity.jump.back.x)))<br />
-y = const(velocity.jump.y)<br />
-<br />
-[State 40, 5]<br />
-type = VelSet<br />
-trigger1 = AnimTime = 0<br />
-trigger1 = prevstateno = 100 ;RUN_FWD<br />
-trigger1 = sysvar(1) = 1<br />
-x = const(velocity.runjump.fwd.x)<br />
-<br />
-[State 40, 6]<br />
-type = ChangeState<br />
-trigger1 = AnimTime = 0<br />
-value = 50<br />
-ctrl = 1<br />
-<br />
-<br />
-Èç´úÂëËùÊ¾£¬ºÍĞĞ×ßÀàËÆ£¬Ä¬ÈÏµÄÌøÔ¾·ÖÎªÇ°Ìø¡¢ºóÌø¡¢Ô­µØÌøºÍÅÜÌø£¬ÓÃµÄÊÇÍ¬Ò»¸ö×´Ì¬ºÅ40¡£<br />
-Ò²ÊÇÍ¨¹ı°´¼ü²»Í¬Çø·Ö¿ª²»Í¬µÄ·½ÏòºÍËÙ¶È¡£<br />
-¶øÔÚÄ³Ğ©ÓĞ´óĞ¡ÌøµÄ×÷Æ·ÀïÃæ£¬ÌøÔ¾µÄ·ÖÀà»á¸ü¶à¡£<br />
-ËùÒÔÎÒÃÇ»á²ÉÓÃºÍĞĞ×ßÒ»ÑùµÄ°ì·¨À´´¦Àí¡£<br />
-<br />
-ÊµÀıÈçÏÂ£º<br />
-;--------------------------------------------------<br />
-;Statedef 39ºóÌø 41Ç°Ìø 42Ô­µØÌø<br />
-<br />
-[Statedef 39]<br />
-type    = S<br />
-physics = S<br />
-anim = 40<br />
-ctrl = 0<br />
-sprpriority = 1<br />
-<br />
-[State 40, 1]<br />
-type = VarSet<br />
-trigger1 = 1<br />
-sysvar(1) = -1<br />
-<br />
-[State 40, 4]<br />
-type = VelSet<br />
-trigger1 = AnimTime = 0<br />
-x = const(velocity.jump.back.x)<br />
-y = const(velocity.jump.y)<br />
-<br />
-[State 40, 6]<br />
-type = ChangeState<br />
-trigger1 = AnimTime = 0<br />
-value = 50<br />
-ctrl = 1<br />
-<br />
-;--------------------------------------------------<br />
-[Statedef 41]<br />
-type    = S<br />
-physics = S<br />
-anim = 40<br />
-ctrl = 0<br />
-sprpriority = 1<br />
-<br />
-[State 40, 1]<br />
-type = VarSet<br />
-trigger1 = 1<br />
-sysvar(1) = 1<br />
-<br />
-[State 40, 4]<br />
-type = VelSet<br />
-trigger1 = AnimTime = 0<br />
-x = const(velocity.jump.fwd.x)<br />
-y = const(velocity.jump.y)<br />
-<br />
-[State 40, 5]<br />
-type = VelSet<br />
-trigger1 = AnimTime = 0<br />
-trigger1 = prevstateno = 100 ;RUN_FWD<br />
-trigger1 = sysvar(1) = 1<br />
-x = const(velocity.runjump.fwd.x)<br />
-<br />
-[State 40, 6]<br />
-type = ChangeState<br />
-trigger1 = AnimTime = 0<br />
-value = 50<br />
-ctrl = 1<br />
-<br />
-;--------------------------------------------------<br />
-[Statedef 42]<br />
-type    = S<br />
-physics = S<br />
-anim = 40<br />
-ctrl = 0<br />
-sprpriority = 1<br />
-<br />
-[State 40, 1]<br />
-type = VarSet<br />
-trigger1 = 1<br />
-sysvar(1) = 0<br />
-<br />
-[State 40, 4]<br />
-type = VelSet<br />
-trigger1 = AnimTime = 0<br />
-x = const(velocity.jump.neu.x)<br />
-y = const(velocity.jump.y)<br />
-<br />
-[State 40, 6]<br />
-type = ChangeState<br />
-trigger1 = AnimTime = 0<br />
-value = 50<br />
-ctrl = 1<br />
-</p>
-
-<p>
-====================================================<br />
-<span class="STYLE2">8.5ÊÜÉí</span><br />
-====================================================<br />
-<br />
---------------------------------------------------<br />
-ÊÜÉíÊÇÖ¸ÊÜ»÷ÉíÌå»Ö¸´£¬Í¨³£ÊÇ¿ÕÖĞ»òÕßµÍ¿ÕÊÜ»÷Ó²Ö±ºó£¬»òÕßµ¹µØÊ±¿ÉÒÔ¸ü¿ìµÄ»Ö¸´³ÉÎª¿É¿Ø×´Ì¬¡£<br />
-¸ü¿ìµÄ»Ö¸´¿É¿Ø×´Ì¬¿ÉÒÔÓÃÓÚ¶ã±Ü¶Ô·½µÄÎ±Á¬£¨Ö¸ÖĞÍ¾¿É±»ÊÜÉí»Ø±ÜµÄÁ¬¶Î£©£¬»òÕß¸üÈİÒ××÷³ö·´»÷¡£<br />
-<br />
-<br />
-Ä¬ÈÏµÄcommon1.cnsÖĞ´úÂëÈçÏÂ£¨´Ë´¦ÒòÎªWinMugen°æ±¾Ğ´µÄ±È½Ï¼òµ¥ÈİÒ×Àí½â£¬ÎÒÓÃWinMugen°æ±¾µÄ´úÂë½øĞĞ½²½â£©£º<br />
-<br />
-;--------------------------------------------------<br />
-; HITA_FALL (knocked up, falling)<br />
-[Statedef 5050]<br />
-type    = A<br />
-movetype= H<br />
-physics = N<br />
-<br />
-...<br />
-<br />
-[State 5050, 4] ;Recover near ground<br />
-type = ChangeState<br />
-triggerall = Vel Y > 0<br />
-triggerall = Pos Y >= -20<br />
-triggerall = alive<br />
-triggerall = CanRecover<br />
-trigger1 = Command = "recovery"<br />
-value = 5200 ;HITFALL_RECOVER<br />
-<br />
-[State 5050, 5]; Recover in mid air<br />
-type = ChangeState<br />
-triggerall = Vel Y > -1<br />
-triggerall = alive<br />
-triggerall = CanRecover<br />
-trigger1 = Command = "recovery"<br />
-value = 5210 ;HITFALL_AIRRECOVER<br />
-<br />
-...<br />
-<br />
---------------------------------------------------<br />
-; HIT_FALLRECOVER (still falling)<br />
-[Statedef 5200]<br />
-type    = A<br />
-movetype= H<br />
-physics = N<br />
-<br />
-[State 5200, 1] ;Change anim if done with transition<br />
-type = ChangeAnim<br />
-trigger1 = Anim = 5035<br />
-trigger1 = AnimTime = 0<br />
-value = 5050<br />
-<br />
-[State 5200, 2]<br />
-type = VelAdd<br />
-trigger1 = 1<br />
-y = GetHitVar(yaccel)<br />
-<br />
-[State 5200, 3]<br />
-type = SelfState<br />
-trigger1 = Vel Y > 0<br />
-trigger1 = Pos Y >= 10<br />
-value = 5201<br />
-<br />
-;--------------------------------------------------<br />
-; HIT_FALLRECOVER (on the ground)<br />
-[Statedef 5201]<br />
-type    = A<br />
-movetype= H<br />
-physics = A<br />
-anim = 5200<br />
-<br />
-[State 5201, 1] ;Turn if not facing opponent<br />
-type = Turn<br />
-trigger1 = Time = 0<br />
-trigger1 = p2dist X < -5<br />
-<br />
-[State 5201, 2]<br />
-type = VelSet<br />
-trigger1 = Time = 0<br />
-x = -.15<br />
-y = -3.5<br />
-<br />
-[State 5201, 3]<br />
-type = PosSet<br />
-trigger1 = Time = 0<br />
-y = 0<br />
-<br />
-[State 5201, 4]<br />
-type = NotHitBy<br />
-trigger1 = 1<br />
-value = SCA<br />
-time = 1<br />
-<br />
-[State 5201, 5] ;Blink white<br />
-type = PalFX<br />
-trigger1 = Time = 0<br />
-time = 3<br />
-add = 128,128,128 ;256,256,256<br />
-<br />
-[State 5201, 6]<br />
-type = GameMakeAnim<br />
-trigger1 = Time = 1<br />
-value = 60<br />
-pos = 0, 0<br />
-under = 1<br />
-<br />
-;--------------------------------------------------<br />
-; HIT_AIRFALLRECOVER<br />
-[Statedef 5210]<br />
-type    = A<br />
-movetype= I<br />
-physics = N<br />
-anim = 5210<br />
-ctrl = 0<br />
-<br />
-[State 5210, 1] ;Blink white<br />
-type = PalFX<br />
-trigger1 = Time = 0<br />
-time = 3<br />
-add = 128,128,128 ;256,256,256<br />
-<br />
-[State 5210, 1]<br />
-type = PosFreeze<br />
-trigger1 = Time = 0<br />
-value = 4<br />
-<br />
-[State 5210, 2] ;Turn if not facing opponent<br />
-type = Turn<br />
-trigger1 = Time = 0<br />
-trigger1 = p2dist X < -20<br />
-<br />
-[State 5210, 1]<br />
-type = VelMul<br />
-trigger1 = Time = 4<br />
-x = .8<br />
-y = .8<br />
-<br />
-[State 5210, 1]<br />
-type = VelAdd<br />
-trigger1 = Time = 4<br />
-y = -4.5<br />
-<br />
-[State 5210, 1]<br />
-type = VelMul<br />
-trigger1 = Time = 4<br />
-trigger1 = Vel Y > 0<br />
-y = .5<br />
-<br />
-[State 5210, 1]<br />
-type = VelAdd<br />
-trigger1 = Time = 4<br />
-trigger1 = Vel Y > -3<br />
-y = -2<br />
-<br />
-[State 5210, 1]<br />
-type = VelAdd<br />
-trigger1 = Time = 4<br />
-trigger1 = Vel Y > -2<br />
-y = -1<br />
-<br />
-[State 5210, 2] ;Go up<br />
-type = VelAdd<br />
-trigger1 = Time = 4<br />
-trigger1 = Command = "holdup"<br />
-y = -2<br />
-<br />
-[State 5210, 2] ;Go down<br />
-type = VelAdd<br />
-trigger1 = Time = 4<br />
-trigger1 = Command = "holddown"<br />
-y = 1.5<br />
-<br />
-[State 5210, 2] ;Go fwd<br />
-type = VelMul<br />
-trigger1 = Time = 4<br />
-trigger1 = Command = "holdfwd"<br />
-x = 1<br />
-<br />
-[State 5210, 2] ;Go back<br />
-type = VelAdd<br />
-trigger1 = Time = 4<br />
-trigger1 = Command = "holdback"<br />
-x = -1<br />
-<br />
-[State 5210, 3]<br />
-type = NotHitBy<br />
-trigger1 = Time = 0<br />
-value = SCA<br />
-time = 15<br />
-<br />
-[State 5210, 4]<br />
-type = CtrlSet<br />
-trigger1 = Time = 20<br />
-value = 1<br />
-<br />
-[State 5210, 5]<br />
-type = VelAdd;Gravity<br />
-trigger1 = Time >= 4<br />
-y = .35<br />
-<br />
-[State 5210, 5] ;Land on ground<br />
-type = ChangeState<br />
-trigger1 = Vel Y > 0<br />
-trigger1 = Pos Y >= 0<br />
-value = 52 ;JUMP_LAND<br />
-ctrl = 1<br />
-<br />
-<br />
-Èç´úÂëËùÊ¾£¬Mugenµ±ÖĞÄ¬ÈÏÓĞÁ½ÖÖÊÜÉí£¬·Ö±ğÊÇ¸ß¿ÕÊÜÉíºÍµÍ¿ÕÊÜÉí£¬·Ö±ğÊÇ×´Ì¬5210ºÍ5200¡£<br />
-Æä·¢¶¯Ìõ¼şÊÇÔÚµôÂä×´Ì¬5050µ±ÖĞ´¦ÓÚ¿É»Ö¸´×´Ì¬Ê±£¬ËÙ¶ÈºÍ¸ß¶È·ûºÏÌõ¼ş¼´¿É¡£<br />
-¸ß¿ÕÊÜÉí5210ÊÇÊÜÉíºó20f»Ö¸´¿É¿Ø£¬¶øµÍ¿ÕÊÜÉí5200ÊÇ½øÈëÔ¤±¸×´Ì¬µ½´ïµÍ¿Õ¸ß¶È×ª±äÎª×´Ì¬5201¡£<br />
-ÖµµÃÒ»ÌáµÄÊÇ£¬¸ß¿ÕÊÜÉíÓĞ15fµÄÎŞµĞ£¬¶øµÍ¿ÕÊÜÉíÔÚµ½´ïµÍ¿Õ¸ß¶ÈÖ±µ½ÂäµØÇ°µÄ×´Ì¬5201ÓĞÈ«³ÌÎŞµĞ¡£<br />
-Èç¹û¿ÉÒÔÔÚ¶Ô·½Î±Á¬Ê±ºÏÀíÀûÓÃ¸ß¿ÕÊÜÉíÕâ15fµÄÎŞµĞºÍµÍ¿ÕÊÜÉí×´Ì¬5201µÄÈ«³ÌÎŞµĞ¶ã¿ª¶Ô·½µÄ¹¥»÷ÅĞ¶¨£¬<br />
-ÉõÖÁÖ®ºóÔÚ¶Ô·½¹¥»÷Ó²Ö±ÖĞ·´»÷ÃüÖĞ¶Ô·½µÄ»°£¬¿ÉÒÔËµÊÇÏàµ±´óµÄÊÕÒæ¡£<br />
-È»¶øÊÜÉíÆäÊµÒ²ÊÇÓĞÒ»¶¨µÄ·çÏÕµÄ¡£¸ß¿ÕÊÜÉíÔÚ15fÎŞµĞÒÔºóÓĞ5fµÄÓ²Ö±£¬¶øµÍ¿ÕÊÜÉí²»¿É¿Ø£¬²»¿ÉÇĞ»»³É·ÀÓù×´Ì¬£¬<br />
-ÂäµØÒ²ÓĞÓ²Ö±£¬ÂÒÊÜÉíµÄ»°ºÜÈİÒ×±»Ğ´ÁËÊÜÉíá÷£¨Ò²¾ÍÊÇ×¥ÊÜÉí£©×¥×¡»ú»á¡£<br />
-ÁíÍâÓĞĞ©AIÒ²»áÓÃµÍÓ²Ö±µÄÕĞÊ½Æ­¶Ô·½ÊÖÊÜÉí£¬Ò»µ©¶Ô·½ÉÏµ±ĞÎ³ÉÊÜÉíá÷¾ÍÊÇÒ»Ì×¶îÍâµÄÁ¬¶Î¡£<br />
-ÒòÎªÎÒÃÇÔİÊ±»¹Ã»ÓĞÑ§³öÕĞ¼ÇÂ¼µÈ¼¼Êõ£¬Ã»·¨ÌØ±ğ¾«È·µØÓÃÊÜÉí¶ã±Ü¶Ô·½Î±Á¬£¬<br />
-ËùÒÔÒª×¢ÒâÊÜÉíµÄ¼¸ÂÊ²»ÒªÌ«¸ß£¬ÒÔÃâ±»ÊÜÉíá÷Ñ­»·ÖÂËÀ¡£<br />
-<br />
-<br />
-ÊµÀıÈçÏÂ£º<br />
-<br />
-;--------------------------------------------------<br />
-; HITA_FALL (knocked up, falling)<br />
-[Statedef 5050]<br />
-type    = A<br />
-movetype= H<br />
-physics = N<br />
-<br />
-...<br />
-<br />
-[State 5050, 4] ;Recover near ground<br />
-type = ChangeState<br />
-triggerall = Vel Y > 0<br />
-triggerall = Pos Y >= -20<br />
-triggerall = alive<br />
-triggerall = CanRecover<br />
-trigger1 = Var(59) = 0;µ±ÊÖ²ÙÊ±ÓÉÊÖ²ÙÃüÁî¿ØÖÆ<br />
-trigger1 = Command = "recovery"<br />
-trigger2 = Var(59) > 0<br />
-trigger2 = EnemyNear,Movetype = H || EnemyNear,Statetype = L;¶Ô·½µ¹µØ»òÕßÊÜ»÷<br />
-value = 5200 ;HITFALL_RECOVER<br />
-<br />
-[State 5050, 5]; Recover in mid air<br />
-type = ChangeState<br />
-triggerall = Vel Y > -1<br />
-triggerall = alive<br />
-triggerall = CanRecover<br />
-trigger1 = Var(59) = 0;µ±ÊÖ²ÙÊ±ÓÉÊÖ²ÙÃüÁî¿ØÖÆ<br />
-trigger1 = Command = "recovery"<br />
-trigger2 = Var(59) > 0<br />
-trigger2 = EnemyNear,Movetype = H || EnemyNear,Statetype = L<br />
-Trigger3 = Var(59) > 0<br />
-Trigger3 = EnemyNear,Movetype = A && EnemyNear,Stateno >= 200;¶Ô·½¹¥»÷×´Ì¬<br />
-Trigger3 = EnemyNear,AnimTime <= -Random/40+5;¶Ô·½ÓĞÒ»¶¨Ó²Ö±Ê±¼ä<br />
-Trigger3 = Random < 100;µÍ¼¸ÂÊ´¥·¢<br />
-value = 5210 ;HITFALL_AIRRECOVER<br />
-<br />
-...<br />
-<br />
-;--------------------------------------------------<br />
-; HIT_AIRFALLRECOVER<br />
-[Statedef 5210]<br />
-type    = A<br />
-movetype= I<br />
-physics = N<br />
-anim = 5210<br />
-ctrl = 0<br />
-<br />
-...<br />
-;¾ßÌå·½Ïò¿ØÖÆ¿´Ï²ºÃ<br />
-<br />
-[State 5210, 2] ;Go up<br />
-type = VelAdd<br />
-triggerall = Time = 4<br />
-trigger1 = Var(59) = 0<br />
-trigger1 = Command = "holdup"<br />
-y = -2<br />
-<br />
-[State 5210, 2] ;Go down<br />
-type = VelAdd<br />
-triggerall = Time = 4<br />
-trigger1 = Var(59) = 0<br />
-trigger1 = Command = "holddown"<br />
-trigger2 = Var(59) > 0<br />
-y = 1.5<br />
-<br />
-[State 5210, 2] ;Go fwd<br />
-type = VelMul<br />
-triggerall = Time = 4<br />
-trigger1 = Var(59) = 0<br />
-trigger1 = Command = "holdfwd"<br />
-trigger2 = Var(59) > 0<br />
-x = 1<br />
-<br />
-[State 5210, 2] ;Go back<br />
-type = VelAdd<br />
-triggerall = Time = 4<br />
-trigger1 = Var(59) = 0<br />
-trigger1 = Command = "holdback"<br />
-x = -1<br />
-</p>
-
-<p>
-==================================================<br />
-<span class="STYLE2">8.6·ÀÓù</span><br />
-==================================================<br />
-<br />
---------------------------------------------------<br />
-¸ñ¶·ÓĞ¹¥¾ÍÓĞÊØ£¬·ÀÓù²»±Ø¶àËµÊÇ¸ñ¶·ÓÎÏ·ÀïÃæºÜÖØÒªµÄÒ»»·¡£<br />
-·ÀÓù¶ÔÓÚ¹¥»÷À´ËµËãÏà¶Ô¼òµ¥£¬ÒòÎªÎŞÂÛÄãÔõÃ´¹¥»÷£¬·ÀÓù¾ÍÈıÖÖ£ºÕ¾·À¡¢¶×·À¡¢¿Õ·À£¨ÓĞĞ©ÓÎÏ·ÉõÖÁÃ»ÓĞ¿Õ·À£©¡£<br />
-³ıÁËÍ¶¼¼²»¿É·ÀÓù¡¢ÆÆ·À¼¼µÈÌØÊâÇé¿ö£¬¹¥»÷ÅĞ¶¨£¨´ò»÷¼¼ºÍ·ÉĞĞµÀ¾ß£©ÓĞ·ÖÎªÉÏÖĞÏÂÈı¶Î£¬¿ÉÒÔ±»¶ÔÓ¦µÄ·ÀÓù·À×¡¡£<br />
-£¨PS£º¸ñ¶·ÓÎÏ·ÖĞ£¬ÉÏ¶ÎÕ¾¡¢¶×·À¾ù¿É£¬ÖĞ¶Î²»¿É¶×·À£¬ÏÂ¶Î²»¿ÉÕ¾·À¡£µ«ÊÇMugenµ±ÖĞ£¬ÉÏ¶Î£¨guardflag = H£©²»¿É¶×·À£¬<br />
-ÖĞ¶Î£¨guardflag = M = HL£©Õ¾¡¢¶×·À¾ù¿É£¬ÏÂ¶Î£¨guardflag = L£©²»¿ÉÕ¾·À£¬ÁíÍâguardflag = A¾ö¶¨ÊÇ·ñÄÜ¿Õ·À¡£<br />
-ÔÚ±¾½Ì³ÌÀïÍ³Ò»ÓÃ¸ñ¶·ÓÎÏ·µÄËµ·¨£¬¼´ÖĞ¶Î²»¿É¶×·À£¬ÏÂ¶Î²»¿ÉÕ¾·À£©<br />
-<br />
-<br />
-Ä¬ÈÏµÄcommon1.cnsÖĞ´úÂëÈçÏÂ£º<br />
-<br />
-;--------------------------------------------------<br />
-; GUARD (start)<br />
-[Statedef 120]<br />
-type = U    ;Leave state type unchanged<br />
-physics = U ;Leave physics unchanged<br />
-<br />
-[State 120, 1]<br />
-type = ChangeAnim<br />
-trigger1 = Time = 0<br />
-value = 120 + (statetype = C) + (statetype = A)*2;ÕâÖÖĞ´·¨ÓÃÒ»¶Î´úÂëÍê³ÉÁËÈı¶Î´úÂëµÄ¹¤×÷£¬ÖµµÃÑ§Ï°<br />
-<br />
-[State 120, 2]<br />
-type = StateTypeSet<br />
-trigger1 = Time = 0 && statetype = S<br />
-physics = S<br />
-<br />
-[State 120, 3]<br />
-type = StateTypeSet<br />
-trigger1 = Time = 0 && statetype = C<br />
-physics = C<br />
-<br />
-[State 120, 4]<br />
-type = StateTypeSet<br />
-trigger1 = Time = 0 && statetype = A<br />
-physics = A<br />
-<br />
-[State 120, Hi to Lo]<br />
-type = StateTypeSet<br />
-trigger1 = statetype = S && command = "holddown"<br />
-statetype = C<br />
-physics = C<br />
-<br />
-[State 120, Lo to Hi]<br />
-type = StateTypeSet<br />
-trigger1 = statetype = C && command != "holddown"<br />
-statetype = S<br />
-physics = S<br />
-<br />
-[State 120, 5]<br />
-type = ChangeState<br />
-trigger1 = AnimTime = 0<br />
-value = 130 + (statetype = C) + (statetype = A)*2<br />
-<br />
-[State 120, Stop Guarding]<br />
-type = ChangeState<br />
-trigger1 = command != "holdback"<br />
-trigger2 = !inguarddist<br />
-value = 140<br />
-<br />
-;--------------------------------------------------<br />
-; STAND GUARD (guarding)<br />
-[Statedef 130]<br />
-type    = S<br />
-physics = S<br />
-<br />
-[State 130, 1]<br />
-type = ChangeAnim<br />
-trigger1 = Anim != 130<br />
-value = 130<br />
-<br />
-[State 130, Hi to Lo]<br />
-type = ChangeState<br />
-trigger1 = command = "holddown"<br />
-value = 131<br />
-<br />
-[State 130, Stop Guarding]<br />
-type = ChangeState<br />
-trigger1 = command != "holdback"<br />
-trigger2 = !inguarddist<br />
-value = 140<br />
-<br />
-;--------------------------------------------------<br />
-; CROUCH GUARD (guarding)<br />
-[Statedef 131]<br />
-type    = C<br />
-physics = C<br />
-<br />
-[State 131, 1]<br />
-type = ChangeAnim<br />
-trigger1 = Anim != 131<br />
-value = 131<br />
-<br />
-[State 131, Lo to Hi]<br />
-type = ChangeState<br />
-trigger1 = command != "holddown"<br />
-value = 130<br />
-<br />
-[State 131, Stop Guarding]<br />
-type = ChangeState<br />
-trigger1 = command != "holdback"<br />
-trigger2 = !inguarddist<br />
-value = 140<br />
-<br />
-;--------------------------------------------------<br />
-; AIR GUARD (guarding)<br />
-[Statedef 132]<br />
-type    = A<br />
-physics = N<br />
-<br />
-[State 132, 1]<br />
-type = ChangeAnim<br />
-trigger1 = Anim != 132<br />
-value = 132<br />
-<br />
-[State 132, 2]<br />
-type = VelAdd<br />
-trigger1 = 1<br />
-y = Const(movement.yaccel)<br />
-<br />
-[State 132, 3]<br />
-type = VarSet<br />
-trigger1 = 1<br />
-sysvar(0) = (pos y >= 0) && (vel y > 0)<br />
-<br />
-[State 132, 4]<br />
-type = VelSet<br />
-trigger1 = sysvar(0)<br />
-y = 0<br />
-<br />
-[State 132, 5]<br />
-type = PosSet<br />
-trigger1 = sysvar(0)<br />
-y = 0<br />
-<br />
-[State 132, 6]<br />
-type = ChangeState<br />
-trigger1 = sysvar(0)<br />
-trigger1 = command = "holdback"<br />
-trigger1 = inguarddist<br />
-value = 130<br />
-<br />
-[State 132, 7]<br />
-type = ChangeState<br />
-trigger1 = sysvar(0)<br />
-value = 52<br />
-<br />
-[State 132, Stop Guarding]<br />
-type = ChangeState<br />
-trigger1 = command != "holdback"<br />
-trigger2 = !inguarddist<br />
-value = 140<br />
-<br />
-;--------------------------------------------------<br />
-; GUARD (end)<br />
-[Statedef 140]<br />
-type = U    ;Leave state type unchanged<br />
-physics = U ;Leave physics unchanged<br />
-ctrl = 1<br />
-<br />
-[State 140, 1]<br />
-type = ChangeAnim<br />
-trigger1 = Time = 0<br />
-value = 140 + (statetype = C) + (statetype = A)*2<br />
-<br />
-[State 140, 2]<br />
-type = StateTypeSet<br />
-trigger1 = Time = 0 && statetype = S<br />
-physics = S<br />
-<br />
-[State 140, 3]<br />
-type = StateTypeSet<br />
-trigger1 = Time = 0 && statetype = C<br />
-physics = C<br />
-<br />
-[State 140, 4]<br />
-type = StateTypeSet<br />
-trigger1 = Time = 0 && statetype = A<br />
-physics = A<br />
-<br />
-[State 140, Hi to Lo]<br />
-type = StateTypeSet<br />
-trigger1 = statetype = S && command = "holddown"<br />
-statetype = C<br />
-physics = C<br />
-<br />
-[State 140, Lo to Hi]<br />
-type = StateTypeSet<br />
-trigger1 = statetype = C && command != "holddown"<br />
-statetype = S<br />
-physics = S<br />
-<br />
-;[State 140, 5] ;Implemented within engine<br />
-;type = ChangeState<br />
-;trigger1 = AnimTime = 0<br />
-;value = (statetype = C)*11 + (statetype = A)*51<br />
-<br />
-;--------------------------------------------------<br />
-; SGUARDHIT (shaking)<br />
-[Statedef 150]<br />
-type    = S<br />
-movetype= H<br />
-physics = N<br />
-velset = 0,0<br />
-<br />
-[State 150, 1]<br />
-type = ChangeAnim<br />
-trigger1 = 1<br />
-value = 150<br />
-<br />
-[State 150, 2]<br />
-type = ChangeState<br />
-trigger1 = HitShakeOver<br />
-value = 151 + 2*(command = "holddown")<br />
-<br />
-[State 150, Hi to Lo]<br />
-type = StateTypeSet<br />
-trigger1 = statetype = S && command = "holddown"<br />
-statetype = C<br />
-physics = C<br />
-<br />
-[State 150, Lo to Hi]<br />
-type = StateTypeSet<br />
-trigger1 = statetype = C && command != "holddown"<br />
-statetype = S<br />
-physics = S<br />
-<br />
-[State 150, 3]<br />
-type = ForceFeedback<br />
-trigger1 = time = 0<br />
-waveform = square<br />
-time = 3<br />
-<br />
-;--------------------------------------------------<br />
-; SGUARDHIT2 (knocked back)<br />
-[Statedef 151]<br />
-type    = S<br />
-movetype= H<br />
-physics = S<br />
-anim = 150<br />
-<br />
-[State 151, 1]<br />
-type = HitVelSet<br />
-trigger1 = Time = 0<br />
-x = 1<br />
-<br />
-[State 151, 2]<br />
-type = VelSet<br />
-trigger1 = Time = GetHitVar(slidetime)<br />
-trigger2 = HitOver<br />
-x = 0<br />
-<br />
-[State 151, 3]<br />
-type = CtrlSet<br />
-trigger1 = Time = GetHitVar(ctrltime)<br />
-value = 1<br />
-<br />
-[State 151, Hi to Lo]<br />
-type = StateTypeSet<br />
-trigger1 = statetype = S && command = "holddown"<br />
-statetype = C<br />
-physics = C<br />
-<br />
-[State 151, Lo to Hi]<br />
-type = StateTypeSet<br />
-trigger1 = statetype = C && command != "holddown"<br />
-statetype = S<br />
-physics = S<br />
-<br />
-[State 151, 4]<br />
-type = ChangeState<br />
-trigger1 = HitOver<br />
-value = 130<br />
-ctrl = 1<br />
-<br />
-;--------------------------------------------------<br />
-; CGUARDHIT (shaking)<br />
-[Statedef 152]<br />
-type    = C<br />
-movetype= H<br />
-physics = N<br />
-velset = 0,0<br />
-<br />
-[State 152, 1]<br />
-type = ChangeAnim<br />
-trigger1 = 1<br />
-value = 151<br />
-<br />
-[State 152, 3]<br />
-type = ChangeState<br />
-trigger1 = HitShakeOver<br />
-value = 151 + 2*(command = "holddown")<br />
-<br />
-[State 152, Hi to Lo]<br />
-type = StateTypeSet<br />
-trigger1 = statetype = S && command = "holddown"<br />
-statetype = C<br />
-physics = C<br />
-<br />
-[State 152, Lo to Hi]<br />
-type = StateTypeSet<br />
-trigger1 = statetype = C && command != "holddown"<br />
-statetype = S<br />
-physics = S<br />
-<br />
-[State 152, 4]<br />
-type = ForceFeedback<br />
-trigger1 = time = 0<br />
-waveform = square<br />
-time = 4<br />
-<br />
-;--------------------------------------------------<br />
-; CGUARDHIT2 (knocked back)<br />
-[Statedef 153]<br />
-type    = C<br />
-movetype= H<br />
-physics = C<br />
-anim = 151<br />
-<br />
-[State 153, 1]<br />
-type = HitVelSet<br />
-trigger1 = Time = 0<br />
-x = 1<br />
-<br />
-[State 153, 2]<br />
-type = VelSet<br />
-trigger1 = Time = GetHitVar(slidetime)<br />
-trigger2 = HitOver<br />
-x = 0<br />
-<br />
-[State 153, 3]<br />
-type = CtrlSet<br />
-trigger1 = Time = GetHitVar(ctrltime)<br />
-value = 1<br />
-<br />
-[State 153, Hi to Lo]<br />
-type = StateTypeSet<br />
-trigger1 = statetype = S && command = "holddown"<br />
-statetype = C<br />
-physics = C<br />
-<br />
-[State 153, Lo to Hi]<br />
-type = StateTypeSet<br />
-trigger1 = statetype = C && command != "holddown"<br />
-statetype = S<br />
-physics = S<br />
-<br />
-[State 153, 4]<br />
-type = ChangeState<br />
-trigger1 = HitOver<br />
-value = 131<br />
-ctrl = 1<br />
-<br />
-;--------------------------------------------------<br />
-; AGUARDHIT (shaking)<br />
-[Statedef 154]<br />
-type    = A<br />
-movetype= H<br />
-physics = N<br />
-velset = 0,0<br />
-<br />
-[State 154, 1]<br />
-type = ChangeAnim<br />
-trigger1 = 1<br />
-value = 152<br />
-<br />
-[State 154, 2]<br />
-type = ChangeState<br />
-trigger1 = HitShakeOver<br />
-value = 155 ;AGUARDHIT2<br />
-<br />
-[State 154, 3]<br />
-type = ForceFeedback<br />
-trigger1 = time = 0<br />
-waveform = square<br />
-time = 4<br />
-<br />
-;--------------------------------------------------<br />
-; AGUARDHIT2 (knocked away)<br />
-[Statedef 155]<br />
-type    = A<br />
-movetype= H<br />
-physics = N<br />
-anim = 152<br />
-<br />
-[State 155, 1]<br />
-type = HitVelSet<br />
-trigger1 = Time = 0<br />
-x = 1<br />
-y = 1<br />
-<br />
-[State 155, 2]<br />
-type = VelAdd<br />
-trigger1 = 1<br />
-y = Const(movement.yaccel)<br />
-<br />
-[State 155, 3]<br />
-type = CtrlSet<br />
-trigger1 = Time = GetHitVar(ctrltime)<br />
-value = 1<br />
-<br />
-[State 155, 4]<br />
-type = VarSet<br />
-trigger1 = 1<br />
-sysvar(0) = (pos y >= 0) && (vel y > 0)<br />
-<br />
-[State 155, 5]<br />
-type = VelSet<br />
-trigger1 = sysvar(0)<br />
-y = 0<br />
-<br />
-[State 155, 6]<br />
-type = PosSet<br />
-trigger1 = sysvar(0)<br />
-y = 0<br />
-<br />
-[State 155, 6]<br />
-type = ChangeState<br />
-trigger1 = sysvar(0)<br />
-trigger1 = command = "holdback"<br />
-trigger1 = inguarddist<br />
-value = 130<br />
-<br />
-[State 155, 7]<br />
-type = ChangeState<br />
-trigger1 = sysvar(0)<br />
-value = 52<br />
-<br />
-<br />
-·ÀÓù×´Ì¬Ä¬ÈÏÕ¼¾İÁË×´Ì¬ºÅ[120,155]£¬ÖĞ¼ä¸ù¾İ·ÀÓù²»Í¬½×¶ÎÓÖÏ¸·ÖÁËºÃ¼¸¸ö×´Ì¬¡£<br />
-120ÊÇ·ÀÓù×¼±¸×´Ì¬£¬Ò²¾ÍÊÇ°´ÏÂºó·½Ïò¼üÈËÎï½øÈëµÄ¶¯×÷£¬Ö»ÓÃÓÚ×ª±äÎª·ÀÓùÎ´ÊÜ»÷×´Ì¬£»<br />
-[130,132]ÊÇ·ÀÓùÎ´ÊÜ»÷×´Ì¬£¬Ò²¾ÍÊÇ×öºÃÁË·ÀÓù¶¯×÷µ«ÊÇÉĞÎ´±»¹¥»÷µÄ½×¶Î£¬[130,132]·Ö±ğ¶ÔÓ¦Õ¾¡¢¶×¡¢¿Õ£»<br />
-140ÊÇ·ÀÓù½áÊø×´Ì¬£¬Ò²¾ÍÊÇ·ÀÓù×¼±¸×´Ì¬¡¢Î´ÊÜ»÷×´Ì¬»òÕßÊÜ»÷×´Ì¬½áÊøÊ±ËÉ¿ªºó·½Ïò¼ü½øÈëµÄ×´Ì¬£¬Ö»ÓÃÓÚÀë¿ª·ÀÓù×´Ì¬£»<br />
-[150,155]ÊÇ·ÀÓùÊÜ»÷×´Ì¬£¬·ÀÓù×¼±¸×´Ì¬»ò·ÀÓùÎ´ÊÜ»÷×´Ì¬ÊÜµ½¹¥»÷Ê±½øÈëµÄ×´Ì¬£¬[150,151]¡¢[152,153]¡¢[154,155]·Ö±ğ¶ÔÓ¦: Õ¾¡¢¶×¡¢¿Õ£¬Å¼ÊıÎªÊÜ»÷Õğ¶¯£¬ÆæÊıÎªÊÜ»÷»¬¶¯¡£ÔÚÊÜ»÷Ó²Ö±ºóÈô»¹°´×Åºó·½Ïò¼ü½øÈë·ÀÓùÎ´ÊÜ»÷×´Ì¬£¬·ñÔò½øÈë·ÀÓù½áÊø×´Ì¬¡£<br />
-<br />
-·ÀÓù×´Ì¬µÄÇĞ»»ÊÇÒÑ¾­Ğ´ºÃÁËµÄ£¬ÎÒÃÇĞèÒª¹ÜµÄµØ·½Ö»ÓĞÊÖ²ÙÖ¸ÁîµÄÇĞ»»¡£<br />
-¶øÕâĞ©ÇĞ»»ÎŞ·Ç¿ØÖÆµÄÆäÊµÊÇÕ¾/¶×·ÀµÄÇĞ»»£¨¿Õ·ÀÄãÖ»ÓĞ·ÀÓë²»·Å²»ÓÃÏëÌ«¶à£©ºÍÍ£Ö¹·ÀÓù×´Ì¬Á½ÖÖ¡£<br />
-Í¨³£À´Ëµ£¬Õ¾×Ë¹¥»÷¶àÎªÉÏ¶ÎºÍÖĞ¶Î£¬¶××Ë¹¥»÷¶àÎªÉÏ¶ÎºÍÏÂ¶Î£¬¿ÕÖĞ¹¥»÷¶àÎªÉÏ¶ÎºÍÖĞ¶Î¡£<br />
-ËùÒÔÔÚµØÃæÉÏ¶ÔÕ¾×Ë¹¥»÷ºÍ¿ÕÖĞ¹¥»÷ÎÒÃÇÓÃÕ¾·ÀÓ¦¶Ô£¬¶Ô¶××Ë¹¥»÷ÎÒÃÇÓÃ¶×·ÀÓ¦¶Ô£¬¶Ô·½Í£Ö¹¹¥»÷µÄÊ±ºòÎÒÃÇÍ£Ö¹·ÀÓù¾ÍĞĞÁË¡£<br />
-<br />
-<br />
-ÊµÀıÈçÏÂ£º<br />
-<br />
-;--------------------------------------------------<br />
-; GUARD (start)<br />
-[Statedef 120]<br />
-type = U    ;Leave state type unchanged<br />
-physics = U ;Leave physics unchanged<br />
-<br />
-...<br />
-<br />
-[State 120, Hi to Lo]<br />
-type = StateTypeSet<br />
-triggerall = statetype = S;µ±ÎÒ·½ÊÇÕ¾×Ë<br />
-trigger1 = !Var(59) && command = "holddown"<br />
-trigger2 = Var(59) && EnemyNear,Statetype = C;¶ø¶Ô·½ÊÇ¶××ËµÄÊ±ºò<br />
-statetype = C;±äÎª¶××Ë<br />
-physics = C<br />
-<br />
-[State 120, Lo to Hi]<br />
-type = StateTypeSet<br />
-triggerall = statetype = C;µ±ÎÒ·½ÊÇ¶××Ë<br />
-trigger1 = !Var(59) && command != "holddown"<br />
-trigger2 = Var(59) && EnemyNear,Statetype = S;¶ø¶Ô·½ÊÇÕ¾×ËµÄÊ±ºò<br />
-statetype = S;±äÎªÕ¾×Ë<br />
-physics = S<br />
-<br />
-[State 120, 5]<br />
-type = ChangeState<br />
-trigger1 = AnimTime = 0<br />
-value = 130 + (statetype = C) + (statetype = A)*2<br />
-<br />
-[State 120, Stop Guarding]<br />
-type = ChangeState<br />
-trigger1 = !Var(59) && command != "holdback"<br />
-trigger2 = !inguarddist<br />
-value = 140<br />
-<br />
-;--------------------------------------------------<br />
-; STAND GUARD (guarding)<br />
-[Statedef 130]<br />
-type    = S<br />
-physics = S<br />
-<br />
-[State 130, 1]<br />
-type = ChangeAnim<br />
-trigger1 = Anim != 130<br />
-value = 130<br />
-<br />
-[State 130, Hi to Lo]<br />
-type = ChangeState<br />
-trigger1 = !Var(59) && command = "holddown"<br />
-trigger2 = Var(59) && EnemyNear,Statetype = C<br />
-value = 131<br />
-<br />
-[State 130, Stop Guarding]<br />
-type = ChangeState<br />
-trigger1 = !Var(59) && command != "holdback"<br />
-trigger2 = !inguarddist<br />
-value = 140<br />
-<br />
-<br />
-;ÒòÎªÏÂÃæµÄÕ¾/¶××ËÇĞ»»¶¼ÊÇÀàËÆµÄ´úÂë£¬ÒÔÉÏÃæµÄµ±×ö²Î¿¼×ãÒÓ£¬ÏÂÂÔ<br />
-......<br />
-<br />
-<br />
-Ö®ºó»¹ÓĞÆô¶¯·ÀÓùµÄChangestate£º<br />
-<br />
-;ÏÂÃæÒ»¶Î·Åµ½[Statedef -1]»ò[Statedef -3]ÏÂÃæ<br />
-;--------------------------------------------------<br />
-[State -1, ·ÀÓù]<br />
-type = ChangeState<br />
-value = 120<br />
-Triggerall = Var(59) > 0<br />
-Triggerall = Roundstate = 2<br />
-Triggerall = Statetype != A<br />
-Triggerall = ctrl<br />
-Triggerall = !(EnemyNear(Var(54)),hitdefattr = sca,at);¶Ô·½²»ÊÇÍ¶¼¼ÅĞ¶¨<br />
-Trigger1 = Inguarddist ;ÔÚ·ÀÓù·¶Î§ÄÚ<br />
-<br />
-<br />
-Íê³ÉÕâ¶ÎµÄĞŞ¸Ä£¬ÄãÒ²ÏŞÖÆÁËÈËÎï¹¥»÷µÄ»°£¬ÄãµÄÈËÎïÒÑ¾­ËãÊÇÌú±ÚÁË¡£<br />
-Ê²Ã´£¿ÄãËµÌú±ÚÕâÃ´¼òµ¥£¿Ã»´í£¬Ö»Òª²»Ö÷¶¯¹¥»÷ÂôÓ²Ö±£¬Ìú±Ú¾ÍÊÇÕâÃ´¼òµ¥¡£<br />
-</p>
-
-<p>
-====================================================<br />
-<span class="STYLE2">8.7ÏŞÖÆÒşĞÔÊÖ²ÙÖ¸ÁîÇĞ»»×´Ì¬</span><br />
-====================================================<br />
-<br />
---------------------------------------------------<br />
-µ½ÕâÀïÎÒÃÇÒÑ¾­°Ñ´øÓĞcommandµÄSctrlĞŞ¸ÄÍêÁË£¬µ«ÊÇÕâÕÂÄÚÈİÉĞÎ´Íê½á¡£<br />
-»¹¼ÇµÃ±ÊÕßÔÚµÚ5ÕÂÌá¼°µÄÄÚÈİÂğ£º³ıÁË´øÓĞcommandµÄSctrlÒÔÍâ£¬MugenÀïÃæ»¹´æÔÚÄÚÖÃµÄÒşĞÔµÄÊÖ²ÙÖ¸ÁîÇĞ»»×´Ì¬£¬<br />
-ÀıÈçÏÂ¶×£¨Stateno 10£©¡¢ĞĞ×ß£¨Stateno 20£©ºÍÌøÔ¾£¨Stateno 40£©µÈ¡£<br />
-ÎÒÃÇËäÈ»ĞŞ¸ÄÁËÕâ¼¸¸ö¶¯×÷ÀïÃæµÄ´øcommandµÄÄÚÈİ£¬µ«ÊÇÎÒÃÇ»¹Ã»ÓĞ¶ÔËüÃÇµÄ´¥·¢½øĞĞÏŞÖÆ¡£<br />
-Ö»ÒªÈËÎï´¦ÓÚ¿É¿Ø×´Ì¬£¬Ö»ÒªÄÚÖÃµÄÒşĞÔµÄÓÃÊÖ²ÙÖ¸Áî¸ÕºÃ±»´¥·¢£¬Õâ¼¸¸ö¶¯×÷ÒÀÈ»»á²»ÊÜ¿ØÖÆµÄ¶¯ÆğÀ´¡£<br />
-ËùÒÔ³ıÁËÉÏÃæµÄÄÚÈİ£¬ÎÒÃÇ»¹ÒªÏŞÖÆÒşĞÔÊÖ²ÙÖ¸ÁîÇĞ»»×´Ì¬¡£<br />
-<br />
---------------------------------------------------<br />
-ÒòÎªÈËÎïÒª´¦ÓÚ¿É¿Ø×´Ì¬²Å»áÇĞ»»×´Ì¬ÎªÏÂ¶×¡¢ĞĞ×ßºÍÌøÔ¾µÈ×´Ì¬£¬ËùÒÔÊ×ÏÈÎÒÃÇ¿ÉÒÔ°ÑÒ»Ğ©¿É¿ØµÄ×´Ì¬¸Ä³É²»¿É¿Ø¡£<br />
-ÔÚStatedef¿ªÊ¼µÄµØ·½£¬Èç¹ûÃ»ÓĞ±ê×¢ËµÊÇ·ñ¿É¿Ø£¬½«»á¼Ì³ĞÉÏÒ»¸ö×´Ì¬µÄ¿É¿ØÓë·ñ¡£<br />
-ÀıÈç´Ó¿É¿ØµÄÕ¾×ËÇĞ»»µ½ĞĞ×ß£¬ĞĞ×ß²¢Ã»ÓĞ±ê×¢ÊÇ·ñ¿É¿Ø£¬ĞĞ×ßÒ²½«±ä³É¿É¿Ø¡£<br />
-·ÖÎöÖ®Ç°µÄ´úÂë¿ÉÖª£¬MugenÄ¬ÈÏµÄĞĞ×ßºÍÅÜ¶¼¿ÉÒÔ´Ó¿É¿Ø×´Ì¬½øÈë£¬ËùÒÔÕâÁ½¸ö×´Ì¬¶¼¿ÉÄÜ»á±»ÒşĞÔµÄÊÖ²ÙÖ¸ÁîÇĞ»»×´Ì¬¡£<br />
-ÓÚÊÇÎÒÃÇ¿ÉÒÔ½øĞĞĞŞ¸Ä£¬ÊµÀıÈçÏÂ£º<br />
-<br />
-<br />
-;ÒòÎªÎÒÃÇÒÑ¾­²ÉÓÃÁËĞÂµÄĞĞ×ß×´Ì¬State 19/21£¬ËùÒÔÎÒÃÇ¿ÉÒÔ²»ÓÃĞŞ¸ÄState 20<br />
-;--------------------------------------------------<br />
-; Walk B Ïòºó×ß<br />
-[Statedef 19]<br />
-type    = S<br />
-physics = S<br />
-sprpriority = 0<br />
-ctrl = 0;²»¿É¿Ø<br />
-<br />
-...<br />
-<br />
-;--------------------------------------------------<br />
-; Walk F ÏòÇ°×ß<br />
-[Statedef 21]<br />
-type    = S<br />
-physics = S<br />
-sprpriority = 0<br />
-ctrl = 0;²»¿É¿Ø<br />
-<br />
-<br />
-;¶øState 100£¬ÎÒÃÇ¿ÉÒÔÏñĞĞ×ßÄÇÑùÌí¼ÓĞÂµÄ×´Ì¬£¬ÉèÖÃÎª²»¿É¿Ø£¬»òÕßÊÇÏñÏÂÃæÕâÃ´ĞŞ¸Ä<br />
-;--------------------------------------------------<br />
-; Run forward<br />
-[Statedef 100]<br />
-<br />
-...<br />
-<br />
-[State 100, AI Ctrlset];Ìí¼Ó²»¿É¿ØÉèÖÃ<br />
-type = Ctrlset<br />
-trigger1 = Var(59) > 0;µ±AI¿ª¹Ø´ò¿ªµÄÊ±ºò<br />
-value = 0;²»¿É¿Ø<br />
-<br />
-<br />
-Í¨¹ıÕâÑùµÄĞŞ¸Ä£¬ÔÚĞĞ×ßºÍÅÜ²½µÄÊ±ºò¾Í²»»á±»ÊÖ²ÙÖ¸ÁîÓ°ÏìÁË£¬µ«È±µã¾ÍÊÇ²»¿É¿Ø×´Ì¬¿ÉÄÜ»á»ìÏı¶Ô·½AI£¬ÎÒÃÇÔÚĞ´AIµÄÊ±ºòÒ²Òª×¢ÒâÕâÖÖĞ´·¨¿ÉÄÜ¶ÔÎÒÃÇ´øÀ´µÄ²»Á¼Ó°Ïì¡£<br />
-ÁíÍâ£¬ÓÉÓÚÔ­À´¿É¿ØµÄ×´Ì¬ÏÖÔÚ±ä³ÉÁË²»¿É¿Ø£¬ËùÒÔÆäËûSctrlÀïÔ­À´triggerX = ctrlµÄÌõ¼ş²»×÷ÏàÓ¦µ÷ÕûµÄ»°ÈËÎï¾Í±äµÃ²»»á¶¯ÁË£¬Òò´ËÎÒÃÇ»¹ĞèÒªµ÷ÕûÕâĞ©trigger£¬ÁîËûÃÇ¿ÉÒÔÔÚÕâĞ©Ô­À´ÊÇ¿É¿ØµÄ×´Ì¬Àï¸úÔ­À´Ò»ÑùÇĞ»»×´Ì¬¡£ÀıÈç£º<br />
-<br />
-;Stand Light Punch<br />
-[State -1, Stand Light Punch]<br />
-type = ChangeState<br />
-value = 200<br />
-trigger1 = Var(59) > 0<br />
-trigger1 = statetype = S<br />
-trigger1 = ctrl<br />
-<br />
-¸ÄÎª<br />
-<br />
-;Stand Light Punch<br />
-[State -1, Stand Light Punch]<br />
-type = ChangeState<br />
-value = 200<br />
-trigger1 = Var(59) > 0<br />
-trigger1 = statetype = S<br />
-trigger1 = ctrl || (Stateno = [19,21]) || Stateno = 100;ÕâÑù¾ÍËã²»¿É¿Ø£¬ĞĞ×ßºÍÅÜÊ±¶¼¿ÉÒÔÇĞ»»×´Ì¬ÁË<br />
-<br />
---------------------------------------------------<br />
-È»¶øĞŞ¸ÄÁËĞĞ×ßºÍÅÜ²½ÒÀÈ»»¹ÊÇ²»¹»µÄ£¬Õ¾×ËµÈ¿É¿ØµÄÇé¿öÏÂÒÀÈ»»áÂÒ¶¯¡£<br />
-ËùÒÔÎªÁË¶ÔÓ¦´ó¶àÊıµÄ¿É¿ØÇé¿ö£¬ÎÒÃÇ»¹ĞèÒªÒ»¶Î·ºÓÃµÄÏŞÖÆ´úÂë£º<br />
-<br />
-;ÏÂÃæÒ»¶Î·Åµ½[Statedef -1]»ò[Statedef -3]ÏÂÃæ<br />
-;--------------------------------------------------<br />
-[State -1, µØÃæ¶¯×÷ÏŞÖÆ]<br />
-type = ChangeState<br />
-value = 0;Ç¿ĞĞÀ­»ØÕ¾×Ë<br />
-Triggerall = Var(59) > 0<br />
-Triggerall = Statetype != A<br />
-Triggerall = Roundstate = 2<br />
-Trigger1 = Stateno = 10;ÏÂ¶×<br />
-Trigger2 = Stateno = 20;ĞĞ×ß<br />
-Trigger3 = Stateno = 40;Ìø<br />
-ctrl = 1<br />
-<br />
-ËäÈ»ÓĞ²¿·ÖÄ§¸ÄµÄ³É·Ö£¨Ğ¦£©£¬µ«ÊÇÕâÖÖÊÇ±È½Ï³£ÓÃ¶øÇÒÊµÔÚµÄÏŞÖÆÂÒ¶¯µÄĞ´·¨ÁË¡£<br />
-<br />
---------------------------------------------------<br />
-ÖÁ´Ë£¬¹«ÓÃ×´Ì¬ËãÊÇ»ù±¾Íê³ÉÁË¡£<br />
-Ëæ×ÅÒÔºó²»Í¬Ä¿µÄµÄÕÂ½ÚµÄÌ½ÌÖ£¬ÎÒÃÇ»¹»á¼ÌĞø¸øÕâĞ©¹«ÓÃ×´Ì¬Ìí¼ÓÒ»Ğ©trigger£¬ÁîËüÃÇÔÚÊÊµ±µÄÊ±ºò´¥·¢¡£<br />
-²»¹ıÄÇÊÇÖ®ºóµÄÊÂÁË£¬±¾ÕÂÖ»½²ÕâÃ´¶à¡£<br />
-</p>
-
-<p>
-====================================================<br />
-<span class="STYLE2">¿Îºó×÷Òµ£º</span><br />
-<br />
-1.<br />
-¸ñ¶·ÓÎÏ·ÖĞ£¬Ê²Ã´¶Î¹¥»÷¿ÉÒÔ»÷ÆÆ¶×·À£¿Ê²Ã´¶Î¹¥»÷¿ÉÒÔ»÷ÆÆÕ¾·À£¿<br />
-<br />
-2.<br />
-ÎªÊ²Ã´ËµÕÂ½Ú8.7µÄÕâ¶Î´úÂëÓĞ²¿·ÖÄ§¸ÄµÄ³É·Ö£¿<br />
-<br />
-[State -1, µØÃæ¶¯×÷ÏŞÖÆ]<br />
-type = ChangeState<br />
-value = 0<br />
-Triggerall = Var(59) > 0<br />
-Triggerall = Statetype != A<br />
-Triggerall = Roundstate = 2<br />
-Trigger1 = Stateno = 10<br />
-Trigger2 = Stateno = 20<br />
-Trigger3 = Stateno = 40<br />
-ctrl = 1<br />
-</p>
-
-<p></p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   8.å…¬ç”¨çŠ¶æ€ä¿®æ”¹ï¼šç§»åŠ¨ã€è·³è·ƒã€å—èº«åŠé˜²å¾¡
+  </p>
+  <span class="STYLE3">
+   æœ¬é¡µå†…å®¹ç”±å£æ°´è½©æ’°å†™. ç”±ã€softmgrã€‘æ•´ç†ç¼–è¾‘.
+  </span>
+  <br/>
+  <p>
+   ç»ˆäºçœŸæ­£çš„å¼€å§‹å†™AIäº†ã€‚ä»ç¬¬8ç« å¼€å§‹åˆ°ç¬¬13ç« ï¼Œéƒ½æ˜¯å…³äºAIçš„ç¼–å†™ã€‚
+   <br/>
+   ä»è¿™ç« å¼€å§‹æˆ‘ä»¬æ­£å¼æ¥è§¦äººç‰©é‡Œé¢çš„ä»£ç ã€‚ä»£ç æ¯”è¾ƒé•¿å¯èƒ½æ¯”è¾ƒéš¾ç†è§£ï¼Œå»ºè®®ä¸€æ®µä¸€æ®µçš„è¯»ï¼Œä¸è¦è¢«é•¿åº¦ç»™å“åˆ°ï¼Œå¤šå£®è§‚çš„å»ºç­‘éƒ½
+   <br/>
+   æ˜¯ä¸€ç –ä¸€ç“¦æ­æˆçš„ï¼Œæ— è®ºå¤šé•¿çš„ä»£ç ä¹Ÿæ˜¯å¦‚æ­¤ï¼ŒæŠŠæ¯æ®µä»£ç é€ä¸ªå‡»ç ´åˆèµ·æ¥å°±æ˜¯ä½ æƒ³è¦çš„ç­”æ¡ˆã€‚
+   <br/>
+   é¦–å…ˆæˆ‘ä»¬å…ˆä»å„ä¸ªäººç‰©å‡ ä¹éƒ½æœ‰çš„çŠ¶æ€å¼€å§‹å…¥æ‰‹ï¼Œä¹Ÿå°±æ˜¯å…¬ç”¨çŠ¶æ€ã€‚
+   <br/>
+  </p>
+  <p>
+   ==================================================
+   <br/>
+   <span class="STYLE2">
+    8.1å…¬ç”¨çŠ¶æ€ä¸Stcommonç®€ä»‹
+   </span>
+   <br/>
+   ==================================================
+   <br/>
+   <br/>
+   --------------------------------------------------
+   <br/>
+   å…¬ç”¨çŠ¶æ€æ˜¯ä¸€äº›å„ä¸ªäººç‰©å‡ ä¹éƒ½æœ‰çš„çŠ¶æ€ï¼Œè€Œè¿™äº›çŠ¶æ€çš„çŠ¶æ€å·åŸºæœ¬ä¸Šä¹Ÿæ˜¯å›ºå®šçš„ã€‚
+   <br/>
+   ä¾‹å¦‚ç«™å§¿0ï¼Œè¹²å§¿10~12ï¼Œè¡Œèµ°20ï¼Œèµ·è·³40ï¼Œè·‘/å‰å†²100ï¼Œåæ’¤105ï¼Œé˜²å¾¡120ï½155ï¼Œå€’åœ°5110ï¼Œèµ·èº«5120ç­‰ç­‰ã€‚
+   <br/>
+   <br/>
+   Stcommonæ˜¯ä¸€ä¸ªå­˜æ”¾å…¬ç”¨çŠ¶æ€çš„ç‰¹æ®Šstæ–‡ä»¶ã€‚
+   <br/>
+   å¦‚æœå…¶ä»–stæ–‡ä»¶æ²¡æœ‰é‡å¤å®šä¹‰Stcommoné‡Œé¢çš„çŠ¶æ€ï¼Œäººç‰©å°†ä¼šä½¿ç”¨Stcommoné‡Œé¢å®šä¹‰çš„çŠ¶æ€ã€‚
+   <br/>
+   Mugenåœ¨dataæ–‡ä»¶å¤¹é‡Œé¢é™„æœ‰é»˜è®¤çš„common1.cnsï¼Œå¦‚æœäººç‰©æ²¡æœ‰è‡ªå¸¦Stcommonæ–‡ä»¶ï¼Œé‚£ä¹ˆäººç‰©ä¼šè°ƒç”¨è¿™ä¸ªcommon1.cnsã€‚
+   <br/>
+   å› æ­¤ï¼Œå¦‚æœäººç‰©è‡ªå¸¦Stcommonæ–‡ä»¶ï¼Œé‚£ä¹ˆæˆ‘ä»¬å°±ç›´æ¥å¯¹é‚£ä¸ªæ–‡ä»¶è¿›è¡Œä¿®æ”¹ï¼›å¦‚æœäººç‰©æ²¡æœ‰è‡ªå¸¦Stcommonæ–‡ä»¶çš„è¯ï¼Œå°±è¦åœ¨äººç‰©æ–‡ä»¶
+   <br/>
+   å¤¹å†…è‡ªå·±æ–°å»º/å¤åˆ¶ä¸€ä¸ªStcommonæ–‡ä»¶ï¼Œå¹¶æŠŠDefæ–‡ä»¶å†…çš„Stcommonè·¯å¾„æ”¹æˆä½ æ–‡ä»¶çš„è·¯å¾„ã€‚
+   <br/>
+   <br/>
+   æ‰“å¼€common1.cnsåæˆ‘ä»¬å¯ä»¥å‘ç°ï¼Œå…¶å®Stcommonå’Œä¸€èˆ¬çš„stæ–‡ä»¶æ²¡æœ‰å¤ªå¤šä¸åŒã€‚
+   <br/>
+   é‡Œé¢å¾ˆå¤šSctrlå…¶å®æ˜¯ä¸éœ€è¦ç®¡çš„ï¼Œå¦‚ç¬¬5ç« æ‰€è¯´ï¼Œæˆ‘ä»¬åªéœ€è¦çœ‹ä¼šè¢«commandå½±å“çš„æŸäº›Sctrlã€‚
+   <br/>
+   ä¸€èˆ¬æ¥è¯´è¿™äº›æ¶‰åŠçš„å†…å®¹åŒ…æ‹¬ï¼šç§»åŠ¨ï¼ˆè¡Œèµ°ã€è·‘ã€å‰å†²ã€åæ’¤ã€è·³è·ƒï¼‰ã€å—èº«åŠé˜²å¾¡ã€‚
+   <br/>
+  </p>
+  <p>
+   ==================================================
+   <br/>
+   <span class="STYLE2">
+    8.2è¡Œèµ°
+   </span>
+   <br/>
+   ==================================================
+   <br/>
+   <br/>
+   --------------------------------------------------
+   <br/>
+   è¡Œèµ°æ˜¯æ ¼æ–—æ¸¸æˆæœ€ä¸ºå¸¸è§çš„ç§»åŠ¨æ–¹å¼ä¹‹ä¸€ã€‚
+   <br/>
+   è™½ç„¶ç§»åŠ¨é€Ÿåº¦æ¯”è¾ƒæ…¢ï¼Œä½†æ˜¯å…¨ç¨‹éƒ½æ˜¯å±äºå¯æ§çŠ¶æ€ï¼Œå¯ä»¥éšæ—¶åº”å¯¹å„ç§æƒ…å†µï¼Œæ˜¯æœ€å®‰å…¨çš„ç§»åŠ¨æ–¹å¼ã€‚
+   <br/>
+   <br/>
+   <br/>
+   é»˜è®¤çš„common1.cnsä¸­ä»£ç å¦‚ä¸‹ï¼š
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; Walk
+   <br/>
+   [Statedef 20]
+   <br/>
+   type    = S
+   <br/>
+   physics = S
+   <br/>
+   sprpriority = 0
+   <br/>
+   <br/>
+   [State 20, 1]
+   <br/>
+   type = VelSet
+   <br/>
+   trigger1 = command = "holdfwd"
+   <br/>
+   x = const(velocity.walk.fwd.x)
+   <br/>
+   <br/>
+   [State 20, 2]
+   <br/>
+   type = VelSet
+   <br/>
+   trigger1 = command = "holdback"
+   <br/>
+   x = const(velocity.walk.back.x)
+   <br/>
+   <br/>
+   [State 20, 3]
+   <br/>
+   type = ChangeAnim
+   <br/>
+   triggerall = vel x &gt; 0
+   <br/>
+   trigger1 = Anim != 20 &amp;&amp; Anim != 5
+   <br/>
+   trigger2 = Anim = 5 &amp;&amp; AnimTime = 0
+   <br/>
+   value = 20
+   <br/>
+   <br/>
+   [State 20, 4]
+   <br/>
+   type = ChangeAnim
+   <br/>
+   triggerall = vel x &lt; 0
+   <br/>
+   trigger1 = Anim != 21 &amp;&amp; Anim != 5
+   <br/>
+   trigger2 = Anim = 5 &amp;&amp; AnimTime = 0
+   <br/>
+   value = 21
+   <br/>
+   <br/>
+   <br/>
+   å¦‚ä»£ç æ‰€ç¤ºï¼Œé»˜è®¤çš„è¡Œèµ°åˆ†ä¸ºå‘å‰èµ°å’Œå‘åèµ°ï¼Œè¿™ä¸¤ä¸ªæ–¹å‘çš„è¡Œèµ°ç”¨çš„æ˜¯åŒä¸€ä¸ªçŠ¶æ€å·20ã€‚
+   <br/>
+   è¿™ä¸ªçŠ¶æ€ä¼šæ ¹æ®æ‰‹æ“æŒ‰é”®çš„ä¸åŒï¼ˆä¹Ÿå°±æ˜¯å‰å’Œåï¼‰è€Œåˆ‡æ¢ä¸ºå¯¹åº”çš„åŠ¨ç”»ï¼ˆåŠ¨ç”»20å’Œ21ï¼‰å’Œé€Ÿåº¦ã€‚
+   <br/>
+   ç„¶è€Œè¿™æ ·ä¸€ä¸ªçŠ¶æ€åŒ…å«ä¸¤ä¸ªä¸åŒå±æ€§çš„åŠ¨ä½œçš„æƒ…å†µæ˜¯ç›¸å½“ä¸åˆ©äºAIç¼–å†™çš„ã€‚
+   <br/>
+   å› ä¸ºè¿™æ ·ä¸ä½†è¦åœ¨Statedef -1/-3é‡Œé¢åŠ å…¥å¯¹åº”çš„triggerä½¿å…¶åŠ¨èµ·æ¥ï¼Œè¿˜è¦åœ¨stcommonæ–‡ä»¶é‡Œé¢åŒºåˆ†å‰åä¸¤ç§æƒ…å†µï¼Œ
+   <br/>
+   åˆ†å¼€ä¸¤ä¸ªåœ°æ–¹å»ç®¡ç†ä¸€ç±»å‹åŠ¨ä½œã€‚è¿™ä¹ˆåšç›¸å½“éº»çƒ¦è¿˜å®¹æ˜“å‡ºé”™ï¼Œæ‰€ä»¥æˆ‘ä»¬è¦å¯¹å…¶è¿›è¡Œä¸€å®šçš„è°ƒæ•´ã€‚
+   <br/>
+   æ¯”è¾ƒå¸¸ç”¨çš„æ–¹æ³•æ˜¯æ–°å»ºä¸€ä¸ªï¼ˆæˆ–è€…ä¸€äº›ï¼‰çŠ¶æ€æ¥åŒºåˆ†ä¸åŒçš„åŠ¨ä½œï¼Œä»¥åå†™çŠ¶æ€åˆ‡æ¢çš„æ—¶å€™å°±ä¼šç®€å•ä¸å°‘ã€‚
+   <br/>
+   <br/>
+   <br/>
+   å®ä¾‹å¦‚ä¸‹ï¼š
+   <br/>
+   <br/>
+   ;ä¸‹é¢ä¸¤æ®µæ”¾åˆ°[Statedef 20]é™„è¿‘
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; Walk B å‘åèµ°
+   <br/>
+   [Statedef 19]
+   <br/>
+   type    = S
+   <br/>
+   physics = S
+   <br/>
+   sprpriority = 0
+   <br/>
+   <br/>
+   [State 20, 2]
+   <br/>
+   type = VelSet
+   <br/>
+   trigger1 = 1
+   <br/>
+   x = const(velocity.walk.back.x)
+   <br/>
+   <br/>
+   [State 20, 4]
+   <br/>
+   type = ChangeAnim
+   <br/>
+   trigger1 = Anim != 21 &amp;&amp; Anim != 5
+   <br/>
+   trigger2 = Anim = 5 &amp;&amp; AnimTime = 0
+   <br/>
+   value = 21
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; Walk F å‘å‰èµ°
+   <br/>
+   [Statedef 21]
+   <br/>
+   type    = S
+   <br/>
+   physics = S
+   <br/>
+   sprpriority = 0
+   <br/>
+   <br/>
+   [State 20, 1]
+   <br/>
+   type = VelSet
+   <br/>
+   trigger1 = 1
+   <br/>
+   x = const(velocity.walk.fwd.x)
+   <br/>
+   <br/>
+   [State 20, 3]
+   <br/>
+   type = ChangeAnim
+   <br/>
+   trigger1 = Anim != 20 &amp;&amp; Anim != 5
+   <br/>
+   trigger2 = Anim = 5 &amp;&amp; AnimTime = 0
+   <br/>
+   value = 20
+   <br/>
+   <br/>
+   <br/>
+   ä¹‹åå†™ä¸Šè®©äººç‰©è¡Œèµ°çš„Changestateå°±å¯ä»¥äº†ï¼š
+   <br/>
+   <br/>
+   ;ä¸‹é¢ä¸€æ®µæ”¾åˆ°[Statedef -1]æˆ–[Statedef -3]ä¸‹é¢
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   [State -1, å‘å‰èµ°]
+   <br/>
+   type = ChangeState
+   <br/>
+   value = 21
+   <br/>
+   Triggerall = Var(59) &gt; 0;AIå¼€å¯æ—¶
+   <br/>
+   Triggerall = Roundstate = 2;åœ¨æ ¼æ–—é˜¶æ®µ
+   <br/>
+   Triggerall = Statetype != A;ä¸åœ¨ç©ºä¸­
+   <br/>
+   Triggerall = Frontedgebodydist &gt;= 10;ä¸åœ¨ç”»é¢è¾¹ç¼˜
+   <br/>
+   Triggerall = Stateno != 20 &amp;&amp; Stateno != 100;ä¸æ˜¯æ­¥è¡ŒçŠ¶æ€å’Œè·‘æ­¥çŠ¶æ€
+   <br/>
+   Triggerall = ctrl;å¯æ§æ—¶
+   <br/>
+   Trigger1 = P2bodydist X &gt; 135 &amp;&amp; Random &lt; P2bodydist X * 2 - 250;Trigger1~4æ ¹æ®è·ç¦»ä¸åŒåˆ†æ®µæ”¹å˜æ¦‚ç‡
+   <br/>
+   Trigger2 = P2bodydist X &gt; 100 &amp;&amp; Random &lt; P2bodydist X
+   <br/>
+   Trigger3 = P2bodydist X &gt; 50 &amp;&amp; Random &lt; 100
+   <br/>
+   Trigger4 = P2bodydist X &gt; 0 &amp;&amp; Random &lt; 25
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   [State -1, å‘åèµ°]
+   <br/>
+   type = ChangeState
+   <br/>
+   value = 19
+   <br/>
+   Triggerall = Var(59) &gt; 0
+   <br/>
+   Triggerall = Roundstate = 2
+   <br/>
+   Triggerall = Statetype != A
+   <br/>
+   Triggerall = Backedgebodydist &gt;= 10
+   <br/>
+   Triggerall = !inguarddist;éé˜²å¾¡è·ç¦»ï¼Œå› ä¸ºé˜²å¾¡è·ç¦»å†…æŒ‰åä¼šå˜æˆé˜²å¾¡è€Œä¸æ˜¯å‘åèµ°
+   <br/>
+   Triggerall = ctrl
+   <br/>
+   Trigger1 = P2bodydist X &lt; 75 &amp;&amp; Random &gt; 950 + P2bodydist X / 2;è¿‘è·ç¦»ä½å‡ ç‡è§¦å‘
+   <br/>
+   <br/>
+   ä¹‹åäººç‰©å°±ä¼šæ ¹æ®ä¸åŒçš„è·ç¦»ä»¥ä¸åŒçš„æ¦‚ç‡éšæœºå‰åè¡Œèµ°äº†ã€‚
+   <br/>
+  </p>
+  <p>
+   ==================================================
+   <br/>
+   <span class="STYLE2">
+    8.3è·‘/å‰å†²/åæ’¤
+   </span>
+   <br/>
+   ==================================================
+   <br/>
+   <br/>
+   --------------------------------------------------
+   <br/>
+   è·‘/å‰å†²ä¹Ÿæ˜¯æ ¼æ–—æ¸¸æˆéå¸¸å¸¸è§çš„ç§»åŠ¨æ–¹å¼ã€‚
+   <br/>
+   è™½ç„¶ç§»åŠ¨é€Ÿåº¦æ¯”è¾ƒå¿«ï¼Œä½†æ˜¯è·Ÿè¡Œèµ°å¯¹æ¯”èµ·æ¥ç›¸å¯¹ä¸çµæ´»ï¼Œæœ‰ä¸€å®šçš„é£é™©ã€‚
+   <br/>
+   ç„¶è€Œè¾ƒå¿«çš„é€Ÿåº¦ä»¤å®ƒåœ¨æŠ¢ç¡¬ç›´ã€è¿æ®µç›®æŠ¼ç­‰éœ€è¦å¿«é€Ÿç§»åŠ¨çš„æƒ…å†µå¤§å±•èº«æ‰‹ã€‚
+   <br/>
+   <br/>
+   é»˜è®¤çš„common1.cnsä¸­ä»£ç å¦‚ä¸‹ï¼š
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; Run forward
+   <br/>
+   [Statedef 100]
+   <br/>
+   type    = S
+   <br/>
+   physics = S
+   <br/>
+   anim = 100
+   <br/>
+   sprpriority = 1
+   <br/>
+   <br/>
+   [State 100, 1]
+   <br/>
+   type = VelSet
+   <br/>
+   trigger1 = 1
+   <br/>
+   x = const(velocity.run.fwd.x)
+   <br/>
+   <br/>
+   [State 100, 2] ;Prevent run from canceling into walk
+   <br/>
+   type = AssertSpecial
+   <br/>
+   trigger1 = 1
+   <br/>
+   flag = NoWalk
+   <br/>
+   <br/>
+   [State 100, 3] ;Prevent from turning
+   <br/>
+   type = AssertSpecial
+   <br/>
+   trigger1 = 1
+   <br/>
+   flag = NoAutoTurn
+   <br/>
+   <br/>
+   [State 100, 4]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = command != "holdfwd"
+   <br/>
+   value = 0
+   <br/>
+   <br/>
+   å¦‚ä»£ç æ‰€ç¤ºï¼Œé»˜è®¤çš„æ˜¯è·‘ï¼Œæ˜¯å¯æ§çš„åŒ€é€Ÿå‰è¿›ï¼Œå¹¶ä¸”å¯ä»¥éšæ—¶åœä¸‹ã€‚
+   <br/>
+   ç„¶è€Œï¼Œå¾ˆå¤šæ ¼æ–—æ¸¸æˆé‡Œé¢çš„è·‘å¹¶ä¸æ˜¯è¿™ä¹ˆç®€å•çš„ï¼Œé€šå¸¸æ˜¯ç”±èµ·æ­¥ã€åŒ€é€Ÿè¿åŠ¨ã€åœæ­¢ä¹‹ç±»çš„éƒ¨åˆ†ç»„æˆã€‚
+   <br/>
+   å› ä¸ºèµ·æ­¥å’Œåœæ­¢éƒ½æ˜¯æœ‰ä¸€å®šç¡¬ç›´çš„åŠ¨ä½œï¼Œå¦‚æœåœ¨è¾ƒçŸ­çš„è·ç¦»å¼€å§‹è·‘ï¼Œå¯¹æ–¹ä¸€æ—¦ä½¿ç”¨æ”»å‡»ï¼Œä½ å°†æ²¡æ³•åœä¸‹æ¥è¿›è¡Œé˜²å¾¡ã€‚
+   <br/>
+   å’Œè¡Œèµ°å¯¹æ¯”èµ·æ¥ï¼Œè¿™ç±»å‹çš„è·‘ä½¿ç”¨èµ·æ¥éœ€è¦è€ƒè™‘æ›´å¤šé—®é¢˜ã€‚
+   <br/>
+   <br/>
+   <br/>
+   è™½ç„¶è·‘å¹¶æ²¡æœ‰è¡Œèµ°é‚£æ ·æœ‰ä¸¤ä¸ªæ–¹å‘çš„çƒ¦æ¼ï¼Œä½†æ˜¯è·‘çš„å¯åŠ¨å’Œåœæ­¢æ˜¯åˆ†å¼€æ§åˆ¶çš„ï¼Œå¹¶ä¸æ˜¯åƒè¡Œèµ°é‚£æ ·ä¸éœ€è¦å˜ä¸ºState 0çš„Sctrlã€‚
+   <br/>
+   æ‰€ä»¥é™¤äº†å¯åŠ¨æˆ‘ä»¬è¿˜è¦æ”¹å†™Statedef 100ä¸‹çš„åœæ­¢æ¡ä»¶ï¼š
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; Run forward
+   <br/>
+   [Statedef 100]
+   <br/>
+   <br/>
+   ...
+   <br/>
+   <br/>
+   [State 100, 4]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = Var(59) = 0;AIæœªå¼€å¯æ—¶
+   <br/>
+   trigger1 = command != "holdfwd";å’ŒåŸæ¥ä¸€æ ·æ¥å—æ‰‹æ“æŒ‡ä»¤
+   <br/>
+   trigger2 = Var(59) &gt; 0
+   <br/>
+   trigger2 = EnemyNear,movetype != H || (EnemyNear,movetype = H &amp;&amp; p2dist x &lt; 0);å¯¹æ–¹ä¸åœ¨å—å‡»çŠ¶æ€æˆ–è€…å¯¹æ–¹åœ¨å—å‡»çŠ¶æ€ä½†è·‘è¿‡å¤´äº†
+   <br/>
+   trigger2 = p2bodydist x &lt;= (30+random/40) || Frontedgebodydist &lt;= 10;æ¯”è¾ƒè¿‘çš„è·ç¦»æˆ–è€…ç”»é¢è¾¹ç¼˜
+   <br/>
+   trigger3 = Var(59) &gt; 0
+   <br/>
+   trigger3 = Roundstate != 2;é˜²æ­¢éæˆ˜æ–—é˜¶æ®µæ—¶ä¸€ç›´è·‘æ ¹æœ¬åœä¸ä¸‹æ¥
+   <br/>
+   value = 0
+   <br/>
+   <br/>
+   <br/>
+   ä¹‹åå†™ä¸Šè®©äººç‰©è·‘çš„Changestateå°±å¯ä»¥äº†ï¼š
+   <br/>
+   <br/>
+   ;ä¸‹é¢ä¸€æ®µæ”¾åˆ°[Statedef -1]æˆ–[Statedef -3]ä¸‹é¢
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   [State -1, å‰è·‘]
+   <br/>
+   type = ChangeState
+   <br/>
+   value = 100
+   <br/>
+   Triggerall = Var(59) &gt; 0
+   <br/>
+   Triggerall = Roundstate = 2
+   <br/>
+   Triggerall = Statetype != A
+   <br/>
+   Triggerall = Frontedgebodydist &gt;= 20;é¿å…åœ¨ç”»é¢è¾¹ç¼˜å¼€å§‹è·‘
+   <br/>
+   Triggerall = ctrl
+   <br/>
+   Trigger1 = P2bodydist X &gt; 200 &amp;&amp; Random &lt; P2bodydist X*5 - 720;Trigger1~4æ ¹æ®è·ç¦»ä¸åŒåˆ†æ®µæ”¹å˜æ¦‚ç‡
+   <br/>
+   Trigger2 = P2bodydist X &gt; 135 &amp;&amp; Random &lt; P2bodydist X*2 - 120
+   <br/>
+   Trigger3 = P2bodydist X &gt; 90 &amp;&amp; Random &lt; P2bodydist X*1.75 - 90
+   <br/>
+   Trigger4 = (P2bodydist X = [45,90]) &amp;&amp; Random &lt; P2bodydist X *1.2 - 45
+   <br/>
+   <br/>
+   --------------------------------------------------
+   <br/>
+   è™½ç„¶Mugenå†…é»˜è®¤çš„çŠ¶æ€100æ˜¯è·‘ï¼Œä½†ä¸€äº›æ¸¸æˆå½“ä¸­åŒå‡»å‰æ–¹å‘é”®ï¼ˆ66ï¼‰å¹¶ä¸ä¸€å®šæ˜¯è·‘ï¼Œè¿˜æœ‰å¯èƒ½æ˜¯å‰å†²ï¼ˆå†²åˆº/Dashï¼‰ã€‚
+   <br/>
+   å‰å†²å¾ˆæœ‰å¯èƒ½æ˜¯é•¿æ—¶é—´ç¡¬ç›´çš„å‘å‰ç§»åŠ¨ï¼Œè‹¥ä¹±ä½¿ç”¨å¯ä»¥è¯´ç ´ç»½ç™¾å‡ºï¼Œä½¿ç”¨æ—¶æ¯”èµ·è·‘è¦æ›´å°å¿ƒï¼Œå¦åˆ™å°±æ˜¯ç»™å¯¹æ–¹é€ç¡¬ç›´ã€‚
+   <br/>
+   <br/>
+   åæ’¤é»˜è®¤ä½¿ç”¨çš„æ˜¯çŠ¶æ€105ï¼Œæ˜¯åŒå‡»åæ–¹å‘é”®ï¼ˆ44ï¼‰æ‰€å‘å‡ºæ¥çš„ã€‚
+   <br/>
+   åœ¨Mugenä¸­ï¼Œåæ’¤é»˜è®¤ä¸ºç©ºä¸­çŠ¶æ€ï¼Œä¹Ÿå°±æ˜¯å¯åŠ¨çš„ç¬é—´å°±åœ¨ç©ºä¸­ï¼Œæ‰€ä»¥å¯ä»¥åˆ©ç”¨è¿™ä¸ªç‰¹æ€§èº²é¿æŠ•æŠ€ã€‚
+   <br/>
+   è€Œåœ¨ä¸å°‘æ ¼æ–—æ¸¸æˆä½œå“å½“ä¸­ï¼Œåæ’¤ä¼šæœ‰çŸ­æš‚æ— æ•Œçš„æ€§èƒ½ï¼Œæˆ‘ä»¬ä¹Ÿå¯ä»¥åˆ©ç”¨è¿™æ€§èƒ½å¯¹å¯¹æ–¹æ”»å‡»è¿›è¡Œé—ªé¿ã€‚
+   <br/>
+   <br/>
+   <br/>
+   å› ä¸ºé»˜è®¤å¹¶æ²¡æœ‰å‰å†²ï¼Œæ‰€ä»¥åœ¨æ­¤åªç»™å‡ºåæ’¤çš„ä¾‹å­ï¼š
+   <br/>
+   <br/>
+   ;ä¸‹é¢ä¸€æ®µæ”¾åˆ°[Statedef -1]æˆ–[Statedef -3]ä¸‹é¢
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   [State -1, åæ’¤]
+   <br/>
+   type = ChangeState
+   <br/>
+   value = 105
+   <br/>
+   Triggerall = Var(59) &gt; 0
+   <br/>
+   Triggerall = Roundstate = 2
+   <br/>
+   Triggerall = Statetype != A
+   <br/>
+   Triggerall = (Random &lt; Var(59)*200) || (Var(59) &gt; 3)
+   <br/>
+   Triggerall = ctrl
+   <br/>
+   Trigger1 = EnemyNear,Movetype = A &amp;&amp; EnemyNear,Stateno &gt;= 200;å¯¹æ–¹æ”»å‡»çŠ¶æ€
+   <br/>
+   Trigger1 = facing != EnemyNear,facing;åŒæ–¹é¢å¯¹é¢
+   <br/>
+   Trigger1 = EnemyNear,hitdefattr = SC,AT;å¯¹æ‰‹æ”»å‡»å¸¦æŠ•æŠ€åˆ¤å®š
+   <br/>
+   Trigger1 = P2bodydist X = [-20,100];ä¸€å®šè·ç¦»å†…
+   <br/>
+  </p>
+  <p>
+   ==================================================
+   <br/>
+   <span class="STYLE2">
+    8.4è·³è·ƒ
+   </span>
+   <br/>
+   ==================================================
+   <br/>
+   <br/>
+   --------------------------------------------------
+   <br/>
+   è·³è·ƒåŒæ ·æ˜¯æ ¼æ–—æ¸¸æˆå¸¸è§çš„ç§»åŠ¨æ–¹å¼ã€‚
+   <br/>
+   å› ä¸ºè·³è·ƒèƒ½ä»¤æ”»å‡»æ–¹å¼å¤šæ ·åŒ–ï¼ˆä¸Šä¸‹æ‹©å’Œè½åœ°æŠ•ç­‰ï¼‰è€Œä¸”æœ‰ç€ç›¸å½“é«˜çš„å›æŠ¥ï¼Œåœ¨æ‰‹æ“é‡Œæœ‰ç€å¾ˆé‡è¦çš„åœ°ä½ã€‚
+   <br/>
+   åŒæ—¶è¿˜å¯ä»¥èº²é¿æŠ•æŠ€å’Œè¿œå¤„é£è¡Œé“å…·ï¼Œå¹¶è·å¾—å…ˆæœºã€‚
+   <br/>
+   ä½†æ˜¯å…ˆä¸è¯´mugenå½“ä¸­ç©ºé˜²å¹¶ä¸èƒ½é˜²å¾¡ä¸‹æ®µæ”»å‡»å’Œä¸€å¤§å †æ— æ•Œå‡é¾™ï¼Œé€šå¸¸æ¥è¯´äººç‰©åœ¨ç©ºä¸­åªèƒ½æŒ‰ç…§ä¸€å®šçš„è½¨è¿¹ç§»åŠ¨ï¼Œ
+   <br/>
+   è€Œä¸”å¤šæ•°æ ¼æ–—æ¸¸æˆä¸­äººç‰©åœ¨åœ°é¢çš„æ€§èƒ½æ¯”ç©ºä¸­è¦å¥½ï¼Œè·³è·ƒä¹Ÿéœ€è¦å¥½å¥½è€ƒè™‘ä½ç½®å’Œæ—¶æœºæ‰èƒ½åœ¨AIæˆ˜é‡Œé¢ä½¿ç”¨ã€‚
+   <br/>
+   <br/>
+   é»˜è®¤çš„common1.cnsä¸­ä»£ç å¦‚ä¸‹ï¼š
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; Jump Start
+   <br/>
+   [Statedef 40]
+   <br/>
+   type    = S
+   <br/>
+   physics = S
+   <br/>
+   anim = 40
+   <br/>
+   ctrl = 0
+   <br/>
+   sprpriority = 1
+   <br/>
+   facep2 = 1
+   <br/>
+   <br/>
+   [State 40, 1]
+   <br/>
+   type = VarSet
+   <br/>
+   trigger1 = Time = 0
+   <br/>
+   sysvar(1) = 0
+   <br/>
+   <br/>
+   [State 40, 2]
+   <br/>
+   type = VarSet
+   <br/>
+   trigger1 = command = "holdfwd"
+   <br/>
+   sysvar(1) = 1
+   <br/>
+   <br/>
+   [State 40, 3]
+   <br/>
+   type = VarSet
+   <br/>
+   trigger1 = command = "holdback"
+   <br/>
+   sysvar(1) = -1
+   <br/>
+   <br/>
+   [State 40, 4]
+   <br/>
+   type = VelSet
+   <br/>
+   trigger1 = AnimTime = 0
+   <br/>
+   x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x), const(velocity.jump.back.x)))
+   <br/>
+   y = const(velocity.jump.y)
+   <br/>
+   <br/>
+   [State 40, 5]
+   <br/>
+   type = VelSet
+   <br/>
+   trigger1 = AnimTime = 0
+   <br/>
+   trigger1 = prevstateno = 100 ;RUN_FWD
+   <br/>
+   trigger1 = sysvar(1) = 1
+   <br/>
+   x = const(velocity.runjump.fwd.x)
+   <br/>
+   <br/>
+   [State 40, 6]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = AnimTime = 0
+   <br/>
+   value = 50
+   <br/>
+   ctrl = 1
+   <br/>
+   <br/>
+   <br/>
+   å¦‚ä»£ç æ‰€ç¤ºï¼Œå’Œè¡Œèµ°ç±»ä¼¼ï¼Œé»˜è®¤çš„è·³è·ƒåˆ†ä¸ºå‰è·³ã€åè·³ã€åŸåœ°è·³å’Œè·‘è·³ï¼Œç”¨çš„æ˜¯åŒä¸€ä¸ªçŠ¶æ€å·40ã€‚
+   <br/>
+   ä¹Ÿæ˜¯é€šè¿‡æŒ‰é”®ä¸åŒåŒºåˆ†å¼€ä¸åŒçš„æ–¹å‘å’Œé€Ÿåº¦ã€‚
+   <br/>
+   è€Œåœ¨æŸäº›æœ‰å¤§å°è·³çš„ä½œå“é‡Œé¢ï¼Œè·³è·ƒçš„åˆ†ç±»ä¼šæ›´å¤šã€‚
+   <br/>
+   æ‰€ä»¥æˆ‘ä»¬ä¼šé‡‡ç”¨å’Œè¡Œèµ°ä¸€æ ·çš„åŠæ³•æ¥å¤„ç†ã€‚
+   <br/>
+   <br/>
+   å®ä¾‹å¦‚ä¸‹ï¼š
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ;Statedef 39åè·³ 41å‰è·³ 42åŸåœ°è·³
+   <br/>
+   <br/>
+   [Statedef 39]
+   <br/>
+   type    = S
+   <br/>
+   physics = S
+   <br/>
+   anim = 40
+   <br/>
+   ctrl = 0
+   <br/>
+   sprpriority = 1
+   <br/>
+   <br/>
+   [State 40, 1]
+   <br/>
+   type = VarSet
+   <br/>
+   trigger1 = 1
+   <br/>
+   sysvar(1) = -1
+   <br/>
+   <br/>
+   [State 40, 4]
+   <br/>
+   type = VelSet
+   <br/>
+   trigger1 = AnimTime = 0
+   <br/>
+   x = const(velocity.jump.back.x)
+   <br/>
+   y = const(velocity.jump.y)
+   <br/>
+   <br/>
+   [State 40, 6]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = AnimTime = 0
+   <br/>
+   value = 50
+   <br/>
+   ctrl = 1
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   [Statedef 41]
+   <br/>
+   type    = S
+   <br/>
+   physics = S
+   <br/>
+   anim = 40
+   <br/>
+   ctrl = 0
+   <br/>
+   sprpriority = 1
+   <br/>
+   <br/>
+   [State 40, 1]
+   <br/>
+   type = VarSet
+   <br/>
+   trigger1 = 1
+   <br/>
+   sysvar(1) = 1
+   <br/>
+   <br/>
+   [State 40, 4]
+   <br/>
+   type = VelSet
+   <br/>
+   trigger1 = AnimTime = 0
+   <br/>
+   x = const(velocity.jump.fwd.x)
+   <br/>
+   y = const(velocity.jump.y)
+   <br/>
+   <br/>
+   [State 40, 5]
+   <br/>
+   type = VelSet
+   <br/>
+   trigger1 = AnimTime = 0
+   <br/>
+   trigger1 = prevstateno = 100 ;RUN_FWD
+   <br/>
+   trigger1 = sysvar(1) = 1
+   <br/>
+   x = const(velocity.runjump.fwd.x)
+   <br/>
+   <br/>
+   [State 40, 6]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = AnimTime = 0
+   <br/>
+   value = 50
+   <br/>
+   ctrl = 1
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   [Statedef 42]
+   <br/>
+   type    = S
+   <br/>
+   physics = S
+   <br/>
+   anim = 40
+   <br/>
+   ctrl = 0
+   <br/>
+   sprpriority = 1
+   <br/>
+   <br/>
+   [State 40, 1]
+   <br/>
+   type = VarSet
+   <br/>
+   trigger1 = 1
+   <br/>
+   sysvar(1) = 0
+   <br/>
+   <br/>
+   [State 40, 4]
+   <br/>
+   type = VelSet
+   <br/>
+   trigger1 = AnimTime = 0
+   <br/>
+   x = const(velocity.jump.neu.x)
+   <br/>
+   y = const(velocity.jump.y)
+   <br/>
+   <br/>
+   [State 40, 6]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = AnimTime = 0
+   <br/>
+   value = 50
+   <br/>
+   ctrl = 1
+   <br/>
+  </p>
+  <p>
+   ====================================================
+   <br/>
+   <span class="STYLE2">
+    8.5å—èº«
+   </span>
+   <br/>
+   ====================================================
+   <br/>
+   <br/>
+   --------------------------------------------------
+   <br/>
+   å—èº«æ˜¯æŒ‡å—å‡»èº«ä½“æ¢å¤ï¼Œé€šå¸¸æ˜¯ç©ºä¸­æˆ–è€…ä½ç©ºå—å‡»ç¡¬ç›´åï¼Œæˆ–è€…å€’åœ°æ—¶å¯ä»¥æ›´å¿«çš„æ¢å¤æˆä¸ºå¯æ§çŠ¶æ€ã€‚
+   <br/>
+   æ›´å¿«çš„æ¢å¤å¯æ§çŠ¶æ€å¯ä»¥ç”¨äºèº²é¿å¯¹æ–¹çš„ä¼ªè¿ï¼ˆæŒ‡ä¸­é€”å¯è¢«å—èº«å›é¿çš„è¿æ®µï¼‰ï¼Œæˆ–è€…æ›´å®¹æ˜“ä½œå‡ºåå‡»ã€‚
+   <br/>
+   <br/>
+   <br/>
+   é»˜è®¤çš„common1.cnsä¸­ä»£ç å¦‚ä¸‹ï¼ˆæ­¤å¤„å› ä¸ºWinMugenç‰ˆæœ¬å†™çš„æ¯”è¾ƒç®€å•å®¹æ˜“ç†è§£ï¼Œæˆ‘ç”¨WinMugenç‰ˆæœ¬çš„ä»£ç è¿›è¡Œè®²è§£ï¼‰ï¼š
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; HITA_FALL (knocked up, falling)
+   <br/>
+   [Statedef 5050]
+   <br/>
+   type    = A
+   <br/>
+   movetype= H
+   <br/>
+   physics = N
+   <br/>
+   <br/>
+   ...
+   <br/>
+   <br/>
+   [State 5050, 4] ;Recover near ground
+   <br/>
+   type = ChangeState
+   <br/>
+   triggerall = Vel Y &gt; 0
+   <br/>
+   triggerall = Pos Y &gt;= -20
+   <br/>
+   triggerall = alive
+   <br/>
+   triggerall = CanRecover
+   <br/>
+   trigger1 = Command = "recovery"
+   <br/>
+   value = 5200 ;HITFALL_RECOVER
+   <br/>
+   <br/>
+   [State 5050, 5]; Recover in mid air
+   <br/>
+   type = ChangeState
+   <br/>
+   triggerall = Vel Y &gt; -1
+   <br/>
+   triggerall = alive
+   <br/>
+   triggerall = CanRecover
+   <br/>
+   trigger1 = Command = "recovery"
+   <br/>
+   value = 5210 ;HITFALL_AIRRECOVER
+   <br/>
+   <br/>
+   ...
+   <br/>
+   <br/>
+   --------------------------------------------------
+   <br/>
+   ; HIT_FALLRECOVER (still falling)
+   <br/>
+   [Statedef 5200]
+   <br/>
+   type    = A
+   <br/>
+   movetype= H
+   <br/>
+   physics = N
+   <br/>
+   <br/>
+   [State 5200, 1] ;Change anim if done with transition
+   <br/>
+   type = ChangeAnim
+   <br/>
+   trigger1 = Anim = 5035
+   <br/>
+   trigger1 = AnimTime = 0
+   <br/>
+   value = 5050
+   <br/>
+   <br/>
+   [State 5200, 2]
+   <br/>
+   type = VelAdd
+   <br/>
+   trigger1 = 1
+   <br/>
+   y = GetHitVar(yaccel)
+   <br/>
+   <br/>
+   [State 5200, 3]
+   <br/>
+   type = SelfState
+   <br/>
+   trigger1 = Vel Y &gt; 0
+   <br/>
+   trigger1 = Pos Y &gt;= 10
+   <br/>
+   value = 5201
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; HIT_FALLRECOVER (on the ground)
+   <br/>
+   [Statedef 5201]
+   <br/>
+   type    = A
+   <br/>
+   movetype= H
+   <br/>
+   physics = A
+   <br/>
+   anim = 5200
+   <br/>
+   <br/>
+   [State 5201, 1] ;Turn if not facing opponent
+   <br/>
+   type = Turn
+   <br/>
+   trigger1 = Time = 0
+   <br/>
+   trigger1 = p2dist X &lt; -5
+   <br/>
+   <br/>
+   [State 5201, 2]
+   <br/>
+   type = VelSet
+   <br/>
+   trigger1 = Time = 0
+   <br/>
+   x = -.15
+   <br/>
+   y = -3.5
+   <br/>
+   <br/>
+   [State 5201, 3]
+   <br/>
+   type = PosSet
+   <br/>
+   trigger1 = Time = 0
+   <br/>
+   y = 0
+   <br/>
+   <br/>
+   [State 5201, 4]
+   <br/>
+   type = NotHitBy
+   <br/>
+   trigger1 = 1
+   <br/>
+   value = SCA
+   <br/>
+   time = 1
+   <br/>
+   <br/>
+   [State 5201, 5] ;Blink white
+   <br/>
+   type = PalFX
+   <br/>
+   trigger1 = Time = 0
+   <br/>
+   time = 3
+   <br/>
+   add = 128,128,128 ;256,256,256
+   <br/>
+   <br/>
+   [State 5201, 6]
+   <br/>
+   type = GameMakeAnim
+   <br/>
+   trigger1 = Time = 1
+   <br/>
+   value = 60
+   <br/>
+   pos = 0, 0
+   <br/>
+   under = 1
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; HIT_AIRFALLRECOVER
+   <br/>
+   [Statedef 5210]
+   <br/>
+   type    = A
+   <br/>
+   movetype= I
+   <br/>
+   physics = N
+   <br/>
+   anim = 5210
+   <br/>
+   ctrl = 0
+   <br/>
+   <br/>
+   [State 5210, 1] ;Blink white
+   <br/>
+   type = PalFX
+   <br/>
+   trigger1 = Time = 0
+   <br/>
+   time = 3
+   <br/>
+   add = 128,128,128 ;256,256,256
+   <br/>
+   <br/>
+   [State 5210, 1]
+   <br/>
+   type = PosFreeze
+   <br/>
+   trigger1 = Time = 0
+   <br/>
+   value = 4
+   <br/>
+   <br/>
+   [State 5210, 2] ;Turn if not facing opponent
+   <br/>
+   type = Turn
+   <br/>
+   trigger1 = Time = 0
+   <br/>
+   trigger1 = p2dist X &lt; -20
+   <br/>
+   <br/>
+   [State 5210, 1]
+   <br/>
+   type = VelMul
+   <br/>
+   trigger1 = Time = 4
+   <br/>
+   x = .8
+   <br/>
+   y = .8
+   <br/>
+   <br/>
+   [State 5210, 1]
+   <br/>
+   type = VelAdd
+   <br/>
+   trigger1 = Time = 4
+   <br/>
+   y = -4.5
+   <br/>
+   <br/>
+   [State 5210, 1]
+   <br/>
+   type = VelMul
+   <br/>
+   trigger1 = Time = 4
+   <br/>
+   trigger1 = Vel Y &gt; 0
+   <br/>
+   y = .5
+   <br/>
+   <br/>
+   [State 5210, 1]
+   <br/>
+   type = VelAdd
+   <br/>
+   trigger1 = Time = 4
+   <br/>
+   trigger1 = Vel Y &gt; -3
+   <br/>
+   y = -2
+   <br/>
+   <br/>
+   [State 5210, 1]
+   <br/>
+   type = VelAdd
+   <br/>
+   trigger1 = Time = 4
+   <br/>
+   trigger1 = Vel Y &gt; -2
+   <br/>
+   y = -1
+   <br/>
+   <br/>
+   [State 5210, 2] ;Go up
+   <br/>
+   type = VelAdd
+   <br/>
+   trigger1 = Time = 4
+   <br/>
+   trigger1 = Command = "holdup"
+   <br/>
+   y = -2
+   <br/>
+   <br/>
+   [State 5210, 2] ;Go down
+   <br/>
+   type = VelAdd
+   <br/>
+   trigger1 = Time = 4
+   <br/>
+   trigger1 = Command = "holddown"
+   <br/>
+   y = 1.5
+   <br/>
+   <br/>
+   [State 5210, 2] ;Go fwd
+   <br/>
+   type = VelMul
+   <br/>
+   trigger1 = Time = 4
+   <br/>
+   trigger1 = Command = "holdfwd"
+   <br/>
+   x = 1
+   <br/>
+   <br/>
+   [State 5210, 2] ;Go back
+   <br/>
+   type = VelAdd
+   <br/>
+   trigger1 = Time = 4
+   <br/>
+   trigger1 = Command = "holdback"
+   <br/>
+   x = -1
+   <br/>
+   <br/>
+   [State 5210, 3]
+   <br/>
+   type = NotHitBy
+   <br/>
+   trigger1 = Time = 0
+   <br/>
+   value = SCA
+   <br/>
+   time = 15
+   <br/>
+   <br/>
+   [State 5210, 4]
+   <br/>
+   type = CtrlSet
+   <br/>
+   trigger1 = Time = 20
+   <br/>
+   value = 1
+   <br/>
+   <br/>
+   [State 5210, 5]
+   <br/>
+   type = VelAdd;Gravity
+   <br/>
+   trigger1 = Time &gt;= 4
+   <br/>
+   y = .35
+   <br/>
+   <br/>
+   [State 5210, 5] ;Land on ground
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = Vel Y &gt; 0
+   <br/>
+   trigger1 = Pos Y &gt;= 0
+   <br/>
+   value = 52 ;JUMP_LAND
+   <br/>
+   ctrl = 1
+   <br/>
+   <br/>
+   <br/>
+   å¦‚ä»£ç æ‰€ç¤ºï¼ŒMugenå½“ä¸­é»˜è®¤æœ‰ä¸¤ç§å—èº«ï¼Œåˆ†åˆ«æ˜¯é«˜ç©ºå—èº«å’Œä½ç©ºå—èº«ï¼Œåˆ†åˆ«æ˜¯çŠ¶æ€5210å’Œ5200ã€‚
+   <br/>
+   å…¶å‘åŠ¨æ¡ä»¶æ˜¯åœ¨æ‰è½çŠ¶æ€5050å½“ä¸­å¤„äºå¯æ¢å¤çŠ¶æ€æ—¶ï¼Œé€Ÿåº¦å’Œé«˜åº¦ç¬¦åˆæ¡ä»¶å³å¯ã€‚
+   <br/>
+   é«˜ç©ºå—èº«5210æ˜¯å—èº«å20fæ¢å¤å¯æ§ï¼Œè€Œä½ç©ºå—èº«5200æ˜¯è¿›å…¥é¢„å¤‡çŠ¶æ€åˆ°è¾¾ä½ç©ºé«˜åº¦è½¬å˜ä¸ºçŠ¶æ€5201ã€‚
+   <br/>
+   å€¼å¾—ä¸€æçš„æ˜¯ï¼Œé«˜ç©ºå—èº«æœ‰15fçš„æ— æ•Œï¼Œè€Œä½ç©ºå—èº«åœ¨åˆ°è¾¾ä½ç©ºé«˜åº¦ç›´åˆ°è½åœ°å‰çš„çŠ¶æ€5201æœ‰å…¨ç¨‹æ— æ•Œã€‚
+   <br/>
+   å¦‚æœå¯ä»¥åœ¨å¯¹æ–¹ä¼ªè¿æ—¶åˆç†åˆ©ç”¨é«˜ç©ºå—èº«è¿™15fçš„æ— æ•Œå’Œä½ç©ºå—èº«çŠ¶æ€5201çš„å…¨ç¨‹æ— æ•Œèº²å¼€å¯¹æ–¹çš„æ”»å‡»åˆ¤å®šï¼Œ
+   <br/>
+   ç”šè‡³ä¹‹ååœ¨å¯¹æ–¹æ”»å‡»ç¡¬ç›´ä¸­åå‡»å‘½ä¸­å¯¹æ–¹çš„è¯ï¼Œå¯ä»¥è¯´æ˜¯ç›¸å½“å¤§çš„æ”¶ç›Šã€‚
+   <br/>
+   ç„¶è€Œå—èº«å…¶å®ä¹Ÿæ˜¯æœ‰ä¸€å®šçš„é£é™©çš„ã€‚é«˜ç©ºå—èº«åœ¨15fæ— æ•Œä»¥åæœ‰5fçš„ç¡¬ç›´ï¼Œè€Œä½ç©ºå—èº«ä¸å¯æ§ï¼Œä¸å¯åˆ‡æ¢æˆé˜²å¾¡çŠ¶æ€ï¼Œ
+   <br/>
+   è½åœ°ä¹Ÿæœ‰ç¡¬ç›´ï¼Œä¹±å—èº«çš„è¯å¾ˆå®¹æ˜“è¢«å†™äº†å—èº«ç‹©ï¼ˆä¹Ÿå°±æ˜¯æŠ“å—èº«ï¼‰æŠ“ä½æœºä¼šã€‚
+   <br/>
+   å¦å¤–æœ‰äº›AIä¹Ÿä¼šç”¨ä½ç¡¬ç›´çš„æ‹›å¼éª—å¯¹æ–¹æ‰‹å—èº«ï¼Œä¸€æ—¦å¯¹æ–¹ä¸Šå½“å½¢æˆå—èº«ç‹©å°±æ˜¯ä¸€å¥—é¢å¤–çš„è¿æ®µã€‚
+   <br/>
+   å› ä¸ºæˆ‘ä»¬æš‚æ—¶è¿˜æ²¡æœ‰å­¦å‡ºæ‹›è®°å½•ç­‰æŠ€æœ¯ï¼Œæ²¡æ³•ç‰¹åˆ«ç²¾ç¡®åœ°ç”¨å—èº«èº²é¿å¯¹æ–¹ä¼ªè¿ï¼Œ
+   <br/>
+   æ‰€ä»¥è¦æ³¨æ„å—èº«çš„å‡ ç‡ä¸è¦å¤ªé«˜ï¼Œä»¥å…è¢«å—èº«ç‹©å¾ªç¯è‡´æ­»ã€‚
+   <br/>
+   <br/>
+   <br/>
+   å®ä¾‹å¦‚ä¸‹ï¼š
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; HITA_FALL (knocked up, falling)
+   <br/>
+   [Statedef 5050]
+   <br/>
+   type    = A
+   <br/>
+   movetype= H
+   <br/>
+   physics = N
+   <br/>
+   <br/>
+   ...
+   <br/>
+   <br/>
+   [State 5050, 4] ;Recover near ground
+   <br/>
+   type = ChangeState
+   <br/>
+   triggerall = Vel Y &gt; 0
+   <br/>
+   triggerall = Pos Y &gt;= -20
+   <br/>
+   triggerall = alive
+   <br/>
+   triggerall = CanRecover
+   <br/>
+   trigger1 = Var(59) = 0;å½“æ‰‹æ“æ—¶ç”±æ‰‹æ“å‘½ä»¤æ§åˆ¶
+   <br/>
+   trigger1 = Command = "recovery"
+   <br/>
+   trigger2 = Var(59) &gt; 0
+   <br/>
+   trigger2 = EnemyNear,Movetype = H || EnemyNear,Statetype = L;å¯¹æ–¹å€’åœ°æˆ–è€…å—å‡»
+   <br/>
+   value = 5200 ;HITFALL_RECOVER
+   <br/>
+   <br/>
+   [State 5050, 5]; Recover in mid air
+   <br/>
+   type = ChangeState
+   <br/>
+   triggerall = Vel Y &gt; -1
+   <br/>
+   triggerall = alive
+   <br/>
+   triggerall = CanRecover
+   <br/>
+   trigger1 = Var(59) = 0;å½“æ‰‹æ“æ—¶ç”±æ‰‹æ“å‘½ä»¤æ§åˆ¶
+   <br/>
+   trigger1 = Command = "recovery"
+   <br/>
+   trigger2 = Var(59) &gt; 0
+   <br/>
+   trigger2 = EnemyNear,Movetype = H || EnemyNear,Statetype = L
+   <br/>
+   Trigger3 = Var(59) &gt; 0
+   <br/>
+   Trigger3 = EnemyNear,Movetype = A &amp;&amp; EnemyNear,Stateno &gt;= 200;å¯¹æ–¹æ”»å‡»çŠ¶æ€
+   <br/>
+   Trigger3 = EnemyNear,AnimTime &lt;= -Random/40+5;å¯¹æ–¹æœ‰ä¸€å®šç¡¬ç›´æ—¶é—´
+   <br/>
+   Trigger3 = Random &lt; 100;ä½å‡ ç‡è§¦å‘
+   <br/>
+   value = 5210 ;HITFALL_AIRRECOVER
+   <br/>
+   <br/>
+   ...
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; HIT_AIRFALLRECOVER
+   <br/>
+   [Statedef 5210]
+   <br/>
+   type    = A
+   <br/>
+   movetype= I
+   <br/>
+   physics = N
+   <br/>
+   anim = 5210
+   <br/>
+   ctrl = 0
+   <br/>
+   <br/>
+   ...
+   <br/>
+   ;å…·ä½“æ–¹å‘æ§åˆ¶çœ‹å–œå¥½
+   <br/>
+   <br/>
+   [State 5210, 2] ;Go up
+   <br/>
+   type = VelAdd
+   <br/>
+   triggerall = Time = 4
+   <br/>
+   trigger1 = Var(59) = 0
+   <br/>
+   trigger1 = Command = "holdup"
+   <br/>
+   y = -2
+   <br/>
+   <br/>
+   [State 5210, 2] ;Go down
+   <br/>
+   type = VelAdd
+   <br/>
+   triggerall = Time = 4
+   <br/>
+   trigger1 = Var(59) = 0
+   <br/>
+   trigger1 = Command = "holddown"
+   <br/>
+   trigger2 = Var(59) &gt; 0
+   <br/>
+   y = 1.5
+   <br/>
+   <br/>
+   [State 5210, 2] ;Go fwd
+   <br/>
+   type = VelMul
+   <br/>
+   triggerall = Time = 4
+   <br/>
+   trigger1 = Var(59) = 0
+   <br/>
+   trigger1 = Command = "holdfwd"
+   <br/>
+   trigger2 = Var(59) &gt; 0
+   <br/>
+   x = 1
+   <br/>
+   <br/>
+   [State 5210, 2] ;Go back
+   <br/>
+   type = VelAdd
+   <br/>
+   triggerall = Time = 4
+   <br/>
+   trigger1 = Var(59) = 0
+   <br/>
+   trigger1 = Command = "holdback"
+   <br/>
+   x = -1
+   <br/>
+  </p>
+  <p>
+   ==================================================
+   <br/>
+   <span class="STYLE2">
+    8.6é˜²å¾¡
+   </span>
+   <br/>
+   ==================================================
+   <br/>
+   <br/>
+   --------------------------------------------------
+   <br/>
+   æ ¼æ–—æœ‰æ”»å°±æœ‰å®ˆï¼Œé˜²å¾¡ä¸å¿…å¤šè¯´æ˜¯æ ¼æ–—æ¸¸æˆé‡Œé¢å¾ˆé‡è¦çš„ä¸€ç¯ã€‚
+   <br/>
+   é˜²å¾¡å¯¹äºæ”»å‡»æ¥è¯´ç®—ç›¸å¯¹ç®€å•ï¼Œå› ä¸ºæ— è®ºä½ æ€ä¹ˆæ”»å‡»ï¼Œé˜²å¾¡å°±ä¸‰ç§ï¼šç«™é˜²ã€è¹²é˜²ã€ç©ºé˜²ï¼ˆæœ‰äº›æ¸¸æˆç”šè‡³æ²¡æœ‰ç©ºé˜²ï¼‰ã€‚
+   <br/>
+   é™¤äº†æŠ•æŠ€ä¸å¯é˜²å¾¡ã€ç ´é˜²æŠ€ç­‰ç‰¹æ®Šæƒ…å†µï¼Œæ”»å‡»åˆ¤å®šï¼ˆæ‰“å‡»æŠ€å’Œé£è¡Œé“å…·ï¼‰æœ‰åˆ†ä¸ºä¸Šä¸­ä¸‹ä¸‰æ®µï¼Œå¯ä»¥è¢«å¯¹åº”çš„é˜²å¾¡é˜²ä½ã€‚
+   <br/>
+   ï¼ˆPSï¼šæ ¼æ–—æ¸¸æˆä¸­ï¼Œä¸Šæ®µç«™ã€è¹²é˜²å‡å¯ï¼Œä¸­æ®µä¸å¯è¹²é˜²ï¼Œä¸‹æ®µä¸å¯ç«™é˜²ã€‚ä½†æ˜¯Mugenå½“ä¸­ï¼Œä¸Šæ®µï¼ˆguardflag = Hï¼‰ä¸å¯è¹²é˜²ï¼Œ
+   <br/>
+   ä¸­æ®µï¼ˆguardflag = M = HLï¼‰ç«™ã€è¹²é˜²å‡å¯ï¼Œä¸‹æ®µï¼ˆguardflag = Lï¼‰ä¸å¯ç«™é˜²ï¼Œå¦å¤–guardflag = Aå†³å®šæ˜¯å¦èƒ½ç©ºé˜²ã€‚
+   <br/>
+   åœ¨æœ¬æ•™ç¨‹é‡Œç»Ÿä¸€ç”¨æ ¼æ–—æ¸¸æˆçš„è¯´æ³•ï¼Œå³ä¸­æ®µä¸å¯è¹²é˜²ï¼Œä¸‹æ®µä¸å¯ç«™é˜²ï¼‰
+   <br/>
+   <br/>
+   <br/>
+   é»˜è®¤çš„common1.cnsä¸­ä»£ç å¦‚ä¸‹ï¼š
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; GUARD (start)
+   <br/>
+   [Statedef 120]
+   <br/>
+   type = U    ;Leave state type unchanged
+   <br/>
+   physics = U ;Leave physics unchanged
+   <br/>
+   <br/>
+   [State 120, 1]
+   <br/>
+   type = ChangeAnim
+   <br/>
+   trigger1 = Time = 0
+   <br/>
+   value = 120 + (statetype = C) + (statetype = A)*2;è¿™ç§å†™æ³•ç”¨ä¸€æ®µä»£ç å®Œæˆäº†ä¸‰æ®µä»£ç çš„å·¥ä½œï¼Œå€¼å¾—å­¦ä¹ 
+   <br/>
+   <br/>
+   [State 120, 2]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   trigger1 = Time = 0 &amp;&amp; statetype = S
+   <br/>
+   physics = S
+   <br/>
+   <br/>
+   [State 120, 3]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   trigger1 = Time = 0 &amp;&amp; statetype = C
+   <br/>
+   physics = C
+   <br/>
+   <br/>
+   [State 120, 4]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   trigger1 = Time = 0 &amp;&amp; statetype = A
+   <br/>
+   physics = A
+   <br/>
+   <br/>
+   [State 120, Hi to Lo]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   trigger1 = statetype = S &amp;&amp; command = "holddown"
+   <br/>
+   statetype = C
+   <br/>
+   physics = C
+   <br/>
+   <br/>
+   [State 120, Lo to Hi]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   trigger1 = statetype = C &amp;&amp; command != "holddown"
+   <br/>
+   statetype = S
+   <br/>
+   physics = S
+   <br/>
+   <br/>
+   [State 120, 5]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = AnimTime = 0
+   <br/>
+   value = 130 + (statetype = C) + (statetype = A)*2
+   <br/>
+   <br/>
+   [State 120, Stop Guarding]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = command != "holdback"
+   <br/>
+   trigger2 = !inguarddist
+   <br/>
+   value = 140
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; STAND GUARD (guarding)
+   <br/>
+   [Statedef 130]
+   <br/>
+   type    = S
+   <br/>
+   physics = S
+   <br/>
+   <br/>
+   [State 130, 1]
+   <br/>
+   type = ChangeAnim
+   <br/>
+   trigger1 = Anim != 130
+   <br/>
+   value = 130
+   <br/>
+   <br/>
+   [State 130, Hi to Lo]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = command = "holddown"
+   <br/>
+   value = 131
+   <br/>
+   <br/>
+   [State 130, Stop Guarding]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = command != "holdback"
+   <br/>
+   trigger2 = !inguarddist
+   <br/>
+   value = 140
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; CROUCH GUARD (guarding)
+   <br/>
+   [Statedef 131]
+   <br/>
+   type    = C
+   <br/>
+   physics = C
+   <br/>
+   <br/>
+   [State 131, 1]
+   <br/>
+   type = ChangeAnim
+   <br/>
+   trigger1 = Anim != 131
+   <br/>
+   value = 131
+   <br/>
+   <br/>
+   [State 131, Lo to Hi]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = command != "holddown"
+   <br/>
+   value = 130
+   <br/>
+   <br/>
+   [State 131, Stop Guarding]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = command != "holdback"
+   <br/>
+   trigger2 = !inguarddist
+   <br/>
+   value = 140
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; AIR GUARD (guarding)
+   <br/>
+   [Statedef 132]
+   <br/>
+   type    = A
+   <br/>
+   physics = N
+   <br/>
+   <br/>
+   [State 132, 1]
+   <br/>
+   type = ChangeAnim
+   <br/>
+   trigger1 = Anim != 132
+   <br/>
+   value = 132
+   <br/>
+   <br/>
+   [State 132, 2]
+   <br/>
+   type = VelAdd
+   <br/>
+   trigger1 = 1
+   <br/>
+   y = Const(movement.yaccel)
+   <br/>
+   <br/>
+   [State 132, 3]
+   <br/>
+   type = VarSet
+   <br/>
+   trigger1 = 1
+   <br/>
+   sysvar(0) = (pos y &gt;= 0) &amp;&amp; (vel y &gt; 0)
+   <br/>
+   <br/>
+   [State 132, 4]
+   <br/>
+   type = VelSet
+   <br/>
+   trigger1 = sysvar(0)
+   <br/>
+   y = 0
+   <br/>
+   <br/>
+   [State 132, 5]
+   <br/>
+   type = PosSet
+   <br/>
+   trigger1 = sysvar(0)
+   <br/>
+   y = 0
+   <br/>
+   <br/>
+   [State 132, 6]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = sysvar(0)
+   <br/>
+   trigger1 = command = "holdback"
+   <br/>
+   trigger1 = inguarddist
+   <br/>
+   value = 130
+   <br/>
+   <br/>
+   [State 132, 7]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = sysvar(0)
+   <br/>
+   value = 52
+   <br/>
+   <br/>
+   [State 132, Stop Guarding]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = command != "holdback"
+   <br/>
+   trigger2 = !inguarddist
+   <br/>
+   value = 140
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; GUARD (end)
+   <br/>
+   [Statedef 140]
+   <br/>
+   type = U    ;Leave state type unchanged
+   <br/>
+   physics = U ;Leave physics unchanged
+   <br/>
+   ctrl = 1
+   <br/>
+   <br/>
+   [State 140, 1]
+   <br/>
+   type = ChangeAnim
+   <br/>
+   trigger1 = Time = 0
+   <br/>
+   value = 140 + (statetype = C) + (statetype = A)*2
+   <br/>
+   <br/>
+   [State 140, 2]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   trigger1 = Time = 0 &amp;&amp; statetype = S
+   <br/>
+   physics = S
+   <br/>
+   <br/>
+   [State 140, 3]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   trigger1 = Time = 0 &amp;&amp; statetype = C
+   <br/>
+   physics = C
+   <br/>
+   <br/>
+   [State 140, 4]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   trigger1 = Time = 0 &amp;&amp; statetype = A
+   <br/>
+   physics = A
+   <br/>
+   <br/>
+   [State 140, Hi to Lo]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   trigger1 = statetype = S &amp;&amp; command = "holddown"
+   <br/>
+   statetype = C
+   <br/>
+   physics = C
+   <br/>
+   <br/>
+   [State 140, Lo to Hi]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   trigger1 = statetype = C &amp;&amp; command != "holddown"
+   <br/>
+   statetype = S
+   <br/>
+   physics = S
+   <br/>
+   <br/>
+   ;[State 140, 5] ;Implemented within engine
+   <br/>
+   ;type = ChangeState
+   <br/>
+   ;trigger1 = AnimTime = 0
+   <br/>
+   ;value = (statetype = C)*11 + (statetype = A)*51
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; SGUARDHIT (shaking)
+   <br/>
+   [Statedef 150]
+   <br/>
+   type    = S
+   <br/>
+   movetype= H
+   <br/>
+   physics = N
+   <br/>
+   velset = 0,0
+   <br/>
+   <br/>
+   [State 150, 1]
+   <br/>
+   type = ChangeAnim
+   <br/>
+   trigger1 = 1
+   <br/>
+   value = 150
+   <br/>
+   <br/>
+   [State 150, 2]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = HitShakeOver
+   <br/>
+   value = 151 + 2*(command = "holddown")
+   <br/>
+   <br/>
+   [State 150, Hi to Lo]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   trigger1 = statetype = S &amp;&amp; command = "holddown"
+   <br/>
+   statetype = C
+   <br/>
+   physics = C
+   <br/>
+   <br/>
+   [State 150, Lo to Hi]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   trigger1 = statetype = C &amp;&amp; command != "holddown"
+   <br/>
+   statetype = S
+   <br/>
+   physics = S
+   <br/>
+   <br/>
+   [State 150, 3]
+   <br/>
+   type = ForceFeedback
+   <br/>
+   trigger1 = time = 0
+   <br/>
+   waveform = square
+   <br/>
+   time = 3
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; SGUARDHIT2 (knocked back)
+   <br/>
+   [Statedef 151]
+   <br/>
+   type    = S
+   <br/>
+   movetype= H
+   <br/>
+   physics = S
+   <br/>
+   anim = 150
+   <br/>
+   <br/>
+   [State 151, 1]
+   <br/>
+   type = HitVelSet
+   <br/>
+   trigger1 = Time = 0
+   <br/>
+   x = 1
+   <br/>
+   <br/>
+   [State 151, 2]
+   <br/>
+   type = VelSet
+   <br/>
+   trigger1 = Time = GetHitVar(slidetime)
+   <br/>
+   trigger2 = HitOver
+   <br/>
+   x = 0
+   <br/>
+   <br/>
+   [State 151, 3]
+   <br/>
+   type = CtrlSet
+   <br/>
+   trigger1 = Time = GetHitVar(ctrltime)
+   <br/>
+   value = 1
+   <br/>
+   <br/>
+   [State 151, Hi to Lo]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   trigger1 = statetype = S &amp;&amp; command = "holddown"
+   <br/>
+   statetype = C
+   <br/>
+   physics = C
+   <br/>
+   <br/>
+   [State 151, Lo to Hi]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   trigger1 = statetype = C &amp;&amp; command != "holddown"
+   <br/>
+   statetype = S
+   <br/>
+   physics = S
+   <br/>
+   <br/>
+   [State 151, 4]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = HitOver
+   <br/>
+   value = 130
+   <br/>
+   ctrl = 1
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; CGUARDHIT (shaking)
+   <br/>
+   [Statedef 152]
+   <br/>
+   type    = C
+   <br/>
+   movetype= H
+   <br/>
+   physics = N
+   <br/>
+   velset = 0,0
+   <br/>
+   <br/>
+   [State 152, 1]
+   <br/>
+   type = ChangeAnim
+   <br/>
+   trigger1 = 1
+   <br/>
+   value = 151
+   <br/>
+   <br/>
+   [State 152, 3]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = HitShakeOver
+   <br/>
+   value = 151 + 2*(command = "holddown")
+   <br/>
+   <br/>
+   [State 152, Hi to Lo]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   trigger1 = statetype = S &amp;&amp; command = "holddown"
+   <br/>
+   statetype = C
+   <br/>
+   physics = C
+   <br/>
+   <br/>
+   [State 152, Lo to Hi]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   trigger1 = statetype = C &amp;&amp; command != "holddown"
+   <br/>
+   statetype = S
+   <br/>
+   physics = S
+   <br/>
+   <br/>
+   [State 152, 4]
+   <br/>
+   type = ForceFeedback
+   <br/>
+   trigger1 = time = 0
+   <br/>
+   waveform = square
+   <br/>
+   time = 4
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; CGUARDHIT2 (knocked back)
+   <br/>
+   [Statedef 153]
+   <br/>
+   type    = C
+   <br/>
+   movetype= H
+   <br/>
+   physics = C
+   <br/>
+   anim = 151
+   <br/>
+   <br/>
+   [State 153, 1]
+   <br/>
+   type = HitVelSet
+   <br/>
+   trigger1 = Time = 0
+   <br/>
+   x = 1
+   <br/>
+   <br/>
+   [State 153, 2]
+   <br/>
+   type = VelSet
+   <br/>
+   trigger1 = Time = GetHitVar(slidetime)
+   <br/>
+   trigger2 = HitOver
+   <br/>
+   x = 0
+   <br/>
+   <br/>
+   [State 153, 3]
+   <br/>
+   type = CtrlSet
+   <br/>
+   trigger1 = Time = GetHitVar(ctrltime)
+   <br/>
+   value = 1
+   <br/>
+   <br/>
+   [State 153, Hi to Lo]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   trigger1 = statetype = S &amp;&amp; command = "holddown"
+   <br/>
+   statetype = C
+   <br/>
+   physics = C
+   <br/>
+   <br/>
+   [State 153, Lo to Hi]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   trigger1 = statetype = C &amp;&amp; command != "holddown"
+   <br/>
+   statetype = S
+   <br/>
+   physics = S
+   <br/>
+   <br/>
+   [State 153, 4]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = HitOver
+   <br/>
+   value = 131
+   <br/>
+   ctrl = 1
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; AGUARDHIT (shaking)
+   <br/>
+   [Statedef 154]
+   <br/>
+   type    = A
+   <br/>
+   movetype= H
+   <br/>
+   physics = N
+   <br/>
+   velset = 0,0
+   <br/>
+   <br/>
+   [State 154, 1]
+   <br/>
+   type = ChangeAnim
+   <br/>
+   trigger1 = 1
+   <br/>
+   value = 152
+   <br/>
+   <br/>
+   [State 154, 2]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = HitShakeOver
+   <br/>
+   value = 155 ;AGUARDHIT2
+   <br/>
+   <br/>
+   [State 154, 3]
+   <br/>
+   type = ForceFeedback
+   <br/>
+   trigger1 = time = 0
+   <br/>
+   waveform = square
+   <br/>
+   time = 4
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; AGUARDHIT2 (knocked away)
+   <br/>
+   [Statedef 155]
+   <br/>
+   type    = A
+   <br/>
+   movetype= H
+   <br/>
+   physics = N
+   <br/>
+   anim = 152
+   <br/>
+   <br/>
+   [State 155, 1]
+   <br/>
+   type = HitVelSet
+   <br/>
+   trigger1 = Time = 0
+   <br/>
+   x = 1
+   <br/>
+   y = 1
+   <br/>
+   <br/>
+   [State 155, 2]
+   <br/>
+   type = VelAdd
+   <br/>
+   trigger1 = 1
+   <br/>
+   y = Const(movement.yaccel)
+   <br/>
+   <br/>
+   [State 155, 3]
+   <br/>
+   type = CtrlSet
+   <br/>
+   trigger1 = Time = GetHitVar(ctrltime)
+   <br/>
+   value = 1
+   <br/>
+   <br/>
+   [State 155, 4]
+   <br/>
+   type = VarSet
+   <br/>
+   trigger1 = 1
+   <br/>
+   sysvar(0) = (pos y &gt;= 0) &amp;&amp; (vel y &gt; 0)
+   <br/>
+   <br/>
+   [State 155, 5]
+   <br/>
+   type = VelSet
+   <br/>
+   trigger1 = sysvar(0)
+   <br/>
+   y = 0
+   <br/>
+   <br/>
+   [State 155, 6]
+   <br/>
+   type = PosSet
+   <br/>
+   trigger1 = sysvar(0)
+   <br/>
+   y = 0
+   <br/>
+   <br/>
+   [State 155, 6]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = sysvar(0)
+   <br/>
+   trigger1 = command = "holdback"
+   <br/>
+   trigger1 = inguarddist
+   <br/>
+   value = 130
+   <br/>
+   <br/>
+   [State 155, 7]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = sysvar(0)
+   <br/>
+   value = 52
+   <br/>
+   <br/>
+   <br/>
+   é˜²å¾¡çŠ¶æ€é»˜è®¤å æ®äº†çŠ¶æ€å·[120,155]ï¼Œä¸­é—´æ ¹æ®é˜²å¾¡ä¸åŒé˜¶æ®µåˆç»†åˆ†äº†å¥½å‡ ä¸ªçŠ¶æ€ã€‚
+   <br/>
+   120æ˜¯é˜²å¾¡å‡†å¤‡çŠ¶æ€ï¼Œä¹Ÿå°±æ˜¯æŒ‰ä¸‹åæ–¹å‘é”®äººç‰©è¿›å…¥çš„åŠ¨ä½œï¼Œåªç”¨äºè½¬å˜ä¸ºé˜²å¾¡æœªå—å‡»çŠ¶æ€ï¼›
+   <br/>
+   [130,132]æ˜¯é˜²å¾¡æœªå—å‡»çŠ¶æ€ï¼Œä¹Ÿå°±æ˜¯åšå¥½äº†é˜²å¾¡åŠ¨ä½œä½†æ˜¯å°šæœªè¢«æ”»å‡»çš„é˜¶æ®µï¼Œ[130,132]åˆ†åˆ«å¯¹åº”ç«™ã€è¹²ã€ç©ºï¼›
+   <br/>
+   140æ˜¯é˜²å¾¡ç»“æŸçŠ¶æ€ï¼Œä¹Ÿå°±æ˜¯é˜²å¾¡å‡†å¤‡çŠ¶æ€ã€æœªå—å‡»çŠ¶æ€æˆ–è€…å—å‡»çŠ¶æ€ç»“æŸæ—¶æ¾å¼€åæ–¹å‘é”®è¿›å…¥çš„çŠ¶æ€ï¼Œåªç”¨äºç¦»å¼€é˜²å¾¡çŠ¶æ€ï¼›
+   <br/>
+   [150,155]æ˜¯é˜²å¾¡å—å‡»çŠ¶æ€ï¼Œé˜²å¾¡å‡†å¤‡çŠ¶æ€æˆ–é˜²å¾¡æœªå—å‡»çŠ¶æ€å—åˆ°æ”»å‡»æ—¶è¿›å…¥çš„çŠ¶æ€ï¼Œ[150,151]ã€[152,153]ã€[154,155]åˆ†åˆ«å¯¹åº”: ç«™ã€è¹²ã€ç©ºï¼Œå¶æ•°ä¸ºå—å‡»éœ‡åŠ¨ï¼Œå¥‡æ•°ä¸ºå—å‡»æ»‘åŠ¨ã€‚åœ¨å—å‡»ç¡¬ç›´åè‹¥è¿˜æŒ‰ç€åæ–¹å‘é”®è¿›å…¥é˜²å¾¡æœªå—å‡»çŠ¶æ€ï¼Œå¦åˆ™è¿›å…¥é˜²å¾¡ç»“æŸçŠ¶æ€ã€‚
+   <br/>
+   <br/>
+   é˜²å¾¡çŠ¶æ€çš„åˆ‡æ¢æ˜¯å·²ç»å†™å¥½äº†çš„ï¼Œæˆ‘ä»¬éœ€è¦ç®¡çš„åœ°æ–¹åªæœ‰æ‰‹æ“æŒ‡ä»¤çš„åˆ‡æ¢ã€‚
+   <br/>
+   è€Œè¿™äº›åˆ‡æ¢æ— éæ§åˆ¶çš„å…¶å®æ˜¯ç«™/è¹²é˜²çš„åˆ‡æ¢ï¼ˆç©ºé˜²ä½ åªæœ‰é˜²ä¸ä¸æ”¾ä¸ç”¨æƒ³å¤ªå¤šï¼‰å’Œåœæ­¢é˜²å¾¡çŠ¶æ€ä¸¤ç§ã€‚
+   <br/>
+   é€šå¸¸æ¥è¯´ï¼Œç«™å§¿æ”»å‡»å¤šä¸ºä¸Šæ®µå’Œä¸­æ®µï¼Œè¹²å§¿æ”»å‡»å¤šä¸ºä¸Šæ®µå’Œä¸‹æ®µï¼Œç©ºä¸­æ”»å‡»å¤šä¸ºä¸Šæ®µå’Œä¸­æ®µã€‚
+   <br/>
+   æ‰€ä»¥åœ¨åœ°é¢ä¸Šå¯¹ç«™å§¿æ”»å‡»å’Œç©ºä¸­æ”»å‡»æˆ‘ä»¬ç”¨ç«™é˜²åº”å¯¹ï¼Œå¯¹è¹²å§¿æ”»å‡»æˆ‘ä»¬ç”¨è¹²é˜²åº”å¯¹ï¼Œå¯¹æ–¹åœæ­¢æ”»å‡»çš„æ—¶å€™æˆ‘ä»¬åœæ­¢é˜²å¾¡å°±è¡Œäº†ã€‚
+   <br/>
+   <br/>
+   <br/>
+   å®ä¾‹å¦‚ä¸‹ï¼š
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; GUARD (start)
+   <br/>
+   [Statedef 120]
+   <br/>
+   type = U    ;Leave state type unchanged
+   <br/>
+   physics = U ;Leave physics unchanged
+   <br/>
+   <br/>
+   ...
+   <br/>
+   <br/>
+   [State 120, Hi to Lo]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   triggerall = statetype = S;å½“æˆ‘æ–¹æ˜¯ç«™å§¿
+   <br/>
+   trigger1 = !Var(59) &amp;&amp; command = "holddown"
+   <br/>
+   trigger2 = Var(59) &amp;&amp; EnemyNear,Statetype = C;è€Œå¯¹æ–¹æ˜¯è¹²å§¿çš„æ—¶å€™
+   <br/>
+   statetype = C;å˜ä¸ºè¹²å§¿
+   <br/>
+   physics = C
+   <br/>
+   <br/>
+   [State 120, Lo to Hi]
+   <br/>
+   type = StateTypeSet
+   <br/>
+   triggerall = statetype = C;å½“æˆ‘æ–¹æ˜¯è¹²å§¿
+   <br/>
+   trigger1 = !Var(59) &amp;&amp; command != "holddown"
+   <br/>
+   trigger2 = Var(59) &amp;&amp; EnemyNear,Statetype = S;è€Œå¯¹æ–¹æ˜¯ç«™å§¿çš„æ—¶å€™
+   <br/>
+   statetype = S;å˜ä¸ºç«™å§¿
+   <br/>
+   physics = S
+   <br/>
+   <br/>
+   [State 120, 5]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = AnimTime = 0
+   <br/>
+   value = 130 + (statetype = C) + (statetype = A)*2
+   <br/>
+   <br/>
+   [State 120, Stop Guarding]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = !Var(59) &amp;&amp; command != "holdback"
+   <br/>
+   trigger2 = !inguarddist
+   <br/>
+   value = 140
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; STAND GUARD (guarding)
+   <br/>
+   [Statedef 130]
+   <br/>
+   type    = S
+   <br/>
+   physics = S
+   <br/>
+   <br/>
+   [State 130, 1]
+   <br/>
+   type = ChangeAnim
+   <br/>
+   trigger1 = Anim != 130
+   <br/>
+   value = 130
+   <br/>
+   <br/>
+   [State 130, Hi to Lo]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = !Var(59) &amp;&amp; command = "holddown"
+   <br/>
+   trigger2 = Var(59) &amp;&amp; EnemyNear,Statetype = C
+   <br/>
+   value = 131
+   <br/>
+   <br/>
+   [State 130, Stop Guarding]
+   <br/>
+   type = ChangeState
+   <br/>
+   trigger1 = !Var(59) &amp;&amp; command != "holdback"
+   <br/>
+   trigger2 = !inguarddist
+   <br/>
+   value = 140
+   <br/>
+   <br/>
+   <br/>
+   ;å› ä¸ºä¸‹é¢çš„ç«™/è¹²å§¿åˆ‡æ¢éƒ½æ˜¯ç±»ä¼¼çš„ä»£ç ï¼Œä»¥ä¸Šé¢çš„å½“åšå‚è€ƒè¶³çŸ£ï¼Œä¸‹ç•¥
+   <br/>
+   ......
+   <br/>
+   <br/>
+   <br/>
+   ä¹‹åè¿˜æœ‰å¯åŠ¨é˜²å¾¡çš„Changestateï¼š
+   <br/>
+   <br/>
+   ;ä¸‹é¢ä¸€æ®µæ”¾åˆ°[Statedef -1]æˆ–[Statedef -3]ä¸‹é¢
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   [State -1, é˜²å¾¡]
+   <br/>
+   type = ChangeState
+   <br/>
+   value = 120
+   <br/>
+   Triggerall = Var(59) &gt; 0
+   <br/>
+   Triggerall = Roundstate = 2
+   <br/>
+   Triggerall = Statetype != A
+   <br/>
+   Triggerall = ctrl
+   <br/>
+   Triggerall = !(EnemyNear(Var(54)),hitdefattr = sca,at);å¯¹æ–¹ä¸æ˜¯æŠ•æŠ€åˆ¤å®š
+   <br/>
+   Trigger1 = Inguarddist ;åœ¨é˜²å¾¡èŒƒå›´å†…
+   <br/>
+   <br/>
+   <br/>
+   å®Œæˆè¿™æ®µçš„ä¿®æ”¹ï¼Œä½ ä¹Ÿé™åˆ¶äº†äººç‰©æ”»å‡»çš„è¯ï¼Œä½ çš„äººç‰©å·²ç»ç®—æ˜¯é“å£äº†ã€‚
+   <br/>
+   ä»€ä¹ˆï¼Ÿä½ è¯´é“å£è¿™ä¹ˆç®€å•ï¼Ÿæ²¡é”™ï¼Œåªè¦ä¸ä¸»åŠ¨æ”»å‡»å–ç¡¬ç›´ï¼Œé“å£å°±æ˜¯è¿™ä¹ˆç®€å•ã€‚
+   <br/>
+  </p>
+  <p>
+   ====================================================
+   <br/>
+   <span class="STYLE2">
+    8.7é™åˆ¶éšæ€§æ‰‹æ“æŒ‡ä»¤åˆ‡æ¢çŠ¶æ€
+   </span>
+   <br/>
+   ====================================================
+   <br/>
+   <br/>
+   --------------------------------------------------
+   <br/>
+   åˆ°è¿™é‡Œæˆ‘ä»¬å·²ç»æŠŠå¸¦æœ‰commandçš„Sctrlä¿®æ”¹å®Œäº†ï¼Œä½†æ˜¯è¿™ç« å†…å®¹å°šæœªå®Œç»“ã€‚
+   <br/>
+   è¿˜è®°å¾—ç¬”è€…åœ¨ç¬¬5ç« æåŠçš„å†…å®¹å—ï¼šé™¤äº†å¸¦æœ‰commandçš„Sctrlä»¥å¤–ï¼ŒMugené‡Œé¢è¿˜å­˜åœ¨å†…ç½®çš„éšæ€§çš„æ‰‹æ“æŒ‡ä»¤åˆ‡æ¢çŠ¶æ€ï¼Œ
+   <br/>
+   ä¾‹å¦‚ä¸‹è¹²ï¼ˆStateno 10ï¼‰ã€è¡Œèµ°ï¼ˆStateno 20ï¼‰å’Œè·³è·ƒï¼ˆStateno 40ï¼‰ç­‰ã€‚
+   <br/>
+   æˆ‘ä»¬è™½ç„¶ä¿®æ”¹äº†è¿™å‡ ä¸ªåŠ¨ä½œé‡Œé¢çš„å¸¦commandçš„å†…å®¹ï¼Œä½†æ˜¯æˆ‘ä»¬è¿˜æ²¡æœ‰å¯¹å®ƒä»¬çš„è§¦å‘è¿›è¡Œé™åˆ¶ã€‚
+   <br/>
+   åªè¦äººç‰©å¤„äºå¯æ§çŠ¶æ€ï¼Œåªè¦å†…ç½®çš„éšæ€§çš„ç”¨æ‰‹æ“æŒ‡ä»¤åˆšå¥½è¢«è§¦å‘ï¼Œè¿™å‡ ä¸ªåŠ¨ä½œä¾ç„¶ä¼šä¸å—æ§åˆ¶çš„åŠ¨èµ·æ¥ã€‚
+   <br/>
+   æ‰€ä»¥é™¤äº†ä¸Šé¢çš„å†…å®¹ï¼Œæˆ‘ä»¬è¿˜è¦é™åˆ¶éšæ€§æ‰‹æ“æŒ‡ä»¤åˆ‡æ¢çŠ¶æ€ã€‚
+   <br/>
+   <br/>
+   --------------------------------------------------
+   <br/>
+   å› ä¸ºäººç‰©è¦å¤„äºå¯æ§çŠ¶æ€æ‰ä¼šåˆ‡æ¢çŠ¶æ€ä¸ºä¸‹è¹²ã€è¡Œèµ°å’Œè·³è·ƒç­‰çŠ¶æ€ï¼Œæ‰€ä»¥é¦–å…ˆæˆ‘ä»¬å¯ä»¥æŠŠä¸€äº›å¯æ§çš„çŠ¶æ€æ”¹æˆä¸å¯æ§ã€‚
+   <br/>
+   åœ¨Statedefå¼€å§‹çš„åœ°æ–¹ï¼Œå¦‚æœæ²¡æœ‰æ ‡æ³¨è¯´æ˜¯å¦å¯æ§ï¼Œå°†ä¼šç»§æ‰¿ä¸Šä¸€ä¸ªçŠ¶æ€çš„å¯æ§ä¸å¦ã€‚
+   <br/>
+   ä¾‹å¦‚ä»å¯æ§çš„ç«™å§¿åˆ‡æ¢åˆ°è¡Œèµ°ï¼Œè¡Œèµ°å¹¶æ²¡æœ‰æ ‡æ³¨æ˜¯å¦å¯æ§ï¼Œè¡Œèµ°ä¹Ÿå°†å˜æˆå¯æ§ã€‚
+   <br/>
+   åˆ†æä¹‹å‰çš„ä»£ç å¯çŸ¥ï¼ŒMugené»˜è®¤çš„è¡Œèµ°å’Œè·‘éƒ½å¯ä»¥ä»å¯æ§çŠ¶æ€è¿›å…¥ï¼Œæ‰€ä»¥è¿™ä¸¤ä¸ªçŠ¶æ€éƒ½å¯èƒ½ä¼šè¢«éšæ€§çš„æ‰‹æ“æŒ‡ä»¤åˆ‡æ¢çŠ¶æ€ã€‚
+   <br/>
+   äºæ˜¯æˆ‘ä»¬å¯ä»¥è¿›è¡Œä¿®æ”¹ï¼Œå®ä¾‹å¦‚ä¸‹ï¼š
+   <br/>
+   <br/>
+   <br/>
+   ;å› ä¸ºæˆ‘ä»¬å·²ç»é‡‡ç”¨äº†æ–°çš„è¡Œèµ°çŠ¶æ€State 19/21ï¼Œæ‰€ä»¥æˆ‘ä»¬å¯ä»¥ä¸ç”¨ä¿®æ”¹State 20
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; Walk B å‘åèµ°
+   <br/>
+   [Statedef 19]
+   <br/>
+   type    = S
+   <br/>
+   physics = S
+   <br/>
+   sprpriority = 0
+   <br/>
+   ctrl = 0;ä¸å¯æ§
+   <br/>
+   <br/>
+   ...
+   <br/>
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; Walk F å‘å‰èµ°
+   <br/>
+   [Statedef 21]
+   <br/>
+   type    = S
+   <br/>
+   physics = S
+   <br/>
+   sprpriority = 0
+   <br/>
+   ctrl = 0;ä¸å¯æ§
+   <br/>
+   <br/>
+   <br/>
+   ;è€ŒState 100ï¼Œæˆ‘ä»¬å¯ä»¥åƒè¡Œèµ°é‚£æ ·æ·»åŠ æ–°çš„çŠ¶æ€ï¼Œè®¾ç½®ä¸ºä¸å¯æ§ï¼Œæˆ–è€…æ˜¯åƒä¸‹é¢è¿™ä¹ˆä¿®æ”¹
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   ; Run forward
+   <br/>
+   [Statedef 100]
+   <br/>
+   <br/>
+   ...
+   <br/>
+   <br/>
+   [State 100, AI Ctrlset];æ·»åŠ ä¸å¯æ§è®¾ç½®
+   <br/>
+   type = Ctrlset
+   <br/>
+   trigger1 = Var(59) &gt; 0;å½“AIå¼€å…³æ‰“å¼€çš„æ—¶å€™
+   <br/>
+   value = 0;ä¸å¯æ§
+   <br/>
+   <br/>
+   <br/>
+   é€šè¿‡è¿™æ ·çš„ä¿®æ”¹ï¼Œåœ¨è¡Œèµ°å’Œè·‘æ­¥çš„æ—¶å€™å°±ä¸ä¼šè¢«æ‰‹æ“æŒ‡ä»¤å½±å“äº†ï¼Œä½†ç¼ºç‚¹å°±æ˜¯ä¸å¯æ§çŠ¶æ€å¯èƒ½ä¼šæ··æ·†å¯¹æ–¹AIï¼Œæˆ‘ä»¬åœ¨å†™AIçš„æ—¶å€™ä¹Ÿè¦æ³¨æ„è¿™ç§å†™æ³•å¯èƒ½å¯¹æˆ‘ä»¬å¸¦æ¥çš„ä¸è‰¯å½±å“ã€‚
+   <br/>
+   å¦å¤–ï¼Œç”±äºåŸæ¥å¯æ§çš„çŠ¶æ€ç°åœ¨å˜æˆäº†ä¸å¯æ§ï¼Œæ‰€ä»¥å…¶ä»–Sctrlé‡ŒåŸæ¥triggerX = ctrlçš„æ¡ä»¶ä¸ä½œç›¸åº”è°ƒæ•´çš„è¯äººç‰©å°±å˜å¾—ä¸ä¼šåŠ¨äº†ï¼Œå› æ­¤æˆ‘ä»¬è¿˜éœ€è¦è°ƒæ•´è¿™äº›triggerï¼Œä»¤ä»–ä»¬å¯ä»¥åœ¨è¿™äº›åŸæ¥æ˜¯å¯æ§çš„çŠ¶æ€é‡Œè·ŸåŸæ¥ä¸€æ ·åˆ‡æ¢çŠ¶æ€ã€‚ä¾‹å¦‚ï¼š
+   <br/>
+   <br/>
+   ;Stand Light Punch
+   <br/>
+   [State -1, Stand Light Punch]
+   <br/>
+   type = ChangeState
+   <br/>
+   value = 200
+   <br/>
+   trigger1 = Var(59) &gt; 0
+   <br/>
+   trigger1 = statetype = S
+   <br/>
+   trigger1 = ctrl
+   <br/>
+   <br/>
+   æ”¹ä¸º
+   <br/>
+   <br/>
+   ;Stand Light Punch
+   <br/>
+   [State -1, Stand Light Punch]
+   <br/>
+   type = ChangeState
+   <br/>
+   value = 200
+   <br/>
+   trigger1 = Var(59) &gt; 0
+   <br/>
+   trigger1 = statetype = S
+   <br/>
+   trigger1 = ctrl || (Stateno = [19,21]) || Stateno = 100;è¿™æ ·å°±ç®—ä¸å¯æ§ï¼Œè¡Œèµ°å’Œè·‘æ—¶éƒ½å¯ä»¥åˆ‡æ¢çŠ¶æ€äº†
+   <br/>
+   <br/>
+   --------------------------------------------------
+   <br/>
+   ç„¶è€Œä¿®æ”¹äº†è¡Œèµ°å’Œè·‘æ­¥ä¾ç„¶è¿˜æ˜¯ä¸å¤Ÿçš„ï¼Œç«™å§¿ç­‰å¯æ§çš„æƒ…å†µä¸‹ä¾ç„¶ä¼šä¹±åŠ¨ã€‚
+   <br/>
+   æ‰€ä»¥ä¸ºäº†å¯¹åº”å¤§å¤šæ•°çš„å¯æ§æƒ…å†µï¼Œæˆ‘ä»¬è¿˜éœ€è¦ä¸€æ®µæ³›ç”¨çš„é™åˆ¶ä»£ç ï¼š
+   <br/>
+   <br/>
+   ;ä¸‹é¢ä¸€æ®µæ”¾åˆ°[Statedef -1]æˆ–[Statedef -3]ä¸‹é¢
+   <br/>
+   ;--------------------------------------------------
+   <br/>
+   [State -1, åœ°é¢åŠ¨ä½œé™åˆ¶]
+   <br/>
+   type = ChangeState
+   <br/>
+   value = 0;å¼ºè¡Œæ‹‰å›ç«™å§¿
+   <br/>
+   Triggerall = Var(59) &gt; 0
+   <br/>
+   Triggerall = Statetype != A
+   <br/>
+   Triggerall = Roundstate = 2
+   <br/>
+   Trigger1 = Stateno = 10;ä¸‹è¹²
+   <br/>
+   Trigger2 = Stateno = 20;è¡Œèµ°
+   <br/>
+   Trigger3 = Stateno = 40;è·³
+   <br/>
+   ctrl = 1
+   <br/>
+   <br/>
+   è™½ç„¶æœ‰éƒ¨åˆ†é­”æ”¹çš„æˆåˆ†ï¼ˆç¬‘ï¼‰ï¼Œä½†æ˜¯è¿™ç§æ˜¯æ¯”è¾ƒå¸¸ç”¨è€Œä¸”å®åœ¨çš„é™åˆ¶ä¹±åŠ¨çš„å†™æ³•äº†ã€‚
+   <br/>
+   <br/>
+   --------------------------------------------------
+   <br/>
+   è‡³æ­¤ï¼Œå…¬ç”¨çŠ¶æ€ç®—æ˜¯åŸºæœ¬å®Œæˆäº†ã€‚
+   <br/>
+   éšç€ä»¥åä¸åŒç›®çš„çš„ç« èŠ‚çš„æ¢è®¨ï¼Œæˆ‘ä»¬è¿˜ä¼šç»§ç»­ç»™è¿™äº›å…¬ç”¨çŠ¶æ€æ·»åŠ ä¸€äº›triggerï¼Œä»¤å®ƒä»¬åœ¨é€‚å½“çš„æ—¶å€™è§¦å‘ã€‚
+   <br/>
+   ä¸è¿‡é‚£æ˜¯ä¹‹åçš„äº‹äº†ï¼Œæœ¬ç« åªè®²è¿™ä¹ˆå¤šã€‚
+   <br/>
+  </p>
+  <p>
+   ====================================================
+   <br/>
+   <span class="STYLE2">
+    è¯¾åä½œä¸šï¼š
+   </span>
+   <br/>
+   <br/>
+   1.
+   <br/>
+   æ ¼æ–—æ¸¸æˆä¸­ï¼Œä»€ä¹ˆæ®µæ”»å‡»å¯ä»¥å‡»ç ´è¹²é˜²ï¼Ÿä»€ä¹ˆæ®µæ”»å‡»å¯ä»¥å‡»ç ´ç«™é˜²ï¼Ÿ
+   <br/>
+   <br/>
+   2.
+   <br/>
+   ä¸ºä»€ä¹ˆè¯´ç« èŠ‚8.7çš„è¿™æ®µä»£ç æœ‰éƒ¨åˆ†é­”æ”¹çš„æˆåˆ†ï¼Ÿ
+   <br/>
+   <br/>
+   [State -1, åœ°é¢åŠ¨ä½œé™åˆ¶]
+   <br/>
+   type = ChangeState
+   <br/>
+   value = 0
+   <br/>
+   Triggerall = Var(59) &gt; 0
+   <br/>
+   Triggerall = Statetype != A
+   <br/>
+   Triggerall = Roundstate = 2
+   <br/>
+   Trigger1 = Stateno = 10
+   <br/>
+   Trigger2 = Stateno = 20
+   <br/>
+   Trigger3 = Stateno = 40
+   <br/>
+   ctrl = 1
+   <br/>
+  </p>
+  <p>
+  </p>
+ </body>
 </html>
