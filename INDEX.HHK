@@ -1,0 +1,1279 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+<HEAD>
+<meta name="GENERATOR" content="EasyCHM.exe  www.zipghost.com">
+<!-- Sitemap 1.0 -->
+</HEAD>
+<BODY>
+
+<UL>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="1 引言">
+		<param name="Local" value="cns/1%20引言.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="1.1 一些术语">
+		<param name="Local" value="cns/1.1%20一些术语.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="2 玩家变量">
+		<param name="Local" value="cns/2%20玩家变量.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3 状态">
+		<param name="Local" value="cns/3%20状态.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.1 状态介绍">
+		<param name="Local" value="cns/3.1%20状态介绍.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.1.1 生命值和能量值">
+		<param name="Local" value="cns/3.1.1%20生命值和能量值.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.1.2 控制">
+		<param name="Local" value="cns/3.1.2%20控制.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.1.3 游戏时间和状态时间">
+		<param name="Local" value="cns/3.1.3%20游戏时间和状态时间.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.1.4 位置,速度和加速度">
+		<param name="Local" value="cns/3.1.4%20位置,速度和加速度.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.1.5 连击点数">
+		<param name="Local" value="cns/3.1.5%20连击点数.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.2 一个状态的基础部分">
+		<param name="Local" value="cns/3.2%20一个状态的基础部分.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.3 Statedef的详情">
+		<param name="Local" value="cns/3.3%20Statedef的详情.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.3.1 type">
+		<param name="Local" value="cns/3.3.1%20type.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.3.10 hitdefpersist">
+		<param name="Local" value="cns/3.3.10%20hitdefpersist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.3.11 movehitpersist">
+		<param name="Local" value="cns/3.3.11%20movehitpersist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.3.12 hitcountpersist">
+		<param name="Local" value="cns/3.3.12%20hitcountpersist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.3.13 sprpriority">
+		<param name="Local" value="cns/3.3.13%20sprpriority.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.3.2 movetype">
+		<param name="Local" value="cns/3.3.2%20movetype.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.3.3 physics">
+		<param name="Local" value="cns/3.3.3%20physics.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.3.4 anim">
+		<param name="Local" value="cns/3.3.4%20anim.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.3.5 velset">
+		<param name="Local" value="cns/3.3.5%20velset.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.3.6 ctrl">
+		<param name="Local" value="cns/3.3.6%20ctrl.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.3.7 poweradd">
+		<param name="Local" value="cns/3.3.7%20poweradd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.3.8 juggle">
+		<param name="Local" value="cns/3.3.8%20juggle.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.3.9 facep2">
+		<param name="Local" value="cns/3.3.9%20facep2.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.4.1 控制器格式">
+		<param name="Local" value="cns/3.4.1%20控制器格式.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.4.2.1 触发器逻辑性">
+		<param name="Local" value="cns/3.4.2.1%20触发器逻辑性.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.4.2.2 触发器持续性">
+		<param name="Local" value="cns/3.4.2.2%20触发器持续性.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.4.2.3 触发器重定向">
+		<param name="Local" value="cns/3.4.2.3%20触发器重定向.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.4.3 常用控制器">
+		<param name="Local" value="cns/3.4.3%20常用控制器.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="4 common1.cns常用状态">
+		<param name="Local" value="cns/4%20common1.cns常用状态.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="5 特殊状态号">
+		<param name="Local" value="cns/5%20特殊状态号.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="6 表达式">
+		<param name="Local" value="cns/6%20表达式.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="6.1 数据类型">
+		<param name="Local" value="cns/6.1%20数据类型.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="6.10 状态和状态控制器参数中的表达式">
+		<param name="Local" value="cns/6.10%20状态和状态控制器参数中的表达式.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="6.11 代码效率">
+		<param name="Local" value="cns/6.11%20代码效率.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="6.2 算术运算符">
+		<param name="Local" value="cns/6.2%20算术运算符.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="6.3 运算符优先级与联合性">
+		<param name="Local" value="cns/6.3%20运算符优先级与联合性.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="6.4 表达式语法">
+		<param name="Local" value="cns/6.4%20表达式语法.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="6.5 条件型触发器和函数型触发器">
+		<param name="Local" value="cns/6.5%20条件型触发器和函数型触发器.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="6.6 触发器重定向">
+		<param name="Local" value="cns/6.6%20触发器重定向.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="6.7 bottom">
+		<param name="Local" value="cns/6.7%20bottom.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="6.7.1 特殊格式">
+		<param name="Local" value="cns/6.7.1%20特殊格式.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="6.8 避免警告">
+		<param name="Local" value="cns/6.8%20避免警告.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="6.9 触发器参数中的表达式">
+		<param name="Local" value="cns/6.9%20触发器参数中的表达式.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="关于CNS格式">
+		<param name="Local" value="cns/关于CNS格式.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="主题">
+		<param name="Local" value="Coordinate%20Space%20Notes/主题.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="人物">
+		<param name="Local" value="Coordinate%20Space%20Notes/人物.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="坐标空间解释">
+		<param name="Local" value="Coordinate%20Space%20Notes/坐标空间解释.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="术语">
+		<param name="Local" value="Coordinate%20Space%20Notes/术语.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="概述">
+		<param name="Local" value="Coordinate%20Space%20Notes/概述.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="舞台">
+		<param name="Local" value="Coordinate%20Space%20Notes/舞台.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="MUGEN 1.1 英文教程翻译">
+		<param name="Local" value="MUGEN%201.1%20英文教程翻译.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="CFG相关参数设定">
+		<param name="Local" value="other/CFG相关参数设定.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="CNS变量设置">
+		<param name="Local" value="other/CNS变量设置.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="DEF变量设置">
+		<param name="Local" value="other/DEF变量设置.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="FIGHT(血条等)相关参数设定">
+		<param name="Local" value="other/Fight(血条等)相关参数设定.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Select.def相关参数设置">
+		<param name="Local" value="other/Select.def相关参数设置.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="System(画面包等)相关参数设置">
+		<param name="Local" value="other/System(画面包等)相关参数设置.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="必要图像素材">
+		<param name="Local" value="other/必要图像素材.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="AfterImage">
+		<param name="Local" value="sctrls/AfterImage.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="AfterImageTime">
+		<param name="Local" value="sctrls/AfterImageTime.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="AllPalFX">
+		<param name="Local" value="sctrls/AllPalFX.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="AngleAdd">
+		<param name="Local" value="sctrls/AngleAdd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="AngleDraw">
+		<param name="Local" value="sctrls/AngleDraw.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="AngleMul">
+		<param name="Local" value="sctrls/AngleMul.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="AngleSet">
+		<param name="Local" value="sctrls/AngleSet.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="AppendToClipboard">
+		<param name="Local" value="sctrls/AppendToClipboard.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="AssertSpecial">
+		<param name="Local" value="sctrls/AssertSpecial.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="AttackDist">
+		<param name="Local" value="sctrls/AttackDist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="AttackMulSet">
+		<param name="Local" value="sctrls/AttackMulSet.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="BGPalFX">
+		<param name="Local" value="sctrls/BGPalFX.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="BindToParent">
+		<param name="Local" value="sctrls/BindToParent.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="BindToRoot">
+		<param name="Local" value="sctrls/BindToRoot.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="BindToTarget">
+		<param name="Local" value="sctrls/BindToTarget.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ChangeAnim">
+		<param name="Local" value="sctrls/ChangeAnim.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ChangeAnim2">
+		<param name="Local" value="sctrls/ChangeAnim2.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ChangeState">
+		<param name="Local" value="sctrls/ChangeState.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ClearClipboard">
+		<param name="Local" value="sctrls/ClearClipboard.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="CtrlSet">
+		<param name="Local" value="sctrls/CtrlSet.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="DefenceMulSet">
+		<param name="Local" value="sctrls/DefenceMulSet.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="DestroySelf">
+		<param name="Local" value="sctrls/DestroySelf.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="DisplayToClipboard">
+		<param name="Local" value="sctrls/DisplayToClipboard.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="EnvColor">
+		<param name="Local" value="sctrls/EnvColor.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="EnvShake">
+		<param name="Local" value="sctrls/EnvShake.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Explod">
+		<param name="Local" value="sctrls/Explod.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ExplodBindTime">
+		<param name="Local" value="sctrls/ExplodBindTime.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="FallEnvShake">
+		<param name="Local" value="sctrls/FallEnvShake.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ForceFeedback">
+		<param name="Local" value="sctrls/ForceFeedback.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GameMakeAnim">
+		<param name="Local" value="sctrls/GameMakeAnim.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Gravity">
+		<param name="Local" value="sctrls/Gravity.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Helper">
+		<param name="Local" value="sctrls/Helper.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HitAdd">
+		<param name="Local" value="sctrls/HitAdd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HitBy">
+		<param name="Local" value="sctrls/HitBy.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HitDef">
+		<param name="Local" value="sctrls/HitDef.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HitFallDamage">
+		<param name="Local" value="sctrls/HitFallDamage.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HitFallSet">
+		<param name="Local" value="sctrls/HitFallSet.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HitFallVel">
+		<param name="Local" value="sctrls/HitFallVel.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HitOverride">
+		<param name="Local" value="sctrls/HitOverride.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HitVelSet">
+		<param name="Local" value="sctrls/HitVelSet.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="LifeAdd">
+		<param name="Local" value="sctrls/LifeAdd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="LifeSet">
+		<param name="Local" value="sctrls/LifeSet.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="MakeDust">
+		<param name="Local" value="sctrls/MakeDust.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ModifyExplod">
+		<param name="Local" value="sctrls/ModifyExplod.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="MoveHitReset">
+		<param name="Local" value="sctrls/MoveHitReset.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="NotHitBy">
+		<param name="Local" value="sctrls/NotHitBy.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Null">
+		<param name="Local" value="sctrls/Null.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Offset">
+		<param name="Local" value="sctrls/Offset.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PalFX">
+		<param name="Local" value="sctrls/PalFX.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ParentVarAdd">
+		<param name="Local" value="sctrls/ParentVarAdd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ParentVarSet">
+		<param name="Local" value="sctrls/ParentVarSet.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Pause">
+		<param name="Local" value="sctrls/Pause.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PlayerPush">
+		<param name="Local" value="sctrls/PlayerPush.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PlaySnd">
+		<param name="Local" value="sctrls/PlaySnd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PosAdd">
+		<param name="Local" value="sctrls/PosAdd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PosFreeze">
+		<param name="Local" value="sctrls/PosFreeze.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PosSet">
+		<param name="Local" value="sctrls/PosSet.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PowerAdd">
+		<param name="Local" value="sctrls/PowerAdd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PowerSet">
+		<param name="Local" value="sctrls/PowerSet.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Projectile">
+		<param name="Local" value="sctrls/Projectile.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="RemapPal">
+		<param name="Local" value="sctrls/RemapPal.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="RemoveExplod">
+		<param name="Local" value="sctrls/RemoveExplod.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ReversalDef">
+		<param name="Local" value="sctrls/ReversalDef.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ScreenBound">
+		<param name="Local" value="sctrls/ScreenBound.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="SelfState">
+		<param name="Local" value="sctrls/SelfState.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="SndPan">
+		<param name="Local" value="sctrls/SndPan.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="SprPriority">
+		<param name="Local" value="sctrls/SprPriority.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="StateTypeSet">
+		<param name="Local" value="sctrls/StateTypeSet.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="StopSnd">
+		<param name="Local" value="sctrls/StopSnd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="SuperPause">
+		<param name="Local" value="sctrls/SuperPause.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="TargetBind">
+		<param name="Local" value="sctrls/TargetBind.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="TargetDrop">
+		<param name="Local" value="sctrls/TargetDrop.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="TargetFacing">
+		<param name="Local" value="sctrls/TargetFacing.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="TargetLifeAdd">
+		<param name="Local" value="sctrls/TargetLifeAdd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="TargetPowerAdd">
+		<param name="Local" value="sctrls/TargetPowerAdd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="TargetState">
+		<param name="Local" value="sctrls/TargetState.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="TargetVelAdd">
+		<param name="Local" value="sctrls/TargetVelAdd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="TargetVelSet">
+		<param name="Local" value="sctrls/TargetVelSet.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Trans">
+		<param name="Local" value="sctrls/Trans.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Turn">
+		<param name="Local" value="sctrls/Turn.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="VarAdd">
+		<param name="Local" value="sctrls/VarAdd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="VarRandom">
+		<param name="Local" value="sctrls/VarRandom.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="VarRangeSet">
+		<param name="Local" value="sctrls/VarRangeSet.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="VarSet">
+		<param name="Local" value="sctrls/VarSet.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="VelAdd">
+		<param name="Local" value="sctrls/VelAdd.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="VelMul">
+		<param name="Local" value="sctrls/VelMul.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="VelSet">
+		<param name="Local" value="sctrls/VelSet.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="VictoryQuote">
+		<param name="Local" value="sctrls/VictoryQuote.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Width">
+		<param name="Local" value="sctrls/Width.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="关于控制器">
+		<param name="Local" value="sctrls/关于控制器.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Bound 组">
+		<param name="Local" value="stage/Bound%20组.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Camera 组">
+		<param name="Local" value="stage/Camera%20组.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Info 组">
+		<param name="Local" value="stage/Info%20组.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Music 组">
+		<param name="Local" value="stage/Music%20组.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PlayerInfo 组">
+		<param name="Local" value="stage/PlayerInfo%20组.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Reflection 组">
+		<param name="Local" value="stage/Reflection%20组.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Shadow 组">
+		<param name="Local" value="stage/Shadow%20组.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="StageInfo 组">
+		<param name="Local" value="stage/StageInfo%20组.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="关于背景和舞台">
+		<param name="Local" value="stage/关于背景和舞台.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="其他背景元素类型">
+		<param name="Local" value="stage/其他背景元素类型.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="动画型背景元素">
+		<param name="Local" value="stage/动画型背景元素.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="概述">
+		<param name="Local" value="stage/概述.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="简单举例">
+		<param name="Local" value="stage/简单举例.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="背景元素格式">
+		<param name="Local" value="stage/背景元素格式.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="背景元素说明">
+		<param name="Local" value="stage/背景元素说明.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="背景控制器">
+		<param name="Local" value="stage/背景控制器.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="舞台设定说明">
+		<param name="Local" value="stage/舞台设定说明.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="视差型背景元素">
+		<param name="Local" value="stage/视差型背景元素.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="静态型背景元素">
+		<param name="Local" value="stage/静态型背景元素.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="高级参数">
+		<param name="Local" value="stage/高级参数.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Abs (math)">
+		<param name="Local" value="triggers/Abs.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Acos (math)">
+		<param name="Local" value="triggers/Acos.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="AILevel">
+		<param name="Local" value="triggers/AILevel.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Alive">
+		<param name="Local" value="triggers/Alive.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Anim">
+		<param name="Local" value="triggers/Anim.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="AnimElem(*,***)">
+		<param name="Local" value="triggers/AnimElem.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="AnimElemNo">
+		<param name="Local" value="triggers/AnimElemNo.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="AnimElemTime">
+		<param name="Local" value="triggers/AnimElemTime.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="AnimExist">
+		<param name="Local" value="triggers/AnimExist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="AnimTime">
+		<param name="Local" value="triggers/AnimTime.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Asin (math)">
+		<param name="Local" value="triggers/Asin.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Atan (math)">
+		<param name="Local" value="triggers/Atan.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="AuthorName(*,***)">
+		<param name="Local" value="triggers/AuthorName.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="BackEdge">
+		<param name="Local" value="triggers/BackEdge.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="BackEdgeBodyDist">
+		<param name="Local" value="triggers/BackEdgeBodyDist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="BackEdgeDist">
+		<param name="Local" value="triggers/BackEdgeDist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="BottomEdge">
+		<param name="Local" value="triggers/BottomEdge.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="CameraPos">
+		<param name="Local" value="triggers/CameraPos.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="CameraZoom">
+		<param name="Local" value="triggers/CameraZoom.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="CanRecover">
+		<param name="Local" value="triggers/CanRecover.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Ceil (math)">
+		<param name="Local" value="triggers/Ceil.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Command (*,***)">
+		<param name="Local" value="triggers/Command.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Cond (math)">
+		<param name="Local" value="triggers/Cond.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Const (*)">
+		<param name="Local" value="triggers/Const.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Const240p">
+		<param name="Local" value="triggers/Const240p.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Const480p">
+		<param name="Local" value="triggers/Const480p.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Const720p">
+		<param name="Local" value="triggers/Const720p.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Cos (math)">
+		<param name="Local" value="triggers/Cos.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Ctrl">
+		<param name="Local" value="triggers/Ctrl.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="DrawGame">
+		<param name="Local" value="triggers/DrawGame.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="E (math)">
+		<param name="Local" value="triggers/E.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Exp (math)">
+		<param name="Local" value="triggers/Exp.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Facing">
+		<param name="Local" value="triggers/Facing.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Floor (math)">
+		<param name="Local" value="triggers/Floor.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="FrontEdge">
+		<param name="Local" value="triggers/FrontEdge.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="FrontEdgeBodyDist">
+		<param name="Local" value="triggers/FrontEdgeBodyDist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="FrontEdgeDist">
+		<param name="Local" value="triggers/FrontEdgeDist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="FVar">
+		<param name="Local" value="triggers/FVar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GameHeight">
+		<param name="Local" value="triggers/GameHeight.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GameTime">
+		<param name="Local" value="triggers/GameTime.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GameWidth">
+		<param name="Local" value="triggers/GameWidth.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="GetHitVar(*)">
+		<param name="Local" value="triggers/GetHitVar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HitCount">
+		<param name="Local" value="triggers/HitCount.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HitDefAttr(*,***)">
+		<param name="Local" value="triggers/HitDefAttr.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HitFall">
+		<param name="Local" value="triggers/HitFall.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HitOver">
+		<param name="Local" value="triggers/HitOver.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HitPauseTime">
+		<param name="Local" value="triggers/HitPauseTime.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HitShakeOver">
+		<param name="Local" value="triggers/HitShakeOver.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="HitVel">
+		<param name="Local" value="triggers/HitVel.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ID">
+		<param name="Local" value="triggers/ID.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="IfElse (math)">
+		<param name="Local" value="triggers/IfElse.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="InGuardDist">
+		<param name="Local" value="triggers/InGuardDist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="IsHelper">
+		<param name="Local" value="triggers/IsHelper.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="IsHomeTeam">
+		<param name="Local" value="triggers/IsHomeTeam.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="LeftEdge">
+		<param name="Local" value="triggers/LeftEdge.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Life">
+		<param name="Local" value="triggers/Life.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="LifeMax">
+		<param name="Local" value="triggers/LifeMax.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Ln (math)">
+		<param name="Local" value="triggers/Ln.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Log (math)">
+		<param name="Local" value="triggers/Log.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Lose">
+		<param name="Local" value="triggers/Lose.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="MatchNo">
+		<param name="Local" value="triggers/MatchNo.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="MatchOver">
+		<param name="Local" value="triggers/MatchOver.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="MoveContact">
+		<param name="Local" value="triggers/MoveContact.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="MoveGuarded">
+		<param name="Local" value="triggers/MoveGuarded.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="MoveHit">
+		<param name="Local" value="triggers/MoveHit.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="MoveReversed">
+		<param name="Local" value="triggers/MoveReversed.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="MoveType(*,***)">
+		<param name="Local" value="triggers/MoveType.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Name(*,***)">
+		<param name="Local" value="triggers/Name.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="NumEnemy">
+		<param name="Local" value="triggers/NumEnemy.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="NumExplod">
+		<param name="Local" value="triggers/NumExplod.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="NumHelper">
+		<param name="Local" value="triggers/NumHelper.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="NumPartner">
+		<param name="Local" value="triggers/NumPartner.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="NumProj">
+		<param name="Local" value="triggers/NumProj.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="NumProjID">
+		<param name="Local" value="triggers/NumProjID.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="NumTarget">
+		<param name="Local" value="triggers/NumTarget.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="P1Name(*,***)">
+		<param name="Local" value="triggers/P1Name.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="P2BodyDist">
+		<param name="Local" value="triggers/P2BodyDist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="P2Dist">
+		<param name="Local" value="triggers/P2Dist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="P2Life">
+		<param name="Local" value="triggers/P2Life.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="P2MoveType">
+		<param name="Local" value="triggers/P2MoveType.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="P2Name(*,***)">
+		<param name="Local" value="triggers/P2Name.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="P2StateNo">
+		<param name="Local" value="triggers/P2StateNo.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="P2StateType">
+		<param name="Local" value="triggers/P2StateType.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="P3Name(*,***)">
+		<param name="Local" value="triggers/P3Name.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="P4Name(*,***)">
+		<param name="Local" value="triggers/P4Name.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PalNo">
+		<param name="Local" value="triggers/PalNo.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ParentDist">
+		<param name="Local" value="triggers/ParentDist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Pi (math)">
+		<param name="Local" value="triggers/Pi.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PlayerIDExist">
+		<param name="Local" value="triggers/PlayerIDExist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Pos">
+		<param name="Local" value="triggers/Pos.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Power">
+		<param name="Local" value="triggers/Power.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PowerMax">
+		<param name="Local" value="triggers/PowerMax.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="PrevStateNo">
+		<param name="Local" value="triggers/PrevStateNo.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ProjCancelTime">
+		<param name="Local" value="triggers/ProjCancelTime.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ProjContact(*,***)">
+		<param name="Local" value="triggers/ProjContact.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ProjContactTime">
+		<param name="Local" value="triggers/ProjContactTime.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ProjGuarded(*,***)">
+		<param name="Local" value="triggers/ProjGuarded.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ProjGuardedTime">
+		<param name="Local" value="triggers/ProjGuardedTime.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ProjHit(*,***)">
+		<param name="Local" value="triggers/ProjHit.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ProjHitTime">
+		<param name="Local" value="triggers/ProjHitTime.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Random">
+		<param name="Local" value="triggers/Random.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="RightEdge">
+		<param name="Local" value="triggers/RightEdge.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="RootDist">
+		<param name="Local" value="triggers/RootDist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="RoundNo">
+		<param name="Local" value="triggers/RoundNo.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="RoundsExisted">
+		<param name="Local" value="triggers/RoundsExisted.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="RoundState">
+		<param name="Local" value="triggers/RoundState.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ScreenHeight">
+		<param name="Local" value="triggers/ScreenHeight.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ScreenPos">
+		<param name="Local" value="triggers/ScreenPos.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="ScreenWidth">
+		<param name="Local" value="triggers/ScreenWidth.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="SelfAnimExist">
+		<param name="Local" value="triggers/SelfAnimExist.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Sin (math)">
+		<param name="Local" value="triggers/Sin.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="StageVar(*,***)">
+		<param name="Local" value="triggers/StageVar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="StateNo">
+		<param name="Local" value="triggers/StateNo.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="StateType">
+		<param name="Local" value="triggers/StateType.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="SysFVar">
+		<param name="Local" value="triggers/SysFVar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="SysVar">
+		<param name="Local" value="triggers/SysVar.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Tan (math)">
+		<param name="Local" value="triggers/Tan.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="TeamMode(*,***)">
+		<param name="Local" value="triggers/TeamMode.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="TeamSide">
+		<param name="Local" value="triggers/TeamSide.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="TicksPerSecond">
+		<param name="Local" value="triggers/TicksPerSecond.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Time">
+		<param name="Local" value="triggers/Time.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="TimeMod(*,**,***)">
+		<param name="Local" value="triggers/TimeMod.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="TopEdge">
+		<param name="Local" value="triggers/TopEdge.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="UniqHitCount">
+		<param name="Local" value="triggers/UniqHitCount.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Var">
+		<param name="Local" value="triggers/Var.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Vel">
+		<param name="Local" value="triggers/Vel.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Win">
+		<param name="Local" value="triggers/Win.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="关于触发器">
+		<param name="Local" value="triggers/关于触发器.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Zoom">
+		<param name="Local" value="sctrls/Zoom.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="初级AI教程">
+		<param name="Local" value="AI1/初级AI教程.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="1.trigger和ai开关">
+		<param name="Local" value="AI1/1.trigger和ai开关.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="2.def，cmd和cns">
+		<param name="Local" value="AI1/2.def，cmd和cns.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.基本的trigger指令">
+		<param name="Local" value="AI1/3.基本的trigger指令.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="4.防御">
+		<param name="Local" value="AI1/4.防御.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="5.移动">
+		<param name="Local" value="AI1/5.移动.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="6.切反，抓硬直，插动">
+		<param name="Local" value="AI1/6.切反，抓硬直，插动.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="7.连段">
+		<param name="Local" value="AI1/7.连段.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="高级AI教程">
+		<param name="Local" value="AI2/高级AI教程.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="1.前言及新手须知">
+		<param name="Local" value="AI2/1.前言及新手须知.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="2.AI概念简述及Mugen人物运作基础知识">
+		<param name="Local" value="AI2/2.AI概念简述及Mugen人物运作基础知识.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="3.语法、运算符与表达式">
+		<param name="Local" value="AI2/3.语法、运算符与表达式.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="4.常用Sctrl与trigger与常见错误">
+		<param name="Local" value="AI2/4.常用Sctrl与trigger与常见错误.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="5.变量Var简介、Cmd简介、AI开关设置及手操指令修改">
+		<param name="Local" value="AI2/5.变量Var简介、Cmd简介、AI开关设置及手操指令修改.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="6.debug相关、Air简介、人物性能调查">
+		<param name="Local" value="AI2/6.debug相关、Air简介、人物性能调查.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="7.AI框架与代码顺序">
+		<param name="Local" value="AI2/7.AI框架与代码顺序.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="8.公用状态修改：移动、跳跃、受身及防御">
+		<param name="Local" value="AI2/8.公用状态修改：移动、跳跃、受身及防御.html">
+		</OBJECT>
+	<LI> <OBJECT type="text/sitemap">
+		<param name="Name" value="Mugen1.1Beta1已知Bug">
+		<param name="Local" value="other/Mugen1.1Beta1已知Bug.html">
+		</OBJECT>
+</UL>
+</BODY></HTML>
