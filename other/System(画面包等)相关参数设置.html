@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>System(»­Ãæ°üµÈ)Ïà¹Ø²ÎÊıÉèÖÃ</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   System(ç”»é¢åŒ…ç­‰)ç›¸å…³å‚æ•°è®¾ç½®
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,520 +23,1173 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">System(»­Ãæ°üµÈ)Ïà¹Ø²ÎÊıÉèÖÃ</p>
-<p>; ¶¨ÒåÏµÍ³»­Ãæ</p>
-<p>; ¾ßÌåµÄ¸ñÊ½ÀàËÆ±³¾°¶¨Òå.</p>
-<p>; ¹ØÓÚ×ÖÌåµÄ×¢ÒâÊÂÏî:<br />
-  ; - [Files]ÕÂ½Ú×î¶àÄÜÖ¸¶¨10¸ö×ÖÌå<br />
-  ; - ÕâÀïµÄ×ÖÌåË÷Òı²»ÊÇÖ¸µÄfight.defÖĞµÄ<br />
-  ; - °´ÏÂÃæµÄË³ĞòËÑË÷×ÖÌå:<br />
-  ; 1. ÏµÍ³Ä¿Â¼<br />
-  ; 2. mugen³ÌĞòÄ¿Â¼(²»½¨Òé°Ñ×ÖÌå·ÅÔÚÕâÀï)<br />
-  ; 3. data/ (²»½¨Òé°Ñ×ÖÌå·ÅÔÚÕâÀï)<br />
-  ; 4. font/</p>
-<p>;----------------------------<br />
-  <span class="STYLE2">[Info]</span><br />
-  name = &quot;Default&quot; ;Ö÷ÌâµÄÃû³Æ<br />
-  author = &quot;Elecbyte&quot; ;Ö÷Ìâ×÷ÕßÃû<br />
-  versiondate = 09,01,2009 ;Ö÷Ìâ°æ±¾ÈÕÆÚ (MM-DD-YYYY) (MUGEN 2009 ĞÂÔö)<br />
-  mugenversion = 1.0 ;ÊÊÓÃµÄmugen°æ±¾ºÅ (MUGEN 2009 ĞÂÔö)<br />
-  localcoord = 320,240 ;¾Ö²¿×ø±ê¿Õ¼äµÄ¿í¸ß (MUGEN 2009 ĞÂÔö)</p>
-<p>;----------------------------<br />
-  ;Â·¾¶¼ì²âË³Ğò:<br />
-  ;1. system.defËùÔÚµÄµ±Ç°Â·¾¶<br />
-  ;2. data/<br />
-  ;3. ÄãMUGENÂ·¾¶</p>
-<p><span class="STYLE2">[Files]</span><br />
-  spr = system.sff ;Í¼Æ¬Êı¾İÃû³Æ<br />
-  snd = system.snd ;ÉùÒôÊı¾İÃû³Æ<br />
-  logo.storyboard = ;±êÖ¾¾çÇé½éÉÜ (¿ÉÑ¡)<br />
-  intro.storyboard = ;¿ª³¡¾çÇé¶¨Òå (¿ÉÑ¡)<br />
-  select = select.def ;ÈËÎï,ÎèÌ¨Ñ¡ÔñÁĞ±í<br />
-  fight = fight.def ;fight(ÑªÌõ,ÄÜÁ¿ÌõµÈ)¶¨Òå<br />
-  font1 = f-4x6.def ;ÏµÍ³×ÖÌå<br />
-  font2 = f-6x9.def ;ÏµÍ³×ÖÌå<br />
-font3 = jg.fnt ;ÏµÍ³×ÖÌå</p>
-<p>;----------------------------<br />
-  <span class="STYLE2">[Music]</span><br />
-  ;°ÑMOD,MP3,MIDIÎÄ¼şµÄÎÄ¼şÃû·ÅÖÃÔÚÕâÀï,»òÕßÈç¹ûÄãÃ»ÓĞÉùÒô¾Í¿Õ×Å<br />
-  ;Èç¹û¸ø³öÒ»¸ö²»´æÔÚµÄÎÄ¼şÃû,Ôò²»»á²¥·ÅÉùÒô<br />
-  ;Òª´Ósound/Â·¾¶²¥·Åmymusic.mp3,Ğ´ÉÏ:<br />
-  ; title.bgm = sound/mymusic.mp3<br />
-  ;Èç¹ûÎÄ¼şÃûÏàÍ¬ÔòÉùÒô½«³ÖĞøÔÚÆÁÄ»ÖĞ²¥·Å,ÇÒÍ¬Ê±±³¾°ÒôÀÖ±»ÉèÖÃÎªÑ­»·²¥·Å</p>
-<p>;ÔÚ±êÌâ»­ÃæÖĞ²¥·ÅµÄÒôÀÖ.<br />
-  ;<span class="STYLE3">loop</span>-Ñ­»·,<span class="STYLE3">loopstart</span>-Ñ­»·¿ªÊ¼µÄÊ±¼ä,<span class="STYLE3">loopend</span>-Ñ­»·½áÊøµÄÊ±¼ä<br />
-  title.bgm = <br />
-  title.bgm.volume = 100 ;µ÷½ÚÒôÁ¿,Ä¬ÈÏ100<br />
-  title.bgm.loop = 1 ;ÉùÒôÊÇ·ñÑ­»·<br />
-  title.bgm.loopstart = <br />
-  title.bgm.loopend = <br />
-  ;ÈËÎïÑ¡Ôñ»­ÃæÒôÀÖ<br />
-  select.bgm = <br />
-  select.bgm.volume = <br />
-  select.bgm.loop = 1<br />
-  select.bgm.loopstart =<br />
-  select.bgm.loopend = <br />
-  ;VS»­ÃæÒôÀÖ<br />
-  vs.bgm = <br />
-  vs.bgm.volume = <br />
-  vs.bgm.loop = 0<br />
-  vs.bgm.loopstart =<br />
-  vs.bgm.loopend = <br />
-  ;Ê¤Àû»­ÃæÒôÀÖ<br />
-  victory.bgm = <br />
-  victory.bgm.volume =<br />
-  victory.bgm.loop = 0<br />
-  victory.bgm.loopstart =<br />
-  victory.bgm.loopend = </p>
-<p>;-------------------------------------------------------------------<br />
-  ;±êÌâ»­Ãæ¶¨Òå(Ä£Ê½Ñ¡Ïî»­Ãæ)<br />
-  <span class="STYLE2">[Title Info]</span><br />
-  fadein.time = 10 ;»­Ãæµ­ÈëÊ±¼ä,ÉèÖÃÒ»¸öÍ¸Ã÷½¥±ä¹ı¶É,¸Õ½øÈë±êÌâ»­ÃæÊ±»­Ãæ´ÓÈ«ºÚ½¥½¥±äÎª±êÌâ»­Ãæ.(Ã²ËÆ¶Ô×ÖÌåÎŞĞ§)<br />
-  fadeout.time = 10 ; »­Ãæµ­³öÊ±¼ä,Ñ¡ÔñÍêÄ£Ê½ºó±êÌâ»­Ãæ±äÎªÈ«ºÚ.<br />
-  menu.pos = 159,158 ;Ñ¡Ïî²Ëµ¥µÄÎ»ÖÃ(ÆÁÄ»×óÉÏ½ÇÎª0,0) <br />
-  menu.item.font = 3,0,0 ;Ñ¡Ïî²Ëµ¥×ÖÌå(µÚ1×éÊı×ÖÊÇÒªµ÷ÓÃµÄ×ÖÌå±àºÅ,µÚ3×éÊı×ÖÎª¶ÔÆë·½Ê½,0-¾ÓÖĞ¶ÔÆë,1-×ó¶ÔÆë,-1-ÓÒ¶ÔÆë) <br />
-  menu.item.active.font = 3,5,0, 150,240,240 ;µ±¹â±ê·ÅÔÚÕâ¸öÑ¡ÏîÉÏÊ±µÄ×ÖÌå,ºó3×éÎªÖ¸¶¨×ÖÌåÕÚÕÖÑÕÉ«RGBÊıÖµ. <br />
-  menu.item.spacing = 0, 13 ;Ã¿¸öÑ¡Ïî×İÏò¼ä¾à <br />
-  ;²Ëµ¥ÖĞÃ¿¸öÑ¡ÏîµÄÃû³Æ.Ãû×Ö±ØĞëÔÚÒıºÅÖĞ.Òª½ûÓÃÄ³¸öÑ¡Ïî,Ê¹ÓÃ&quot;&quot;.Èç¹ûËùÓĞÑ¡Ïî¶¼½ûÖ¹,Ö±½Ó½øÈëdemo(¹Û¿´)Ä£Ê½.(°´Esc¿ÉÒÔÍË³ödemoÄ£Ê½)<br />
-  menu.itemname.arcade = &quot;ARCADE&quot;<br />
-  menu.itemname.versus = &quot;VS MODE&quot;<br />
-  menu.itemname.teamarcade = &quot;TEAM ARCADE&quot;<br />
-  menu.itemname.teamversus = &quot;TEAM VS&quot;<br />
-  menu.itemname.teamcoop = &quot;TEAM CO-OP&quot;<br />
-  menu.itemname.survival = &quot;SURVIVAL&quot;<br />
-  menu.itemname.survivalcoop = &quot;SURVIVAL CO-OP&quot;<br />
-  menu.itemname.training = &quot;TRAINING&quot;<br />
-  menu.itemname.watch = &quot;WATCH&quot;<br />
-  menu.itemname.options = &quot;OPTIONS&quot;<br />
-  menu.itemname.exit = &quot;EXIT&quot;<br />
-  ;¶¨ÒåÑ¡Ïî²Ëµ¥¿É¼ûĞÔ<br />
-  menu.window.margins.y = 12, 8 ;¶¨ÒåÑ¡Ïî²Ëµ¥ÉÏ·½µÄ¿É¼û·¶Î§ <br />
-  menu.window.visibleitems = 5 ;×Ü¹²ÓĞ¶àÉÙÏîÉèÖÃÎª¿É¼û <br />
-  menu.boxcursor.visible = 1 ;ÉèÖÃÑ¡Ïî¹â±êÊÇ·ñ¿É¼û£¬1ÎªÏÔÊ¾£¬0·´Ö®.<br />
-  menu.boxcursor.coords = -120,-27,120,2;ÉèÖÃÑ¡Ïî¹â±êÎ»ÖÃ´óĞ¡. ÊÇÓÉ4¸öµã×é³ÉµÄ¾ØĞÎ.<br />
-  ; Ñ¡ÏîÖĞµÄÉùÒô<br />
-  cursor.move.snd = 100,0 ;ÒÆ¶¯¹â±êµÄÉùÒô <br />
-  cursor.done.snd = 100,1 ;È·ÈÏÑ¡ÏîµÄÉùÒô(¹â±êÑ¡ÖĞµÄÉùÒô) <br />
-  cancel.snd = 100,2 ;ÍË³öµÄÉùÒô(·µ»ØÖ÷½çÃæÊ±µÄÉùÒô) </p>
-<p><img src="../pic/title.png" width="468" height="208" /></p>
-<p>;´«Í³×ÖÌåµÄ¸ÅÄî¼´Îª¶¨Òå×Ö·û,ÆäÊµmugenµÄ×ÖÌåÑÏ¸ñÉÏÀ´Ëµ²»½Ğ×ÖÌå,¸üÈ·ÇĞµÄËµ·¨ÆäÊµÊÇÍ¼Ïñ,×ÖÌåÖĞÆäÊµÊÇÍ¨¹ı¶¨ÒåÍ¼ÏñÉÏµÄÄ³Ò»²¿·ÖÇøÓòÀ´±íÊ¾Ò»¸ö×ÖÄ¸µÄ.<br />
-  ;ËùÒÔ¿ÉÒÔÀûÓÃ×ÖÌåÍ¼ÏñµÄÌØÕ÷½áºÏ²Ëµ¥Ñ¡Ïî×ö³ö·Ç´«Í³mugenµÄÑ¡µ¥Ğ§¹û.<br />
-  ;ÀıÈç:ÉèÖÃ<br />
-  ;menu.itemname.arcade = &quot;A&quot;<br />
-  ;menu.itemname.versus = &quot;B&quot;<br />
-  ;È»ºó¿ÉÒÔ½«×ÖÌå»æÖÆ³ÉÍ¼ÏñÄ£Ê½,½«×ÖÌåAºÍBµÄÇøÓò¶¨Òå³É²»Í¬Í¼ÏñÀ´ÊµÏÖÌØÊâĞ§¹û.</p>
-<p><img src="../pic/title_ex1.jpg" width="640" height="480" /></p>
-<p><img src="../pic/title_ex2.jpg" width="640" height="480" /></p>
-<p>;´ËÖÖ·½Ê½Ó¦ÓÃºÜ¹ã·º,ÔÚ±³¾°Ô¤ÀÀ,ÑªÌõ,ÄÜÁ¿ÌõÉÏ¶¼ÓĞÓÃµ½.</p>
-<p>;----------------------------<br />
-  ;±êÌâ±³¾°¶¨Òå <br />
-  ;³ıÉÏÊöÉèÖÃÍâµÄÆäËûÔªËØ¶¼Òª¶¨ÒåÔÚÕâÀï(¾ßÌåËµÃ÷Ïê¼û±³¾°½Ì³Ì)<br />
-  [TitleBGdef]<br />
-  bgclearcolor = 0,0,0</p>
-<p>[TitleBG 0]<br />
-  type = parallax<br />
-  spriteno = 5, 1<br />
-  start = 0, 145<br />
-  width = 400, 1200<br />
-  yscalestart = 100<br />
-  yscaledelta = 1<br />
-  tile = 1,1<br />
-  velocity = -1</p>
-<p>[TitleBG 1]<br />
-  type = normal<br />
-  spriteno = 5, 2<br />
-  start = -160, 145<br />
-  trans = sub</p>
-<p>[TitleBG 2]<br />
-  type = normal<br />
-  spriteno = 5,0<br />
-  start = 0, 10<br />
-  tile = 1,2<br />
-  velocity = -1<br />
-  mask = 0</p>
-<p>[TitleBG 3]<br />
-  type = normal<br />
-  spriteno = 0,0<br />
-  start = 0, 40<br />
-  mask = 1<br />
-  trans = add</p>
-<p>;-------------------------------------------------------------------<br />
-  ;Ñ¡ÈË»­Ãæ¶¨Òå<br />
-  <span class="STYLE2">[Select Info]</span><br />
-  fadein.time = 10 ;µ­ÈëÊ±¼ä <br />
-  fadeout.time = 10 ;µ­³öÊ±¼ä <br />
-  ; *** ×¢Òâ ***<br />
-  ; ÄãÏëÔö¼Ó¸ü¶àµÄĞĞºÍÁĞÂğ <br />
-  ; ÔÚ MUGEN 1.0, Ä¬ÈÏ»­Ãæ°ü¶¨ÒåÊÇÔÚ data/mugen1/system.def.<br />
-  ; ÄãÍ¬Ê±¿ÉÒÔ±à¼­ mugen.cfg À´Ñ¡Ôñ&quot;big&quot;Ö÷Ìâ.</p>
-<p>;×¢:´ó¶àÊıÊ±ºò¿ÉÒÔ¶ÔÍ¼ÏñËØ²Ä(Í¼Æ¬»òÕß¶¯»­)½øĞĞËõ·Å,ÀıÈç:p1.cursor.done.spr =,ÔòËõ·ÅµÄÓï¾äÎªp1.cursor.done.scale = <br />
-  ;³ı·ÇÓĞËµÃ÷,·ñÔòÊ¹ÓÃÍ¼Æ¬µÄµØ·½Ò²¿ÉÒÔÊ¹ÓÃ¶¯»­,¼´p1.cursor.active.spr =Ò²¿ÉÒÔÊ¹ÓÃp1.cursor.active.anim = <br />
-  ;´ó¶àÊıÊ±ºò,¿ÉÒÔ´Ó×îºóÒ»×é×Ö·û´®ÖĞ²Âµ½¾ßÌåº¬Òå.<br />
-  ;<span class="STYLE3">spr</span>-Í¼Ïñ,<span class="STYLE3">anim</span>-¶¯»­,<span class="STYLE3">offset</span>-Î»ÖÃÆ«ÒÆÁ¿,<span class="STYLE3">snd</span>-ÉùÒô,<span class="STYLE3">font</span>-×ÖÌå,<span class="STYLE3">scale</span>-Ëõ·Å,<span class="STYLE3">facing</span>-³¯Ïò,<span class="STYLE3">text</span>-ÎÄ×Ö,<span class="STYLE3">spacing</span>-¼ä¾à,<span class="STYLE3">layerno</span>-²ãºÅ,<span class="STYLE3">time</span>-Ê±¼ä<br />
-  ;×ÜÖ®¾ÍÕâÃ´¶à»¨Ñù,Òª×¢ÒâµÄµØ·½»áÁíÍâ×¢Ã÷.</p>
-<p>rows = 2 ;ÉèÖÃĞĞÊıºÍÁĞÊı,¶¼´Ó0¿ªÊ¼ <br />
-  columns = 5<br />
-  wrapping = 0 ;ÉèÖÃ1,Ê¹µÃ¹â±êÒÆµ½×îÓÒ±ßÊ±,ÔÙ°´Ò»´ÎÓÒ¾ÍÄÜ»Øµ½×î×ó±ß<br />
-  pos = 90,170 ;µÚÒ»¸öÑ¡ÈË¸ñ×ÓµÄÆğÊ¼Î»ÖÃ<br />
-  showemptyboxes = 0 ;ÊÇ·ñÏÔÊ¾¿ÕµÄ¸ñ×Ó<br />
-  moveoveremptyboxes = 0 ;ÊÇ·ñ¿ÉÒÔÒÆ¶¯µ½¿ÕµÄ¸ñ×ÓÉÏ<br />
-  cell.size = 27,27 ;Ã¿¸öÑ¡ÈË¿òµÄx,y´óĞ¡(ÏñËØ).<br />
-  cell.spacing = 2 ;Ñ¡ÈË¿ò¼ä¾à<br />
-  cell.bg.spr = 150,0 ;Ñ¡ÈË¿òµÄÍ¼Æ¬.(²»ÒªÊ¹ÓÃ¶¯»­)<br />
-  cell.random.spr = 151,0 ;Ëæ»úÍ¼±ê(²»ÒªÊ¹ÓÃ¶¯»­)<br />
-  cell.random.switchtime = 4;Ëæ»úÑ¡ÔñÊ±±ä»¯µÄÆµÂÊ(Ê±¼äÖ¡Êı)<br />
-  p1.cursor.startcell = 0,0 ;p1ÆğÊ¼Ñ¡ÈË¹â±êÍ£ÁôÔÚÑ¡ÈË¿òÊ²Ã´Î»ÖÃ <br />
-  p1.cursor.active.spr = 160,0 ;p1Ñ¡ÈË¹â±êµÄÍ¼Æ¬(¿ÉÊ¹ÓÃ¶¯»­¼´p1.cursor.active.anim = ) <br />
-  p1.cursor.done.spr = 161,0 ;p1¹â±êÑ¡¶¨Ê±µÄÍ¼Æ¬<br />
-  p1.cursor.move.snd = 100,0 ;p1¹â±êÒÆ¶¯Ê±µÄÉùÒô<br />
-  p1.cursor.done.snd = 100,1 ;p1¹â±êÑ¡¶¨Ê±µÄÉùÒô<br />
-  p1.random.move.snd = 100,0 ;p1Ëæ»úÑ¡ÔñµÄÉùÒô <br />
-  p2.cursor.startcell = 0,4 ;Í¬p1 <br />
-  p2.cursor.active.spr = 170,0<br />
-  p2.cursor.done.spr = 171,0<br />
-  p2.cursor.blink = 1 ;Èôp1¹â±êºÍp2ÖØµşÊÇ·ñÉÁË¸<br />
-  p2.cursor.move.snd = 100,0<br />
-  p2.cursor.done.snd = 100,1<br />
-  p2.random.move.snd = 100,0<br />
-  random.move.snd.cancel = 0;ÉèÖÃ1,Ëæ»úÉùÒô·´¸´²¥·ÅÊ±È¡Ïû<br />
-  stage.move.snd = 100,0 ;Ñ¡ÎèÌ¨Ê±,ÒÆ¶¯µÄÉùÒô<br />
-  stage.done.snd = 100,1 ;Ñ¡ÎèÌ¨Ê±,Ñ¡¶¨Ê±µÄÉùÒô<br />
-  cancel.snd = 100,2 ;È¡ÏûµÄÉùÒô <br />
-  portrait.spr = 9000,0 ;Ñ¡ÈË¸ñÖĞĞ¡Í·ÏñµÄÍ¼Æ¬(9000,0²»Òª¸Ä)<br />
-  portrait.offset = 0,0 ;Ñ¡ÈË¸ñÖĞĞ¡Í·ÏñµÄÎ»ÖÃ(Ïà¶ÔÓÚÑ¡ÈË¸ñ×Ó)<br />
-  portrait.scale = 1,1 ;Ëõ·Å <br />
-  title.offset = 159,13 ;Ö¸¶¨´ËÄ£Ê½µÄ±êÌâÎ»ÖÃ<br />
-  title.font = 3,0,0 ;±êÌâ×ÖÌå<br />
-  ;<img src="../pic/charselect%20title.png" width="195" height="137" /><br />
-  ;´óÍ·Ïñ<br />
-  p1.face.spr = 9000,1 ;9000,1²»Òª¸Ä<br />
-  p1.face.offset = 18,13 ;Î»ÖÃ<br />
-  p1.face.scale = 1,1 <br />
-  p1.face.facing = 1 ;³¯Ïò <br />
-  p2.face.spr = 9000,1<br />
-  p2.face.offset = 301,13<br />
-  p2.face.scale = 1,1<br />
-  p2.face.facing = -1<br />
-  ;Ãû×Ö<br />
-  p1.name.offset = 10,162 ;Ãû×ÖµÄÎ»ÖÃ<br />
-  p1.name.font = 3,4,1 ;-1²»ÏÔÊ¾<br />
-  p1.name.spacing = 0,-27 ;Ãû×Ö¼ä¾à,¾É°æ±¾Ã²ËÆ²»ÄÜÉèÖÃ <br />
-  p2.name.offset = 309,162<br />
-  p2.name.font = 3,1,-1<br />
-  p2.name.spacing = 0,-27<br />
-  ;ÎèÌ¨Ñ¡Ôñ<br />
-  stage.pos = 160,237<br />
-  stage.active.font = 3,0,0<br />
-  stage.active2.font = 3,2<br />
-  stage.done.font = 3,0<br />
-  ;¶ÓÎé²Ëµ¥(´Ë²¿·ÖÓÃÍ¼Ê¾)<br />
-  teammenu.move.wrapping = 1<br />
-  p1.teammenu.pos = 20, 30<br />
-  ;p1.teammenu.bg.spr = ;team²Ëµ¥±³¾°¿ò <br />
-  p1.teammenu.selftitle.font = 3,0, 1<br />
-  p1.teammenu.selftitle.text = Select team mode<br />
-  p1.teammenu.enemytitle.font = 3,0, 1<br />
-  p1.teammenu.enemytitle.text = Opponent team mode<br />
-  p1.teammenu.move.snd = 100,0<br />
-  p1.teammenu.value.snd = 100,0<br />
-  p1.teammenu.done.snd = 100,1<br />
-  p1.teammenu.item.offset = 0,20<br />
-  p1.teammenu.item.spacing = 0,15<br />
-  p1.teammenu.item.font = 3,0, 1<br />
-  p1.teammenu.item.active.font = 3,3, 1<br />
-  p1.teammenu.item.active2.font = 3,0, 1 ;ÉÁË¸Ê±µÚ2ÖÖ×ÖÌå<br />
-  p1.teammenu.item.cursor.offset = -10, 0 ;¹â±ê <br />
-  p1.teammenu.item.cursor.anim = 180<br />
-  p1.teammenu.value.icon.offset = 60,1<br />
-  p1.teammenu.value.icon.spr = 181,0<br />
-  p1.teammenu.value.empty.icon.offset = 60,1<br />
-  p1.teammenu.value.empty.icon.spr = 182,0<br />
-  p1.teammenu.value.spacing = 6,0<br />
-  ;p2 team<br />
-  p2.teammenu.pos = 299, 30<br />
-  ;p2.teammenu.bg.spr =<br />
-  p2.teammenu.selftitle.font = 3,0, -1<br />
-  p2.teammenu.selftitle.text = Select team mode<br />
-  p2.teammenu.enemytitle.font = 3,0, -1<br />
-  p2.teammenu.enemytitle.text = Opponent team mode<br />
-  p2.teammenu.move.snd = 100,0<br />
-  p2.teammenu.value.snd = 100,0<br />
-  p2.teammenu.done.snd = 100,1<br />
-  p2.teammenu.item.offset = 0,20<br />
-  p2.teammenu.item.spacing = 0,15<br />
-  p2.teammenu.item.font = 3,0, -1<br />
-  p2.teammenu.item.active.font = 3,1, -1<br />
-  p2.teammenu.item.active2.font = 3,0, -1<br />
-  p2.teammenu.item.cursor.offset = 10, 0<br />
-  p2.teammenu.item.cursor.anim = 190<br />
-  p2.teammenu.value.icon.offset = -60,1<br />
-  p2.teammenu.value.icon.spr = 191,0<br />
-  p2.teammenu.value.empty.icon.offset = -60,1<br />
-  p2.teammenu.value.empty.icon.spr = 192,0<br />
-  p2.teammenu.value.spacing = -6,0<br />
-  ;<img src="../pic/charselect%20exp.jpg" width="640" height="480" /></p>
-<p>[Begin Action 180] ;P1 Team mode cursor<br />
-  180,0, 0,0, 1<br />
-  180,0, 1,0, 1<br />
-  180,0, 2,0, 1<br />
-  180,0, 3,0, 1<br />
-  180,0, 4,0, 1<br />
-  180,0, 5,0, 1<br />
-  180,0, 6,0, 1<br />
-  180,0, 7,0, 1</p>
-<p>[Begin Action 190] ;P2 Team mode cursor<br />
-  190,0, 0,0, 1<br />
-  190,0,-1,0, 1<br />
-  190,0,-2,0, 1<br />
-  190,0,-3,0, 1<br />
-  190,0,-4,0, 1<br />
-  190,0,-5,0, 1<br />
-  190,0,-6,0, 1<br />
-  190,0,-7,0, 1</p>
-<p>;-----------------------<br />
-  ;¶¨ÒåÑ¡ÈË»­Ãæ±³¾°ÔªËØ<br />
-  [SelectBGdef]<br />
-  ;spr = graphics/selectbg.sff ;Filename of sprite data</p>
-<p>[SelectBG 0] ;Scrolling background<br />
-  type = normal<br />
-  spriteno = 100,0<br />
-  layerno = 0<br />
-  start = 0,0<br />
-  tile = 1,1<br />
-  velocity = -1, -1</p>
-<p>[SelectBG 1] ;Dark box<br />
-  type = normal<br />
-  spriteno = 100,1<br />
-  layerno = 0<br />
-  start = 0, 166<br />
-  delta = 0,0<br />
-  tile = 1,0<br />
-  trans = sub<br />
-  window = 85,0, 235,239<br />
-  velocity = -1, 0</p>
-<p>[SelectBG 2.A] ;Title background<br />
-  type = normal<br />
-  spriteno = 102,0<br />
-  layerno = 0<br />
-  start = 0, 2<br />
-  delta = 0,0<br />
-  tile = 1,0<br />
-  trans = sub<br />
-  velocity = -1, 0</p>
-<p>[SelectBG 2.B] ;Title background B<br />
-  type = normal<br />
-  spriteno = 102,1<br />
-  layerno = 0<br />
-  start = 0, 2<br />
-  delta = 0,0<br />
-  tile = 1,0<br />
-  trans = add<br />
-  velocity = -3, 0</p>
-<p>[SelectBG 2.C] ;Title background C<br />
-  type = normal<br />
-  spriteno = 102,2<br />
-  layerno = 0<br />
-  start = 0, 2<br />
-  delta = 0,0<br />
-  tile = 1,0<br />
-  trans = add<br />
-  velocity = -6, 0</p>
-<p>;-------------------------------------------------------------------<br />
-  <span class="STYLE2">[VS Screen]</span><br />
-  time = 150 ;ÏÔÊ¾µÄÊ±¼ä<br />
-  fadein.time = 15<br />
-  fadeout.time = 15<br />
-  ;arcadeÄ£Ê½ÖĞµÄÎÄ×Ö<br />
-  match.text = &quot;Match %i&quot; ;%i±íÊ¾¾ÖÊı<br />
-  match.offset = 159, 12<br />
-  match.font = 3,0,0<br />
-  ;´óÍ·Ïñ<br />
-  p1.spr = 9000, 1<br />
-  p1.offset = 20,31<br />
-  p1.facing = 1<br />
-  p1.scale = 1,1<br />
-  p2.spr = 9000, 1<br />
-  p2.offset = 299,31<br />
-  p2.facing = -1<br />
-  p2.scale = 1,1<br />
-  ;Ãû×Ö<br />
-  p1.name.offset = 78,190<br />
-  p1.name.font = 3,0,0<br />
-  p2.name.offset = 241,190<br />
-  p2.name.font = 3,0,0</p>
-<p>;-----------------------<br />
-  ;VS±³¾°¶¨Òå<br />
-  [VersusBGdef] </p>
-<p>[VersusBG 1] <br />
-  type = normal<br />
-  spriteno = 100,0<br />
-  start = 0,0<br />
-  tile = 1,1<br />
-  velocity = 0,1.5</p>
-<p>[VersusBG 2] ;VS Screen<br />
-  type = normal<br />
-  spriteno = 100,1<br />
-  start = 20,13<br />
-  tile = 1,1<br />
-  trans = sub<br />
-  window = 19,30, 140,171<br />
-  velocity = -2, 0</p>
-<p>[VersusBG 3] ;VS Screen<br />
-  type = normal<br />
-  spriteno = 100,1<br />
-  start = 20,13<br />
-  tile = 1,1<br />
-  trans = sub<br />
-  window = 179,30, 300,171<br />
-  velocity = 2, 0</p>
-<p>[VersusBG 4] ;VS Logo<br />
-  type = anim<br />
-  actionno = 200<br />
-  layerno = 1 ; Front<br />
-  start = 0,95</p>
-<p>[Begin Action 200]<br />
-  200,4, 0,0, 1<br />
-  200,3, 0,0, 2<br />
-  200,2, 0,0, 3<br />
-  200,1, 0,0, 4<br />
-  200,0, 0,0, 8<br />
-  200,5, 0,0, 3<br />
-  200,6, 0,0, 3<br />
-  200,7, 0,0, 3<br />
-  200,8, 0,0, 3<br />
-  200,0, 0,0, -1</p>
-<p>;-------------------------------------------------------------------<br />
-  ;DemoÄ£Ê½¶¨Òå<br />
-  <span class="STYLE2">[Demo Mode]</span><br />
-  enabled = 1 ;ÉèÖÃ0½ûÓÃDemo<br />
-  select.enabled = 0 ;ÉèÖÃ1ÔÚdemoÀïÃæÏÔÊ¾Ñ¡ÈË»­Ãæ<br />
-  vsscreen.enabled = 0 ;ÉèÖÃ1ÔÚdemoÀïÃæÏÔÊ¾VS»­Ãæ<br />
-  title.waittime = 600 ;ÉèÖÃtitle»­ÃæÏÔÊ¾¶à¾Ã(Ò²¾ÍÊÇ½øÈëÓÎÏ·ºóÊ²Ã´¶¼²»°´)ºó½øÈëdemo<br />
-  fight.endtime = 1500 ;demoÀïµçÄÔ´ò¶à¾Ã<br />
-  fight.playbgm = 0 ;demoÖĞ¶ÔÕ½Ê±ÊÇ·ñ²¥·ÅBGM<br />
-  fight.stopbgm = 1	;ÊÇ·ñ½ûÖ¹titleµÄBGM(½öµ±playbgm = 0)<br />
-  fight.bars.display = 0 ;ÊÇ·ñÏÔÊ¾ÑªÌõ<br />
-  intro.waitcycles = 1 ;¹ı³¡¶¯»­ÔÙ´Î²¥·ÅÇ°ÊÇ·ñµÈ´ı<br />
-  debuginfo = 0 ;debugÄ£Ê½ÖĞÊÇ·ñÒş²ØdebugĞÅÏ¢</p>
-<p>;-------------------------------------------------------------------<br />
-  ;Ğø¹Ø»­Ãæ¶¨Òå<br />
-  <span class="STYLE2">[Continue Screen]</span><br />
-  enabled = 1 ;ÊÇ·ñ½ûÓÃ</p>
-<p>;-------------------------------------------------------------------<br />
-  ;Game over»­Ãæ¶¨Òå<br />
-  <span class="STYLE2">[Game Over Screen]</span><br />
-  enabled = 0 ;ÊÇ·ñ½ûÓÃ<br />
-  storyboard = ;ÈçÓĞÇé½Ú,ÉèÖÃSFFÃû³Æ</p>
-<p>;-------------------------------------------------------------------<br />
-  ;Ê¤ÀûÕß»­Ãæ¶¨Òå<br />
-  ;arcadeÄ£Ê½»ñÊ¤Ò»³¡ºóÏÔÊ¾<br />
-  ;²»ÊÇÏÔÊ¾ÔÚarcadeÄ£Ê½×îºóÒ»³¡»ñÊ¤ºó<br />
-  <span class="STYLE2">[Victory Screen]</span><br />
-  enabled = 1<br />
-  time = 300 ;³ÖĞøÊ±¼ä<br />
-  fadein.time = 8<br />
-  fadeout.time = 15<br />
-  ;Ê¤ÀûÕßµÄÍ·ÏñºÍÃû×Ö<br />
-  p1.offset = 100,20<br />
-  p1.spr = 9000,2<br />
-  p1.facing = 1<br />
-  p1.scale = 1,1<br />
-  p1.window = 0,0, 319,160<br />
-  p1.name.offset = 20,180<br />
-  p1.name.font = 3,0,1<br />
-  ;Ê¤ÀûºóµÄÎÄ×Ö<br />
-  winquote.text = &quot;Winner!&quot; ;Ä¬ÈÏ¾ÍÊÇÕâ¸ö<br />
-  winquote.offset = 20,192<br />
-  winquote.font = 2,0,1<br />
-  winquote.window = 18,171, 301,228<br />
-  winquote.textwrap = w ;×Ô¶¯»»ĞĞ</p>
-<p>;-----------------------<br />
-  ;Victory screen background<br />
-  [VictoryBGdef] </p>
-<p>[VictoryBG 1] <br />
-  type = normal<br />
-  spriteno = 100,0<br />
-  start = 0,0<br />
-  tile = 1,1<br />
-  velocity = 0,1.5</p>
-<p>[VictoryBG 2]<br />
-  type = normal<br />
-  spriteno = 100,1<br />
-  start = 20,13<br />
-  tile = 1,1<br />
-  trans = sub<br />
-  window = 0,19, 319,160<br />
-  velocity = -2, 0</p>
-<p>[VictoryBG 3]<br />
-  type = normal<br />
-  spriteno = 100,1<br />
-  start = 10,170<br />
-  tile = 1,1<br />
-  trans = sub<br />
-  window = 15,170, 304,229<br />
-  velocity = 0, 0</p>
-<p>;-------------------------------------------------------------------<br />
-  ;Ê¤Àû»­Ãæ¶¨Òå<br />
-  ;arcÄ£Ê½»ñÊ¤ºóÏÔÊ¾<br />
-  ;Èç¹ûÄãÓĞ¾çÇéending¾Í²»»áÏÔÊ¾<br />
-  <span class="STYLE2">[Win Screen]</span><br />
-  enabled = 1 ;ÊÇ·ñ½ûÓÃ<br />
-  wintext.text = &quot;Congratulations!&quot;<br />
-  wintext.font = 2,0,0<br />
-  wintext.offset = 159,70<br />
-  wintext.displaytime = -1<br />
-  wintext.layerno = 2<br />
-  fadein.time = 32<br />
-  pose.time = 300<br />
-  fadeout.time = 64</p>
-<p>;-------------------------------------------------------------------<br />
-  ;Game ending»­Ãæ¶¨Òå<br />
-  ;Win ScreenºóÏÔÊ¾<br />
-  ;Èç¹ûÄãÓĞ¾çÇéending¾Í²»»áÏÔÊ¾<br />
-  <span class="STYLE2">[Default Ending]</span><br />
-  enabled = 0 ;ÊÇ·ñÏÔÊ¾<br />
-  storyboard = ;Ä¬ÈÏµÄ¾çÇéendingÃû×Ö</p>
-<p>;-------------------------------------------------------------------<br />
-  ;Æ¬Î²×ÖÄ»¶¨Òå<br />
-  ;Win ScreenºÍEndingÖ®ºóÏÔÊ¾<br />
-  <span class="STYLE2">[End Credits]</span><br />
-  enabled = 0 ;ÊÇ·ñ½ûÓÃ<br />
-  storyboard = ;ÎÄ¼şÃû</p>
-<p>;-------------------------------------------------------------------<br />
-  ;SurvivalÄ£Ê½½á¹û»­Ãæ<br />
-  ;Éú´æÄ£Ê½Ê¤ÀûºóÏÔÊ¾<br />
-  ;ÓĞ¾çÇéendingµÄÈËÎï²»»áÏÔÊ¾<br />
-  <span class="STYLE2">[Survival Results Screen]</span><br />
-  enabled = 1<br />
-  winstext.text = &quot;Rounds survived: %i&quot; ;%i Ê¤Àû¾ÖÊı<br />
-  winstext.font = 3,0,0<br />
-  winstext.offset = 159,70<br />
-  winstext.displaytime = -1<br />
-  winstext.layerno = 2<br />
-  fadein.time = 32<br />
-  show.time = 300<br />
-  fadeout.time = 64<br />
-  roundstowin = 5 </p>
-<p>;-------------------------------------------------------------------<br />
-  ;Options»­Ãæ¶¨Òå<br />
-  <span class="STYLE2">[Option Info]</span><br />
-  cursor.move.snd = 100,0<br />
-  cursor.done.snd = 100,1<br />
-  cancel.snd = 100,2</p>
-<p>;-------------------<br />
-  ;Options screen background<br />
-  [OptionBGdef] </p>
-<p>[OptionBG 1]<br />
-  type = normal<br />
-  spriteno = 100,0<br />
-  start = 0,0<br />
-  tile = 1,1<br />
-  velocity = -1, -1</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-<p></p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   System(ç”»é¢åŒ…ç­‰)ç›¸å…³å‚æ•°è®¾ç½®
+  </p>
+  <p>
+   ; å®šä¹‰ç³»ç»Ÿç”»é¢
+  </p>
+  <p>
+   ; å…·ä½“çš„æ ¼å¼ç±»ä¼¼èƒŒæ™¯å®šä¹‰.
+  </p>
+  <p>
+   ; å…³äºå­—ä½“çš„æ³¨æ„äº‹é¡¹:
+   <br/>
+   ; - [Files]ç« èŠ‚æœ€å¤šèƒ½æŒ‡å®š10ä¸ªå­—ä½“
+   <br/>
+   ; - è¿™é‡Œçš„å­—ä½“ç´¢å¼•ä¸æ˜¯æŒ‡çš„fight.defä¸­çš„
+   <br/>
+   ; - æŒ‰ä¸‹é¢çš„é¡ºåºæœç´¢å­—ä½“:
+   <br/>
+   ; 1. ç³»ç»Ÿç›®å½•
+   <br/>
+   ; 2. mugenç¨‹åºç›®å½•(ä¸å»ºè®®æŠŠå­—ä½“æ”¾åœ¨è¿™é‡Œ)
+   <br/>
+   ; 3. data/ (ä¸å»ºè®®æŠŠå­—ä½“æ”¾åœ¨è¿™é‡Œ)
+   <br/>
+   ; 4. font/
+  </p>
+  <p>
+   ;----------------------------
+   <br/>
+   <span class="STYLE2">
+    [Info]
+   </span>
+   <br/>
+   name = "Default" ;ä¸»é¢˜çš„åç§°
+   <br/>
+   author = "Elecbyte" ;ä¸»é¢˜ä½œè€…å
+   <br/>
+   versiondate = 09,01,2009 ;ä¸»é¢˜ç‰ˆæœ¬æ—¥æœŸ (MM-DD-YYYY) (MUGEN 2009 æ–°å¢)
+   <br/>
+   mugenversion = 1.0 ;é€‚ç”¨çš„mugenç‰ˆæœ¬å· (MUGEN 2009 æ–°å¢)
+   <br/>
+   localcoord = 320,240 ;å±€éƒ¨åæ ‡ç©ºé—´çš„å®½é«˜ (MUGEN 2009 æ–°å¢)
+  </p>
+  <p>
+   ;----------------------------
+   <br/>
+   ;è·¯å¾„æ£€æµ‹é¡ºåº:
+   <br/>
+   ;1. system.defæ‰€åœ¨çš„å½“å‰è·¯å¾„
+   <br/>
+   ;2. data/
+   <br/>
+   ;3. ä½ MUGENè·¯å¾„
+  </p>
+  <p>
+   <span class="STYLE2">
+    [Files]
+   </span>
+   <br/>
+   spr = system.sff ;å›¾ç‰‡æ•°æ®åç§°
+   <br/>
+   snd = system.snd ;å£°éŸ³æ•°æ®åç§°
+   <br/>
+   logo.storyboard = ;æ ‡å¿—å‰§æƒ…ä»‹ç» (å¯é€‰)
+   <br/>
+   intro.storyboard = ;å¼€åœºå‰§æƒ…å®šä¹‰ (å¯é€‰)
+   <br/>
+   select = select.def ;äººç‰©,èˆå°é€‰æ‹©åˆ—è¡¨
+   <br/>
+   fight = fight.def ;fight(è¡€æ¡,èƒ½é‡æ¡ç­‰)å®šä¹‰
+   <br/>
+   font1 = f-4x6.def ;ç³»ç»Ÿå­—ä½“
+   <br/>
+   font2 = f-6x9.def ;ç³»ç»Ÿå­—ä½“
+   <br/>
+   font3 = jg.fnt ;ç³»ç»Ÿå­—ä½“
+  </p>
+  <p>
+   ;----------------------------
+   <br/>
+   <span class="STYLE2">
+    [Music]
+   </span>
+   <br/>
+   ;æŠŠMOD,MP3,MIDIæ–‡ä»¶çš„æ–‡ä»¶åæ”¾ç½®åœ¨è¿™é‡Œ,æˆ–è€…å¦‚æœä½ æ²¡æœ‰å£°éŸ³å°±ç©ºç€
+   <br/>
+   ;å¦‚æœç»™å‡ºä¸€ä¸ªä¸å­˜åœ¨çš„æ–‡ä»¶å,åˆ™ä¸ä¼šæ’­æ”¾å£°éŸ³
+   <br/>
+   ;è¦ä»sound/è·¯å¾„æ’­æ”¾mymusic.mp3,å†™ä¸Š:
+   <br/>
+   ; title.bgm = sound/mymusic.mp3
+   <br/>
+   ;å¦‚æœæ–‡ä»¶åç›¸åŒåˆ™å£°éŸ³å°†æŒç»­åœ¨å±å¹•ä¸­æ’­æ”¾,ä¸”åŒæ—¶èƒŒæ™¯éŸ³ä¹è¢«è®¾ç½®ä¸ºå¾ªç¯æ’­æ”¾
+  </p>
+  <p>
+   ;åœ¨æ ‡é¢˜ç”»é¢ä¸­æ’­æ”¾çš„éŸ³ä¹.
+   <br/>
+   ;
+   <span class="STYLE3">
+    loop
+   </span>
+   -å¾ªç¯,
+   <span class="STYLE3">
+    loopstart
+   </span>
+   -å¾ªç¯å¼€å§‹çš„æ—¶é—´,
+   <span class="STYLE3">
+    loopend
+   </span>
+   -å¾ªç¯ç»“æŸçš„æ—¶é—´
+   <br/>
+   title.bgm =
+   <br/>
+   title.bgm.volume = 100 ;è°ƒèŠ‚éŸ³é‡,é»˜è®¤100
+   <br/>
+   title.bgm.loop = 1 ;å£°éŸ³æ˜¯å¦å¾ªç¯
+   <br/>
+   title.bgm.loopstart =
+   <br/>
+   title.bgm.loopend =
+   <br/>
+   ;äººç‰©é€‰æ‹©ç”»é¢éŸ³ä¹
+   <br/>
+   select.bgm =
+   <br/>
+   select.bgm.volume =
+   <br/>
+   select.bgm.loop = 1
+   <br/>
+   select.bgm.loopstart =
+   <br/>
+   select.bgm.loopend =
+   <br/>
+   ;VSç”»é¢éŸ³ä¹
+   <br/>
+   vs.bgm =
+   <br/>
+   vs.bgm.volume =
+   <br/>
+   vs.bgm.loop = 0
+   <br/>
+   vs.bgm.loopstart =
+   <br/>
+   vs.bgm.loopend =
+   <br/>
+   ;èƒœåˆ©ç”»é¢éŸ³ä¹
+   <br/>
+   victory.bgm =
+   <br/>
+   victory.bgm.volume =
+   <br/>
+   victory.bgm.loop = 0
+   <br/>
+   victory.bgm.loopstart =
+   <br/>
+   victory.bgm.loopend =
+  </p>
+  <p>
+   ;-------------------------------------------------------------------
+   <br/>
+   ;æ ‡é¢˜ç”»é¢å®šä¹‰(æ¨¡å¼é€‰é¡¹ç”»é¢)
+   <br/>
+   <span class="STYLE2">
+    [Title Info]
+   </span>
+   <br/>
+   fadein.time = 10 ;ç”»é¢æ·¡å…¥æ—¶é—´,è®¾ç½®ä¸€ä¸ªé€æ˜æ¸å˜è¿‡æ¸¡,åˆšè¿›å…¥æ ‡é¢˜ç”»é¢æ—¶ç”»é¢ä»å…¨é»‘æ¸æ¸å˜ä¸ºæ ‡é¢˜ç”»é¢.(è²Œä¼¼å¯¹å­—ä½“æ— æ•ˆ)
+   <br/>
+   fadeout.time = 10 ; ç”»é¢æ·¡å‡ºæ—¶é—´,é€‰æ‹©å®Œæ¨¡å¼åæ ‡é¢˜ç”»é¢å˜ä¸ºå…¨é»‘.
+   <br/>
+   menu.pos = 159,158 ;é€‰é¡¹èœå•çš„ä½ç½®(å±å¹•å·¦ä¸Šè§’ä¸º0,0)
+   <br/>
+   menu.item.font = 3,0,0 ;é€‰é¡¹èœå•å­—ä½“(ç¬¬1ç»„æ•°å­—æ˜¯è¦è°ƒç”¨çš„å­—ä½“ç¼–å·,ç¬¬3ç»„æ•°å­—ä¸ºå¯¹é½æ–¹å¼,0-å±…ä¸­å¯¹é½,1-å·¦å¯¹é½,-1-å³å¯¹é½)
+   <br/>
+   menu.item.active.font = 3,5,0, 150,240,240 ;å½“å…‰æ ‡æ”¾åœ¨è¿™ä¸ªé€‰é¡¹ä¸Šæ—¶çš„å­—ä½“,å3ç»„ä¸ºæŒ‡å®šå­—ä½“é®ç½©é¢œè‰²RGBæ•°å€¼.
+   <br/>
+   menu.item.spacing = 0, 13 ;æ¯ä¸ªé€‰é¡¹çºµå‘é—´è·
+   <br/>
+   ;èœå•ä¸­æ¯ä¸ªé€‰é¡¹çš„åç§°.åå­—å¿…é¡»åœ¨å¼•å·ä¸­.è¦ç¦ç”¨æŸä¸ªé€‰é¡¹,ä½¿ç”¨"".å¦‚æœæ‰€æœ‰é€‰é¡¹éƒ½ç¦æ­¢,ç›´æ¥è¿›å…¥demo(è§‚çœ‹)æ¨¡å¼.(æŒ‰Escå¯ä»¥é€€å‡ºdemoæ¨¡å¼)
+   <br/>
+   menu.itemname.arcade = "ARCADE"
+   <br/>
+   menu.itemname.versus = "VS MODE"
+   <br/>
+   menu.itemname.teamarcade = "TEAM ARCADE"
+   <br/>
+   menu.itemname.teamversus = "TEAM VS"
+   <br/>
+   menu.itemname.teamcoop = "TEAM CO-OP"
+   <br/>
+   menu.itemname.survival = "SURVIVAL"
+   <br/>
+   menu.itemname.survivalcoop = "SURVIVAL CO-OP"
+   <br/>
+   menu.itemname.training = "TRAINING"
+   <br/>
+   menu.itemname.watch = "WATCH"
+   <br/>
+   menu.itemname.options = "OPTIONS"
+   <br/>
+   menu.itemname.exit = "EXIT"
+   <br/>
+   ;å®šä¹‰é€‰é¡¹èœå•å¯è§æ€§
+   <br/>
+   menu.window.margins.y = 12, 8 ;å®šä¹‰é€‰é¡¹èœå•ä¸Šæ–¹çš„å¯è§èŒƒå›´
+   <br/>
+   menu.window.visibleitems = 5 ;æ€»å…±æœ‰å¤šå°‘é¡¹è®¾ç½®ä¸ºå¯è§
+   <br/>
+   menu.boxcursor.visible = 1 ;è®¾ç½®é€‰é¡¹å…‰æ ‡æ˜¯å¦å¯è§ï¼Œ1ä¸ºæ˜¾ç¤ºï¼Œ0åä¹‹.
+   <br/>
+   menu.boxcursor.coords = -120,-27,120,2;è®¾ç½®é€‰é¡¹å…‰æ ‡ä½ç½®å¤§å°. æ˜¯ç”±4ä¸ªç‚¹ç»„æˆçš„çŸ©å½¢.
+   <br/>
+   ; é€‰é¡¹ä¸­çš„å£°éŸ³
+   <br/>
+   cursor.move.snd = 100,0 ;ç§»åŠ¨å…‰æ ‡çš„å£°éŸ³
+   <br/>
+   cursor.done.snd = 100,1 ;ç¡®è®¤é€‰é¡¹çš„å£°éŸ³(å…‰æ ‡é€‰ä¸­çš„å£°éŸ³)
+   <br/>
+   cancel.snd = 100,2 ;é€€å‡ºçš„å£°éŸ³(è¿”å›ä¸»ç•Œé¢æ—¶çš„å£°éŸ³)
+  </p>
+  <p>
+   <img height="208" src="../pic/title.png" width="468"/>
+  </p>
+  <p>
+   ;ä¼ ç»Ÿå­—ä½“çš„æ¦‚å¿µå³ä¸ºå®šä¹‰å­—ç¬¦,å…¶å®mugençš„å­—ä½“ä¸¥æ ¼ä¸Šæ¥è¯´ä¸å«å­—ä½“,æ›´ç¡®åˆ‡çš„è¯´æ³•å…¶å®æ˜¯å›¾åƒ,å­—ä½“ä¸­å…¶å®æ˜¯é€šè¿‡å®šä¹‰å›¾åƒä¸Šçš„æŸä¸€éƒ¨åˆ†åŒºåŸŸæ¥è¡¨ç¤ºä¸€ä¸ªå­—æ¯çš„.
+   <br/>
+   ;æ‰€ä»¥å¯ä»¥åˆ©ç”¨å­—ä½“å›¾åƒçš„ç‰¹å¾ç»“åˆèœå•é€‰é¡¹åšå‡ºéä¼ ç»Ÿmugençš„é€‰å•æ•ˆæœ.
+   <br/>
+   ;ä¾‹å¦‚:è®¾ç½®
+   <br/>
+   ;menu.itemname.arcade = "A"
+   <br/>
+   ;menu.itemname.versus = "B"
+   <br/>
+   ;ç„¶åå¯ä»¥å°†å­—ä½“ç»˜åˆ¶æˆå›¾åƒæ¨¡å¼,å°†å­—ä½“Aå’ŒBçš„åŒºåŸŸå®šä¹‰æˆä¸åŒå›¾åƒæ¥å®ç°ç‰¹æ®Šæ•ˆæœ.
+  </p>
+  <p>
+   <img height="480" src="../pic/title_ex1.jpg" width="640"/>
+  </p>
+  <p>
+   <img height="480" src="../pic/title_ex2.jpg" width="640"/>
+  </p>
+  <p>
+   ;æ­¤ç§æ–¹å¼åº”ç”¨å¾ˆå¹¿æ³›,åœ¨èƒŒæ™¯é¢„è§ˆ,è¡€æ¡,èƒ½é‡æ¡ä¸Šéƒ½æœ‰ç”¨åˆ°.
+  </p>
+  <p>
+   ;----------------------------
+   <br/>
+   ;æ ‡é¢˜èƒŒæ™¯å®šä¹‰
+   <br/>
+   ;é™¤ä¸Šè¿°è®¾ç½®å¤–çš„å…¶ä»–å…ƒç´ éƒ½è¦å®šä¹‰åœ¨è¿™é‡Œ(å…·ä½“è¯´æ˜è¯¦è§èƒŒæ™¯æ•™ç¨‹)
+   <br/>
+   [TitleBGdef]
+   <br/>
+   bgclearcolor = 0,0,0
+  </p>
+  <p>
+   [TitleBG 0]
+   <br/>
+   type = parallax
+   <br/>
+   spriteno = 5, 1
+   <br/>
+   start = 0, 145
+   <br/>
+   width = 400, 1200
+   <br/>
+   yscalestart = 100
+   <br/>
+   yscaledelta = 1
+   <br/>
+   tile = 1,1
+   <br/>
+   velocity = -1
+  </p>
+  <p>
+   [TitleBG 1]
+   <br/>
+   type = normal
+   <br/>
+   spriteno = 5, 2
+   <br/>
+   start = -160, 145
+   <br/>
+   trans = sub
+  </p>
+  <p>
+   [TitleBG 2]
+   <br/>
+   type = normal
+   <br/>
+   spriteno = 5,0
+   <br/>
+   start = 0, 10
+   <br/>
+   tile = 1,2
+   <br/>
+   velocity = -1
+   <br/>
+   mask = 0
+  </p>
+  <p>
+   [TitleBG 3]
+   <br/>
+   type = normal
+   <br/>
+   spriteno = 0,0
+   <br/>
+   start = 0, 40
+   <br/>
+   mask = 1
+   <br/>
+   trans = add
+  </p>
+  <p>
+   ;-------------------------------------------------------------------
+   <br/>
+   ;é€‰äººç”»é¢å®šä¹‰
+   <br/>
+   <span class="STYLE2">
+    [Select Info]
+   </span>
+   <br/>
+   fadein.time = 10 ;æ·¡å…¥æ—¶é—´
+   <br/>
+   fadeout.time = 10 ;æ·¡å‡ºæ—¶é—´
+   <br/>
+   ; *** æ³¨æ„ ***
+   <br/>
+   ; ä½ æƒ³å¢åŠ æ›´å¤šçš„è¡Œå’Œåˆ—å—
+   <br/>
+   ; åœ¨ MUGEN 1.0, é»˜è®¤ç”»é¢åŒ…å®šä¹‰æ˜¯åœ¨ data/mugen1/system.def.
+   <br/>
+   ; ä½ åŒæ—¶å¯ä»¥ç¼–è¾‘ mugen.cfg æ¥é€‰æ‹©"big"ä¸»é¢˜.
+  </p>
+  <p>
+   ;æ³¨:å¤§å¤šæ•°æ—¶å€™å¯ä»¥å¯¹å›¾åƒç´ æ(å›¾ç‰‡æˆ–è€…åŠ¨ç”»)è¿›è¡Œç¼©æ”¾,ä¾‹å¦‚:p1.cursor.done.spr =,åˆ™ç¼©æ”¾çš„è¯­å¥ä¸ºp1.cursor.done.scale =
+   <br/>
+   ;é™¤éæœ‰è¯´æ˜,å¦åˆ™ä½¿ç”¨å›¾ç‰‡çš„åœ°æ–¹ä¹Ÿå¯ä»¥ä½¿ç”¨åŠ¨ç”»,å³p1.cursor.active.spr =ä¹Ÿå¯ä»¥ä½¿ç”¨p1.cursor.active.anim =
+   <br/>
+   ;å¤§å¤šæ•°æ—¶å€™,å¯ä»¥ä»æœ€åä¸€ç»„å­—ç¬¦ä¸²ä¸­çŒœåˆ°å…·ä½“å«ä¹‰.
+   <br/>
+   ;
+   <span class="STYLE3">
+    spr
+   </span>
+   -å›¾åƒ,
+   <span class="STYLE3">
+    anim
+   </span>
+   -åŠ¨ç”»,
+   <span class="STYLE3">
+    offset
+   </span>
+   -ä½ç½®åç§»é‡,
+   <span class="STYLE3">
+    snd
+   </span>
+   -å£°éŸ³,
+   <span class="STYLE3">
+    font
+   </span>
+   -å­—ä½“,
+   <span class="STYLE3">
+    scale
+   </span>
+   -ç¼©æ”¾,
+   <span class="STYLE3">
+    facing
+   </span>
+   -æœå‘,
+   <span class="STYLE3">
+    text
+   </span>
+   -æ–‡å­—,
+   <span class="STYLE3">
+    spacing
+   </span>
+   -é—´è·,
+   <span class="STYLE3">
+    layerno
+   </span>
+   -å±‚å·,
+   <span class="STYLE3">
+    time
+   </span>
+   -æ—¶é—´
+   <br/>
+   ;æ€»ä¹‹å°±è¿™ä¹ˆå¤šèŠ±æ ·,è¦æ³¨æ„çš„åœ°æ–¹ä¼šå¦å¤–æ³¨æ˜.
+  </p>
+  <p>
+   rows = 2 ;è®¾ç½®è¡Œæ•°å’Œåˆ—æ•°,éƒ½ä»0å¼€å§‹
+   <br/>
+   columns = 5
+   <br/>
+   wrapping = 0 ;è®¾ç½®1,ä½¿å¾—å…‰æ ‡ç§»åˆ°æœ€å³è¾¹æ—¶,å†æŒ‰ä¸€æ¬¡å³å°±èƒ½å›åˆ°æœ€å·¦è¾¹
+   <br/>
+   pos = 90,170 ;ç¬¬ä¸€ä¸ªé€‰äººæ ¼å­çš„èµ·å§‹ä½ç½®
+   <br/>
+   showemptyboxes = 0 ;æ˜¯å¦æ˜¾ç¤ºç©ºçš„æ ¼å­
+   <br/>
+   moveoveremptyboxes = 0 ;æ˜¯å¦å¯ä»¥ç§»åŠ¨åˆ°ç©ºçš„æ ¼å­ä¸Š
+   <br/>
+   cell.size = 27,27 ;æ¯ä¸ªé€‰äººæ¡†çš„x,yå¤§å°(åƒç´ ).
+   <br/>
+   cell.spacing = 2 ;é€‰äººæ¡†é—´è·
+   <br/>
+   cell.bg.spr = 150,0 ;é€‰äººæ¡†çš„å›¾ç‰‡.(ä¸è¦ä½¿ç”¨åŠ¨ç”»)
+   <br/>
+   cell.random.spr = 151,0 ;éšæœºå›¾æ ‡(ä¸è¦ä½¿ç”¨åŠ¨ç”»)
+   <br/>
+   cell.random.switchtime = 4;éšæœºé€‰æ‹©æ—¶å˜åŒ–çš„é¢‘ç‡(æ—¶é—´å¸§æ•°)
+   <br/>
+   p1.cursor.startcell = 0,0 ;p1èµ·å§‹é€‰äººå…‰æ ‡åœç•™åœ¨é€‰äººæ¡†ä»€ä¹ˆä½ç½®
+   <br/>
+   p1.cursor.active.spr = 160,0 ;p1é€‰äººå…‰æ ‡çš„å›¾ç‰‡(å¯ä½¿ç”¨åŠ¨ç”»å³p1.cursor.active.anim = )
+   <br/>
+   p1.cursor.done.spr = 161,0 ;p1å…‰æ ‡é€‰å®šæ—¶çš„å›¾ç‰‡
+   <br/>
+   p1.cursor.move.snd = 100,0 ;p1å…‰æ ‡ç§»åŠ¨æ—¶çš„å£°éŸ³
+   <br/>
+   p1.cursor.done.snd = 100,1 ;p1å…‰æ ‡é€‰å®šæ—¶çš„å£°éŸ³
+   <br/>
+   p1.random.move.snd = 100,0 ;p1éšæœºé€‰æ‹©çš„å£°éŸ³
+   <br/>
+   p2.cursor.startcell = 0,4 ;åŒp1
+   <br/>
+   p2.cursor.active.spr = 170,0
+   <br/>
+   p2.cursor.done.spr = 171,0
+   <br/>
+   p2.cursor.blink = 1 ;è‹¥p1å…‰æ ‡å’Œp2é‡å æ˜¯å¦é—ªçƒ
+   <br/>
+   p2.cursor.move.snd = 100,0
+   <br/>
+   p2.cursor.done.snd = 100,1
+   <br/>
+   p2.random.move.snd = 100,0
+   <br/>
+   random.move.snd.cancel = 0;è®¾ç½®1,éšæœºå£°éŸ³åå¤æ’­æ”¾æ—¶å–æ¶ˆ
+   <br/>
+   stage.move.snd = 100,0 ;é€‰èˆå°æ—¶,ç§»åŠ¨çš„å£°éŸ³
+   <br/>
+   stage.done.snd = 100,1 ;é€‰èˆå°æ—¶,é€‰å®šæ—¶çš„å£°éŸ³
+   <br/>
+   cancel.snd = 100,2 ;å–æ¶ˆçš„å£°éŸ³
+   <br/>
+   portrait.spr = 9000,0 ;é€‰äººæ ¼ä¸­å°å¤´åƒçš„å›¾ç‰‡(9000,0ä¸è¦æ”¹)
+   <br/>
+   portrait.offset = 0,0 ;é€‰äººæ ¼ä¸­å°å¤´åƒçš„ä½ç½®(ç›¸å¯¹äºé€‰äººæ ¼å­)
+   <br/>
+   portrait.scale = 1,1 ;ç¼©æ”¾
+   <br/>
+   title.offset = 159,13 ;æŒ‡å®šæ­¤æ¨¡å¼çš„æ ‡é¢˜ä½ç½®
+   <br/>
+   title.font = 3,0,0 ;æ ‡é¢˜å­—ä½“
+   <br/>
+   ;
+   <img height="137" src="../pic/charselect%20title.png" width="195"/>
+   <br/>
+   ;å¤§å¤´åƒ
+   <br/>
+   p1.face.spr = 9000,1 ;9000,1ä¸è¦æ”¹
+   <br/>
+   p1.face.offset = 18,13 ;ä½ç½®
+   <br/>
+   p1.face.scale = 1,1
+   <br/>
+   p1.face.facing = 1 ;æœå‘
+   <br/>
+   p2.face.spr = 9000,1
+   <br/>
+   p2.face.offset = 301,13
+   <br/>
+   p2.face.scale = 1,1
+   <br/>
+   p2.face.facing = -1
+   <br/>
+   ;åå­—
+   <br/>
+   p1.name.offset = 10,162 ;åå­—çš„ä½ç½®
+   <br/>
+   p1.name.font = 3,4,1 ;-1ä¸æ˜¾ç¤º
+   <br/>
+   p1.name.spacing = 0,-27 ;åå­—é—´è·,æ—§ç‰ˆæœ¬è²Œä¼¼ä¸èƒ½è®¾ç½®
+   <br/>
+   p2.name.offset = 309,162
+   <br/>
+   p2.name.font = 3,1,-1
+   <br/>
+   p2.name.spacing = 0,-27
+   <br/>
+   ;èˆå°é€‰æ‹©
+   <br/>
+   stage.pos = 160,237
+   <br/>
+   stage.active.font = 3,0,0
+   <br/>
+   stage.active2.font = 3,2
+   <br/>
+   stage.done.font = 3,0
+   <br/>
+   ;é˜Ÿä¼èœå•(æ­¤éƒ¨åˆ†ç”¨å›¾ç¤º)
+   <br/>
+   teammenu.move.wrapping = 1
+   <br/>
+   p1.teammenu.pos = 20, 30
+   <br/>
+   ;p1.teammenu.bg.spr = ;teamèœå•èƒŒæ™¯æ¡†
+   <br/>
+   p1.teammenu.selftitle.font = 3,0, 1
+   <br/>
+   p1.teammenu.selftitle.text = Select team mode
+   <br/>
+   p1.teammenu.enemytitle.font = 3,0, 1
+   <br/>
+   p1.teammenu.enemytitle.text = Opponent team mode
+   <br/>
+   p1.teammenu.move.snd = 100,0
+   <br/>
+   p1.teammenu.value.snd = 100,0
+   <br/>
+   p1.teammenu.done.snd = 100,1
+   <br/>
+   p1.teammenu.item.offset = 0,20
+   <br/>
+   p1.teammenu.item.spacing = 0,15
+   <br/>
+   p1.teammenu.item.font = 3,0, 1
+   <br/>
+   p1.teammenu.item.active.font = 3,3, 1
+   <br/>
+   p1.teammenu.item.active2.font = 3,0, 1 ;é—ªçƒæ—¶ç¬¬2ç§å­—ä½“
+   <br/>
+   p1.teammenu.item.cursor.offset = -10, 0 ;å…‰æ ‡
+   <br/>
+   p1.teammenu.item.cursor.anim = 180
+   <br/>
+   p1.teammenu.value.icon.offset = 60,1
+   <br/>
+   p1.teammenu.value.icon.spr = 181,0
+   <br/>
+   p1.teammenu.value.empty.icon.offset = 60,1
+   <br/>
+   p1.teammenu.value.empty.icon.spr = 182,0
+   <br/>
+   p1.teammenu.value.spacing = 6,0
+   <br/>
+   ;p2 team
+   <br/>
+   p2.teammenu.pos = 299, 30
+   <br/>
+   ;p2.teammenu.bg.spr =
+   <br/>
+   p2.teammenu.selftitle.font = 3,0, -1
+   <br/>
+   p2.teammenu.selftitle.text = Select team mode
+   <br/>
+   p2.teammenu.enemytitle.font = 3,0, -1
+   <br/>
+   p2.teammenu.enemytitle.text = Opponent team mode
+   <br/>
+   p2.teammenu.move.snd = 100,0
+   <br/>
+   p2.teammenu.value.snd = 100,0
+   <br/>
+   p2.teammenu.done.snd = 100,1
+   <br/>
+   p2.teammenu.item.offset = 0,20
+   <br/>
+   p2.teammenu.item.spacing = 0,15
+   <br/>
+   p2.teammenu.item.font = 3,0, -1
+   <br/>
+   p2.teammenu.item.active.font = 3,1, -1
+   <br/>
+   p2.teammenu.item.active2.font = 3,0, -1
+   <br/>
+   p2.teammenu.item.cursor.offset = 10, 0
+   <br/>
+   p2.teammenu.item.cursor.anim = 190
+   <br/>
+   p2.teammenu.value.icon.offset = -60,1
+   <br/>
+   p2.teammenu.value.icon.spr = 191,0
+   <br/>
+   p2.teammenu.value.empty.icon.offset = -60,1
+   <br/>
+   p2.teammenu.value.empty.icon.spr = 192,0
+   <br/>
+   p2.teammenu.value.spacing = -6,0
+   <br/>
+   ;
+   <img height="480" src="../pic/charselect%20exp.jpg" width="640"/>
+  </p>
+  <p>
+   [Begin Action 180] ;P1 Team mode cursor
+   <br/>
+   180,0, 0,0, 1
+   <br/>
+   180,0, 1,0, 1
+   <br/>
+   180,0, 2,0, 1
+   <br/>
+   180,0, 3,0, 1
+   <br/>
+   180,0, 4,0, 1
+   <br/>
+   180,0, 5,0, 1
+   <br/>
+   180,0, 6,0, 1
+   <br/>
+   180,0, 7,0, 1
+  </p>
+  <p>
+   [Begin Action 190] ;P2 Team mode cursor
+   <br/>
+   190,0, 0,0, 1
+   <br/>
+   190,0,-1,0, 1
+   <br/>
+   190,0,-2,0, 1
+   <br/>
+   190,0,-3,0, 1
+   <br/>
+   190,0,-4,0, 1
+   <br/>
+   190,0,-5,0, 1
+   <br/>
+   190,0,-6,0, 1
+   <br/>
+   190,0,-7,0, 1
+  </p>
+  <p>
+   ;-----------------------
+   <br/>
+   ;å®šä¹‰é€‰äººç”»é¢èƒŒæ™¯å…ƒç´ 
+   <br/>
+   [SelectBGdef]
+   <br/>
+   ;spr = graphics/selectbg.sff ;Filename of sprite data
+  </p>
+  <p>
+   [SelectBG 0] ;Scrolling background
+   <br/>
+   type = normal
+   <br/>
+   spriteno = 100,0
+   <br/>
+   layerno = 0
+   <br/>
+   start = 0,0
+   <br/>
+   tile = 1,1
+   <br/>
+   velocity = -1, -1
+  </p>
+  <p>
+   [SelectBG 1] ;Dark box
+   <br/>
+   type = normal
+   <br/>
+   spriteno = 100,1
+   <br/>
+   layerno = 0
+   <br/>
+   start = 0, 166
+   <br/>
+   delta = 0,0
+   <br/>
+   tile = 1,0
+   <br/>
+   trans = sub
+   <br/>
+   window = 85,0, 235,239
+   <br/>
+   velocity = -1, 0
+  </p>
+  <p>
+   [SelectBG 2.A] ;Title background
+   <br/>
+   type = normal
+   <br/>
+   spriteno = 102,0
+   <br/>
+   layerno = 0
+   <br/>
+   start = 0, 2
+   <br/>
+   delta = 0,0
+   <br/>
+   tile = 1,0
+   <br/>
+   trans = sub
+   <br/>
+   velocity = -1, 0
+  </p>
+  <p>
+   [SelectBG 2.B] ;Title background B
+   <br/>
+   type = normal
+   <br/>
+   spriteno = 102,1
+   <br/>
+   layerno = 0
+   <br/>
+   start = 0, 2
+   <br/>
+   delta = 0,0
+   <br/>
+   tile = 1,0
+   <br/>
+   trans = add
+   <br/>
+   velocity = -3, 0
+  </p>
+  <p>
+   [SelectBG 2.C] ;Title background C
+   <br/>
+   type = normal
+   <br/>
+   spriteno = 102,2
+   <br/>
+   layerno = 0
+   <br/>
+   start = 0, 2
+   <br/>
+   delta = 0,0
+   <br/>
+   tile = 1,0
+   <br/>
+   trans = add
+   <br/>
+   velocity = -6, 0
+  </p>
+  <p>
+   ;-------------------------------------------------------------------
+   <br/>
+   <span class="STYLE2">
+    [VS Screen]
+   </span>
+   <br/>
+   time = 150 ;æ˜¾ç¤ºçš„æ—¶é—´
+   <br/>
+   fadein.time = 15
+   <br/>
+   fadeout.time = 15
+   <br/>
+   ;arcadeæ¨¡å¼ä¸­çš„æ–‡å­—
+   <br/>
+   match.text = "Match %i" ;%iè¡¨ç¤ºå±€æ•°
+   <br/>
+   match.offset = 159, 12
+   <br/>
+   match.font = 3,0,0
+   <br/>
+   ;å¤§å¤´åƒ
+   <br/>
+   p1.spr = 9000, 1
+   <br/>
+   p1.offset = 20,31
+   <br/>
+   p1.facing = 1
+   <br/>
+   p1.scale = 1,1
+   <br/>
+   p2.spr = 9000, 1
+   <br/>
+   p2.offset = 299,31
+   <br/>
+   p2.facing = -1
+   <br/>
+   p2.scale = 1,1
+   <br/>
+   ;åå­—
+   <br/>
+   p1.name.offset = 78,190
+   <br/>
+   p1.name.font = 3,0,0
+   <br/>
+   p2.name.offset = 241,190
+   <br/>
+   p2.name.font = 3,0,0
+  </p>
+  <p>
+   ;-----------------------
+   <br/>
+   ;VSèƒŒæ™¯å®šä¹‰
+   <br/>
+   [VersusBGdef]
+  </p>
+  <p>
+   [VersusBG 1]
+   <br/>
+   type = normal
+   <br/>
+   spriteno = 100,0
+   <br/>
+   start = 0,0
+   <br/>
+   tile = 1,1
+   <br/>
+   velocity = 0,1.5
+  </p>
+  <p>
+   [VersusBG 2] ;VS Screen
+   <br/>
+   type = normal
+   <br/>
+   spriteno = 100,1
+   <br/>
+   start = 20,13
+   <br/>
+   tile = 1,1
+   <br/>
+   trans = sub
+   <br/>
+   window = 19,30, 140,171
+   <br/>
+   velocity = -2, 0
+  </p>
+  <p>
+   [VersusBG 3] ;VS Screen
+   <br/>
+   type = normal
+   <br/>
+   spriteno = 100,1
+   <br/>
+   start = 20,13
+   <br/>
+   tile = 1,1
+   <br/>
+   trans = sub
+   <br/>
+   window = 179,30, 300,171
+   <br/>
+   velocity = 2, 0
+  </p>
+  <p>
+   [VersusBG 4] ;VS Logo
+   <br/>
+   type = anim
+   <br/>
+   actionno = 200
+   <br/>
+   layerno = 1 ; Front
+   <br/>
+   start = 0,95
+  </p>
+  <p>
+   [Begin Action 200]
+   <br/>
+   200,4, 0,0, 1
+   <br/>
+   200,3, 0,0, 2
+   <br/>
+   200,2, 0,0, 3
+   <br/>
+   200,1, 0,0, 4
+   <br/>
+   200,0, 0,0, 8
+   <br/>
+   200,5, 0,0, 3
+   <br/>
+   200,6, 0,0, 3
+   <br/>
+   200,7, 0,0, 3
+   <br/>
+   200,8, 0,0, 3
+   <br/>
+   200,0, 0,0, -1
+  </p>
+  <p>
+   ;-------------------------------------------------------------------
+   <br/>
+   ;Demoæ¨¡å¼å®šä¹‰
+   <br/>
+   <span class="STYLE2">
+    [Demo Mode]
+   </span>
+   <br/>
+   enabled = 1 ;è®¾ç½®0ç¦ç”¨Demo
+   <br/>
+   select.enabled = 0 ;è®¾ç½®1åœ¨demoé‡Œé¢æ˜¾ç¤ºé€‰äººç”»é¢
+   <br/>
+   vsscreen.enabled = 0 ;è®¾ç½®1åœ¨demoé‡Œé¢æ˜¾ç¤ºVSç”»é¢
+   <br/>
+   title.waittime = 600 ;è®¾ç½®titleç”»é¢æ˜¾ç¤ºå¤šä¹…(ä¹Ÿå°±æ˜¯è¿›å…¥æ¸¸æˆåä»€ä¹ˆéƒ½ä¸æŒ‰)åè¿›å…¥demo
+   <br/>
+   fight.endtime = 1500 ;demoé‡Œç”µè„‘æ‰“å¤šä¹…
+   <br/>
+   fight.playbgm = 0 ;demoä¸­å¯¹æˆ˜æ—¶æ˜¯å¦æ’­æ”¾BGM
+   <br/>
+   fight.stopbgm = 1	;æ˜¯å¦ç¦æ­¢titleçš„BGM(ä»…å½“playbgm = 0)
+   <br/>
+   fight.bars.display = 0 ;æ˜¯å¦æ˜¾ç¤ºè¡€æ¡
+   <br/>
+   intro.waitcycles = 1 ;è¿‡åœºåŠ¨ç”»å†æ¬¡æ’­æ”¾å‰æ˜¯å¦ç­‰å¾…
+   <br/>
+   debuginfo = 0 ;debugæ¨¡å¼ä¸­æ˜¯å¦éšè—debugä¿¡æ¯
+  </p>
+  <p>
+   ;-------------------------------------------------------------------
+   <br/>
+   ;ç»­å…³ç”»é¢å®šä¹‰
+   <br/>
+   <span class="STYLE2">
+    [Continue Screen]
+   </span>
+   <br/>
+   enabled = 1 ;æ˜¯å¦ç¦ç”¨
+  </p>
+  <p>
+   ;-------------------------------------------------------------------
+   <br/>
+   ;Game overç”»é¢å®šä¹‰
+   <br/>
+   <span class="STYLE2">
+    [Game Over Screen]
+   </span>
+   <br/>
+   enabled = 0 ;æ˜¯å¦ç¦ç”¨
+   <br/>
+   storyboard = ;å¦‚æœ‰æƒ…èŠ‚,è®¾ç½®SFFåç§°
+  </p>
+  <p>
+   ;-------------------------------------------------------------------
+   <br/>
+   ;èƒœåˆ©è€…ç”»é¢å®šä¹‰
+   <br/>
+   ;arcadeæ¨¡å¼è·èƒœä¸€åœºåæ˜¾ç¤º
+   <br/>
+   ;ä¸æ˜¯æ˜¾ç¤ºåœ¨arcadeæ¨¡å¼æœ€åä¸€åœºè·èƒœå
+   <br/>
+   <span class="STYLE2">
+    [Victory Screen]
+   </span>
+   <br/>
+   enabled = 1
+   <br/>
+   time = 300 ;æŒç»­æ—¶é—´
+   <br/>
+   fadein.time = 8
+   <br/>
+   fadeout.time = 15
+   <br/>
+   ;èƒœåˆ©è€…çš„å¤´åƒå’Œåå­—
+   <br/>
+   p1.offset = 100,20
+   <br/>
+   p1.spr = 9000,2
+   <br/>
+   p1.facing = 1
+   <br/>
+   p1.scale = 1,1
+   <br/>
+   p1.window = 0,0, 319,160
+   <br/>
+   p1.name.offset = 20,180
+   <br/>
+   p1.name.font = 3,0,1
+   <br/>
+   ;èƒœåˆ©åçš„æ–‡å­—
+   <br/>
+   winquote.text = "Winner!" ;é»˜è®¤å°±æ˜¯è¿™ä¸ª
+   <br/>
+   winquote.offset = 20,192
+   <br/>
+   winquote.font = 2,0,1
+   <br/>
+   winquote.window = 18,171, 301,228
+   <br/>
+   winquote.textwrap = w ;è‡ªåŠ¨æ¢è¡Œ
+  </p>
+  <p>
+   ;-----------------------
+   <br/>
+   ;Victory screen background
+   <br/>
+   [VictoryBGdef]
+  </p>
+  <p>
+   [VictoryBG 1]
+   <br/>
+   type = normal
+   <br/>
+   spriteno = 100,0
+   <br/>
+   start = 0,0
+   <br/>
+   tile = 1,1
+   <br/>
+   velocity = 0,1.5
+  </p>
+  <p>
+   [VictoryBG 2]
+   <br/>
+   type = normal
+   <br/>
+   spriteno = 100,1
+   <br/>
+   start = 20,13
+   <br/>
+   tile = 1,1
+   <br/>
+   trans = sub
+   <br/>
+   window = 0,19, 319,160
+   <br/>
+   velocity = -2, 0
+  </p>
+  <p>
+   [VictoryBG 3]
+   <br/>
+   type = normal
+   <br/>
+   spriteno = 100,1
+   <br/>
+   start = 10,170
+   <br/>
+   tile = 1,1
+   <br/>
+   trans = sub
+   <br/>
+   window = 15,170, 304,229
+   <br/>
+   velocity = 0, 0
+  </p>
+  <p>
+   ;-------------------------------------------------------------------
+   <br/>
+   ;èƒœåˆ©ç”»é¢å®šä¹‰
+   <br/>
+   ;arcæ¨¡å¼è·èƒœåæ˜¾ç¤º
+   <br/>
+   ;å¦‚æœä½ æœ‰å‰§æƒ…endingå°±ä¸ä¼šæ˜¾ç¤º
+   <br/>
+   <span class="STYLE2">
+    [Win Screen]
+   </span>
+   <br/>
+   enabled = 1 ;æ˜¯å¦ç¦ç”¨
+   <br/>
+   wintext.text = "Congratulations!"
+   <br/>
+   wintext.font = 2,0,0
+   <br/>
+   wintext.offset = 159,70
+   <br/>
+   wintext.displaytime = -1
+   <br/>
+   wintext.layerno = 2
+   <br/>
+   fadein.time = 32
+   <br/>
+   pose.time = 300
+   <br/>
+   fadeout.time = 64
+  </p>
+  <p>
+   ;-------------------------------------------------------------------
+   <br/>
+   ;Game endingç”»é¢å®šä¹‰
+   <br/>
+   ;Win Screenåæ˜¾ç¤º
+   <br/>
+   ;å¦‚æœä½ æœ‰å‰§æƒ…endingå°±ä¸ä¼šæ˜¾ç¤º
+   <br/>
+   <span class="STYLE2">
+    [Default Ending]
+   </span>
+   <br/>
+   enabled = 0 ;æ˜¯å¦æ˜¾ç¤º
+   <br/>
+   storyboard = ;é»˜è®¤çš„å‰§æƒ…endingåå­—
+  </p>
+  <p>
+   ;-------------------------------------------------------------------
+   <br/>
+   ;ç‰‡å°¾å­—å¹•å®šä¹‰
+   <br/>
+   ;Win Screenå’ŒEndingä¹‹åæ˜¾ç¤º
+   <br/>
+   <span class="STYLE2">
+    [End Credits]
+   </span>
+   <br/>
+   enabled = 0 ;æ˜¯å¦ç¦ç”¨
+   <br/>
+   storyboard = ;æ–‡ä»¶å
+  </p>
+  <p>
+   ;-------------------------------------------------------------------
+   <br/>
+   ;Survivalæ¨¡å¼ç»“æœç”»é¢
+   <br/>
+   ;ç”Ÿå­˜æ¨¡å¼èƒœåˆ©åæ˜¾ç¤º
+   <br/>
+   ;æœ‰å‰§æƒ…endingçš„äººç‰©ä¸ä¼šæ˜¾ç¤º
+   <br/>
+   <span class="STYLE2">
+    [Survival Results Screen]
+   </span>
+   <br/>
+   enabled = 1
+   <br/>
+   winstext.text = "Rounds survived: %i" ;%i èƒœåˆ©å±€æ•°
+   <br/>
+   winstext.font = 3,0,0
+   <br/>
+   winstext.offset = 159,70
+   <br/>
+   winstext.displaytime = -1
+   <br/>
+   winstext.layerno = 2
+   <br/>
+   fadein.time = 32
+   <br/>
+   show.time = 300
+   <br/>
+   fadeout.time = 64
+   <br/>
+   roundstowin = 5
+  </p>
+  <p>
+   ;-------------------------------------------------------------------
+   <br/>
+   ;Optionsç”»é¢å®šä¹‰
+   <br/>
+   <span class="STYLE2">
+    [Option Info]
+   </span>
+   <br/>
+   cursor.move.snd = 100,0
+   <br/>
+   cursor.done.snd = 100,1
+   <br/>
+   cancel.snd = 100,2
+  </p>
+  <p>
+   ;-------------------
+   <br/>
+   ;Options screen background
+   <br/>
+   [OptionBGdef]
+  </p>
+  <p>
+   [OptionBG 1]
+   <br/>
+   type = normal
+   <br/>
+   spriteno = 100,0
+   <br/>
+   start = 0,0
+   <br/>
+   tile = 1,1
+   <br/>
+   velocity = -1, -1
+  </p>
+  <p>
+  </p>
+  <p>
+  </p>
+  <p>
+  </p>
+ </body>
 </html>

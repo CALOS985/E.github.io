@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>FIGHT(ÑªÌõµÈ)Ïà¹Ø²ÎÊıÉè¶¨ </title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   FIGHT(è¡€æ¡ç­‰)ç›¸å…³å‚æ•°è®¾å®š
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,483 +23,1057 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">FIGHT(ÑªÌõµÈ)Ïà¹Ø²ÎÊıÉè¶¨</p>
-<p class="STYLE2">ÈçºÎ×Ô¶¨Òå</p>
-<p>Ê×ÏÈÔÚ[Files]ÏÂÃæÉèÖÃÎÄ¼şÃû.</p>
-<p>Æä´Î,ÄãÄÜ×Ô¶¨Òåfight»­ÃæÖĞµÄÈÎºÎ²¿¼ş.<br />
-  ²¿¼ş¿ÉÒÔÊÇ´ÓÑªÌõµ½K.O.ÎÄ×ÖµÄÈÎºÎ¶«Î÷.</p>
-<p>Ã¿¸ö²¿¼ş´ÓÃû×Ö¿ªÊ¼,È»ºóÊÇµã,×îºóÊÇËüÔªËØµÄÃû×Ö.<br />
-  ÀıÈç&quot;bg&quot;²¿¼şÖĞµÄ&quot;anim&quot;ÔªËØÓ¦¸ÃÊÇÕâÑù±íÊ¾&quot;bg.anim&quot;</p>
-<p>ÕâÊÇ¼¸¸öÖ÷ÒªµÄÔªËØÀàĞÍ<br />
-  <span class="STYLE3">1. anim (¶¯»­)<br />
-  2. spr (Í¼Æ¬)<br />
-  3. font (ÎÄ×Ö)<br />
-  4. snd (ÉùÒô)</span></p>
-<p><span class="STYLE3">1. anim</span><br />
-  ¸ñÊ½: anim = actionno<br />
-  actionnoÊÇ¶¯×÷ºÅ.Äã±ØĞëÖ¸¶¨¶¨ÒåÔÚÕâ¸öÎÄ¼şÖĞµÄÓĞĞ§¶¯×÷ºÅ.<br />
-  ¶¯×÷ÖĞµÄÍ¼Æ¬À´×ÔÓÚ[Files]×éÏÂÃæÉè¶¨µÄ&quot;sff&quot;.<br />
-  ÄãÄÜÔÚ´ËÎÄ¼şÖĞÈÎºÎÎ»ÖÃ¶¨Òå¶¯×÷,Ö»Òª²»ÔÚÒ»¸ö×éÄ£¿éÖ®¼ä<br />
-  ÀıÈç,ÒªÊÇÓÃp1.bg0²¿¼şµÄµÚ5ºÅ¶¯×÷:p1.bg0.anim = 5<br />
-  <span class="STYLE3">2. spr</span><br />
-  ¸ñÊ½: spr = spritegrp, spriteno<br />
-  ÕâÊÇÍ¼Æ¬µÄÒ»¶ÔÊ¶±ğºÅ.ÀıÈç,ÒªÏÔÊ¾ p1.throw²¿¼şµÄ103,0Í¼Æ¬ËØ²Ä:p1.throw.spr = 103,0<br />
-  <span class="STYLE3">3. font</span><br />
-  ¸ñÊ½: font = fontno, fontbank, alignmnt, R, G, B<br />
-  text = text<br />
-  ÉèÖÃ×ÖÌå(ºÍ¿ÉÑ¡µÄÎÄ±¾ÄÚÈİ).fontnoÊÇ¶¨ÒåÔÚ[Files]ÏÂÃæµÄ×ÖÌåºÅ.<br />
-  ÀıÈç,¶ÔÓÚ&quot;font2 = font/num1.fnt&quot;,Ôòfontno¾ÍÊÇ2.<br />
-  fontbank×ÖÌåÊ¹ÓÃµÄcolor bank(ÑÕÉ«¿â?).Ö¸µÄÊÇ´Ë×ÖÌåÓµÓĞµÄcolor bank. <br />
-  alignmtÊÇ×ÖÌå¶ÔÆë·½Ê½.1-×ó¶ÔÆë,0-ÖĞ¼ä¶ÔÆë,-1-ÓÒ¶ÔÆë<br />
-  R,G,BÊÇ×ÖÌåÑÕÉ«µÄĞ£×¼Öµ.Ä¬ÈÏÊÇ256,256,256(ÎŞÑÕÉ«Ğ£×¼)<br />
-  ËùÓĞ×ÖÌåÖµ¶¼ÊÇ¿ÉÑ¡µÄ.Èç¹ûÈ±Ê¡fontno,½«²»»áÏÔÊ¾ÈÎºÎ×ÖÌå.<br />
-  &quot;text&quot;(ÎÄ×Ö)ÔªËØÓ¦¸Ã°éËæ×Å×ÖÌåÔªËØ³öÏÖ,±ØÒªÊ±.<br />
-  ÏÂÃæµÄÀı×Ó½«ÏÔÊ¾&quot;FIGHT!&quot;Ê¹ÓÃ1ºÅ×ÖÌå,1ºÅ¿â,ÖĞ¼ä¶ÔÆë·½Ê½.<br />
-  fight.font = 1,1, 0<br />
-  fight.text = FIGHT!<br />
-  <span class="STYLE3">4. snd</span><br />
-  ¸ñÊ½: snd = sndgrp, sndno<br />
-  ÉùÒôµÄÒ»¶ÔÊ¶±ğ·û.<br />
-  Àı×Ó:<br />
-  level1.snd = 21,0<br />
-×¢Òâ,anim,spr,fontÔªËØÀàĞÍÊÇ»¥³âµÄ,ÄãÖ»ÄÜ²¿¼şÖĞÊ¹ÓÃËûÃÇÖĞµÄÒ»¸ö.</p>
-<p>Ö§³ÖµÄÔªËØÀàĞÍËæ²¿¼şµÄ±ä»¯¶ø±ä»¯.Í¨³£anim,spr,fontÔªËØ¶Ô²¿¼şÊÇÍ¨ÓÃµÄ.µ«ÊÇÔÚÄ³Ğ©Çé¿öÏÂ,Ö»ÄÜÊ¹ÓÃ1ÖÖÔªËØÀàĞÍ.<br />
-  ÄÜÔÚ[Combo]ÏÂ·¢ÏÖÕâÑùµÄÀı×Ó:counter.font = 2,4(Á¬»÷ÊıµÄ×ÖÌå),Äã²»ÄÜÓÃ¶¯»­»òÕßÍ¼Æ¬À´±íÊ¾Á¬»÷Êı,ËùÒÔÕâÖÖÇé¿öÖ»ÄÜ¶¨ÒåÒ»¸öÊ¹ÓÃµÄ×ÖÌå.</p>
-<p>»¹ÓĞÒ»Ğ©ÔªËØÀàĞÍ,ËûÃÇ×ÔÉí²»ÆğÊ²Ã´×÷ÓÃ.ËûÃÇÄÜÓÃÓÚ¸ü¾«È·¿ØÖÆÔªËØÀàĞÍ.<br />
-  ¶ÔÓÚsndÔªËØÎŞĞ§.<br />
-  <span class="STYLE3">5. offset (Æ«ÒÆÁ¿) <br />
-  6. displaytime (ÏÔÊ¾Ê±¼ä) <br />
-  7. facing (Ë®Æ½µ¹×ª) <br />
-  8. vfacing (´¹Ö±µ¹×ª)<br />
-  9. layerno (²ãºÅ) <br />
-  10. scale (Ëõ·Å)</span></p>
-<p><span class="STYLE3">5. offset </span><br />
-  ¸ñÊ½: offset = x, y <br />
-  ÉèÖÃÔªËØx,y·½ÏòÆ«ÒÆÁ¿.È±Ê¡Ä¬ÈÏÊÇ0,0.<br />
-  <span class="STYLE3">6. displaytime</span><br />
-  ¸ñÊ½: displaytime = time_in_ticks<br />
-  ¶¨ÒåÔªËØÏÔÊ¾µÄÊ±¼ä.ÈôÈ±Ê¡,Ä¬ÈÏÖµËæÔªËØÀàĞÍ¶ø±ä»¯.<br />
-  ¶ÔÓÚsprºÍfontÔªËØ,Ä¬ÈÏÏÔÊ¾Ê±¼äÊÇ1.¶Ôanim,ÊÇ¶¯»­µÄÑ­»·Ê±¼ä.<br />
-  ÏÔÊ¾&quot;FIGHT!&quot;ÎÄ×Ö45Ö¡:<br />
-  fight.font = 1,1, 0<br />
-  fight.text = FIGHT!<br />
-  fight.displaytime = 45<br />
-  <span class="STYLE3">7. facing</span><br />
-  ¸ñÊ½: facing = dir<br />
-  ÉèÖÃÏÔÊ¾µÄÔªËØÊÇ·ñË®Æ½·­×ª.1ÊÇ²»·­×ª,-1·­×ª.<br />
-  ¶Ô×ÖÌåÎŞĞ§,È±Ê¡Ä¬ÈÏÊÇ1.<br />
-  <span class="STYLE3">8. vfacing</span><br />
-  ¸ñÊ½: vfacing = dir<br />
-  ´¹Ö±·½ÏòµÄ·­×ª.<br />
-  <span class="STYLE3">9. layerno</span><br />
-  ¸ñÊ½: layerno = no<br />
-  ÉèÖÃ²ãºÅ.0-ÔÚ±³¾°µÄÉÏ·½,µ«ÊÇÔÚÈËÎïµÄÏÂ·½.1-ÔÚÍæ¼ÒÉÏ·½,µ«ÊÇÔÚÇ°¾°ÏÂ·½.2-ÔÚÇ°¾°ÉÏ·½.<br />
-  ´ó¶àÊıÇé¿öÏÂÉèÖÃÎª0.Èç¹ûÄãÒªÈÃÑªÌõºÍÄÜÁ¿ÌõÏÔÊ¾ÔÚ×îÉÏ·½,¾Í°ÑÏà¹Ø²¿¼ş¶¼ÉèÖÃlayerno = 2.<br />
-  <span class="STYLE3">10. scale</span><br />
-  ¸ñÊ½: scale = xscale, yscale<br />
-  ÉèÖÃx,y·½ÏòËõ·ÅÏµÊı.Ä¬ÈÏÊÇ1,1.²»Ö§³Ö×ÖÌå.<br />
-  Ò»Ğ©²¿¼ş»¹ÓĞËûÃÇ¶ÀÌØµÄÔªËØ.<br />
-</p>
-<p> </p>
-<p> </p>
-<p>; ¶¨Òåfight»­Ãæ</p>
-<p>; Õâ²¿·ÖÍ¬system.def</p>
-<p>[Files]<br />
-  sff = fight.sff<br />
-  snd = fight.snd<br />
-  font1 = jg.fnt<br />
-  font2 = num1.fnt<br />
-  font3 = name1.fnt<br />
-  fightfx.sff = fightfx.sff<br />
-  fightfx.air = fightfx.air<br />
-  common.snd = common.snd</p>
-<p>;-----------------------------------------------------------<br />
-  <span class="STYLE2">[FightFx]</span><br />
-  scale = 1</p>
-<p>;-----------------------------------------------------------<br />
-  <span class="STYLE2">[Lifebar]</span><br />
-  ;Player 1<br />
-  p1.pos = 140,12<br />
-  p1.bg0.anim = 10 ;Ö¸µÄÊÇÑªÌõÏàÓ¦µÄ¿ò¼Ü±³¾°,ÑªÌõ¿ò¼Ü±³¾°ÓÉ¼¸¸öÍ¼ÏñÔªËØ¹¹³É,Ò²¾ÍÊÇbg0,bg1...Ã²ËÆÖ»ÄÜÖ¸¶¨µ½2»¹ÊÇ3 <br />
-  p1.bg1.spr = 11,0<br />
-  p1.mid.spr = 12,0 ;¿ÛÑªÊ±µÄºìÑªÓ¡ <br />
-  p1.front.spr = 13,0 ;ÑªÌõÍ¼Ïñ<br />
-  p1.range.x = 0,-127 ;ÑªÌõµÄ·¶Î§,¿ÛÑª¾Í»áÔÚÕâ¸ö·¶Î§Àï½øĞĞ,ÀıÈçÑªÌõµÄ×ó±ßÔµÎ»ÖÃÊÇ10,ÓÒ±ßÔµÊÇ100,ÄÑÃ´·¶Î§Ò²ÒªÓÃÕâ¸öÖµ,Èç¹ûÖ¸¶¨µÄ·¶Î§²»ÔÚ10-100Ö®¼ä,¾Í²»Õı³£ÁË<br />
-  ;(ÕâÀïÖ»ÊÇ¾ÙÀı×Ó,×ø±êÎ»ÖÃ²»Ò»¶¨¾ÍÊÇÕâ¸ö,¾ßÌåÒª¿´ÑªÌõµÄ±ßÔµÎ»ÖÃ.) <br />
-  ;Player 2<br />
-  p2.pos = 178,12<br />
-  p2.bg0.anim = 10<br />
-  p2.bg0.facing = -1<br />
-  p2.bg1.spr = 11,0<br />
-  p2.bg1.facing = -1<br />
-  p2.mid.spr = 12,0<br />
-  p2.mid.facing = -1<br />
-  p2.front.spr = 13,0<br />
-  p2.front.facing = -1<br />
-  p2.range.x = 0,127</p>
-<p>[Begin Action 10] ;Darkened lifebar background <br />
-  10,0, 0,0, 1, , S</p>
-<p><span class="STYLE2">[Simul Lifebar]</span> ;2v2Ê±µÄÑªÌõ <br />
-  ;Player 1<br />
-  p1.pos = 140,12<br />
-  p1.bg0.anim = 20<br />
-  p1.bg1.spr = 21,0<br />
-  p1.mid.offset = 0,-1<br />
-  p1.mid.spr = 22,0<br />
-  p1.front.offset = 0,-1<br />
-  p1.front.spr = 23,0<br />
-  p1.range.x = 0,-127<br />
-  ;Player 2<br />
-  p2.pos = 178,12<br />
-  p2.bg0.anim = 20<br />
-  p2.bg0.facing = -1<br />
-  p2.bg1.spr = 21,0<br />
-  p2.bg1.facing = -1<br />
-  p2.mid.offset = 0,-1<br />
-  p2.mid.spr = 22,0<br />
-  p2.mid.facing = -1<br />
-  p2.front.offset = 0,-1<br />
-  p2.front.spr = 23,0<br />
-  p2.front.facing = -1<br />
-  p2.range.x = 0,127<br />
-  ;Player 3<br />
-  p3.pos = 140,15<br />
-  p3.mid.spr = 22,0<br />
-  p3.front.spr = 23,0<br />
-  p3.range.x = 0,-127<br />
-  ;Player 4<br />
-  p4.pos = 178,15<br />
-  p4.mid.spr = 22,0<br />
-  p4.mid.facing = -1<br />
-  p4.front.spr = 23,0<br />
-  p4.front.facing = -1<br />
-p4.range.x = 0,127</p>
-<p>[Begin Action 20] ;Darkened lifebar background (team)<br />
-  20,0, 0,0, 1, , S</p>
-<p><span class="STYLE2">[Turns Lifebar]</span>;turnÄ£Ê½µÄÑªÌõ<br />
-  ;Player 1<br />
-  p1.pos = 140,12<br />
-  p1.bg0.anim = 10<br />
-  p1.bg1.spr = 11,0<br />
-  p1.mid.spr = 12,0<br />
-  p1.front.spr = 13,0<br />
-  p1.range.x = 0,-127<br />
-  ;Player 2<br />
-  p2.pos = 178,12<br />
-  p2.bg0.anim = 10<br />
-  p2.bg0.facing = -1<br />
-  p2.bg1.spr = 11,0<br />
-  p2.bg1.facing = -1<br />
-  p2.mid.spr = 12,0<br />
-  p2.mid.facing = -1<br />
-  p2.front.spr = 13,0<br />
-  p2.front.facing = -1<br />
-p2.range.x = 0,127</p>
-<p>;-----------------------------------------------------------<br />
-  <span class="STYLE2">[Powerbar]</span>;ÄÜÁ¿Ìõ(Ô­ÀíºÍÑªÌõÒ»Ñù)<br />
-  ;Player 1<br />
-  p1.pos = 140,22<br />
-  p1.bg0.anim = 40 <br />
-  p1.bg1.spr = 41,0<br />
-  ;p1.mid.spr = 42,0<br />
-  p1.front.spr = 43,0<br />
-  p1.range.x = 0,-107<br />
-  p1.counter.offset = -108,6<br />
-  p1.counter.font = 1,0, 0</p>
-<p>;Player 2<br />
-  p2.pos = 178,22<br />
-  p2.bg0.anim = 40<br />
-  p2.bg0.facing = -1<br />
-  p2.bg1.spr = 41,0<br />
-  p2.bg1.facing = -1<br />
-  ;p2.mid.spr = 42,0<br />
-  ;p2.mid.facing = -1<br />
-  p2.front.spr = 43,0<br />
-  p2.front.facing = -1<br />
-  p2.range.x = 0,107<br />
-  p2.counter.offset = 109,6<br />
-  p2.counter.font = 1,0, 0</p>
-<p>; --µÈ¼¶µÄÉùÒô---<br />
-  ;1000power³ÆÎªµÈ¼¶1,ÄÜÁ¿ĞîÂú1000Ê±µÄÉùÒô<br />
-  level1.snd = 21,0<br />
-  level2.snd = 21,0<br />
-  level3.snd = 21,0</p>
-<p>[Begin Action 40] ;Darkened powerbar background <br />
-  40,0, 0,0, 1, , S<br />
-  ;-----------------------------------------------------------<br />
-  <span class="STYLE2">[Face]</span> ;ÑªÌõÉÏµÄÍ·Ïñ <br />
-  ;Player 1<br />
-  p1.pos = 2,12<br />
-  p1.bg.spr = 50,0<br />
-  p1.face.spr = 9000,0<br />
-  p1.face.facing = 1<br />
-  p1.face.offset = 0,10<br />
-  ;Player 2<br />
-  p2.pos = 316,12<br />
-  p2.bg.spr = 50,0<br />
-  p2.bg.facing = -1<br />
-  p2.face.spr = 9000,0<br />
-  p2.face.facing = -1<br />
-  p2.face.offset = 0,10</p>
-<p><span class="STYLE2">[Simul Face]</span>;2v2<br />
-  ;Player 1<br />
-  p1.pos = 1,12<br />
-  p1.bg.spr = 60,0<br />
-  p1.face.spr = 9000,0<br />
-  p1.face.scale = 0.6,0.6<br />
-  p1.face.facing = 1<br />
-  p1.face.offset = 0,10<br />
-  ;Player 2<br />
-  p2.pos = 317,12<br />
-  p2.bg.spr = 60,0<br />
-  p2.bg.facing = -1<br />
-  p2.face.spr = 9000,0<br />
-  p2.face.scale = 0.6,0.6<br />
-  p2.face.facing = -1<br />
-  p2.face.offset = 0,10<br />
-  ;Player 3<br />
-  p3.pos = 2,12<br />
-  p3.face.spr = 9000,0<br />
-  p3.face.scale = 0.6,0.6<br />
-  p3.face.facing = 1<br />
-  p3.face.offset = 11,10<br />
-  ;Player 4<br />
-  p4.pos = 316,12<br />
-  p4.bg.facing = -1<br />
-  p4.face.spr = 9000,0<br />
-  p4.face.scale = 0.6,0.6<br />
-  p4.face.facing = -1<br />
-p4.face.offset = -11,10</p>
-<p><span class="STYLE2">[Turns Face]</span>;turnÄ£Ê½<br />
-  ;Player 1<br />
-  p1.pos = 2,12<br />
-  p1.bg.spr = 50,0<br />
-  p1.face.spr = 9000,0<br />
-  p1.face.facing = 1<br />
-  p1.face.offset = 0,10<br />
-  p1.teammate.pos = 1,49<br />
-  p1.teammate.spacing = 13,0<br />
-  p1.teammate.bg.spr = 70,0<br />
-  p1.teammate.ko.spr = 71,0<br />
-  p1.teammate.face.spr = 9000,0<br />
-  p1.teammate.face.scale = 0.5,0.53<br />
-  p1.teammate.face.facing = 1<br />
-  p1.teammate.face.offset = 1,0<br />
-  ;Player 2<br />
-  p2.pos = 316,12<br />
-  p2.bg.spr = 50,0<br />
-  p2.bg.facing = -1<br />
-  p2.face.spr = 9000,0<br />
-  p2.face.facing = -1<br />
-  p2.face.offset = 0,10<br />
-  p2.teammate.pos = 317,49<br />
-  p2.teammate.spacing = -13,0<br />
-  p2.teammate.bg.spr = 70,0<br />
-  p2.teammate.bg.facing = -1<br />
-  p2.teammate.ko.spr = 71,0<br />
-  p2.teammate.ko.facing = -1<br />
-  p2.teammate.face.spr = 9000,0<br />
-  p2.teammate.face.scale = 0.5,0.53<br />
-  p2.teammate.face.facing = -1<br />
-p2.teammate.face.offset = -1,0</p>
-<p>;-----------------------------------------------------------<br />
-  <span class="STYLE2">[Name]</span>;Ãû×Ö<br />
-  p1.pos = 14,10<br />
-  ;p1.bg. =<br />
-  p1.name.font = 3,0, 1<br />
-  ;p2.bg. =<br />
-  p2.pos = 305,10<br />
-  p2.name.font = 3,0, -1</p>
-<p>[Simul Name]<br />
-  p1.pos = 14,10<br />
-  p1.name.font = 3,0, 1<br />
-  p2.pos = 305,10<br />
-  p2.name.font = 3,0, -1<br />
-  p3.pos = 138,10<br />
-  p3.name.font = 3,0, -1<br />
-  p4.pos = 181,10<br />
-  p4.name.font = 3,0, 1</p>
-<p>[Turns Name]<br />
-  p1.pos = 14,10<br />
-  ;p1.bg. =<br />
-  p1.name.font = 3,0, 1<br />
-  ;p2.bg. =<br />
-  p2.pos = 305,10<br />
-  p2.name.font = 3,0, -1</p>
-<p>;-----------------------------------------------------------<br />
-  <span class="STYLE2">[Time]</span>;Ê±¼ä<br />
-  pos = 160,23</p>
-<p>;bg.spr = ;Ê±¼äµÄ¿ò¼Ü±³¾° <br />
-  counter.offset = 0,0<br />
-  counter.font = 2,0, 0 ;Ê±¼ä×ÖÌå <br />
-  ; Ã¿µ¹¼Ç1Ê±¼ä¾­¹ı¶àÉÙÖ¡ <br />
-  framespercount = 60</p>
-<p>;-----------------------------------------------------------<br />
-  <span class="STYLE2">[Combo]</span> ;Á¬»÷Êı <br />
-  team1.pos = 10,80 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;ÆğÊ¼×ø±ê<br />
-  team1.start.x = -40 &nbsp;&nbsp;&nbsp;&nbsp; ;³õÊ¼x×ø±ê<br />
-  team1.counter.font = 2,4,1<br />
-  team1.counter.shake = 1 ;»÷ÖĞÊ±Á¬»÷ÊıÄÜÕğ¶¯<br />
-  team1.text.text = Rush! ;%i±íÊ¾Á¬»÷Êı,±ÈÈçKOF98ÖĞÊÇ RUSH 10 HITS,ÔòĞ´·¨ÊÇ RUSH %i HITS. <br />
-  team1.text.font = 1,0,1<br />
-  team1.text.offset = 3,0 <br />
-  team1.displaytime = 90 ;Á¬»÷ÊıÏÔÊ¾µÄÊ±¼ä<br />
-  team2.pos = 309,80 <br />
-  team2.start.x = 359 <br />
-  team2.counter.font = 2,4,-1<br />
-  team2.counter.shake = 1 <br />
-  team2.text.text = Rush! <br />
-  team2.text.font = 1,0,-1<br />
-  team2.text.offset = 3,0 <br />
-  team2.displaytime = 90</p>
-<p>;-----------------------------------------------------------<br />
-  <span class="STYLE2">[Round]</span> ;»ØºÏÏà¹Ø<br />
-  match.wins = 2 ;ÒªÓ®¼¸¾Ö²ÅÄÜ×îÖÕ»ñÊ¤<br />
-  match.maxdrawgames = 1 ;ÔÊĞí¼¸´ÎÆ½¾Ö(-1±íÊ¾ÎŞÏŞ) *2001.11.01 NEW*<br />
-  start.waittime = 30 ;¿ª³¡½éÉÜÇ°µÈ´ıµÄÊ±¼ä</p>
-<p>; ËùÓĞÔªËØµÄÄ¬ÈÏÎ»ÖÃ<br />
-  pos = 0,0</p>
-<p>; ROUND X<br />
-  round.time = 0 ;ÏÔÊ¾round×ÖÑùµÄÊ±¼ä<br />
-  round.default.offset = 160, 100<br />
-  ;Ä¬ÈÏÃ¿¾ÖÏÔÊ¾µÄÎÊÌâ.Round %i±íÊ¾µÚ¼¸»ØºÏ<br />
-  ; Ê¹ÓÃ&quot;round.default.anim&quot;´úÌæÊä³öÎÄ×Ö<br />
-  round.default.font = 1,0, 0<br />
-  round.default.text = Round %i<br />
-  round.default.displaytime = 60<br />
-  ; Ã¿»ØºÏµÄÉùÒô(×î¶àÖ¸¶¨9¸ö»ØºÏ)<br />
-  round1.snd = 0,1<br />
-  round2.snd = 0,2<br />
-  round3.snd = 0,3<br />
-  round.sndtime = 0 ;²¥·ÅÉùÒôµÄÊ±¼ä<br />
-  ; ÉèÖÃÃ¿»ØºÏÍ¼ÏñÔªËØµÄ²ÎÊı(×î¶àÖ¸¶¨9¸ö»ØºÏ)<br />
-  ;round1.offset = 160, 100<br />
-  ;round1.anim =</p>
-<p>; FIGHT<br />
-  fight.time = 0 ;ÏÔÊ¾FIGHTµÄÊ±¼ä<br />
-  fight.offset = 160, 110 <br />
-  fight.anim = 80 <br />
-  fight.snd = 1,0 <br />
-  fight.sndtime = 0</p>
-<p>ctrl.time = 30 ;&quot;Fight&quot;³öÏÖºó¶à¾Ãplayer²ÅÄÜÊÜ¿ØÖÆ</p>
-<p>; ÏÔÊ¾KO×ÖÑùÏà¹ØÉèÖÃ<br />
-  KO.time = 0 <br />
-  KO.offset = 160, 70 <br />
-  KO.anim = 200 <br />
-  KO.snd = 2,0 <br />
-  ; Double KO×ÖÑùÏà¹ØÉèÖÃ<br />
-  DKO.offset = 160, 70<br />
-  DKO.font = 1,5<br />
-  DKO.text = Double K.O.<br />
-  DKO.displaytime = 60<br />
-  DKO.snd = 2,1<br />
-  ; Time Over×ÖÑùÏà¹ØÉèÖÃ<br />
-  TO.offset = 160, 70<br />
-  TO.font = 1,5<br />
-  TO.text = Time Over<br />
-  TO.displaytime = 60<br />
-  TO.snd = 2,2<br />
-  KO.sndtime = 0 ; KO, DKO ,TO²¥·ÅµÄÊ±¼ä.<br />
-  slow.time = 60 ;Time for KO slowdown (in ticks)<br />
-  over.waittime = 45 ;KO½áÊøºóplayerÍ£Ö¹Ç°µÄÊ±¼ä<br />
-  over.hittime = 10 ;KO½áÊøºóplayer»¹ÄÜ¹¥»÷µÄÊ±¼ä<br />
-  over.wintime = 45 ;player½øÈëÊ¤Àû×´Ì¬Ç°µÄÊ±¼ä<br />
-  over.time = 210 ;»ØºÏ½áÊøÇ°µÈ´ıµÄÊ±¼ä<br />
-  ; win/drawĞÅÏ¢ÏÔÊ¾Ç°µÄÊ±¼ä<br />
-  win.time = 60<br />
-  ; Win text<br />
-  win.offset = 160, 70<br />
-  win.font = 1,0<br />
-  win.text = %s Wins<br />
-  win.displaytime = 540<br />
-  ; 2-player win text<br />
-  win2.offset = 160, 70<br />
-  win2.font = 1,0<br />
-  win2.text = %s and %s Win<br />
-  win2.displaytime = 540<br />
-  ; Draw text<br />
-  draw.offset = 160, 70<br />
-  draw.font = 1,0<br />
-  draw.text = Draw Game<br />
-  draw.displaytime = 540</p>
-<p>;&quot;Fight!&quot; Animation<br />
-  [Begin Action 80]<br />
-  80,0, 0,0, 1<br />
-  80,6, 0,0, 1<br />
-  80,7, 0,0, 1<br />
-  80,6, 0,0, 1<br />
-  80,0, 0,0, 30<br />
-  80,1, 0,0, 1<br />
-  80,2, 0,0, 1<br />
-  80,3, 0,0, 1<br />
-  80,4, 0,0, 1<br />
-  80,5, 0,0, 1</p>
-<p>;&quot;K.O.&quot; Animation<br />
-  [Begin Action 200]<br />
-  -1,-1, 0,0, 5<br />
-  200,2, 0,0, 2, ,A1<br />
-  200,1, 0,0, 2, ,A<br />
-  200,2, 0,0, 2, ,A<br />
-  200,2, 0,0, 18, ,A1<br />
-  200,4, 0,0, 2, ,A1<br />
-  200,3, 0,0, 2, ,A<br />
-  200,4, 0,0, 2, ,A<br />
-  200,4, 0,0, 18, ,A1<br />
-  200,0, 0,0, 2, ,A1<br />
-  200,5, 0,0, 2, ,A1<br />
-  200,5, 0,0, 2, ,A<br />
-  200,5, 0,0, 2, ,A1<br />
-  200,0, 0,0, 2, ,A1<br />
-  200,0, 0,0, 50<br />
-  200,6, 0,0, 1, ,A1<br />
-  200,7, 0,0, 1, ,A1<br />
-  200,8, 0,0, 1, ,A1<br />
-  200,9, 0,0, 1, ,A1<br />
-  200,10, 0,0, 1, ,A1</p>
-<p>;-----------------------------------------------------------<br />
-  <span class="STYLE2">[WinIcon] </span>;Ê¤ÀûÍ¼±ê <br />
-  p1.pos = 34,43 ;33,43<br />
-  p2.pos = 284,43 ;286,43<br />
-  ; ÏÂ¸öÍ¼±êµÄÎ»ÒÆ (x,y)<br />
-  p1.iconoffset = 12,0 <br />
-  p2.iconoffset = -12,0<br />
-  ; Counter×ÖÌåºÍÎ»ÒÆ<br />
-  p1.counter.offset = 0,0 <br />
-  p1.counter.font = 2,1 <br />
-  p2.counter.offset = 0,0<br />
-  p2.counter.font = 2,1<br />
-  ; Win by normal<br />
-  p1.n.spr = 100,0<br />
-  p2.n.spr = 100,0<br />
-  ; Win by special<br />
-  p1.s.spr = 101,0<br />
-  p2.s.spr = 101,0<br />
-  ; Win by hyper (super)<br />
-  p1.h.spr = 102,0<br />
-  p2.h.spr = 102,0<br />
-  ; Win by normal throw<br />
-  p1.throw.spr = 103,0<br />
-  p2.throw.spr = 103,0<br />
-  ; Win by cheese<br />
-  p1.c.spr = 104,0<br />
-  p2.c.spr = 104,0<br />
-  ; Win by time over<br />
-  p1.t.spr = 105,0<br />
-  p2.t.spr = 105,0<br />
-  ; Win by suicide (here's a fun one)¶ÔÊÖ×ÔÉ±<br />
-  p1.suicide.spr = 106,0<br />
-  p2.suicide.spr = 106,0<br />
-  ; Opponent beaten by his own teammate (another fun one)±»×Ô¼º¶ÓÓÑÉ±ËÀ<br />
-  p1.teammate.spr = 107,0<br />
-  p2.teammate.spr = 107,0<br />
-  ; Win by perfect (overlay icon)<br />
-  p1.perfect.spr = 110,0<br />
-  p2.perfect.spr = 110,0<br />
-  ; Use icons up until this number of wins ×î¶àÄÜÊ¹ÓÃµÄÍ¼±êÊıÁ¿<br />
-  useiconupto = 4<br />
-</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   FIGHT(è¡€æ¡ç­‰)ç›¸å…³å‚æ•°è®¾å®š
+  </p>
+  <p class="STYLE2">
+   å¦‚ä½•è‡ªå®šä¹‰
+  </p>
+  <p>
+   é¦–å…ˆåœ¨[Files]ä¸‹é¢è®¾ç½®æ–‡ä»¶å.
+  </p>
+  <p>
+   å…¶æ¬¡,ä½ èƒ½è‡ªå®šä¹‰fightç”»é¢ä¸­çš„ä»»ä½•éƒ¨ä»¶.
+   <br/>
+   éƒ¨ä»¶å¯ä»¥æ˜¯ä»è¡€æ¡åˆ°K.O.æ–‡å­—çš„ä»»ä½•ä¸œè¥¿.
+  </p>
+  <p>
+   æ¯ä¸ªéƒ¨ä»¶ä»åå­—å¼€å§‹,ç„¶åæ˜¯ç‚¹,æœ€åæ˜¯å®ƒå…ƒç´ çš„åå­—.
+   <br/>
+   ä¾‹å¦‚"bg"éƒ¨ä»¶ä¸­çš„"anim"å…ƒç´ åº”è¯¥æ˜¯è¿™æ ·è¡¨ç¤º"bg.anim"
+  </p>
+  <p>
+   è¿™æ˜¯å‡ ä¸ªä¸»è¦çš„å…ƒç´ ç±»å‹
+   <br/>
+   <span class="STYLE3">
+    1. anim (åŠ¨ç”»)
+    <br/>
+    2. spr (å›¾ç‰‡)
+    <br/>
+    3. font (æ–‡å­—)
+    <br/>
+    4. snd (å£°éŸ³)
+   </span>
+  </p>
+  <p>
+   <span class="STYLE3">
+    1. anim
+   </span>
+   <br/>
+   æ ¼å¼: anim = actionno
+   <br/>
+   actionnoæ˜¯åŠ¨ä½œå·.ä½ å¿…é¡»æŒ‡å®šå®šä¹‰åœ¨è¿™ä¸ªæ–‡ä»¶ä¸­çš„æœ‰æ•ˆåŠ¨ä½œå·.
+   <br/>
+   åŠ¨ä½œä¸­çš„å›¾ç‰‡æ¥è‡ªäº[Files]ç»„ä¸‹é¢è®¾å®šçš„"sff".
+   <br/>
+   ä½ èƒ½åœ¨æ­¤æ–‡ä»¶ä¸­ä»»ä½•ä½ç½®å®šä¹‰åŠ¨ä½œ,åªè¦ä¸åœ¨ä¸€ä¸ªç»„æ¨¡å—ä¹‹é—´
+   <br/>
+   ä¾‹å¦‚,è¦æ˜¯ç”¨p1.bg0éƒ¨ä»¶çš„ç¬¬5å·åŠ¨ä½œ:p1.bg0.anim = 5
+   <br/>
+   <span class="STYLE3">
+    2. spr
+   </span>
+   <br/>
+   æ ¼å¼: spr = spritegrp, spriteno
+   <br/>
+   è¿™æ˜¯å›¾ç‰‡çš„ä¸€å¯¹è¯†åˆ«å·.ä¾‹å¦‚,è¦æ˜¾ç¤º p1.throwéƒ¨ä»¶çš„103,0å›¾ç‰‡ç´ æ:p1.throw.spr = 103,0
+   <br/>
+   <span class="STYLE3">
+    3. font
+   </span>
+   <br/>
+   æ ¼å¼: font = fontno, fontbank, alignmnt, R, G, B
+   <br/>
+   text = text
+   <br/>
+   è®¾ç½®å­—ä½“(å’Œå¯é€‰çš„æ–‡æœ¬å†…å®¹).fontnoæ˜¯å®šä¹‰åœ¨[Files]ä¸‹é¢çš„å­—ä½“å·.
+   <br/>
+   ä¾‹å¦‚,å¯¹äº"font2 = font/num1.fnt",åˆ™fontnoå°±æ˜¯2.
+   <br/>
+   fontbankå­—ä½“ä½¿ç”¨çš„color bank(é¢œè‰²åº“?).æŒ‡çš„æ˜¯æ­¤å­—ä½“æ‹¥æœ‰çš„color bank.
+   <br/>
+   alignmtæ˜¯å­—ä½“å¯¹é½æ–¹å¼.1-å·¦å¯¹é½,0-ä¸­é—´å¯¹é½,-1-å³å¯¹é½
+   <br/>
+   R,G,Bæ˜¯å­—ä½“é¢œè‰²çš„æ ¡å‡†å€¼.é»˜è®¤æ˜¯256,256,256(æ— é¢œè‰²æ ¡å‡†)
+   <br/>
+   æ‰€æœ‰å­—ä½“å€¼éƒ½æ˜¯å¯é€‰çš„.å¦‚æœç¼ºçœfontno,å°†ä¸ä¼šæ˜¾ç¤ºä»»ä½•å­—ä½“.
+   <br/>
+   "text"(æ–‡å­—)å…ƒç´ åº”è¯¥ä¼´éšç€å­—ä½“å…ƒç´ å‡ºç°,å¿…è¦æ—¶.
+   <br/>
+   ä¸‹é¢çš„ä¾‹å­å°†æ˜¾ç¤º"FIGHT!"ä½¿ç”¨1å·å­—ä½“,1å·åº“,ä¸­é—´å¯¹é½æ–¹å¼.
+   <br/>
+   fight.font = 1,1, 0
+   <br/>
+   fight.text = FIGHT!
+   <br/>
+   <span class="STYLE3">
+    4. snd
+   </span>
+   <br/>
+   æ ¼å¼: snd = sndgrp, sndno
+   <br/>
+   å£°éŸ³çš„ä¸€å¯¹è¯†åˆ«ç¬¦.
+   <br/>
+   ä¾‹å­:
+   <br/>
+   level1.snd = 21,0
+   <br/>
+   æ³¨æ„,anim,spr,fontå…ƒç´ ç±»å‹æ˜¯äº’æ–¥çš„,ä½ åªèƒ½éƒ¨ä»¶ä¸­ä½¿ç”¨ä»–ä»¬ä¸­çš„ä¸€ä¸ª.
+  </p>
+  <p>
+   æ”¯æŒçš„å…ƒç´ ç±»å‹éšéƒ¨ä»¶çš„å˜åŒ–è€Œå˜åŒ–.é€šå¸¸anim,spr,fontå…ƒç´ å¯¹éƒ¨ä»¶æ˜¯é€šç”¨çš„.ä½†æ˜¯åœ¨æŸäº›æƒ…å†µä¸‹,åªèƒ½ä½¿ç”¨1ç§å…ƒç´ ç±»å‹.
+   <br/>
+   èƒ½åœ¨[Combo]ä¸‹å‘ç°è¿™æ ·çš„ä¾‹å­:counter.font = 2,4(è¿å‡»æ•°çš„å­—ä½“),ä½ ä¸èƒ½ç”¨åŠ¨ç”»æˆ–è€…å›¾ç‰‡æ¥è¡¨ç¤ºè¿å‡»æ•°,æ‰€ä»¥è¿™ç§æƒ…å†µåªèƒ½å®šä¹‰ä¸€ä¸ªä½¿ç”¨çš„å­—ä½“.
+  </p>
+  <p>
+   è¿˜æœ‰ä¸€äº›å…ƒç´ ç±»å‹,ä»–ä»¬è‡ªèº«ä¸èµ·ä»€ä¹ˆä½œç”¨.ä»–ä»¬èƒ½ç”¨äºæ›´ç²¾ç¡®æ§åˆ¶å…ƒç´ ç±»å‹.
+   <br/>
+   å¯¹äºsndå…ƒç´ æ— æ•ˆ.
+   <br/>
+   <span class="STYLE3">
+    5. offset (åç§»é‡)
+    <br/>
+    6. displaytime (æ˜¾ç¤ºæ—¶é—´)
+    <br/>
+    7. facing (æ°´å¹³å€’è½¬)
+    <br/>
+    8. vfacing (å‚ç›´å€’è½¬)
+    <br/>
+    9. layerno (å±‚å·)
+    <br/>
+    10. scale (ç¼©æ”¾)
+   </span>
+  </p>
+  <p>
+   <span class="STYLE3">
+    5. offset
+   </span>
+   <br/>
+   æ ¼å¼: offset = x, y
+   <br/>
+   è®¾ç½®å…ƒç´ x,yæ–¹å‘åç§»é‡.ç¼ºçœé»˜è®¤æ˜¯0,0.
+   <br/>
+   <span class="STYLE3">
+    6. displaytime
+   </span>
+   <br/>
+   æ ¼å¼: displaytime = time_in_ticks
+   <br/>
+   å®šä¹‰å…ƒç´ æ˜¾ç¤ºçš„æ—¶é—´.è‹¥ç¼ºçœ,é»˜è®¤å€¼éšå…ƒç´ ç±»å‹è€Œå˜åŒ–.
+   <br/>
+   å¯¹äºsprå’Œfontå…ƒç´ ,é»˜è®¤æ˜¾ç¤ºæ—¶é—´æ˜¯1.å¯¹anim,æ˜¯åŠ¨ç”»çš„å¾ªç¯æ—¶é—´.
+   <br/>
+   æ˜¾ç¤º"FIGHT!"æ–‡å­—45å¸§:
+   <br/>
+   fight.font = 1,1, 0
+   <br/>
+   fight.text = FIGHT!
+   <br/>
+   fight.displaytime = 45
+   <br/>
+   <span class="STYLE3">
+    7. facing
+   </span>
+   <br/>
+   æ ¼å¼: facing = dir
+   <br/>
+   è®¾ç½®æ˜¾ç¤ºçš„å…ƒç´ æ˜¯å¦æ°´å¹³ç¿»è½¬.1æ˜¯ä¸ç¿»è½¬,-1ç¿»è½¬.
+   <br/>
+   å¯¹å­—ä½“æ— æ•ˆ,ç¼ºçœé»˜è®¤æ˜¯1.
+   <br/>
+   <span class="STYLE3">
+    8. vfacing
+   </span>
+   <br/>
+   æ ¼å¼: vfacing = dir
+   <br/>
+   å‚ç›´æ–¹å‘çš„ç¿»è½¬.
+   <br/>
+   <span class="STYLE3">
+    9. layerno
+   </span>
+   <br/>
+   æ ¼å¼: layerno = no
+   <br/>
+   è®¾ç½®å±‚å·.0-åœ¨èƒŒæ™¯çš„ä¸Šæ–¹,ä½†æ˜¯åœ¨äººç‰©çš„ä¸‹æ–¹.1-åœ¨ç©å®¶ä¸Šæ–¹,ä½†æ˜¯åœ¨å‰æ™¯ä¸‹æ–¹.2-åœ¨å‰æ™¯ä¸Šæ–¹.
+   <br/>
+   å¤§å¤šæ•°æƒ…å†µä¸‹è®¾ç½®ä¸º0.å¦‚æœä½ è¦è®©è¡€æ¡å’Œèƒ½é‡æ¡æ˜¾ç¤ºåœ¨æœ€ä¸Šæ–¹,å°±æŠŠç›¸å…³éƒ¨ä»¶éƒ½è®¾ç½®layerno = 2.
+   <br/>
+   <span class="STYLE3">
+    10. scale
+   </span>
+   <br/>
+   æ ¼å¼: scale = xscale, yscale
+   <br/>
+   è®¾ç½®x,yæ–¹å‘ç¼©æ”¾ç³»æ•°.é»˜è®¤æ˜¯1,1.ä¸æ”¯æŒå­—ä½“.
+   <br/>
+   ä¸€äº›éƒ¨ä»¶è¿˜æœ‰ä»–ä»¬ç‹¬ç‰¹çš„å…ƒç´ .
+   <br/>
+  </p>
+  <p>
+  </p>
+  <p>
+  </p>
+  <p>
+   ; å®šä¹‰fightç”»é¢
+  </p>
+  <p>
+   ; è¿™éƒ¨åˆ†åŒsystem.def
+  </p>
+  <p>
+   [Files]
+   <br/>
+   sff = fight.sff
+   <br/>
+   snd = fight.snd
+   <br/>
+   font1 = jg.fnt
+   <br/>
+   font2 = num1.fnt
+   <br/>
+   font3 = name1.fnt
+   <br/>
+   fightfx.sff = fightfx.sff
+   <br/>
+   fightfx.air = fightfx.air
+   <br/>
+   common.snd = common.snd
+  </p>
+  <p>
+   ;-----------------------------------------------------------
+   <br/>
+   <span class="STYLE2">
+    [FightFx]
+   </span>
+   <br/>
+   scale = 1
+  </p>
+  <p>
+   ;-----------------------------------------------------------
+   <br/>
+   <span class="STYLE2">
+    [Lifebar]
+   </span>
+   <br/>
+   ;Player 1
+   <br/>
+   p1.pos = 140,12
+   <br/>
+   p1.bg0.anim = 10 ;æŒ‡çš„æ˜¯è¡€æ¡ç›¸åº”çš„æ¡†æ¶èƒŒæ™¯,è¡€æ¡æ¡†æ¶èƒŒæ™¯ç”±å‡ ä¸ªå›¾åƒå…ƒç´ æ„æˆ,ä¹Ÿå°±æ˜¯bg0,bg1...è²Œä¼¼åªèƒ½æŒ‡å®šåˆ°2è¿˜æ˜¯3
+   <br/>
+   p1.bg1.spr = 11,0
+   <br/>
+   p1.mid.spr = 12,0 ;æ‰£è¡€æ—¶çš„çº¢è¡€å°
+   <br/>
+   p1.front.spr = 13,0 ;è¡€æ¡å›¾åƒ
+   <br/>
+   p1.range.x = 0,-127 ;è¡€æ¡çš„èŒƒå›´,æ‰£è¡€å°±ä¼šåœ¨è¿™ä¸ªèŒƒå›´é‡Œè¿›è¡Œ,ä¾‹å¦‚è¡€æ¡çš„å·¦è¾¹ç¼˜ä½ç½®æ˜¯10,å³è¾¹ç¼˜æ˜¯100,éš¾ä¹ˆèŒƒå›´ä¹Ÿè¦ç”¨è¿™ä¸ªå€¼,å¦‚æœæŒ‡å®šçš„èŒƒå›´ä¸åœ¨10-100ä¹‹é—´,å°±ä¸æ­£å¸¸äº†
+   <br/>
+   ;(è¿™é‡Œåªæ˜¯ä¸¾ä¾‹å­,åæ ‡ä½ç½®ä¸ä¸€å®šå°±æ˜¯è¿™ä¸ª,å…·ä½“è¦çœ‹è¡€æ¡çš„è¾¹ç¼˜ä½ç½®.)
+   <br/>
+   ;Player 2
+   <br/>
+   p2.pos = 178,12
+   <br/>
+   p2.bg0.anim = 10
+   <br/>
+   p2.bg0.facing = -1
+   <br/>
+   p2.bg1.spr = 11,0
+   <br/>
+   p2.bg1.facing = -1
+   <br/>
+   p2.mid.spr = 12,0
+   <br/>
+   p2.mid.facing = -1
+   <br/>
+   p2.front.spr = 13,0
+   <br/>
+   p2.front.facing = -1
+   <br/>
+   p2.range.x = 0,127
+  </p>
+  <p>
+   [Begin Action 10] ;Darkened lifebar background
+   <br/>
+   10,0, 0,0, 1, , S
+  </p>
+  <p>
+   <span class="STYLE2">
+    [Simul Lifebar]
+   </span>
+   ;2v2æ—¶çš„è¡€æ¡
+   <br/>
+   ;Player 1
+   <br/>
+   p1.pos = 140,12
+   <br/>
+   p1.bg0.anim = 20
+   <br/>
+   p1.bg1.spr = 21,0
+   <br/>
+   p1.mid.offset = 0,-1
+   <br/>
+   p1.mid.spr = 22,0
+   <br/>
+   p1.front.offset = 0,-1
+   <br/>
+   p1.front.spr = 23,0
+   <br/>
+   p1.range.x = 0,-127
+   <br/>
+   ;Player 2
+   <br/>
+   p2.pos = 178,12
+   <br/>
+   p2.bg0.anim = 20
+   <br/>
+   p2.bg0.facing = -1
+   <br/>
+   p2.bg1.spr = 21,0
+   <br/>
+   p2.bg1.facing = -1
+   <br/>
+   p2.mid.offset = 0,-1
+   <br/>
+   p2.mid.spr = 22,0
+   <br/>
+   p2.mid.facing = -1
+   <br/>
+   p2.front.offset = 0,-1
+   <br/>
+   p2.front.spr = 23,0
+   <br/>
+   p2.front.facing = -1
+   <br/>
+   p2.range.x = 0,127
+   <br/>
+   ;Player 3
+   <br/>
+   p3.pos = 140,15
+   <br/>
+   p3.mid.spr = 22,0
+   <br/>
+   p3.front.spr = 23,0
+   <br/>
+   p3.range.x = 0,-127
+   <br/>
+   ;Player 4
+   <br/>
+   p4.pos = 178,15
+   <br/>
+   p4.mid.spr = 22,0
+   <br/>
+   p4.mid.facing = -1
+   <br/>
+   p4.front.spr = 23,0
+   <br/>
+   p4.front.facing = -1
+   <br/>
+   p4.range.x = 0,127
+  </p>
+  <p>
+   [Begin Action 20] ;Darkened lifebar background (team)
+   <br/>
+   20,0, 0,0, 1, , S
+  </p>
+  <p>
+   <span class="STYLE2">
+    [Turns Lifebar]
+   </span>
+   ;turnæ¨¡å¼çš„è¡€æ¡
+   <br/>
+   ;Player 1
+   <br/>
+   p1.pos = 140,12
+   <br/>
+   p1.bg0.anim = 10
+   <br/>
+   p1.bg1.spr = 11,0
+   <br/>
+   p1.mid.spr = 12,0
+   <br/>
+   p1.front.spr = 13,0
+   <br/>
+   p1.range.x = 0,-127
+   <br/>
+   ;Player 2
+   <br/>
+   p2.pos = 178,12
+   <br/>
+   p2.bg0.anim = 10
+   <br/>
+   p2.bg0.facing = -1
+   <br/>
+   p2.bg1.spr = 11,0
+   <br/>
+   p2.bg1.facing = -1
+   <br/>
+   p2.mid.spr = 12,0
+   <br/>
+   p2.mid.facing = -1
+   <br/>
+   p2.front.spr = 13,0
+   <br/>
+   p2.front.facing = -1
+   <br/>
+   p2.range.x = 0,127
+  </p>
+  <p>
+   ;-----------------------------------------------------------
+   <br/>
+   <span class="STYLE2">
+    [Powerbar]
+   </span>
+   ;èƒ½é‡æ¡(åŸç†å’Œè¡€æ¡ä¸€æ ·)
+   <br/>
+   ;Player 1
+   <br/>
+   p1.pos = 140,22
+   <br/>
+   p1.bg0.anim = 40
+   <br/>
+   p1.bg1.spr = 41,0
+   <br/>
+   ;p1.mid.spr = 42,0
+   <br/>
+   p1.front.spr = 43,0
+   <br/>
+   p1.range.x = 0,-107
+   <br/>
+   p1.counter.offset = -108,6
+   <br/>
+   p1.counter.font = 1,0, 0
+  </p>
+  <p>
+   ;Player 2
+   <br/>
+   p2.pos = 178,22
+   <br/>
+   p2.bg0.anim = 40
+   <br/>
+   p2.bg0.facing = -1
+   <br/>
+   p2.bg1.spr = 41,0
+   <br/>
+   p2.bg1.facing = -1
+   <br/>
+   ;p2.mid.spr = 42,0
+   <br/>
+   ;p2.mid.facing = -1
+   <br/>
+   p2.front.spr = 43,0
+   <br/>
+   p2.front.facing = -1
+   <br/>
+   p2.range.x = 0,107
+   <br/>
+   p2.counter.offset = 109,6
+   <br/>
+   p2.counter.font = 1,0, 0
+  </p>
+  <p>
+   ; --ç­‰çº§çš„å£°éŸ³---
+   <br/>
+   ;1000powerç§°ä¸ºç­‰çº§1,èƒ½é‡è“„æ»¡1000æ—¶çš„å£°éŸ³
+   <br/>
+   level1.snd = 21,0
+   <br/>
+   level2.snd = 21,0
+   <br/>
+   level3.snd = 21,0
+  </p>
+  <p>
+   [Begin Action 40] ;Darkened powerbar background
+   <br/>
+   40,0, 0,0, 1, , S
+   <br/>
+   ;-----------------------------------------------------------
+   <br/>
+   <span class="STYLE2">
+    [Face]
+   </span>
+   ;è¡€æ¡ä¸Šçš„å¤´åƒ
+   <br/>
+   ;Player 1
+   <br/>
+   p1.pos = 2,12
+   <br/>
+   p1.bg.spr = 50,0
+   <br/>
+   p1.face.spr = 9000,0
+   <br/>
+   p1.face.facing = 1
+   <br/>
+   p1.face.offset = 0,10
+   <br/>
+   ;Player 2
+   <br/>
+   p2.pos = 316,12
+   <br/>
+   p2.bg.spr = 50,0
+   <br/>
+   p2.bg.facing = -1
+   <br/>
+   p2.face.spr = 9000,0
+   <br/>
+   p2.face.facing = -1
+   <br/>
+   p2.face.offset = 0,10
+  </p>
+  <p>
+   <span class="STYLE2">
+    [Simul Face]
+   </span>
+   ;2v2
+   <br/>
+   ;Player 1
+   <br/>
+   p1.pos = 1,12
+   <br/>
+   p1.bg.spr = 60,0
+   <br/>
+   p1.face.spr = 9000,0
+   <br/>
+   p1.face.scale = 0.6,0.6
+   <br/>
+   p1.face.facing = 1
+   <br/>
+   p1.face.offset = 0,10
+   <br/>
+   ;Player 2
+   <br/>
+   p2.pos = 317,12
+   <br/>
+   p2.bg.spr = 60,0
+   <br/>
+   p2.bg.facing = -1
+   <br/>
+   p2.face.spr = 9000,0
+   <br/>
+   p2.face.scale = 0.6,0.6
+   <br/>
+   p2.face.facing = -1
+   <br/>
+   p2.face.offset = 0,10
+   <br/>
+   ;Player 3
+   <br/>
+   p3.pos = 2,12
+   <br/>
+   p3.face.spr = 9000,0
+   <br/>
+   p3.face.scale = 0.6,0.6
+   <br/>
+   p3.face.facing = 1
+   <br/>
+   p3.face.offset = 11,10
+   <br/>
+   ;Player 4
+   <br/>
+   p4.pos = 316,12
+   <br/>
+   p4.bg.facing = -1
+   <br/>
+   p4.face.spr = 9000,0
+   <br/>
+   p4.face.scale = 0.6,0.6
+   <br/>
+   p4.face.facing = -1
+   <br/>
+   p4.face.offset = -11,10
+  </p>
+  <p>
+   <span class="STYLE2">
+    [Turns Face]
+   </span>
+   ;turnæ¨¡å¼
+   <br/>
+   ;Player 1
+   <br/>
+   p1.pos = 2,12
+   <br/>
+   p1.bg.spr = 50,0
+   <br/>
+   p1.face.spr = 9000,0
+   <br/>
+   p1.face.facing = 1
+   <br/>
+   p1.face.offset = 0,10
+   <br/>
+   p1.teammate.pos = 1,49
+   <br/>
+   p1.teammate.spacing = 13,0
+   <br/>
+   p1.teammate.bg.spr = 70,0
+   <br/>
+   p1.teammate.ko.spr = 71,0
+   <br/>
+   p1.teammate.face.spr = 9000,0
+   <br/>
+   p1.teammate.face.scale = 0.5,0.53
+   <br/>
+   p1.teammate.face.facing = 1
+   <br/>
+   p1.teammate.face.offset = 1,0
+   <br/>
+   ;Player 2
+   <br/>
+   p2.pos = 316,12
+   <br/>
+   p2.bg.spr = 50,0
+   <br/>
+   p2.bg.facing = -1
+   <br/>
+   p2.face.spr = 9000,0
+   <br/>
+   p2.face.facing = -1
+   <br/>
+   p2.face.offset = 0,10
+   <br/>
+   p2.teammate.pos = 317,49
+   <br/>
+   p2.teammate.spacing = -13,0
+   <br/>
+   p2.teammate.bg.spr = 70,0
+   <br/>
+   p2.teammate.bg.facing = -1
+   <br/>
+   p2.teammate.ko.spr = 71,0
+   <br/>
+   p2.teammate.ko.facing = -1
+   <br/>
+   p2.teammate.face.spr = 9000,0
+   <br/>
+   p2.teammate.face.scale = 0.5,0.53
+   <br/>
+   p2.teammate.face.facing = -1
+   <br/>
+   p2.teammate.face.offset = -1,0
+  </p>
+  <p>
+   ;-----------------------------------------------------------
+   <br/>
+   <span class="STYLE2">
+    [Name]
+   </span>
+   ;åå­—
+   <br/>
+   p1.pos = 14,10
+   <br/>
+   ;p1.bg. =
+   <br/>
+   p1.name.font = 3,0, 1
+   <br/>
+   ;p2.bg. =
+   <br/>
+   p2.pos = 305,10
+   <br/>
+   p2.name.font = 3,0, -1
+  </p>
+  <p>
+   [Simul Name]
+   <br/>
+   p1.pos = 14,10
+   <br/>
+   p1.name.font = 3,0, 1
+   <br/>
+   p2.pos = 305,10
+   <br/>
+   p2.name.font = 3,0, -1
+   <br/>
+   p3.pos = 138,10
+   <br/>
+   p3.name.font = 3,0, -1
+   <br/>
+   p4.pos = 181,10
+   <br/>
+   p4.name.font = 3,0, 1
+  </p>
+  <p>
+   [Turns Name]
+   <br/>
+   p1.pos = 14,10
+   <br/>
+   ;p1.bg. =
+   <br/>
+   p1.name.font = 3,0, 1
+   <br/>
+   ;p2.bg. =
+   <br/>
+   p2.pos = 305,10
+   <br/>
+   p2.name.font = 3,0, -1
+  </p>
+  <p>
+   ;-----------------------------------------------------------
+   <br/>
+   <span class="STYLE2">
+    [Time]
+   </span>
+   ;æ—¶é—´
+   <br/>
+   pos = 160,23
+  </p>
+  <p>
+   ;bg.spr = ;æ—¶é—´çš„æ¡†æ¶èƒŒæ™¯
+   <br/>
+   counter.offset = 0,0
+   <br/>
+   counter.font = 2,0, 0 ;æ—¶é—´å­—ä½“
+   <br/>
+   ; æ¯å€’è®°1æ—¶é—´ç»è¿‡å¤šå°‘å¸§
+   <br/>
+   framespercount = 60
+  </p>
+  <p>
+   ;-----------------------------------------------------------
+   <br/>
+   <span class="STYLE2">
+    [Combo]
+   </span>
+   ;è¿å‡»æ•°
+   <br/>
+   team1.pos = 10,80 Â Â Â Â Â  ;èµ·å§‹åæ ‡
+   <br/>
+   team1.start.x = -40 Â Â Â Â  ;åˆå§‹xåæ ‡
+   <br/>
+   team1.counter.font = 2,4,1
+   <br/>
+   team1.counter.shake = 1 ;å‡»ä¸­æ—¶è¿å‡»æ•°èƒ½éœ‡åŠ¨
+   <br/>
+   team1.text.text = Rush! ;%iè¡¨ç¤ºè¿å‡»æ•°,æ¯”å¦‚KOF98ä¸­æ˜¯ RUSH 10 HITS,åˆ™å†™æ³•æ˜¯ RUSH %i HITS.
+   <br/>
+   team1.text.font = 1,0,1
+   <br/>
+   team1.text.offset = 3,0
+   <br/>
+   team1.displaytime = 90 ;è¿å‡»æ•°æ˜¾ç¤ºçš„æ—¶é—´
+   <br/>
+   team2.pos = 309,80
+   <br/>
+   team2.start.x = 359
+   <br/>
+   team2.counter.font = 2,4,-1
+   <br/>
+   team2.counter.shake = 1
+   <br/>
+   team2.text.text = Rush!
+   <br/>
+   team2.text.font = 1,0,-1
+   <br/>
+   team2.text.offset = 3,0
+   <br/>
+   team2.displaytime = 90
+  </p>
+  <p>
+   ;-----------------------------------------------------------
+   <br/>
+   <span class="STYLE2">
+    [Round]
+   </span>
+   ;å›åˆç›¸å…³
+   <br/>
+   match.wins = 2 ;è¦èµ¢å‡ å±€æ‰èƒ½æœ€ç»ˆè·èƒœ
+   <br/>
+   match.maxdrawgames = 1 ;å…è®¸å‡ æ¬¡å¹³å±€(-1è¡¨ç¤ºæ— é™) *2001.11.01 NEW*
+   <br/>
+   start.waittime = 30 ;å¼€åœºä»‹ç»å‰ç­‰å¾…çš„æ—¶é—´
+  </p>
+  <p>
+   ; æ‰€æœ‰å…ƒç´ çš„é»˜è®¤ä½ç½®
+   <br/>
+   pos = 0,0
+  </p>
+  <p>
+   ; ROUND X
+   <br/>
+   round.time = 0 ;æ˜¾ç¤ºroundå­—æ ·çš„æ—¶é—´
+   <br/>
+   round.default.offset = 160, 100
+   <br/>
+   ;é»˜è®¤æ¯å±€æ˜¾ç¤ºçš„é—®é¢˜.Round %iè¡¨ç¤ºç¬¬å‡ å›åˆ
+   <br/>
+   ; ä½¿ç”¨"round.default.anim"ä»£æ›¿è¾“å‡ºæ–‡å­—
+   <br/>
+   round.default.font = 1,0, 0
+   <br/>
+   round.default.text = Round %i
+   <br/>
+   round.default.displaytime = 60
+   <br/>
+   ; æ¯å›åˆçš„å£°éŸ³(æœ€å¤šæŒ‡å®š9ä¸ªå›åˆ)
+   <br/>
+   round1.snd = 0,1
+   <br/>
+   round2.snd = 0,2
+   <br/>
+   round3.snd = 0,3
+   <br/>
+   round.sndtime = 0 ;æ’­æ”¾å£°éŸ³çš„æ—¶é—´
+   <br/>
+   ; è®¾ç½®æ¯å›åˆå›¾åƒå…ƒç´ çš„å‚æ•°(æœ€å¤šæŒ‡å®š9ä¸ªå›åˆ)
+   <br/>
+   ;round1.offset = 160, 100
+   <br/>
+   ;round1.anim =
+  </p>
+  <p>
+   ; FIGHT
+   <br/>
+   fight.time = 0 ;æ˜¾ç¤ºFIGHTçš„æ—¶é—´
+   <br/>
+   fight.offset = 160, 110
+   <br/>
+   fight.anim = 80
+   <br/>
+   fight.snd = 1,0
+   <br/>
+   fight.sndtime = 0
+  </p>
+  <p>
+   ctrl.time = 30 ;"Fight"å‡ºç°åå¤šä¹…playeræ‰èƒ½å—æ§åˆ¶
+  </p>
+  <p>
+   ; æ˜¾ç¤ºKOå­—æ ·ç›¸å…³è®¾ç½®
+   <br/>
+   KO.time = 0
+   <br/>
+   KO.offset = 160, 70
+   <br/>
+   KO.anim = 200
+   <br/>
+   KO.snd = 2,0
+   <br/>
+   ; Double KOå­—æ ·ç›¸å…³è®¾ç½®
+   <br/>
+   DKO.offset = 160, 70
+   <br/>
+   DKO.font = 1,5
+   <br/>
+   DKO.text = Double K.O.
+   <br/>
+   DKO.displaytime = 60
+   <br/>
+   DKO.snd = 2,1
+   <br/>
+   ; Time Overå­—æ ·ç›¸å…³è®¾ç½®
+   <br/>
+   TO.offset = 160, 70
+   <br/>
+   TO.font = 1,5
+   <br/>
+   TO.text = Time Over
+   <br/>
+   TO.displaytime = 60
+   <br/>
+   TO.snd = 2,2
+   <br/>
+   KO.sndtime = 0 ; KO, DKO ,TOæ’­æ”¾çš„æ—¶é—´.
+   <br/>
+   slow.time = 60 ;Time for KO slowdown (in ticks)
+   <br/>
+   over.waittime = 45 ;KOç»“æŸåplayeråœæ­¢å‰çš„æ—¶é—´
+   <br/>
+   over.hittime = 10 ;KOç»“æŸåplayerè¿˜èƒ½æ”»å‡»çš„æ—¶é—´
+   <br/>
+   over.wintime = 45 ;playerè¿›å…¥èƒœåˆ©çŠ¶æ€å‰çš„æ—¶é—´
+   <br/>
+   over.time = 210 ;å›åˆç»“æŸå‰ç­‰å¾…çš„æ—¶é—´
+   <br/>
+   ; win/drawä¿¡æ¯æ˜¾ç¤ºå‰çš„æ—¶é—´
+   <br/>
+   win.time = 60
+   <br/>
+   ; Win text
+   <br/>
+   win.offset = 160, 70
+   <br/>
+   win.font = 1,0
+   <br/>
+   win.text = %s Wins
+   <br/>
+   win.displaytime = 540
+   <br/>
+   ; 2-player win text
+   <br/>
+   win2.offset = 160, 70
+   <br/>
+   win2.font = 1,0
+   <br/>
+   win2.text = %s and %s Win
+   <br/>
+   win2.displaytime = 540
+   <br/>
+   ; Draw text
+   <br/>
+   draw.offset = 160, 70
+   <br/>
+   draw.font = 1,0
+   <br/>
+   draw.text = Draw Game
+   <br/>
+   draw.displaytime = 540
+  </p>
+  <p>
+   ;"Fight!" Animation
+   <br/>
+   [Begin Action 80]
+   <br/>
+   80,0, 0,0, 1
+   <br/>
+   80,6, 0,0, 1
+   <br/>
+   80,7, 0,0, 1
+   <br/>
+   80,6, 0,0, 1
+   <br/>
+   80,0, 0,0, 30
+   <br/>
+   80,1, 0,0, 1
+   <br/>
+   80,2, 0,0, 1
+   <br/>
+   80,3, 0,0, 1
+   <br/>
+   80,4, 0,0, 1
+   <br/>
+   80,5, 0,0, 1
+  </p>
+  <p>
+   ;"K.O." Animation
+   <br/>
+   [Begin Action 200]
+   <br/>
+   -1,-1, 0,0, 5
+   <br/>
+   200,2, 0,0, 2, ,A1
+   <br/>
+   200,1, 0,0, 2, ,A
+   <br/>
+   200,2, 0,0, 2, ,A
+   <br/>
+   200,2, 0,0, 18, ,A1
+   <br/>
+   200,4, 0,0, 2, ,A1
+   <br/>
+   200,3, 0,0, 2, ,A
+   <br/>
+   200,4, 0,0, 2, ,A
+   <br/>
+   200,4, 0,0, 18, ,A1
+   <br/>
+   200,0, 0,0, 2, ,A1
+   <br/>
+   200,5, 0,0, 2, ,A1
+   <br/>
+   200,5, 0,0, 2, ,A
+   <br/>
+   200,5, 0,0, 2, ,A1
+   <br/>
+   200,0, 0,0, 2, ,A1
+   <br/>
+   200,0, 0,0, 50
+   <br/>
+   200,6, 0,0, 1, ,A1
+   <br/>
+   200,7, 0,0, 1, ,A1
+   <br/>
+   200,8, 0,0, 1, ,A1
+   <br/>
+   200,9, 0,0, 1, ,A1
+   <br/>
+   200,10, 0,0, 1, ,A1
+  </p>
+  <p>
+   ;-----------------------------------------------------------
+   <br/>
+   <span class="STYLE2">
+    [WinIcon]
+   </span>
+   ;èƒœåˆ©å›¾æ ‡
+   <br/>
+   p1.pos = 34,43 ;33,43
+   <br/>
+   p2.pos = 284,43 ;286,43
+   <br/>
+   ; ä¸‹ä¸ªå›¾æ ‡çš„ä½ç§» (x,y)
+   <br/>
+   p1.iconoffset = 12,0
+   <br/>
+   p2.iconoffset = -12,0
+   <br/>
+   ; Counterå­—ä½“å’Œä½ç§»
+   <br/>
+   p1.counter.offset = 0,0
+   <br/>
+   p1.counter.font = 2,1
+   <br/>
+   p2.counter.offset = 0,0
+   <br/>
+   p2.counter.font = 2,1
+   <br/>
+   ; Win by normal
+   <br/>
+   p1.n.spr = 100,0
+   <br/>
+   p2.n.spr = 100,0
+   <br/>
+   ; Win by special
+   <br/>
+   p1.s.spr = 101,0
+   <br/>
+   p2.s.spr = 101,0
+   <br/>
+   ; Win by hyper (super)
+   <br/>
+   p1.h.spr = 102,0
+   <br/>
+   p2.h.spr = 102,0
+   <br/>
+   ; Win by normal throw
+   <br/>
+   p1.throw.spr = 103,0
+   <br/>
+   p2.throw.spr = 103,0
+   <br/>
+   ; Win by cheese
+   <br/>
+   p1.c.spr = 104,0
+   <br/>
+   p2.c.spr = 104,0
+   <br/>
+   ; Win by time over
+   <br/>
+   p1.t.spr = 105,0
+   <br/>
+   p2.t.spr = 105,0
+   <br/>
+   ; Win by suicide (here's a fun one)å¯¹æ‰‹è‡ªæ€
+   <br/>
+   p1.suicide.spr = 106,0
+   <br/>
+   p2.suicide.spr = 106,0
+   <br/>
+   ; Opponent beaten by his own teammate (another fun one)è¢«è‡ªå·±é˜Ÿå‹æ€æ­»
+   <br/>
+   p1.teammate.spr = 107,0
+   <br/>
+   p2.teammate.spr = 107,0
+   <br/>
+   ; Win by perfect (overlay icon)
+   <br/>
+   p1.perfect.spr = 110,0
+   <br/>
+   p2.perfect.spr = 110,0
+   <br/>
+   ; Use icons up until this number of wins æœ€å¤šèƒ½ä½¿ç”¨çš„å›¾æ ‡æ•°é‡
+   <br/>
+   useiconupto = 4
+   <br/>
+  </p>
+ </body>
 </html>

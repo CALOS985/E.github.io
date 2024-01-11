@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>CNS±äÁ¿ÉèÖÃ</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   CNSå˜é‡è®¾ç½®
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,122 +23,443 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">CNS±äÁ¿ÉèÖÃ</p>
-<p><span class="STYLE2">[Data]</span><br />
-  <span class="STYLE3">life</span> = 1000 <br />
-  ;ÆğÊ¼µÄÉúÃüÖµ <br />
-</p>
-<p><span class="STYLE3">attack</span> = 100 <br />
-  ;¹¥»÷Á¦(ÊıÖµÔ½¸ßÔ½Ç¿)<br />
-</p>
-<p><span class="STYLE3">defence</span> = 100 <br />
-  ;·ÀÓùÁ¦(ÊıÖµÔ½¸ßÔ½Ç¿)<br />
-</p>
-<p><span class="STYLE3">fall.defence_up</span> = 50 <br />
-  ;Íæ¼Òµ¹ÏÂÊ±Ã¿Ê±¼äµ¥Î»Ôö¼ÓµÄ·ÀÓùÁ¦°Ù·Ö±È<br />
-</p>
-<p><span class="STYLE3">liedown.time</span> = 60 <br />
-  ;Íæ¼Òµ¹µØÆğÉíÇ°µÄÊ±¼ä(³ÖĞø°´¼ü»á¼ÓËÙÆğÉíÊ±¼ä)<br />
-</p>
-<p><span class="STYLE3">airjuggle = 15</span> <br />
-  ;Ä¬ÈÏÁ¬»÷µãÊı(Í¨³£,Á¬ÕĞÖĞÃ¿ÕĞµÄÁ¬»÷µãÊıÖ®ºÍ³¬¹ıÕâ¸öÊı×Ö¾ÍÎŞ·¨¼ÌĞøÁ¬»÷) <br />
-</p>
-<p><span class="STYLE3">sparkno</span> = 2 <br />
-  ;HitDefÖĞÄ¬ÈÏµÄ»÷ÖĞ»ğ»¨ºÅ<br />
-</p>
-<p><span class="STYLE3">guard.sparkno</span> = 40 <br />
-  ;Ä¬ÈÏµÄ·ÀÓù»ğ»¨ºÅ <br />
-  <br />
-  <span class="STYLE3">KO.echo</span> = 0<br />
-  ;ÉèÖÃ1ÊµÏÖKOÊ±»ØÉùĞ§¹û <br />
-</p>
-<p><span class="STYLE3">volume</span> = 0 <br />
-;ÒôÁ¿(¸ºÖµÉùÒô±äĞ¡) </p>
-<p><span class="STYLE3">IntPersistIndex</span> = 60<br />
-  <span class="STYLE3">FloatPersistIndex</span> = 40<br />
-  ;´óÓÚµÈÓÚ´ËË÷ÒıºÅµÄ±äÁ¿ÔÚround»òmatchÖ®¼ä½«²»»á¸´Î»(³õÊ¼»¯)µ½0.<br />
-  ;ÓĞ60¸öÕûĞÍ±äÁ¿(Ë÷ÒıºÅ´Ó0µ½59)ºÍ40¸ö¸¡µãĞÍ±äÁ¿(Ë÷ÒıºÅ´Ó0µ½39)¹©Ê¹ÓÃ.<br />
-  ;Èç¹ûÈ±Ê¡,Ä¬ÈÏ·Ö±ğÓĞ60¸öÕûĞÍ±äÁ¿ºÍ40¸ö¸¡µãĞÍ±äÁ¿,ÒâÎ¶×ÅÃ»ÓĞÒ»¸ö±äÁ¿±»persist(Ö¸±£ÁôÉÏÒ»»ØºÏµÄÊı¾İ),¼´ËùÓĞ±äÁ¿¶¼¸´Î».<br />
-  ;Èç¹ûÄãÏëÈÃ±äÁ¿ÔÚ»ØºÏ½áÊøÊ±ÄÜ±£ÁôÉÏÒ»»ØºÏµÄÊı¾İ,ÄãĞèÒª¸²¸Çcommon1.cnsÖĞµÄ[statedef 5900](´Ë×´Ì¬¹ÜÀíÃ¿»ØºÏ½áÊøÊ±µÄ±äÁ¿³õÊ¼»¯). <br />
-</p>
-<p><span class="STYLE2">[Size]</span><br />
-  <span class="STYLE3">xscale</span> = 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Ë®Æ½·½ÏòËõ·ÅÒòÊı<br />
-  <span class="STYLE3">yscale</span> = 1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;  &nbsp;&nbsp;&nbsp;&nbsp; ;´¹Ö±·½ÏòËõ·ÅÒòÊı<br />
-  <span class="STYLE3">ground.back</span> = 15&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Íæ¼ÒÔÚµØÃæÊ±µÄºó·½¿í¶È<br />
-  <span class="STYLE3">ground.front</span> = 16&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Íæ¼ÒÔÚµØÃæÊ±µÄÇ°·½¿í¶È<br />
-  <span class="STYLE3">air.back</span> = 12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Íæ¼ÒÔÚ¿ÕÖĞÊ±µÄºó·½¿í¶È<br />
-  <span class="STYLE3">air.front</span> = 12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Íæ¼ÒÔÚ¿ÕÖĞÊ±µÄÇ°·½¿í¶È<br />
-  <span class="STYLE3">height</span> = 60&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Íæ¼ÒµÄ¸ß¶È (¶ÔÊÖÄÜ·ñÌø¹ıÄãµÄÉíÌå)<br />
-  <span class="STYLE3">attack.dist</span> = 160&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Ä¬ÈÏµÄ¹¥»÷¾àÀë (ÔÚ´Ë¾àÀëÖ®ÄÚ¹¥»÷¶ÔÊÖ,¶ÔÊÖ¿É×÷³ö·ÀÓù¶¯×÷,³¬³öÕâ¸ö¾àÀë¾Í²»ÄÜÁË) <br />
-  <span class="STYLE3">proj.attack.dist</span> = 90&nbsp;&nbsp; ;·ÉĞĞµÀ¾ßµÄÄ¬ÈÏ¹¥»÷¾àÀë<br />
-  <span class="STYLE3">proj.doscale</span> = 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;ÉèÖÃÎª1Ê¹µÃ·ÉĞĞµÀ¾ßÒ²ÊÜxscaleºÍyscaleÓ°Ïì<br />
-  <span class="STYLE3">head.pos</span> = -5, -90&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;½üËÆÍ·²¿Î»ÖÃ<br />
-  <span class="STYLE3">mid.pos</span> = -5, -60&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;½üËÆÖĞ²¿Î»ÖÃ<br />
-  <span class="STYLE3">shadowoffset</span> = 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Ó°×Ó´¹Ö±Æ«ÒÆÁ¿ÏñËØÖµ<br />
-  <span class="STYLE3">draw.offset</span> = 0,0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Íæ¼ÒÏÔÊ¾ÔÚÆÁÄ»ÉÏµÄx,yÆ«ÒÆÁ¿ÏñËØÖµ,½¨Òé0,0.</p>
-<p><span class="STYLE2">[Velocity]</span><br />
-  <span class="STYLE3">walk.fwd</span> = 2.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;ÏòÇ°×ßµÄËÙ¶È<br />
-  <span class="STYLE3">walk.back</span> = -2.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;Ïòºó×ßµÄËÙ¶È<br />
-  <span class="STYLE3">run.fwd</span> = 4.6, 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;ÏòÇ°ÅÜx,y·½ÏòËÙ¶È(y·½Ïò·Ç0±íÊ¾ÌøÔ¾Ç°½ø)<br />
-  <span class="STYLE3">run.back</span> = -4.5,-3.8&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;ÏòºóĞ¡Ìøx,y·½ÏòËÙ¶È<br />
-  <span class="STYLE3">jump.neu</span> = 0,-8.4&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;ÕıÏòÉÏÌøx,y·½ÏòËÙ¶È<br />
-  <span class="STYLE3">jump.back</span> = -2.55&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;ÏòºóÌøx,y·½ÏòËÙ¶È<br />
-  <span class="STYLE3">jump.fwd</span> = 2.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;ÏòÇ°Ìøx,y·½ÏòËÙ¶È<br />
-  <span class="STYLE3">runjump.back</span> = -2.55,-8.1&nbsp;&nbsp; ;ÅÜ¶¯ÖĞÌøÔ¾ (¿ÉÑ¡) <br />
-  <span class="STYLE3">runjump.fwd</span> = 4,-8.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br />
-  <span class="STYLE3">airjump.neu</span> = 0,-8.1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;¿ÕÖĞÌøÔ¾ (¿ÉÑ¡) <br />
-  <span class="STYLE3">airjump.back</span> = -2.55&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br />
-  <span class="STYLE3">airjump.fwd</span> = 2.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;<br />
-  <span class="STYLE3">air.gethit.groundrecover</span> = -.15,-3.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;µØÃæÊÜÉí×´Ì¬µÄx,yËÙ¶È **MUGEN 1.0**<br />
-  <span class="STYLE3">air.gethit.airrecover.mul</span> = .5,.2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;¿ÕÖĞÊÜÉí×´Ì¬x,yËÙ¶ÈµÄ³ËÊı **MUGEN 1.0**<br />
-  <span class="STYLE3">air.gethit.airrecover.add</span> = 0,-4.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;¿ÕÖĞÊÜÉíµÄx,yËÙ¶ÈÆ«ÒÆÁ¿ **MUGEN 1.0**<br />
-  <span class="STYLE3">air.gethit.airrecover.back</span> = -1&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;¿ÕÖĞÊÜÉí°´×¡Ïòºó¼üÊ±¸øÓèx·½Ïò¶îÍâµÄËÙ¶È **MUGEN 1.0**<br />
-  <span class="STYLE3">air.gethit.airrecover.fwd</span> = 0&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;¿ÕÖĞÊÜÉí°´×¡ÏòÇ°¼üÊ±¸øÓèx·½Ïò¶îÍâµÄËÙ¶È **MUGEN 1.0**<br />
-  <span class="STYLE3">air.gethit.airrecover.up</span> = -2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;¿ÕÖĞÊÜÉí°´×¡ÏòÉÏ¼üÊ±¸øÓèy·½Ïò¶îÍâµÄËÙ¶È **MUGEN 1.0**<br />
-  <span class="STYLE3">air.gethit.airrecover.down</span> = 1.5&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ;¿ÕÖĞÊÜÉí°´×¡ÏòÏÂ¼üÊ±¸øÓèy·½Ïò¶îÍâµÄËÙ¶È **MUGEN 1.0**</p>
-<p><span class="STYLE2">[Movement]</span><br />
-  <span class="STYLE3">airjump.num</span> = 1 ;¿ÕÖĞÔÊĞíÌøÔ¾µÄ´ÎÊı(¿ÉÑ¡)<br />
-  <span class="STYLE3">airjump.height</span> = 35 ;¿ÕÖĞÌøÔ¾Ê±Ó¦Âú×ãµÄ×îµÍ¸ß¶È (¿ÉÑ¡)<br />
-  <span class="STYLE3">yaccel</span> = .44 ;´¹Ö±·½Ïò¼ÓËÙ¶È<br />
-  <span class="STYLE3">stand.friction</span> = .85 ;Õ¾Á¢Ê±µÄÄ¦²ÁÏµÊı<br />
-  <span class="STYLE3">crouch.friction</span> = .82 ;¶×ÏÂÊ±µÄÄ¦²ÁÏµÊı<br />
-  <span class="STYLE3">stand.friction.threshold</span> = 2 ;Õ¾Á¢Ê±Èç¹ûÍæ¼ÒµÄËÙ¶È½µµÍµ½µÍÓÚÕâ¸ö½çÏŞ,Ëû»áÍ£Ö¹ÔË¶¯ **MUGEN 1.0**<br />
-  <span class="STYLE3">crouch.friction.threshold</span> = .05 ;¶×ÏÂÊ±Èç¹ûÍæ¼ÒµÄËÙ¶È½µµÍµ½µÍÓÚÕâ¸ö½çÏŞ,Ëû»áÍ£Ö¹ÔË¶¯ **MUGEN 1.0**<br />
-  <span class="STYLE3">air.gethit.groundlevel</span> = 25 ;Ö¸¶¨Ò»¸öY·½ÏòÎ»ÖÃ,µ±ÏÂÂäÖĞµÄÍæ¼ÒµÍÓÚÕâ¸öÎ»ÖÃÊ±±»ÈÏÎªÊÇÂäµØÁË **MUGEN 1.0**<br />
-  <span class="STYLE3">air.gethit.groundrecover.ground.threshold</span> = -20 ;Ö¸¶¨Ò»¸öY·½ÏòÎ»ÖÃ,µ±ÏÂÂäÖĞµÄÍæ¼ÒµÍÓÚÕâ¸öÎ»ÖÃÊ±²ÅÄÜÊ¹ÓÃ(µØÃæ)ÊÜÉíÖ¸Áî **MUGEN 1.0**<br />
-  <span class="STYLE3">air.gethit.groundrecover.groundlevel</span> = 10 ;Ö¸¶¨Ò»¸öY·½ÏòÎ»ÖÃ,Íæ¼Ò½øÈëµØÃæÊÜÉí×´Ì¬µ½´ï´ËÎ»ÖÃ±»ÈÏÎª´¥¼°µØÃæ **MUGEN 1.0**<br />
-  <span class="STYLE3">air.gethit.airrecover.threshold</span> = -1 ;Ö¸¶¨Ò»¸öY·½ÏòÎ»ÖÃ,ÔÚ´ËÎ»ÖÃÖ®ÉÏÍæ¼Ò¿ÉÒÔÊ¹ÓÃ¿ÕÖĞÊÜÉíÖ¸Áî **MUGEN 1.0**<br />
-  <span class="STYLE3">air.gethit.airrecover.yaccel</span> = .35 ;Íæ¼ÒÔÚ¿ÕÖĞÊÜÉí×´Ì¬Ê±µÄ´¹Ö±¼ÓËÙ¶È **MUGEN 1.0**<br />
-  <span class="STYLE3">air.gethit.trip.groundlevel</span> = 15 ;Ö¸¶¨Ò»¸öY·½ÏòÎ»ÖÃ,Íæ¼ÒÔÚ±»°íµ¹×´Ì¬ÖĞµ½´ï´ËÎ»ÖÃ±»ÈÏÎª´¥¼°µØÃæ **MUGEN 1.0**<br />
-  <span class="STYLE3">down.bounce.offset</span> = 0, 20 ;Íæ¼Ò´ÓµØÃæµ¯ÆğµÄx,yÆ«ÒÆÁ¿ **MUGEN 1.0**<br />
-  <span class="STYLE3">down.bounce.yaccel</span> = .4 ;Íæ¼Ò´ÓµØÃæµ¯ÆğµÄ´¹Ö±·½Ïò¼ÓËÙ¶È **MUGEN 1.0**<br />
-  <span class="STYLE3">down.bounce.groundlevel</span> = 12 ;Ö¸¶¨Ò»¸öY·½ÏòÎ»ÖÃ,Íæ¼Ò´ÓµØÃæ·´µ¯ÓÖÂäÏÂ,µ½´ï´ËÎ»ÖÃ±»ÈÏÎª´¥¼°µØÃæ **MUGEN 1.0**<br />
-  <span class="STYLE3">down.friction.threshold</span> = .05 ;µ¹ÏÂÊ±Èç¹ûÍæ¼ÒµÄËÙ¶È½µµÍµ½µÍÓÚÕâ¸ö½çÏŞ,Ëû»áÍ£Ö¹ÔË¶¯ **MUGEN 1.0**</p>
-<p>;Ä¬ÈÏµÄÊ¤ÀûÒıÓïÓïÖÖ (¿ÉÑ¡). **MUGEN 1.0**<br />
-  ;Èç¹û°üº¬ÁË´ËÕÂ½Ú, Ä¬ÈÏµÄÊ¤ÀûÒıÓïÓïÖÖ±ØĞëÊÇÓ¢Óï.<br />
-  <span class="STYLE2">[Quotes]</span><br />
-  ; Ã¿¸öÓïÖÖÄÜÖ¸¶¨100¸öÊ¤ÀûÒıÓï (victory0 - victory99)<br />
-  <span class="STYLE3">victory1 = &quot;You must defeat Tu Shou to stand a chance.&quot;<br />
-  victory2 = &quot;You need a lot of training. Come back in ten years.&quot;<br />
-  victory3 = &quot;You look familiar. Did I see you on TV &quot;<br />
-  victory4 = &quot;Your moves are too predictable. You want to learn Kung Fu Palm  It's not for novices.&quot;<br />
-  victory5 = &quot;That was a good workout.&quot;<br />
-  victory6 = &quot;I want to challenge more skilled fighters.&quot;<br />
-  victory7 = &quot;What do you mean my girlfriend is in another temple &quot;</span></p>
-<p>;Ê¤ÀûÒıÓïÌæ´úÓïÖÖ (¿ÉÑ¡).<br />
-  ;¿ÉÒÔÔö¼ÓÌæ´úÓïÖÖ, Ç°Ãæ¼ÓÉÏISO 639-1 ´úÂëÔÙ¼ÓÉÏ&quot;.&quot;,ÀıÈç&quot;[ja.Quotes]&quot;<br />
-  ;ÏêÇé¼ûmugen.cfgÖĞÓïÑÔÉèÖÃ<br />
-  <span class="STYLE2">[ja.Quotes]</span><br />
-  <span class="STYLE3">victory1 = &quot;¥«¥ó¥Õ©`Í»¤­ÊÖ¤òÆÆ¤é¤ÌÏŞ¤ê¡¢¤ªÇ°¤Ë„Ù¤ÁÄ¿¤Ï¤Ê¤¤£¡&quot;<br />
-  victory2 = &quot;Ê®ÄêÔç¤¤¤ó¤À¤¾&quot;<br />
-  victory3 = &quot;¤ªÇ°¤ÏÒŠÒ™¤¨¤¬¤¢¤ë¤Ê.¥Æ¥ì¥Ó¤Ë¤Ç¤â¡­£¿&quot;<br />
-  victory4 = &quot;¤ªÇ°¤Î„Ó¤­¤ÏÒŠÆÆ¤ê¤ä¤¹¤¹¤®¤ë.¡¡¤Ê¤Ë¡¢¥«¥ó¥Õ©`Í»¤­ÊÖ¤¬Ò™¤¨¤¿¤¤¤ó¤À¤È£¿¡¡ËØÈË¤Ë¤ÏŸoÀí¤À¤¾&quot;<br />
-  victory5 = &quot;¤Õ©`.¡¡¤¤¤¤º¹¤À¤Ã¤¿&quot;<br />
-  victory6 = &quot;¤â¤Ã¤ÈŠ¤¤ÏàÊÖ¤ËÌô‘é¤·¤¿¤¤&quot;<br />
-  victory7 = &quot;¤Ê¤ó¤À¤È£¡±ËÅ®¤Ï¤³¤³¤Ë¤â¤¤¤Ê¤¤¤È£¿&quot;</span></p>
-<p></p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   CNSå˜é‡è®¾ç½®
+  </p>
+  <p>
+   <span class="STYLE2">
+    [Data]
+   </span>
+   <br/>
+   <span class="STYLE3">
+    life
+   </span>
+   = 1000
+   <br/>
+   ;èµ·å§‹çš„ç”Ÿå‘½å€¼
+   <br/>
+  </p>
+  <p>
+   <span class="STYLE3">
+    attack
+   </span>
+   = 100
+   <br/>
+   ;æ”»å‡»åŠ›(æ•°å€¼è¶Šé«˜è¶Šå¼º)
+   <br/>
+  </p>
+  <p>
+   <span class="STYLE3">
+    defence
+   </span>
+   = 100
+   <br/>
+   ;é˜²å¾¡åŠ›(æ•°å€¼è¶Šé«˜è¶Šå¼º)
+   <br/>
+  </p>
+  <p>
+   <span class="STYLE3">
+    fall.defence_up
+   </span>
+   = 50
+   <br/>
+   ;ç©å®¶å€’ä¸‹æ—¶æ¯æ—¶é—´å•ä½å¢åŠ çš„é˜²å¾¡åŠ›ç™¾åˆ†æ¯”
+   <br/>
+  </p>
+  <p>
+   <span class="STYLE3">
+    liedown.time
+   </span>
+   = 60
+   <br/>
+   ;ç©å®¶å€’åœ°èµ·èº«å‰çš„æ—¶é—´(æŒç»­æŒ‰é”®ä¼šåŠ é€Ÿèµ·èº«æ—¶é—´)
+   <br/>
+  </p>
+  <p>
+   <span class="STYLE3">
+    airjuggle = 15
+   </span>
+   <br/>
+   ;é»˜è®¤è¿å‡»ç‚¹æ•°(é€šå¸¸,è¿æ‹›ä¸­æ¯æ‹›çš„è¿å‡»ç‚¹æ•°ä¹‹å’Œè¶…è¿‡è¿™ä¸ªæ•°å­—å°±æ— æ³•ç»§ç»­è¿å‡»)
+   <br/>
+  </p>
+  <p>
+   <span class="STYLE3">
+    sparkno
+   </span>
+   = 2
+   <br/>
+   ;HitDefä¸­é»˜è®¤çš„å‡»ä¸­ç«èŠ±å·
+   <br/>
+  </p>
+  <p>
+   <span class="STYLE3">
+    guard.sparkno
+   </span>
+   = 40
+   <br/>
+   ;é»˜è®¤çš„é˜²å¾¡ç«èŠ±å·
+   <br/>
+   <br/>
+   <span class="STYLE3">
+    KO.echo
+   </span>
+   = 0
+   <br/>
+   ;è®¾ç½®1å®ç°KOæ—¶å›å£°æ•ˆæœ
+   <br/>
+  </p>
+  <p>
+   <span class="STYLE3">
+    volume
+   </span>
+   = 0
+   <br/>
+   ;éŸ³é‡(è´Ÿå€¼å£°éŸ³å˜å°)
+  </p>
+  <p>
+   <span class="STYLE3">
+    IntPersistIndex
+   </span>
+   = 60
+   <br/>
+   <span class="STYLE3">
+    FloatPersistIndex
+   </span>
+   = 40
+   <br/>
+   ;å¤§äºç­‰äºæ­¤ç´¢å¼•å·çš„å˜é‡åœ¨roundæˆ–matchä¹‹é—´å°†ä¸ä¼šå¤ä½(åˆå§‹åŒ–)åˆ°0.
+   <br/>
+   ;æœ‰60ä¸ªæ•´å‹å˜é‡(ç´¢å¼•å·ä»0åˆ°59)å’Œ40ä¸ªæµ®ç‚¹å‹å˜é‡(ç´¢å¼•å·ä»0åˆ°39)ä¾›ä½¿ç”¨.
+   <br/>
+   ;å¦‚æœç¼ºçœ,é»˜è®¤åˆ†åˆ«æœ‰60ä¸ªæ•´å‹å˜é‡å’Œ40ä¸ªæµ®ç‚¹å‹å˜é‡,æ„å‘³ç€æ²¡æœ‰ä¸€ä¸ªå˜é‡è¢«persist(æŒ‡ä¿ç•™ä¸Šä¸€å›åˆçš„æ•°æ®),å³æ‰€æœ‰å˜é‡éƒ½å¤ä½.
+   <br/>
+   ;å¦‚æœä½ æƒ³è®©å˜é‡åœ¨å›åˆç»“æŸæ—¶èƒ½ä¿ç•™ä¸Šä¸€å›åˆçš„æ•°æ®,ä½ éœ€è¦è¦†ç›–common1.cnsä¸­çš„[statedef 5900](æ­¤çŠ¶æ€ç®¡ç†æ¯å›åˆç»“æŸæ—¶çš„å˜é‡åˆå§‹åŒ–).
+   <br/>
+  </p>
+  <p>
+   <span class="STYLE2">
+    [Size]
+   </span>
+   <br/>
+   <span class="STYLE3">
+    xscale
+   </span>
+   = 1Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  ;æ°´å¹³æ–¹å‘ç¼©æ”¾å› æ•°
+   <br/>
+   <span class="STYLE3">
+    yscale
+   </span>
+   = 1Â Â Â Â Â   Â Â   Â Â   Â Â Â Â  ;å‚ç›´æ–¹å‘ç¼©æ”¾å› æ•°
+   <br/>
+   <span class="STYLE3">
+    ground.back
+   </span>
+   = 15Â Â Â Â Â Â Â  ;ç©å®¶åœ¨åœ°é¢æ—¶çš„åæ–¹å®½åº¦
+   <br/>
+   <span class="STYLE3">
+    ground.front
+   </span>
+   = 16Â Â Â Â Â Â  ;ç©å®¶åœ¨åœ°é¢æ—¶çš„å‰æ–¹å®½åº¦
+   <br/>
+   <span class="STYLE3">
+    air.back
+   </span>
+   = 12Â Â Â Â Â Â Â Â Â Â Â Â  ;ç©å®¶åœ¨ç©ºä¸­æ—¶çš„åæ–¹å®½åº¦
+   <br/>
+   <span class="STYLE3">
+    air.front
+   </span>
+   = 12Â Â Â Â Â Â Â Â Â Â Â Â  ;ç©å®¶åœ¨ç©ºä¸­æ—¶çš„å‰æ–¹å®½åº¦
+   <br/>
+   <span class="STYLE3">
+    height
+   </span>
+   = 60Â Â Â Â Â Â Â Â Â Â Â Â Â Â  ;ç©å®¶çš„é«˜åº¦ (å¯¹æ‰‹èƒ½å¦è·³è¿‡ä½ çš„èº«ä½“)
+   <br/>
+   <span class="STYLE3">
+    attack.dist
+   </span>
+   = 160Â Â Â Â Â Â Â  ;é»˜è®¤çš„æ”»å‡»è·ç¦» (åœ¨æ­¤è·ç¦»ä¹‹å†…æ”»å‡»å¯¹æ‰‹,å¯¹æ‰‹å¯ä½œå‡ºé˜²å¾¡åŠ¨ä½œ,è¶…å‡ºè¿™ä¸ªè·ç¦»å°±ä¸èƒ½äº†)
+   <br/>
+   <span class="STYLE3">
+    proj.attack.dist
+   </span>
+   = 90Â Â  ;é£è¡Œé“å…·çš„é»˜è®¤æ”»å‡»è·ç¦»
+   <br/>
+   <span class="STYLE3">
+    proj.doscale
+   </span>
+   = 0Â Â Â Â Â Â Â Â  ;è®¾ç½®ä¸º1ä½¿å¾—é£è¡Œé“å…·ä¹Ÿå—xscaleå’Œyscaleå½±å“
+   <br/>
+   <span class="STYLE3">
+    head.pos
+   </span>
+   = -5, -90Â Â Â Â Â  ;è¿‘ä¼¼å¤´éƒ¨ä½ç½®
+   <br/>
+   <span class="STYLE3">
+    mid.pos
+   </span>
+   = -5, -60Â Â Â Â Â Â  ;è¿‘ä¼¼ä¸­éƒ¨ä½ç½®
+   <br/>
+   <span class="STYLE3">
+    shadowoffset
+   </span>
+   = 0Â Â Â Â Â Â  ;å½±å­å‚ç›´åç§»é‡åƒç´ å€¼
+   <br/>
+   <span class="STYLE3">
+    draw.offset
+   </span>
+   = 0,0Â Â Â Â Â Â Â  ;ç©å®¶æ˜¾ç¤ºåœ¨å±å¹•ä¸Šçš„x,yåç§»é‡åƒç´ å€¼,å»ºè®®0,0.
+  </p>
+  <p>
+   <span class="STYLE2">
+    [Velocity]
+   </span>
+   <br/>
+   <span class="STYLE3">
+    walk.fwd
+   </span>
+   = 2.4Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  ;å‘å‰èµ°çš„é€Ÿåº¦
+   <br/>
+   <span class="STYLE3">
+    walk.back
+   </span>
+   = -2.2Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  ;å‘åèµ°çš„é€Ÿåº¦
+   <br/>
+   <span class="STYLE3">
+    run.fwd
+   </span>
+   = 4.6, 0Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  ;å‘å‰è·‘x,yæ–¹å‘é€Ÿåº¦(yæ–¹å‘é0è¡¨ç¤ºè·³è·ƒå‰è¿›)
+   <br/>
+   <span class="STYLE3">
+    run.back
+   </span>
+   = -4.5,-3.8Â Â Â Â Â Â Â Â Â Â  ;å‘åå°è·³x,yæ–¹å‘é€Ÿåº¦
+   <br/>
+   <span class="STYLE3">
+    jump.neu
+   </span>
+   = 0,-8.4Â Â Â Â Â Â Â Â Â Â Â Â Â  ;æ­£å‘ä¸Šè·³x,yæ–¹å‘é€Ÿåº¦
+   <br/>
+   <span class="STYLE3">
+    jump.back
+   </span>
+   = -2.55Â Â Â Â Â Â Â Â Â Â Â Â Â  ;å‘åè·³x,yæ–¹å‘é€Ÿåº¦
+   <br/>
+   <span class="STYLE3">
+    jump.fwd
+   </span>
+   = 2.5Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  ;å‘å‰è·³x,yæ–¹å‘é€Ÿåº¦
+   <br/>
+   <span class="STYLE3">
+    runjump.back
+   </span>
+   = -2.55,-8.1Â Â  ;è·‘åŠ¨ä¸­è·³è·ƒ (å¯é€‰)
+   <br/>
+   <span class="STYLE3">
+    runjump.fwd
+   </span>
+   = 4,-8.1Â Â Â Â Â Â Â Â Â  ;
+   <br/>
+   <span class="STYLE3">
+    airjump.neu
+   </span>
+   = 0,-8.1Â Â Â Â Â Â Â Â Â  ;ç©ºä¸­è·³è·ƒ (å¯é€‰)
+   <br/>
+   <span class="STYLE3">
+    airjump.back
+   </span>
+   = -2.55Â Â Â Â Â Â Â Â Â  ;
+   <br/>
+   <span class="STYLE3">
+    airjump.fwd
+   </span>
+   = 2.5Â Â Â Â Â Â Â Â Â Â Â Â Â  ;
+   <br/>
+   <span class="STYLE3">
+    air.gethit.groundrecover
+   </span>
+   = -.15,-3.5Â Â Â Â Â Â Â  ;åœ°é¢å—èº«çŠ¶æ€çš„x,yé€Ÿåº¦ **MUGEN 1.0**
+   <br/>
+   <span class="STYLE3">
+    air.gethit.airrecover.mul
+   </span>
+   = .5,.2Â Â Â Â Â Â Â Â Â Â Â Â Â  ;ç©ºä¸­å—èº«çŠ¶æ€x,yé€Ÿåº¦çš„ä¹˜æ•° **MUGEN 1.0**
+   <br/>
+   <span class="STYLE3">
+    air.gethit.airrecover.add
+   </span>
+   = 0,-4.5Â Â Â Â Â Â Â Â Â Â Â  ;ç©ºä¸­å—èº«çš„x,yé€Ÿåº¦åç§»é‡ **MUGEN 1.0**
+   <br/>
+   <span class="STYLE3">
+    air.gethit.airrecover.back
+   </span>
+   = -1Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  ;ç©ºä¸­å—èº«æŒ‰ä½å‘åé”®æ—¶ç»™äºˆxæ–¹å‘é¢å¤–çš„é€Ÿåº¦ **MUGEN 1.0**
+   <br/>
+   <span class="STYLE3">
+    air.gethit.airrecover.fwd
+   </span>
+   = 0Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  ;ç©ºä¸­å—èº«æŒ‰ä½å‘å‰é”®æ—¶ç»™äºˆxæ–¹å‘é¢å¤–çš„é€Ÿåº¦ **MUGEN 1.0**
+   <br/>
+   <span class="STYLE3">
+    air.gethit.airrecover.up
+   </span>
+   = -2Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â Â  ;ç©ºä¸­å—èº«æŒ‰ä½å‘ä¸Šé”®æ—¶ç»™äºˆyæ–¹å‘é¢å¤–çš„é€Ÿåº¦ **MUGEN 1.0**
+   <br/>
+   <span class="STYLE3">
+    air.gethit.airrecover.down
+   </span>
+   = 1.5Â Â Â Â Â Â Â Â Â Â Â Â Â  ;ç©ºä¸­å—èº«æŒ‰ä½å‘ä¸‹é”®æ—¶ç»™äºˆyæ–¹å‘é¢å¤–çš„é€Ÿåº¦ **MUGEN 1.0**
+  </p>
+  <p>
+   <span class="STYLE2">
+    [Movement]
+   </span>
+   <br/>
+   <span class="STYLE3">
+    airjump.num
+   </span>
+   = 1 ;ç©ºä¸­å…è®¸è·³è·ƒçš„æ¬¡æ•°(å¯é€‰)
+   <br/>
+   <span class="STYLE3">
+    airjump.height
+   </span>
+   = 35 ;ç©ºä¸­è·³è·ƒæ—¶åº”æ»¡è¶³çš„æœ€ä½é«˜åº¦ (å¯é€‰)
+   <br/>
+   <span class="STYLE3">
+    yaccel
+   </span>
+   = .44 ;å‚ç›´æ–¹å‘åŠ é€Ÿåº¦
+   <br/>
+   <span class="STYLE3">
+    stand.friction
+   </span>
+   = .85 ;ç«™ç«‹æ—¶çš„æ‘©æ“¦ç³»æ•°
+   <br/>
+   <span class="STYLE3">
+    crouch.friction
+   </span>
+   = .82 ;è¹²ä¸‹æ—¶çš„æ‘©æ“¦ç³»æ•°
+   <br/>
+   <span class="STYLE3">
+    stand.friction.threshold
+   </span>
+   = 2 ;ç«™ç«‹æ—¶å¦‚æœç©å®¶çš„é€Ÿåº¦é™ä½åˆ°ä½äºè¿™ä¸ªç•Œé™,ä»–ä¼šåœæ­¢è¿åŠ¨ **MUGEN 1.0**
+   <br/>
+   <span class="STYLE3">
+    crouch.friction.threshold
+   </span>
+   = .05 ;è¹²ä¸‹æ—¶å¦‚æœç©å®¶çš„é€Ÿåº¦é™ä½åˆ°ä½äºè¿™ä¸ªç•Œé™,ä»–ä¼šåœæ­¢è¿åŠ¨ **MUGEN 1.0**
+   <br/>
+   <span class="STYLE3">
+    air.gethit.groundlevel
+   </span>
+   = 25 ;æŒ‡å®šä¸€ä¸ªYæ–¹å‘ä½ç½®,å½“ä¸‹è½ä¸­çš„ç©å®¶ä½äºè¿™ä¸ªä½ç½®æ—¶è¢«è®¤ä¸ºæ˜¯è½åœ°äº† **MUGEN 1.0**
+   <br/>
+   <span class="STYLE3">
+    air.gethit.groundrecover.ground.threshold
+   </span>
+   = -20 ;æŒ‡å®šä¸€ä¸ªYæ–¹å‘ä½ç½®,å½“ä¸‹è½ä¸­çš„ç©å®¶ä½äºè¿™ä¸ªä½ç½®æ—¶æ‰èƒ½ä½¿ç”¨(åœ°é¢)å—èº«æŒ‡ä»¤ **MUGEN 1.0**
+   <br/>
+   <span class="STYLE3">
+    air.gethit.groundrecover.groundlevel
+   </span>
+   = 10 ;æŒ‡å®šä¸€ä¸ªYæ–¹å‘ä½ç½®,ç©å®¶è¿›å…¥åœ°é¢å—èº«çŠ¶æ€åˆ°è¾¾æ­¤ä½ç½®è¢«è®¤ä¸ºè§¦åŠåœ°é¢ **MUGEN 1.0**
+   <br/>
+   <span class="STYLE3">
+    air.gethit.airrecover.threshold
+   </span>
+   = -1 ;æŒ‡å®šä¸€ä¸ªYæ–¹å‘ä½ç½®,åœ¨æ­¤ä½ç½®ä¹‹ä¸Šç©å®¶å¯ä»¥ä½¿ç”¨ç©ºä¸­å—èº«æŒ‡ä»¤ **MUGEN 1.0**
+   <br/>
+   <span class="STYLE3">
+    air.gethit.airrecover.yaccel
+   </span>
+   = .35 ;ç©å®¶åœ¨ç©ºä¸­å—èº«çŠ¶æ€æ—¶çš„å‚ç›´åŠ é€Ÿåº¦ **MUGEN 1.0**
+   <br/>
+   <span class="STYLE3">
+    air.gethit.trip.groundlevel
+   </span>
+   = 15 ;æŒ‡å®šä¸€ä¸ªYæ–¹å‘ä½ç½®,ç©å®¶åœ¨è¢«ç»Šå€’çŠ¶æ€ä¸­åˆ°è¾¾æ­¤ä½ç½®è¢«è®¤ä¸ºè§¦åŠåœ°é¢ **MUGEN 1.0**
+   <br/>
+   <span class="STYLE3">
+    down.bounce.offset
+   </span>
+   = 0, 20 ;ç©å®¶ä»åœ°é¢å¼¹èµ·çš„x,yåç§»é‡ **MUGEN 1.0**
+   <br/>
+   <span class="STYLE3">
+    down.bounce.yaccel
+   </span>
+   = .4 ;ç©å®¶ä»åœ°é¢å¼¹èµ·çš„å‚ç›´æ–¹å‘åŠ é€Ÿåº¦ **MUGEN 1.0**
+   <br/>
+   <span class="STYLE3">
+    down.bounce.groundlevel
+   </span>
+   = 12 ;æŒ‡å®šä¸€ä¸ªYæ–¹å‘ä½ç½®,ç©å®¶ä»åœ°é¢åå¼¹åˆè½ä¸‹,åˆ°è¾¾æ­¤ä½ç½®è¢«è®¤ä¸ºè§¦åŠåœ°é¢ **MUGEN 1.0**
+   <br/>
+   <span class="STYLE3">
+    down.friction.threshold
+   </span>
+   = .05 ;å€’ä¸‹æ—¶å¦‚æœç©å®¶çš„é€Ÿåº¦é™ä½åˆ°ä½äºè¿™ä¸ªç•Œé™,ä»–ä¼šåœæ­¢è¿åŠ¨ **MUGEN 1.0**
+  </p>
+  <p>
+   ;é»˜è®¤çš„èƒœåˆ©å¼•è¯­è¯­ç§ (å¯é€‰). **MUGEN 1.0**
+   <br/>
+   ;å¦‚æœåŒ…å«äº†æ­¤ç« èŠ‚, é»˜è®¤çš„èƒœåˆ©å¼•è¯­è¯­ç§å¿…é¡»æ˜¯è‹±è¯­.
+   <br/>
+   <span class="STYLE2">
+    [Quotes]
+   </span>
+   <br/>
+   ; æ¯ä¸ªè¯­ç§èƒ½æŒ‡å®š100ä¸ªèƒœåˆ©å¼•è¯­ (victory0 - victory99)
+   <br/>
+   <span class="STYLE3">
+    victory1 = "You must defeat Tu Shou to stand a chance."
+    <br/>
+    victory2 = "You need a lot of training. Come back in ten years."
+    <br/>
+    victory3 = "You look familiar. Did I see you on TV "
+    <br/>
+    victory4 = "Your moves are too predictable. You want to learn Kung Fu Palm  It's not for novices."
+    <br/>
+    victory5 = "That was a good workout."
+    <br/>
+    victory6 = "I want to challenge more skilled fighters."
+    <br/>
+    victory7 = "What do you mean my girlfriend is in another temple "
+   </span>
+  </p>
+  <p>
+   ;èƒœåˆ©å¼•è¯­æ›¿ä»£è¯­ç§ (å¯é€‰).
+   <br/>
+   ;å¯ä»¥å¢åŠ æ›¿ä»£è¯­ç§, å‰é¢åŠ ä¸ŠISO 639-1 ä»£ç å†åŠ ä¸Š".",ä¾‹å¦‚"[ja.Quotes]"
+   <br/>
+   ;è¯¦æƒ…è§mugen.cfgä¸­è¯­è¨€è®¾ç½®
+   <br/>
+   <span class="STYLE2">
+    [ja.Quotes]
+   </span>
+   <br/>
+   <span class="STYLE3">
+    victory1 = "ã‚«ãƒ³ãƒ•`çªãæ‰‹ã‚’ç ´ã‚‰ã¬é™ã‚Šã€ãŠå‰ã«ä¼½èŠéƒ¡æ‚‰èƒœãƒ"
+    <br/>
+    victory2 = "åå¹´æ—©ã„ã‚“ã ã"
+    <br/>
+    victory3 = "ãŠå‰ã¯ãˆãŒã‚ã‚‹ãª.ãƒ†ãƒ¬ãƒ“ã«ã§ã‚‚â€¦ï¼Ÿ"
+    <br/>
+    victory4 = "ãŠå‰ã®å©´ã¯ç ´ã‚Šã‚„ã™ã™ãã‚‹.ã€€ãªã«ã€ã‚«ãƒ³ãƒ•`çªãæ‰‹ãŒãˆãŸã„ã‚“ã ã¨ï¼Ÿã€€ç´ äººã«ã¯oç†ã ã"
+    <br/>
+    victory5 = "ãµ`.ã€€ã„ã„æ±—ã ã£ãŸ"
+    <br/>
+    victory6 = "ã‚‚ã£ã¨ã„ç›¸æ‰‹ã«æŒ‘æ¤ç­éƒ¡"
+    <br/>
+    victory7 = "ãªã‚“ã ã¨ï¼å½¼å¥³ã¯ã“ã“ã«ã‚‚ã„ãªã„ã¨ï¼Ÿ"
+   </span>
+  </p>
+  <p>
+  </p>
+ </body>
 </html>

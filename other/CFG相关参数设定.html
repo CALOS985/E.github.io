@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>CFG相关参数设定</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   CFG相关参数设定
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,425 +23,939 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">CFG相关参数设定</p>
-<p>;-=====================================================-<br />
-  ; Configuration file for mugen.exe<br />
-  ;-=====================================================-</p>
-<p>;-------------------------------------------------------<br />
-  ; 游戏选项配置,就是MUGEN中option画面设置的参数.<br />
-  ; 不包含设置键位 <br />
-  <span class="STYLE2">[Options]</span><br />
-  ; 基本设置<br />
-  Difficulty = 8 ;难度 <br />
-  Life = 300     ;生命值 <br />
-  Time = -1      ;每回合时间,-1就是无限 <br />
-  GameSpeed = 0  ;速度</p>
-<p>; 组队模式仅有的配置<br />
-  Team.1VS2Life = 150 ;1v2的时候血量 <br />
-  Team.LoseOnKO = 1   ;team模式里你挂掉了是不是AI继续打</p>
-<p>; 设置应用的画面包<br />
-  ; options画面中不能设置这个<br />
-  motif = data/mugen1/system.def ;这里就是默认画面包的位置</p>
-<p>;-------------------------------------------------------<br />
-  <span class="STYLE2">[Rules]</span><br />
-  ;设置VS不要改.目前只支持这个.<br />
-  GameType = VS</p>
-<p>;这是当成功击中对手时获得的能量.是实际伤害值的系数.<br />
-  ;例如,设置为3,一次造成10点伤害的攻击将获得30点能量.<br />
-Default.Attack.LifeToPowerMul = .7</p>
-<p>;和上面的一样,只是这个是受击状态中的.<br />
-  ;这两个系数能被CNS中HitDef控制器&quot;getpower&quot;和&quot;givepower&quot;选项覆盖.<br />
-  Default.GetHit.LifeToPowerMul = .6</p>
-<p>;这参数控制当你连接一个超级攻击时此超级攻击的伤害.<br />
-  ;它实际上是对手防御力的一个乘数.<br />
-  ;一个较大的数值表示会对对手造成少的伤害值.<br />
-  ;如果你想超级攻击在连招的时候体现出平时的伤害值,设置此参数为1.<br />
-  ;注意1:增加防御力的效果将保持到对手倒下后从地面起身.<br />
-  ;注意2:当&quot;superpause&quot;控制器执行时,程序便知道你要进行超级攻击.此参数有效的就是从这个时机开始.<br />
-  Super.TargetDefenceMul = 1.5<br />
-  ;-------------------------------------------------------<br />
-  <span class="STYLE2">[Config]</span><br />
-  ;设置游戏的速度.默认是每秒60帧.数字越大,运行的越快.不要用10以下的数字.<br />
-  GameSpeed = 60</p>
-<p>;本地游戏的宽度和高度.<br />
-  ;推荐设置是:<br />
-  ; 640x480 标清 4:3<br />
-  ; 1280x720 高清 16:9<br />
-  ; 1920x1080 全高清 16:9<br />
-  GameWidth = 640<br />
-  GameHeight = 480</p>
-<p>;首选语言 (ISO 639-1标准), 例如 en, es, ja, 等等.<br />
-  ;详见 http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes<br />
-  ;空着将自动检测系统语言<br />
-  Language = &quot;en&quot;</p>
-<p>;设置1绘制阴影(默认).设置0(不绘制阴影)如果你的机器比较烂,想加快游戏速度.<br />
-  DrawShadows = 1</p>
-<p>;允许同时存在的残影数量.<br />
-  ;数值设的小可以减少内存使用.(默认1)<br />
-  AfterImageMax = 16</p>
-<p>;能绘制的最大图层图片数.<br />
-  ;数值设的小可以减少内存使用.(最小32)<br />
-  LayeredSpriteMax = 256</p>
-<p>;图片压缩缓存大小(KB).当许多图片或大型图片(或两种情况都有)在短时间内一起显示出来 造成运行速度减慢,增加这个数值也许可以解决这个问题. <br />
-  ;可接受的性能最小值为256.如果你设置的太大,也许同样会造成性能下降.<br />
-  SpriteDecompressionBufferSize = 16384</p>
-<p>;总共允许的explod最大数量.注意打击火花也算在explod内.<br />
-  ;数值设的小可以减少内存使用.(最小8)<br />
-  ExplodMax = 256</p>
-<p>;系统explod允许的最大数量.<br />
-  ;数值设的小可以减少内存使用.(最小8)<br />
-  SysExplodMax = 128</p>
-<p>;总共允许的helper最大数量.<br />
-  ;数值设的小可以减少内存使用.(最小4,最大56)<br />
-  HelperMax = 56</p>
-<p>;每个人允许的飞行道具最大数量.<br />
-  ;数值设的小可以减少内存使用.(最小5)<br />
-  PlayerProjectileMax = 32</p>
-<p>;1表示第一次运行这个MUGEN程序<br />
-  FirstRun = 0<br />
-  ;-------------------------------------------------------<br />
-  <span class="STYLE2">[Debug]</span><br />
-  ;debug开关<br />
-  Debug = 1</p>
-<p>;设置0禁止通过Ctrl-D的方式转换debug模式.<br />
-  ;如果Debug = 1,此参数将被忽略.<br />
-  AllowDebugMode = 1</p>
-<p>;设置1随时可以使用debug键.否则debug键只能debug模式里使用.<br />
-  AllowDebugKeys = 1</p>
-<p>;设置1以最大速度运行.<br />
-  Speedup = 0</p>
-<p>;快速对决时默认的初始舞台.<br />
-  StartStage = stages/stage0-720.def</p>
-<p>;设置1影藏开始时的开发标语.(就是标题画面时的顶层绿色条)<br />
-HideDevelopmentBuildBanner = 0<br />
-<br />
-  ;-------------------------------------------------------<br />
-  <span class="STYLE2">[Video]</span><br />
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   CFG相关参数设定
   </p>
-<p> ;屏幕渲染模式.<br />
-;OpenGL - 实验性的OPENGL渲染 (推荐)<br />
-;System - 默认SDL渲染模式 (即Windows中的winbid)<br />
-;DirectX - DirectX 5渲染<br />
-;System和DirectX模式不支持高级功能(如RGB图像和改变窗口大小).<br />
-RenderMode = System</p>
-<p> ;设置1允许使用安全模式,主要针对老显卡.<br />
-  ;许多功能都不能使用.<br />
-SafeMode = 0</p>
-<p>;图像分辨率默认和游戏分辨率一样.<br />
-  ;窗口模式下,这参数指定窗口大小<br />
-  ;你能强制转换分辨率(去掉下面的注释).<br />
-  ;Width = 1280<br />
-;Height = 720</p>
-<p>;MUGEN运行时的色深.<br />
-  ;RenderMode=System时此参数忽略.(强制为16)<br />
-  Depth = 32</p>
-<p>;设置1开启垂直同步扫描.RenderMode=OpenGL时才支持.<br />
-  VRetrace = 0</p>
-<p>;设置1进入全屏模式,0是窗口模式.<br />
-  ;允许专用全屏模式,可能比窗口模式表现更佳.<br />
-  FullScreen = 0</p>
-<p> ;设置为1允许在窗口模式中调整窗口大小.<br />
-  ;仅当RenderMode=OpenGL和OpenGLScreen(貌似是1.0版本的参数)时有效.<br />
-Resizable = 1</p>
-<p> ;设置为1表示强制宽高比<br />
-KeepAspect = 1</p>
-<p>;绘图模式<br />
-  ;Normal(快速)和PageFlip (测试较少的图像)<br />
-  ;RenderMode=OpenGL时此值忽略<br />
-  BlitMode = Normal<br />
-</p>
-<p>;舞台适应模式<br />
-;0 - 舞台按照屏幕宽度绘制(可能会把高度裁切掉)<br />
-;1 - 根据屏幕尺寸收缩适应<br />
-;RenderMode=System时忽略此参数(强制为0)<br />
-StageFit = 1</p>
-<p>;系统适应模式<br />
-  ;0 - 
-系统按照屏幕宽度绘制(可能会把高度裁切掉)<br />
-;1 - 根据屏幕尺寸收缩适应<br />
-;RenderMode=System时忽略此参数(强制为0)<br />
-  SystemFit = 1<br />
-</p>
-<p>;-------------------------------------------------------<br />
-  ; 声音配置<br />
-  <span class="STYLE2">[Sound]</span><br />
-  ;是否启用声音.<br />
-  Sound = 1</p>
-<p>;设置游戏音频采样率.高频率产生高质量但需要更多系统资源.<br />
-  ;如果你声音设备有问题就设置的低一点.<br />
-  ;建议的几个声频 22050, 44100, 48000.<br />
-  SampleRate = 44100</p>
-<p>;设置音频缓存大小.缓存越大占用CPU越少但在播放声音时会引起很多潜在问题.<br />
-  ;缓存越小能减少潜在问题但是会占用更多CPU.<br />
-  ;同时,如果缓存空间小于你系统能处理的,你可能出现音频问题.<br />
-  ;<br />
-  ;缓存大小设置为2^n,n是你要指定的值.n的有效值是8-15.<br />
-  ;<br />
-  ;一个有效的经验方法是22050Hz设置10,或者44100 Hz和48000 Hz时设置11.<br />
-  ;机器越烂可能需要的缓存空间越大. <br />
-  BufferSize = 11</p>
-<p>;设置1实现游戏中stereo声效.0禁用.<br />
-  StereoEffects = 1</p>
-<p>;这是音源平移的宽度.如果你增加这个数值,stereo效果将听起来更靠近中心.<br />
-  ;设置的越小使立体声效果越分离.<br />
-  ;仅当StereoEffects为1时有效.<br />
-  PanningWidth = 240</p>
-<p>;设置1将使你声卡中左右声道互换.<br />
-  ReverseStereo = 0</p>
-<p>;声道数量.<br />
-  WavChannels = 32</p>
-<p>;所有声音的主要音量,用百分比表示(0-100)<br />
-  MasterVolume = 100</p>
-<p>;声音效果和说话声的音量,用百分比表示(0-100)<br />
-  WavVolume = 80</p>
-<p>;音乐的主要音量控制(0-100)<br />
-  BGMVolume = 75</p>
-<p>;声音效果转换率方法.<br />
-  ;从下面选择:<br />
-  ; *) SDL (无差值,低质量,耗资源低) <br />
-  ; *) libresample (有限差值, 中高质量, 耗资源高)<br />
-  SFXResampleMethod = libresample</p>
-<p>;重采样的质量,如果使用libresample.<br />
-  ;有效值是0(中等质量)或1(高质量).<br />
-  SFXResampleQuality = 0</p>
-<p>;BGM重采样的质量,如果使用libresample.<br />
-  ;有效值是0(中等质量)或1(高质量).<br />
-  BGMResampleQuality = 0<br />
+  <p>
+   ;-=====================================================-
+   <br/>
+   ; Configuration file for mugen.exe
+   <br/>
+   ;-=====================================================-
   </p>
-<p><span class="STYLE2">[Music]</span><br />
-  ;这里是配置音乐插件和任何的可选参数.格式在下面:<br />
-  ; plugin = &lt;pluginname&gt; [, &lt;pluginfile1&gt;]<br />
-  ; &lt;optional_param_1&gt; = &lt;value&gt;<br />
-  ; &lt;optional_param_2&gt; = &lt;value&gt;<br />
-  ; plugin = &lt;pluginname2&gt; [, &lt;pluginfile2&gt;]<br />
-  ; ...<br />
-  ;有效参数取决于插件.每个BGM文件将被列表中确认的顶部插件播放.<br />
-  ;对于系统插件,&lt;pluginfile&gt;参数没用.</p>
-<p>;系统插件(内置):mpg123<br />
-  ;只用来播放MP3.采样方面提供循环点(AB之间循环播放).<br />
-  ;可选参数:<br />
-  ; decoder = &lt;decodername&gt;<br />
-  ;要求使用特别的mpg123代码引擎(要求不一定能兑现,取决于文件).<br />
-  ;这里应该缺省除非你知道自己在做什么.有效值为:<br />
-  ;SSE, 3DNowExt, 3DNow, MMX, i586, i586_dither, i386, generic, generic_dither. <br />
-  ; rva = &lt;mode&gt;<br />
-  ;指定ReplayGain调整音量.有效值为:<br />
-  ; off (default; disables ReplayGain)<br />
-  ; track <br />
-  ; album<br />
-  ; volume = &lt;vol&gt;<br />
-  ;全局音量调节,百分比.这是一个线性缩放系数,此系数乘以输出的振幅.<br />
-  ;不要指定超过100的值除非你知道自己在做什么.<br />
-  ; extensions = &lt;extensionlist&gt;<br />
-  ;指定被识别为MP3的文件扩展名.这是用逗号分隔的列表,且没有空白.例如:<br />
-  ; extensions = mp3,mpeg3,mpe<br />
-  ;将用此插件为.mp3, .mpeg3, .mpe文件注册扩展名.缺省默认是&quot;mp3&quot;.<br />
-  plugin = mpg123<br />
-  rva = track<br />
-  extensions =<br />
-  volume = 100.0</p>
-<p>;Plugin (add-on): vorbisplug  (Ogg插件参数)不翻译了... <br />
-  ;Plays Ogg Vorbis files using the libvorbisfile library. Supports loop<br />
-  ; points and ReplayGain volume adjustment. Does not support files with<br />
-  ; more than 2 audio channels.<br />
-  ;Optional parameters:<br />
-  ; rva = &lt;mode&gt;<br />
-  ; Specifies ReplayGain volume adjustment. Valid values are:<br />
-  ; off (default; disables ReplayGain)<br />
-  ; track <br />
-  ; album<br />
-  ; volume = &lt;vol&gt;<br />
-  ; Overall volume adjustment, in percent. This is a linear scale factor <br />
-  ; that multiplies the output amplitude. Do not specify a value over <br />
-  ; 100.0 unless you know what you are doing.<br />
-  ; extensions = &lt;extensionlist&gt;<br />
-  ; Specifies file extensions to recognize as MP3. This is a comma-<br />
-  ; separated list with no whitespace. For instance,<br />
-  ; extensions = ogg,vorbis,vorb<br />
-  ; would register the .ogg, .vorbis, and .vorb file extensions with this<br />
-  ; plugin. Defaults to &quot;ogg,vorbis&quot; if omitted.<br />
-  plugin = vorbisplug, plugins/vorbisplug.dll<br />
-  rva = track<br />
-  extensions = <br />
-  volume = 100.0</p>
-<p>;System plugin (built-in): sdlmix  (midi序列插件) <br />
-  ;Plays MIDI with native playback; MODs and other tracker files <br />
-  ; (with MikMod)<br />
-  ;<br />
-  ;Looppoints are not supported. Performs seamless end-to-beginning loops.<br />
-  ;<br />
-  ;Optional parameters:<br />
-  ; midivolume = &lt;volume&gt;<br />
-  ; Specifies volume scaling for MIDI in percent. <br />
-  ; 100 means no change (default).<br />
-  ; modvolume = &lt;volume&gt; <br />
-  ; Same as midivolume, but for MODs and other tracker files.<br />
-  plugin = sdlmix<br />
-  midivolume =<br />
-  modvolume =</p>
-<p>;-------------------------------------------------------<br />
-  <span class="STYLE2">[Misc]</span><br />
-  ;内存中存储的额外玩家数量<br />
-  ;数量设置的小可以减少内存使用,但会使loading变的更频繁.<br />
-  PlayerCache = 4</p>
-<p>;设置1允许预缓存.预缓存尽可能早的尝试loading玩家资料,减少比赛之间的loading次数.<br />
-  ;要让程序完美运行,至少设置PlayerCache为1.<br />
-  ;当预缓存开启时PlayerCache最佳数字是4.DOS中不提供预缓存.<br />
-  Precache = 1</p>
-<p>;设置1开启图片和声音数据的大型缓存区.<br />
-  ;设置为0(关闭)减少内存使用,代价是loading变慢.<br />
-  BufferedRead = 1</p>
-<p>;设置1尽可能释放内存中system.def数据.<br />
-  ;减少内存使用,换取系统画面前的loading时间.<br />
-  UnloadSystem = 0</p>
-<p> ;设置1当窗口不在当前时停止mugen运行.<br />
-PauseOnDefocus = 0</p>
-<p>;窗口在背景中时声音效果和说话声处理配置.<br />
-  ;设置&quot;Mute&quot;关闭声效,&quot;Play&quot;播放声效.<br />
-  SFXBackgroundMode = Play</p>
-<p>;窗口在背景中时BGM处理配置.<br />
-  ;设置&quot;Pause&quot;停止音乐,&quot;Mute&quot;关闭音乐但是音乐其实还是在播放的(类似音量为0),&quot;Play&quot;和平常一样播放.<br />
-  ;如果在全屏模式下运行,则此选项总是设置为&quot;Pause&quot;.<br />
-  BGMBackgroundMode = Play</p>
-<p>;设置非0值强制舞台背景使用指定的缩放系数.<br /> 
-  ;此选项对某些舞台(设置了背景的zoomin或zoomout参数,而没有使用默认值1)无效.<br />
-;此调试参数可能在将来的版本中移除.<br />
-;ForceStageZoomout = .75</p>
-<p>;-------------------------------------------------------<br />
-  <span class="STYLE2">[Arcade]</span><br />
-  ;设置0,电脑选人只用1号色表.<br />
-  ;设置1,电脑选人用随机色表.<br />
-  AI.RandomColor = 1</p>
-<p>;允许电脑不通过按键的方式输入指令.1开启,0关闭.<br />
-  AI.Cheat = 1</p>
-<p>;AI难度阶梯<br />
-  ;下面的2个参数,第一个数字对应获胜场次号,第2个是电脑难度偏移量.(也就是越往后打难度越高这种设置)<br />
-  ;实际难度是AI难度级别(options菜单中设置)与特定场次偏移量之和.<br />
-  ; AIramp.start = start_match, start_diff<br />
-  ; AIramp.end = end_match, end_diff<br />
-  ; e_d /----------<br />
-  ; /<br />
-  ; s_d _______/<br />
-  ; ^ ^ ^ ^<br />
-  ; 1st_m s_m e_m last_m<br />
-  ;例如,如果:<br />
-  ; AIramp.start = 2,0<br />
-  ; AIramp.end = 4,2<br />
-  ;难度4,打6局, 难度将是:<br />
-  ; 4,4,4,5,6,6<br />
-  ;第2局以前的难度是不变的,到了2以后就按0-2的线性比例增加,直到第4局的时候难度变为6.<br />
-  arcade.AIramp.start = 2, 0<br />
-  arcade.AIramp.end = 4, 2</p>
-<p>;组队模式<br />
-  team.AIramp.start = 1, 0<br />
-  team.AIramp.end = 3, 2</p>
-<p>;生存模式<br />
-  survival.AIramp.start = 0, -3<br />
-  survival.AIramp.end = 16, 4<br />
-  ;-------------------------------------------------------<br />
-  <span class="STYLE2">[Input]</span><br />
-  ;是否允许键盘使用<br />
-  P1.UseKeyboard = 1<br />
-  P2.UseKeyboard = 1<br />
-  ;是否允许手柄使用<br />
-  ;0 - 关闭<br />
-  ;1 - 开启<br />
-  P1.Joystick.type = 1<br />
-  P2.Joystick.type = 1</p>
-<p> ;指令输入方向模式<br />
-;0 - 指令输入和玩家方向相同<br />
-;1 - 指令输入朝向最近的对手(处于实验性阶段,不要使用)<br />
-  InputDirMode = 0<br />
-</p>
-<p>;0 - 只有pause键能解除暂停<br />
-  ;1 - 如果没有菜单,任何键都能解除暂停<br />
-AnyKeyUnpauses = 0</p>
-<p>;-------------------------------------------------------<br />
-  ;具体键盘值查看相应教程.<br />
-  ; P1 键位设定 (M.U.G.E.N中配置)<br />
-  <span class="STYLE2">[P1 Keys]</span><br />
-  Jump = 119<br />
-  Crouch = 115<br />
-  Left = 97<br />
-  Right = 100<br />
-  A = 107<br />
-  B = 59<br />
-  C = 44<br />
-  X = 106<br />
-  Y = 108<br />
-  Z = 109<br />
-  Start = 49</p>
-<p>; P2 键位设定 (M.U.G.E.N中配置)<br />
-  <span class="STYLE2">[P2 Keys]</span><br />
-  Jump = 273<br />
-  Crouch = 274<br />
-  Left = 276<br />
-  Right = 275<br />
-  A = 260<br />
-  B = 261<br />
-  C = 262<br />
-  X = 257<br />
-  Y = 258<br />
-  Z = 259<br />
-  Start = 50</p>
-<p><span class="STYLE2">[P1 Joystick]</span><br />
-  Jump = 1<br />
-  Crouch = 2<br />
-  Left = 3<br />
-  Right = 4<br />
-  A = 13<br />
-  B = 14<br />
-  C = 20<br />
-  X = 15<br />
-  Y = 16<br />
-  Z = 18<br />
-Start = 24</p>
-<p><span class="STYLE2">[P2 Joystick]</span><br />
-  Jump = 33<br />
-  Crouch = 34<br />
-  Left = 35<br />
-  Right = 36<br />
-  A = 41<br />
-  B = 42<br />
-  C = 48<br />
-  X = 43<br />
-  Y = 44<br />
-  Z = 46<br />
-Start = 50</p>
-<p>;-------------------------------------------------------<br />
-  <span class="STYLE2">[Console Init]</span>;控制台指令,也指明了快捷键的含义<br />
-  ; ~ Alt<br />
-  ; $ Shift<br />
-  ; ^ Control<br />
-  keybind[&quot;^tilde&quot;] = &quot;toggleconsole()&quot;<br />
-  keybind[&quot;space&quot;] = &quot;mugen.lifereset()&quot;<br />
-  keybind[&quot;F1&quot;] = &quot;mugen.killteam(2)&quot;<br />
-  keybind[&quot;^F1&quot;] = &quot;mugen.killteam(1)&quot;<br />
-  keybind[&quot;F2&quot;] = &quot;mugen.almostkillteam()&quot;<br />
-  keybind[&quot;$F2&quot;] = &quot;mugen.almostkillteam(1)&quot;<br />
-  keybind[&quot;^F2&quot;] = &quot;mugen.almostkillteam(2)&quot;<br />
-  keybind[&quot;F3&quot;] = &quot;mugen.maxteampower()&quot;<br />
-  keybind[&quot;$^F3&quot;] = &quot;mugen.togglemaxpowermode()&quot;<br />
-  keybind[&quot;F4&quot;] = &quot;mugen.roundreset()&quot;<br />
-  keybind[&quot;$F4&quot;] = &quot;mugen.matchreload()&quot;<br />
-  keybind[&quot;F5&quot;] = &quot;mugen.setroundtimeleft(1)&quot;<br />
-  keybind[&quot;F8&quot;] = &quot;mugen.clearclipboards()&quot;<br />
-  keybind[&quot;^1&quot;] = &quot;mugen.toggleplayerai(1)&quot;<br />
-  keybind[&quot;^2&quot;] = &quot;mugen.toggleplayerai(2)&quot;<br />
-  keybind[&quot;^3&quot;] = &quot;mugen.toggleplayerai(3)&quot;<br />
-  keybind[&quot;^4&quot;] = &quot;mugen.toggleplayerai(4)&quot;<br />
-  keybind[&quot;^L&quot;] = &quot;mugen.togglebardisplay()&quot;<br />
-  keybind[&quot;^C&quot;] = &quot;mugen.toggleclsndisplay()&quot;<br />
-  keybind[&quot;^I&quot;] = &quot;mugen.forceplayersintostand()&quot;<br />
-  keybind[&quot;^~1&quot;] = &quot;player.enableset(1, not player.enabled(1))&quot; ;-- Hack: use at your own risk<br />
-  keybind[&quot;^~2&quot;] = &quot;player.enableset(2, not player.enabled(2))&quot; ;-- Hack: use at your own risk<br />
-  keybind[&quot;^~3&quot;] = &quot;player.enableset(3, not player.enabled(3))&quot; ;-- Hack: use at your own risk<br />
-  keybind[&quot;^~4&quot;] = &quot;player.enableset(4, not player.enabled(4))&quot; ;-- Hack: use at your own risk<br />
-  keybind[&quot;^T&quot;] = &quot;mugen.toggletrainingmode()&quot; ;-- Hack: use at your own risk<br />
-  ; Test stuff<br />
-keybind[&quot;1&quot;] = &quot;dofile 'test.lua'&quot;</p>
-</body>
+  <p>
+   ;-------------------------------------------------------
+   <br/>
+   ; 游戏选项配置,就是MUGEN中option画面设置的参数.
+   <br/>
+   ; 不包含设置键位
+   <br/>
+   <span class="STYLE2">
+    [Options]
+   </span>
+   <br/>
+   ; 基本设置
+   <br/>
+   Difficulty = 8 ;难度
+   <br/>
+   Life = 300     ;生命值
+   <br/>
+   Time = -1      ;每回合时间,-1就是无限
+   <br/>
+   GameSpeed = 0  ;速度
+  </p>
+  <p>
+   ; 组队模式仅有的配置
+   <br/>
+   Team.1VS2Life = 150 ;1v2的时候血量
+   <br/>
+   Team.LoseOnKO = 1   ;team模式里你挂掉了是不是AI继续打
+  </p>
+  <p>
+   ; 设置应用的画面包
+   <br/>
+   ; options画面中不能设置这个
+   <br/>
+   motif = data/mugen1/system.def ;这里就是默认画面包的位置
+  </p>
+  <p>
+   ;-------------------------------------------------------
+   <br/>
+   <span class="STYLE2">
+    [Rules]
+   </span>
+   <br/>
+   ;设置VS不要改.目前只支持这个.
+   <br/>
+   GameType = VS
+  </p>
+  <p>
+   ;这是当成功击中对手时获得的能量.是实际伤害值的系数.
+   <br/>
+   ;例如,设置为3,一次造成10点伤害的攻击将获得30点能量.
+   <br/>
+   Default.Attack.LifeToPowerMul = .7
+  </p>
+  <p>
+   ;和上面的一样,只是这个是受击状态中的.
+   <br/>
+   ;这两个系数能被CNS中HitDef控制器"getpower"和"givepower"选项覆盖.
+   <br/>
+   Default.GetHit.LifeToPowerMul = .6
+  </p>
+  <p>
+   ;这参数控制当你连接一个超级攻击时此超级攻击的伤害.
+   <br/>
+   ;它实际上是对手防御力的一个乘数.
+   <br/>
+   ;一个较大的数值表示会对对手造成少的伤害值.
+   <br/>
+   ;如果你想超级攻击在连招的时候体现出平时的伤害值,设置此参数为1.
+   <br/>
+   ;注意1:增加防御力的效果将保持到对手倒下后从地面起身.
+   <br/>
+   ;注意2:当"superpause"控制器执行时,程序便知道你要进行超级攻击.此参数有效的就是从这个时机开始.
+   <br/>
+   Super.TargetDefenceMul = 1.5
+   <br/>
+   ;-------------------------------------------------------
+   <br/>
+   <span class="STYLE2">
+    [Config]
+   </span>
+   <br/>
+   ;设置游戏的速度.默认是每秒60帧.数字越大,运行的越快.不要用10以下的数字.
+   <br/>
+   GameSpeed = 60
+  </p>
+  <p>
+   ;本地游戏的宽度和高度.
+   <br/>
+   ;推荐设置是:
+   <br/>
+   ; 640x480 标清 4:3
+   <br/>
+   ; 1280x720 高清 16:9
+   <br/>
+   ; 1920x1080 全高清 16:9
+   <br/>
+   GameWidth = 640
+   <br/>
+   GameHeight = 480
+  </p>
+  <p>
+   ;首选语言 (ISO 639-1标准), 例如 en, es, ja, 等等.
+   <br/>
+   ;详见 http://en.wikipedia.org/wiki/List_of_ISO_639-1_codes
+   <br/>
+   ;空着将自动检测系统语言
+   <br/>
+   Language = "en"
+  </p>
+  <p>
+   ;设置1绘制阴影(默认).设置0(不绘制阴影)如果你的机器比较烂,想加快游戏速度.
+   <br/>
+   DrawShadows = 1
+  </p>
+  <p>
+   ;允许同时存在的残影数量.
+   <br/>
+   ;数值设的小可以减少内存使用.(默认1)
+   <br/>
+   AfterImageMax = 16
+  </p>
+  <p>
+   ;能绘制的最大图层图片数.
+   <br/>
+   ;数值设的小可以减少内存使用.(最小32)
+   <br/>
+   LayeredSpriteMax = 256
+  </p>
+  <p>
+   ;图片压缩缓存大小(KB).当许多图片或大型图片(或两种情况都有)在短时间内一起显示出来 造成运行速度减慢,增加这个数值也许可以解决这个问题.
+   <br/>
+   ;可接受的性能最小值为256.如果你设置的太大,也许同样会造成性能下降.
+   <br/>
+   SpriteDecompressionBufferSize = 16384
+  </p>
+  <p>
+   ;总共允许的explod最大数量.注意打击火花也算在explod内.
+   <br/>
+   ;数值设的小可以减少内存使用.(最小8)
+   <br/>
+   ExplodMax = 256
+  </p>
+  <p>
+   ;系统explod允许的最大数量.
+   <br/>
+   ;数值设的小可以减少内存使用.(最小8)
+   <br/>
+   SysExplodMax = 128
+  </p>
+  <p>
+   ;总共允许的helper最大数量.
+   <br/>
+   ;数值设的小可以减少内存使用.(最小4,最大56)
+   <br/>
+   HelperMax = 56
+  </p>
+  <p>
+   ;每个人允许的飞行道具最大数量.
+   <br/>
+   ;数值设的小可以减少内存使用.(最小5)
+   <br/>
+   PlayerProjectileMax = 32
+  </p>
+  <p>
+   ;1表示第一次运行这个MUGEN程序
+   <br/>
+   FirstRun = 0
+   <br/>
+   ;-------------------------------------------------------
+   <br/>
+   <span class="STYLE2">
+    [Debug]
+   </span>
+   <br/>
+   ;debug开关
+   <br/>
+   Debug = 1
+  </p>
+  <p>
+   ;设置0禁止通过Ctrl-D的方式转换debug模式.
+   <br/>
+   ;如果Debug = 1,此参数将被忽略.
+   <br/>
+   AllowDebugMode = 1
+  </p>
+  <p>
+   ;设置1随时可以使用debug键.否则debug键只能debug模式里使用.
+   <br/>
+   AllowDebugKeys = 1
+  </p>
+  <p>
+   ;设置1以最大速度运行.
+   <br/>
+   Speedup = 0
+  </p>
+  <p>
+   ;快速对决时默认的初始舞台.
+   <br/>
+   StartStage = stages/stage0-720.def
+  </p>
+  <p>
+   ;设置1影藏开始时的开发标语.(就是标题画面时的顶层绿色条)
+   <br/>
+   HideDevelopmentBuildBanner = 0
+   <br/>
+   <br/>
+   ;-------------------------------------------------------
+   <br/>
+   <span class="STYLE2">
+    [Video]
+   </span>
+   <br/>
+  </p>
+  <p>
+   ;屏幕渲染模式.
+   <br/>
+   ;OpenGL - 实验性的OPENGL渲染 (推荐)
+   <br/>
+   ;System - 默认SDL渲染模式 (即Windows中的winbid)
+   <br/>
+   ;DirectX - DirectX 5渲染
+   <br/>
+   ;System和DirectX模式不支持高级功能(如RGB图像和改变窗口大小).
+   <br/>
+   RenderMode = System
+  </p>
+  <p>
+   ;设置1允许使用安全模式,主要针对老显卡.
+   <br/>
+   ;许多功能都不能使用.
+   <br/>
+   SafeMode = 0
+  </p>
+  <p>
+   ;图像分辨率默认和游戏分辨率一样.
+   <br/>
+   ;窗口模式下,这参数指定窗口大小
+   <br/>
+   ;你能强制转换分辨率(去掉下面的注释).
+   <br/>
+   ;Width = 1280
+   <br/>
+   ;Height = 720
+  </p>
+  <p>
+   ;MUGEN运行时的色深.
+   <br/>
+   ;RenderMode=System时此参数忽略.(强制为16)
+   <br/>
+   Depth = 32
+  </p>
+  <p>
+   ;设置1开启垂直同步扫描.RenderMode=OpenGL时才支持.
+   <br/>
+   VRetrace = 0
+  </p>
+  <p>
+   ;设置1进入全屏模式,0是窗口模式.
+   <br/>
+   ;允许专用全屏模式,可能比窗口模式表现更佳.
+   <br/>
+   FullScreen = 0
+  </p>
+  <p>
+   ;设置为1允许在窗口模式中调整窗口大小.
+   <br/>
+   ;仅当RenderMode=OpenGL和OpenGLScreen(貌似是1.0版本的参数)时有效.
+   <br/>
+   Resizable = 1
+  </p>
+  <p>
+   ;设置为1表示强制宽高比
+   <br/>
+   KeepAspect = 1
+  </p>
+  <p>
+   ;绘图模式
+   <br/>
+   ;Normal(快速)和PageFlip (测试较少的图像)
+   <br/>
+   ;RenderMode=OpenGL时此值忽略
+   <br/>
+   BlitMode = Normal
+   <br/>
+  </p>
+  <p>
+   ;舞台适应模式
+   <br/>
+   ;0 - 舞台按照屏幕宽度绘制(可能会把高度裁切掉)
+   <br/>
+   ;1 - 根据屏幕尺寸收缩适应
+   <br/>
+   ;RenderMode=System时忽略此参数(强制为0)
+   <br/>
+   StageFit = 1
+  </p>
+  <p>
+   ;系统适应模式
+   <br/>
+   ;0 - 
+系统按照屏幕宽度绘制(可能会把高度裁切掉)
+   <br/>
+   ;1 - 根据屏幕尺寸收缩适应
+   <br/>
+   ;RenderMode=System时忽略此参数(强制为0)
+   <br/>
+   SystemFit = 1
+   <br/>
+  </p>
+  <p>
+   ;-------------------------------------------------------
+   <br/>
+   ; 声音配置
+   <br/>
+   <span class="STYLE2">
+    [Sound]
+   </span>
+   <br/>
+   ;是否启用声音.
+   <br/>
+   Sound = 1
+  </p>
+  <p>
+   ;设置游戏音频采样率.高频率产生高质量但需要更多系统资源.
+   <br/>
+   ;如果你声音设备有问题就设置的低一点.
+   <br/>
+   ;建议的几个声频 22050, 44100, 48000.
+   <br/>
+   SampleRate = 44100
+  </p>
+  <p>
+   ;设置音频缓存大小.缓存越大占用CPU越少但在播放声音时会引起很多潜在问题.
+   <br/>
+   ;缓存越小能减少潜在问题但是会占用更多CPU.
+   <br/>
+   ;同时,如果缓存空间小于你系统能处理的,你可能出现音频问题.
+   <br/>
+   ;
+   <br/>
+   ;缓存大小设置为2^n,n是你要指定的值.n的有效值是8-15.
+   <br/>
+   ;
+   <br/>
+   ;一个有效的经验方法是22050Hz设置10,或者44100 Hz和48000 Hz时设置11.
+   <br/>
+   ;机器越烂可能需要的缓存空间越大.
+   <br/>
+   BufferSize = 11
+  </p>
+  <p>
+   ;设置1实现游戏中stereo声效.0禁用.
+   <br/>
+   StereoEffects = 1
+  </p>
+  <p>
+   ;这是音源平移的宽度.如果你增加这个数值,stereo效果将听起来更靠近中心.
+   <br/>
+   ;设置的越小使立体声效果越分离.
+   <br/>
+   ;仅当StereoEffects为1时有效.
+   <br/>
+   PanningWidth = 240
+  </p>
+  <p>
+   ;设置1将使你声卡中左右声道互换.
+   <br/>
+   ReverseStereo = 0
+  </p>
+  <p>
+   ;声道数量.
+   <br/>
+   WavChannels = 32
+  </p>
+  <p>
+   ;所有声音的主要音量,用百分比表示(0-100)
+   <br/>
+   MasterVolume = 100
+  </p>
+  <p>
+   ;声音效果和说话声的音量,用百分比表示(0-100)
+   <br/>
+   WavVolume = 80
+  </p>
+  <p>
+   ;音乐的主要音量控制(0-100)
+   <br/>
+   BGMVolume = 75
+  </p>
+  <p>
+   ;声音效果转换率方法.
+   <br/>
+   ;从下面选择:
+   <br/>
+   ; *) SDL (无差值,低质量,耗资源低)
+   <br/>
+   ; *) libresample (有限差值, 中高质量, 耗资源高)
+   <br/>
+   SFXResampleMethod = libresample
+  </p>
+  <p>
+   ;重采样的质量,如果使用libresample.
+   <br/>
+   ;有效值是0(中等质量)或1(高质量).
+   <br/>
+   SFXResampleQuality = 0
+  </p>
+  <p>
+   ;BGM重采样的质量,如果使用libresample.
+   <br/>
+   ;有效值是0(中等质量)或1(高质量).
+   <br/>
+   BGMResampleQuality = 0
+   <br/>
+  </p>
+  <p>
+   <span class="STYLE2">
+    [Music]
+   </span>
+   <br/>
+   ;这里是配置音乐插件和任何的可选参数.格式在下面:
+   <br/>
+   ; plugin = &lt;pluginname&gt; [, &lt;pluginfile1&gt;]
+   <br/>
+   ; &lt;optional_param_1&gt; = &lt;value&gt;
+   <br/>
+   ; &lt;optional_param_2&gt; = &lt;value&gt;
+   <br/>
+   ; plugin = &lt;pluginname2&gt; [, &lt;pluginfile2&gt;]
+   <br/>
+   ; ...
+   <br/>
+   ;有效参数取决于插件.每个BGM文件将被列表中确认的顶部插件播放.
+   <br/>
+   ;对于系统插件,&lt;pluginfile&gt;参数没用.
+  </p>
+  <p>
+   ;系统插件(内置):mpg123
+   <br/>
+   ;只用来播放MP3.采样方面提供循环点(AB之间循环播放).
+   <br/>
+   ;可选参数:
+   <br/>
+   ; decoder = &lt;decodername&gt;
+   <br/>
+   ;要求使用特别的mpg123代码引擎(要求不一定能兑现,取决于文件).
+   <br/>
+   ;这里应该缺省除非你知道自己在做什么.有效值为:
+   <br/>
+   ;SSE, 3DNowExt, 3DNow, MMX, i586, i586_dither, i386, generic, generic_dither.
+   <br/>
+   ; rva = &lt;mode&gt;
+   <br/>
+   ;指定ReplayGain调整音量.有效值为:
+   <br/>
+   ; off (default; disables ReplayGain)
+   <br/>
+   ; track
+   <br/>
+   ; album
+   <br/>
+   ; volume = &lt;vol&gt;
+   <br/>
+   ;全局音量调节,百分比.这是一个线性缩放系数,此系数乘以输出的振幅.
+   <br/>
+   ;不要指定超过100的值除非你知道自己在做什么.
+   <br/>
+   ; extensions = &lt;extensionlist&gt;
+   <br/>
+   ;指定被识别为MP3的文件扩展名.这是用逗号分隔的列表,且没有空白.例如:
+   <br/>
+   ; extensions = mp3,mpeg3,mpe
+   <br/>
+   ;将用此插件为.mp3, .mpeg3, .mpe文件注册扩展名.缺省默认是"mp3".
+   <br/>
+   plugin = mpg123
+   <br/>
+   rva = track
+   <br/>
+   extensions =
+   <br/>
+   volume = 100.0
+  </p>
+  <p>
+   ;Plugin (add-on): vorbisplug  (Ogg插件参数)不翻译了...
+   <br/>
+   ;Plays Ogg Vorbis files using the libvorbisfile library. Supports loop
+   <br/>
+   ; points and ReplayGain volume adjustment. Does not support files with
+   <br/>
+   ; more than 2 audio channels.
+   <br/>
+   ;Optional parameters:
+   <br/>
+   ; rva = &lt;mode&gt;
+   <br/>
+   ; Specifies ReplayGain volume adjustment. Valid values are:
+   <br/>
+   ; off (default; disables ReplayGain)
+   <br/>
+   ; track
+   <br/>
+   ; album
+   <br/>
+   ; volume = &lt;vol&gt;
+   <br/>
+   ; Overall volume adjustment, in percent. This is a linear scale factor
+   <br/>
+   ; that multiplies the output amplitude. Do not specify a value over
+   <br/>
+   ; 100.0 unless you know what you are doing.
+   <br/>
+   ; extensions = &lt;extensionlist&gt;
+   <br/>
+   ; Specifies file extensions to recognize as MP3. This is a comma-
+   <br/>
+   ; separated list with no whitespace. For instance,
+   <br/>
+   ; extensions = ogg,vorbis,vorb
+   <br/>
+   ; would register the .ogg, .vorbis, and .vorb file extensions with this
+   <br/>
+   ; plugin. Defaults to "ogg,vorbis" if omitted.
+   <br/>
+   plugin = vorbisplug, plugins/vorbisplug.dll
+   <br/>
+   rva = track
+   <br/>
+   extensions =
+   <br/>
+   volume = 100.0
+  </p>
+  <p>
+   ;System plugin (built-in): sdlmix  (midi序列插件)
+   <br/>
+   ;Plays MIDI with native playback; MODs and other tracker files
+   <br/>
+   ; (with MikMod)
+   <br/>
+   ;
+   <br/>
+   ;Looppoints are not supported. Performs seamless end-to-beginning loops.
+   <br/>
+   ;
+   <br/>
+   ;Optional parameters:
+   <br/>
+   ; midivolume = &lt;volume&gt;
+   <br/>
+   ; Specifies volume scaling for MIDI in percent.
+   <br/>
+   ; 100 means no change (default).
+   <br/>
+   ; modvolume = &lt;volume&gt;
+   <br/>
+   ; Same as midivolume, but for MODs and other tracker files.
+   <br/>
+   plugin = sdlmix
+   <br/>
+   midivolume =
+   <br/>
+   modvolume =
+  </p>
+  <p>
+   ;-------------------------------------------------------
+   <br/>
+   <span class="STYLE2">
+    [Misc]
+   </span>
+   <br/>
+   ;内存中存储的额外玩家数量
+   <br/>
+   ;数量设置的小可以减少内存使用,但会使loading变的更频繁.
+   <br/>
+   PlayerCache = 4
+  </p>
+  <p>
+   ;设置1允许预缓存.预缓存尽可能早的尝试loading玩家资料,减少比赛之间的loading次数.
+   <br/>
+   ;要让程序完美运行,至少设置PlayerCache为1.
+   <br/>
+   ;当预缓存开启时PlayerCache最佳数字是4.DOS中不提供预缓存.
+   <br/>
+   Precache = 1
+  </p>
+  <p>
+   ;设置1开启图片和声音数据的大型缓存区.
+   <br/>
+   ;设置为0(关闭)减少内存使用,代价是loading变慢.
+   <br/>
+   BufferedRead = 1
+  </p>
+  <p>
+   ;设置1尽可能释放内存中system.def数据.
+   <br/>
+   ;减少内存使用,换取系统画面前的loading时间.
+   <br/>
+   UnloadSystem = 0
+  </p>
+  <p>
+   ;设置1当窗口不在当前时停止mugen运行.
+   <br/>
+   PauseOnDefocus = 0
+  </p>
+  <p>
+   ;窗口在背景中时声音效果和说话声处理配置.
+   <br/>
+   ;设置"Mute"关闭声效,"Play"播放声效.
+   <br/>
+   SFXBackgroundMode = Play
+  </p>
+  <p>
+   ;窗口在背景中时BGM处理配置.
+   <br/>
+   ;设置"Pause"停止音乐,"Mute"关闭音乐但是音乐其实还是在播放的(类似音量为0),"Play"和平常一样播放.
+   <br/>
+   ;如果在全屏模式下运行,则此选项总是设置为"Pause".
+   <br/>
+   BGMBackgroundMode = Play
+  </p>
+  <p>
+   ;设置非0值强制舞台背景使用指定的缩放系数.
+   <br/>
+   ;此选项对某些舞台(设置了背景的zoomin或zoomout参数,而没有使用默认值1)无效.
+   <br/>
+   ;此调试参数可能在将来的版本中移除.
+   <br/>
+   ;ForceStageZoomout = .75
+  </p>
+  <p>
+   ;-------------------------------------------------------
+   <br/>
+   <span class="STYLE2">
+    [Arcade]
+   </span>
+   <br/>
+   ;设置0,电脑选人只用1号色表.
+   <br/>
+   ;设置1,电脑选人用随机色表.
+   <br/>
+   AI.RandomColor = 1
+  </p>
+  <p>
+   ;允许电脑不通过按键的方式输入指令.1开启,0关闭.
+   <br/>
+   AI.Cheat = 1
+  </p>
+  <p>
+   ;AI难度阶梯
+   <br/>
+   ;下面的2个参数,第一个数字对应获胜场次号,第2个是电脑难度偏移量.(也就是越往后打难度越高这种设置)
+   <br/>
+   ;实际难度是AI难度级别(options菜单中设置)与特定场次偏移量之和.
+   <br/>
+   ; AIramp.start = start_match, start_diff
+   <br/>
+   ; AIramp.end = end_match, end_diff
+   <br/>
+   ; e_d /----------
+   <br/>
+   ; /
+   <br/>
+   ; s_d _______/
+   <br/>
+   ; ^ ^ ^ ^
+   <br/>
+   ; 1st_m s_m e_m last_m
+   <br/>
+   ;例如,如果:
+   <br/>
+   ; AIramp.start = 2,0
+   <br/>
+   ; AIramp.end = 4,2
+   <br/>
+   ;难度4,打6局, 难度将是:
+   <br/>
+   ; 4,4,4,5,6,6
+   <br/>
+   ;第2局以前的难度是不变的,到了2以后就按0-2的线性比例增加,直到第4局的时候难度变为6.
+   <br/>
+   arcade.AIramp.start = 2, 0
+   <br/>
+   arcade.AIramp.end = 4, 2
+  </p>
+  <p>
+   ;组队模式
+   <br/>
+   team.AIramp.start = 1, 0
+   <br/>
+   team.AIramp.end = 3, 2
+  </p>
+  <p>
+   ;生存模式
+   <br/>
+   survival.AIramp.start = 0, -3
+   <br/>
+   survival.AIramp.end = 16, 4
+   <br/>
+   ;-------------------------------------------------------
+   <br/>
+   <span class="STYLE2">
+    [Input]
+   </span>
+   <br/>
+   ;是否允许键盘使用
+   <br/>
+   P1.UseKeyboard = 1
+   <br/>
+   P2.UseKeyboard = 1
+   <br/>
+   ;是否允许手柄使用
+   <br/>
+   ;0 - 关闭
+   <br/>
+   ;1 - 开启
+   <br/>
+   P1.Joystick.type = 1
+   <br/>
+   P2.Joystick.type = 1
+  </p>
+  <p>
+   ;指令输入方向模式
+   <br/>
+   ;0 - 指令输入和玩家方向相同
+   <br/>
+   ;1 - 指令输入朝向最近的对手(处于实验性阶段,不要使用)
+   <br/>
+   InputDirMode = 0
+   <br/>
+  </p>
+  <p>
+   ;0 - 只有pause键能解除暂停
+   <br/>
+   ;1 - 如果没有菜单,任何键都能解除暂停
+   <br/>
+   AnyKeyUnpauses = 0
+  </p>
+  <p>
+   ;-------------------------------------------------------
+   <br/>
+   ;具体键盘值查看相应教程.
+   <br/>
+   ; P1 键位设定 (M.U.G.E.N中配置)
+   <br/>
+   <span class="STYLE2">
+    [P1 Keys]
+   </span>
+   <br/>
+   Jump = 119
+   <br/>
+   Crouch = 115
+   <br/>
+   Left = 97
+   <br/>
+   Right = 100
+   <br/>
+   A = 107
+   <br/>
+   B = 59
+   <br/>
+   C = 44
+   <br/>
+   X = 106
+   <br/>
+   Y = 108
+   <br/>
+   Z = 109
+   <br/>
+   Start = 49
+  </p>
+  <p>
+   ; P2 键位设定 (M.U.G.E.N中配置)
+   <br/>
+   <span class="STYLE2">
+    [P2 Keys]
+   </span>
+   <br/>
+   Jump = 273
+   <br/>
+   Crouch = 274
+   <br/>
+   Left = 276
+   <br/>
+   Right = 275
+   <br/>
+   A = 260
+   <br/>
+   B = 261
+   <br/>
+   C = 262
+   <br/>
+   X = 257
+   <br/>
+   Y = 258
+   <br/>
+   Z = 259
+   <br/>
+   Start = 50
+  </p>
+  <p>
+   <span class="STYLE2">
+    [P1 Joystick]
+   </span>
+   <br/>
+   Jump = 1
+   <br/>
+   Crouch = 2
+   <br/>
+   Left = 3
+   <br/>
+   Right = 4
+   <br/>
+   A = 13
+   <br/>
+   B = 14
+   <br/>
+   C = 20
+   <br/>
+   X = 15
+   <br/>
+   Y = 16
+   <br/>
+   Z = 18
+   <br/>
+   Start = 24
+  </p>
+  <p>
+   <span class="STYLE2">
+    [P2 Joystick]
+   </span>
+   <br/>
+   Jump = 33
+   <br/>
+   Crouch = 34
+   <br/>
+   Left = 35
+   <br/>
+   Right = 36
+   <br/>
+   A = 41
+   <br/>
+   B = 42
+   <br/>
+   C = 48
+   <br/>
+   X = 43
+   <br/>
+   Y = 44
+   <br/>
+   Z = 46
+   <br/>
+   Start = 50
+  </p>
+  <p>
+   ;-------------------------------------------------------
+   <br/>
+   <span class="STYLE2">
+    [Console Init]
+   </span>
+   ;控制台指令,也指明了快捷键的含义
+   <br/>
+   ; ~ Alt
+   <br/>
+   ; $ Shift
+   <br/>
+   ; ^ Control
+   <br/>
+   keybind["^tilde"] = "toggleconsole()"
+   <br/>
+   keybind["space"] = "mugen.lifereset()"
+   <br/>
+   keybind["F1"] = "mugen.killteam(2)"
+   <br/>
+   keybind["^F1"] = "mugen.killteam(1)"
+   <br/>
+   keybind["F2"] = "mugen.almostkillteam()"
+   <br/>
+   keybind["$F2"] = "mugen.almostkillteam(1)"
+   <br/>
+   keybind["^F2"] = "mugen.almostkillteam(2)"
+   <br/>
+   keybind["F3"] = "mugen.maxteampower()"
+   <br/>
+   keybind["$^F3"] = "mugen.togglemaxpowermode()"
+   <br/>
+   keybind["F4"] = "mugen.roundreset()"
+   <br/>
+   keybind["$F4"] = "mugen.matchreload()"
+   <br/>
+   keybind["F5"] = "mugen.setroundtimeleft(1)"
+   <br/>
+   keybind["F8"] = "mugen.clearclipboards()"
+   <br/>
+   keybind["^1"] = "mugen.toggleplayerai(1)"
+   <br/>
+   keybind["^2"] = "mugen.toggleplayerai(2)"
+   <br/>
+   keybind["^3"] = "mugen.toggleplayerai(3)"
+   <br/>
+   keybind["^4"] = "mugen.toggleplayerai(4)"
+   <br/>
+   keybind["^L"] = "mugen.togglebardisplay()"
+   <br/>
+   keybind["^C"] = "mugen.toggleclsndisplay()"
+   <br/>
+   keybind["^I"] = "mugen.forceplayersintostand()"
+   <br/>
+   keybind["^~1"] = "player.enableset(1, not player.enabled(1))" ;-- Hack: use at your own risk
+   <br/>
+   keybind["^~2"] = "player.enableset(2, not player.enabled(2))" ;-- Hack: use at your own risk
+   <br/>
+   keybind["^~3"] = "player.enableset(3, not player.enabled(3))" ;-- Hack: use at your own risk
+   <br/>
+   keybind["^~4"] = "player.enableset(4, not player.enabled(4))" ;-- Hack: use at your own risk
+   <br/>
+   keybind["^T"] = "mugen.toggletrainingmode()" ;-- Hack: use at your own risk
+   <br/>
+   ; Test stuff
+   <br/>
+   keybind["1"] = "dofile 'test.lua'"
+  </p>
+ </body>
 </html>
