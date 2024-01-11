@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>PlayerPush</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   PlayerPush
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,18 +23,41 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">PlayerPush</p>
-<p>ֹͣ1֮֡����ҵ��Ƽ����.�Ƽ�������ڷ�ֹ����໥�ص�.<br />
-  ͨ����ʱֹͣ�Ƽ����,dodge(����)���͵���ʽ(����ܴ�����һ����,������Ȼ�ܱ�����)�ܱ�ʵ��.</p>
-<p><span class="STYLE2">��Ҫ����: </span><br />
-  <span class="STYLE3">value = push_flag (������) </span><br />
-  ���push_flag��0,���ܹ������Ƽ����.���push_flag��0,��ֹͣ�Ƽ����.</p>
-<p><span class="STYLE2">��ѡ����: </span><br />
-��</p>
-<p><span class="STYLE2">ʾ��: </span><br />
-��</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   PlayerPush
+  </p>
+  <p>
+   停止1帧之内玩家的推挤检测.推挤检测用于防止玩家相互重叠.
+   <br/>
+   通过暂时停止推挤检测,dodge(闪避)类型的招式(玩家能穿过另一个人,但是仍然能被击中)能被实现.
+  </p>
+  <p>
+   <span class="STYLE2">
+    必要参数:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    value = push_flag (布尔型)
+   </span>
+   <br/>
+   如果push_flag非0,则能够进行推挤检测.如果push_flag是0,则停止推挤检测.
+  </p>
+  <p>
+   <span class="STYLE2">
+    可选参数:
+   </span>
+   <br/>
+   无
+  </p>
+  <p>
+   <span class="STYLE2">
+    示例:
+   </span>
+   <br/>
+   无
+  </p>
+ </body>
 </html>

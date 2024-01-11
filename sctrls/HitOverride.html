@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>HitOverride</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   HitOverride
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,33 +23,85 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">HitOverride</p>
-<p>����һ��hit����.<br />
-  �����ұ�ָ���������ͻ���,��������ָ����״̬�Ŷ�������Ĭ�ϵ��ܻ���Ϊ.<br />
-  ͬһʱ������8�����Ǳ�����.</p>
-<p><span class="STYLE2">��Ҫ����: </span><br />
-  <span class="STYLE3">attr = attr_string (�ַ�����) </span><br />
-  ��׼hit�����ַ���ָ����Ҫ���ǵ�hit����.<br />
-��Hitdef��&quot;attr&quot;�����½�.</p>
-<p><span class="STYLE3">stateno = value (����) </span><br />
-ָ�������Hitdef��ָ�������Ի��к�Ҫ�����״̬.</p>
-<p><span class="STYLE2">��ѡ����: </span><br />
-  <span class="STYLE3">slot = slot_no (����) </span><br />
-ָ�����û��и��ǵ�һ����ۺ�(0��7).ȱʡĬ����0.</p>
-<p><span class="STYLE3">time = effective_time (����) </span><br />
-  ָ���˻��и���Ӧ�����ʱ��.Ĭ����1(1֡).<br />
-����Ϊ-1ʹ�ô˸���һֱ����ֱ������һ������.</p>
-<p><span class="STYLE3">forceair = value (������) </span><br />
-  �����ó�1,��ҵ��ܻ������������óɷ·����ʱ�����˿���״̬.<br />
-�����������ǿ����ұ��κ�hit���б�ˤ��.</p>
-<p><span class="STYLE2">ע��: </span><br />
-  ���P1�д��ڵ���1�������HitOverrides,P1�����ᱻP2ӵ�е������κ�����ƥ���HitDefӰ�죺<br />
-  p1stateno����ֵ����-1.<br />
-p2getp1state����ֵ��1.</p>
-<p><span class="STYLE2">ʾ��: </span><br />
-��</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   HitOverride
+  </p>
+  <p>
+   定义一个hit覆盖.
+   <br/>
+   如果玩家被指定攻击类型击中,他将进入指定的状态号而不是他默认的受击行为.
+   <br/>
+   同一时间能有8个覆盖被激活.
+  </p>
+  <p>
+   <span class="STYLE2">
+    必要参数:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    attr = attr_string (字符串型)
+   </span>
+   <br/>
+   标准hit属性字符串指定了要覆盖的hit类型.
+   <br/>
+   见Hitdef中"attr"参数章节.
+  </p>
+  <p>
+   <span class="STYLE3">
+    stateno = value (整型)
+   </span>
+   <br/>
+   指定如果被Hitdef且指定的属性击中后将要进入的状态.
+  </p>
+  <p>
+   <span class="STYLE2">
+    可选参数:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    slot = slot_no (整型)
+   </span>
+   <br/>
+   指定放置击中覆盖的一个插槽号(0到7).缺省默认是0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    time = effective_time (整型)
+   </span>
+   <br/>
+   指定此击中覆盖应激活的时间.默认是1(1帧).
+   <br/>
+   设置为-1使得此覆盖一直持续直到被另一个覆盖.
+  </p>
+  <p>
+   <span class="STYLE3">
+    forceair = value (布尔型)
+   </span>
+   <br/>
+   若设置成1,玩家的受击变量将被设置成仿佛击中时进入了空中状态.
+   <br/>
+   用于如果你想强制玩家被任何hit击中便摔倒.
+  </p>
+  <p>
+   <span class="STYLE2">
+    注意:
+   </span>
+   <br/>
+   如果P1有大于等于1个激活的HitOverrides,P1将不会被P2拥有的下列任何特征匹配的HitDef影响：
+   <br/>
+   p1stateno参数值不是-1.
+   <br/>
+   p2getp1state参数值是1.
+  </p>
+  <p>
+   <span class="STYLE2">
+    示例:
+   </span>
+   <br/>
+   无
+  </p>
+ </body>
 </html>

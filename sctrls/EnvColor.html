@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>EnvColor</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   EnvColor
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,28 +23,67 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">EnvColor</p>
-<p>��������Ļ��Ϊһ�ִ�ɫ,ǰ�����д���𻨺�������&quot;ontop&quot;������explod����.<br />
-  ��̨��ǰ���㽫���ɼ�.</p>
-<p><span class="STYLE2">��Ҫ����: </span><br />
-��</p>
-<p><span class="STYLE2">��ѡ����: </span><br />
-  <span class="STYLE3">value = col_r, col_g, col_b (����) </span><br />
-  ָ��Ҫ����Ļ���ó�ĳ����ɫ��R,G,B��ֵ����.<br />
-  ÿ����ֵӦ����һ��0-255֮�������.����Խ��,����ɫ�д˳ɷֵ���ɫ����Խ��.<br />
-Ĭ��ֵΪ255,255,255.(����)</p>
-<p><span class="STYLE3">time = effective_time (����) </span><br />
-  ָ������ɫ������ʾ��ʱ��֡��.<br />
-Ĭ��Ϊ1֡.����-1��EnvColor�����ó���.</p>
-<p><span class="STYLE3">under = under_flag (int) </span><br />
-  ����under_flagΪ1ʹ�û���ɫ������ͷ��е����������.<br />
-  ���仰˵,����ͷ��е�������ɫ�����Ͻ��ɼ�.<br />
-  (Ҳ����˵EnvColor��Ч��������������ͷ��е��ߵ��²�������ڵ�����ͷ��е��ߵ���ʾ.)<br />
-Ĭ��Ϊ0.</p>
-<p><span class="STYLE2">ʾ��: </span><br />
-��</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   EnvColor
+  </p>
+  <p>
+   将整个屏幕变为一种纯色,前景层中打击火花和设置了"ontop"参数的explod除外.
+   <br/>
+   舞台的前景层将不可见.
+  </p>
+  <p>
+   <span class="STYLE2">
+    必要参数:
+   </span>
+   <br/>
+   无
+  </p>
+  <p>
+   <span class="STYLE2">
+    可选参数:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    value = col_r, col_g, col_b (整型)
+   </span>
+   <br/>
+   指定要将屏幕设置成某种颜色的R,G,B数值分量.
+   <br/>
+   每个数值应该是一个0-255之间的整数.数字越大,环境色中此成分的颜色将会越多.
+   <br/>
+   默认值为255,255,255.(纯白)
+  </p>
+  <p>
+   <span class="STYLE3">
+    time = effective_time (整型)
+   </span>
+   <br/>
+   指定环境色将被显示的时间帧数.
+   <br/>
+   默认为1帧.设置-1则EnvColor将永久持续.
+  </p>
+  <p>
+   <span class="STYLE3">
+    under = under_flag (int)
+   </span>
+   <br/>
+   设置under_flag为1使得环境色在人物和飞行道具下面绘制.
+   <br/>
+   换句话说,人物和飞行道具在着色背景上将可见.
+   <br/>
+   (也就是说EnvColor的效果将在所有人物和飞行道具的下层而不会遮挡人物和飞行道具的显示.)
+   <br/>
+   默认为0.
+  </p>
+  <p>
+   <span class="STYLE2">
+    示例:
+   </span>
+   <br/>
+   无
+  </p>
+ </body>
 </html>

@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>Zoom</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   Zoom
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,75 +23,150 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">Zoom</p>
-<p>1.1ĞÂÌØĞÔ¡£¶ÔÓÎÏ·½øĞĞÕûÌåËõ·Å£¬³£ÓÃÓÚ±ØÉ±ÌØĞ´¡£</p>
-<p><span class="STYLE2">±ØÒª²ÎÊı: </span><br />
-ÎŞ</p>
-<p><span class="STYLE2">¿ÉÑ¡²ÎÊı: </span><br />
-  <span class="STYLE3">scale = value (float) </span><br />
-ÉãÏñ»úËõ·Å±ÈÀı£¬1Îª100%£¬2.5ÎªËõ·ÅÖÁÔ­´óĞ¡µÄ250%£¬²»ÄÜĞ¡ÓÚ1£¬·ñÔò»áÎŞĞ§¡£<br />
-×¢Òâ£º¸Ã±ÈÀıÒÔµ±Ç°ÆÁÄ»Ëõ·Å(CameraZoom)Îª»ù´¡½øĞĞËõ·Å£¬¶ø²»ÊÇÔÚCameraZoom=1.0Ê±ºò¡£<br />
-Èçµ±Ç°CameraZoom=0.5£¬´Ë²ÎÊıscale=2.5£¬Ôò×îÖÕµÃµ½µÄÆÁÄ»Ëõ·Å±ÈÀıÎª£º0.5*2.5=1.25£¬¼´´ËÊ±µÄÆÁÄ»´óĞ¡Îª125%¡£<br />
-Èç¹ûÈËÎïÔÚ²»Í£µÄÉÏÏÂ×óÓÒÒÆ¶¯£¬µ¼ÖÂCameraZoomÊıÖµ±ä»¯£¬ÄÇÃ´×îÖÕµÄÆÁÄ»Ëõ·ÅÒ²»áËæÖ®±ä»¯¡£<br />
-¹ÊÈç¹ûÔÚ´øÓĞËõ·ÅµÄ³¡¾°(zoomout zoomin)ÖĞÊ¹ÓÃ´ËËõ·ÅÊ±£¬ĞèÒªÔÚCameraZoom±ä»¯Ê±×öÏàÓ¦±ä»¯¡£
-</p>
-<p><span class="STYLE3">pos = x, y(int) </span><br />
-ÉãÏñ»ú±ä½¹µÄÎ»ÖÃ£¬¸ÃÎ»ÖÃÏà¶ÔÓÚ³¡¾°ÖĞĞÄ¡£¸ÃÎ»ÖÃÎª¾ø¶ÔÆÁÄ»×ø±ê¡£</p>
-<p><span class="STYLE3">lag = value(float) </span><br />
-±ä½¹µÄËÙ¶È£¬´óÓÚºÍµÈÓÚ1»áÎŞĞ§(±ØĞë´óÓÚ0£¬Ğ¡ÓÚ1)£¬ÊıÖµÔ½Ğ¡ËÙ¶ÈÔ½¿ì£¬ÊıÖµÔ½´óËÙ¶ÈÔ½Âı¡£</p>
-<p><span class="STYLE2">Ìæ´úÓï·¨: </span><br />
-ÎŞ</p>
-<p><span class="STYLE2">Ê¾Àı1: </span><br />
-[State -2]<br />
-type = Zoom<br />
-triggerall = !ishelper<br />
-trigger1 = win<br />
-scale = 1.5<br />
-pos = pos x,-15<br />
-lag = 0.1<br />
-<br />
-[State -2]<br />
-type = Zoom<br />
-triggerall = !ishelper<br />
-trigger1 = lose<br />
-scale = 1.5<br />
-pos = (enemy,pos x),-15<br />
-lag = 0.1<br />
-<br />
-</p>
-
-
-<p><span class="STYLE2">Ê¾Àı2: </span><br />
-[State -2, 1.5±¶Ëõ·Å,ÇëÈ·±£p1ÔÚÆÁÄ»ÖĞÑë¸½½ü]<br />
-type = Zoom<br />
-triggerall = !ishelper<br />
-trigger1 = 1<br />
-scale = 1.5/CameraZoom<br />
-pos = pos x,pos y<br />
-lag = 0.1<br />
-<br />
-</p>
-
-
-<p><span class="STYLE2">Ê¾Àı3: </span><br />
-[State -2, 1.5±¶Ëõ·Å]<br />
-type = Zoom<br />
-triggerall = !ishelper<br />
-trigger1 = 1<br />
-scale = 1.5<br />
-pos = pos x,pos y<br />
-lag = 0.1<br />
-<br />
-[State -2]<br />
-type = ScreenBound<br />
-triggerall = !ishelper<br />
-trigger1 = 1<br />
-value = 1<br />
-<br />
-</p>
-
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   Zoom
+  </p>
+  <p>
+   1.1æ–°ç‰¹æ€§ã€‚å¯¹æ¸¸æˆè¿›è¡Œæ•´ä½“ç¼©æ”¾ï¼Œå¸¸ç”¨äºå¿…æ€ç‰¹å†™ã€‚
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¿…è¦å‚æ•°:
+   </span>
+   <br/>
+   æ— 
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¯é€‰å‚æ•°:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    scale = value (float)
+   </span>
+   <br/>
+   æ‘„åƒæœºç¼©æ”¾æ¯”ä¾‹ï¼Œ1ä¸º100%ï¼Œ2.5ä¸ºç¼©æ”¾è‡³åŸå¤§å°çš„250%ï¼Œä¸èƒ½å°äº1ï¼Œå¦åˆ™ä¼šæ— æ•ˆã€‚
+   <br/>
+   æ³¨æ„ï¼šè¯¥æ¯”ä¾‹ä»¥å½“å‰å±å¹•ç¼©æ”¾(CameraZoom)ä¸ºåŸºç¡€è¿›è¡Œç¼©æ”¾ï¼Œè€Œä¸æ˜¯åœ¨CameraZoom=1.0æ—¶å€™ã€‚
+   <br/>
+   å¦‚å½“å‰CameraZoom=0.5ï¼Œæ­¤å‚æ•°scale=2.5ï¼Œåˆ™æœ€ç»ˆå¾—åˆ°çš„å±å¹•ç¼©æ”¾æ¯”ä¾‹ä¸ºï¼š0.5*2.5=1.25ï¼Œå³æ­¤æ—¶çš„å±å¹•å¤§å°ä¸º125%ã€‚
+   <br/>
+   å¦‚æœäººç‰©åœ¨ä¸åœçš„ä¸Šä¸‹å·¦å³ç§»åŠ¨ï¼Œå¯¼è‡´CameraZoomæ•°å€¼å˜åŒ–ï¼Œé‚£ä¹ˆæœ€ç»ˆçš„å±å¹•ç¼©æ”¾ä¹Ÿä¼šéšä¹‹å˜åŒ–ã€‚
+   <br/>
+   æ•…å¦‚æœåœ¨å¸¦æœ‰ç¼©æ”¾çš„åœºæ™¯(zoomout zoomin)ä¸­ä½¿ç”¨æ­¤ç¼©æ”¾æ—¶ï¼Œéœ€è¦åœ¨CameraZoomå˜åŒ–æ—¶åšç›¸åº”å˜åŒ–ã€‚
+  </p>
+  <p>
+   <span class="STYLE3">
+    pos = x, y(int)
+   </span>
+   <br/>
+   æ‘„åƒæœºå˜ç„¦çš„ä½ç½®ï¼Œè¯¥ä½ç½®ç›¸å¯¹äºåœºæ™¯ä¸­å¿ƒã€‚è¯¥ä½ç½®ä¸ºç»å¯¹å±å¹•åæ ‡ã€‚
+  </p>
+  <p>
+   <span class="STYLE3">
+    lag = value(float)
+   </span>
+   <br/>
+   å˜ç„¦çš„é€Ÿåº¦ï¼Œå¤§äºå’Œç­‰äº1ä¼šæ— æ•ˆ(å¿…é¡»å¤§äº0ï¼Œå°äº1)ï¼Œæ•°å€¼è¶Šå°é€Ÿåº¦è¶Šå¿«ï¼Œæ•°å€¼è¶Šå¤§é€Ÿåº¦è¶Šæ…¢ã€‚
+  </p>
+  <p>
+   <span class="STYLE2">
+    æ›¿ä»£è¯­æ³•:
+   </span>
+   <br/>
+   æ— 
+  </p>
+  <p>
+   <span class="STYLE2">
+    ç¤ºä¾‹1:
+   </span>
+   <br/>
+   [State -2]
+   <br/>
+   type = Zoom
+   <br/>
+   triggerall = !ishelper
+   <br/>
+   trigger1 = win
+   <br/>
+   scale = 1.5
+   <br/>
+   pos = pos x,-15
+   <br/>
+   lag = 0.1
+   <br/>
+   <br/>
+   [State -2]
+   <br/>
+   type = Zoom
+   <br/>
+   triggerall = !ishelper
+   <br/>
+   trigger1 = lose
+   <br/>
+   scale = 1.5
+   <br/>
+   pos = (enemy,pos x),-15
+   <br/>
+   lag = 0.1
+   <br/>
+   <br/>
+  </p>
+  <p>
+   <span class="STYLE2">
+    ç¤ºä¾‹2:
+   </span>
+   <br/>
+   [State -2, 1.5å€ç¼©æ”¾,è¯·ç¡®ä¿p1åœ¨å±å¹•ä¸­å¤®é™„è¿‘]
+   <br/>
+   type = Zoom
+   <br/>
+   triggerall = !ishelper
+   <br/>
+   trigger1 = 1
+   <br/>
+   scale = 1.5/CameraZoom
+   <br/>
+   pos = pos x,pos y
+   <br/>
+   lag = 0.1
+   <br/>
+   <br/>
+  </p>
+  <p>
+   <span class="STYLE2">
+    ç¤ºä¾‹3:
+   </span>
+   <br/>
+   [State -2, 1.5å€ç¼©æ”¾]
+   <br/>
+   type = Zoom
+   <br/>
+   triggerall = !ishelper
+   <br/>
+   trigger1 = 1
+   <br/>
+   scale = 1.5
+   <br/>
+   pos = pos x,pos y
+   <br/>
+   lag = 0.1
+   <br/>
+   <br/>
+   [State -2]
+   <br/>
+   type = ScreenBound
+   <br/>
+   triggerall = !ishelper
+   <br/>
+   trigger1 = 1
+   <br/>
+   value = 1
+   <br/>
+   <br/>
+  </p>
+ </body>
 </html>

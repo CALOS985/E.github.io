@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>TargetBind</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   TargetBind
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,22 +23,59 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">TargetBind</p>
-<p>�����ָ��Ŀ��󶨵�ָ����������������λ��.</p>
-<p><span class="STYLE2">��Ҫ����: </span><br />
-��</p>
-<p><span class="STYLE2">��ѡ����: </span><br />
-  <span class="STYLE3">time = bind_time (����) </span><br />
-ָ���������õ�ʱ��֡��.Ĭ����1.</p>
-<p><span class="STYLE3">ID = bind_id (����) </span><br />
-ָ��Ҫ�󶨵�Ŀ��ID��.ֻ�з��ϴ�ID�ŵ�Ŀ��Żᱻ��.Ĭ��Ϊ-1.(�����е�Ŀ��)<br />
-��IDΪ <a href="HitDef.html">HitDef</a> �ж����ID��.</p>
-<p><span class="STYLE3">pos = x_pos, y_pos (������) </span><br />
-ָ����������ᵽ��Ŀ���ƫ����.ȱʡĬ����0,0.</p>
-<p><span class="STYLE2">ע:</span><br />
-TargetBind�ǰ�Ŀ��󶨵�������,BindToTarget�ǰ���󶨵�Ŀ������.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   TargetBind
+  </p>
+  <p>
+   把玩家指定目标绑定到指定的玩家坐标轴相对位置.
+  </p>
+  <p>
+   <span class="STYLE2">
+    必要参数:
+   </span>
+   <br/>
+   无
+  </p>
+  <p>
+   <span class="STYLE2">
+    可选参数:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    time = bind_time (整型)
+   </span>
+   <br/>
+   指定绑定起作用的时间帧数.默认是1.
+  </p>
+  <p>
+   <span class="STYLE3">
+    ID = bind_id (整型)
+   </span>
+   <br/>
+   指定要绑定的目标ID号.只有符合此ID号的目标才会被绑定.默认为-1.(绑定所有的目标)
+   <br/>
+   此ID为
+   <a href="HitDef.html">
+    HitDef
+   </a>
+   中定义的ID号.
+  </p>
+  <p>
+   <span class="STYLE3">
+    pos = x_pos, y_pos (浮点型)
+   </span>
+   <br/>
+   指定玩家坐标轴到绑定目标的偏移量.缺省默认是0,0.
+  </p>
+  <p>
+   <span class="STYLE2">
+    注:
+   </span>
+   <br/>
+   TargetBind是把目标绑定到你身上,BindToTarget是把你绑定到目标身上.
+  </p>
+ </body>
 </html>

@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>VictoryQuote</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   VictoryQuote
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,22 +23,52 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">VictoryQuote</p>
-<p>�������ѡ��һ��ʤ��������ʾ��ʤ��������.</p>
-<p><span class="STYLE2">��Ҫ����: </span><br />
-��</p>
-<p><span class="STYLE2">��ѡ����: </span><br />
-  <span class="STYLE3">value = quote_index (����) </span><br />
-ָ��Ҫʹ�����������.��Чֵ��0��99.���quote_indexΪ��Ч������,��һ����������ｫ��ѡ��.Ĭ����-1.</p>
-<p><span class="STYLE2">ע��: </span><br />
-  �˿������ڱ������ܱ��κ�������κ�ʱ�����.Ȼ��,ֻ�л�ʤ����ҽ�Ӱ�챻��ʾ������.<br />
-  �˿�������Ӱ�쵱ǰ��������ֵĶ��ݵ�ʤ������.helperʹ�ô˿���������Ч.<br />
-ʵ�ʵ�ʤ������������ҵ�cns�ļ�[Quotes]����ָ����.</p>
-<p><span class="STYLE2">ʾ��: </span><br />
-��</p>
-<p> </p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   VictoryQuote
+  </p>
+  <p>
+   从玩家中选择一个胜利引语显示在胜利画面中.
+  </p>
+  <p>
+   <span class="STYLE2">
+    必要参数:
+   </span>
+   <br/>
+   无
+  </p>
+  <p>
+   <span class="STYLE2">
+    可选参数:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    value = quote_index (整型)
+   </span>
+   <br/>
+   指定要使用引语的索引.有效值从0到99.如果quote_index为无效的索引,则一个随机的引语将被选择.默认是-1.
+  </p>
+  <p>
+   <span class="STYLE2">
+    注意:
+   </span>
+   <br/>
+   此控制器在比赛中能被任何玩家在任何时间调用.然而,只有获胜的玩家将影响被显示的引语.
+   <br/>
+   此控制器仅影响当前比赛后出现的短暂的胜利画面.helper使用此控制器将无效.
+   <br/>
+   实际的胜利引语是在玩家的cns文件[Quotes]组中指定的.
+  </p>
+  <p>
+   <span class="STYLE2">
+    示例:
+   </span>
+   <br/>
+   无
+  </p>
+  <p>
+  </p>
+ </body>
 </html>

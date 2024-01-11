@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>Trans</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   Trans
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,31 +23,69 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">Trans</p>
-<p>������ҵ�ǰ��Ϸ֡������͸���Ȳ���.������Ч��.</p>
-<p><span class="STYLE2">��Ҫ����: </span><br />
-  <span class="STYLE3">trans = trans_type (�ַ�����) </span><br />
-  trans_type���������µ�һ��:<br />
-  default - û��Ч��<br />
-  none - ����͸��Ч��<br />
-  add - ��ȫ͸������Ч����alphaֵĬ��Ϊ256,256�� <br />
-  addalpha - �Զ���͸������Ч��(����ָ��alpha����) ��alphaֵĬ��Ϊ256,0����1.1���ѷ�����<br />
-  add1 - alpha��256,128ʱ��͸������Ч�� ��1.1���ѷ�����<br />
-  sub - ͸����ֵЧ��(��subtractiveģʽ��͸���Ȼ��ƣ�alphaֵĬ��Ϊ256,256��)</p>
-<p><span class="STYLE2">��ѡ����: </span><br />
-  <span class="STYLE3">alpha = source_alpha, dest_alpha (����,����) </span><br />
-  ����addalpha͸��������alpha�� source(Դ) �� destination(Ŀ��) ��ֵ.<br />
-��Чֵ��0(��)��256(��).ȱʡĬ����256,0.(ͬair�е�ASXXDXX.AS D ���������������д.)</p>
-<p><span class="STYLE2">ʾ��:</span><br />
-  ; 256֡�����･��. <br />
-  type = Trans<br />
-  trigger1 = time &lt; 256<br />
-  trans = addalpha<br />
-  alpha = time, 256-time <br />
-(�кܶ����ʽ���õ�time��ʵ��һЩ�������Ч��,���ʵ�ڲ�����ʲô����,�������ν�������ֵ����time,Ȼ��Ѱ��һ�¹���)</p>
-<p> </p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   Trans
+  </p>
+  <p>
+   覆盖玩家当前游戏帧动画的透明度参数.用于特效中.
+  </p>
+  <p>
+   <span class="STYLE2">
+    必要参数:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    trans = trans_type (字符串型)
+   </span>
+   <br/>
+   trans_type必须是以下的一种:
+   <br/>
+   default - 没有效果
+   <br/>
+   none - 禁用透明效果
+   <br/>
+   add - 完全透明叠加效果（alpha值默认为256,256）
+   <br/>
+   addalpha - 自定义透明叠加效果(必须指定alpha参数) （alpha值默认为256,0）（1.1中已废弃）
+   <br/>
+   add1 - alpha在256,128时的透明叠加效果 （1.1中已废弃）
+   <br/>
+   sub - 透明差值效果(以subtractive模式的透明度绘制（alpha值默认为256,256）)
+  </p>
+  <p>
+   <span class="STYLE2">
+    可选参数:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    alpha = source_alpha, dest_alpha (整型,整型)
+   </span>
+   <br/>
+   这是addalpha透明类型中alpha的 source(源) 和 destination(目标) 数值.
+   <br/>
+   有效值从0(低)到256(高).缺省默认是256,0.(同air中的ASXXDXX.AS D 就是这个参数的缩写.)
+  </p>
+  <p>
+   <span class="STYLE2">
+    示例:
+   </span>
+   <br/>
+   ; 256帧内人物渐入.
+   <br/>
+   type = Trans
+   <br/>
+   trigger1 = time &lt; 256
+   <br/>
+   trans = addalpha
+   <br/>
+   alpha = time, 256-time
+   <br/>
+   (有很多表达式会用到time来实现一些渐变过渡效果,如果实在不明白什么含义,建议依次将几个数值代入time,然后寻找一下规律)
+  </p>
+  <p>
+  </p>
+ </body>
 </html>

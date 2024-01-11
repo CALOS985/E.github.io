@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>GameMakeAnim</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   GameMakeAnim
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -22,30 +24,71 @@ body,td,th {
 }
 .STYLE4 {font-size: xx-large}
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">GameMakeAnim</p>
-<p>´´½¨Ò»¸öÓÎÏ·¶¯»­,±ÈÈçÒ»¸ö´ò»÷»ð»¨»òÕßÒ»¸ö³¬¼¶³å»÷Ð§¹û.<br />
-  ´Ë¿ØÖÆÆ÷ÒÑ±»ExplodÈ¡´úÇÒÄ¿Ç°Õý¿¼ÂÇ·ÏÆú.<br />
-  ÔÚÎ´À´µÄ°æ±¾ÖÐÒ²Ðí²»»áÔÙÖ§³ÖËü.<br />
-  ×¢:¸Ã¶¯»­Ëõ·Å(scale)Îª1(²»Ëõ·Å).ÇÒÔÚmugen1.1ÖÐ¿ÉÄÜÏÔÊ¾Î»ÖÃ²»ÕýÈ·.
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   GameMakeAnim
   </p>
-<p><span class="STYLE2">±ØÒª²ÎÊý: </span><br />
-ÎÞ</p>
-<p><span class="STYLE2">¿ÉÑ¡²ÎÊý: </span><br />
-  <span class="STYLE3">value = anim_no (ÕûÐÍ) </span><br />
-Ö¸¶¨Òª²¥·ÅµÄ¶¯»­ºÅ(´Ófightfx.airÖÐ).Ä¬ÈÏÊÇ0.</p>
-<p><span class="STYLE3">under = under_flag (ÕûÐÍ) </span><br />
-Èç¹ûunder_flagÊÇ1,¶¯»­½«»æÖÆÔÚÈËÎïÍ¼²ãÏÂ·½.Ä¬ÈÏÊÇ0.(»æÖÆÔÚÈËÎïÉÏ·½)</p>
-<p><span class="STYLE3">pos = x_pos, y_pos (¸¡µãÐÍ) </span><br />
-Ö¸¶¨¶¯»­±»ÏÔÊ¾µÄÎ»ÖÃ,Ïà¶ÔÓÚÍæ¼ÒµÄ×ø±êÖá.Ä¬ÈÏÊÇ0,0.</p>
-<p><span class="STYLE3">random = rand_amt (ÕûÐÍ) </span><br />
-  ¶¯»­µÄÎ»ÖÃ½«±»xºÍy·½ÏòµÄ(²»Í¬)Ëæ»úÊýÌæ´ú.<br />
-  ÕâÖÖÌæ»»ºÍrand_amtµÄÒ»°ëÒ»Ñù´ó.(¿ÉÄÜÖ¸µÄÊÇ:Èç¹ûpos = 0,0;random = 10,Ôò¶¯»­Êµ¼Ê³öÏÖµÄxºÍyÎ»ÖÃ¾ùÔÚ-5~5Ö®ÄÚ)<br />
-Ä¬ÈÏÊÇ0.</p>
-<p><span class="STYLE2">Ê¾Àý: </span><br />
-  ÎÞ<br />
-</p>
-</body>
+  <p>
+   åˆ›å»ºä¸€ä¸ªæ¸¸æˆåŠ¨ç”»,æ¯”å¦‚ä¸€ä¸ªæ‰“å‡»ç«èŠ±æˆ–è€…ä¸€ä¸ªè¶…çº§å†²å‡»æ•ˆæžœ.
+   <br/>
+   æ­¤æŽ§åˆ¶å™¨å·²è¢«Explodå–ä»£ä¸”ç›®å‰æ­£è€ƒè™‘åºŸå¼ƒ.
+   <br/>
+   åœ¨æœªæ¥çš„ç‰ˆæœ¬ä¸­ä¹Ÿè®¸ä¸ä¼šå†æ”¯æŒå®ƒ.
+   <br/>
+   æ³¨:è¯¥åŠ¨ç”»ç¼©æ”¾(scale)ä¸º1(ä¸ç¼©æ”¾).ä¸”åœ¨mugen1.1ä¸­å¯èƒ½æ˜¾ç¤ºä½ç½®ä¸æ­£ç¡®.
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¿…è¦å‚æ•°:
+   </span>
+   <br/>
+   æ— 
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¯é€‰å‚æ•°:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    value = anim_no (æ•´åž‹)
+   </span>
+   <br/>
+   æŒ‡å®šè¦æ’­æ”¾çš„åŠ¨ç”»å·(ä»Žfightfx.airä¸­).é»˜è®¤æ˜¯0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    under = under_flag (æ•´åž‹)
+   </span>
+   <br/>
+   å¦‚æžœunder_flagæ˜¯1,åŠ¨ç”»å°†ç»˜åˆ¶åœ¨äººç‰©å›¾å±‚ä¸‹æ–¹.é»˜è®¤æ˜¯0.(ç»˜åˆ¶åœ¨äººç‰©ä¸Šæ–¹)
+  </p>
+  <p>
+   <span class="STYLE3">
+    pos = x_pos, y_pos (æµ®ç‚¹åž‹)
+   </span>
+   <br/>
+   æŒ‡å®šåŠ¨ç”»è¢«æ˜¾ç¤ºçš„ä½ç½®,ç›¸å¯¹äºŽçŽ©å®¶çš„åæ ‡è½´.é»˜è®¤æ˜¯0,0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    random = rand_amt (æ•´åž‹)
+   </span>
+   <br/>
+   åŠ¨ç”»çš„ä½ç½®å°†è¢«xå’Œyæ–¹å‘çš„(ä¸åŒ)éšæœºæ•°æ›¿ä»£.
+   <br/>
+   è¿™ç§æ›¿æ¢å’Œrand_amtçš„ä¸€åŠä¸€æ ·å¤§.(å¯èƒ½æŒ‡çš„æ˜¯:å¦‚æžœpos = 0,0;random = 10,åˆ™åŠ¨ç”»å®žé™…å‡ºçŽ°çš„xå’Œyä½ç½®å‡åœ¨-5~5ä¹‹å†…)
+   <br/>
+   é»˜è®¤æ˜¯0.
+  </p>
+  <p>
+   <span class="STYLE2">
+    ç¤ºä¾‹:
+   </span>
+   <br/>
+   æ— 
+   <br/>
+  </p>
+ </body>
 </html>

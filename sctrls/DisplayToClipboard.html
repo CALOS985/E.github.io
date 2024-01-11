@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>DisplayToClipboard</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   DisplayToClipboard
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,50 +23,117 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">DisplayToClipboard</p>
-<p>�˿����������ڵ���.<br />
-  DisplayToClipboard�����ҵļ�����,��ӡ��ָ����Ϣ.<br />
-  �ڵ���ģʽ���ܹ���ʾ����ҵļ�����(��Ctrl+D).</p>
-<p><span class="STYLE2">��Ҫ����: </span><br />
-  <span class="STYLE3">text = &quot;format_string&quot; </span><br />
-  format_string����д��˫��������.<br />
-  format_string��һ��printf��ʽ�ַ�����,����������printf�˽�,����������������.<br />
-  �˸�ʽ�ַ����������κ�����Ҫ��ʾ������.<br />
-  ��Ҳ����ʹ�� \n ����һ�����з�, \t ����һ��tab�ַ�(tab�Ŀ��ȵ���4���ַ�����).<br />
-  ��Ҫ��ʾһ����������ʽ��ֵ,��÷��� %d(��ʾ����) ���� %f(��ʾ������) ��ʽ�ַ���,Ȼ���ڲ����б���ָ������ʽ.<br />
-��Ҫ��ʾ % �ַ�,�������� %% ��ʽ�ַ���.</p>
-<p>ֻ��ָ�����з��������͸����͸�ʽ������: <br />
-  %d(�з���ʮ��������)<br />
-  %i(ͬ%d)<br />
-  %f(������,ʮ���Ƽ�����)<br />
-  %F(ò��ʲôҲ����ʾ)<br />
-  %e(�ÿ�ѧ��������ʾ�ĸ�����)<br />
-  %E(ͬ%e)<br />
-  %g(������,����ʾ�������0)<br />
-  %G(����ͬ%g)<br />
-  ��֧�ֳ����θ�ʽ.(����,%lld)<br />
-  �Ͽɵ�ת���ַ�Ϊ \n(���з�),\t(ˮƽ�Ʊ��� Tab��),\\(��б���ַ�)��\&quot;(˫�����ַ�).</p>
-<p><span class="STYLE2">��ѡ����: </span><br />
-  <span class="STYLE3">params = exp_1, exp_2, exp_3, exp_4, exp_5, exp_6 </span><br />
-  ���ָ��6����ʽ�ַ�����Ϊ��ֵ����. (�糬��6����ֵ, ��ʹ�� <a href="AppendToClipboard.html">AppendToClipboard</a>)<br />
-  ��ЩӦ�ñ����������params��Ŀ֮��.<br />
-  ÿ�������ĸ�ʽ������ָ����ʽ��ƥ��.<br />
-  �㲻��ָ�����ڻ������ڱ����õĸ�ʽ�ַ�������.</p>
-<p>���ָ����ʽ��ʵ���ṩ�Ĳ�����ƥ��,��ʵ�ʲ�����ֵ�����ʵ�(������������˵)��ʽ��ʾ����,ʹ��Ĭ�ϵĸ�ʽ��ѡ��.</p>
-<p><span class="STYLE2">ʾ��:</span><br />
-  [state ]<br />
-  type = DisplayToClipboard<br />
-  trigger1 = 1<br />
-  text=&quot;The value of var(17) is %d, which is %f%% of 23.\n\t--Kiwi.&quot;<br />
-  params = var(17):=1,var(17)/.230<br />
-;&quot;:=&quot;Ϊ��ֵ�����,ֱ�ӽ�ֵ����var����,������Ͳ�һ��,��ǿ��ת�����ٸ�ֵ.</p>
-<p>������Ϣ������ʾ����ҵļ�������(��Ctrl+D�л���ʾ):<br />
-  The value of var(17) is 1, which is 4.347826% of 23.<br />
-  --Kiwi.</p>
-<p><span class="STYLE2">ע:</span><br />
-ͨ����Debug��,��Ҳ����������ʾ�����Զ�����Ϣ.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   DisplayToClipboard
+  </p>
+  <p>
+   此控制器仅用于调试.
+   <br/>
+   DisplayToClipboard清空玩家的剪贴板,打印出指定信息.
+   <br/>
+   在调试模式中能够显示出玩家的剪贴板(按Ctrl+D).
+  </p>
+  <p>
+   <span class="STYLE2">
+    必要参数:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    text = "format_string"
+   </span>
+   <br/>
+   format_string必须写在双引号里面.
+   <br/>
+   format_string是一个printf格式字符串型,所以如果你对printf了解,你可以跳过这段描述.
+   <br/>
+   此格式字符串包含了任何你想要显示的文字.
+   <br/>
+   你也可以使用 \n 生成一个换行符, \t 生成一个tab字符(tab的宽度等于4个字符宽度).
+   <br/>
+   如要显示一个算术表达式的值,你得放入 %d(显示整型) 或者 %f(显示浮点型) 格式字符串,然后在参数列表中指定表达式.
+   <br/>
+   如要显示 % 字符,你必须放入 %% 格式字符串.
+  </p>
+  <p>
+   只有指定的有符号整数和浮点型格式被接受:
+   <br/>
+   %d(有符号十进制整数)
+   <br/>
+   %i(同%d)
+   <br/>
+   %f(浮点数,十进制记数法)
+   <br/>
+   %F(貌似什么也不显示)
+   <br/>
+   %e(用科学计数法表示的浮点数)
+   <br/>
+   %E(同%e)
+   <br/>
+   %g(浮点数,不显示无意义的0)
+   <br/>
+   %G(基本同%g)
+   <br/>
+   不支持长修饰格式.(例如,%lld)
+   <br/>
+   认可的转义字符为 \n(换行符),\t(水平制表符 Tab键),\\(反斜杠字符)和\"(双引号字符).
+  </p>
+  <p>
+   <span class="STYLE2">
+    可选参数:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    params = exp_1, exp_2, exp_3, exp_4, exp_5, exp_6
+   </span>
+   <br/>
+   最多指定6个格式字符串作为数值参数. (如超过6个数值, 请使用
+   <a href="AppendToClipboard.html">
+    AppendToClipboard
+   </a>
+   )
+   <br/>
+   这些应该被整齐的列在params项目之下.
+   <br/>
+   每个参数的格式必须与指定格式相匹配.
+   <br/>
+   你不能指定多于或者少于被调用的格式字符串参数.
+  </p>
+  <p>
+   如果指定格式和实际提供的参数不匹配,则实际参数的值将以适当(对那种类型来说)格式显示出来,使用默认的格式化选项.
+  </p>
+  <p>
+   <span class="STYLE2">
+    示例:
+   </span>
+   <br/>
+   [state ]
+   <br/>
+   type = DisplayToClipboard
+   <br/>
+   trigger1 = 1
+   <br/>
+   text="The value of var(17) is %d, which is %f%% of 23.\n\t--Kiwi."
+   <br/>
+   params = var(17):=1,var(17)/.230
+   <br/>
+   ;":="为赋值运算符,直接将值赋给var参数,如果类型不一样,将强制转换后再赋值.
+  </p>
+  <p>
+   下列信息将会显示在玩家的剪贴板上(按Ctrl+D切换显示):
+   <br/>
+   The value of var(17) is 1, which is 4.347826% of 23.
+   <br/>
+   --Kiwi.
+  </p>
+  <p>
+   <span class="STYLE2">
+    注:
+   </span>
+   <br/>
+   通常作Debug用,但也可以用来显示作者自定义信息.
+  </p>
+ </body>
 </html>

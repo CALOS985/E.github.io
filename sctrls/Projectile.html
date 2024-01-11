@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>Projectile</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   Projectile
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,124 +23,361 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">Projectile</p>
-<p>Ϊ��Ҵ���һ�����е���.<br />
-  Projectile������Я���� <a href="HitDef.html">HitDef</a> �����������в���,�������Ʒ��е��ߵ�HitDef.<br />
-  ����,Projectile�����������¶���Ĳ���.</p>
-<p><span class="STYLE2">ע:</span>projectile�׳�&quot;��&quot;&quot;�ɵ�&quot;�ȵ�,����ͳһ����&quot;���е���&quot;.HitDefֱ��Ϊ&quot;���ж���&quot;.</p>
-<p><span class="STYLE2">��Ҫ����: </span><br />
-��</p>
-<p><span class="STYLE2">��ѡ����: </span><br />
-  <span class="STYLE3">ProjID = id_no (����) </span><br />
-���˷��е���ָ��ID��.����Ϊ����.</p>
-<p><span class="STYLE3">projanim = anim_no (����) </span><br />
-ָ�����е���ʹ�õĶ���������.ȱʡĬ����0.</p>
-<p><span class="STYLE3">projhitanim = anim_no (����) </span><br />
-ָ�����е��߻��ж���ʱ�Ķ�����.ȱʡĬ��Ϊ-1(���ı�ԭ�ж���).</p>
-<p><span class="STYLE3">projremanim = anim_no (����) </span><br />
-  ָ�����е��߱��Ƴ�ʱ�Ķ�����(����ʱ����ڻ��ߵ����������ƶ��߽�,�ȵ�).<br />
-ȱʡĬ��Ϊprojhitanim��ֵ.</p>
-<p><span class="STYLE3">projcancelanim = anim_no (����) </span><br />
-ָ�����е��߱���һ�����е�����ȥʱ�Ķ���.ȱʡĬ��Ϊprojremanim��ֵ.</p>
-<p><span class="STYLE3">projscale = x_scale, y_scale (������, ������) </span><br />
-  ָ�����е��ߵ�����ϵ��.���շ��е��ߵ�����Ч�����˲�����P1cns�ļ�[Size]����&quot;proj.doscale&quot;��ͬӰ��.<br />
-ȱʡĬ��Ϊ1,1(�����ߴ�).</p>
-<p><span class="STYLE3">projremove = remove_flag (������) </span><br />
-���÷�0ֵʹ���е����ڻ��к��Ƴ�,��������0��ֹ�������.Ĭ����1.</p>
-<p><span class="STYLE3">projremovetime = remove_time (����) </span><br />
-  ָ�����е�������Ļ�н�Ҫ���Ƴ���ʱ��֡��.(Ҳ����remove_time����е��߱��Ƴ�,�������������)<br />
-�����-1,���е��߽����ᱻ�Ƴ�.Ĭ����-1.</p>
-<p><span class="STYLE3">velocity = x_vel, y_vel (������, ������) </span><br />
-ָ�����е���x��y������ٶȳ�ʼֵ.ȱʡĬ����0,0.</p>
-<p><span class="STYLE3">remvelocity = x_vel, y_vel (������, ������) </span><br />
-ָ�������е��߱��Ƴ�ʱx��y������ٶ�.ȱʡĬ��Ϊ0,0.</p>
-<p><span class="STYLE3">accel = x_accel, y_accel (������, ������) </span><br />
-ָ�����е���x��y����ļ��ٶ�.ȱʡĬ��Ϊ0,0.</p>
-<p><span class="STYLE3">velmul = x_mul, y_mul (������, ������) </span><br />
-ָ��x��y�����ٶȵĳ���.���е��ߵ��ٶ�ÿ֡��������������.����ȱʡĬ��Ϊ1.</p>
-<p><span class="STYLE3">projhits = num_hits (����) </span><br />
-ָ�����е����ڱ��Ƴ�ǰ�ܸ�����ֵ�hit��.Ĭ����1.</p>
-<p><span class="STYLE3">projmisstime = miss_time (����) </span><br />
-������е����趨�˶��hit,miss_timeָ���˷��е���hit��ʱ����֡��.Ĭ��Ϊ0.</p>
-<p><span class="STYLE3">projpriority = proj_priority (����) </span><br />
-  ָ�����е��ߵ����ȼ�.(�׳Ʋ��ĵȼ�)<br />
-  ������е�������һ����ͬ���ȼ��ķ��е�����ײ,���ǽ�һ����ȥ.<br />
-  ���������ȼ��ķ��е�����ײ,������ȥ�����ȼ��ķ��е���,���Ǹ������ȼ��ķ��е���,�������ȼ�����ȥ1.<br />
-Ĭ��Ϊ1.(��hitdef�й������ȼ�����(priority)��ͬ,���е��ߵ����ȼ�û��ָ����Χ)</p>
-<p><span class="STYLE3">projsprpriority = priority (����) </span><br />
-ָ�����е���ͼ������ȼ�.�����ȼ�ͼ�����ʾ�ڵ����ȼ�ͼ���Ϸ�.Ĭ����3.</p>
-<p><span class="STYLE3">projedgebound = value (����) </span><br />
-  ָ�����е��߱��Զ��Ƴ�ǰԶ����Ļ��Ե�ľ���.��λ������.<br />
-Ĭ��Ϊ40(240p),80(480p),160(720p).</p>
-<p><span class="STYLE3">projstagebound = value (����) </span><br />
-  ָ�����е��߱��Զ��Ƴ�ǰԶ����̨��Ե��������.<br />
-Ĭ��Ϊ40(240p),80(480p),160(720p).</p>
-<p><span class="STYLE3">projheightbound = lowbound, highbound (����, ����) </span><br />
-  ָ�����е����ܹ������y�������������Сֵ.������е����뿪����߽�,�����Զ��Ƴ�.<br />
-  ע��:��Ϊ����yֵ����������Ļ�ϵĸ߶�,���Ա߽�ֵ����ʵ��ָ�����Ƿ��е����ܵ������߸߶�.<br />
-�߽�ֵ����Ĭ��Ϊ-240(240p), -480(480p), -960(720p).�߽�ֵ����Ĭ����1(240p), 2(480p), 4(720p).</p>
-<p><span class="STYLE3">offset = off_x, off_y (����, ����) </span><br />
-  ָ�����е��߱�����ʱx��y�����ƫ����.ȱʡĬ�϶�Ϊ0.<br />
-  ���е��ߴ���ʱ�ĳ������Ǻ����һ��.off_x����е�������Եķ����й�.<br />
-offset��ȷ������ȡ����postype.</p>
-<p><span class="STYLE3">postype = postype_string (�ַ�����) </span><br />
-  postype_stringָ����postype(λ������)--��ν�����λ�õĲ���.<br />
-���������,����yƫ������ʾ���µ�λ��.���������,off_y�������ҵ�λ��.</p>
-<p>��Ч��postype_stringֵ����:<br />
-</p>
-<ul>
-  <li><span class="STYLE3">p1</span> <br />
-    ˵����offset�����p1��������.����off_x����P1ǰ��.����postypeĬ��ֵ.<br />
-    </li>
-  <li><span class="STYLE3">p2</span> <br />
-    ˵����offset�����p2��������.����off_x����P2ǰ��.<br />
-    ���������p2,λ�ü����p1�й��һ��¼һ�ξ���.<br />
-    </li>
-  <li><span class="STYLE3">front</span> <br />
-    ˵��off_x�����p1�������Ļ��Ե.����off_x����p1ǰ��.<br />
-    </li>
-  <li><span class="STYLE3">back </span><br />
-    ˵��off_x�����p1���Ե���Ļ��Ե.����off_x����p1ǰ��.<br />
-    </li>
-  <li><span class="STYLE3">left </span><br />
-    ˵��off_x�������ߵ���Ļ��Ե.����off_x����p1ǰ��.<br />
-    </li>
-  <li><span class="STYLE3">right </span><br />
-    ˵��off_x������ұߵ���Ļ��Ե.����off_x����p1ǰ��.</li>
-</ul>
-<p><span class="STYLE3">projshadow = shadow (����)</span><br />
-���shadow����ֵ,�����Ʒ��е��߻𻨵���Ӱ,���򲻻�.Ĭ����0.</p>
-<p><span class="STYLE3">projshadow = shad_r, shad_g, shad_b (����, ����, ����) </span><br />
-  ָ�����е���Ӱ�ӵ�R,G,B��ֵ����.����ֵӦ��[0,255]֮�������.<br />
-  ���shad_r�����-1,��ʹ����̨��Ӱ����ɫ.<br />
-  ����ֵԽ��,������ɫ��Ӱ������ʾ��Խ��.���Դ���ɫ��Ӱ����255,255,255.<br />
-Ĭ��Ϊ0,0,0.(ûӰ��)</p>
-<p><span class="STYLE3">supermovetime = move_time (����) </span><br />
-ָ��SuperPause(������ͣ)�з��е��߽���������ס��ʱ��֡��.Ĭ��Ϊ0.</p>
-<p><span class="STYLE3">pausemovetime = move_time (����) </span><br />
-ָ��Pause(��ͣ)�з��е��߽���������ס��ʱ��֡��.Ĭ��Ϊ0.</p>
-<p><span class="STYLE3">ownpal = ownpal_flag (������) </span><br />
-  ���ownpal_flagΪ0,���е�����ɫ�������ִ�е�������PalFX��RemapPal������Ӱ��.ͨ�����������Ĭ��ֵ.<br />
-���ownpal_flagΪ1,���е�����ɫ�����ᱻ���ִ�е�������PalFX��RemapPal������Ӱ��.����Ǵ�fightfx.air���Ŷ�����,����Ĭ��ֵ.</p>
-<p><span class="STYLE3">remappal = dst_pal_grp, dst_pal_item (����, ����)</span><br />
-  ǿ��ɫ���ӷ��е���������ɫͼ����ӳ�䵽ָ����ɫ��.<br />
-  �˲�������ownpal_flagΪ��0.<br />
-���dst_pal_grp��-1,�˲�����������.Ĭ��-1,0.</p>
-<p><span class="STYLE3">afterimage.time = aftimg_time (����) </span><br />
-���·�.</p>
-<p><span class="STYLE3">afterimage.length </span><br />
-���·�.</p>
-<p><span class="STYLE3">afterimage.... </span><br />
-  ���������Щ��ֵ,��ʵ�ַ��е��ߵĲ�ӰЧ��.<br />
-������AfterImage�������е�һ��,ֻ�Ǳ�����ǰ�����&quot;afterimage.&quot;.</p>
-<p><span class="STYLE2">ע��: </span><br />
-  helper�����ķ��е��߽����̱����ĸ�������.<br />
-����һ��[Statedef -2]���б�ִ��ͬʱ�������(ִ��)��һ����ҵ�״̬�Ͷ�������ʱ���е��ߵ�HitDef������δ�����.</p>
-<p><span class="STYLE2">ʾ��: </span><br />
-  ��<br />
-</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   Projectile
+  </p>
+  <p>
+   为玩家创建一个飞行道具.
+   <br/>
+   Projectile控制器携带了
+   <a href="HitDef.html">
+    HitDef
+   </a>
+   控制器的所有参数,用来控制飞行道具的HitDef.
+   <br/>
+   此外,Projectile控制器有如下额外的参数.
+  </p>
+  <p>
+   <span class="STYLE2">
+    注:
+   </span>
+   projectile俗称"波""飞弹"等等,这里统一译作"飞行道具".HitDef直译为"击中定义".
+  </p>
+  <p>
+   <span class="STYLE2">
+    必要参数:
+   </span>
+   <br/>
+   无
+  </p>
+  <p>
+   <span class="STYLE2">
+    可选参数:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    ProjID = id_no (整型)
+   </span>
+   <br/>
+   给此飞行道具指定ID号.设置为正数.
+  </p>
+  <p>
+   <span class="STYLE3">
+    projanim = anim_no (整型)
+   </span>
+   <br/>
+   指定飞行道具使用的动画动作号.缺省默认是0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    projhitanim = anim_no (整型)
+   </span>
+   <br/>
+   指定飞行道具击中对手时的动画号.缺省默认为-1(不改变原有动画).
+  </p>
+  <p>
+   <span class="STYLE3">
+    projremanim = anim_no (整型)
+   </span>
+   <br/>
+   指定飞行道具被移除时的动画号(由于时间过期或者到达了它的移动边界,等等).
+   <br/>
+   缺省默认为projhitanim的值.
+  </p>
+  <p>
+   <span class="STYLE3">
+    projcancelanim = anim_no (整型)
+   </span>
+   <br/>
+   指定飞行道具被另一个飞行道具削去时的动画.缺省默认为projremanim的值.
+  </p>
+  <p>
+   <span class="STYLE3">
+    projscale = x_scale, y_scale (浮点型, 浮点型)
+   </span>
+   <br/>
+   指定飞行道具的缩放系数.最终飞行道具的缩放效果被此参数和P1cns文件[Size]组中"proj.doscale"共同影响.
+   <br/>
+   缺省默认为1,1(正常尺寸).
+  </p>
+  <p>
+   <span class="STYLE3">
+    projremove = remove_flag (布尔型)
+   </span>
+   <br/>
+   设置非0值使飞行道具在击中后移除,或者设置0阻止这个特征.默认是1.
+  </p>
+  <p>
+   <span class="STYLE3">
+    projremovetime = remove_time (整型)
+   </span>
+   <br/>
+   指定飞行道具在屏幕中将要被移除的时间帧数.(也就是remove_time后飞行道具被移除,相对于生命周期)
+   <br/>
+   如果是-1,飞行道具将不会被移除.默认是-1.
+  </p>
+  <p>
+   <span class="STYLE3">
+    velocity = x_vel, y_vel (浮点型, 浮点型)
+   </span>
+   <br/>
+   指定飞行道具x和y方向的速度初始值.缺省默认是0,0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    remvelocity = x_vel, y_vel (浮点型, 浮点型)
+   </span>
+   <br/>
+   指定当飞行道具被移除时x和y方向的速度.缺省默认为0,0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    accel = x_accel, y_accel (浮点型, 浮点型)
+   </span>
+   <br/>
+   指定飞行道具x和y方向的加速度.缺省默认为0,0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    velmul = x_mul, y_mul (浮点型, 浮点型)
+   </span>
+   <br/>
+   指定x和y方向速度的乘数.飞行道具的速度每帧都会乘以这个乘数.乘数缺省默认为1.
+  </p>
+  <p>
+   <span class="STYLE3">
+    projhits = num_hits (整型)
+   </span>
+   <br/>
+   指定飞行道具在被移除前能给予对手的hit数.默认是1.
+  </p>
+  <p>
+   <span class="STYLE3">
+    projmisstime = miss_time (整型)
+   </span>
+   <br/>
+   如果飞行道具设定了多次hit,miss_time指定了飞行道具hit的时间间隔帧数.默认为0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    projpriority = proj_priority (整型)
+   </span>
+   <br/>
+   指定飞行道具的优先级.(俗称波的等级)
+   <br/>
+   如果飞行道具与另一个相同优先级的飞行道具碰撞,他们将一起被削去.
+   <br/>
+   如果与低优先级的飞行道具碰撞,将会削去低优先级的飞行道具,且那个高优先级的飞行道具,他的优先级将减去1.
+   <br/>
+   默认为1.(与hitdef中攻击优先级定义(priority)不同,飞行道具的优先级没有指定范围)
+  </p>
+  <p>
+   <span class="STYLE3">
+    projsprpriority = priority (整型)
+   </span>
+   <br/>
+   指定飞行道具图像的优先级.高优先级图像会显示在低优先级图像上方.默认是3.
+  </p>
+  <p>
+   <span class="STYLE3">
+    projedgebound = value (整型)
+   </span>
+   <br/>
+   指定飞行道具被自动移除前远离屏幕边缘的距离.单位是像素.
+   <br/>
+   默认为40(240p),80(480p),160(720p).
+  </p>
+  <p>
+   <span class="STYLE3">
+    projstagebound = value (整型)
+   </span>
+   <br/>
+   指定飞行道具被自动移除前远离舞台边缘的最大距离.
+   <br/>
+   默认为40(240p),80(480p),160(720p).
+  </p>
+  <p>
+   <span class="STYLE3">
+    projheightbound = lowbound, highbound (整型, 整型)
+   </span>
+   <br/>
+   指定飞行道具能够到达的y方向坐标最大最小值.如果飞行道具离开这个边界,将会自动移除.
+   <br/>
+   注意:因为减少y值会增加在屏幕上的高度,所以边界值下限实际指定的是飞行道具能到达的最高高度.
+   <br/>
+   边界值下限默认为-240(240p), -480(480p), -960(720p).边界值上限默认是1(240p), 2(480p), 4(720p).
+  </p>
+  <p>
+   <span class="STYLE3">
+    offset = off_x, off_y (整型, 整型)
+   </span>
+   <br/>
+   指定飞行道具被创建时x和y方向的偏移量.缺省默认都为0.
+   <br/>
+   飞行道具创建时的朝向总是和玩家一样.off_x与飞行道具所面对的方向有关.
+   <br/>
+   offset的确切特征取决于postype.
+  </p>
+  <p>
+   <span class="STYLE3">
+    postype = postype_string (字符串型)
+   </span>
+   <br/>
+   postype_string指定了postype(位置类型)--如何解读相关位置的参数.
+   <br/>
+   所有情况下,正的y偏移量表示向下的位移.所有情况下,off_y相对于玩家的位置.
+  </p>
+  <p>
+   有效的postype_string值如下:
+   <br/>
+  </p>
+  <ul>
+   <li>
+    <span class="STYLE3">
+     p1
+    </span>
+    <br/>
+    说明了offset相对于p1的坐标轴.正的off_x朝向P1前方.这是postype默认值.
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     p2
+    </span>
+    <br/>
+    说明了offset相对于p2的坐标轴.正的off_x朝向P2前方.
+    <br/>
+    如果不存在p2,位置计算和p1有关且会记录一次警告.
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     front
+    </span>
+    <br/>
+    说明off_x相对于p1面向的屏幕边缘.正的off_x朝向p1前方.
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     back
+    </span>
+    <br/>
+    说明off_x相对于p1背对的屏幕边缘.正的off_x朝向p1前方.
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     left
+    </span>
+    <br/>
+    说明off_x相对于左边的屏幕边缘.正的off_x朝向p1前方.
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     right
+    </span>
+    <br/>
+    说明off_x相对于右边的屏幕边缘.正的off_x朝向p1前方.
+   </li>
+  </ul>
+  <p>
+   <span class="STYLE3">
+    projshadow = shadow (整型)
+   </span>
+   <br/>
+   如果shadow非零值,将绘制飞行道具火花的阴影,否则不会.默认是0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    projshadow = shad_r, shad_g, shad_b (整型, 整型, 整型)
+   </span>
+   <br/>
+   指定飞行道具影子的R,G,B数值分量.分量值应是[0,255]之间的整数.
+   <br/>
+   如果shad_r计算出-1,则将使用舞台的影子颜色.
+   <br/>
+   分量值越大,这种颜色在影子中显示的越少.所以纯黑色的影子是255,255,255.
+   <br/>
+   默认为0,0,0.(没影子)
+  </p>
+  <p>
+   <span class="STYLE3">
+    supermovetime = move_time (整型)
+   </span>
+   <br/>
+   指定SuperPause(超级暂停)中飞行道具将不被冻结住的时间帧数.默认为0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    pausemovetime = move_time (整型)
+   </span>
+   <br/>
+   指定Pause(暂停)中飞行道具将不被冻结住的时间帧数.默认为0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    ownpal = ownpal_flag (布尔型)
+   </span>
+   <br/>
+   如果ownpal_flag为0,飞行道具颜色将被随后执行的自身的PalFX和RemapPal控制器影响.通常情况下这是默认值.
+   <br/>
+   如果ownpal_flag为1,飞行道具颜色将不会被随后执行的自身的PalFX和RemapPal控制器影响.如果是从fightfx.air播放动画的,这是默认值.
+  </p>
+  <p>
+   <span class="STYLE3">
+    remappal = dst_pal_grp, dst_pal_item (整型, 整型)
+   </span>
+   <br/>
+   强制色表从飞行道具索引颜色图像重映射到指定的色表.
+   <br/>
+   此参数仅当ownpal_flag为非0.
+   <br/>
+   如果dst_pal_grp是-1,此参数将被忽略.默认-1,0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    afterimage.time = aftimg_time (整型)
+   </span>
+   <br/>
+   见下方.
+  </p>
+  <p>
+   <span class="STYLE3">
+    afterimage.length
+   </span>
+   <br/>
+   见下方.
+  </p>
+  <p>
+   <span class="STYLE3">
+    afterimage....
+   </span>
+   <br/>
+   如果包含这些数值,将实现飞行道具的残影效果.
+   <br/>
+   参数与AfterImage控制器中的一样,只是必须在前面加上"afterimage.".
+  </p>
+  <p>
+   <span class="STYLE2">
+    注意:
+   </span>
+   <br/>
+   helper创建的飞行道具将立刻被他的根级所有.
+   <br/>
+   当在一个[Statedef -2]块中被执行同时此玩家有(执行)另一个玩家的状态和动画数据时飞行道具的HitDef特征是未定义的.
+  </p>
+  <p>
+   <span class="STYLE2">
+    示例:
+   </span>
+   <br/>
+   无
+   <br/>
+  </p>
+ </body>
 </html>

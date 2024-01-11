@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>ReversalDef</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   ReversalDef
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -24,30 +26,71 @@ body,td,th {
 	color: #FF0000
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">ReversalDef</p>
-<p>¶¨ÒåÒ»¸ö¹¥»÷·´µ¯.(¹¥»÷µ¹ÖÃ)<br />
-  Èç¹ûP2µÄÒ»¸öClns1¿ò(ºì¿ò)ÓëP1µÄÒ»¸öClsn1¿ò(ºì¿ò)(ÇÒ´ËÊ±ReversalDef¼¤»îÖĞ),ÔòP1½«·´µ¯P2µÄ¹¥»÷.<br />
-  Óëp1stateno(¿ÉÑ¡p2stateno)Ò»ÆğÊ¹ÓÃ,´´½¨·´µ¯¹¥»÷.<br />
-  ReversalDefĞ¯´øÁËHitDefÖĞpausetime, sparkno, hitsound, p1statenoºÍp2stateno²ÎÊı,¼ÓÉÏ:</p>
-<p><span class="STYLE2">±ØÒª²ÎÊı: </span><br />
-  <span class="STYLE3">reversal.attr = attr_string </span><br />
-  attr_stringÖ¸¶¨ÄÜ±»ReversalDef·´µ¯µÄ¹¥»÷ÊôĞÔÁĞ±í.ÊÇÒ»¸ö±ê×¼µÄhitÊôĞÔ×Ö·û´®.<br />
-  ÀıÈç,reversal.attr = SA,NA,SA±íÊ¾ Õ¾Á¢+¿ÕÖĞ, ÆÕÍ¨¹¥»÷, ÌØÊâ¹¥»÷.(¶ÔÊÖµÄ¹¥»÷ÀàĞÍÈç¹û°üº¬ÔÚÁĞ³öÀ´µÄÀàĞÍÄÚ½«±»·´µ¯) <br />
-(ÁíÓĞ×Ö·û&quot;A&quot;,ÓÃÀ´±íÊ¾All(ËùÓĞµÄ¹¥»÷ÀàĞÍ),ÀıÈç,reversal.attr = S,AT±íÊ¾ Õ¾Á¢,ËùÓĞÍ¶ÖÀÀà¹¥»÷)</p>
-<p><span class="STYLE2">¿ÉÑ¡²ÎÊı: </span><br />
-ÎŞ</p>
-<p><span class="STYLE2">×¢Òâ: </span><br />
-  sparkxy²ÎÊı±»ÈÏÎªÊÇµ½P2µÄhitdefµÄsparkxyµÄÆ«ÒÆÁ¿.<br />
-MoveHit´¥·¢Æ÷ÄÜ±»ÓÃÀ´¼ì²âÈç¹ûP1³É¹¦·´µ¯ÁËP2ÕĞÊ½.</p>
-<p><span class="STYLE2">Ê¾Àı: </span><br />
-ÎŞ</p>
-<p>(Ö÷ÒªÓÃÓÚ¸ñµ²¼¼ÄÜ,ÀıÈçÌÙÌÃÏã³ÎµÄÕĞÊ½,¸ÕÌåµÈ.Ö»ÒªÄãµÄºì¿òÓĞ·´µ¯¶¨ÒåÇÒ½Ó´¥µ½¶ÔÊÖµÄºì¿ò,ÄÇÃ´¶ÔÊÖµÄÕĞÊ½¾Í»á±»Äã·´µ¯.<br />
-  ËùÒÔ,¼´Ê¹Äã´¦ÓÚÎŞµĞ×´Ì¬(±ÈÈçÊ¹ÓÃÁËnothitby»òÕßÑ¹¸ù¾ÍÃ»ÓĞÊÜÀ¶É«»÷¿ò),Ò²ÓĞ¿ÉÄÜ±»¶ÔÊÖ»÷ÖĞ¶øÉÙÑª,Ö»Òª¶ÔÊÖÅäºÏÊ¹ÓÃÁËp2stateno.<br />
-  <span class="STYLE4">µ±È»,´Ë¿ØÖÆÆ÷ÅäºÏp2statenoÊ¹ÓÃÒ²¼«Ò×ÔÚ·ÇÕûºÏµÄMUGENÓÎÏ·¶ÔÕ½ÖĞ²úÉúbug,×îµäĞÍµÄ¾ÍÊÇ¶àÒ»¸öÈË³öÀ´.</span><br />
-  Ö÷ÒªÊÇÓÉÓÚReversalDef·´µ¯ÁË¶ÔÊÖµÄhelper¹¥»÷,ÅäºÏp2stateno,Ö¸¶¨ÁË¶ÔÊÖµÄhelper½øÈëÁËÖ¸¶¨×´Ì¬.<br />
-  ËùÒÔÊ¹ÓÃÊ±Ò»¶¨Òª×¢Òâ.)</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   ReversalDef
+  </p>
+  <p>
+   å®šä¹‰ä¸€ä¸ªæ”»å‡»åå¼¹.(æ”»å‡»å€’ç½®)
+   <br/>
+   å¦‚æœP2çš„ä¸€ä¸ªClns1æ¡†(çº¢æ¡†)ä¸P1çš„ä¸€ä¸ªClsn1æ¡†(çº¢æ¡†)(ä¸”æ­¤æ—¶ReversalDefæ¿€æ´»ä¸­),åˆ™P1å°†åå¼¹P2çš„æ”»å‡».
+   <br/>
+   ä¸p1stateno(å¯é€‰p2stateno)ä¸€èµ·ä½¿ç”¨,åˆ›å»ºåå¼¹æ”»å‡».
+   <br/>
+   ReversalDefæºå¸¦äº†HitDefä¸­pausetime, sparkno, hitsound, p1statenoå’Œp2statenoå‚æ•°,åŠ ä¸Š:
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¿…è¦å‚æ•°:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    reversal.attr = attr_string
+   </span>
+   <br/>
+   attr_stringæŒ‡å®šèƒ½è¢«ReversalDefåå¼¹çš„æ”»å‡»å±æ€§åˆ—è¡¨.æ˜¯ä¸€ä¸ªæ ‡å‡†çš„hitå±æ€§å­—ç¬¦ä¸².
+   <br/>
+   ä¾‹å¦‚,reversal.attr = SA,NA,SAè¡¨ç¤º ç«™ç«‹+ç©ºä¸­, æ™®é€šæ”»å‡», ç‰¹æ®Šæ”»å‡».(å¯¹æ‰‹çš„æ”»å‡»ç±»å‹å¦‚æœåŒ…å«åœ¨åˆ—å‡ºæ¥çš„ç±»å‹å†…å°†è¢«åå¼¹)
+   <br/>
+   (å¦æœ‰å­—ç¬¦"A",ç”¨æ¥è¡¨ç¤ºAll(æ‰€æœ‰çš„æ”»å‡»ç±»å‹),ä¾‹å¦‚,reversal.attr = S,ATè¡¨ç¤º ç«™ç«‹,æ‰€æœ‰æŠ•æ·ç±»æ”»å‡»)
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¯é€‰å‚æ•°:
+   </span>
+   <br/>
+   æ— 
+  </p>
+  <p>
+   <span class="STYLE2">
+    æ³¨æ„:
+   </span>
+   <br/>
+   sparkxyå‚æ•°è¢«è®¤ä¸ºæ˜¯åˆ°P2çš„hitdefçš„sparkxyçš„åç§»é‡.
+   <br/>
+   MoveHitè§¦å‘å™¨èƒ½è¢«ç”¨æ¥æ£€æµ‹å¦‚æœP1æˆåŠŸåå¼¹äº†P2æ‹›å¼.
+  </p>
+  <p>
+   <span class="STYLE2">
+    ç¤ºä¾‹:
+   </span>
+   <br/>
+   æ— 
+  </p>
+  <p>
+   (ä¸»è¦ç”¨äºæ ¼æŒ¡æŠ€èƒ½,ä¾‹å¦‚è—¤å ‚é¦™æ¾„çš„æ‹›å¼,åˆšä½“ç­‰.åªè¦ä½ çš„çº¢æ¡†æœ‰åå¼¹å®šä¹‰ä¸”æ¥è§¦åˆ°å¯¹æ‰‹çš„çº¢æ¡†,é‚£ä¹ˆå¯¹æ‰‹çš„æ‹›å¼å°±ä¼šè¢«ä½ åå¼¹.
+   <br/>
+   æ‰€ä»¥,å³ä½¿ä½ å¤„äºæ— æ•ŒçŠ¶æ€(æ¯”å¦‚ä½¿ç”¨äº†nothitbyæˆ–è€…å‹æ ¹å°±æ²¡æœ‰å—è“è‰²å‡»æ¡†),ä¹Ÿæœ‰å¯èƒ½è¢«å¯¹æ‰‹å‡»ä¸­è€Œå°‘è¡€,åªè¦å¯¹æ‰‹é…åˆä½¿ç”¨äº†p2stateno.
+   <br/>
+   <span class="STYLE4">
+    å½“ç„¶,æ­¤æ§åˆ¶å™¨é…åˆp2statenoä½¿ç”¨ä¹Ÿææ˜“åœ¨éæ•´åˆçš„MUGENæ¸¸æˆå¯¹æˆ˜ä¸­äº§ç”Ÿbug,æœ€å…¸å‹çš„å°±æ˜¯å¤šä¸€ä¸ªäººå‡ºæ¥.
+   </span>
+   <br/>
+   ä¸»è¦æ˜¯ç”±äºReversalDefåå¼¹äº†å¯¹æ‰‹çš„helperæ”»å‡»,é…åˆp2stateno,æŒ‡å®šäº†å¯¹æ‰‹çš„helperè¿›å…¥äº†æŒ‡å®šçŠ¶æ€.
+   <br/>
+   æ‰€ä»¥ä½¿ç”¨æ—¶ä¸€å®šè¦æ³¨æ„.)
+  </p>
+ </body>
 </html>

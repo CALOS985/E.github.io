@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>BindToRoot</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   BindToRoot
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,26 +23,66 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">BindToRoot</p>
-<p>Èç¹ûÍæ¼ÒÊÇÒ»¸öhelper,½«Õâ¸öÍæ¼Ò°ó¶¨µ½Ïà¶ÔÓÚËûµÄ¸ù¼¶(×î¶¥¼¶)µÄÖ¸¶¨Î»ÖÃ.<br />
-  Èç¹ûÕâ¸öÍæ¼Ò²»ÊÇhelper,´Ë¿ØÖÆÆ÷ÎÞÐ§.</p>
-<p><span class="STYLE2">±ØÒª²ÎÊý: </span><br />
-ÎÞ</p>
-<p><span class="STYLE2">¿ÉÑ¡²ÎÊý: </span><br />
-  <span class="STYLE3">time = bind_time (ÕûÐÍ) </span><br />
-Ö¸¶¨°ó¶¨µÄÓÐÐ§Ê±¼äÖ¡Êý.Ä¬ÈÏÎª1.</p>
-<p><span class="STYLE3">facing = facing_flag (ÕûÐÍ)</span><br />
-  Èç¹ûfacing_flagÊÇ-1,ÔÚ°ó¶¨ÆÚ¼äÊ¹Íæ¼Ò×ÜÊÇ³¯×Å¸ù¼¶Ïà·´µÄ·½Ïò.<br />
-  Èç¹ûfacing_flagÊÇ1,ÔÚ°ó¶¨ÆÚ¼äÊ¹Íæ¼Ò×ÜÊÇ³¯×Å¸ù¼¶ÏàÍ¬µÄ·½Ïò.<br />
-Èç¹ûfacing_flagÊÇ0,ÔÚ°ó¶¨ÆÚ¼äÎÞÂÛ¸ù¼¶µÄ³¯ÏòÈçºÎÍæ¼Ò²»»á×ªÏò.Ä¬ÈÏÎª0.</p>
-<p><span class="STYLE3">pos = pos_x (¸¡µãÐÍ), pos_y (¸¡µãÐÍ) </span><br />
-pos_xºÍpos_yÖ¸¶¨°ó¶¨µÄÆ«ÒÆÁ¿(¾àÀë¸ù¼¶µÄ×ø±êÖá).Ä¬ÈÏÎª0,0.</p>
-<p><span class="STYLE2">×¢Òâ: </span><br />
-Èç¹ûÍæ¼ÒµÄ¸ù¼¶±»Ïú»ÙÁË(ÀýÈç,Èç¹ûËûÊÇhelper,ÇÒÖ´ÐÐÁËDestroySelf),ÔòBindToRootµÄÐ§¹û½«±»ÖÕÖ¹.</p>
-<p><span class="STYLE2">Ê¾Àý: </span><br />
-ÎÞ</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   BindToRoot
+  </p>
+  <p>
+   å¦‚æžœçŽ©å®¶æ˜¯ä¸€ä¸ªhelper,å°†è¿™ä¸ªçŽ©å®¶ç»‘å®šåˆ°ç›¸å¯¹äºŽä»–çš„æ ¹çº§(æœ€é¡¶çº§)çš„æŒ‡å®šä½ç½®.
+   <br/>
+   å¦‚æžœè¿™ä¸ªçŽ©å®¶ä¸æ˜¯helper,æ­¤æŽ§åˆ¶å™¨æ— æ•ˆ.
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¿…è¦å‚æ•°:
+   </span>
+   <br/>
+   æ— 
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¯é€‰å‚æ•°:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    time = bind_time (æ•´åž‹)
+   </span>
+   <br/>
+   æŒ‡å®šç»‘å®šçš„æœ‰æ•ˆæ—¶é—´å¸§æ•°.é»˜è®¤ä¸º1.
+  </p>
+  <p>
+   <span class="STYLE3">
+    facing = facing_flag (æ•´åž‹)
+   </span>
+   <br/>
+   å¦‚æžœfacing_flagæ˜¯-1,åœ¨ç»‘å®šæœŸé—´ä½¿çŽ©å®¶æ€»æ˜¯æœç€æ ¹çº§ç›¸åçš„æ–¹å‘.
+   <br/>
+   å¦‚æžœfacing_flagæ˜¯1,åœ¨ç»‘å®šæœŸé—´ä½¿çŽ©å®¶æ€»æ˜¯æœç€æ ¹çº§ç›¸åŒçš„æ–¹å‘.
+   <br/>
+   å¦‚æžœfacing_flagæ˜¯0,åœ¨ç»‘å®šæœŸé—´æ— è®ºæ ¹çº§çš„æœå‘å¦‚ä½•çŽ©å®¶ä¸ä¼šè½¬å‘.é»˜è®¤ä¸º0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    pos = pos_x (æµ®ç‚¹åž‹), pos_y (æµ®ç‚¹åž‹)
+   </span>
+   <br/>
+   pos_xå’Œpos_yæŒ‡å®šç»‘å®šçš„åç§»é‡(è·ç¦»æ ¹çº§çš„åæ ‡è½´).é»˜è®¤ä¸º0,0.
+  </p>
+  <p>
+   <span class="STYLE2">
+    æ³¨æ„:
+   </span>
+   <br/>
+   å¦‚æžœçŽ©å®¶çš„æ ¹çº§è¢«é”€æ¯äº†(ä¾‹å¦‚,å¦‚æžœä»–æ˜¯helper,ä¸”æ‰§è¡Œäº†DestroySelf),åˆ™BindToRootçš„æ•ˆæžœå°†è¢«ç»ˆæ­¢.
+  </p>
+  <p>
+   <span class="STYLE2">
+    ç¤ºä¾‹:
+   </span>
+   <br/>
+   æ— 
+  </p>
+ </body>
 </html>

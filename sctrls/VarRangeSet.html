@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>VarRangeSet</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   VarRangeSet
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,29 +23,75 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">VarRangeSet</p>
-<p>½«Íæ¼ÒÒ»¸öÁ¬Ðø·¶Î§ÄÚµÄ(Æð×÷ÓÃµÄ,¹¤×÷ÖÐµÄ)±äÁ¿ÉèÖÃÎªÏàÍ¬Öµ.<br />
-  ÎÞÂÛÊÇÕûÐÍ±äÁ¿»¹ÊÇ¸¡µãÐÍ±äÁ¿¶¼ÄÜ±»´Ë¿ØÖÆÆ÷ÉèÖÃ,µ«²»ÄÜÍ¬Ê±ÉèÖÃ.</p>
-<p><span class="STYLE2">±ØÒª²ÎÊý (¶ÔÓ¦ÕûÐÍ±äÁ¿): </span><br />
-  <span class="STYLE3">value = int_expr (ÕûÐÍ) </span><br />
-int_exprÍ¨¹ýÒ»´ÎÐÔ¼ÆËãÖ¸¶¨¸øËùÓÐÔÚ´Ë·¶Î§ÖÐµÄÕûÐÍ±äÁ¿µÄÖµ.</p>
-<p><span class="STYLE2">±ØÒª²ÎÊý (¶ÔÓ¦¸¡µãÐÍ±äÁ¿): </span><br />
-  <span class="STYLE3">fvalue = float_expr (¸¡µãÐÍ) </span><br />
-float_exprÍ¨¹ýÒ»´ÎÐÔ¼ÆËãÖ¸¶¨¸øËùÓÐÔÚ´Ë·¶Î§ÖÐµÄ¸¡µãÐÍÐÍ±äÁ¿µÄÖµ.</p>
-<p><span class="STYLE2">¿ÉÑ¡²ÎÊý (Á½ÖÖÇé¿ö): </span><br />
-  <span class="STYLE3">first = first_idx (ÕûÐÍ) </span><br />
-Ö¸¶¨±äÁ¿ÉèÖÃ·¶Î§µÄÏÂÏÞÖµ.Ä¬ÈÏÊÇ0(µÚÒ»¸ö±äÁ¿).</p>
-<p><span class="STYLE3">last = last_idx (ÕûÐÍ) </span><br />
-Ö¸¶¨±äÁ¿ÉèÖÃ·¶Î§µÄÉÏÏÞÖµ.ÕûÐÍ±äÁ¿Ä¬ÈÏÊÇ59,¸¡µãÐÍ±äÁ¿Ä¬ÈÏÊÇ39.(ÕâÊÇÁ½ÖÖÇé¿ö×î´óÓÐÐ§Öµ)</p>
-<p><span class="STYLE2">×¢Òâ: </span><br />
-  Èç¹ûÄã³É¹¦»÷ÖÐP2½«ËûÖÃÓÚ×Ô¶¨Òå×´Ì¬,²»ÒªÔÚ×Ô¶¨Òå×´Ì¬ÖÐ¸ø±äÁ¿¸³Öµ.·ñÔò,Äã½«¸²¸ÇP2µÄ±äÁ¿,Õâ½«ÒýÆð¶ÔÊÖÎ´Öª´íÎó.<br />
-  (Ò²¾ÍÊÇËµ,²»ÒªÔÚp2stateno,targetstateÖ¸¶¨P2½øÈëµÄ×´Ì¬ÀïÃæÊ¹ÓÃvarset,varrangeset,varadd,parentvaradd,parentvarsetµÈµÈ(³ý·ÇÄã×öÕûºÏ»òÕßÄãÖªµÀ×Ô¼ºÔÚ×öÊ²Ã´)<br />
-·ñÔòÄãÉèÖÃµÄÆäÊµÊÇP2»òÕßËû¸¸¼¶µÄvar/fvar²ÎÊý,ËùÒÔ½«»áÒýÆðÎ´Öª´íÎó.)</p>
-<p><span class="STYLE2">Ê¾Àý: </span><br />
-  ÎÞ <br />
-</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   VarRangeSet
+  </p>
+  <p>
+   å°†çŽ©å®¶ä¸€ä¸ªè¿žç»­èŒƒå›´å†…çš„(èµ·ä½œç”¨çš„,å·¥ä½œä¸­çš„)å˜é‡è®¾ç½®ä¸ºç›¸åŒå€¼.
+   <br/>
+   æ— è®ºæ˜¯æ•´åž‹å˜é‡è¿˜æ˜¯æµ®ç‚¹åž‹å˜é‡éƒ½èƒ½è¢«æ­¤æŽ§åˆ¶å™¨è®¾ç½®,ä½†ä¸èƒ½åŒæ—¶è®¾ç½®.
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¿…è¦å‚æ•° (å¯¹åº”æ•´åž‹å˜é‡):
+   </span>
+   <br/>
+   <span class="STYLE3">
+    value = int_expr (æ•´åž‹)
+   </span>
+   <br/>
+   int_expré€šè¿‡ä¸€æ¬¡æ€§è®¡ç®—æŒ‡å®šç»™æ‰€æœ‰åœ¨æ­¤èŒƒå›´ä¸­çš„æ•´åž‹å˜é‡çš„å€¼.
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¿…è¦å‚æ•° (å¯¹åº”æµ®ç‚¹åž‹å˜é‡):
+   </span>
+   <br/>
+   <span class="STYLE3">
+    fvalue = float_expr (æµ®ç‚¹åž‹)
+   </span>
+   <br/>
+   float_expré€šè¿‡ä¸€æ¬¡æ€§è®¡ç®—æŒ‡å®šç»™æ‰€æœ‰åœ¨æ­¤èŒƒå›´ä¸­çš„æµ®ç‚¹åž‹åž‹å˜é‡çš„å€¼.
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¯é€‰å‚æ•° (ä¸¤ç§æƒ…å†µ):
+   </span>
+   <br/>
+   <span class="STYLE3">
+    first = first_idx (æ•´åž‹)
+   </span>
+   <br/>
+   æŒ‡å®šå˜é‡è®¾ç½®èŒƒå›´çš„ä¸‹é™å€¼.é»˜è®¤æ˜¯0(ç¬¬ä¸€ä¸ªå˜é‡).
+  </p>
+  <p>
+   <span class="STYLE3">
+    last = last_idx (æ•´åž‹)
+   </span>
+   <br/>
+   æŒ‡å®šå˜é‡è®¾ç½®èŒƒå›´çš„ä¸Šé™å€¼.æ•´åž‹å˜é‡é»˜è®¤æ˜¯59,æµ®ç‚¹åž‹å˜é‡é»˜è®¤æ˜¯39.(è¿™æ˜¯ä¸¤ç§æƒ…å†µæœ€å¤§æœ‰æ•ˆå€¼)
+  </p>
+  <p>
+   <span class="STYLE2">
+    æ³¨æ„:
+   </span>
+   <br/>
+   å¦‚æžœä½ æˆåŠŸå‡»ä¸­P2å°†ä»–ç½®äºŽè‡ªå®šä¹‰çŠ¶æ€,ä¸è¦åœ¨è‡ªå®šä¹‰çŠ¶æ€ä¸­ç»™å˜é‡èµ‹å€¼.å¦åˆ™,ä½ å°†è¦†ç›–P2çš„å˜é‡,è¿™å°†å¼•èµ·å¯¹æ‰‹æœªçŸ¥é”™è¯¯.
+   <br/>
+   (ä¹Ÿå°±æ˜¯è¯´,ä¸è¦åœ¨p2stateno,targetstateæŒ‡å®šP2è¿›å…¥çš„çŠ¶æ€é‡Œé¢ä½¿ç”¨varset,varrangeset,varadd,parentvaradd,parentvarsetç­‰ç­‰(é™¤éžä½ åšæ•´åˆæˆ–è€…ä½ çŸ¥é“è‡ªå·±åœ¨åšä»€ä¹ˆ)
+   <br/>
+   å¦åˆ™ä½ è®¾ç½®çš„å…¶å®žæ˜¯P2æˆ–è€…ä»–çˆ¶çº§çš„var/fvarå‚æ•°,æ‰€ä»¥å°†ä¼šå¼•èµ·æœªçŸ¥é”™è¯¯.)
+  </p>
+  <p>
+   <span class="STYLE2">
+    ç¤ºä¾‹:
+   </span>
+   <br/>
+   æ— 
+   <br/>
+  </p>
+ </body>
 </html>

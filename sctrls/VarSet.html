@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>VarSet</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   VarSet
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,35 +23,94 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">VarSet</p>
-<p>ÉèÖÃÍæ¼Ò(Æð×÷ÓÃµÄ)±äÁ¿(var/fvar)ÊýÖµ.<br />
-  ÎÞÂÛÊÇÕûÐÍ±äÁ¿»¹ÊÇ¸¡µãÐÍ±äÁ¿¶¼ÄÜ±»´Ë¿ØÖÆÆ÷ÉèÖÃ,µ«²»ÄÜÍ¬Ê±ÉèÖÃ.</p>
-<p><span class="STYLE2">±ØÒª²ÎÊý(¶ÔÓ¦ÕûÐÍ±äÁ¿): </span><br />
-  <span class="STYLE3">v = var_no (ÕûÐÍ) </span><br />
-var_noÖ¸¶¨ÒªÓ°ÏìµÄ±äÁ¿ºÅ.±ØÐëÊÇ0-59Ö®ÖÐµÄÒ»¸öÕûÊý.</p>
-<p><span class="STYLE3">value = int_expr (ÕûÐÍ) </span><br />
-int_exprÊÇÉèÖÃ¸øË÷ÒýºÅÎªvar_noµÄÕûÐÍ±äÁ¿µÄÖµ.</p>
-<p><span class="STYLE2">±ØÒª²ÎÊý(¶ÔÓ¦¸¡µãÐÍ±äÁ¿):</span><br />
-  <span class="STYLE3">fv = var_no (ÕûÐÍ) </span><br />
-var_noÖ¸¶¨ÒªÓ°ÏìµÄ±äÁ¿ºÅ.±ØÐëÊÇ0-39Ö®ÖÐµÄÒ»¸öÕûÊý.</p>
-<p><span class="STYLE3">value = float_expr (¸¡µãÐÍ)</span> <br />
-float_exprÊÇÉèÖÃ¸øË÷ÒýºÅÎªvar_noµÄ¸¡µãÐÍ±äÁ¿µÄÖµ.</p>
-<p><span class="STYLE2">¿ÉÑ¡²ÎÊý: </span><br />
-ÉÏÊö2ÖÖÇé¿ö¶¼Ã»ÓÐ.</p>
-<p><span class="STYLE2">Ìæ´úÓï·¨: </span><br />
-  <span class="STYLE3">var(var_no) = int_expr (ÕûÐÍ°æ±¾)<br />
-fvar(var_no) = float_expr (¸¡µãÐÍ°æ±¾)</span></p>
-<p><span class="STYLE2">×¢Òâ: </span><br />
-  ÓÉÓÚÀúÊ·Ô­Òò,×¢ÒâÉÏÃæÁÐ³öµÄ¸ø±äÁ¿¸³ÖµµÄÌæ´úÓï·¨,²»ÄÜÔÚÒ»¸ö±í´ïÊ½ÄÚ¸ø±äÁ¿¸³Öµ.<br />
-  Èç¹ûÄã³É¹¦»÷ÖÐP2½«ËûÖÃÓÚ×Ô¶¨Òå×´Ì¬,²»ÒªÔÚ×Ô¶¨Òå×´Ì¬ÖÐ¸ø±äÁ¿¸³Öµ.·ñÔò,Äã½«¸²¸ÇP2µÄ±äÁ¿,Õâ½«ÒýÆð¶ÔÊÖÎ´Öª´íÎó.<br />
-  (Ò²¾ÍÊÇËµ,²»ÒªÔÚp2stateno,targetstateÖ¸¶¨P2½øÈëµÄ×´Ì¬ÀïÃæÊ¹ÓÃvarset,varrangeset,varadd,parentvaradd,parentvarsetµÈµÈ(³ý·ÇÄã×öÕûºÏ»òÕßÄãÖªµÀ×Ô¼ºÔÚ×öÊ²Ã´)<br />
-  ·ñÔòÄãÉèÖÃµÄÆäÊµÊÇP2»òÕßËû¸¸¼¶µÄvar/fvar²ÎÊý,ËùÒÔ½«»áÒýÆðÎ´Öª´íÎó.<br />
-ÕâÖÖÇé¿öµÄÌØÀý:×îµäÐÍµÄ¾ÍÊÇÖÐ¶¾Ð§¹û,²»¶ÏÉÙÑª.»¹ÓÐ¾ÍÊÇÀÏ°æ±¾AIÈËÎï(Ò»°ãAI¿ª¹Ø¶¼ÊÇvar(59)),Äã¿ÉÒÔÔÚ×Ô¶¨Òå×´Ì¬ÖÐÉèÖÃ¶ÔÊÖµÄvar(59)=-1000Ö±½Ó¹Øµô¶ÔÊÖµÄAI.- -)</p>
-<p><span class="STYLE2">Ê¾Àý: </span><br />
-ÎÞ</p>
-<p> </p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   VarSet
+  </p>
+  <p>
+   è®¾ç½®çŽ©å®¶(èµ·ä½œç”¨çš„)å˜é‡(var/fvar)æ•°å€¼.
+   <br/>
+   æ— è®ºæ˜¯æ•´åž‹å˜é‡è¿˜æ˜¯æµ®ç‚¹åž‹å˜é‡éƒ½èƒ½è¢«æ­¤æŽ§åˆ¶å™¨è®¾ç½®,ä½†ä¸èƒ½åŒæ—¶è®¾ç½®.
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¿…è¦å‚æ•°(å¯¹åº”æ•´åž‹å˜é‡):
+   </span>
+   <br/>
+   <span class="STYLE3">
+    v = var_no (æ•´åž‹)
+   </span>
+   <br/>
+   var_noæŒ‡å®šè¦å½±å“çš„å˜é‡å·.å¿…é¡»æ˜¯0-59ä¹‹ä¸­çš„ä¸€ä¸ªæ•´æ•°.
+  </p>
+  <p>
+   <span class="STYLE3">
+    value = int_expr (æ•´åž‹)
+   </span>
+   <br/>
+   int_expræ˜¯è®¾ç½®ç»™ç´¢å¼•å·ä¸ºvar_noçš„æ•´åž‹å˜é‡çš„å€¼.
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¿…è¦å‚æ•°(å¯¹åº”æµ®ç‚¹åž‹å˜é‡):
+   </span>
+   <br/>
+   <span class="STYLE3">
+    fv = var_no (æ•´åž‹)
+   </span>
+   <br/>
+   var_noæŒ‡å®šè¦å½±å“çš„å˜é‡å·.å¿…é¡»æ˜¯0-39ä¹‹ä¸­çš„ä¸€ä¸ªæ•´æ•°.
+  </p>
+  <p>
+   <span class="STYLE3">
+    value = float_expr (æµ®ç‚¹åž‹)
+   </span>
+   <br/>
+   float_expræ˜¯è®¾ç½®ç»™ç´¢å¼•å·ä¸ºvar_noçš„æµ®ç‚¹åž‹å˜é‡çš„å€¼.
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¯é€‰å‚æ•°:
+   </span>
+   <br/>
+   ä¸Šè¿°2ç§æƒ…å†µéƒ½æ²¡æœ‰.
+  </p>
+  <p>
+   <span class="STYLE2">
+    æ›¿ä»£è¯­æ³•:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    var(var_no) = int_expr (æ•´åž‹ç‰ˆæœ¬)
+    <br/>
+    fvar(var_no) = float_expr (æµ®ç‚¹åž‹ç‰ˆæœ¬)
+   </span>
+  </p>
+  <p>
+   <span class="STYLE2">
+    æ³¨æ„:
+   </span>
+   <br/>
+   ç”±äºŽåŽ†å²åŽŸå› ,æ³¨æ„ä¸Šé¢åˆ—å‡ºçš„ç»™å˜é‡èµ‹å€¼çš„æ›¿ä»£è¯­æ³•,ä¸èƒ½åœ¨ä¸€ä¸ªè¡¨è¾¾å¼å†…ç»™å˜é‡èµ‹å€¼.
+   <br/>
+   å¦‚æžœä½ æˆåŠŸå‡»ä¸­P2å°†ä»–ç½®äºŽè‡ªå®šä¹‰çŠ¶æ€,ä¸è¦åœ¨è‡ªå®šä¹‰çŠ¶æ€ä¸­ç»™å˜é‡èµ‹å€¼.å¦åˆ™,ä½ å°†è¦†ç›–P2çš„å˜é‡,è¿™å°†å¼•èµ·å¯¹æ‰‹æœªçŸ¥é”™è¯¯.
+   <br/>
+   (ä¹Ÿå°±æ˜¯è¯´,ä¸è¦åœ¨p2stateno,targetstateæŒ‡å®šP2è¿›å…¥çš„çŠ¶æ€é‡Œé¢ä½¿ç”¨varset,varrangeset,varadd,parentvaradd,parentvarsetç­‰ç­‰(é™¤éžä½ åšæ•´åˆæˆ–è€…ä½ çŸ¥é“è‡ªå·±åœ¨åšä»€ä¹ˆ)
+   <br/>
+   å¦åˆ™ä½ è®¾ç½®çš„å…¶å®žæ˜¯P2æˆ–è€…ä»–çˆ¶çº§çš„var/fvarå‚æ•°,æ‰€ä»¥å°†ä¼šå¼•èµ·æœªçŸ¥é”™è¯¯.
+   <br/>
+   è¿™ç§æƒ…å†µçš„ç‰¹ä¾‹:æœ€å…¸åž‹çš„å°±æ˜¯ä¸­æ¯’æ•ˆæžœ,ä¸æ–­å°‘è¡€.è¿˜æœ‰å°±æ˜¯è€ç‰ˆæœ¬AIäººç‰©(ä¸€èˆ¬AIå¼€å…³éƒ½æ˜¯var(59)),ä½ å¯ä»¥åœ¨è‡ªå®šä¹‰çŠ¶æ€ä¸­è®¾ç½®å¯¹æ‰‹çš„var(59)=-1000ç›´æŽ¥å…³æŽ‰å¯¹æ‰‹çš„AI.- -)
+  </p>
+  <p>
+   <span class="STYLE2">
+    ç¤ºä¾‹:
+   </span>
+   <br/>
+   æ— 
+  </p>
+  <p>
+  </p>
+ </body>
 </html>

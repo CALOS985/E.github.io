@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>ExplodBindTime</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   ExplodBindTime
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,25 +23,63 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">ExplodBindTime</p>
-<p>�ı���ҵ�explodλ�ð�ʱ��.</p>
-<p><span class="STYLE2">��Ҫ����: </span><br />
-��</p>
-<p><span class="STYLE2">��ѡ����: </span><br />
-  <span class="STYLE3">ID = id_no (����)</span><br />
-  ����explodӵ�е�ID�ŵ���id_noʱ����Ӱ�����ǵ�λ�ð�.<br />
-  ����IDΪ-1��Ӱ�����е�explod.<br />
-Ĭ��ֵΪ-1.</p>
-<p><span class="STYLE3">time = binding_time (����) </span><br />
-  ָ��explodӦ�ñ�Լ�����󶨵��ʱ��֡��.(explod������ʱ����)<br />
-Ĭ��Ϊ1֡.timeΪ-1ʱexplod�������ð󶨻���ֱ������Ŀ������ı��ʱ��.</p>
-<p><span class="STYLE2">����﷨: </span><br />
-  <span class="STYLE3">value = binding_time </span><br />
-Ҳ��������������time = binding_time.</p>
-<p><span class="STYLE2">ʾ��: </span><br />
-��</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   ExplodBindTime
+  </p>
+  <p>
+   改变玩家的explod位置绑定时间.
+  </p>
+  <p>
+   <span class="STYLE2">
+    必要参数:
+   </span>
+   <br/>
+   无
+  </p>
+  <p>
+   <span class="STYLE2">
+    可选参数:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    ID = id_no (整型)
+   </span>
+   <br/>
+   仅当explod拥有的ID号等于id_no时才能影响他们的位置绑定.
+   <br/>
+   设置ID为-1来影响所有的explod.
+   <br/>
+   默认值为-1.
+  </p>
+  <p>
+   <span class="STYLE3">
+    time = binding_time (整型)
+   </span>
+   <br/>
+   指定explod应该被约束到绑定点的时间帧数.(explod被创建时定义)
+   <br/>
+   默认为1帧.time为-1时explod将被永久绑定或者直到另外的控制器改变绑定时间.
+  </p>
+  <p>
+   <span class="STYLE2">
+    替代语法:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    value = binding_time
+   </span>
+   <br/>
+   也许可以用来代替time = binding_time.
+  </p>
+  <p>
+   <span class="STYLE2">
+    示例:
+   </span>
+   <br/>
+   无
+  </p>
+ </body>
 </html>

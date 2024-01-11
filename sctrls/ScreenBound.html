@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>ScreenBound</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   ScreenBound
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,30 +23,71 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">ScreenBound</p>
-<p>ָ����ҵ��˶��Ƿ���ĻԼ��.<br />
-  Ҳ������������Ƿ�Ӧ�ø�������˶�.<br />
-  �˿����������Ľ��ֻ��1֡����Ч.</p>
-<p><span class="STYLE2">��Ҫ����: </span><br />
-��</p>
-<p><span class="STYLE2">��ѡ����: </span><br />
-  <span class="STYLE3">value = bound_flag (������) </span><br />
-  ���bound_flag��0,��ҽ��������뿪��Ļ.<br />
-�����1,����ҽ���Լ������Ļ��.ȱʡĬ����0.</p>
-<p><span class="STYLE3">movecamera = move_x_flag, move_y_flag (������, ������) </span><br />
-�����1,ָ�������Ӧ�ø�����ҷֱ���x��y����ƽ��.ȱʡĬ�϶�Ϊ0.</p>
-<p><span class="STYLE2">ʾ��: </span><br />
-��</p>
-<p><span class="STYLE2">ʵ��:</span><br />
-  [State 0, ScreenBound]<br />
-  type = ScreenBound<br />
-  trigger1 = 1<br />
-  value = 1<br />
-  movecamera = 0,0<br />
-  �����������뿪��ĻҲ��������ͷ�������ƶ�<br />
-��ʱ��Ҳ���Դ���widthʹ��</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   ScreenBound
+  </p>
+  <p>
+   指定玩家的运动是否被屏幕约束.
+   <br/>
+   也决定着摄像机是否应该跟随玩家运动.
+   <br/>
+   此控制器产生的结果只在1帧内有效.
+  </p>
+  <p>
+   <span class="STYLE2">
+    必要参数:
+   </span>
+   <br/>
+   无
+  </p>
+  <p>
+   <span class="STYLE2">
+    可选参数:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    value = bound_flag (布尔型)
+   </span>
+   <br/>
+   如果bound_flag是0,玩家将被允许离开屏幕.
+   <br/>
+   如果是1,则玩家将被约束在屏幕内.缺省默认是0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    movecamera = move_x_flag, move_y_flag (布尔型, 布尔型)
+   </span>
+   <br/>
+   如果是1,指定摄像机应该跟随玩家分别在x和y方向平移.缺省默认都为0.
+  </p>
+  <p>
+   <span class="STYLE2">
+    示例:
+   </span>
+   <br/>
+   无
+  </p>
+  <p>
+   <span class="STYLE2">
+    实例:
+   </span>
+   <br/>
+   [State 0, ScreenBound]
+   <br/>
+   type = ScreenBound
+   <br/>
+   trigger1 = 1
+   <br/>
+   value = 1
+   <br/>
+   movecamera = 0,0
+   <br/>
+   不允许人物离开屏幕也不允许镜头随人物移动
+   <br/>
+   有时候也可以搭配width使用
+  </p>
+ </body>
 </html>

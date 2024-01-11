@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>Width</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   Width
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,27 +23,69 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">Width</p>
-<p>1֡����ʱ�ı���ҵĿ��ȳߴ�.<br />
-  ���������һ���˽Ӵ������߽Ӵ�ʱ���ڿ���&quot;�Ƽ�&quot;������.</p>
-<p><span class="STYLE2">��Ҫ����: </span><br />
-��</p>
-<p><span class="STYLE2">��ѡ����: </span><br />
-  <span class="STYLE3">edge = edgewidth_front, edgewidth_back (����, ����) </span><br />
-�������ǰ���edge����.edge���Ⱦ�����������ж�ӽ���Ļ�ı�Ե.Ĭ��ֵΪ0,0.</p>
-<p><span class="STYLE3">player = playwidth_front, playwidth_back (����, ����) </span><br />
-�������ǰ���player����.player���Ⱦ�����������ж�ӽ��������.Ĭ��ֵΪ0,0.</p>
-<p><span class="STYLE2">����﷨: </span><br />
-  <span class="STYLE3">value = width_front, width_back (����, ����) </span><br />
-����ͬʱ���ñ�Ե���Ⱥ���ҿ��ȵ��ټ��﷨.��ЩҲ������ʹ����edge��player����û��ָ����ʱ��.</p>
-<p><span class="STYLE2">ע��: </span><br />
-  ����ʾ��ײ��ʱ,���õ�edge��������ʾΪ��ɫ,��ҵĿ�������ʾΪ��ɫ.<br />
-�������ص�ʱ,�ص���������ʾΪ����ɫ.</p>
-<p><span class="STYLE2">ʾ��: </span><br />
-  ��<br />
-</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   Width
+  </p>
+  <p>
+   1帧内暂时改变玩家的宽度尺寸.
+   <br/>
+   当玩家与另一个人接触或与版边接触时用于控制"推挤"的特征.
+  </p>
+  <p>
+   <span class="STYLE2">
+    必要参数:
+   </span>
+   <br/>
+   无
+  </p>
+  <p>
+   <span class="STYLE2">
+    可选参数:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    edge = edgewidth_front, edgewidth_back (整型, 整型)
+   </span>
+   <br/>
+   设置玩家前后的edge宽度.edge宽度决定了玩家能有多接近屏幕的边缘.默认值为0,0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    player = playwidth_front, playwidth_back (整型, 整型)
+   </span>
+   <br/>
+   设置玩家前后的player宽度.player宽度决定了玩家能有多接近其他玩家.默认值为0,0.
+  </p>
+  <p>
+   <span class="STYLE2">
+    替代语法:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    value = width_front, width_back (整型, 整型)
+   </span>
+   <br/>
+   这是同时设置边缘宽度和玩家宽度的速记语法.这些也许仅被使用在edge和player参数没有指定的时候.
+  </p>
+  <p>
+   <span class="STYLE2">
+    注意:
+   </span>
+   <br/>
+   当显示碰撞块时,设置的edge宽度条显示为橙色,玩家的宽度条显示为黄色.
+   <br/>
+   当它们重叠时,重叠的区域显示为亮黄色.
+  </p>
+  <p>
+   <span class="STYLE2">
+    示例:
+   </span>
+   <br/>
+   无
+   <br/>
+  </p>
+ </body>
 </html>

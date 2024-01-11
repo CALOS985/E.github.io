@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>Pause</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   Pause
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,33 +23,82 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">Pause</p>
-<p>½«ÓÎÏ·ÔÝÍ£Ö¸¶¨µÄÊ±¼ä.<br />
-  ÔÚÕâ¶ÎÊ±¼äÖÐ,Íæ¼ÒºÍ±³¾°½«²»»á±»¸üÐÂ.</p>
-<p><span class="STYLE2">±ØÒª²ÎÊý: </span><br />
-  <span class="STYLE3">time = t (ÕûÐÍ) </span><br />
-  ÒªÔÝÍ£µÄÊ±¼äÖ¡Êý.<br />
-tµÄÓÐÐ§ÖµÊÇ´óÓÚ0µÄÕýÊý.</p>
-<p><span class="STYLE2">¿ÉÑ¡²ÎÊý: </span><br />
-  <span class="STYLE3">endcmdbuftime = bt (ÕûÐÍ) </span><br />
-  ¶¨ÒåÔÝÍ£Ä©Î²ÆÚ¼äµÄÒ»¶ÎÊ±¼äÖ¡Êý,ÔÚÕâ¸öÊ±¼ä¶ÎÀï,Íæ¼ÒµÄÕÐÊ½Ö¸Áî½«±»»º´æÆðÀ´.<br />
-  ±»»º´æµÄÖ¸Áî½«ÔÚÔÝÍ£½áÊøºóÁ¢¿Ì±»command´¥·¢Æ÷¼ì²â.<br />
-  »º´æ½öÌá¹©¸øÔÚÔÝÍ£ÖÐÎÞ·¨ÒÆ¶¯µÄÍæ¼Ò.(¼ûmovetime²ÎÊý)<br />
-endcmdbuftimeÓÐÐ§ÖµÎª0-t,tÊÇtimeµÄ²ÎÊýÖµ(ÉÏÃæµÄ±ØÒª²ÎÊý).Ä¬ÈÏÊÇ0.</p>
-<p><span class="STYLE3">movetime = mt (ÕûÐÍ) </span><br />
-  ¶¨ÒåÔÝÍ£¿ªÊ¼µÄÒ»¶ÎÊ±¼äÖ¡Êý,ÔÚÕâ¸öÊ±¼ä¶ÎÀï,Íæ¼Ò±»ÔÊÐíÒÆ¶¯.<br />
-  Õâ¶ÎÊ±¼äÄÚ½«½øÐÐÅö×²¼ì²â,ËùÒÔÓÐ¿ÉÄÜ»÷ÖÐÆäËûÍæ¼Ò.<br />
-mtÓÐÐ§ÖµÎª0-ttÊÇtimeµÄ²ÎÊýÖµ(ÉÏÃæµÄ±ØÒª²ÎÊý).Ä¬ÈÏÊÇ0.</p>
-<p><span class="STYLE3">pausebg = p (ÕûÐÍ) </span><br />
-Èç¹ûÉèÖÃÎª1,ÔÚÔÝÍ£ÖÐ±³¾°½«Í£Ö¹.Èç¹ûÊÇ0,±³¾°½«ÔÚÔÝÍ£ÖÐ³ÖÐø¸üÐÂ.Ä¬ÈÏÊÇ1.</p>
-<p><span class="STYLE2">×¢Òâ: </span><br />
-  ÔÚPause¿ØÖÆÆ÷µÄÔÝÍ£Ê±¼äÄÚÖ´ÐÐÁíÒ»¸öPause¿ØÖÆÆ÷½«È¡ÏûÉÏÒ»¸öPause¿ØÖÆÆ÷µÄÐ§¹û.<br />
-ÔÚSuperPause(³¬¼¶ÔÝÍ£)ÖÐÖ´ÐÐPause¿ØÖÆÆ÷½«ÑÓ³ÙÔÝÍ£Ð§¹ûÖ±µ½³¬¼¶ÔÝÍ£½áÊø.</p>
-<p><span class="STYLE2">Ê¾Àý: </span><br />
-ÎÞ</p>
-<p> </p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   Pause
+  </p>
+  <p>
+   å°†æ¸¸æˆæš‚åœæŒ‡å®šçš„æ—¶é—´.
+   <br/>
+   åœ¨è¿™æ®µæ—¶é—´ä¸­,çŽ©å®¶å’ŒèƒŒæ™¯å°†ä¸ä¼šè¢«æ›´æ–°.
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¿…è¦å‚æ•°:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    time = t (æ•´åž‹)
+   </span>
+   <br/>
+   è¦æš‚åœçš„æ—¶é—´å¸§æ•°.
+   <br/>
+   tçš„æœ‰æ•ˆå€¼æ˜¯å¤§äºŽ0çš„æ­£æ•°.
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¯é€‰å‚æ•°:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    endcmdbuftime = bt (æ•´åž‹)
+   </span>
+   <br/>
+   å®šä¹‰æš‚åœæœ«å°¾æœŸé—´çš„ä¸€æ®µæ—¶é—´å¸§æ•°,åœ¨è¿™ä¸ªæ—¶é—´æ®µé‡Œ,çŽ©å®¶çš„æ‹›å¼æŒ‡ä»¤å°†è¢«ç¼“å­˜èµ·æ¥.
+   <br/>
+   è¢«ç¼“å­˜çš„æŒ‡ä»¤å°†åœ¨æš‚åœç»“æŸåŽç«‹åˆ»è¢«commandè§¦å‘å™¨æ£€æµ‹.
+   <br/>
+   ç¼“å­˜ä»…æä¾›ç»™åœ¨æš‚åœä¸­æ— æ³•ç§»åŠ¨çš„çŽ©å®¶.(è§movetimeå‚æ•°)
+   <br/>
+   endcmdbuftimeæœ‰æ•ˆå€¼ä¸º0-t,tæ˜¯timeçš„å‚æ•°å€¼(ä¸Šé¢çš„å¿…è¦å‚æ•°).é»˜è®¤æ˜¯0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    movetime = mt (æ•´åž‹)
+   </span>
+   <br/>
+   å®šä¹‰æš‚åœå¼€å§‹çš„ä¸€æ®µæ—¶é—´å¸§æ•°,åœ¨è¿™ä¸ªæ—¶é—´æ®µé‡Œ,çŽ©å®¶è¢«å…è®¸ç§»åŠ¨.
+   <br/>
+   è¿™æ®µæ—¶é—´å†…å°†è¿›è¡Œç¢°æ’žæ£€æµ‹,æ‰€ä»¥æœ‰å¯èƒ½å‡»ä¸­å…¶ä»–çŽ©å®¶.
+   <br/>
+   mtæœ‰æ•ˆå€¼ä¸º0-ttæ˜¯timeçš„å‚æ•°å€¼(ä¸Šé¢çš„å¿…è¦å‚æ•°).é»˜è®¤æ˜¯0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    pausebg = p (æ•´åž‹)
+   </span>
+   <br/>
+   å¦‚æžœè®¾ç½®ä¸º1,åœ¨æš‚åœä¸­èƒŒæ™¯å°†åœæ­¢.å¦‚æžœæ˜¯0,èƒŒæ™¯å°†åœ¨æš‚åœä¸­æŒç»­æ›´æ–°.é»˜è®¤æ˜¯1.
+  </p>
+  <p>
+   <span class="STYLE2">
+    æ³¨æ„:
+   </span>
+   <br/>
+   åœ¨PauseæŽ§åˆ¶å™¨çš„æš‚åœæ—¶é—´å†…æ‰§è¡Œå¦ä¸€ä¸ªPauseæŽ§åˆ¶å™¨å°†å–æ¶ˆä¸Šä¸€ä¸ªPauseæŽ§åˆ¶å™¨çš„æ•ˆæžœ.
+   <br/>
+   åœ¨SuperPause(è¶…çº§æš‚åœ)ä¸­æ‰§è¡ŒPauseæŽ§åˆ¶å™¨å°†å»¶è¿Ÿæš‚åœæ•ˆæžœç›´åˆ°è¶…çº§æš‚åœç»“æŸ.
+  </p>
+  <p>
+   <span class="STYLE2">
+    ç¤ºä¾‹:
+   </span>
+   <br/>
+   æ— 
+  </p>
+  <p>
+  </p>
+ </body>
 </html>

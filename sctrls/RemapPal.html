@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>RemapPal</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   RemapPal
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,35 +23,86 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">RemapPal</p>
-<p>������ҵ�ɫ��.</p>
-<p><span class="STYLE2">��Ҫ����: </span><br />
-  <span class="STYLE3">source = src_pal_grp, src_pal_item </span><br />
-���·�.</p>
-<p><span class="STYLE3">dest = dst_pal_grp, dst_pal_item </span><br />
-  ����ʹ��source(ԭʼ��)ɫ�������ͼ���زĽ����ʹ��dest(Ŀ���)ɫ������.<br />
-source��destɫ��������������ͼ���ز�֮��,����˫������������ͬ��ɫ��.</p>
-<p>���src_pal_grp��-1,���б�������ͼ�񽫱���ӳ�䵽Ŀ��ɫ��.<br />
-  ��Ӱ����ͬɫ���ͼ��ɫ��.�������ڵ��κ�ɫ��ӳ�佫�Ƴ�.</p>
-<p>���dst_pal_grp��-1,ԭʼɫ����ӳ�佫�Ƴ�.<br />
-  ��dest��һ��ֵ����Ϊ��source��ͬ������ͬ��Ч��.</p>
-<p>sourceĬ��ֵ��-1,0.<br />
-  destĬ��ֵΪ-1,0.</p>
-<p><span class="STYLE2">ע��:</span><br />
-ɫ��ӳ���ǲ��ɴ��ݵ�,��,��1,0ӳ�䵽2,0��2,0ӳ�䵽3,0���������1,0ӳ�䵽3,0.</p>
-<p>��1.1���Ժ�İ汾��,ÿ����ҽ�����ͬʱ��8����ͬ��ɫ��ӳ��.<br />
-  ��source��ֵδ��ӳ����֮�����RemapPal��������ʧ��.</p>
-<p>���ڸ�����һ��sourceֵ����dst_pal_grpΪ-1���Ƴ�δʹ�õ�ӳ��.</p>
-<p><span class="STYLE2">��ѡ����: </span><br />
-��</p>
-<p><span class="STYLE2">ʾ��:</span><br />
-  ;����ʹ��(1,1)ɫ����ͼ���زĽ��滻ʹ��(1,3)ɫ��������.<br />
-  type = RemapPal<br />
-  source = 1,1<br />
-dest = 1,3</p>
-<p> </p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   RemapPal
+  </p>
+  <p>
+   更换玩家的色表.
+  </p>
+  <p>
+   <span class="STYLE2">
+    必要参数:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    source = src_pal_grp, src_pal_item
+   </span>
+   <br/>
+   见下方.
+  </p>
+  <p>
+   <span class="STYLE3">
+    dest = dst_pal_grp, dst_pal_item
+   </span>
+   <br/>
+   所有使用source(原始的)色表的玩家图像素材将替代使用dest(目标的)色表绘制.
+   <br/>
+   source和dest色表必须存在于玩家图像素材之内,而且双方都必须有相同的色深.
+  </p>
+  <p>
+   如果src_pal_grp是-1,所有被索引的图像将被重映射到目标色表.
+   <br/>
+   仅影响相同色深的图像色表.其他存在的任何色表映射将移除.
+  </p>
+  <p>
+   如果dst_pal_grp是-1,原始色表的映射将移除.
+   <br/>
+   将dest的一对值设置为和source相同将有相同的效果.
+  </p>
+  <p>
+   source默认值人-1,0.
+   <br/>
+   dest默认值为-1,0.
+  </p>
+  <p>
+   <span class="STYLE2">
+    注意:
+   </span>
+   <br/>
+   色表映射是不可传递的,即,将1,0映射到2,0且2,0映射到3,0将不会造成1,0映射到3,0.
+  </p>
+  <p>
+   在1.1及以后的版本中,每个玩家将允许同时有8个不同的色表映射.
+   <br/>
+   若source的值未被映射则之后调用RemapPal控制器将失败.
+  </p>
+  <p>
+   对于给定的一组source值设置dst_pal_grp为-1能移除未使用的映射.
+  </p>
+  <p>
+   <span class="STYLE2">
+    可选参数:
+   </span>
+   <br/>
+   无
+  </p>
+  <p>
+   <span class="STYLE2">
+    示例:
+   </span>
+   <br/>
+   ;所有使用(1,1)色表的图像素材将替换使用(1,3)色表来绘制.
+   <br/>
+   type = RemapPal
+   <br/>
+   source = 1,1
+   <br/>
+   dest = 1,3
+  </p>
+  <p>
+  </p>
+ </body>
 </html>

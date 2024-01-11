@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>Helper</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   Helper
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,117 +23,329 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">Helper</p>
-<p>´´½¨Íæ¼ÒµÄÁíÒ»¸öÊµÀý×÷ÎªÒ»¸öhelper(Ô®Öú)ÈËÎï.</p>
-<p><span class="STYLE2">±ØÒª²ÎÊý: </span><br />
-ÎÞ</p>
-<p><span class="STYLE2">¿ÉÑ¡²ÎÊý: </span><br />
-  <span class="STYLE3">helpertype = type_string (×Ö·û´®ÐÍ) </span><br />
-  ²»ÍÆ¼öÊ¹ÓÃ´Ë²ÎÊý,²»Ö§³ÖÊ¹ÓÃplayerÐÍµÄhelper.<br />
-  Èç¹ûhelpertype = normal,Ôòhelper½«±»ÔÊÐíÀë¿ª(×ß³ö)ÆÁÄ».<br />
-  ´ËÍâ,ÉãÏñ»ú½«²»»áÒòÎªÒªÊ¹helperÍ£ÁôÔÚ»­ÃæÄÚ¶øÒÆ¶¯.(Ò²¾ÍÊÇËµÉãÏñ»ú²»»á¸ú×Åhelper×ß)<br />
-  Èç¹ûhelpertype = player,Ôòhelper½«±»Ô¼ÊøÔÚÆÁÄ»ÄÚÇÒÉãÏñ»ú½«¸úËæËûÒÆ¶¯,¾ÍÏñÆÕÍ¨Íæ¼ÒÒ»Ñù.Ä¬ÈÏÊÇnormal.<br />
-  Èç¹ûÄãÏëÓÃhelperÀ´²Ù×ÝÉãÏñ»ú,²»ÒªÊ¹ÓÃplayerÐÍµÄhelper.<br />
-Ê¹ÓÃÉèÖÃÁË&quot;movecamera&quot;²ÎÊýµÄScreenBound¿ØÖÆÆ÷¿ÉÒÔ´úÌæ.</p>
-<p><span class="STYLE3">name = &quot;name_string&quot; (×Ö·û´®ÐÍ) </span><br />
-  Ö¸¶¨helperµÄÃû×Ö,±ØÐëÐ´ÔÚË«ÒýºÅÀïÃæ.<br />
-Èç¹ûÊ¡ÂÔ,´ËÃû×ÖÄ¬ÈÏÊÇ&quot;&lt;parent&gt;'s helper&quot;,ÕâÀïµÄ&lt;parent&gt;´ú±í´´½¨´ËhelperµÄÍæ¼ÒµÄÃû×Ö.</p>
-<p><span class="STYLE3">ID = id_no (ÕûÐÍ) </span><br />
-ÉèÖÃ´ËhelperµÄIDºÅ.Ä¬ÈÏÊÇ0.</p>
-<p><span class="STYLE3">pos = off_x, off_y (ÕûÐÍ) </span><br />
-  Ö¸¶¨Õâ¸öhelper½«Òª±»´´½¨µÄÎ»ÖÃ.(xºÍy·½ÏòÆ«ÒÆÁ¿)<br />
-ÕâÐ©²ÎÊýµÄ×¼È·ÒâÒåµÃÒÀÀµÓÚpostype.Ä¬ÈÏÊÇ0,0.</p>
-<p><span class="STYLE3">postype = postype_string (×Ö·û´®ÐÍ) </span><br />
-  postype_stringÖ¸¶¨postype -- ÈçºÎ½â¶Ápos²ÎÊý.<br />
-  ËùÓÐÇé¿öÏÂ,Ò»¸öÕýµÄyÆ«ÒÆÁ¿ÒâÎ¶×ÅÏòÏÂµÄÎ»ÒÆ.<br />
-ËùÓÐÇé¿öÏÂ,off_yÊÇÏà¶ÔÓÚÍæ¼ÒÎ»ÖÃ¶øÑÔµÄ.</p>
-<p>ÏÂÃæÊÇÓÐÐ§µÄpostype_stringÖµ:<br />
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   Helper
   </p>
-<ul><li><span class="STYLE3">p1 </span><br />
-  ËµÃ÷ÁËÏà¶ÔÓÚP1×ø±êÖáµÄÎ»ÖÃ.ÕýµÄoff_x³¯ÏòP1µÄÇ°·½.ÕâÊÇpostypeÄ¬ÈÏÖµ.<br />
-  ¸ÃÀàÐÍ×ÔÉíAnimµÄ´óÐ¡,Î»ÖÃ,ËÙ¶È¾ùÎªÆÁÄ»¾ø¶Ô¿Õ¼ä.</li>
-  <li><span class="STYLE3">p2</span> <br />
-    ËµÃ÷ÁËÏà¶ÔÓÚP2×ø±êÖáµÄÎ»ÖÃ.ÕýµÄoff_x³¯ÏòP2µÄÇ°·½.<br />
-    Èç¹ûP2²»´æÔÚ,Î»ÖÃµÄ¼ÆËãÊÇºÍP1ÓÐ¹ØµÄÇÒ»á¼ÇÂ¼Ò»´Î¾¯¸æ.<br />
-	¸ÃÀàÐÍ×ÔÉíAnimµÄ´óÐ¡,Î»ÖÃ,ËÙ¶È¾ùÎªÆÁÄ»¾ø¶Ô¿Õ¼ä.</li>
-  <li><span class="STYLE3">front </span><br />
-    ËµÃ÷ÁËoff_xÏà¶ÔÓÚP1³¯ÏòµÄÆÁÄ»±ßÔµ.(p1³¯ÏòÓÒ±ßÊ±,x=0ÎªÆÁÄ»ÓÒ±ßÔµ)<br />
-    ÕýµÄoff_xÔ¶ÀëÆÁÄ»µÄÖÐÐÄ,¶ø¸ºµÄoff_x³¯ÏòÖÐÐÄ.<br />
-    y=0Ê±ÓëµØÆ½ÃæÏàÍ¬Î»ÖÃ.¸ºÖµÏòÉÏÒÆ¶¯.<br />
-	¸ÃÀàÐÍ×ÔÉíAnimµÄ´óÐ¡,Î»ÖÃ,ËÙ¶È¾ùÎªÆÁÄ»¾ø¶Ô¿Õ¼ä.</li>
-  <li><span class="STYLE3">back </span><br />
-    ËµÃ÷ÁËoff_xÏà¶ÔÓÚP1±³ÏòµÄÆÁÄ»±ßÔµ.(p1³¯ÏòÓÒ±ßÊ±,x=0ÎªÆÁÄ»×ó±ßÔµ)<br />
-    ÕýµÄoff_x³¯ÏòÆÁÄ»µÄÖÐÐÄ,¶ø¸ºµÄoff_xÔ¶ÀëÖÐÐÄ.<br />
-    y=0Ê±ÓëµØÆ½ÃæÏàÍ¬Î»ÖÃ.¸ºÖµÏòÉÏÒÆ¶¯.<br />
-	¸ÃÀàÐÍ×ÔÉíAnimµÄ´óÐ¡,Î»ÖÃ,ËÙ¶È¾ùÎªÆÁÄ»¾ø¶Ô¿Õ¼ä.</li>
-  <li><span class="STYLE3">left </span><br />
-    ËµÃ÷ÁËoff_xÏà¶ÔÓÚÆÁÄ»µÄ×ó±ßÔµ.(ÎÞÂÛp1³¯ÏòÄÄ±ß,x=0ÎªÆÁÄ»×ó±ßÔµ)<br />
-    ÕýµÄoff_x³¯ÏòÆÁÄ»ÓÒ·½.¸ºÖµoff_xÏòÆÁÄ»×ó±ß(ÆÁÄ»×ó²àÖ®Íâ)ÒÆ¶¯.<br />
-    y=0Ê±ÓëµØÆ½ÃæÏàÍ¬Î»ÖÃ.¸ºÖµÏòÉÏÒÆ¶¯.<br />
-	¸ÃÀàÐÍ×ÔÉíAnimµÄ´óÐ¡,Î»ÖÃÎªÆÁÄ»¾ø¶Ô¿Õ¼ä.ËÙ¶ÈÎªÈËÎïdefÖÐ¶¨ÒåµÄlocalcoord×ø±êÏà¶Ô×ø±êÎ»ÖÃ¶øÑÔ.</li>
-  <li><span class="STYLE3">right </span><br />
-    ËµÃ÷ÁËoff_xÏà¶ÔÓÚÆÁÄ»µÄÓÒ±ßÔµ.(ÎÞÂÛp1³¯ÏòÄÄ±ß,x=0ÎªÆÁÄ»ÓÒ±ßÔµ)<br />
-    ÕýµÄoff_x³¯ÏòÆÁÄ»×ó·½.¸ºÖµoff_xÏòÆÁÄ»ÓÒ±ß(ÆÁÄ»ÓÒ²àÖ®Íâ)ÒÆ¶¯.<br />
-    y=0Ê±ÓëµØÆ½ÃæÏàÍ¬Î»ÖÃ.¸ºÖµÏòÉÏÒÆ¶¯.<br />
-	¸ÃÀàÐÍ×ÔÉíAnimµÄ´óÐ¡,Î»ÖÃÎªÆÁÄ»¾ø¶Ô¿Õ¼ä.ËÙ¶ÈÎªÈËÎïdefÖÐ¶¨ÒåµÄlocalcoord×ø±êÏà¶Ô×ø±êÎ»ÖÃ¶øÑÔ.</li>
-</ul>
-<p><span class="STYLE3">facing = facing (ÕûÐÍ) </span><br />
-  Èç¹ûpostypeÊÇleft»òÕßright,ÉèÖÃfacingÎª1½«Ê¹helper³¯ÓÒ,ÖµÎª-1Ê¹helper³¯×ó.<br />
-  ³ýÁËP2ÒÔÍâµÄÆäËûpostypeÖµ,Èç¹ûfacingÊÇ1,helperµÄ³¯Ïò½«ºÍÍæ¼ÒÒ»Ñù.Èç¹ûÊÇ-1,ÔòÓëÍæ¼Ò³¯ÏòÏà·´.<br />
-postype = p2ÕâÖÖÇé¿öÏÂ,facingµÄÐ§¹ûºÍÉÏÃæÒ»Ñù,Ö»ÊÇºÍP2µÄ³¯ÏòÓÐ¹Ø¶ø²»ÊÇP1.Ä¬ÈÏÊÇ1.</p>
-<p><span class="STYLE3">stateno = start_state (ÕûÐÍ) </span><br />
-  È·¶¨helperµÄ³õÊ¼×´Ì¬ºÅ.Ä¬ÈÏÎª0.<br />
-  ([StateDef 0]Ò»°ãÊÇÈËÎïÄ¬ÈÏÕ¾Á¢×ËÊÆ,ËùÒÔÓÐÊ±ºò¶ÔÕ½Ê±·¢ÏÖ»áÍ»È»¶à¸öÈË³öÀ´,¾ÍÒª¼ì²éÒ»ÏÂÊÇ²»ÊÇÄÄÀï´´½¨ÁËhelperµ«ÊÇÃ»ÓÐÖ¸¶¨stateno.<br />
-»òÕßÊÇ´´½¨ÁËÒâÁÏÖ®ÍâµÄhelper¶øÃ»ÓÐÏú»Ù. )</p>
-<p><span class="STYLE3">keyctrl = ctrl_flag (²¼¶ûÐÍ) </span><br />
-  Èç¹ûctrl_flagÊÇ1,ÔòhelperÄÜ¹»½ÓÊÜÍæ¼ÒÊäÈëµÄÖ¸Áî.(ÀýÈç¼üÅÌ,ÊÖ±ú)<br />
-  Í¬Ñù,´Ëhelper½«¼Ì³ÐËû¸ù¼¶(×î¶¥¼¶)µÄstate -1.<br />
-  Èç¹ûctrl_flagÊÇ0,Ôòhelper²»ÄÜ·ÃÎÊÊäÈëµÄÖ¸Áî,ÇÒ²»ÄÜ¼Ì³Ð state -1. <br />
-  Èç¹ûctrl_flagÊÇ1,helpertype=playerÀàÐÍ½«»áÖ´ÐÐstate -1,state -2,state -3,¶ønormalÀàÐÍÖ»»áÖ´ÐÐstate -1.Çë×¢ÒâÏà¹Ø±äÁ¿ÔÚÕâÐ©×´Ì¬ÖÐµÄ¸³ÖµºÍ¶ÁÈ¡,±äÁ¿Ç°¼ÓÉÏ¡¾helper(ID),¡¿·ÀÖ¹Óëroot(ÈËÎï±¾Ìå)²úÉú»ìÏý.<br />
-ctrl_flagÄ¬ÈÏÖµÎª0.</p>
-<p><span class="STYLE3">ownpal = ownpal_flag (²¼¶ûÐÍ) </span><br />
-  Èç¹ûownpal_flagÊÇ0,helper½«ÊÜ¸¸¼¶PalFXºÍRemapPal¿ØÖÆÆ÷Ó°Ïì.´ËÎªÄ¬ÈÏÖµ.<br />
-Èç¹ûownpal_flagÊÇ1,helper½«ÓÐ×Ô¼ºÔÝÊ±µÄÉ«±í,¶ÀÁ¢ÓÚËûµÄ¸¸¼¶.</p>
-<p><span class="STYLE3">remappal = dst_pal_grp, dst_pal_item (ÕûÐÍ, ÕûÐÍ)</span><br />
-  Ç¿ÖÆÉ«±í´ÓhelperË÷ÒýÑÕÉ«Í¼ÏñÖØÓ³Éäµ½Ö¸¶¨µÄÉ«±í.<br />
-  ´Ë²ÎÊý½öµ±ownpal_flagÎª·Ç0Ê±ÓÐÐ§.<br />
-Èç¹ûdst_pal_grpÊÇ-1,´Ë²ÎÊý½«±»ºöÂÔ.Ä¬ÈÏ-1,0.</p>
-<p><span class="STYLE3">supermovetime = move_time (ÕûÐÍ) </span><br />
-Ö¸¶¨helperÔÚSuperPauseÖÐ²»±»¶³½á×¡µÄÖ¡Êý.Ä¬ÈÏÎª0.</p>
-<p><span class="STYLE3">pausemovetime = move_time (ÕûÐÍ) </span><br />
-Ö¸¶¨helperÔÚPauseÖÐ²»±»¶³½á×¡µÄÖ¡Êý.Ä¬ÈÏÎª0.</p>
-<p><span class="STYLE3">size.xscale (¸¡µãÐÍ) </span><br />
-Èç¹ûÎ´ÉèÖÃ,Ä¬ÈÏÎªÈËÎï[Size]²ÎÊýÖÐµÄxscaleÖµ.ÉèÖÃÖ®ºó½«Ìæ»»ÎªÐÂÖµ.¸ÃÖµÎªÆÁÄ»¾ø¶Ô¿Õ¼ä´óÐ¡±ÈÀý.<br />
-¼ûÏÂ·½.</p>
-<p><span class="STYLE3">size.yscale (¸¡µãÐÍ) </span><br />
-Èç¹ûÎ´ÉèÖÃ,Ä¬ÈÏÎªÈËÎï[Size]²ÎÊýÖÐµÄyscaleÖµ.ÉèÖÃÖ®ºó½«Ìæ»»ÎªÐÂÖµ.¸ÃÖµÎªÆÁÄ»¾ø¶Ô¿Õ¼ä´óÐ¡±ÈÀý.<br />
-¼ûÏÂ·½.</p>
-<p><span class="STYLE3">size.ground.back (ÕûÐÍ) </span><br />
-¼ûÏÂ·½.</p>
-<p><span class="STYLE3">size.ground.front (ÕûÐÍ) </span><br />
-¼ûÏÂ·½.</p>
-<p><span class="STYLE3">size.air.back (ÕûÐÍ) </span><br />
-¼ûÏÂ·½.</p>
-<p><span class="STYLE3">size.air.front (ÕûÐÍ) </span><br />
-¼ûÏÂ·½.</p>
-<p><span class="STYLE3">size.height (ÕûÐÍ) </span><br />
-¼ûÏÂ·½.</p>
-<p><span class="STYLE3">size.proj.doscale (ÕûÐÍ) </span><br />
-¼ûÏÂ·½.</p>
-<p><span class="STYLE3">size.head.pos (ÕûÐÍ,ÕûÐÍ) </span><br />
-¼ûÏÂ·½.</p>
-<p><span class="STYLE3">size.mid.pos (ÕûÐÍ,ÕûÐÍ) </span><br />
-¼ûÏÂ·½.</p>
-<p><span class="STYLE3">size.shadowoffset (ÕûÐÍ) </span><br />
-  ÕâÐ©²ÎÊýÓë¸ù¼¶CNSÎÄ¼þÏàÓ¦²ÎÊýÒâÒåÏàÍ¬.<br />
-  ÄãÄÜÖ¸¶¨Ä³¼¸¸ö²ÎÊý½«ËüÃÇµÄÖµ¸Ä±ä³ÉÊÊºÏhelperµÄÊýÖµ.<br />
-·ñÔò,ËüÃÇ½«´Ó¸¸¼¶¼Ì³ÐÄ¬ÈÏÖµ.</p>
-<p><span class="STYLE2">Ê¾Àý: </span><br />
-ÎÞ</p>
-<p>Áí: ÈçÐè¶¯Ì¬¸Ä±äHelperµÄ´óÐ¡ºÍÏÔÊ¾½Ç¶ÈµÈ,Çë²ÎÔÄ <span class="STYLE3">AngleDraw</span></p>
-<p>Çë×¢ÒâÔÚ´´½¨HelperÊ±Ê¹ÓÃsize.xscaleºÍsize.yscale,ÒÔ¼°ÔÚHelperÄÚÊ¹ÓÃAngleDrawµÈ·½Ê½¸Ä±ä´óÐ¡ºó,¶¯»­µÄ¹¥»÷ºÍ·ÀÓù¿ò´óÐ¡¾ù²»»á×Ô¶¯½øÐÐËõ·Å! (¼´airÖÐ¶¨ÒåµÄCLSN1ºÍCLSN2²»»á×Ô¶¯Ëõ·Å,ÐèÊÖ¶¯½øÐÐµ÷Õû.)</p><br />
-</body>
+  <p>
+   åˆ›å»ºçŽ©å®¶çš„å¦ä¸€ä¸ªå®žä¾‹ä½œä¸ºä¸€ä¸ªhelper(æ´åŠ©)äººç‰©.
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¿…è¦å‚æ•°:
+   </span>
+   <br/>
+   æ— 
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¯é€‰å‚æ•°:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    helpertype = type_string (å­—ç¬¦ä¸²åž‹)
+   </span>
+   <br/>
+   ä¸æŽ¨èä½¿ç”¨æ­¤å‚æ•°,ä¸æ”¯æŒä½¿ç”¨playeråž‹çš„helper.
+   <br/>
+   å¦‚æžœhelpertype = normal,åˆ™helperå°†è¢«å…è®¸ç¦»å¼€(èµ°å‡º)å±å¹•.
+   <br/>
+   æ­¤å¤–,æ‘„åƒæœºå°†ä¸ä¼šå› ä¸ºè¦ä½¿helperåœç•™åœ¨ç”»é¢å†…è€Œç§»åŠ¨.(ä¹Ÿå°±æ˜¯è¯´æ‘„åƒæœºä¸ä¼šè·Ÿç€helperèµ°)
+   <br/>
+   å¦‚æžœhelpertype = player,åˆ™helperå°†è¢«çº¦æŸåœ¨å±å¹•å†…ä¸”æ‘„åƒæœºå°†è·Ÿéšä»–ç§»åŠ¨,å°±åƒæ™®é€šçŽ©å®¶ä¸€æ ·.é»˜è®¤æ˜¯normal.
+   <br/>
+   å¦‚æžœä½ æƒ³ç”¨helperæ¥æ“çºµæ‘„åƒæœº,ä¸è¦ä½¿ç”¨playeråž‹çš„helper.
+   <br/>
+   ä½¿ç”¨è®¾ç½®äº†"movecamera"å‚æ•°çš„ScreenBoundæŽ§åˆ¶å™¨å¯ä»¥ä»£æ›¿.
+  </p>
+  <p>
+   <span class="STYLE3">
+    name = "name_string" (å­—ç¬¦ä¸²åž‹)
+   </span>
+   <br/>
+   æŒ‡å®šhelperçš„åå­—,å¿…é¡»å†™åœ¨åŒå¼•å·é‡Œé¢.
+   <br/>
+   å¦‚æžœçœç•¥,æ­¤åå­—é»˜è®¤æ˜¯"&lt;parent&gt;'s helper",è¿™é‡Œçš„&lt;parent&gt;ä»£è¡¨åˆ›å»ºæ­¤helperçš„çŽ©å®¶çš„åå­—.
+  </p>
+  <p>
+   <span class="STYLE3">
+    ID = id_no (æ•´åž‹)
+   </span>
+   <br/>
+   è®¾ç½®æ­¤helperçš„IDå·.é»˜è®¤æ˜¯0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    pos = off_x, off_y (æ•´åž‹)
+   </span>
+   <br/>
+   æŒ‡å®šè¿™ä¸ªhelperå°†è¦è¢«åˆ›å»ºçš„ä½ç½®.(xå’Œyæ–¹å‘åç§»é‡)
+   <br/>
+   è¿™äº›å‚æ•°çš„å‡†ç¡®æ„ä¹‰å¾—ä¾èµ–äºŽpostype.é»˜è®¤æ˜¯0,0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    postype = postype_string (å­—ç¬¦ä¸²åž‹)
+   </span>
+   <br/>
+   postype_stringæŒ‡å®špostype -- å¦‚ä½•è§£è¯»poså‚æ•°.
+   <br/>
+   æ‰€æœ‰æƒ…å†µä¸‹,ä¸€ä¸ªæ­£çš„yåç§»é‡æ„å‘³ç€å‘ä¸‹çš„ä½ç§».
+   <br/>
+   æ‰€æœ‰æƒ…å†µä¸‹,off_yæ˜¯ç›¸å¯¹äºŽçŽ©å®¶ä½ç½®è€Œè¨€çš„.
+  </p>
+  <p>
+   ä¸‹é¢æ˜¯æœ‰æ•ˆçš„postype_stringå€¼:
+   <br/>
+  </p>
+  <ul>
+   <li>
+    <span class="STYLE3">
+     p1
+    </span>
+    <br/>
+    è¯´æ˜Žäº†ç›¸å¯¹äºŽP1åæ ‡è½´çš„ä½ç½®.æ­£çš„off_xæœå‘P1çš„å‰æ–¹.è¿™æ˜¯postypeé»˜è®¤å€¼.
+    <br/>
+    è¯¥ç±»åž‹è‡ªèº«Animçš„å¤§å°,ä½ç½®,é€Ÿåº¦å‡ä¸ºå±å¹•ç»å¯¹ç©ºé—´.
+   </li>
+   <li>
+    <span class="STYLE3">
+     p2
+    </span>
+    <br/>
+    è¯´æ˜Žäº†ç›¸å¯¹äºŽP2åæ ‡è½´çš„ä½ç½®.æ­£çš„off_xæœå‘P2çš„å‰æ–¹.
+    <br/>
+    å¦‚æžœP2ä¸å­˜åœ¨,ä½ç½®çš„è®¡ç®—æ˜¯å’ŒP1æœ‰å…³çš„ä¸”ä¼šè®°å½•ä¸€æ¬¡è­¦å‘Š.
+    <br/>
+    è¯¥ç±»åž‹è‡ªèº«Animçš„å¤§å°,ä½ç½®,é€Ÿåº¦å‡ä¸ºå±å¹•ç»å¯¹ç©ºé—´.
+   </li>
+   <li>
+    <span class="STYLE3">
+     front
+    </span>
+    <br/>
+    è¯´æ˜Žäº†off_xç›¸å¯¹äºŽP1æœå‘çš„å±å¹•è¾¹ç¼˜.(p1æœå‘å³è¾¹æ—¶,x=0ä¸ºå±å¹•å³è¾¹ç¼˜)
+    <br/>
+    æ­£çš„off_xè¿œç¦»å±å¹•çš„ä¸­å¿ƒ,è€Œè´Ÿçš„off_xæœå‘ä¸­å¿ƒ.
+    <br/>
+    y=0æ—¶ä¸Žåœ°å¹³é¢ç›¸åŒä½ç½®.è´Ÿå€¼å‘ä¸Šç§»åŠ¨.
+    <br/>
+    è¯¥ç±»åž‹è‡ªèº«Animçš„å¤§å°,ä½ç½®,é€Ÿåº¦å‡ä¸ºå±å¹•ç»å¯¹ç©ºé—´.
+   </li>
+   <li>
+    <span class="STYLE3">
+     back
+    </span>
+    <br/>
+    è¯´æ˜Žäº†off_xç›¸å¯¹äºŽP1èƒŒå‘çš„å±å¹•è¾¹ç¼˜.(p1æœå‘å³è¾¹æ—¶,x=0ä¸ºå±å¹•å·¦è¾¹ç¼˜)
+    <br/>
+    æ­£çš„off_xæœå‘å±å¹•çš„ä¸­å¿ƒ,è€Œè´Ÿçš„off_xè¿œç¦»ä¸­å¿ƒ.
+    <br/>
+    y=0æ—¶ä¸Žåœ°å¹³é¢ç›¸åŒä½ç½®.è´Ÿå€¼å‘ä¸Šç§»åŠ¨.
+    <br/>
+    è¯¥ç±»åž‹è‡ªèº«Animçš„å¤§å°,ä½ç½®,é€Ÿåº¦å‡ä¸ºå±å¹•ç»å¯¹ç©ºé—´.
+   </li>
+   <li>
+    <span class="STYLE3">
+     left
+    </span>
+    <br/>
+    è¯´æ˜Žäº†off_xç›¸å¯¹äºŽå±å¹•çš„å·¦è¾¹ç¼˜.(æ— è®ºp1æœå‘å“ªè¾¹,x=0ä¸ºå±å¹•å·¦è¾¹ç¼˜)
+    <br/>
+    æ­£çš„off_xæœå‘å±å¹•å³æ–¹.è´Ÿå€¼off_xå‘å±å¹•å·¦è¾¹(å±å¹•å·¦ä¾§ä¹‹å¤–)ç§»åŠ¨.
+    <br/>
+    y=0æ—¶ä¸Žåœ°å¹³é¢ç›¸åŒä½ç½®.è´Ÿå€¼å‘ä¸Šç§»åŠ¨.
+    <br/>
+    è¯¥ç±»åž‹è‡ªèº«Animçš„å¤§å°,ä½ç½®ä¸ºå±å¹•ç»å¯¹ç©ºé—´.é€Ÿåº¦ä¸ºäººç‰©defä¸­å®šä¹‰çš„localcoordåæ ‡ç›¸å¯¹åæ ‡ä½ç½®è€Œè¨€.
+   </li>
+   <li>
+    <span class="STYLE3">
+     right
+    </span>
+    <br/>
+    è¯´æ˜Žäº†off_xç›¸å¯¹äºŽå±å¹•çš„å³è¾¹ç¼˜.(æ— è®ºp1æœå‘å“ªè¾¹,x=0ä¸ºå±å¹•å³è¾¹ç¼˜)
+    <br/>
+    æ­£çš„off_xæœå‘å±å¹•å·¦æ–¹.è´Ÿå€¼off_xå‘å±å¹•å³è¾¹(å±å¹•å³ä¾§ä¹‹å¤–)ç§»åŠ¨.
+    <br/>
+    y=0æ—¶ä¸Žåœ°å¹³é¢ç›¸åŒä½ç½®.è´Ÿå€¼å‘ä¸Šç§»åŠ¨.
+    <br/>
+    è¯¥ç±»åž‹è‡ªèº«Animçš„å¤§å°,ä½ç½®ä¸ºå±å¹•ç»å¯¹ç©ºé—´.é€Ÿåº¦ä¸ºäººç‰©defä¸­å®šä¹‰çš„localcoordåæ ‡ç›¸å¯¹åæ ‡ä½ç½®è€Œè¨€.
+   </li>
+  </ul>
+  <p>
+   <span class="STYLE3">
+    facing = facing (æ•´åž‹)
+   </span>
+   <br/>
+   å¦‚æžœpostypeæ˜¯leftæˆ–è€…right,è®¾ç½®facingä¸º1å°†ä½¿helperæœå³,å€¼ä¸º-1ä½¿helperæœå·¦.
+   <br/>
+   é™¤äº†P2ä»¥å¤–çš„å…¶ä»–postypeå€¼,å¦‚æžœfacingæ˜¯1,helperçš„æœå‘å°†å’ŒçŽ©å®¶ä¸€æ ·.å¦‚æžœæ˜¯-1,åˆ™ä¸ŽçŽ©å®¶æœå‘ç›¸å.
+   <br/>
+   postype = p2è¿™ç§æƒ…å†µä¸‹,facingçš„æ•ˆæžœå’Œä¸Šé¢ä¸€æ ·,åªæ˜¯å’ŒP2çš„æœå‘æœ‰å…³è€Œä¸æ˜¯P1.é»˜è®¤æ˜¯1.
+  </p>
+  <p>
+   <span class="STYLE3">
+    stateno = start_state (æ•´åž‹)
+   </span>
+   <br/>
+   ç¡®å®šhelperçš„åˆå§‹çŠ¶æ€å·.é»˜è®¤ä¸º0.
+   <br/>
+   ([StateDef 0]ä¸€èˆ¬æ˜¯äººç‰©é»˜è®¤ç«™ç«‹å§¿åŠ¿,æ‰€ä»¥æœ‰æ—¶å€™å¯¹æˆ˜æ—¶å‘çŽ°ä¼šçªç„¶å¤šä¸ªäººå‡ºæ¥,å°±è¦æ£€æŸ¥ä¸€ä¸‹æ˜¯ä¸æ˜¯å“ªé‡Œåˆ›å»ºäº†helperä½†æ˜¯æ²¡æœ‰æŒ‡å®šstateno.
+   <br/>
+   æˆ–è€…æ˜¯åˆ›å»ºäº†æ„æ–™ä¹‹å¤–çš„helperè€Œæ²¡æœ‰é”€æ¯. )
+  </p>
+  <p>
+   <span class="STYLE3">
+    keyctrl = ctrl_flag (å¸ƒå°”åž‹)
+   </span>
+   <br/>
+   å¦‚æžœctrl_flagæ˜¯1,åˆ™helperèƒ½å¤ŸæŽ¥å—çŽ©å®¶è¾“å…¥çš„æŒ‡ä»¤.(ä¾‹å¦‚é”®ç›˜,æ‰‹æŸ„)
+   <br/>
+   åŒæ ·,æ­¤helperå°†ç»§æ‰¿ä»–æ ¹çº§(æœ€é¡¶çº§)çš„state -1.
+   <br/>
+   å¦‚æžœctrl_flagæ˜¯0,åˆ™helperä¸èƒ½è®¿é—®è¾“å…¥çš„æŒ‡ä»¤,ä¸”ä¸èƒ½ç»§æ‰¿ state -1.
+   <br/>
+   å¦‚æžœctrl_flagæ˜¯1,helpertype=playerç±»åž‹å°†ä¼šæ‰§è¡Œstate -1,state -2,state -3,è€Œnormalç±»åž‹åªä¼šæ‰§è¡Œstate -1.è¯·æ³¨æ„ç›¸å…³å˜é‡åœ¨è¿™äº›çŠ¶æ€ä¸­çš„èµ‹å€¼å’Œè¯»å–,å˜é‡å‰åŠ ä¸Šã€helper(ID),ã€‘é˜²æ­¢ä¸Žroot(äººç‰©æœ¬ä½“)äº§ç”Ÿæ··æ·†.
+   <br/>
+   ctrl_flagé»˜è®¤å€¼ä¸º0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    ownpal = ownpal_flag (å¸ƒå°”åž‹)
+   </span>
+   <br/>
+   å¦‚æžœownpal_flagæ˜¯0,helperå°†å—çˆ¶çº§PalFXå’ŒRemapPalæŽ§åˆ¶å™¨å½±å“.æ­¤ä¸ºé»˜è®¤å€¼.
+   <br/>
+   å¦‚æžœownpal_flagæ˜¯1,helperå°†æœ‰è‡ªå·±æš‚æ—¶çš„è‰²è¡¨,ç‹¬ç«‹äºŽä»–çš„çˆ¶çº§.
+  </p>
+  <p>
+   <span class="STYLE3">
+    remappal = dst_pal_grp, dst_pal_item (æ•´åž‹, æ•´åž‹)
+   </span>
+   <br/>
+   å¼ºåˆ¶è‰²è¡¨ä»Žhelperç´¢å¼•é¢œè‰²å›¾åƒé‡æ˜ å°„åˆ°æŒ‡å®šçš„è‰²è¡¨.
+   <br/>
+   æ­¤å‚æ•°ä»…å½“ownpal_flagä¸ºéž0æ—¶æœ‰æ•ˆ.
+   <br/>
+   å¦‚æžœdst_pal_grpæ˜¯-1,æ­¤å‚æ•°å°†è¢«å¿½ç•¥.é»˜è®¤-1,0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    supermovetime = move_time (æ•´åž‹)
+   </span>
+   <br/>
+   æŒ‡å®šhelperåœ¨SuperPauseä¸­ä¸è¢«å†»ç»“ä½çš„å¸§æ•°.é»˜è®¤ä¸º0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    pausemovetime = move_time (æ•´åž‹)
+   </span>
+   <br/>
+   æŒ‡å®šhelperåœ¨Pauseä¸­ä¸è¢«å†»ç»“ä½çš„å¸§æ•°.é»˜è®¤ä¸º0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    size.xscale (æµ®ç‚¹åž‹)
+   </span>
+   <br/>
+   å¦‚æžœæœªè®¾ç½®,é»˜è®¤ä¸ºäººç‰©[Size]å‚æ•°ä¸­çš„xscaleå€¼.è®¾ç½®ä¹‹åŽå°†æ›¿æ¢ä¸ºæ–°å€¼.è¯¥å€¼ä¸ºå±å¹•ç»å¯¹ç©ºé—´å¤§å°æ¯”ä¾‹.
+   <br/>
+   è§ä¸‹æ–¹.
+  </p>
+  <p>
+   <span class="STYLE3">
+    size.yscale (æµ®ç‚¹åž‹)
+   </span>
+   <br/>
+   å¦‚æžœæœªè®¾ç½®,é»˜è®¤ä¸ºäººç‰©[Size]å‚æ•°ä¸­çš„yscaleå€¼.è®¾ç½®ä¹‹åŽå°†æ›¿æ¢ä¸ºæ–°å€¼.è¯¥å€¼ä¸ºå±å¹•ç»å¯¹ç©ºé—´å¤§å°æ¯”ä¾‹.
+   <br/>
+   è§ä¸‹æ–¹.
+  </p>
+  <p>
+   <span class="STYLE3">
+    size.ground.back (æ•´åž‹)
+   </span>
+   <br/>
+   è§ä¸‹æ–¹.
+  </p>
+  <p>
+   <span class="STYLE3">
+    size.ground.front (æ•´åž‹)
+   </span>
+   <br/>
+   è§ä¸‹æ–¹.
+  </p>
+  <p>
+   <span class="STYLE3">
+    size.air.back (æ•´åž‹)
+   </span>
+   <br/>
+   è§ä¸‹æ–¹.
+  </p>
+  <p>
+   <span class="STYLE3">
+    size.air.front (æ•´åž‹)
+   </span>
+   <br/>
+   è§ä¸‹æ–¹.
+  </p>
+  <p>
+   <span class="STYLE3">
+    size.height (æ•´åž‹)
+   </span>
+   <br/>
+   è§ä¸‹æ–¹.
+  </p>
+  <p>
+   <span class="STYLE3">
+    size.proj.doscale (æ•´åž‹)
+   </span>
+   <br/>
+   è§ä¸‹æ–¹.
+  </p>
+  <p>
+   <span class="STYLE3">
+    size.head.pos (æ•´åž‹,æ•´åž‹)
+   </span>
+   <br/>
+   è§ä¸‹æ–¹.
+  </p>
+  <p>
+   <span class="STYLE3">
+    size.mid.pos (æ•´åž‹,æ•´åž‹)
+   </span>
+   <br/>
+   è§ä¸‹æ–¹.
+  </p>
+  <p>
+   <span class="STYLE3">
+    size.shadowoffset (æ•´åž‹)
+   </span>
+   <br/>
+   è¿™äº›å‚æ•°ä¸Žæ ¹çº§CNSæ–‡ä»¶ç›¸åº”å‚æ•°æ„ä¹‰ç›¸åŒ.
+   <br/>
+   ä½ èƒ½æŒ‡å®šæŸå‡ ä¸ªå‚æ•°å°†å®ƒä»¬çš„å€¼æ”¹å˜æˆé€‚åˆhelperçš„æ•°å€¼.
+   <br/>
+   å¦åˆ™,å®ƒä»¬å°†ä»Žçˆ¶çº§ç»§æ‰¿é»˜è®¤å€¼.
+  </p>
+  <p>
+   <span class="STYLE2">
+    ç¤ºä¾‹:
+   </span>
+   <br/>
+   æ— 
+  </p>
+  <p>
+   å¦: å¦‚éœ€åŠ¨æ€æ”¹å˜Helperçš„å¤§å°å’Œæ˜¾ç¤ºè§’åº¦ç­‰,è¯·å‚é˜…
+   <span class="STYLE3">
+    AngleDraw
+   </span>
+  </p>
+  <p>
+   è¯·æ³¨æ„åœ¨åˆ›å»ºHelperæ—¶ä½¿ç”¨size.xscaleå’Œsize.yscale,ä»¥åŠåœ¨Helperå†…ä½¿ç”¨AngleDrawç­‰æ–¹å¼æ”¹å˜å¤§å°åŽ,åŠ¨ç”»çš„æ”»å‡»å’Œé˜²å¾¡æ¡†å¤§å°å‡ä¸ä¼šè‡ªåŠ¨è¿›è¡Œç¼©æ”¾! (å³airä¸­å®šä¹‰çš„CLSN1å’ŒCLSN2ä¸ä¼šè‡ªåŠ¨ç¼©æ”¾,éœ€æ‰‹åŠ¨è¿›è¡Œè°ƒæ•´.)
+  </p>
+  <br/>
+ </body>
 </html>

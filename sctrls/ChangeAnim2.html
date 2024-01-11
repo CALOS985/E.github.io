@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>ChangeAnim2</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   ChangeAnim2
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,29 +23,57 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">ChangeAnim2</p>
-<p>�� <a href="ChangeAnim.html">ChangeAnim</a> һ��,ֻ�Ǵ˿�����Ӧ�������µ������:<br />
-  ���������P2��һ���Զ���״̬��ϣ����P2�Ķ�����ΪP1ָ��air�ļ��еĶ���.<br />
-  ����,������Ͷ������ʱ,ʹ�ô˿��������ı�P2��Ͷ���Ķ���.</p>
-<p>
-ʵ��Ӧ����,�����ֵ�������: P1��air�ļ��ж����ͼƬ���,��P2��Sff�ļ��в���������Ӧʵ��ͼƬ,���ᵼ��P2��ɿհ�(��ʧ��)��״̬.<br />
-Ҫ���������,���԰���������Sff������Ӧ��ŵ��ܻ�ͼƬ. �����鷳,����ʹ�����´���:<br />
-<br />
-[State ]<br />
-type = ChangeAnim2<br />
-Trigger1 = Time = 0<br />
-Trigger1 = SelfAnimExist(1320)  ;p2��air��Ŵ��ڲŽ�������<br />
-value = 1320<br />
- <br />
-[State ]<br />
-type = ChangeAnim<br />
-Trigger1 = time = 0<br />
-Trigger1 = !SelfAnimExist(1320)  ;p2��air��Ų�����,ʹ��ͨ�õ��ܻ�����<br />
-value = 5000<br />
-</p>
-<p>  �����: <a href="../triggers/SelfAnimExist.html">SelfAnimExist</a>. </p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   ChangeAnim2
+  </p>
+  <p>
+   和
+   <a href="ChangeAnim.html">
+    ChangeAnim
+   </a>
+   一样,只是此控制器应用在如下的情况中:
+   <br/>
+   如果你已置P2于一个自定义状态且希望把P2的动作改为P1指定air文件中的动作.
+   <br/>
+   例如,当制作投掷动作时,使用此控制器来改变P2被投掷的动画.
+  </p>
+  <p>
+   实际应用中,常出现的问题是: P1的air文件中定义的图片编号,在P2的Sff文件中并不存在相应实际图片,将会导致P2变成空白(消失了)的状态.
+   <br/>
+   要解决该问题,可以把所有人物Sff补齐相应编号的受击图片. 如嫌麻烦,可以使用以下代码:
+   <br/>
+   <br/>
+   [State ]
+   <br/>
+   type = ChangeAnim2
+   <br/>
+   Trigger1 = Time = 0
+   <br/>
+   Trigger1 = SelfAnimExist(1320)  ;p2的air编号存在才进行设置
+   <br/>
+   value = 1320
+   <br/>
+   <br/>
+   [State ]
+   <br/>
+   type = ChangeAnim
+   <br/>
+   Trigger1 = time = 0
+   <br/>
+   Trigger1 = !SelfAnimExist(1320)  ;p2的air编号不存在,使用通用的受击动画
+   <br/>
+   value = 5000
+   <br/>
+  </p>
+  <p>
+   请参阅:
+   <a href="../triggers/SelfAnimExist.html">
+    SelfAnimExist
+   </a>
+   .
+  </p>
+ </body>
 </html>

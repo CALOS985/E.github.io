@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>ForceFeedback</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   ForceFeedback
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,38 +23,92 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">ForceFeedback</p>
-<p>ÎªÖ§³ÖµÄÁ¦·´À¡×°ÖÃ´´½¨Á¦·´À¡.<br />
-  ´Ë¿ØÖÆÆ÷ÔÚMUGEN1.0ÖÐÎ´ÄÜÊµÏÖ.<br />
-  ForceFeedback¿ØÖÆÆ÷ÖÐµÄ²ÎÊýÒ²Ðí²»ÄÜÓÃËãÊõ±í´ïÊ½À´Ö¸¶¨.<br />
-  ¹ØÓÚÕâ·½ÃæÊÇ¸öÀýÍâ.</p>
-<p><span class="STYLE2">±ØÒª²ÎÊý: </span><br />
-ÎÞ</p>
-<p><span class="STYLE2">¿ÉÑ¡²ÎÊý: </span><br />
-  <span class="STYLE3">waveform = wave_type (×Ö·û´®ÐÍ) </span><br />
-  ÓÐÐ§µÄwaveform(²¨ÐÎ)ÊÇ&quot;sine(ÕýÏÒ²¨)&quot;,&quot;square(·½²¨)&quot;,&quot;sinesquare(ÕýÏÒ·½²¨£¿)&quot;,ºÍ&quot;off&quot;.<br />
-  ¶ÔË«Õð¶¯¿ØÖÆÆ÷(ÊÖ±ú)À´Ëµ,Ò»¸öÕýÏÒ²¨¶ÔÓ¦×ÅÂí´ï·¢³ö´óÐÍÂ¡Â¡Éù,Ò»¸ö·½²¨¶ÔÓ¦×ÅÂí´ï·¢³öÐ¡µÄ·äÃùÉù.<br />
-µ±È»,ÕýÏÒ·½²¨Í¬Ê±¶ÔÓ¦×Å2¸öÂí´ï.Ê¹ÓÃ&quot;off&quot;À´¹Ø±ÕÄ¿Ç°´æÔÚµÄÈÎºÎÁ¦·´À¡.waveformÄ¬ÈÏÊÇsine.</p>
-<p><span class="STYLE3">time = duration (ÕûÐÍ³£Á¿) </span><br />
-Ö¸¶¨Á¦·´À¡½«³ÖÐø¶àÉÙÊ±¼ä,ÓÃÖ¡Êý±íÊ¾.Ä¬ÈÏÎª60.</p>
-<p><span class="STYLE3">freq = start (ÕûÐÍ³£Á¿), d1, d2, d3 (¸¡µãÐÍ³£Á¿)</span><br />
-  Á¦·´À¡µÄÆµÂÊÔÚ0-255Ö®¼ä±ä»¯.<br />
-  ¾ö¶¨Á¦·´À¡ÆµÂÊµÄ¹«Ê½ÊÇ:start + d1 * t + d2 * t ** 2 + d3 * t ** 3<br />
-  ÕâÀïµÄt´ú±í´ÓÁ¦·´À¡±»Æô¶¯Ê±ÊÅÈ¥µÄÊ±¼äÖ¡Êý.<br />
-Ä¬ÈÏ freq = 128,0,0,0.Ä¿Ç°À´Ëµ,ÆµÂÊ²ÎÊý±»ÍêÈ«ºöÂÔ.</p>
-<p><span class="STYLE3">ampl = start (ÕûÐÍ³£Á¿), d1, d2, d3 (¸¡µãÐÍ³£Á¿) </span><br />
-  Á¦·´À¡µÄÕñ·ùÔÚ0-255Ö®¼ä±ä»¯.<br />
-  ¾ö¶¨Á¦·´À¡ÆµÂÊµÄ¹«Ê½ÊÇ:start + d1 * t + d2 * t ** 2 + d3 * t ** 3<br />
-  ÕâÀïµÄt´ú±í´ÓÁ¦·´À¡±»Æô¶¯Ê±ÊÅÈ¥µÄÊ±¼äÖ¡Êý.<br />
-Ä¬ÈÏ ampl = 128,0,0,0.</p>
-<p><span class="STYLE3">self = self_flag (²¼¶ûÐÍ³£Á¿) </span><br />
-  Èç¹ûself_flagÊÇ1,ÔòP1µÄpad(Ó¦¸ÃÖ¸µÄÊÇjoypadÓÎÏ·ÊÖ±ú)½«Õð¶¯.<br />
-Èç¹ûÊÇ0,ÔòP2µÄÊÖ±ú½«Õð¶¯.Ä¬ÈÏÊÇ1.</p>
-<p><span class="STYLE2">Ê¾Àý:</span><br />
-  ¼ûcommon1.cns.<br />
-</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   ForceFeedback
+  </p>
+  <p>
+   ä¸ºæ”¯æŒçš„åŠ›åé¦ˆè£…ç½®åˆ›å»ºåŠ›åé¦ˆ.
+   <br/>
+   æ­¤æŽ§åˆ¶å™¨åœ¨MUGEN1.0ä¸­æœªèƒ½å®žçŽ°.
+   <br/>
+   ForceFeedbackæŽ§åˆ¶å™¨ä¸­çš„å‚æ•°ä¹Ÿè®¸ä¸èƒ½ç”¨ç®—æœ¯è¡¨è¾¾å¼æ¥æŒ‡å®š.
+   <br/>
+   å…³äºŽè¿™æ–¹é¢æ˜¯ä¸ªä¾‹å¤–.
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¿…è¦å‚æ•°:
+   </span>
+   <br/>
+   æ— 
+  </p>
+  <p>
+   <span class="STYLE2">
+    å¯é€‰å‚æ•°:
+   </span>
+   <br/>
+   <span class="STYLE3">
+    waveform = wave_type (å­—ç¬¦ä¸²åž‹)
+   </span>
+   <br/>
+   æœ‰æ•ˆçš„waveform(æ³¢å½¢)æ˜¯"sine(æ­£å¼¦æ³¢)","square(æ–¹æ³¢)","sinesquare(æ­£å¼¦æ–¹æ³¢ï¼Ÿ)",å’Œ"off".
+   <br/>
+   å¯¹åŒéœ‡åŠ¨æŽ§åˆ¶å™¨(æ‰‹æŸ„)æ¥è¯´,ä¸€ä¸ªæ­£å¼¦æ³¢å¯¹åº”ç€é©¬è¾¾å‘å‡ºå¤§åž‹éš†éš†å£°,ä¸€ä¸ªæ–¹æ³¢å¯¹åº”ç€é©¬è¾¾å‘å‡ºå°çš„èœ‚é¸£å£°.
+   <br/>
+   å½“ç„¶,æ­£å¼¦æ–¹æ³¢åŒæ—¶å¯¹åº”ç€2ä¸ªé©¬è¾¾.ä½¿ç”¨"off"æ¥å…³é—­ç›®å‰å­˜åœ¨çš„ä»»ä½•åŠ›åé¦ˆ.waveformé»˜è®¤æ˜¯sine.
+  </p>
+  <p>
+   <span class="STYLE3">
+    time = duration (æ•´åž‹å¸¸é‡)
+   </span>
+   <br/>
+   æŒ‡å®šåŠ›åé¦ˆå°†æŒç»­å¤šå°‘æ—¶é—´,ç”¨å¸§æ•°è¡¨ç¤º.é»˜è®¤ä¸º60.
+  </p>
+  <p>
+   <span class="STYLE3">
+    freq = start (æ•´åž‹å¸¸é‡), d1, d2, d3 (æµ®ç‚¹åž‹å¸¸é‡)
+   </span>
+   <br/>
+   åŠ›åé¦ˆçš„é¢‘çŽ‡åœ¨0-255ä¹‹é—´å˜åŒ–.
+   <br/>
+   å†³å®šåŠ›åé¦ˆé¢‘çŽ‡çš„å…¬å¼æ˜¯:start + d1 * t + d2 * t ** 2 + d3 * t ** 3
+   <br/>
+   è¿™é‡Œçš„tä»£è¡¨ä»ŽåŠ›åé¦ˆè¢«å¯åŠ¨æ—¶é€åŽ»çš„æ—¶é—´å¸§æ•°.
+   <br/>
+   é»˜è®¤ freq = 128,0,0,0.ç›®å‰æ¥è¯´,é¢‘çŽ‡å‚æ•°è¢«å®Œå…¨å¿½ç•¥.
+  </p>
+  <p>
+   <span class="STYLE3">
+    ampl = start (æ•´åž‹å¸¸é‡), d1, d2, d3 (æµ®ç‚¹åž‹å¸¸é‡)
+   </span>
+   <br/>
+   åŠ›åé¦ˆçš„æŒ¯å¹…åœ¨0-255ä¹‹é—´å˜åŒ–.
+   <br/>
+   å†³å®šåŠ›åé¦ˆé¢‘çŽ‡çš„å…¬å¼æ˜¯:start + d1 * t + d2 * t ** 2 + d3 * t ** 3
+   <br/>
+   è¿™é‡Œçš„tä»£è¡¨ä»ŽåŠ›åé¦ˆè¢«å¯åŠ¨æ—¶é€åŽ»çš„æ—¶é—´å¸§æ•°.
+   <br/>
+   é»˜è®¤ ampl = 128,0,0,0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    self = self_flag (å¸ƒå°”åž‹å¸¸é‡)
+   </span>
+   <br/>
+   å¦‚æžœself_flagæ˜¯1,åˆ™P1çš„pad(åº”è¯¥æŒ‡çš„æ˜¯joypadæ¸¸æˆæ‰‹æŸ„)å°†éœ‡åŠ¨.
+   <br/>
+   å¦‚æžœæ˜¯0,åˆ™P2çš„æ‰‹æŸ„å°†éœ‡åŠ¨.é»˜è®¤æ˜¯1.
+  </p>
+  <p>
+   <span class="STYLE2">
+    ç¤ºä¾‹:
+   </span>
+   <br/>
+   è§common1.cns.
+   <br/>
+  </p>
+ </body>
 </html>
