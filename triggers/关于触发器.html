@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>关于触发器</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">关于触发器</p>
+<p>这是按顺序排列的触发器函数类型列表.要了解使用触发器函数类型的细节,请看下面的文档...<br />
+  除非另有说明,我们使用P1代表计算触发器的人,P2代表他的对手(通常在teammode时候是最近的对手).</p>
+<p>一些触发器是非标准的而且无法用表达式作为他们的参数.这些触发器在索引中用*来标记.</p>
+<p>一些触发器不推荐使用,这些触发器在索引中用**来标记,不鼓励使用这些触发器,也许在未来的引擎中将不再支持他们.</p>
+<p>旧式触发器,用***标记,仅出现在(触发器)(相关操作符)(值)的形式中.</p>
+<p>标有 (math) 的说明该表达式用于数学运算.</p>
+<p>对所有触发器而言,若被重新指向一个不存在的目标,或者重定向的ID号算出的结果是bottom,则该触发器会返回bottom.<br />
+  这些不会在每个触发器的错误条件中列出.</p>
+<p>&nbsp;</p>
+<p><a href="Abs.html">Abs (math)</a><br />
+  <a href="Acos.html">Acos (math)</a><br />
+  <a href="AILevel.html">AILevel</a><br />
+  <a href="Alive.html">Alive</a><br />
+  <a href="Anim.html">Anim</a><br />
+  <a href="AnimElem.html">AnimElem</a><br />
+  <a href="AnimElemNo.html">AnimElemNo (math)</a><br />
+  <a href="AnimElemTime.html">AnimElemTime (math)</a><br />
+  <a href="AnimExist.html">AnimExist (math)</a><br />
+  <a href="AnimTime.html">AnimTime</a><br />
+  <a href="Asin.html">Asin (math)</a><br />
+  <a href="Atan.html">Atan (math)</a><br />
+  <a href="AuthorName.html">AuthorName (*,***)</a><br />
+  <a href="BackEdge.html">BackEdge</a><br />
+  <a href="BackEdgeBodyDist.html">BackEdgeBodyDist</a><br />
+  <a href="BackEdgeDist.html">BackEdgeDist</a><br />
+  <a href="BottomEdge.html">BottomEdge</a><br />
+  <a href="CameraPos.html">CameraPos</a><br />
+  <a href="CameraZoom.html">CameraZoom</a><br />
+  <a href="CanRecover.html">CanRecover</a><br />
+  <a href="Ceil.html">Ceil (math)</a><br />
+  <a href="Command.html">Command (*,***)</a><br />
+  <a href="Cond.html">Cond (math)</a><br />
+  <a href="Const.html">Const (*)</a><br />
+  <a href="Const240p.html">Const240p</a><br />
+  <a href="Const480p.html">Const480p</a><br />
+  <a href="Const720p.html">Const720p</a><br />
+  <a href="Cos.html">Cos (math)</a><br />
+  <a href="Ctrl.html">Ctrl</a><br />
+  <a href="DrawGame.html">DrawGame</a><br />
+  <a href="E.html">E</a><br />
+  <a href="Exp.html">Exp (math)</a><br />
+  <a href="Facing.html">Facing</a><br />
+  <a href="Floor.html">Floor (math)</a><br />
+  <a href="FrontEdge.html">FrontEdge</a><br />
+  <a href="FrontEdgeBodyDist.html">FrontEdgeBodyDist</a><br />
+  <a href="FrontEdgeDist.html">FrontEdgeDist</a><br />
+  <a href="FVar.html">FVar (math)</a><br />
+  <a href="GameHeight.html">GameHeight</a><br />
+  <a href="GameTime.html">GameTime</a><br />
+  <a href="GameWidth.html">GameWidth</a><br />
+  <a href="GetHitVar.html">GetHitVar(*)</a><br />
+  <a href="HitCount.html">HitCount</a><br />
+  <a href="HitDefAttr.html">HitDefAttr(*,***)</a><br />
+  <a href="HitFall.html">HitFall</a><br />
+  <a href="HitOver.html">HitOver</a><br />
+  <a href="HitPauseTime.html">HitPauseTime</a><br />
+  <a href="HitShakeOver.html">HitShakeOver</a><br />
+  <a href="HitVel.html">HitVel</a><br />
+  <a href="ID.html">ID</a><br />
+  <a href="IfElse.html">IfElse (math)</a><br />
+  <a href="InGuardDist.html">InGuardDist</a><br />
+  <a href="IsHelper.html">IsHelper</a><br />
+  <a href="IsHomeTeam.html">IsHomeTeam</a><br />
+  <a href="LeftEdge.html">LeftEdge</a><br />
+  <a href="Life.html">Life</a><br />
+  <a href="LifeMax.html">LifeMax</a><br />
+  <a href="Ln.html">Ln (math)</a><br />
+  <a href="Log.html">Log (math)</a><br />
+  <a href="Lose.html">Lose</a><br />
+  <a href="MatchNo.html">MatchNo</a><br />
+  <a href="MatchOver.html">MatchOver</a><br />
+  <a href="MoveContact.html">MoveContact</a><br />
+  <a href="MoveGuarded.html">MoveGuarded</a><br />
+  <a href="MoveHit.html">MoveHit</a><br />
+  <a href="MoveType.html">MoveType(*,***)</a><br />
+  <a href="MoveReversed.html">MoveReversed</a><br />
+  <a href="Name.html">Name(*,***)</a><br />
+  <a href="NumEnemy.html">NumEnemy</a><br />
+  <a href="NumExplod.html">NumExplod</a><br />
+  <a href="NumHelper.html">NumHelper</a><br />
+  <a href="NumPartner.html">NumPartner</a><br />
+  <a href="NumProj.html">NumProj</a><br />
+  <a href="NumProjID.html">NumProjID (math)</a><br />
+  <a href="NumTarget.html">NumTarget</a><br />
+  <a href="P1Name.html">P1Name(*,***)</a><br />
+  <a href="P2BodyDist.html">P2BodyDist</a><br />
+  <a href="P2Dist.html">P2Dist</a><br />
+  <a href="P2Life.html">P2Life</a><br />
+  <a href="P2MoveType.html">P2MoveType</a><br />
+  <a href="P2Name.html">P2Name(*,***)</a><br />
+  <a href="P2StateNo.html">P2StateNo</a><br />
+  <a href="P2StateType.html">P2StateType</a><br />
+  <a href="P3Name.html">P3Name(*,***)</a><br />
+  <a href="P4Name.html">P4Name(*,***)</a><br />
+  <a href="PalNo.html">PalNo</a><br />
+  <a href="ParentDist.html">ParentDist</a><br />
+  <a href="Pi.html">Pi</a><br />
+  <a href="Pos.html">Pos</a><br />
+  <a href="Power.html">Power</a><br />
+  <a href="PowerMax.html">PowerMax</a><br />
+  <a href="PlayerIDExist.html">PlayerIDExist (math)</a><br />
+  <a href="PrevStateNo.html">PrevStateNo</a><br />
+  <a href="ProjCancelTime.html">ProjCancelTime (math)</a><br />
+  <a href="ProjContact.html">ProjContact(*,***)</a><br />
+  <a href="ProjContactTime.html">ProjContactTime (math)</a><br />
+  <a href="ProjGuarded.html">ProjGuarded(*,***)</a><br />
+  <a href="ProjGuardedTime.html">ProjGuardedTime (math)</a><br />
+  <a href="ProjHit.html">ProjHit(*,***)</a><br />
+  <a href="ProjHitTime.html">ProjHitTime (math)</a><br />
+  <a href="Random.html">Random</a><br />
+  <a href="RightEdge.html">RightEdge</a><br />
+  <a href="RootDist.html">RootDist</a><br />
+  <a href="RoundNo.html">RoundNo</a><br />
+  <a href="RoundsExisted.html">RoundsExisted</a><br />
+  <a href="RoundState.html">RoundState</a><br />
+  <a href="ScreenPos.html">ScreenPos</a><br />
+  <a href="ScreenHeight.html">ScreenHeight</a><br />
+  <a href="ScreenWidth.html">ScreenWidth</a><br />
+  <a href="SelfAnimExist.html">SelfAnimExist (math)</a><br />
+  <a href="Sin.html">Sin (math)</a><br />
+  <a href="StateNo.html">StateNo</a><br />
+  <a href="StateType.html">StateType</a><br />
+  <a href="StageVar.html">StageVar(*,***)</a><br />
+  <a href="SysFVar.html">SysFVar (math)</a><br />
+  <a href="SysVar.html">SysVar (math)</a><br />
+  <a href="Tan.html">Tan (math)</a><br />
+  <a href="TeamMode.html">TeamMode(*,***)</a><br />
+  <a href="TeamSide.html">TeamSide</a><br />
+  <a href="TicksPerSecond.html">TicksPerSecond</a><br />
+  <a href="Time.html">Time</a><br />
+  <a href="TimeMod.html">TimeMod(*,**,***)</a><br />
+  <a href="TopEdge.html">TopEdge</a><br />
+  <a href="UniqHitCount.html">UniqHitCount</a><br />
+  <a href="Var.html">Var (math)</a><br />
+  <a href="Vel.html">Vel</a><br />
+  <a href="Win.html">Win</a></p>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>Win</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">Win</p>
+<p>如果玩家(或者玩家的队伍,在组队模式中)已赢得此局,则返回真,否则返回假.<br />
+  能用&quot;KO&quot;,&quot;Time&quot;或者&quot;Perfect&quot;的后缀区分仅当此局通过KO或者是时间到了或者是完美胜利获胜的而返回1.</p>
+<p><span class="STYLE2">格式: </span><br />
+  1. Win <br />
+  2. WinKO <br />
+  3. WinTime <br />
+4. WinPerfect</p>
+<p><span class="STYLE2">参数: </span><br />
+无</p>
+<p><span class="STYLE2">返回值类型: </span><br />
+布尔型整数(1或0)</p>
+<p><span class="STYLE2">错误条件:</span><br />
+无</p>
+<p><span class="STYLE2">示例:</span><br />
+  1. trigger1 = Win<br />
+  如果玩家(或他的队伍)赢了此局则触发.<br />
+  2. trigger1 = !WinKO<br />
+  如果玩家(或他的队伍)没有通过KO的方式赢了此局则触发.<br />
+例如,如果玩家的队伍还没赢得此局,或者如果他们通过时间终了的方式赢得此局,都将触发.</p>
+</body>
+</html>

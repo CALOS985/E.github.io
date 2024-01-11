@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>P2Dist</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">P2Dist</p>
+<p>返回P2到P1的距离,P1是玩家,P2是他的对手.<br />
+这里的距离为: P1自身坐标原点与P2（距离最近的player，包括对手本体和 player型helper）坐标原点的距离.</p>
+<p><span class="STYLE2">格式: </span><br />
+  <span class="STYLE3">P2Dist [分量]</span></p>
+<p><span class="STYLE2">参数: </span><br />
+  [分量] <br />
+X, Y</p>
+<p><span class="STYLE2">返回值类型: </span><br />
+浮点型</p>
+<p><span class="STYLE2">错误条件:</span> <br />
+无</p>
+<p><span class="STYLE2">详情: </span><br />
+比较Y方向距离,P2Dist给出了玩家的Y坐标上的高度区别.负值表示P2在P1上面.</p>
+<p>比较X方向距离, P2Dist给出了P2坐标与P1坐标X方向上的距离.<br />
+  正值表示P2在P1前面.</p>
+<p>也请查看 <a href="P2BodyDist.html">P2BodyDist</a> 进行比较.<br />
+Y轴的P2BodyDist和P2Dist效果一样, 即: P2BodyDist Y = P2Dist Y.</p>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = P2Dist Y &lt;= -12<br />
+如果P2比P1至少高12像素则为真.</p>
+</body>
+</html>

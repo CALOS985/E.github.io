@@ -1,0 +1,48 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>TeamMode(*,***)</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">TeamMode(*,***)</p>
+<p>TeamMode给出了玩家队伍所玩的当前模式.</p>
+<p><span class="STYLE2">格式: </span><br />
+  <span class="STYLE3">TeamMode [运算符] 模式</span></p>
+<p><span class="STYLE2">参数: </span><br />
+  [运算符] <br />
+=, != (其余运算符无效)</p>
+<p>模式(字符串型) <br />
+  single - 单人<br />
+  simul - 2人同时<br />
+  turns - 轮流作战</p>
+<p><span class="STYLE2">返回值类型:</span> <br />
+布尔型整数(1或0)</p>
+<p><span class="STYLE2">错误条件:</span><br />
+无</p>
+<p><span class="STYLE2">注意: </span><br />
+在survival(生存)模式中,对敌方来说是TeamMode = turns.</p>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = TeamMode = Single<br />
+如果玩家正在玩single play模式则触发.</p>
+</body>
+</html>

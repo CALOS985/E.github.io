@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>MatchOver</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">MatchOver</p>
+<p>如果比赛结束则返回1.(例如,在三局两胜的比赛中,当其中的一个玩家或者队伍赢了2局将返回真)</p>
+<p><span class="STYLE2">格式: </span><br />
+  <span class="STYLE3">MatchOver</span></p>
+<p><span class="STYLE2">参数: </span><br />
+  无</p>
+<p><span class="STYLE2">返回值类型: </span><br />
+布尔型整数(1或0)</p>
+<p><span class="STYLE2">错误条件:</span><br />
+无</p>
+<p><span class="STYLE2">详情: </span><br />
+  目前情况, 直到玩家做出胜利姿势(state 180)时MatchOver才会返回真.<br />
+  此特征也许会在未来的版本中改变.</p>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = !matchover<br />
+如果比赛没结束则返回真.比如,当前局可能还未结束,或者可能已经结束,但还没给出结果.</p>
+</body>
+</html>

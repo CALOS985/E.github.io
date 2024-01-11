@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>SysVar (math)</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">SysVar (math)</p>
+<p>此触发器使用强制变量号作为参数.将返回玩家指定的系统整型变量值.<br />
+  此触发器不应在普通环境下使用.系统变量为common1.cns中的簿记所预留.</p>
+<p><span class="STYLE2">格式: </span><br />
+  <span class="STYLE3">SysVar(表达式)</span></p>
+<p><span class="STYLE2">参数: </span><br />
+  表达式 <br />
+一个计算出变量号的表达式.目前的有效号码是0-4.</p>
+<p><span class="STYLE2">返回值类型: </span><br />
+整型</p>
+<p><span class="STYLE2">错误条件: </span><br />
+如果表达式计算出bottom或表达式计算出无效的变了索引则返回bottom.</p>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = SysVar(0) = -34<br />
+如果索引为0的系统整型变量为-34则触发.</p>
+<p><span class="STYLE2">注意:</span><br />
+SysFvar和Sysvar无法使用&quot;:=&quot;操作符进行赋值,且每回合开始时强制清零.</p>
+</body>
+</html>

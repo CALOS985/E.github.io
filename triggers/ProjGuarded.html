@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>ProjGuarded(*,***)</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">ProjGuarded(*,***)</p>
+<p>此触发器拥有一个可选ID号作为后缀.如果ID号省略,则玩家的任何飞行道具只要被对手防御住ProjGuarded都将返回真.<br />
+  当ID号被指定,则只有当玩家的任何拥有指定ID号的飞行道具被防御住ProjGuarded才会返回真.</p>
+<p><span class="STYLE2">格式: </span><br />
+  <span class="STYLE3">ProjGuarded[ID] = 值 <br />
+ProjGuarded[ID] = 值, [运算符] 值2</span></p>
+<p><span class="STYLE2">参数: </span><br />
+  [ID] <br />
+  可选的ID号<br />
+  <br />
+  值 (布尔型) <br />
+  进行比较的值.0表示false(假),1表示true(真).<br />
+  <br />
+  [运算符] <br />
+  =, !=, &lt;, &gt;, &lt;=, &gt;=<br />
+  <br />
+  值2 <br />
+进行比较的时间.</p>
+<p><span class="STYLE2">返回值类型: </span><br />
+布尔型整数(1或0)</p>
+<p><span class="STYLE2">错误条件: </span><br />
+无</p>
+<p><span class="STYLE2">详情: </span><br />
+  每次飞行道具的打击都将使ProjGuarded触发一次,所以multi-hit(多段攻击)的飞行道具能多次触发.<br />
+  上面写出的ProjGuarded第1种格式仅当飞行道具发生接触1帧后有效而不像MoveGuarded.<br />
+  第2种格式,如果飞行道具在n帧前被防御住则ProjGuarded返回真,这里的n是一个满足关系式&quot;n [运算符] 值2&quot;的非负数.<br />
+指定ID号为0和省略ID号(将检测所有的飞行道具)有相同的特征(效果).</p>
+<p><span class="STYLE2">示例:</span><br />
+  1. trigger1 = ProjGuarded1234 = 1<br />
+  如果对手刚挡住一个ID号为1234的飞行道具则触发.<br />
+  2. trigger1 = ProjGuarded = 1, &lt; 15<br />
+如果对手在最近的15帧内挡住了任何飞行道具则触发.</p>
+</body>
+</html>

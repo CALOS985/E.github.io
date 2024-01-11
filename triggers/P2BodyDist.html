@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>P2BodyDist</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">P2BodyDist</p>
+<p>返回P2到P1的距离,这里P1是玩家,P2是他的对手.<br />
+  这里的距离为: P1自身宽度边缘与P2（距离最近的player，包括对手本体和 player型helper）宽度边缘的距离.<br />
+  P2BodyDist在CMD中P1的攻击(区别当接近p2的时候)情况下有用.<br />
+  (是指在CMD出招表中指定某些近身攻击时有效,比如KOF系列人物,一般物理攻击都分近身攻击和远距离攻击,出招条件一般是:<br />
+  trigger1=p2bodydist x&lt;=15之类的)</p>
+<p><span class="STYLE2">格式: </span><br />
+  <span class="STYLE3">P2BodyDist [分量]</span></p>
+<p><span class="STYLE2">参数: </span><br />
+  [分量] <br />
+X, Y</p>
+<p><span class="STYLE2">返回值类型:</span> <br />
+浮点型</p>
+<p><span class="STYLE2">错误条件: </span><br />
+无</p>
+<p><span class="STYLE2">详情: </span><br />
+  比较Y方向距离,P2BodyDist给出了玩家的Y坐标上的高度区别.负值表示P2在P1上面.<br />
+  比较X方向距离,P2BodyDist给出了P2前端到P1前端X方向上的距离.<br />
+  所以,如果玩家正好彼此相邻的站立,则P2BodyDist是0.<br />
+  记住你能用&quot;front.width&quot;等等(在玩家变量的[Size]组下面)来设置玩家的宽度.<br />
+也请查看 <a href="P2Dist.html">P2Dist</a> 进行比较.<br />
+Y轴的P2BodyDist和P2Dist效果一样, 即: P2BodyDist Y = P2Dist Y.</p></p>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = P2BodyDist X &lt; 30<br />
+如果p2前端与p1前端距离小于30像素则触发.</p>
+</body>
+</html>

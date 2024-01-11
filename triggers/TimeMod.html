@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>TimeMod(*,**,***)</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">TimeMod(*,**,***)</p>
+<p>返回玩家的状态时间除以指定值的余数.<br />
+  运算符&quot;%&quot;包含了TimeMod的功能,所以建议使用&quot;%&quot;来代替TimeMod.</p>
+<p><span class="STYLE2">格式: </span><br />
+  <span class="STYLE3">TimeMod [运算符] 除数, 值1</span></p>
+<p><span class="STYLE2">参数: </span><br />
+  [运算符] <br />
+  =, !=, &lt;, &gt;, &lt;=, &gt;=<br />
+  <br />
+  除数(整型) <br />
+  除数是一个正值.<br />
+  <br />
+  值1 (整型) <br />
+进行比较的余数值.</p>
+<p><span class="STYLE2">返回值类型: </span><br />
+布尔型整数(1或0)</p>
+<p><span class="STYLE2">错误条件:</span><br />
+如果除数是0则返回bottom.</p>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = TimeMod = 4, 3<br />
+当状态时间是3,7,11,15...时触发.</p>
+</body>
+</html>

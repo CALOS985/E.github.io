@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>StateType</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">StateType</p>
+<p>StateType给出了玩家的状态类型.参照CNS文档中StateDef位置获得StateType更多详情.<br />
+  在CMD文件&quot;招式中断&quot;中有用.</p>
+<p><span class="STYLE2">格式: </span><br />
+  <span class="STYLE3">StateType [运算符] 状态类型</span></p>
+<p><span class="STYLE2">参数: </span><br />
+  [运算符] <br />
+  =, != (其余运算符无效)<br />
+  <br />
+  状态类型 (字符型) <br />
+  S, C, A, L <br />
+站立,蹲下,空中,倒下 状态类型.</p>
+<p><span class="STYLE2">返回值类型: </span><br />
+布尔型整数(1或0)</p>
+<p><span class="STYLE2">错误条件:</span><br />
+如果表达式计算出bottom则返回bottom.</p>
+<p><span class="STYLE2">示例:</span><br />
+  trigger1 = StateType != A<br />
+如果玩家不处于空中类型状态则触发.</p>
+</body>
+</html>
