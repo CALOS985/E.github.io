@@ -1,0 +1,602 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>4.常用Sctrl与trigger与常见错误</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">4.常用Sctrl与trigger与常见错误</p>
+<span class="STYLE3">　　　　　　　　本页内容由口水轩撰写. 由【softmgr】整理编辑.</span><br />
+<p>
+--------------------------------------------------<br />
+继续讲状态控制器（state controller或sctrl）和触发器（trigger）的知识。<br />
+如果把Mugen代码比喻成一本书的话，那么Sctrl和trigger就可以比喻为文字。<br />
+书的内容其实是一个一个字组合而成，Mugen代码亦然，是由Sctrl与trigger拼凑而成。<br />
+Sctrl是状态变化的类型，也可以理解为想要触发的事件，例如说切换动作、改变速度之类。<br />
+trigger是触发器，满足条件就触发，用来判断该事件是否符合条件被触发，例如判断对方的名字是否叫KFM之类。<br />
+这章只讲讲比较常用并且与性能或AI相关的Sctrl与trigger，而且也只是相当概括性的讲讲其用途，详细想知道更多的请自己阅读Sctrl与trigger两个表。
+</p>
+<p>注：以下内容int代表整型数字，float代表浮点型数字，string代表字符串</p>
+
+
+<p>
+==================================================<br />
+<span class="STYLE2">4.1常用Sctrl</span><br />
+==================================================<br />
+<br />
+--------------------------------------------------<br />
+Sctrl通用参数<br />
+--------------------------------------------------<br />
+IgnoreHitPause<br />
+<br />
+必选参数： 0 = OFF, 1 = ON<br />
+无视打击暂停，是每一个Sctrl都可以使用的参数。双方打斗中击中时会有打击暂停（也就是打中的时候卡一下），ON的话就是在打击暂停时这个Sctrl依旧可以被触发，OFF则不会。实际应用中var改变等某些情况会用到。<br />
+<br />
+例子：IgnoreHitPause = 1<br />
+<br />
+--------------------------------------------------<br />
+改变动作相关<br />
+--------------------------------------------------<br />
+ChangeState<br />
+ChangeAnim<br />
+SelfState<br />
+<br />
+必选参数： value = int<br />
+ChangeState为改变状态，是写AI过程中用得最多的Sctrl没有之一。正如前面所提及，Mugen人物运行其实就是状态切换，此Sctrl的作用就是从当前状态切换到指定状态号的状态。<br />
+ChangeAnim为改变动画。多数情况下，一个动作对应一个动画，但是有些情况同一个状态里需要呈现不同的动画，就会用到ChangeAnim。因为动画涉及攻击框受击框，所以注意。<br />
+SelfState其实与ChangeState很类似，不过通常用于拉回自己状态，通常用于把对方拉进特殊状态后让对方还原。<br />
+<br />
+--------------------------------------------------<br />
+改变攻防相关<br />
+--------------------------------------------------<br />
+AttackMulSet<br />
+DefenceMulSet<br />
+<br />
+必选参数： value = float<br />
+攻击/防御改变。当value = N时，AttackMulSet获得效果攻击*N，DefenceMulSet获得效果防御/N（略猎奇）。<br />
+另外DefenceMulSet需要在受击开始后才生效。<br />
+例子：同样是value = 0.5，对AttackMulSet来说就是攻击变成0.5倍，对DefenceMulSet来说就是防御变成2倍。<br />
+<br />
+--------------------------------------------------<br />
+无敌相关<br />
+--------------------------------------------------<br />
+HitBy<br />
+NotHitBy<br />
+<br />
+必选参数： value = string (attr，即攻击类型)<br />
+可选参数： time = int<br />
+HitBy和NotHitBy都是无敌，HitBy是仅可以被描述的攻击类型的攻击击中，而NotHitBy是不能被描述的攻击类型的攻击击中。<br />
+如果加入time参数，则无敌时间延长X帧。<br />
+<br />
+例子1：不被任何攻击击中<br />
+type = NotHitBy<br />
+value = SCA<br />
+例子2：仅可被地面普通攻击击中<br />
+type = HitBy<br />
+value = S, NA<br />
+<br />
+--------------------------------------------------<br />
+血量气量相关<br />
+--------------------------------------------------<br />
+LifeAdd<br />
+LifeSet<br />
+PowerAdd<br />
+PowerSet<br />
+<br />
+必选参数： value = int<br />
+改变血量及气量的Sctrl，就是简单的加法和直接赋值，不予赘述。<br />
+<br />
+--------------------------------------------------<br />
+打击相关<br />
+--------------------------------------------------<br />
+HitDef<br />
+Projectile<br />
+ReversalDef<br />
+<br />
+必选参数： 太长不写（因为真的很长），具体请看hitdef<br />
+三种打击类型，打击定义（通常用来写打击技和投技）、飞行道具和反射定义（通常用来写当身、格挡等特殊防御技）。<br />
+打击定义和飞行道具就是我们所说的攻击所造成效果的定义（比如伤害、硬直等），只要我方攻击框接触对方受击框就会生效。<br />
+而反射定义比较特殊，需要对方攻击框与我方攻击框才能生效。<br />
+<br />
+--------------------------------------------------<br />
+暂停相关<br />
+--------------------------------------------------<br />
+Pause<br />
+SuperPause<br />
+<br />
+必选参数： Pause: time = int, SuperPause: None<br />
+顾名思义，Pause就是普通的暂停，而SuperPause指的是某些会出现特效的特殊暂停（比如超杀前的暗转暂停）。<br />
+<br />
+--------------------------------------------------<br />
+变量相关<br />
+--------------------------------------------------<br />
+VarAdd<br />
+VarRandom<br />
+VarRangeSet<br />
+VarSet<br />
+ParentVarAdd<br />
+ParentVarSet<br />
+<br />
+变量Var的具体介绍会在第6章出现，暂时大概理解为可以赋值的一些数字吧。<br />
+如果说ChangeState是写AI过程中用得最多的Sctrl，那VarAdd和VarSet可以说是紧随其后。<br />
+变量对于AI的意义非常重大，可以说相当于人类的记忆。带有学习功能的AI必须使用变量记录。<br />
+前四个是对Var的赋值，通常来说VarAdd和VarSet比较常用。VarRandom用于给Var赋予随机值，VarSet则是批量的对Var赋值。至于ParentVarAdd和ParentVarSet，有时也会用于飞行道具或helper对本体赋值，不过不常用。<br />
+<br />
+--------------------------------------------------<br />
+位置与速度相关<br />
+--------------------------------------------------<br />
+PosAdd<br />
+PosFreeze<br />
+PosSet<br />
+VelAdd<br />
+VelMul<br />
+VelSet<br />
+<br />
+可选参数： x = float, y = float<br />
+<br />
+前缀Pos的是位置相关，前缀是Vel的是速度相关，在正常移动、突进技、移动技等地方广泛使用。<br />
+有两个可选参数分别控制横坐标和纵坐标。单纯的改变位置不会有速度变化，但是速度变化会引起位置变化。<br />
+另外人物在地面时速度会收到摩擦力影响，在空中时不会。<br />
+<br />
+--------------------------------------------------<br />
+其他<br />
+--------------------------------------------------<br />
+AssertSpecial<br />
+<br />
+必选参数： flag = string (flag_name)<br />
+可选参数： flag2 = string (flag_name), flag3 = string (flag_name)<br />
+特殊断言，每个AssertSpecial可以插最多三个flag。<br />
+这些flag的内容多数是一些比较特殊的效果和性能，例如隐藏血条和气条、自身人物不能空防/站防/蹲防、自己的攻击不能被防御<br />
+等等。<br />
+<br />
+CtrlSet<br />
+<br />
+必选参数： value = int, 0 = OFF, 非0 = ON<br />
+控制设置，设置为0变成不受控制，或设置为非0变成受控制。可控制状态就是指该状态下人物可以通过输入命令做出相应动作，比如普通的站姿，按前就是向前走，按上就是跳，被攻击时按后就是防御，按ABCXYZ是攻击，这就是处于可控制状态。<br />
+<br />
+DisplayToClipboard<br />
+<br />
+很常用的debug用Sctrl，通常放在-1、-2或-3下，可以直接把想用的最多5个量直接显示在屏幕最下方。<br />
+（当然你需要比较好的视力去看清楚究竟里面写了什么...）<br />
+例子：<br />
+[State -1, Display]<br />
+type = DisplaytoClipboard<br />
+Trigger1 = 1<br />
+text = "X : %d | Y : %d | Var : %d | FX : %d | BX: %d "<br />
+params = ceil(P2bodydist X) , ceil(P2bodydist Y) , ceil(Var(0)), ceil(FrontEdgeBodyDist), ceil(BackEdgeBodyDist)<br />
+（这个例子所显示的是双方X轴Y轴距离，Var(0)的值，和人物跟画面边缘的前后距离）<br />
+<br />
+Helper<br />
+<br />
+援护，非常有用的东西，飞行道具、画面特效、幽波纹（误）之类的很多制作方面的东西都可以通过helper做到。<br />
+另外在AI领域，由于人物本体变量不够用甚至本体变量已经被人物作者用光了，我们可以建立AI helper利用helper里面的Var来记录我们需要记录的信息。<br />
+<br />
+StateTypeSet<br />
+<br />
+状态种类改变，状态种类一共是4种，S C A L 分别对应站姿 蹲姿 空中 倒地。这个Sctrl可以在某个状态中改变其状态种类。<br />
+<br />
+Turn<br />
+<br />
+转向，把人物的朝向变成反方向。<br />
+<br />
+Width<br />
+<br />
+改变人物宽度，两人物横向宽度重叠的时候会发生排挤。可以把人物宽度理解为排挤框（身位框？）大小。<br />
+<br />
+</p>
+
+<p>
+==================================================<br />
+<span class="STYLE2">4.2常用trigger</span><br />
+==================================================<br />
+<br />
+--------------------------------------------------<br />
+重定向<br />
+--------------------------------------------------<br />
+<br />
+在讲trigger之前必须先说说重定向。
+我们在读取本体信息的时候不需要加任何前缀。但是我们怎么才能读取其他人（例如对方、队友、援护）信息呢？<br />
+这个时候我们需要用重定向，用特定的前缀来获取指定对象的信息。<br />
+<br />
+常用的重定向前缀有：<br />
+<br />
+parent<br />
+重定向到人物的亲人物（也就是生成这个援护的人物），而且该人物必须是个援助。不过多数情况下直接用root。<br />
+<br />
+root<br />
+重定向到人物的根人物（可以理解为人物本体了）。用于直接调取人物本体相关信息。<br />
+<br />
+helper / helper(ID)<br />
+重定向到第一个找到的援助。/ 重定向到相应ID的援助。用于检测自身helper相关信息。<br />
+<br />
+target / target(ID)<br />
+重定向到第一个找到的目标。/ 重定向到相应ID号的目标。目标是指你攻击命中的对象。<br />
+<br />
+partner<br />
+重定向到人物的队友。很明显常用在双人游戏里。<br />
+<br />
+enemy / enemy(n)<br />
+重定向到第一个最远的对手。/ 重定向到第n+1个最远的对手。<br />
+<br />
+enemynear / enemynear(n)<br />
+重定向到最靠近的对手。/ 重定向到第n+1个靠近的对手。通常来说，enemynear比enemy要常用因为通常我们关心较近的敌人。<br />
+<br />
+playerID(ID)<br />
+重定向到具有唯一对应ID号的人物。这个要通过调查对方ID之后才能用。<br />
+<br />
+例子：<br />
+root,statetype人物本体的状态种类<br />
+enemynear,time最近敌人的时间<br />
+helper(1005),statenoID为1005的援护的状态号<br />
+<br />
+注意：多重重定向（例如，root,target,time）现在还不支持。<br />
+<br />
+--------------------------------------------------<br />
+动画相关<br />
+--------------------------------------------------<br />
+Anim<br />
+AnimElem<br />
+AnimElemNo<br />
+AnimElemTime<br />
+<br />
+以上四个都是动画相关的trigger，但是作用还是有挺大差异的。动画里面的每一幅图被称为元素。<br />
+Anim是返回当前动画号，其他三个是动画元素及动画时间相关的trigger，具体请看trigger文档，视情况灵活运用。<br />
+<br />
+--------------------------------------------------<br />
+画面边缘相关<br />
+--------------------------------------------------<br />
+BackEdgeBodyDist<br />
+BackEdgeDist<br />
+FrontEdgeBodyDist<br />
+FrontEdgeDist<br />
+<br />
+画面的前后边缘距离检测，注意不是场景边缘是画面边缘，场景边缘需要用特殊的方法检测。<br />
+另外貌似由于Mugen自带BUG，带不带Body都是一样的OTL，希望E小组尽快修正吧。<br />
+<br />
+--------------------------------------------------<br />
+数学运算用<br />
+--------------------------------------------------<br />
+Abs<br />
+Ceil<br />
+Floor<br />
+<br />
+绝对值、向上取整、向下取整，不予赘述。<br />
+<br />
+--------------------------------------------------<br />
+血量气量相关<br />
+--------------------------------------------------<br />
+Life<br />
+LifeMax<br />
+Power<br />
+PowerMax<br />
+<br />
+当前血量、最大血量、当前气量、最大气量，不予赘述。<br />
+<br />
+--------------------------------------------------<br />
+打击接触相关<br />
+--------------------------------------------------<br />
+MoveContact<br />
+MoveGuarded<br />
+MoveHit<br />
+MoveReversed<br />
+<br />
+一个人物攻击如果接触了对方，将会出现三种情况：击中，被防御和被反射。以上四个就是分别代表这些情况。<br />
+MoveHit用于连段，MoveGuarded用于压制，而MoveReversed就自求多福吧。<br />
+另外请注意MoveContact是MoveHit或MoveGuarded，而不包含MoveReversed。<br />
+<br />
+--------------------------------------------------<br />
+人物状态相关<br />
+--------------------------------------------------<br />
+StateType<br />
+MoveType<br />
+<br />
+状态种类和动作种类。状态种类一共是4种，S C A L 分别对应站姿 蹲姿 空中 倒地。<br />
+动作种类一共是3种，A H I分别对应攻击 受击 空闲。AI里时常需要这两个trigger来判断对方的行动。<br />
+<br />
+--------------------------------------------------<br />
+位置、距离与速度相关<br />
+--------------------------------------------------<br />
+P2BodyDist X/Y<br />
+P2Dist X/Y<br />
+Pos X/Y<br />
+Vel X/Y<br />
+RootDist X/Y<br />
+<br />
+以上五个trigger都有分X轴和Y轴，千万不要忘掉。<br />
+P2BodyDist是指我方与对方的身体边界（人物原点坐标-双方人物宽度）之间的距离，而P2Dist是指我方与对方人物原点坐标之间的距离。<br />
+需要注意的是由于人物宽度只有X轴存在，所以P2BodyDist Y = P2Dist Y。Pos是绝对坐标，Vel是速度。RootDist用于helper与本体之间的距离检测。<br />
+<br />
+--------------------------------------------------<br />
+个数相关<br />
+--------------------------------------------------<br />
+NumEnemy<br />
+NumHelper<br />
+NumProj<br />
+NumProjID<br />
+<br />
+敌人个数、援护个数、飞行道具个数、相应飞行道具个数，不予赘述。<br />
+<br />
+--------------------------------------------------<br />
+变量相关<br />
+--------------------------------------------------<br />
+Var<br />
+FVar<br />
+SysVar<br />
+SysFVar<br />
+<br />
+四种变量，比较常用的是Var和FVar，直接可以调用，返回相应变量的值。变量的具体使用第6章会讲。<br />
+<br />
+--------------------------------------------------<br />
+状态号相关<br />
+--------------------------------------------------<br />
+StateNo<br />
+PrevStateNo<br />
+<br />
+除了可以用StateNo直接调查当前状态号，我们还可以用PrevStateNo调查当前状态之前的状态号。<br />
+<br />
+--------------------------------------------------<br />
+比赛相关<br />
+--------------------------------------------------<br />
+RoundNo<br />
+RoundState<br />
+<br />
+RoundNo是当前局数。RoundState是当前局状态号，0:预开场阶段 ，1:开场阶段 ，2:格斗阶段，3:胜负判定阶段，4:结束阶段。<br />
+通常AI能动的是RoundState = 2，胜利挑衅之类的属于RoundState = 3。<br />
+<br />
+--------------------------------------------------<br />
+时间相关<br />
+--------------------------------------------------<br />
+Time<br />
+AnimTime<br />
+<br />
+Time返回当前动作已经使用时间。而AnimTime返回到动画结束还需要多少时间，其值<=0，当=0时动画结束。<br />
+因为绝大多数情况下动画结束就引起状态改变，所以可以用AnimTime探测还有多长硬直时间。<br />
+另外需要注意的是，如果对方动作是循环的话（例如KOF人物在空中出招完成后会变成循环的下落的动画），因为动画不会结束所以返回的是Time的值，其值>0。<br />
+<br />
+--------------------------------------------------<br />
+对方相关<br />
+--------------------------------------------------<br />
+P2Life<br />
+P2MoveType<br />
+P2Name<br />
+P2StateNo<br />
+P2StateType<br />
+<br />
+其实上述这些只是加了P2作为前缀，变成探测对方。用重定向也有类似的效果。<br />
+<br />
+--------------------------------------------------<br />
+其他<br />
+--------------------------------------------------<br />
+AILevel<br />
+<br />
+AI等级，1.0新增的trigger，返回option里面设置的难度，对于做手操整合的朋友可谓是福音。<br />
+另外可以用于1.0里面不影响手操的AI常时启动。<br />
+<br />
+Alive<br />
+<br />
+存活，通常AI要求人物要存活才能行动，所以会直接加在triggerall以防非存活继续乱动。<br />
+<br />
+AuthorName<br />
+<br />
+作者名，多与Name配合写人物对策。<br />
+<br />
+CanRecover<br />
+<br />
+判断目前受击状态是否可以受身。<br />
+<br />
+Command<br />
+<br />
+手操指令，辨别手操按键满足cmd里面的某个指令。由于AI是模仿人的操作，所以通常有command的地方都要写AI。<br />
+还有很重要的一点，关于command的trigger在AI里面基本是不需要的。<br />
+因为这个trigger是用来辨别手操按键是否满足cmd里面的某个指令，然而AI的编写不需要辨别手操按键，所以写AI的时候通常不需要command。<br />
+<br />
+Const<br />
+<br />
+常量，可以用于调查攻击、防御、行走速度、奔跑速度、Y轴重力加速度等等Cns里面标好的常量。<br />
+<br />
+Ctrl<br />
+<br />
+判断是否可控状态，非取消的切换动作都需要这trigger否则会有BUG，而且不可控状态乱切换动作是新人常犯的错误（我以前就曾经被这个坑过两回）。<br />
+<br />
+Facing<br />
+<br />
+面向，若游戏者面向右方则返回1，若游戏者面向左方则返回-1。通常用于鉴别双方是否面对面（或背对）。<br />
+<br />
+GetHitVar<br />
+<br />
+获得对象被击中时的数据，例如速度、伤害、硬直等等，可选参数很多，具体请到trigger表查找。<br />
+<br />
+HitCount<br />
+<br />
+当前动作打击次数，多用于写连段时到第几次打击时取消。<br />
+<br />
+ID<br />
+<br />
+每个玩家和援护都会有自己独有的ID，有时候需要记下ID来锁定目标。<br />
+<br />
+IfElse<br />
+<br />
+如果...则...否则...，格式为 ifelse(条件,满足时则XX,否则YY)，与if语句比较相似，但是要注意的是必须为两项选其一，即if和else都不能为空。<br />
+<br />
+InGuardDist<br />
+<br />
+判断是否有能打到自己的攻击判定（例如对方本体攻击或者飞行道具）而且自己处于在防御范围内。很有效的防御时机鉴别。<br />
+另外防御范围是一个0~N（N>=0）的范围，所以如果攻击方飞过了你的位置的话，你将检测不了攻击方的攻击判定，利用这个可以做出打逆的效果（这个后面再说）。<br />
+<br />
+IsHelper<br />
+<br />
+判断是否援护，可以用于防止helper乱动。<br />
+<br />
+Name<br />
+<br />
+多与AuthorName配合写人物对策。<br />
+<br />
+PalNo<br />
+<br />
+色表号，1~12，也就是经常被人说的P数，通过选人时的按键锁决定。<br />
+<br />
+Random<br />
+<br />
+随机数，返回一个0到999之间的随机整数（包含0与999）。很常用的trigger，如果不用随机，人物就是一个只会死板运行的程序，随机令AI变得多样而丰满。<br />
+值得注意的是，每次使用Random时，他都会重新在0到到999之间随机找一个整数，所以不要误以为同一帧里面随机数都是一样的。<br />
+<br />
+<br />
+--------------------------------------------------<br />
+大概清楚上面的这些基本知识以后就可以开始去拆人物了，翻着两个表慢慢弄清楚人物的结构也是一种学习-w-<br />
+</p>
+
+<p>
+==================================================<br />
+<span class="STYLE2">4.3常见错误</span><br />
+==================================================<br />
+<br />
+--------------------------------------------------<br />
+常见报错类型<br />
+--------------------------------------------------<br />
+<br />
+在此只讨论AI编写过程中常见错误（路径错误那种不在讨论范围之内）<br />
+<br />
+--------------------------------------------------<br />
+2500 loop / 2500循环：<br />
+<br />
+如果电脑不幸进入了死循环，整个电脑就会掉尽无限的轮回而卡住。<br />
+Mugen里面为了避免死循环，Mugen程序限定一帧里面只可以改变状态（Changestate）2500次，若超过则会出现2500 loop报错。<br />
+死循环例子：<br />
+state A 直接 changestate 到 state A<br />
+state A 转到 state B 再转回 state A<br />
+....<br />
+解决方法：根据返回信息检查代码，找出循环部分并合理排除。<br />
+<br />
+--------------------------------------------------<br />
+Type mismatch detected / 种类不匹配：<br />
+<br />
+数据分很多种类，我们Mugen里面通常用到的是数字。而数字也分很多种，例如整型int，浮点型float。<br />
+种类不匹配错误通常出现在把浮点型数据和整型数据的不适当使用，例如：<br />
+trigger1 = 2.5 % 2用浮点型数据进行只适用整型数据的运算<br />
+trigger2 = Var(0) := 1.2把浮点型数据赋值给整型变量Var<br />
+...<br />
+解决方法：根据返回信息找出错处，用ceil和floor对其取整，或者赋值时用浮点型变量FVar。<br />
+<br />
+--------------------------------------------------<br />
+Need at least 1 trigger / 至少一个触发器<br />
+<br />
+除了忘了写以外，只有triggerall一样会报错。记得至少要有一个数字trigger。<br />
+<br />
+--------------------------------------------------<br />
+Invalid trigger / 触发器无效<br />
+Library error message: Died parsing / 错误信息：语法分析错误<br />
+<br />
+除了你打错字的可能性以外，不兼容的语句也可能出现这个问题。<br />
+例如在Winmugen里面用1.0代码，比如AIlevel。<br />
+若是使用Winmugen，trigger一行有字数限制，trigger写得过长也有可能出现该错误，所以注意及时换行。<br />
+<br />
+--------------------------------------------------<br />
+Error while precaching / 预缓存时错误<br />
+<br />
+打开人物读取数据时发生的错误，多数是打错字或者语法不对，根据返回信息应该比较容易检查出来。<br />
+<br />
+<br />
+未完待续（欢迎提供各种AI常见报错）<br />
+</p>
+
+<p>
+==================================================<br />
+<span class="STYLE2">课后作业：</span><br />
+==================================================<br />
+<br />
+1.<br />
+以下这段语句是什么意思<br />
+[State 200, 7]<br />
+type = ChangeState<br />
+trigger1 = AnimTime = 0<br />
+value = 0<br />
+ctrl = 1<br />
+<br />
+2.<br />
+以下是KFM的[Statedef 240]，请解释为什么出招之后人物会有向前的位移。<br />
+[State 240, 1]<br />
+type = PlaySnd<br />
+trigger1 = Time = 2<br />
+value = 0, 1<br />
+<br />
+[State 240, 2]<br />
+type = HitDef<br />
+trigger1 = Time = 0<br />
+attr = S, NA<br />
+animtype  = Medium<br />
+damage    = 63<br />
+guardflag = MA<br />
+pausetime = 12,12<br />
+sparkno = 1<br />
+sparkxy = -10,-60<br />
+hitsound   = 5,2<br />
+guardsound = 6,0<br />
+ground.type = Low<br />
+ground.slidetime = 12<br />
+ground.hittime  = 15<br />
+ground.velocity = -6<br />
+air.velocity = -2.2,-3.2<br />
+<br />
+[State 240, 3]<br />
+type = PosAdd<br />
+trigger1 = AnimElem = 7<br />
+x = 12<br />
+<br />
+[State 240, 4]<br />
+type = ChangeState<br />
+trigger1 = AnimTime = 0<br />
+value = 0<br />
+ctrl = 1<br />
+<br />
+3.<br />
+在data文件夹里默认common1.cns里的[Statedef 5120]（倒地起身动作）有以下描述，请解释这三段是什么意思：<br />
+[State 5120, 3]<br />
+type = NotHitBy<br />
+trigger1 = 1<br />
+value = SCA<br />
+time = 1<br />
+<br />
+[State 5120, 5] ;Can't be thrown right after getting up<br />
+type = NotHitBy<br />
+trigger1 = AnimTime = 0<br />
+value = , NT,ST,HT<br />
+time = 12<br />
+<br />
+[State 5120, 6] ;Can't be hit right after getting up (short time)<br />
+type = NotHitBy<br />
+trigger1 = AnimTime = 0<br />
+value2 = SCA<br />
+time = 3<br />
+<br />
+4.<br />
+请写出怎么知道对方剩下多少%的血量。<br />
+<br />
+5.<br />
+请写出如何令人物常时满气。<br />
+<br />
+6.<br />
+请写出每两帧触发一次的trigger，并类推出如何令人物每X帧恢复Y点血量。<br />
+提示：使用gametime（自己查表）和取余运算（忘记怎么用的话看上一章）<br />
+</p>
+<p></p>
+</body>
+</html>

@@ -1,0 +1,1403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>8.公用状态修改：移动、跳跃、受身及防御</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">8.公用状态修改：移动、跳跃、受身及防御</p>
+<span class="STYLE3">　　　　　　　　本页内容由口水轩撰写. 由【softmgr】整理编辑.</span><br />
+
+<p>
+终于真正的开始写AI了。从第8章开始到第13章，都是关于AI的编写。<br />
+从这章开始我们正式接触人物里面的代码。代码比较长可能比较难理解，建议一段一段的读，不要被长度给吓到，多壮观的建筑都<br />
+是一砖一瓦搭成的，无论多长的代码也是如此，把每段代码逐个击破合起来就是你想要的答案。<br />
+首先我们先从各个人物几乎都有的状态开始入手，也就是公用状态。<br />
+</p>
+
+<p>
+==================================================<br />
+<span class="STYLE2">8.1公用状态与Stcommon简介</span><br />
+==================================================<br />
+<br />
+--------------------------------------------------<br />
+公用状态是一些各个人物几乎都有的状态，而这些状态的状态号基本上也是固定的。<br />
+例如站姿0，蹲姿10~12，行走20，起跳40，跑/前冲100，后撤105，防御120～155，倒地5110，起身5120等等。<br />
+<br />
+Stcommon是一个存放公用状态的特殊st文件。<br />
+如果其他st文件没有重复定义Stcommon里面的状态，人物将会使用Stcommon里面定义的状态。<br />
+Mugen在data文件夹里面附有默认的common1.cns，如果人物没有自带Stcommon文件，那么人物会调用这个common1.cns。<br />
+因此，如果人物自带Stcommon文件，那么我们就直接对那个文件进行修改；如果人物没有自带Stcommon文件的话，就要在人物文件<br />
+夹内自己新建/复制一个Stcommon文件，并把Def文件内的Stcommon路径改成你文件的路径。<br />
+<br />
+打开common1.cns后我们可以发现，其实Stcommon和一般的st文件没有太多不同。<br />
+里面很多Sctrl其实是不需要管的，如第5章所说，我们只需要看会被command影响的某些Sctrl。<br />
+一般来说这些涉及的内容包括：移动（行走、跑、前冲、后撤、跳跃）、受身及防御。<br />
+</p>
+
+<p>
+==================================================<br />
+<span class="STYLE2">8.2行走</span><br />
+==================================================<br />
+<br />
+--------------------------------------------------<br />
+行走是格斗游戏最为常见的移动方式之一。<br />
+虽然移动速度比较慢，但是全程都是属于可控状态，可以随时应对各种情况，是最安全的移动方式。<br />
+<br />
+<br />
+默认的common1.cns中代码如下：<br />
+<br />
+;--------------------------------------------------<br />
+; Walk<br />
+[Statedef 20]<br />
+type    = S<br />
+physics = S<br />
+sprpriority = 0<br />
+<br />
+[State 20, 1]<br />
+type = VelSet<br />
+trigger1 = command = "holdfwd"<br />
+x = const(velocity.walk.fwd.x)<br />
+<br />
+[State 20, 2]<br />
+type = VelSet<br />
+trigger1 = command = "holdback"<br />
+x = const(velocity.walk.back.x)<br />
+<br />
+[State 20, 3]<br />
+type = ChangeAnim<br />
+triggerall = vel x > 0<br />
+trigger1 = Anim != 20 && Anim != 5<br />
+trigger2 = Anim = 5 && AnimTime = 0<br />
+value = 20<br />
+<br />
+[State 20, 4]<br />
+type = ChangeAnim<br />
+triggerall = vel x < 0<br />
+trigger1 = Anim != 21 && Anim != 5<br />
+trigger2 = Anim = 5 && AnimTime = 0<br />
+value = 21<br />
+<br />
+<br />
+如代码所示，默认的行走分为向前走和向后走，这两个方向的行走用的是同一个状态号20。<br />
+这个状态会根据手操按键的不同（也就是前和后）而切换为对应的动画（动画20和21）和速度。<br />
+然而这样一个状态包含两个不同属性的动作的情况是相当不利于AI编写的。<br />
+因为这样不但要在Statedef -1/-3里面加入对应的trigger使其动起来，还要在stcommon文件里面区分前后两种情况，<br />
+分开两个地方去管理一类型动作。这么做相当麻烦还容易出错，所以我们要对其进行一定的调整。<br />
+比较常用的方法是新建一个（或者一些）状态来区分不同的动作，以后写状态切换的时候就会简单不少。<br />
+<br />
+<br />
+实例如下：<br />
+<br />
+;下面两段放到[Statedef 20]附近<br />
+;--------------------------------------------------<br />
+; Walk B 向后走<br />
+[Statedef 19]<br />
+type    = S<br />
+physics = S<br />
+sprpriority = 0<br />
+<br />
+[State 20, 2]<br />
+type = VelSet<br />
+trigger1 = 1<br />
+x = const(velocity.walk.back.x)<br />
+<br />
+[State 20, 4]<br />
+type = ChangeAnim<br />
+trigger1 = Anim != 21 && Anim != 5<br />
+trigger2 = Anim = 5 && AnimTime = 0<br />
+value = 21<br />
+<br />
+;--------------------------------------------------<br />
+; Walk F 向前走<br />
+[Statedef 21]<br />
+type    = S<br />
+physics = S<br />
+sprpriority = 0<br />
+<br />
+[State 20, 1]<br />
+type = VelSet<br />
+trigger1 = 1<br />
+x = const(velocity.walk.fwd.x)<br />
+<br />
+[State 20, 3]<br />
+type = ChangeAnim<br />
+trigger1 = Anim != 20 && Anim != 5<br />
+trigger2 = Anim = 5 && AnimTime = 0<br />
+value = 20<br />
+<br />
+<br />
+之后写上让人物行走的Changestate就可以了：<br />
+<br />
+;下面一段放到[Statedef -1]或[Statedef -3]下面<br />
+;--------------------------------------------------<br />
+[State -1, 向前走]<br />
+type = ChangeState<br />
+value = 21<br />
+Triggerall = Var(59) > 0;AI开启时<br />
+Triggerall = Roundstate = 2;在格斗阶段<br />
+Triggerall = Statetype != A;不在空中<br />
+Triggerall = Frontedgebodydist >= 10;不在画面边缘<br />
+Triggerall = Stateno != 20 && Stateno != 100;不是步行状态和跑步状态<br />
+Triggerall = ctrl;可控时<br />
+Trigger1 = P2bodydist X > 135 && Random < P2bodydist X * 2 - 250;Trigger1~4根据距离不同分段改变概率<br />
+Trigger2 = P2bodydist X > 100 && Random < P2bodydist X<br />
+Trigger3 = P2bodydist X > 50 && Random < 100<br />
+Trigger4 = P2bodydist X > 0 && Random < 25<br />
+<br />
+;--------------------------------------------------<br />
+[State -1, 向后走]<br />
+type = ChangeState<br />
+value = 19<br />
+Triggerall = Var(59) > 0<br />
+Triggerall = Roundstate = 2<br />
+Triggerall = Statetype != A<br />
+Triggerall = Backedgebodydist >= 10<br />
+Triggerall = !inguarddist;非防御距离，因为防御距离内按后会变成防御而不是向后走<br />
+Triggerall = ctrl<br />
+Trigger1 = P2bodydist X < 75 && Random > 950 + P2bodydist X / 2;近距离低几率触发<br />
+<br />
+之后人物就会根据不同的距离以不同的概率随机前后行走了。<br />
+</p>
+
+<p>
+==================================================<br />
+<span class="STYLE2">8.3跑/前冲/后撤</span><br />
+==================================================<br />
+<br />
+--------------------------------------------------<br />
+跑/前冲也是格斗游戏非常常见的移动方式。<br />
+虽然移动速度比较快，但是跟行走对比起来相对不灵活，有一定的风险。<br />
+然而较快的速度令它在抢硬直、连段目押等需要快速移动的情况大展身手。<br />
+<br />
+默认的common1.cns中代码如下：<br />
+<br />
+;--------------------------------------------------<br />
+; Run forward<br />
+[Statedef 100]<br />
+type    = S<br />
+physics = S<br />
+anim = 100<br />
+sprpriority = 1<br />
+<br />
+[State 100, 1]<br />
+type = VelSet<br />
+trigger1 = 1<br />
+x = const(velocity.run.fwd.x)<br />
+<br />
+[State 100, 2] ;Prevent run from canceling into walk<br />
+type = AssertSpecial<br />
+trigger1 = 1<br />
+flag = NoWalk<br />
+<br />
+[State 100, 3] ;Prevent from turning<br />
+type = AssertSpecial<br />
+trigger1 = 1<br />
+flag = NoAutoTurn<br />
+<br />
+[State 100, 4]<br />
+type = ChangeState<br />
+trigger1 = command != "holdfwd"<br />
+value = 0<br />
+<br />
+如代码所示，默认的是跑，是可控的匀速前进，并且可以随时停下。<br />
+然而，很多格斗游戏里面的跑并不是这么简单的，通常是由起步、匀速运动、停止之类的部分组成。<br />
+因为起步和停止都是有一定硬直的动作，如果在较短的距离开始跑，对方一旦使用攻击，你将没法停下来进行防御。<br />
+和行走对比起来，这类型的跑使用起来需要考虑更多问题。<br />
+<br />
+<br />
+虽然跑并没有行走那样有两个方向的烦恼，但是跑的启动和停止是分开控制的，并不是像行走那样不需要变为State 0的Sctrl。<br />
+所以除了启动我们还要改写Statedef 100下的停止条件：<br />
+<br />
+;--------------------------------------------------<br />
+; Run forward<br />
+[Statedef 100]<br />
+<br />
+...<br />
+<br />
+[State 100, 4]<br />
+type = ChangeState<br />
+trigger1 = Var(59) = 0;AI未开启时<br />
+trigger1 = command != "holdfwd";和原来一样接受手操指令<br />
+trigger2 = Var(59) > 0<br />
+trigger2 = EnemyNear,movetype != H || (EnemyNear,movetype = H && p2dist x < 0);对方不在受击状态或者对方在受击状态但跑过头了<br />
+trigger2 = p2bodydist x <= (30+random/40) || Frontedgebodydist <= 10;比较近的距离或者画面边缘<br />
+trigger3 = Var(59) > 0<br />
+trigger3 = Roundstate != 2;防止非战斗阶段时一直跑根本停不下来<br />
+value = 0<br />
+<br />
+<br />
+之后写上让人物跑的Changestate就可以了：<br />
+<br />
+;下面一段放到[Statedef -1]或[Statedef -3]下面<br />
+<br />
+;--------------------------------------------------<br />
+[State -1, 前跑]<br />
+type = ChangeState<br />
+value = 100<br />
+Triggerall = Var(59) > 0<br />
+Triggerall = Roundstate = 2<br />
+Triggerall = Statetype != A<br />
+Triggerall = Frontedgebodydist >= 20;避免在画面边缘开始跑<br />
+Triggerall = ctrl<br />
+Trigger1 = P2bodydist X > 200 && Random < P2bodydist X*5 - 720;Trigger1~4根据距离不同分段改变概率<br />
+Trigger2 = P2bodydist X > 135 && Random < P2bodydist X*2 - 120<br />
+Trigger3 = P2bodydist X > 90 && Random < P2bodydist X*1.75 - 90<br />
+Trigger4 = (P2bodydist X = [45,90]) && Random < P2bodydist X *1.2 - 45<br />
+<br />
+--------------------------------------------------<br />
+虽然Mugen内默认的状态100是跑，但一些游戏当中双击前方向键（66）并不一定是跑，还有可能是前冲（冲刺/Dash）。<br />
+前冲很有可能是长时间硬直的向前移动，若乱使用可以说破绽百出，使用时比起跑要更小心，否则就是给对方送硬直。<br />
+<br />
+后撤默认使用的是状态105，是双击后方向键（44）所发出来的。<br />
+在Mugen中，后撤默认为空中状态，也就是启动的瞬间就在空中，所以可以利用这个特性躲避投技。<br />
+而在不少格斗游戏作品当中，后撤会有短暂无敌的性能，我们也可以利用这性能对对方攻击进行闪避。<br />
+<br />
+<br />
+因为默认并没有前冲，所以在此只给出后撤的例子：<br />
+<br />
+;下面一段放到[Statedef -1]或[Statedef -3]下面<br />
+;--------------------------------------------------<br />
+[State -1, 后撤]<br />
+type = ChangeState<br />
+value = 105<br />
+Triggerall = Var(59) > 0<br />
+Triggerall = Roundstate = 2<br />
+Triggerall = Statetype != A<br />
+Triggerall = (Random < Var(59)*200) || (Var(59) > 3)<br />
+Triggerall = ctrl<br />
+Trigger1 = EnemyNear,Movetype = A && EnemyNear,Stateno >= 200;对方攻击状态<br />
+Trigger1 = facing != EnemyNear,facing;双方面对面<br />
+Trigger1 = EnemyNear,hitdefattr = SC,AT;对手攻击带投技判定<br />
+Trigger1 = P2bodydist X = [-20,100];一定距离内<br />
+</p>
+
+<p>
+==================================================<br />
+<span class="STYLE2">8.4跳跃</span><br />
+==================================================<br />
+<br />
+--------------------------------------------------<br />
+跳跃同样是格斗游戏常见的移动方式。<br />
+因为跳跃能令攻击方式多样化（上下择和落地投等）而且有着相当高的回报，在手操里有着很重要的地位。<br />
+同时还可以躲避投技和远处飞行道具，并获得先机。<br />
+但是先不说mugen当中空防并不能防御下段攻击和一大堆无敌升龙，通常来说人物在空中只能按照一定的轨迹移动，<br />
+而且多数格斗游戏中人物在地面的性能比空中要好，跳跃也需要好好考虑位置和时机才能在AI战里面使用。<br />
+<br />
+默认的common1.cns中代码如下：<br />
+<br />
+;--------------------------------------------------<br />
+; Jump Start<br />
+[Statedef 40]<br />
+type    = S<br />
+physics = S<br />
+anim = 40<br />
+ctrl = 0<br />
+sprpriority = 1<br />
+facep2 = 1<br />
+<br />
+[State 40, 1]<br />
+type = VarSet<br />
+trigger1 = Time = 0<br />
+sysvar(1) = 0<br />
+<br />
+[State 40, 2]<br />
+type = VarSet<br />
+trigger1 = command = "holdfwd"<br />
+sysvar(1) = 1<br />
+<br />
+[State 40, 3]<br />
+type = VarSet<br />
+trigger1 = command = "holdback"<br />
+sysvar(1) = -1<br />
+<br />
+[State 40, 4]<br />
+type = VelSet<br />
+trigger1 = AnimTime = 0<br />
+x = ifelse(sysvar(1)=0, const(velocity.jump.neu.x), ifelse(sysvar(1)=1, const(velocity.jump.fwd.x), const(velocity.jump.back.x)))<br />
+y = const(velocity.jump.y)<br />
+<br />
+[State 40, 5]<br />
+type = VelSet<br />
+trigger1 = AnimTime = 0<br />
+trigger1 = prevstateno = 100 ;RUN_FWD<br />
+trigger1 = sysvar(1) = 1<br />
+x = const(velocity.runjump.fwd.x)<br />
+<br />
+[State 40, 6]<br />
+type = ChangeState<br />
+trigger1 = AnimTime = 0<br />
+value = 50<br />
+ctrl = 1<br />
+<br />
+<br />
+如代码所示，和行走类似，默认的跳跃分为前跳、后跳、原地跳和跑跳，用的是同一个状态号40。<br />
+也是通过按键不同区分开不同的方向和速度。<br />
+而在某些有大小跳的作品里面，跳跃的分类会更多。<br />
+所以我们会采用和行走一样的办法来处理。<br />
+<br />
+实例如下：<br />
+;--------------------------------------------------<br />
+;Statedef 39后跳 41前跳 42原地跳<br />
+<br />
+[Statedef 39]<br />
+type    = S<br />
+physics = S<br />
+anim = 40<br />
+ctrl = 0<br />
+sprpriority = 1<br />
+<br />
+[State 40, 1]<br />
+type = VarSet<br />
+trigger1 = 1<br />
+sysvar(1) = -1<br />
+<br />
+[State 40, 4]<br />
+type = VelSet<br />
+trigger1 = AnimTime = 0<br />
+x = const(velocity.jump.back.x)<br />
+y = const(velocity.jump.y)<br />
+<br />
+[State 40, 6]<br />
+type = ChangeState<br />
+trigger1 = AnimTime = 0<br />
+value = 50<br />
+ctrl = 1<br />
+<br />
+;--------------------------------------------------<br />
+[Statedef 41]<br />
+type    = S<br />
+physics = S<br />
+anim = 40<br />
+ctrl = 0<br />
+sprpriority = 1<br />
+<br />
+[State 40, 1]<br />
+type = VarSet<br />
+trigger1 = 1<br />
+sysvar(1) = 1<br />
+<br />
+[State 40, 4]<br />
+type = VelSet<br />
+trigger1 = AnimTime = 0<br />
+x = const(velocity.jump.fwd.x)<br />
+y = const(velocity.jump.y)<br />
+<br />
+[State 40, 5]<br />
+type = VelSet<br />
+trigger1 = AnimTime = 0<br />
+trigger1 = prevstateno = 100 ;RUN_FWD<br />
+trigger1 = sysvar(1) = 1<br />
+x = const(velocity.runjump.fwd.x)<br />
+<br />
+[State 40, 6]<br />
+type = ChangeState<br />
+trigger1 = AnimTime = 0<br />
+value = 50<br />
+ctrl = 1<br />
+<br />
+;--------------------------------------------------<br />
+[Statedef 42]<br />
+type    = S<br />
+physics = S<br />
+anim = 40<br />
+ctrl = 0<br />
+sprpriority = 1<br />
+<br />
+[State 40, 1]<br />
+type = VarSet<br />
+trigger1 = 1<br />
+sysvar(1) = 0<br />
+<br />
+[State 40, 4]<br />
+type = VelSet<br />
+trigger1 = AnimTime = 0<br />
+x = const(velocity.jump.neu.x)<br />
+y = const(velocity.jump.y)<br />
+<br />
+[State 40, 6]<br />
+type = ChangeState<br />
+trigger1 = AnimTime = 0<br />
+value = 50<br />
+ctrl = 1<br />
+</p>
+
+<p>
+====================================================<br />
+<span class="STYLE2">8.5受身</span><br />
+====================================================<br />
+<br />
+--------------------------------------------------<br />
+受身是指受击身体恢复，通常是空中或者低空受击硬直后，或者倒地时可以更快的恢复成为可控状态。<br />
+更快的恢复可控状态可以用于躲避对方的伪连（指中途可被受身回避的连段），或者更容易作出反击。<br />
+<br />
+<br />
+默认的common1.cns中代码如下（此处因为WinMugen版本写的比较简单容易理解，我用WinMugen版本的代码进行讲解）：<br />
+<br />
+;--------------------------------------------------<br />
+; HITA_FALL (knocked up, falling)<br />
+[Statedef 5050]<br />
+type    = A<br />
+movetype= H<br />
+physics = N<br />
+<br />
+...<br />
+<br />
+[State 5050, 4] ;Recover near ground<br />
+type = ChangeState<br />
+triggerall = Vel Y > 0<br />
+triggerall = Pos Y >= -20<br />
+triggerall = alive<br />
+triggerall = CanRecover<br />
+trigger1 = Command = "recovery"<br />
+value = 5200 ;HITFALL_RECOVER<br />
+<br />
+[State 5050, 5]; Recover in mid air<br />
+type = ChangeState<br />
+triggerall = Vel Y > -1<br />
+triggerall = alive<br />
+triggerall = CanRecover<br />
+trigger1 = Command = "recovery"<br />
+value = 5210 ;HITFALL_AIRRECOVER<br />
+<br />
+...<br />
+<br />
+--------------------------------------------------<br />
+; HIT_FALLRECOVER (still falling)<br />
+[Statedef 5200]<br />
+type    = A<br />
+movetype= H<br />
+physics = N<br />
+<br />
+[State 5200, 1] ;Change anim if done with transition<br />
+type = ChangeAnim<br />
+trigger1 = Anim = 5035<br />
+trigger1 = AnimTime = 0<br />
+value = 5050<br />
+<br />
+[State 5200, 2]<br />
+type = VelAdd<br />
+trigger1 = 1<br />
+y = GetHitVar(yaccel)<br />
+<br />
+[State 5200, 3]<br />
+type = SelfState<br />
+trigger1 = Vel Y > 0<br />
+trigger1 = Pos Y >= 10<br />
+value = 5201<br />
+<br />
+;--------------------------------------------------<br />
+; HIT_FALLRECOVER (on the ground)<br />
+[Statedef 5201]<br />
+type    = A<br />
+movetype= H<br />
+physics = A<br />
+anim = 5200<br />
+<br />
+[State 5201, 1] ;Turn if not facing opponent<br />
+type = Turn<br />
+trigger1 = Time = 0<br />
+trigger1 = p2dist X < -5<br />
+<br />
+[State 5201, 2]<br />
+type = VelSet<br />
+trigger1 = Time = 0<br />
+x = -.15<br />
+y = -3.5<br />
+<br />
+[State 5201, 3]<br />
+type = PosSet<br />
+trigger1 = Time = 0<br />
+y = 0<br />
+<br />
+[State 5201, 4]<br />
+type = NotHitBy<br />
+trigger1 = 1<br />
+value = SCA<br />
+time = 1<br />
+<br />
+[State 5201, 5] ;Blink white<br />
+type = PalFX<br />
+trigger1 = Time = 0<br />
+time = 3<br />
+add = 128,128,128 ;256,256,256<br />
+<br />
+[State 5201, 6]<br />
+type = GameMakeAnim<br />
+trigger1 = Time = 1<br />
+value = 60<br />
+pos = 0, 0<br />
+under = 1<br />
+<br />
+;--------------------------------------------------<br />
+; HIT_AIRFALLRECOVER<br />
+[Statedef 5210]<br />
+type    = A<br />
+movetype= I<br />
+physics = N<br />
+anim = 5210<br />
+ctrl = 0<br />
+<br />
+[State 5210, 1] ;Blink white<br />
+type = PalFX<br />
+trigger1 = Time = 0<br />
+time = 3<br />
+add = 128,128,128 ;256,256,256<br />
+<br />
+[State 5210, 1]<br />
+type = PosFreeze<br />
+trigger1 = Time = 0<br />
+value = 4<br />
+<br />
+[State 5210, 2] ;Turn if not facing opponent<br />
+type = Turn<br />
+trigger1 = Time = 0<br />
+trigger1 = p2dist X < -20<br />
+<br />
+[State 5210, 1]<br />
+type = VelMul<br />
+trigger1 = Time = 4<br />
+x = .8<br />
+y = .8<br />
+<br />
+[State 5210, 1]<br />
+type = VelAdd<br />
+trigger1 = Time = 4<br />
+y = -4.5<br />
+<br />
+[State 5210, 1]<br />
+type = VelMul<br />
+trigger1 = Time = 4<br />
+trigger1 = Vel Y > 0<br />
+y = .5<br />
+<br />
+[State 5210, 1]<br />
+type = VelAdd<br />
+trigger1 = Time = 4<br />
+trigger1 = Vel Y > -3<br />
+y = -2<br />
+<br />
+[State 5210, 1]<br />
+type = VelAdd<br />
+trigger1 = Time = 4<br />
+trigger1 = Vel Y > -2<br />
+y = -1<br />
+<br />
+[State 5210, 2] ;Go up<br />
+type = VelAdd<br />
+trigger1 = Time = 4<br />
+trigger1 = Command = "holdup"<br />
+y = -2<br />
+<br />
+[State 5210, 2] ;Go down<br />
+type = VelAdd<br />
+trigger1 = Time = 4<br />
+trigger1 = Command = "holddown"<br />
+y = 1.5<br />
+<br />
+[State 5210, 2] ;Go fwd<br />
+type = VelMul<br />
+trigger1 = Time = 4<br />
+trigger1 = Command = "holdfwd"<br />
+x = 1<br />
+<br />
+[State 5210, 2] ;Go back<br />
+type = VelAdd<br />
+trigger1 = Time = 4<br />
+trigger1 = Command = "holdback"<br />
+x = -1<br />
+<br />
+[State 5210, 3]<br />
+type = NotHitBy<br />
+trigger1 = Time = 0<br />
+value = SCA<br />
+time = 15<br />
+<br />
+[State 5210, 4]<br />
+type = CtrlSet<br />
+trigger1 = Time = 20<br />
+value = 1<br />
+<br />
+[State 5210, 5]<br />
+type = VelAdd;Gravity<br />
+trigger1 = Time >= 4<br />
+y = .35<br />
+<br />
+[State 5210, 5] ;Land on ground<br />
+type = ChangeState<br />
+trigger1 = Vel Y > 0<br />
+trigger1 = Pos Y >= 0<br />
+value = 52 ;JUMP_LAND<br />
+ctrl = 1<br />
+<br />
+<br />
+如代码所示，Mugen当中默认有两种受身，分别是高空受身和低空受身，分别是状态5210和5200。<br />
+其发动条件是在掉落状态5050当中处于可恢复状态时，速度和高度符合条件即可。<br />
+高空受身5210是受身后20f恢复可控，而低空受身5200是进入预备状态到达低空高度转变为状态5201。<br />
+值得一提的是，高空受身有15f的无敌，而低空受身在到达低空高度直到落地前的状态5201有全程无敌。<br />
+如果可以在对方伪连时合理利用高空受身这15f的无敌和低空受身状态5201的全程无敌躲开对方的攻击判定，<br />
+甚至之后在对方攻击硬直中反击命中对方的话，可以说是相当大的收益。<br />
+然而受身其实也是有一定的风险的。高空受身在15f无敌以后有5f的硬直，而低空受身不可控，不可切换成防御状态，<br />
+落地也有硬直，乱受身的话很容易被写了受身狩（也就是抓受身）抓住机会。<br />
+另外有些AI也会用低硬直的招式骗对方手受身，一旦对方上当形成受身狩就是一套额外的连段。<br />
+因为我们暂时还没有学出招记录等技术，没法特别精确地用受身躲避对方伪连，<br />
+所以要注意受身的几率不要太高，以免被受身狩循环致死。<br />
+<br />
+<br />
+实例如下：<br />
+<br />
+;--------------------------------------------------<br />
+; HITA_FALL (knocked up, falling)<br />
+[Statedef 5050]<br />
+type    = A<br />
+movetype= H<br />
+physics = N<br />
+<br />
+...<br />
+<br />
+[State 5050, 4] ;Recover near ground<br />
+type = ChangeState<br />
+triggerall = Vel Y > 0<br />
+triggerall = Pos Y >= -20<br />
+triggerall = alive<br />
+triggerall = CanRecover<br />
+trigger1 = Var(59) = 0;当手操时由手操命令控制<br />
+trigger1 = Command = "recovery"<br />
+trigger2 = Var(59) > 0<br />
+trigger2 = EnemyNear,Movetype = H || EnemyNear,Statetype = L;对方倒地或者受击<br />
+value = 5200 ;HITFALL_RECOVER<br />
+<br />
+[State 5050, 5]; Recover in mid air<br />
+type = ChangeState<br />
+triggerall = Vel Y > -1<br />
+triggerall = alive<br />
+triggerall = CanRecover<br />
+trigger1 = Var(59) = 0;当手操时由手操命令控制<br />
+trigger1 = Command = "recovery"<br />
+trigger2 = Var(59) > 0<br />
+trigger2 = EnemyNear,Movetype = H || EnemyNear,Statetype = L<br />
+Trigger3 = Var(59) > 0<br />
+Trigger3 = EnemyNear,Movetype = A && EnemyNear,Stateno >= 200;对方攻击状态<br />
+Trigger3 = EnemyNear,AnimTime <= -Random/40+5;对方有一定硬直时间<br />
+Trigger3 = Random < 100;低几率触发<br />
+value = 5210 ;HITFALL_AIRRECOVER<br />
+<br />
+...<br />
+<br />
+;--------------------------------------------------<br />
+; HIT_AIRFALLRECOVER<br />
+[Statedef 5210]<br />
+type    = A<br />
+movetype= I<br />
+physics = N<br />
+anim = 5210<br />
+ctrl = 0<br />
+<br />
+...<br />
+;具体方向控制看喜好<br />
+<br />
+[State 5210, 2] ;Go up<br />
+type = VelAdd<br />
+triggerall = Time = 4<br />
+trigger1 = Var(59) = 0<br />
+trigger1 = Command = "holdup"<br />
+y = -2<br />
+<br />
+[State 5210, 2] ;Go down<br />
+type = VelAdd<br />
+triggerall = Time = 4<br />
+trigger1 = Var(59) = 0<br />
+trigger1 = Command = "holddown"<br />
+trigger2 = Var(59) > 0<br />
+y = 1.5<br />
+<br />
+[State 5210, 2] ;Go fwd<br />
+type = VelMul<br />
+triggerall = Time = 4<br />
+trigger1 = Var(59) = 0<br />
+trigger1 = Command = "holdfwd"<br />
+trigger2 = Var(59) > 0<br />
+x = 1<br />
+<br />
+[State 5210, 2] ;Go back<br />
+type = VelAdd<br />
+triggerall = Time = 4<br />
+trigger1 = Var(59) = 0<br />
+trigger1 = Command = "holdback"<br />
+x = -1<br />
+</p>
+
+<p>
+==================================================<br />
+<span class="STYLE2">8.6防御</span><br />
+==================================================<br />
+<br />
+--------------------------------------------------<br />
+格斗有攻就有守，防御不必多说是格斗游戏里面很重要的一环。<br />
+防御对于攻击来说算相对简单，因为无论你怎么攻击，防御就三种：站防、蹲防、空防（有些游戏甚至没有空防）。<br />
+除了投技不可防御、破防技等特殊情况，攻击判定（打击技和飞行道具）有分为上中下三段，可以被对应的防御防住。<br />
+（PS：格斗游戏中，上段站、蹲防均可，中段不可蹲防，下段不可站防。但是Mugen当中，上段（guardflag = H）不可蹲防，<br />
+中段（guardflag = M = HL）站、蹲防均可，下段（guardflag = L）不可站防，另外guardflag = A决定是否能空防。<br />
+在本教程里统一用格斗游戏的说法，即中段不可蹲防，下段不可站防）<br />
+<br />
+<br />
+默认的common1.cns中代码如下：<br />
+<br />
+;--------------------------------------------------<br />
+; GUARD (start)<br />
+[Statedef 120]<br />
+type = U    ;Leave state type unchanged<br />
+physics = U ;Leave physics unchanged<br />
+<br />
+[State 120, 1]<br />
+type = ChangeAnim<br />
+trigger1 = Time = 0<br />
+value = 120 + (statetype = C) + (statetype = A)*2;这种写法用一段代码完成了三段代码的工作，值得学习<br />
+<br />
+[State 120, 2]<br />
+type = StateTypeSet<br />
+trigger1 = Time = 0 && statetype = S<br />
+physics = S<br />
+<br />
+[State 120, 3]<br />
+type = StateTypeSet<br />
+trigger1 = Time = 0 && statetype = C<br />
+physics = C<br />
+<br />
+[State 120, 4]<br />
+type = StateTypeSet<br />
+trigger1 = Time = 0 && statetype = A<br />
+physics = A<br />
+<br />
+[State 120, Hi to Lo]<br />
+type = StateTypeSet<br />
+trigger1 = statetype = S && command = "holddown"<br />
+statetype = C<br />
+physics = C<br />
+<br />
+[State 120, Lo to Hi]<br />
+type = StateTypeSet<br />
+trigger1 = statetype = C && command != "holddown"<br />
+statetype = S<br />
+physics = S<br />
+<br />
+[State 120, 5]<br />
+type = ChangeState<br />
+trigger1 = AnimTime = 0<br />
+value = 130 + (statetype = C) + (statetype = A)*2<br />
+<br />
+[State 120, Stop Guarding]<br />
+type = ChangeState<br />
+trigger1 = command != "holdback"<br />
+trigger2 = !inguarddist<br />
+value = 140<br />
+<br />
+;--------------------------------------------------<br />
+; STAND GUARD (guarding)<br />
+[Statedef 130]<br />
+type    = S<br />
+physics = S<br />
+<br />
+[State 130, 1]<br />
+type = ChangeAnim<br />
+trigger1 = Anim != 130<br />
+value = 130<br />
+<br />
+[State 130, Hi to Lo]<br />
+type = ChangeState<br />
+trigger1 = command = "holddown"<br />
+value = 131<br />
+<br />
+[State 130, Stop Guarding]<br />
+type = ChangeState<br />
+trigger1 = command != "holdback"<br />
+trigger2 = !inguarddist<br />
+value = 140<br />
+<br />
+;--------------------------------------------------<br />
+; CROUCH GUARD (guarding)<br />
+[Statedef 131]<br />
+type    = C<br />
+physics = C<br />
+<br />
+[State 131, 1]<br />
+type = ChangeAnim<br />
+trigger1 = Anim != 131<br />
+value = 131<br />
+<br />
+[State 131, Lo to Hi]<br />
+type = ChangeState<br />
+trigger1 = command != "holddown"<br />
+value = 130<br />
+<br />
+[State 131, Stop Guarding]<br />
+type = ChangeState<br />
+trigger1 = command != "holdback"<br />
+trigger2 = !inguarddist<br />
+value = 140<br />
+<br />
+;--------------------------------------------------<br />
+; AIR GUARD (guarding)<br />
+[Statedef 132]<br />
+type    = A<br />
+physics = N<br />
+<br />
+[State 132, 1]<br />
+type = ChangeAnim<br />
+trigger1 = Anim != 132<br />
+value = 132<br />
+<br />
+[State 132, 2]<br />
+type = VelAdd<br />
+trigger1 = 1<br />
+y = Const(movement.yaccel)<br />
+<br />
+[State 132, 3]<br />
+type = VarSet<br />
+trigger1 = 1<br />
+sysvar(0) = (pos y >= 0) && (vel y > 0)<br />
+<br />
+[State 132, 4]<br />
+type = VelSet<br />
+trigger1 = sysvar(0)<br />
+y = 0<br />
+<br />
+[State 132, 5]<br />
+type = PosSet<br />
+trigger1 = sysvar(0)<br />
+y = 0<br />
+<br />
+[State 132, 6]<br />
+type = ChangeState<br />
+trigger1 = sysvar(0)<br />
+trigger1 = command = "holdback"<br />
+trigger1 = inguarddist<br />
+value = 130<br />
+<br />
+[State 132, 7]<br />
+type = ChangeState<br />
+trigger1 = sysvar(0)<br />
+value = 52<br />
+<br />
+[State 132, Stop Guarding]<br />
+type = ChangeState<br />
+trigger1 = command != "holdback"<br />
+trigger2 = !inguarddist<br />
+value = 140<br />
+<br />
+;--------------------------------------------------<br />
+; GUARD (end)<br />
+[Statedef 140]<br />
+type = U    ;Leave state type unchanged<br />
+physics = U ;Leave physics unchanged<br />
+ctrl = 1<br />
+<br />
+[State 140, 1]<br />
+type = ChangeAnim<br />
+trigger1 = Time = 0<br />
+value = 140 + (statetype = C) + (statetype = A)*2<br />
+<br />
+[State 140, 2]<br />
+type = StateTypeSet<br />
+trigger1 = Time = 0 && statetype = S<br />
+physics = S<br />
+<br />
+[State 140, 3]<br />
+type = StateTypeSet<br />
+trigger1 = Time = 0 && statetype = C<br />
+physics = C<br />
+<br />
+[State 140, 4]<br />
+type = StateTypeSet<br />
+trigger1 = Time = 0 && statetype = A<br />
+physics = A<br />
+<br />
+[State 140, Hi to Lo]<br />
+type = StateTypeSet<br />
+trigger1 = statetype = S && command = "holddown"<br />
+statetype = C<br />
+physics = C<br />
+<br />
+[State 140, Lo to Hi]<br />
+type = StateTypeSet<br />
+trigger1 = statetype = C && command != "holddown"<br />
+statetype = S<br />
+physics = S<br />
+<br />
+;[State 140, 5] ;Implemented within engine<br />
+;type = ChangeState<br />
+;trigger1 = AnimTime = 0<br />
+;value = (statetype = C)*11 + (statetype = A)*51<br />
+<br />
+;--------------------------------------------------<br />
+; SGUARDHIT (shaking)<br />
+[Statedef 150]<br />
+type    = S<br />
+movetype= H<br />
+physics = N<br />
+velset = 0,0<br />
+<br />
+[State 150, 1]<br />
+type = ChangeAnim<br />
+trigger1 = 1<br />
+value = 150<br />
+<br />
+[State 150, 2]<br />
+type = ChangeState<br />
+trigger1 = HitShakeOver<br />
+value = 151 + 2*(command = "holddown")<br />
+<br />
+[State 150, Hi to Lo]<br />
+type = StateTypeSet<br />
+trigger1 = statetype = S && command = "holddown"<br />
+statetype = C<br />
+physics = C<br />
+<br />
+[State 150, Lo to Hi]<br />
+type = StateTypeSet<br />
+trigger1 = statetype = C && command != "holddown"<br />
+statetype = S<br />
+physics = S<br />
+<br />
+[State 150, 3]<br />
+type = ForceFeedback<br />
+trigger1 = time = 0<br />
+waveform = square<br />
+time = 3<br />
+<br />
+;--------------------------------------------------<br />
+; SGUARDHIT2 (knocked back)<br />
+[Statedef 151]<br />
+type    = S<br />
+movetype= H<br />
+physics = S<br />
+anim = 150<br />
+<br />
+[State 151, 1]<br />
+type = HitVelSet<br />
+trigger1 = Time = 0<br />
+x = 1<br />
+<br />
+[State 151, 2]<br />
+type = VelSet<br />
+trigger1 = Time = GetHitVar(slidetime)<br />
+trigger2 = HitOver<br />
+x = 0<br />
+<br />
+[State 151, 3]<br />
+type = CtrlSet<br />
+trigger1 = Time = GetHitVar(ctrltime)<br />
+value = 1<br />
+<br />
+[State 151, Hi to Lo]<br />
+type = StateTypeSet<br />
+trigger1 = statetype = S && command = "holddown"<br />
+statetype = C<br />
+physics = C<br />
+<br />
+[State 151, Lo to Hi]<br />
+type = StateTypeSet<br />
+trigger1 = statetype = C && command != "holddown"<br />
+statetype = S<br />
+physics = S<br />
+<br />
+[State 151, 4]<br />
+type = ChangeState<br />
+trigger1 = HitOver<br />
+value = 130<br />
+ctrl = 1<br />
+<br />
+;--------------------------------------------------<br />
+; CGUARDHIT (shaking)<br />
+[Statedef 152]<br />
+type    = C<br />
+movetype= H<br />
+physics = N<br />
+velset = 0,0<br />
+<br />
+[State 152, 1]<br />
+type = ChangeAnim<br />
+trigger1 = 1<br />
+value = 151<br />
+<br />
+[State 152, 3]<br />
+type = ChangeState<br />
+trigger1 = HitShakeOver<br />
+value = 151 + 2*(command = "holddown")<br />
+<br />
+[State 152, Hi to Lo]<br />
+type = StateTypeSet<br />
+trigger1 = statetype = S && command = "holddown"<br />
+statetype = C<br />
+physics = C<br />
+<br />
+[State 152, Lo to Hi]<br />
+type = StateTypeSet<br />
+trigger1 = statetype = C && command != "holddown"<br />
+statetype = S<br />
+physics = S<br />
+<br />
+[State 152, 4]<br />
+type = ForceFeedback<br />
+trigger1 = time = 0<br />
+waveform = square<br />
+time = 4<br />
+<br />
+;--------------------------------------------------<br />
+; CGUARDHIT2 (knocked back)<br />
+[Statedef 153]<br />
+type    = C<br />
+movetype= H<br />
+physics = C<br />
+anim = 151<br />
+<br />
+[State 153, 1]<br />
+type = HitVelSet<br />
+trigger1 = Time = 0<br />
+x = 1<br />
+<br />
+[State 153, 2]<br />
+type = VelSet<br />
+trigger1 = Time = GetHitVar(slidetime)<br />
+trigger2 = HitOver<br />
+x = 0<br />
+<br />
+[State 153, 3]<br />
+type = CtrlSet<br />
+trigger1 = Time = GetHitVar(ctrltime)<br />
+value = 1<br />
+<br />
+[State 153, Hi to Lo]<br />
+type = StateTypeSet<br />
+trigger1 = statetype = S && command = "holddown"<br />
+statetype = C<br />
+physics = C<br />
+<br />
+[State 153, Lo to Hi]<br />
+type = StateTypeSet<br />
+trigger1 = statetype = C && command != "holddown"<br />
+statetype = S<br />
+physics = S<br />
+<br />
+[State 153, 4]<br />
+type = ChangeState<br />
+trigger1 = HitOver<br />
+value = 131<br />
+ctrl = 1<br />
+<br />
+;--------------------------------------------------<br />
+; AGUARDHIT (shaking)<br />
+[Statedef 154]<br />
+type    = A<br />
+movetype= H<br />
+physics = N<br />
+velset = 0,0<br />
+<br />
+[State 154, 1]<br />
+type = ChangeAnim<br />
+trigger1 = 1<br />
+value = 152<br />
+<br />
+[State 154, 2]<br />
+type = ChangeState<br />
+trigger1 = HitShakeOver<br />
+value = 155 ;AGUARDHIT2<br />
+<br />
+[State 154, 3]<br />
+type = ForceFeedback<br />
+trigger1 = time = 0<br />
+waveform = square<br />
+time = 4<br />
+<br />
+;--------------------------------------------------<br />
+; AGUARDHIT2 (knocked away)<br />
+[Statedef 155]<br />
+type    = A<br />
+movetype= H<br />
+physics = N<br />
+anim = 152<br />
+<br />
+[State 155, 1]<br />
+type = HitVelSet<br />
+trigger1 = Time = 0<br />
+x = 1<br />
+y = 1<br />
+<br />
+[State 155, 2]<br />
+type = VelAdd<br />
+trigger1 = 1<br />
+y = Const(movement.yaccel)<br />
+<br />
+[State 155, 3]<br />
+type = CtrlSet<br />
+trigger1 = Time = GetHitVar(ctrltime)<br />
+value = 1<br />
+<br />
+[State 155, 4]<br />
+type = VarSet<br />
+trigger1 = 1<br />
+sysvar(0) = (pos y >= 0) && (vel y > 0)<br />
+<br />
+[State 155, 5]<br />
+type = VelSet<br />
+trigger1 = sysvar(0)<br />
+y = 0<br />
+<br />
+[State 155, 6]<br />
+type = PosSet<br />
+trigger1 = sysvar(0)<br />
+y = 0<br />
+<br />
+[State 155, 6]<br />
+type = ChangeState<br />
+trigger1 = sysvar(0)<br />
+trigger1 = command = "holdback"<br />
+trigger1 = inguarddist<br />
+value = 130<br />
+<br />
+[State 155, 7]<br />
+type = ChangeState<br />
+trigger1 = sysvar(0)<br />
+value = 52<br />
+<br />
+<br />
+防御状态默认占据了状态号[120,155]，中间根据防御不同阶段又细分了好几个状态。<br />
+120是防御准备状态，也就是按下后方向键人物进入的动作，只用于转变为防御未受击状态；<br />
+[130,132]是防御未受击状态，也就是做好了防御动作但是尚未被攻击的阶段，[130,132]分别对应站、蹲、空；<br />
+140是防御结束状态，也就是防御准备状态、未受击状态或者受击状态结束时松开后方向键进入的状态，只用于离开防御状态；<br />
+[150,155]是防御受击状态，防御准备状态或防御未受击状态受到攻击时进入的状态，[150,151]、[152,153]、[154,155]分别对应: 站、蹲、空，偶数为受击震动，奇数为受击滑动。在受击硬直后若还按着后方向键进入防御未受击状态，否则进入防御结束状态。<br />
+<br />
+防御状态的切换是已经写好了的，我们需要管的地方只有手操指令的切换。<br />
+而这些切换无非控制的其实是站/蹲防的切换（空防你只有防与不放不用想太多）和停止防御状态两种。<br />
+通常来说，站姿攻击多为上段和中段，蹲姿攻击多为上段和下段，空中攻击多为上段和中段。<br />
+所以在地面上对站姿攻击和空中攻击我们用站防应对，对蹲姿攻击我们用蹲防应对，对方停止攻击的时候我们停止防御就行了。<br />
+<br />
+<br />
+实例如下：<br />
+<br />
+;--------------------------------------------------<br />
+; GUARD (start)<br />
+[Statedef 120]<br />
+type = U    ;Leave state type unchanged<br />
+physics = U ;Leave physics unchanged<br />
+<br />
+...<br />
+<br />
+[State 120, Hi to Lo]<br />
+type = StateTypeSet<br />
+triggerall = statetype = S;当我方是站姿<br />
+trigger1 = !Var(59) && command = "holddown"<br />
+trigger2 = Var(59) && EnemyNear,Statetype = C;而对方是蹲姿的时候<br />
+statetype = C;变为蹲姿<br />
+physics = C<br />
+<br />
+[State 120, Lo to Hi]<br />
+type = StateTypeSet<br />
+triggerall = statetype = C;当我方是蹲姿<br />
+trigger1 = !Var(59) && command != "holddown"<br />
+trigger2 = Var(59) && EnemyNear,Statetype = S;而对方是站姿的时候<br />
+statetype = S;变为站姿<br />
+physics = S<br />
+<br />
+[State 120, 5]<br />
+type = ChangeState<br />
+trigger1 = AnimTime = 0<br />
+value = 130 + (statetype = C) + (statetype = A)*2<br />
+<br />
+[State 120, Stop Guarding]<br />
+type = ChangeState<br />
+trigger1 = !Var(59) && command != "holdback"<br />
+trigger2 = !inguarddist<br />
+value = 140<br />
+<br />
+;--------------------------------------------------<br />
+; STAND GUARD (guarding)<br />
+[Statedef 130]<br />
+type    = S<br />
+physics = S<br />
+<br />
+[State 130, 1]<br />
+type = ChangeAnim<br />
+trigger1 = Anim != 130<br />
+value = 130<br />
+<br />
+[State 130, Hi to Lo]<br />
+type = ChangeState<br />
+trigger1 = !Var(59) && command = "holddown"<br />
+trigger2 = Var(59) && EnemyNear,Statetype = C<br />
+value = 131<br />
+<br />
+[State 130, Stop Guarding]<br />
+type = ChangeState<br />
+trigger1 = !Var(59) && command != "holdback"<br />
+trigger2 = !inguarddist<br />
+value = 140<br />
+<br />
+<br />
+;因为下面的站/蹲姿切换都是类似的代码，以上面的当做参考足矣，下略<br />
+......<br />
+<br />
+<br />
+之后还有启动防御的Changestate：<br />
+<br />
+;下面一段放到[Statedef -1]或[Statedef -3]下面<br />
+;--------------------------------------------------<br />
+[State -1, 防御]<br />
+type = ChangeState<br />
+value = 120<br />
+Triggerall = Var(59) > 0<br />
+Triggerall = Roundstate = 2<br />
+Triggerall = Statetype != A<br />
+Triggerall = ctrl<br />
+Triggerall = !(EnemyNear(Var(54)),hitdefattr = sca,at);对方不是投技判定<br />
+Trigger1 = Inguarddist ;在防御范围内<br />
+<br />
+<br />
+完成这段的修改，你也限制了人物攻击的话，你的人物已经算是铁壁了。<br />
+什么？你说铁壁这么简单？没错，只要不主动攻击卖硬直，铁壁就是这么简单。<br />
+</p>
+
+<p>
+====================================================<br />
+<span class="STYLE2">8.7限制隐性手操指令切换状态</span><br />
+====================================================<br />
+<br />
+--------------------------------------------------<br />
+到这里我们已经把带有command的Sctrl修改完了，但是这章内容尚未完结。<br />
+还记得笔者在第5章提及的内容吗：除了带有command的Sctrl以外，Mugen里面还存在内置的隐性的手操指令切换状态，<br />
+例如下蹲（Stateno 10）、行走（Stateno 20）和跳跃（Stateno 40）等。<br />
+我们虽然修改了这几个动作里面的带command的内容，但是我们还没有对它们的触发进行限制。<br />
+只要人物处于可控状态，只要内置的隐性的用手操指令刚好被触发，这几个动作依然会不受控制的动起来。<br />
+所以除了上面的内容，我们还要限制隐性手操指令切换状态。<br />
+<br />
+--------------------------------------------------<br />
+因为人物要处于可控状态才会切换状态为下蹲、行走和跳跃等状态，所以首先我们可以把一些可控的状态改成不可控。<br />
+在Statedef开始的地方，如果没有标注说是否可控，将会继承上一个状态的可控与否。<br />
+例如从可控的站姿切换到行走，行走并没有标注是否可控，行走也将变成可控。<br />
+分析之前的代码可知，Mugen默认的行走和跑都可以从可控状态进入，所以这两个状态都可能会被隐性的手操指令切换状态。<br />
+于是我们可以进行修改，实例如下：<br />
+<br />
+<br />
+;因为我们已经采用了新的行走状态State 19/21，所以我们可以不用修改State 20<br />
+;--------------------------------------------------<br />
+; Walk B 向后走<br />
+[Statedef 19]<br />
+type    = S<br />
+physics = S<br />
+sprpriority = 0<br />
+ctrl = 0;不可控<br />
+<br />
+...<br />
+<br />
+;--------------------------------------------------<br />
+; Walk F 向前走<br />
+[Statedef 21]<br />
+type    = S<br />
+physics = S<br />
+sprpriority = 0<br />
+ctrl = 0;不可控<br />
+<br />
+<br />
+;而State 100，我们可以像行走那样添加新的状态，设置为不可控，或者是像下面这么修改<br />
+;--------------------------------------------------<br />
+; Run forward<br />
+[Statedef 100]<br />
+<br />
+...<br />
+<br />
+[State 100, AI Ctrlset];添加不可控设置<br />
+type = Ctrlset<br />
+trigger1 = Var(59) > 0;当AI开关打开的时候<br />
+value = 0;不可控<br />
+<br />
+<br />
+通过这样的修改，在行走和跑步的时候就不会被手操指令影响了，但缺点就是不可控状态可能会混淆对方AI，我们在写AI的时候也要注意这种写法可能对我们带来的不良影响。<br />
+另外，由于原来可控的状态现在变成了不可控，所以其他Sctrl里原来triggerX = ctrl的条件不作相应调整的话人物就变得不会动了，因此我们还需要调整这些trigger，令他们可以在这些原来是可控的状态里跟原来一样切换状态。例如：<br />
+<br />
+;Stand Light Punch<br />
+[State -1, Stand Light Punch]<br />
+type = ChangeState<br />
+value = 200<br />
+trigger1 = Var(59) > 0<br />
+trigger1 = statetype = S<br />
+trigger1 = ctrl<br />
+<br />
+改为<br />
+<br />
+;Stand Light Punch<br />
+[State -1, Stand Light Punch]<br />
+type = ChangeState<br />
+value = 200<br />
+trigger1 = Var(59) > 0<br />
+trigger1 = statetype = S<br />
+trigger1 = ctrl || (Stateno = [19,21]) || Stateno = 100;这样就算不可控，行走和跑时都可以切换状态了<br />
+<br />
+--------------------------------------------------<br />
+然而修改了行走和跑步依然还是不够的，站姿等可控的情况下依然会乱动。<br />
+所以为了对应大多数的可控情况，我们还需要一段泛用的限制代码：<br />
+<br />
+;下面一段放到[Statedef -1]或[Statedef -3]下面<br />
+;--------------------------------------------------<br />
+[State -1, 地面动作限制]<br />
+type = ChangeState<br />
+value = 0;强行拉回站姿<br />
+Triggerall = Var(59) > 0<br />
+Triggerall = Statetype != A<br />
+Triggerall = Roundstate = 2<br />
+Trigger1 = Stateno = 10;下蹲<br />
+Trigger2 = Stateno = 20;行走<br />
+Trigger3 = Stateno = 40;跳<br />
+ctrl = 1<br />
+<br />
+虽然有部分魔改的成分（笑），但是这种是比较常用而且实在的限制乱动的写法了。<br />
+<br />
+--------------------------------------------------<br />
+至此，公用状态算是基本完成了。<br />
+随着以后不同目的的章节的探讨，我们还会继续给这些公用状态添加一些trigger，令它们在适当的时候触发。<br />
+不过那是之后的事了，本章只讲这么多。<br />
+</p>
+
+<p>
+====================================================<br />
+<span class="STYLE2">课后作业：</span><br />
+<br />
+1.<br />
+格斗游戏中，什么段攻击可以击破蹲防？什么段攻击可以击破站防？<br />
+<br />
+2.<br />
+为什么说章节8.7的这段代码有部分魔改的成分？<br />
+<br />
+[State -1, 地面动作限制]<br />
+type = ChangeState<br />
+value = 0<br />
+Triggerall = Var(59) > 0<br />
+Triggerall = Statetype != A<br />
+Triggerall = Roundstate = 2<br />
+Trigger1 = Stateno = 10<br />
+Trigger2 = Stateno = 20<br />
+Trigger3 = Stateno = 40<br />
+ctrl = 1<br />
+</p>
+
+<p></p>
+</body>
+</html>

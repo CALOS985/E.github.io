@@ -1,0 +1,772 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta content="text/html; charset=gb2312" http-equiv="content-type" />
+<title>5.变量Var简介、Cmd简介、AI开关设置及手操指令修改</title>
+<style type="text/css">
+<!--
+body,td,th {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+}
+.STYLE1 {
+	color: #FF0000;
+	font-weight: bold;
+	font-size: xx-large;
+}
+.STYLE2 {
+	color: #FF00FF;
+	font-weight: bold;
+}
+.STYLE3 {
+	color: #0000FF
+}
+-->
+</style></head>
+
+<body>
+<p class="STYLE1">5.变量Var简介、Cmd简介、AI开关设置及手操指令修改</p>
+<span class="STYLE3">　　　　　　　　本页内容由口水轩撰写. 由【softmgr】整理编辑.</span><br />
+
+<p>
+==================================================<br />
+<span class="STYLE2">5.1变量Var简介</span><br />
+==================================================<br />
+<br />
+--------------------------------------------------<br />
+在平时mugen的讨论当中总会出现变量也就是Var这个莫名其妙的词，出现频率高用途广，是制作者经常用到的东西。<br />
+但是不知道为什么这词总是给新人一种强烈的威慑力和压迫感，令新手们敬而远之。<br />
+<br />
+其实变量（Variable，缩写为Var）并不可怕，就是一个任意赋值修改的数字。<br />
+变量分为Var、Fvar、Sysvar、Sysfvar等几种。Var和Sysvar是整型变量，Fvar和Sysfvar是浮点型变量（F的意思是float）。<br />
+一个人物里面共有60个Var（Var(0)～Var(59)）、40个Fvar（Fvar(0)～Fvar(39)），Sysvar和Sysfvar各5个。<br />
+用途上来说Sysvar、Sysfvar是系统变量，一般不使用。所以平时通常使用的变量是Var和Fvar，共有100个。<br />
+本体的变量可以通过修改参数把留到下一局。在CNS的[Data]部分，修改IntPersistIndex和FloatPersistIndex的值。<br />
+在这两个值以上的本体Var和Fvar在下一局开局不会被重置为0。不过现在应该暂时用不到...<br />
+最后补充一句所有变量默认值为0。<br />
+<br />
+--------------------------------------------------<br />
+（为了方便，下文用Var统称所有变量）<br />
+我们可以对变量进行各种各样的操作：例如查看数值（Var/Fvar）、增加（Varadd）、赋值（Varset/:=）等等。例如：<br />
+<br />
+查看及对比：<br />
+trigger1 = Var(59) && Fvar(0) = 10086;查看Var的值和对比Fvar的值<br />
+<br />
+增加/赋值：<br />
+[State -1]<br />
+type = Varadd/Varset;增加或者赋值<br />
+trigger1 = ...<br />
+V = XXX / FV = XXX;对哪一个变量进行操作<br />
+value = 1;需要操作的量<br />
+<br />
+:= （赋值运算符）：<br />
+[State -1]<br />
+...<br />
+trigger1 = Var(59) := 1|| 1;对Var(59)赋值并继续运行下面的代码<br />
+...<br />
+（Var(59) := 1的作用是和Varset把V = 59, value = 1一样。需要注意的是，:=赋值所返回的值是赋值的值，可能会影响以后的<br />
+trigger判断。后面可以根据实际需求加上 || 1 或者 && 0，分别用于确保后面语句触发或者不触发）<br />
+使用该运算符的好处是可以一次对多个Var进行赋值。<br />
+<br />
+--------------------------------------------------<br />
+如果是懂得计算机的朋友，上面这么多废话说完就一句话：<br />
+变量即是用特殊函数赋值的初始值为0的int i[60]或者float j[40]。<br />
+<br />
+--------------------------------------------------<br />
+Var相关的常用代码就上面这几种，但是这些简单的数字对作者来说具有非常重要的意义：<br />
+它像是纸+铅笔+橡皮擦，你可以任意修改里面的值；<br />
+又像是红绿灯，你可以根据里面的内容来分析下一步的应对方案；<br />
+又像是一本笔记本，你可以把需要记忆的东西记录下来。<br />
+虽然Var本身没有任何意义，但是会因为作者的不同需求而被赋予各种各样的意义。<br />
+当中的奇妙之处需要时间慢慢领悟，一大波变量Var使用实例会在15章详细介绍。<br />
+而下文将要介绍的就是Var最简单的用法之一，也是AI制作当中几乎一个必不可少的步骤——AI开关。<br />
+</p>
+
+<p>
+==================================================<br />
+<span class="STYLE2">5.2Cmd简介</span><br />
+==================================================<br />
+<br />
+--------------------------------------------------<br />
+在讲解AI开关之前，因为涉及到手操指令的部分，就顺便把Cmd文件也简单介绍一下吧。<br />
+因为KFM的Cmd里面有Cmd的相关介绍，所以笔者就直接在MKII君翻译的中文KFM的Cmd文件提取并整理相关介绍了：<br />
+<br />
+Cmd文件一共由两大部分组成——手操指令定义和切换相关状态。<br />
+<br />
+--------------------------------------------------<br />
+手操指令定义部分用于定义人物可以接受到什么按键（及按键组合）。<br />
+按键一共有八种方向、六种攻击和一种挑衅。<br />
+<br />
+八种方向（全大写）：<br />
+B, DB, D, DF, F, UF, U, UB<br />
+后，下后，下，下前，前，前上，上，上后<br />
+（上面八个方向通常对应数字键盘上面的8个数字 4 1 2 3 6 9 8 7，剩下的5为没有方向按键）<br />
+<br />
+六种攻击及一种挑衅（全小写）：<br />
+a, b, c, x, y, z, s<br />
+<br />
+此外还可以用特殊符号前缀来达到鉴别按住按键（/号）、松开按键（~号）、同时按多个键（+号）等等手操指令的，具体请看自己<br />
+查阅相关资料，在此不予赘言。<br />
+<br />
+手操指令定义的例子：<br />
+<br />
+[Command]<br />
+name = "236x";手操指令名称为"236x"<br />
+command = ~D, DF, F, x;需要按下的按键是：下 下前（过渡） 前 x<br />
+buffer.time = 1;输入缓存的时间为1f<br />
+<br />
+[Command]<br />
+name = "x";手操指令名称为"x"<br />
+command = x;需要按下的按键是：x<br />
+time = 1;需要在这规定时间（1f）内完成输入<br />
+<br />
+其模板为：<br />
+<br />
+[Command]<br />
+name = "XXX"<br />
+command = X(, Y, Z, ....)<br />
+time = XXX;（可选参数，单位为帧，默认为15）<br />
+buffer.time = XXX;（可选参数，单位为帧，默认为1）<br />
+<br />
+最后注意一下command的最大数量为128个...注意超过之后会报错...<br />
+<br />
+--------------------------------------------------<br />
+切换相关状态部分用于接收到手操指令后决定人物切换到什么状态，全部写在[statedef -1]以下。<br />
+[statedef -1]我们在第2章已经提及过，每帧执行一次看看有没有适合的手操指令，并且切换到相关状态。<br />
+其语法即第3章提及的与St和Stcommon相同的写法（sctrl和trigger）。<br />
+不过这些sctrl都有相同的特点，也就是trigger里面都有一条写着要由手操指令来触发：<br />
+<br />
+[State -1, XXX]<br />
+...<br />
+triggerall = command = "XXX"<br />
+...<br />
+<br />
+最后要注意一下如果command A（例如"x"）是command B（例如"236x"）的子集的话，记得要把command B的sctrl放在command A的<br />
+前面，否则会因为command A的切换状态被优先读到而触发令command B的切换状态一直不能被触发。<br />
+（这个其实是人物制作的小技巧，不过AI里面也会有涉及，在第7章会详细讨论）<br />
+</p>
+
+<p>
+==================================================<br />
+<span class="STYLE2">5.3AI开关</span><br />
+==================================================<br />
+<br />
+--------------------------------------------------<br />
+AI开关是一个用于判断AI是否开启的Var。<br />
+通过判断Var是否为0来辨别现在正处于手操控制还是AI控制，是Var最简单的用法之一。<br />
+通常来说作者们喜欢用Var(59)作为AI开关（虽然不是强制要求但是可以说是大家默认的潜规则）。<br />
+在AI开关还可以调整AI等级，给Var赋予不同的值，通过判断Var值的大小来辨别现在正在使用什么等级的AI。<br />
+<br />
+例子（设定AI为5）：<br />
+<br />
+[State -1]<br />
+type = Varset<br />
+trigger1 = ...;相关条件<br />
+V = 59;假设选择Var(59)作为AI开关<br />
+value = 5;5级AI，共有多少个等级由作者自己决定<br />
+<br />
+--------------------------------------------------<br />
+可能有读者会问：只有这么一个简单的Var赋值就可以让AI动起来吗？<br />
+当然不是了，设定好AI开关只是写AI的最开始一步而已。<br />
+在以后写AI语句的时候，都要补充上一句类似于triggerall = Var(59)的条件来让电脑知道，下面的代码是当AI开关打开的时候才<br />
+运作。<br />
+如果是有AI等级的话，则是使用类似于Var(59) = X的表达式。<br />
+<br />
+用回第3章的例子：<br />
+<br />
+;Stand Light Punch<br />
+[State -1, Stand Light Punch]<br />
+type = ChangeState<br />
+value = 200<br />
+triggerall = Var(59) > 2;AI等级大于2的时候才会触发<br />
+trigger1 = stateno = 200;状态号为200<br />
+trigger1 = time > 6;时间大于6<br />
+<br />
+上面这个就是AI等级要大于2才会触发的例子，只要一旦出站轻拳就会鬼畜重复。<br />
+这就是识别自己AI开关是否开启的办法，至于详细AI的内容我们日后再谈。<br />
+<br />
+--------------------------------------------------<br />
+在上面例子中，笔者仅介绍了如何设置AI开关，但是AI开关的具体条件没有讲。<br />
+在这个地方出现了一个难点——就是如何区分出手操和AI操作。<br />
+毕竟格斗游戏是用手来玩的，通常希望AI在适当的时候才接管控制权。<br />
+Mugen里面没有直接鉴别是否手操，为此作者们想出了不同类型的开关来解决这个问题，例如设计出人类按键输入做不到的事情，<br />
+一旦这种事情发生了，我们就知道控制的应该是AI而不是玩家了。<br />
+各种开关的区别主要在于启动速度和正确率，下文也会围绕这两点讨论各种AI开关。<br />
+<br />
+--------------------------------------------------<br />
+<span class="STYLE3">5.3.1常时AI开关</span><br />
+--------------------------------------------------<br />
+<br />
+最简单的一种AI开关。不管是手操还是AI操作直接常时打开AI开关。<br />
+常时AI开关实例：<br />
+<br />
+;下面一段放到[Statedef -1]或[Statedef -3]下面<br />
+;--------------------------------------------------<br />
+[State -1]<br />
+type = Varset<br />
+trigger1 = 1<br />
+V = 59<br />
+value = 1<br />
+<br />
+优点：因为常时启动，不用考虑启动慢的问题<br />
+缺点：希望手操时依然停不下来...<br />
+<br />
+--------------------------------------------------<br />
+<span class="STYLE3">5.3.2Cmd乱数启动型AI开关</span><br />
+--------------------------------------------------<br />
+<br />
+较为简单的一种AI开关。<br />
+Mugen.cfg内有项参数叫做AI.cheat，默认为1。<br />
+其作用是即使电脑没有确实按到整套手操指令也可以用类似作弊的方法强制发动一个手操指令。<br />
+我们可以利用这一点来作为辨别是否手操。<br />
+AI作者在Cmd文件里的手操指令定义加入多个人类不可能完成的command，比较常用的是要在0f以内输入几个带有重复按键的指令。<br />
+因为就算是打寒颤的情况人类的手抖速度也不可能在六十分之一秒里面完成多次重复输入（交流电也就50Hz而已人怎可可能有这么<br />
+鬼畜...），所以可以认定并非玩家在操作。<br />
+而AI.cheat拥有无论多难的手操指令都有可能直接强制发动的特性，所以依旧可以输入看似不可能完成的指令。<br />
+Cmd乱数启动型AI开关实例：<br />
+<br />
+;下面一段放到Cmd文件的手操指令定义部分<br />
+;--------------------------------------------------<br />
+[Command]<br />
+name = "AI0"<br />
+command = a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a<br />
+time = 0<br />
+[Command]<br />
+name = "AI1"<br />
+command = b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b<br />
+time = 0<br />
+[Command]<br />
+name = "AI2"<br />
+command = c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c<br />
+time = 0<br />
+[Command]<br />
+name = "AI3"<br />
+command = x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x<br />
+time = 0<br />
+[Command]<br />
+name = "AI4"<br />
+command = y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y<br />
+time = 0<br />
+[Command]<br />
+name = "AI5"<br />
+command = z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z<br />
+time = 0<br />
+[Command]<br />
+name = "AI6"<br />
+command = s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s<br />
+time = 0<br />
+[Command]<br />
+name = "AI7"<br />
+command = F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F<br />
+time = 0<br />
+[Command]<br />
+name = "AI8"<br />
+command = D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D<br />
+time = 0<br />
+[Command]<br />
+name = "AI9"<br />
+command = B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B<br />
+time = 0<br />
+[Command]<br />
+name = "AI10"<br />
+command = U,U,U,U,U,U,U,U,U,U,U,U,U,U,U,U,U,U,U<br />
+time = 0<br />
+[Command]<br />
+name = "AI11"<br />
+command = a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a<br />
+time = 0<br />
+[Command]<br />
+name = "AI12"<br />
+command = c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c<br />
+time = 0<br />
+[Command]<br />
+name = "AI13"<br />
+command = x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x<br />
+time = 0<br />
+[Command]<br />
+name = "AI14"<br />
+command = y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y<br />
+time = 0<br />
+[Command]<br />
+name = "AI15"<br />
+command = z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z<br />
+time = 0<br />
+[Command]<br />
+name = "AI16"<br />
+command = s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s<br />
+time = 0<br />
+[Command]<br />
+name = "AI17"<br />
+command = a,B,c,x,y,z,s,B,D,F,U,a,b,c,x,y,z,s,s<br />
+time = 0<br />
+[Command]<br />
+name = "AI18"<br />
+command = a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a<br />
+time = 0<br />
+[Command]<br />
+name = "AI19"<br />
+command = b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b,b<br />
+time = 0<br />
+[Command]<br />
+name = "AI20"<br />
+command = c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c<br />
+time = 0<br />
+[Command]<br />
+name = "AI21"<br />
+command = x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x<br />
+time = 0<br />
+[Command]<br />
+name = "AI22"<br />
+command = y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y<br />
+time = 0<br />
+[Command]<br />
+name = "AI23"<br />
+command = z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z<br />
+time = 0<br />
+[Command]<br />
+name = "AI24"<br />
+command = s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s<br />
+time = 0<br />
+[Command]<br />
+name = "AI25"<br />
+command = F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F,F<br />
+time = 0<br />
+[Command]<br />
+name = "AI26"<br />
+command = D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D,D<br />
+time = 0<br />
+[Command]<br />
+name = "AI27"<br />
+command = B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B,B<br />
+time = 0<br />
+[Command]<br />
+name = "AI28"<br />
+command = U,U,U,U,U,U,U,U,U,U,U,U,U,U,U,U,U,U,U<br />
+time = 0<br />
+[Command]<br />
+name = "AI29"<br />
+command = a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a<br />
+time = 0<br />
+[Command]<br />
+name = "AI30"<br />
+command = c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c,c<br />
+time = 0<br />
+[Command]<br />
+name = "AI31"<br />
+command = x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x,x<br />
+time = 0<br />
+[Command]<br />
+name = "AI32"<br />
+command = y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y,y<br />
+time = 0<br />
+[Command]<br />
+name = "AI33"<br />
+command = z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z<br />
+time = 0<br />
+[Command]<br />
+name = "AI34"<br />
+command = s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s,s<br />
+time = 0<br />
+[Command]<br />
+name = "AI35"<br />
+command = z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z<br />
+time = 0<br />
+[Command]<br />
+name = "AI36"<br />
+command = z,z,z,z,z,z,a,a,a,z,z,z,z,z,z,z,z,z,z<br />
+time = 0<br />
+[Command]<br />
+name = "AI37"<br />
+command = z,a,a,a,a,a,a,a,a,a,a,a,a,a,a,a,z,z,z<br />
+time = 0<br />
+[Command]<br />
+name = "AI38"<br />
+command = z,z,z,z,z,a,a,a,z,z,z,z,z,a,a,a,z,z,z<br />
+time = 0<br />
+[Command]<br />
+name = "AI39"<br />
+command = z,z,z,z,z,a,a,a,z,z,z,z,z,z,a,a,z,z,z<br />
+time = 0<br />
+[Command]<br />
+name = "AI40"<br />
+command = z,z,z,z,a,a,a,z,z,z,z,a,z,z,a,a,z,z,z<br />
+time = 0<br />
+[Command]<br />
+name = "AI41"<br />
+command = z,z,z,a,z,z,z,z,z,z,z,z,z,a,a,z,z,z,z<br />
+time = 0<br />
+[Command]<br />
+name = "AI42"<br />
+command = z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z<br />
+time = 0<br />
+[Command]<br />
+name = "AI43"<br />
+command = z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,z,a,a,z<br />
+time = 0<br />
+[Command]<br />
+name = "AI44"<br />
+command = z,z,a,a,a,a,z,z,z,z,z,z,z,z,z,a,a,a,z<br />
+time = 0<br />
+[Command]<br />
+name = "AI45"<br />
+command = z,z,z,z,z,z,a,a,z,z,z,z,z,a,a,a,a,z,z<br />
+time = 0<br />
+[Command]<br />
+name = "AI46"<br />
+command = z,z,z,z,z,z,z,z,a,a,a,a,a,a,z,z,z,z,z<br />
+time = 0<br />
+[Command]<br />
+name = "AI47"<br />
+command = z,z,z,a,a,a,a,z,z,z,z,z,z,z,z,z,z,z,z<br />
+time = 0<br />
+[Command]<br />
+name = "AI48"<br />
+command = z,z,z,z,z,a,a,a,z,z,z,a,a,a,z,z,a,z,a<br />
+time = 0<br />
+[Command]<br />
+name = "AI49"<br />
+command = z,z,z,z,a,a,a,z,z,z,z,z,a,a,a,z,z,z,z<br />
+time = 0<br />
+[Command]<br />
+name = "AI50"<br />
+command = z,z,z,a,a,z,z,z,z,z,z,z,z,z,a,a,z,z,z<br />
+time = 0<br />
+<br />
+;下面一段放到[Statedef -1]或[Statedef -3]下面<br />
+;--------------------------------------------------<br />
+[State -3, AIフラグセット]<br />
+type = VarSet<br />
+triggerall = !var(59)<br />
+triggerall = RoundState = [1,2]<br />
+trigger1 = Command = "AI0"<br />
+trigger2 = Command = "AI1"<br />
+trigger3 = Command = "AI2"<br />
+trigger4 = Command = "AI3"<br />
+trigger5 = Command = "AI4"<br />
+trigger6 = Command = "AI5"<br />
+trigger7 = Command = "AI6"<br />
+trigger8 = Command = "AI7"<br />
+trigger9 = Command = "AI8"<br />
+trigger10 = Command = "AI9"<br />
+trigger11 = Command = "AI10"<br />
+trigger12 = Command = "AI11"<br />
+trigger13 = Command = "AI12"<br />
+trigger14 = Command = "AI13"<br />
+trigger15 = Command = "AI14"<br />
+trigger16 = Command = "AI15"<br />
+trigger17 = Command = "AI16"<br />
+trigger18 = Command = "AI17"<br />
+trigger19 = Command = "AI18"<br />
+trigger20 = Command = "AI19"<br />
+trigger21 = Command = "AI20"<br />
+trigger22 = Command = "AI21"<br />
+trigger23 = Command = "AI22"<br />
+trigger24 = Command = "AI23"<br />
+trigger25 = Command = "AI24"<br />
+trigger26 = Command = "AI25"<br />
+trigger27 = Command = "AI26"<br />
+trigger28 = Command = "AI27"<br />
+trigger29 = Command = "AI28"<br />
+trigger30 = Command = "AI29"<br />
+trigger31 = Command = "AI30"<br />
+trigger32 = Command = "AI31"<br />
+trigger33 = Command = "AI32"<br />
+trigger34 = Command = "AI33"<br />
+trigger35 = Command = "AI34"<br />
+trigger36 = Command = "AI35"<br />
+trigger37 = Command = "AI36"<br />
+trigger38 = Command = "AI37"<br />
+trigger39 = Command = "AI38"<br />
+trigger40 = Command = "AI39"<br />
+trigger41 = Command = "AI40"<br />
+trigger42 = Command = "AI41"<br />
+trigger43 = Command = "AI42"<br />
+trigger44 = Command = "AI43"<br />
+trigger45 = Command = "AI44"<br />
+trigger46 = Command = "AI45"<br />
+trigger47 = Command = "AI46"<br />
+trigger48 = Command = "AI47"<br />
+trigger49 = Command = "AI48"<br />
+trigger50 = Command = "AI49"<br />
+trigger51 = Command = "AI50"<br />
+var(59) = 1<br />
+<br />
+优点：误触发率低<br />
+缺点：启动速度慢（因为不知道AI何时才会碰巧执行你写的command...可以说是碰运气），需要新增较多command（数量越多效果越<br />
+好），AI.cheat需要打开（默认打开）<br />
+<br />
+--------------------------------------------------<br />
+<span class="STYLE3">5.3.3Helper型AI开关</span><br />
+--------------------------------------------------<br />
+<br />
+此开关需要创建一个可以接受手操指令（keyctrl = 1）的Helper。<br />
+在手操时，玩家输入手操指令，人物本体和创建的Helper会同时接收到玩家的指令；<br />
+但若是AI操作的情况，AI可以做到单独触发人物本体的command但是不触发Helper的command。<br />
+一旦遇到人物本体的command和Helper的command不一致的情况，便可以察觉出并非玩家在操作。<br />
+注意使用时最好不要跳开场（跳开场会增大误触发的几率）。<br />
+（下面的例子直接复制被广泛使用的平成氏AI教程里面的AI开关...呃...其实删了一个ctrl）<br />
+Helper型AI开关实例：<br />
+<br />
+;下面一段放到[Statedef -1]或[Statedef -3]下面<br />
+;--------------------------------------------------<br />
+[State -3, 创建AI启动用Helper]<br />
+type=helper<br />
+trigger1=!NumHelper(10000)<br />
+trigger1=roundstate=2<br />
+trigger1=alive<br />
+trigger1=var(59)=0<br />
+Trigger1=PrevStateNo=(开场前状态号)||PrevStateNo=5900<br />
+Trigger1=stateno=0<br />
+helpertype=normal<br />
+name="AI"<br />
+stateno=10000<br />
+ID=10000<br />
+pos=9999,9999<br />
+keyctrl=1;令Helper接受手操指令<br />
+pausemovetime=2147483647<br />
+supermovetime=2147483647<br />
+persistent = 0<br />
+<br />
+[State -3, Helper持续保持在状态10000]<br />
+type=changestate<br />
+trigger1= ishelper(10000)<br />
+trigger1= stateno!=10000<br />
+value=10000<br />
+<br />
+[State -3, AIフラグセット]<br />
+type = VarSet<br />
+triggerall = !var(59)<br />
+triggerall = RoundState = [1,2]<br />
+Trigger1 = Helper(10000),var(59);Helper里面的开关打开时，本体AI开关打开<br />
+var(59) = 1<br />
+<br />
+;下面五段放到St文件里任意一个合适的地方<br />
+;--------------------------------------------------<br />
+[Statedef 10000];Helper的状态定义<br />
+anim=10000 ;请保证修改Air文件使得存在一个动画（例如10000）是无任何框的空白动画<br />
+ctrl=0<br />
+<br />
+[State 10000, 如果本体错误跳进状态10000就切换回站姿]<br />
+type=selfstate<br />
+trigger1=!ishelper<br />
+value=0<br />
+<br />
+[State 10000, 人物本体和Helper的command相同时返回赋值Var(59)为-1]<br />
+type=varset<br />
+trigger1=command="up"&&root,command="up"<br />
+trigger2=command="down"&&root,command="down"<br />
+trigger3=command="back"&&root,command="back"<br />
+trigger4=command="fwd"&&root,command="fwd"<br />
+trigger5=command="a"&&root,command="a"<br />
+trigger6=command="b"&&root,command="b"<br />
+trigger7=command="c"&&root,command="c"<br />
+trigger8=command="x"&&root,command="x"<br />
+trigger9=command="y"&&root,command="y"<br />
+trigger10=command="z"&&root,command="z"<br />
+trigger11=command="start"&&root,command="start"<br />
+var(59)=-1<br />
+<br />
+[State 10000, AI已开启或者人物本体和Helper的command相同时销毁Helper]<br />
+Type = DestroySelf<br />
+triggerAll = isHelper<br />
+Trigger1 = root,var(59)||var(59)=-1<br />
+trigger2=command="up"&&root,command="up"<br />
+trigger3=command="down"&&root,command="down"<br />
+trigger4=command="back"&&root,command="back"<br />
+trigger5=command="fwd"&&root,command="fwd"<br />
+trigger6=command="a"&&root,command="a"<br />
+trigger7=command="b"&&root,command="b"<br />
+trigger8=command="c"&&root,command="c"<br />
+trigger9=command="x"&&root,command="x"<br />
+trigger10=command="y"&&root,command="y"<br />
+trigger11=command="z"&&root,command="z"<br />
+trigger12=command="start"&&root,command="start"<br />
+<br />
+[State 10000, 当Helper的Var(59)不为-1（意味着两者command没有相同的）而且本体有command时打开AI开关]<br />
+type=varset<br />
+triggerall=var(59)!=-1<br />
+trigger1=root,command="up"<br />
+trigger2=root,command="down"<br />
+trigger3=root,command="back"<br />
+trigger4=root,command="fwd"<br />
+trigger5=root,command="a"<br />
+trigger6=root,command="b"<br />
+trigger7=root,command="c"<br />
+trigger8=root,command="x"<br />
+trigger9=root,command="y"<br />
+trigger10=root,command="z"<br />
+trigger11=root,command="start"<br />
+var(59)=1<br />
+<br />
+优点：启动速度快<br />
+缺点：误触发率较高，需要占用一个Helper<br />
+<br />
+--------------------------------------------------<br />
+<span class="STYLE3">5.3.4XOR型AI开关</span><br />
+--------------------------------------------------<br />
+<br />
+此AI开关与Cmd乱数启动型AI开关比较类似，无论是对AI.cheat的依赖还是两种AI开关的优缺点。<br />
+XOR即是异或运算符，A ^^ B，AB只有一个为真才为真，否则为假。<br />
+此开关需要创建多个与原来已经存在的手操指令重复的手操指令（例如名为"x"和"x2"的两个指令都是按x键）。<br />
+在手操时，玩家输入手操指令，两个要求相同输入的command会被同时鉴别为真；<br />
+但若是AI操作的情况，AI可以做到单独发动其中一个command。<br />
+一旦遇到只发动其中一个command的情况，便可以察觉出并非玩家在操作。<br />
+（下面的例子直接引用鱼姐（muigoloroh）在tieba.baidu.com/p/1440470506的实例）<br />
+XOR型AI开关实例：<br />
+<br />
+;下面一段放到Cmd文件的手操指令定义部分<br />
+;--------------------------------------------------<br />
+[Command]<br />
+name = "a2"<br />
+command = a<br />
+time = 1<br />
+[Command]<br />
+name = "b2"<br />
+command = b<br />
+time = 1<br />
+[Command]<br />
+name = "c2"<br />
+command = c<br />
+time = 1<br />
+[Command]<br />
+name = "x2"<br />
+command = x<br />
+time = 1<br />
+[Command]<br />
+name = "y2"<br />
+command = y<br />
+time = 1<br />
+[Command]<br />
+name = "z2"<br />
+command = z<br />
+time = 1<br />
+[Command]<br />
+name = "start2"<br />
+command = s<br />
+time = 1<br />
+[Command]<br />
+name = "holdfwd2"<br />
+command = /$F<br />
+time = 1<br />
+[Command]<br />
+name = "holdback2"<br />
+command = /$B<br />
+time = 1<br />
+[Command]<br />
+name = "holdup2"<br />
+command = /$U<br />
+time = 1<br />
+[Command]<br />
+name = "holddown2"<br />
+command = /$D<br />
+time = 1<br />
+<br />
+;下面一段放到[Statedef -1]或[Statedef -3]下面<br />
+;--------------------------------------------------<br />
+[State -1, XOR AI开关]<br />
+type = VarSet<br />
+triggerall = var(59) = 0 && !hitpausetime<br />
+trigger1 = command = "a" ^^ command = "a2"<br />
+trigger2 = command = "b" ^^ command = "b2"<br />
+trigger3 = command = "c" ^^ command = "c2"<br />
+trigger4 = command = "x" ^^ command = "x2"<br />
+trigger5 = command = "y" ^^ command = "y2"<br />
+trigger6 = command = "z" ^^ command = "z2"<br />
+trigger7 = command = "holdfwd" ^^ command = "holdfwd2"<br />
+trigger8 = command = "holdback" ^^ command = "holdback2"<br />
+trigger9 = command = "holdup" ^^ command = "holdup2"<br />
+trigger10 = command = "holddown" ^^ command = "holddown2"<br />
+trigger11 = command = "start" ^^ command = "start2"<br />
+var(59) = 1<br />
+<br />
+优点：误触发率低<br />
+缺点：启动速度慢（因为不知道AI何时才会碰巧执行你写的command...可以说是碰运气），需要新增较多command（数量越多效果越<br />
+好），AI.cheat需要打开（默认打开）<br />
+<br />
+--------------------------------------------------<br />
+<span class="STYLE3">5.3.5AILevel型AI开关</span><br />
+--------------------------------------------------<br />
+<br />
+1.0及以上的版本Mugen新增了一个trigger——AILevel。<br />
+当AI控制的时候，AILevel返回option里面设置的难度（1~8）；而玩家控制的时候，会因为不是AI控制而返回0。<br />
+自此，AI开关问题被新增的内容完美解决。AI作者不必再为AI开关的准确性和速度而纠结。<br />
+AILevel型AI开关实例：<br />
+<br />
+;下面一段放到[Statedef -1]或[Statedef -3]下面<br />
+;--------------------------------------------------<br />
+[State -1]<br />
+type = Varset<br />
+trigger1 = AILevel<br />
+V = 59<br />
+value = 1<br />
+<br />
+优点：必定以最快速度准确地启动AI<br />
+缺点：仅能在1.0或以上的专用人物使用（1.0+大法好，退Win保平安...这不是缺点是优点你懂吗！）<br />
+</p>
+
+<p>
+==================================================<br />
+<span class="STYLE2">5.4手操指令修改</span><br />
+==================================================<br />
+<br />
+--------------------------------------------------<br />
+当人物处于非手操场合，Mugen里面有自带的脸滚键盘式（如k87uy6ttfr4567yu8rgtf54...啊，脸好痛）的随机按键，<br />
+而Cmd文件里面切换相关状态部分会根据command切换状态。<br />
+那么问题来了，AI技术哪家强...不对...重新来一遍。<br />
+那么问题来了，Mugen的随机按键会随机触发Cmd里面的状态切换，<br />
+那么人物将会在我们控制之外随机做不同的动作，但是这种乱出招并不是我们所希望看到的。<br />
+于是，我们既然设好了AI开关，紧跟着就要修改相关的sctrl，使得他们在AI开启的情况下不再乱动。<br />
+<br />
+用回第3章的例子：<br />
+<br />
+;Stand Light Punch<br />
+[State -1, Stand Light Punch]<br />
+type = ChangeState<br />
+value = 200<br />
+triggerall = !Var(59);只有Var(59)为0，也就是AI开关关闭的时候才能用手操触发<br />
+triggerall = command = "x"<br />
+triggerall = command != "holddown"<br />
+trigger1 = statetype = S<br />
+trigger1 = ctrl<br />
+trigger2 = stateno = 200<br />
+trigger2 = time > 6<br />
+<br />
+在前面加上triggerall = !Var(59)即可。所有带有command的sctrl都需要加上限制以免被随机按键触发。<br />
+另外，带有command的sctrl绝大多数情况出现在Cmd文件里面，但是在其他文件例如St和Stcommon文件里面同样可能存在不少带有<br />
+command的sctrl。以下这段是在kfm.cns里面出现的sctrl：<br />
+<br />
+;------------------<br />
+; Light Kung Fu Knee - jump<br />
+...<br />
+[Statedef 1051]<br />
+...<br />
+[State 1051, 2]<br />
+type = ChangeState<br />
+trigger1 = Command = "a" || Command = "b"<br />
+trigger1 = Vel y < -1<br />
+value = 1055<br />
+<br />
+跟Cmd文件的处理方式一样，加上一条triggerall = !Var(59)即可。<br />
+<br />
+--------------------------------------------------<br />
+在所有带有command的sctrl前加完了triggerall = !Var(59)...这样总算是告一段落了......唉？还没完事？<br />
+没错，除了带有command的sctrl以外，Mugen里面还存在内置的隐性的用手操指令切换状态，<br />
+例如下蹲（Stateno 10）、走动（Stateno 20）和跳跃（Stateno 40）。<br />
+理论上来说，人物只要处于可控状态（例如站姿），按下会下蹲，按前后会走动，按上会跳跃。<br />
+但是无论在什么地方，我们都找不到这些状态是如何切换的，这情况相当难处理。<br />
+当然，AI作者们已经早已解决了这个难题，具体解决方法较麻烦，所以在第8章我们再慢慢讨论解决方案。<br />
+</p>
+
+<p>
+==================================================<br />
+<span class="STYLE2">课后作业：</span><br />
+<br />
+1.<br />
+为什么Cmd乱数启动型AI开关与XOR型AI开关新增command数量越多效果越好？<br />
+<br />
+2.<br />
+以上谈及的3种AI开关——Cmd乱数启动型AI开关、Helper型AI开关和XOR型AI开关，是否可以混合使用？为什么？<br />
+</p>
+
+<p></p>
+</body>
+</html>
