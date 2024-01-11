@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>¼òµ¥¾ÙÀı</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   ç®€å•ä¸¾ä¾‹
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,64 +23,116 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">¼òµ¥¾ÙÀı</p>
-<p>¼ÙÉèÎÒÃÇÒª´´½¨Ò»¸ö´Ó(-300,0)µ½(300,0)À´»Ø×ß¶¯µÄÈË,ÕıºÃÔÚÖ÷ÈËÎïµÄºóÃæ.<br />
-ÎÒÃÇ½«Ê¹ÓÃ±³¾°¿ØÖÆÆ÷À´´òµ½Ä¿µÄ.</p>
-<p>Ê×ÏÈ¶¨ÒåĞĞ×ß¶¯»­.ÈËÎïµÄĞĞ×ßÍ¼ÏñÊÇ´Ó10,0µ½10,3,³¯ÓÒ.</p>
-<ul>
-  <li>; Walk right<br />
-    [Begin Action 10]<br />
-    10,0,0,0,6<br />
-    10,1,0,0,6<br />
-    10,2,0,0,6<br />
-    10,3,0,0,6<br />
-    <br />
-    ; Walk left<br />
-  [Begin Action 11]<br />
-  10,0,0,0,6,H<br />
-  10,1,0,0,6,H<br />
-  10,2,0,0,6,H<br />
-  10,3,0,0,6,H<br />
-  </li>
-</ul>
-<p>ÏÖÔÚ°ÑÕâ¸ö½ÇÉ«·ÅÖÃÔÚËû·¶Î§µÄ×ó±ßÔµ.</p>
-<ul>
-  <li>[BGDef]<br />
-    (...)<br />
-    <br />
-    [BG Peregrinator]<br />
-  type = anim<br />
-  actionno = 10<br />
-  id = 10<br />
-  start = -300, 0<br />
-  delta = 1,1<br />
-  </li>
-</ul>
-<p>ÉèÖÃËÙ¶ÈÎªÃ¿Ö¡2ÏñËØ.µ¥³ÌÊÇ600ÏñËØ,ËùÒÔÒªÓÃÈ¥300Ö¡.ËùÒÔ,Ò»¸öÀ´»ØÒª600Ö¡.<br />
-ÔËÓÃÕâ¸öÖªÊ¶,ÊÊµ±µÄÉèÖÃ±³¾°¿ØÖÆÆ÷:ÒòÎªÃ¿600Ö¡ÖØ¸´Õâ¸öÇé¿ö,ÎÒÃÇÉèÖÃÈ«¾ÖÑ­»·Ê±¼äÎª600.</p>
-<ul>
-  <li>[BGCtrlDef Peregrinator]<br />
-    ; reset the whole deal every 600 ticks.<br />
-    looptime = 600<br />
-    ctrlID = 10<br />
-    <br />
-    ; Set velocity of 2 pixels/sec rightward at time 0.<br />
-  [BGCtrl Walk Right]<br />
-  type = VelSet<br />
-  time = 0<br />
-  x = 2<br />
-  <br />
-  ; Set velocity of 2 pixels/sec leftward at time 300.<br />
-  [BGCtrl Walk Left]<br />
-  type = VelSet<br />
-  time = 300<br />
-  x = -2<br />
-  </li>
-</ul>
-<p>Íê³É!Èç¹ûÄÜÊ¹ÈËÎïÔÚ×ßµ½¾¡Í·Ê±ËÙ¶È·Å»ºÍ¬Ê±ÏÔÊ¾Ò»¸ö×ªÉíµÄ¶¯×÷ÄÇ¾Í¿´ÆğÀ´¸üºÃÁË.ÕâÒªÓÃµ½VelAddºÍAnim¿ØÖÆÆ÷<br />
-Èç¹ûÒªÈËÎï¶¨ÆÚÍ£Ö¹,Æô¶¯.ÄãĞèÒª´´½¨¸ü¶àµÄvelset,anim¿ØÖÆÆ÷,ÉèÖÃµ¥¶ÀµÄÑ­»·Ê±¼ä.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   ç®€å•ä¸¾ä¾‹
+  </p>
+  <p>
+   å‡è®¾æˆ‘ä»¬è¦åˆ›å»ºä¸€ä¸ªä»(-300,0)åˆ°(300,0)æ¥å›èµ°åŠ¨çš„äºº,æ­£å¥½åœ¨ä¸»äººç‰©çš„åé¢.
+   <br/>
+   æˆ‘ä»¬å°†ä½¿ç”¨èƒŒæ™¯æ§åˆ¶å™¨æ¥æ‰“åˆ°ç›®çš„.
+  </p>
+  <p>
+   é¦–å…ˆå®šä¹‰è¡Œèµ°åŠ¨ç”».äººç‰©çš„è¡Œèµ°å›¾åƒæ˜¯ä»10,0åˆ°10,3,æœå³.
+  </p>
+  <ul>
+   <li>
+    ; Walk right
+    <br/>
+    [Begin Action 10]
+    <br/>
+    10,0,0,0,6
+    <br/>
+    10,1,0,0,6
+    <br/>
+    10,2,0,0,6
+    <br/>
+    10,3,0,0,6
+    <br/>
+    <br/>
+    ; Walk left
+    <br/>
+    [Begin Action 11]
+    <br/>
+    10,0,0,0,6,H
+    <br/>
+    10,1,0,0,6,H
+    <br/>
+    10,2,0,0,6,H
+    <br/>
+    10,3,0,0,6,H
+    <br/>
+   </li>
+  </ul>
+  <p>
+   ç°åœ¨æŠŠè¿™ä¸ªè§’è‰²æ”¾ç½®åœ¨ä»–èŒƒå›´çš„å·¦è¾¹ç¼˜.
+  </p>
+  <ul>
+   <li>
+    [BGDef]
+    <br/>
+    (...)
+    <br/>
+    <br/>
+    [BG Peregrinator]
+    <br/>
+    type = anim
+    <br/>
+    actionno = 10
+    <br/>
+    id = 10
+    <br/>
+    start = -300, 0
+    <br/>
+    delta = 1,1
+    <br/>
+   </li>
+  </ul>
+  <p>
+   è®¾ç½®é€Ÿåº¦ä¸ºæ¯å¸§2åƒç´ .å•ç¨‹æ˜¯600åƒç´ ,æ‰€ä»¥è¦ç”¨å»300å¸§.æ‰€ä»¥,ä¸€ä¸ªæ¥å›è¦600å¸§.
+   <br/>
+   è¿ç”¨è¿™ä¸ªçŸ¥è¯†,é€‚å½“çš„è®¾ç½®èƒŒæ™¯æ§åˆ¶å™¨:å› ä¸ºæ¯600å¸§é‡å¤è¿™ä¸ªæƒ…å†µ,æˆ‘ä»¬è®¾ç½®å…¨å±€å¾ªç¯æ—¶é—´ä¸º600.
+  </p>
+  <ul>
+   <li>
+    [BGCtrlDef Peregrinator]
+    <br/>
+    ; reset the whole deal every 600 ticks.
+    <br/>
+    looptime = 600
+    <br/>
+    ctrlID = 10
+    <br/>
+    <br/>
+    ; Set velocity of 2 pixels/sec rightward at time 0.
+    <br/>
+    [BGCtrl Walk Right]
+    <br/>
+    type = VelSet
+    <br/>
+    time = 0
+    <br/>
+    x = 2
+    <br/>
+    <br/>
+    ; Set velocity of 2 pixels/sec leftward at time 300.
+    <br/>
+    [BGCtrl Walk Left]
+    <br/>
+    type = VelSet
+    <br/>
+    time = 300
+    <br/>
+    x = -2
+    <br/>
+   </li>
+  </ul>
+  <p>
+   å®Œæˆ!å¦‚æœèƒ½ä½¿äººç‰©åœ¨èµ°åˆ°å°½å¤´æ—¶é€Ÿåº¦æ”¾ç¼“åŒæ—¶æ˜¾ç¤ºä¸€ä¸ªè½¬èº«çš„åŠ¨ä½œé‚£å°±çœ‹èµ·æ¥æ›´å¥½äº†.è¿™è¦ç”¨åˆ°VelAddå’ŒAnimæ§åˆ¶å™¨
+   <br/>
+   å¦‚æœè¦äººç‰©å®šæœŸåœæ­¢,å¯åŠ¨.ä½ éœ€è¦åˆ›å»ºæ›´å¤šçš„velset,animæ§åˆ¶å™¨,è®¾ç½®å•ç‹¬çš„å¾ªç¯æ—¶é—´.
+  </p>
+ </body>
 </html>

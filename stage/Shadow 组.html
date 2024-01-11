@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>Shadow ��</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   Shadow 组
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,25 +23,58 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">Shadow ��</p>
-<p><span class="STYLE3">intensity = darkness_val ;(��ѡ) (����)</span><br />
-������Ӱ��ɫ��.��Ч��ȡֵ��Χ�Ǵ�0(����)��256(�).ȱʡĬ����128.</p>
-<p><span class="STYLE3">color = r,g,b ;(��ѡ) (���Ƽ����������)</span><br />
-  1.1�汾��ʼ�˲�����������.</p>
-<p><span class="STYLE3">yscale = scale_y ;(��ѡ) (������) </span><br />
-  ��Ӱ�Ĵ�ֱ����ϵ��.scale_y��ֵԽ��ʹ����ӰԽ��.<br />
-  ��������scale_yΪ��ֵʹӰ��������ҵ���һ��.ȱʡĬ����0.4.</p>
-<p><span class="STYLE3">fade.range = top_y, bot_y ;(��ѡ) (����,����)</span><br />
-  �˲���������Ӱ�Ŀɼ��ȷ�Χ.<br />
-  ��������һ����Ӱ�ɼ��Ƚ���Ч���������Զ�����.<br />
-  ��1��ֵ������ˮƽ��,��2�����ж�ˮƽ��.��������ҵ�y����.<br />
-  ������������ˮƽ�ߵ��Ϸ�������Ӱ�ӽ����ɼ�,������ж�ˮƽ�ߵ��·�����ȫ�ɼ�.<br />
-  ��Ӱ��������֮�佥��.ȱʡĬ��û��Ч��(Ӱ��������ȫ�ɼ�).<br />
-ע��y����ֵ�Ǹ���,TOP_YӦ��С��BOT_Y.</p>
-<p><span class="STYLE3">xshear = shear ;(��ѡ) (������)</span><br />
-  ָ���ṩ��Ӱ�ӵ�ˮƽ�б�(�任)����.��ֵʹӰ����Ļ������б�.Ĭ����0.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   Shadow 组
+  </p>
+  <p>
+   <span class="STYLE3">
+    intensity = darkness_val ;(可选) (整型)
+   </span>
+   <br/>
+   控制阴影的色深.有效的取值范围是从0(最亮)到256(最暗).缺省默认是128.
+  </p>
+  <p>
+   <span class="STYLE3">
+    color = r,g,b ;(可选) (不推荐用这个参数)
+   </span>
+   <br/>
+   1.1版本开始此参数将被忽略.
+  </p>
+  <p>
+   <span class="STYLE3">
+    yscale = scale_y ;(可选) (浮点型)
+   </span>
+   <br/>
+   阴影的垂直缩放系数.scale_y的值越大使得阴影越长.
+   <br/>
+   你能设置scale_y为负值使影子落在玩家的另一边.缺省默认是0.4.
+  </p>
+  <p>
+   <span class="STYLE3">
+    fade.range = top_y, bot_y ;(可选) (整型,整型)
+   </span>
+   <br/>
+   此参数设置阴影的可见度范围.
+   <br/>
+   用来创建一个阴影可见度渐变效果就像玩家远离地面.
+   <br/>
+   第1个值是上限水平线,第2个是中段水平线.都代表玩家的y坐标.
+   <br/>
+   如果玩家在上限水平线的上方则他的影子将不可见,如果在中段水平线的下方将完全可见.
+   <br/>
+   阴影在两条线之间渐变.缺省默认没有效果(影子总是完全可见).
+   <br/>
+   注意y坐标值是负的,TOP_Y应该小于BOT_Y.
+  </p>
+  <p>
+   <span class="STYLE3">
+    xshear = shear ;(可选) (浮点型)
+   </span>
+   <br/>
+   指定提供给影子的水平切变(变换)数量.正值使影子屏幕朝左边切变.默认是0.
+  </p>
+ </body>
 </html>

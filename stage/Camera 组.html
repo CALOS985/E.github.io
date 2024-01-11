@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>Camera ��</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   Camera 组
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -15,66 +17,176 @@ body,td,th {
 }
 .STYLE2 {color: #0000FF}
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">Camera ��</p>
-<p><span class="STYLE2">startx = pos_x </span><br />
-�����������ʼxλ��.Ӧ�ñ����ó�0.</p>
-<p><span class="STYLE2">starty = pos_y </span><br />
-�����������ʼyλ��.Ӧ�ñ����ó�0.</p>
-<p><span class="STYLE2">boundleft = min_x </span><br />
-  ������������ƶ�����x������Сֵ.�����Ǹ�ֵ.<br />
-������ֵ�����������������ƽ�ƶ�Զ����.</p>
-ע: ��ֵͨ������[PlayerInfo]���leftbound.</p>
-<p><span class="STYLE2">boundright = max_x </span><br />
-  ������������ƶ�����x�������ֵ.��������ֵ.<br />
-������ֵ�����������������ƽ�ƶ�Զ����.</p>
-ע: ��ֵͨ��С��[PlayerInfo]���rightbound.</p>
-<p><span class="STYLE2">boundhigh = min_y </span><br />
-  ������������ƶ�����y������Сֵ.�����Ǹ�ֵ.<br />
-������ֵ�����������������ƽ�ƶ�Զ����.</p>
-<p><span class="STYLE2">boundlow = max_y </span><br />
-������������ƶ�����y�������ֵ.һ�����������0.</p>
-<p><span class="STYLE2">tension = h_dist </span><br />
-���������ʼ�������(�ƶ�)֮ǰ����ܵ����ߵ�ˮƽ����.</p>
-<p><span class="STYLE2">tensionhigh = top_dist ; (1.1����߰汾)</span><br />
-ͨ��Ϊ��ֵ. ��ֵԽС,��������ϸ�����ҵ�Ƶ�ʺ��ٶ�Խ������. ��֮��.<br />
-�������������˶�ǰ,����ܵ���ľඥ����Ե�Ĵ�ֱ����.<br />
-  ʹ��tensionhigh��tensionlow����һ��(����1.1�汾�����ı߽�����)��ֱ��������.<br />
-���tensionhigh��tensionlow��ָ��,verticalfollow��floortension��������.</p>
-<p><span class="STYLE2">tensionlow = bottom_dist ; (1.1����߰汾)</span><br />
-ͨ��Ϊ��ֵ,����ΪС�ڻ����tensionhigh����.��Ϊ0��ֵ������Ļ�Ŵ�֮ǰ,��Ļ�ײ����ȱ��Ƴ���Ļ��ʾ.<br />
-�������������˶�ǰ,����ܵ���ľ�ײ���Ե�Ĵ�ֱ����.</p>
-<p><span class="STYLE2">verticalfollow = closeness </span><br />
-  ��ֵӰ�������������ߵ���ҵĴ�ֱ�˶�.<br />
-  ��ֵ������0��1֮��.ֵΪ0��ʾ��������������˶�.ֵԽ��ʹ�������׷�����Խ�ӽ�.(ֵԽ��,λ���Ϸ������ﱻ��ʾ����Ļ�ڻ������)<br />
-  ֵΪ1��ʾ����������ܽ���׷�����.���tensionhigh��tensionlow��ָ��,��ֵ��������.<br />
-  һ����˵,boundhigh(����ֵ)Խ��,verticalfollowҲӦ��Խ��,��֮verticalfollowӦ�����ý�Сֵ.</p>
-<p><span class="STYLE2">floortension = v_dist </span><br />
-�����������������˶�ǰ,��ߵ�����ܵ���ľ�������С��ֱ����(��ֵ��ʽ����).<br />
-  �˲�������verticalfollowһ���������������ģʽ.<br />
-���tensionhigh��tensionlow��ָ��,��ֵ��������.<br />
-��ֵ��Χͨ����0--boundhigh(����ֵ)֮��.����ֵԽ��,���������˶�ʱ���������ԽƵ��������.</p>
-<p><span class="STYLE2">overdrawhigh = top_pixels ; (1.0����߰汾)</span><br />
-���·�</p>
-<p><span class="STYLE2">overdrawlow = bottom_pixels ; (1.0����߰汾)</span><br />
-��Ļ����/�ײ�֮�ⱻ���Ƶ�������.envshake�ڼ�ָ���������ƶ���.<br />
-�������Ƶ�����Ҳ�������������.(��Ļ��״������̨��״ʱ)</p>
-<p><span class="STYLE2">cuthigh = top_pixels ; (1.0����߰汾)</span><br />
-���·�</p>
-<p><span class="STYLE2">cutlow = bottom_pixels ; (1.0����߰汾)</span><br />
-����ʱ���е���Ļ����/�ײ�֮�ڵ�������.(��Ļ��״������̨��״ʱ)<br />
-��Щֻ��һ���ο�ֵ,ʵ�ʵĲ���������ȡ������״�Ĳ���.<br />
-���cuthigh��cutlow��ʡ��,���潫���Եĸ���һ������ֵ.</p>
-<p><span class="STYLE2">startzoom = start_zoom_scale ; (1.1����߰汾)</span><br />
-ָ����̨���������ϵ��.Ĭ����1.</p>
-<p><span class="STYLE2">zoomout = zoom_out_scale ; (1.1����߰汾)</span><br />
-ָ�����������С����ʱ��̨������ϵ��.��ֵͨ������0.2-1֮��.Ĭ��Ϊ1.</p>
-<p><span class="STYLE2">zoomin = zoom_in_scale ; (1.1����߰汾)</span><br />
-ָ����������������ʱ��̨������ϵ��.��ֵͨ������zoomout,����0.3-1.x֮��.Ĭ��Ϊ1.</p>
-ע: ����������Ҫʹ��ScreenWidth��ScreenHeight������ȫ�������Ĵ�С,zoomin��������Ϊ1.</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   Camera 组
+  </p>
+  <p>
+   <span class="STYLE2">
+    startx = pos_x
+   </span>
+   <br/>
+   设置摄像机初始x位置.应该被设置成0.
+  </p>
+  <p>
+   <span class="STYLE2">
+    starty = pos_y
+   </span>
+   <br/>
+   设置摄像机初始y位置.应该被设置成0.
+  </p>
+  <p>
+   <span class="STYLE2">
+    boundleft = min_x
+   </span>
+   <br/>
+   这是摄像机能移动到的x坐标最小值.必须是负值.
+   <br/>
+   调整此值可以限制摄像机往左平移多远距离.
+  </p>
+  注: 该值通常大于[PlayerInfo]组的leftbound.
+  <p>
+   <span class="STYLE2">
+    boundright = max_x
+   </span>
+   <br/>
+   这是摄像机能移动到的x坐标最大值.必须是正值.
+   <br/>
+   调整此值可以限制摄像机往右平移多远距离.
+  </p>
+  注: 该值通常小于[PlayerInfo]组的rightbound.
+  <p>
+   <span class="STYLE2">
+    boundhigh = min_y
+   </span>
+   <br/>
+   控制摄像机能移动到的y坐标最小值.必须是负值.
+   <br/>
+   调整此值可以限制摄像机往上平移多远距离.
+  </p>
+  <p>
+   <span class="STYLE2">
+    boundlow = max_y
+   </span>
+   <br/>
+   控制摄像机能移动到的y坐标最大值.一般情况必须是0.
+  </p>
+  <p>
+   <span class="STYLE2">
+    tension = h_dist
+   </span>
+   <br/>
+   在摄像机开始跟随玩家(移动)之前玩家能到达版边的水平距离.
+  </p>
+  <p>
+   <span class="STYLE2">
+    tensionhigh = top_dist ; (1.1或更高版本)
+   </span>
+   <br/>
+   通常为正值. 数值越小,摄像机向上跟随玩家的频率和速度越不明显. 反之则反.
+   <br/>
+   摄像机跟随玩家运动前,玩家能到达的距顶部边缘的垂直距离.
+   <br/>
+   使用tensionhigh和tensionlow激活一种(基于1.1版本引进的边界张力)垂直滚动方法.
+   <br/>
+   如果tensionhigh和tensionlow被指定,verticalfollow和floortension将被忽略.
+  </p>
+  <p>
+   <span class="STYLE2">
+    tensionlow = bottom_dist ; (1.1或更高版本)
+   </span>
+   <br/>
+   通常为正值,设置为小于或等于tensionhigh即可.若为0或负值则在屏幕放大之前,屏幕底部优先被移出屏幕显示.
+   <br/>
+   摄像机跟随玩家运动前,玩家能到达的距底部边缘的垂直距离.
+  </p>
+  <p>
+   <span class="STYLE2">
+    verticalfollow = closeness
+   </span>
+   <br/>
+   此值影响摄像机跟随最高点玩家的垂直运动.
+   <br/>
+   此值必须在0到1之间.值为0表示摄像机不会向上运动.值越大使得摄像机追踪玩家越接近.(值越大,位于上方的人物被显示在屏幕内机会更大)
+   <br/>
+   值为1表示摄像机尽可能近的追踪玩家.如果tensionhigh和tensionlow被指定,此值将被忽略.
+   <br/>
+   一般来说,boundhigh(绝对值)越大,verticalfollow也应该越大,反之verticalfollow应该设置较小值.
+  </p>
+  <p>
+   <span class="STYLE2">
+    floortension = v_dist
+   </span>
+   <br/>
+   摄像机跟随玩家向上运动前,最高点玩家能到达的距地面的最小垂直距离(正值形式给出).
+   <br/>
+   此参数仅与verticalfollow一起用于摄像机滚动模式.
+   <br/>
+   如果tensionhigh和tensionlow被指定,此值将被忽略.
+   <br/>
+   数值范围通常在0--boundhigh(绝对值)之间.此数值越高,人物向上运动时摄像机跟随越频繁和灵敏.
+  </p>
+  <p>
+   <span class="STYLE2">
+    overdrawhigh = top_pixels ; (1.0或更高版本)
+   </span>
+   <br/>
+   见下方
+  </p>
+  <p>
+   <span class="STYLE2">
+    overdrawlow = bottom_pixels ; (1.0或更高版本)
+   </span>
+   <br/>
+   屏幕顶部/底部之外被绘制的像素数.envshake期间指定超出绘制多少.
+   <br/>
+   超出绘制的像素也被用于这种情况.(屏幕形状高于舞台形状时)
+  </p>
+  <p>
+   <span class="STYLE2">
+    cuthigh = top_pixels ; (1.0或更高版本)
+   </span>
+   <br/>
+   见下方
+  </p>
+  <p>
+   <span class="STYLE2">
+    cutlow = bottom_pixels ; (1.0或更高版本)
+   </span>
+   <br/>
+   绘制时裁切的屏幕顶部/底部之内的像素数.(屏幕形状低于舞台形状时)
+   <br/>
+   这些只是一个参考值,实际的裁切像素数取决于形状的差异.
+   <br/>
+   如果cuthigh和cutlow被省略,引擎将尝试的给出一个合理值.
+  </p>
+  <p>
+   <span class="STYLE2">
+    startzoom = start_zoom_scale ; (1.1或更高版本)
+   </span>
+   <br/>
+   指定舞台最初的缩放系数.默认是1.
+  </p>
+  <p>
+   <span class="STYLE2">
+    zoomout = zoom_out_scale ; (1.1或更高版本)
+   </span>
+   <br/>
+   指定当摄像机最小缩放时舞台的缩放系数.数值通常介于0.2-1之间.默认为1.
+  </p>
+  <p>
+   <span class="STYLE2">
+    zoomin = zoom_in_scale ; (1.1或更高版本)
+   </span>
+   <br/>
+   指定当摄像机最大缩放时舞台的缩放系数.数值通常大于zoomout,介于0.3-1.x之间.默认为1.
+  </p>
+  注: 如人物中需要使用ScreenWidth和ScreenHeight来缩放全屏动画的大小,zoomin建议设置为1.
+  <p>
+  </p>
+  <p>
+  </p>
+ </body>
 </html>

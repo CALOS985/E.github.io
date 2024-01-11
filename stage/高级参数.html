@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>±³¾°ÔªËØ¸ß¼¶²ÎÊý</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   èƒŒæ™¯å…ƒç´ é«˜çº§å‚æ•°
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,58 +23,161 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">±³¾°ÔªËØ¸ß¼¶²ÎÊý</p>
-<p>ÕâÐ©²ÎÊýÄÜÓÃÓÚÈÎºÎ±³¾°ÔªËØ. (¼´ <a href="¾²Ì¬ÐÍ±³¾°ÔªËØ.html">¾²Ì¬ÐÍ±³¾°ÔªËØ</a>, <a href="¶¯»­ÐÍ±³¾°ÔªËØ.html">¶¯»­ÐÍ±³¾°ÔªËØ</a>, <a href="ÊÓ²îÐÍ±³¾°ÔªËØ.html">ÊÓ²îÐÍ±³¾°ÔªËØ</a>, <a href="ÆäËû±³¾°ÔªËØÀàÐÍ.html">ÆäËû±³¾°ÔªËØÀàÐÍ</a>.) </p>
-<p><span class="STYLE3">trans = trans ; (¿ÉÑ¡) (×Ö·û´®ÐÍ)</span><br />
-  Ö¸¶¨Í¼ÐÎÔËÓÃµÄÍ¸Ã÷»ìºÏÐ§¹û.Í¸Ã÷Ä£Ê½Îªdefault, none, add, sub.<br />
-  ÕâÐ©·Ö±ð±íÊ¾ Ä¬ÈÏÌØÕ÷,Ã»ÓÐÍ¸Ã÷Ð§¹û,ÑÕÉ«µþ¼Ó,ÑÕÉ«Ïà¼õ.<br />
-  defaultºÍnone¶¼»áÒýÆð·Ç¶¯»­ÐÍÔªËØÃ»ÓÐÍ¸Ã÷»ìºÏÐ§¹û.<br />
-¶ÔÓÚ¶¯»­ÐÍ±³¾°ÔªËØ,Ö¸¶¨default½«Ê¹ÓÃ¶¯»­Ö¸¶¨µÄÍ¸Ã÷»ìºÏÐ§¹û,¶øÆäËûµÄÍ¸Ã÷Öµ½«¸²¸Ç¶¯»­ÖÐµÄÍ¸Ã÷±êÊ¾.<br />
-  Èç¹ûÖ¸¶¨ÁËadd,¿ÉÄÜÐèÒªÊÊÓÃalpha²ÎÊýÀ´¿ØÖÆ»ìºÏÐ§¹û.Ä¬ÈÏÖµÊÇdefault.</p>
-<p>×¢Òâ:Èç¹ûmugen°æ±¾ÊÇ1.0ÒÔÏÂ,¶Ô¶¯»­ÐÍÔªËØÀ´ËµdefaultºÍnoneÌØÕ÷ÏàÍ¬.</p>
-<p><span class="STYLE3">alpha = src_alpha,dst_alpha ; (¿ÉÑ¡) (ÕûÐÍ,ÕûÐÍ)</span><br />
-²Î¼ûtrans¿ØÖÆÆ÷Ïà¹Ø²ÎÊý.</p>
-<p><span class="STYLE3">id = id_number ; (ÕûÐÍ)</span><br />
-  ¸ø±³¾°ÔªËØÖ¸¶¨Ò»¸öIDºÅ.²»Í¬µÄÔªËØ¿ÉÒÔ¹²ÏíÏàÍ¬ID.<br />
-  IDºÅ×÷ÓÃÊÇÔÊÐí±³¾°¿ØÖÆÆ÷Ö¸¶¨Òª²Ù×÷ÄÄ¸öÔªËØ.È±Ê¡Ä¬ÈÏÊÇ0.<br />
-</p>
-<p><span class="STYLE3">positionlink = link_flag ; (²¼¶ûÐÍ)</span><br />
-  ÉèÖÃpositionlinkÎª1¿ÉÒÔ¹Ì¶¨´ËÔªËØµÄÎ»ÖÃµ½DEFÎÄ¼þÖÐ½ô°¤×ÅËüµÄÁíÒ»¸öÔªËØµÄÎ»ÖÃ.<br />
-  Èç¹ûÉèÖÃÎª1,µ±Ç°ÔªËØstart²ÎÊýÖµ±»ÊÓÎªÊÇÓëÉÏÒ»¸öÔªËØÎ»ÖÃµÄÆ«ÒÆÁ¿.<br />
-  delta²ÎÊýÔÚ´ËÇé¿öÏÂ½µÎÞÐ§.ÓÃÓÚÊ¹Ò»´ó¶ÑÔªËØÕûÆëÒ»ÖÂµÄÔË¶¯.<br />
-  Èç¹ûÄã±à¼­positionlinkÁ´ÖÐµÄµÚÒ»¸öÔªËØµÄstartºÍdeltaÖµ,Ð§¹û½«ÔÚÕû¸öÁ´ÖÐµÄËùÓÐÔªËØÖÐ¶¼ÌåÏÖ³öÀ´.<br />
-  È±Ê¡Ä¬ÈÏÎª0.<br />
-</p>
-<p><span class="STYLE3">maskwindow = x1,y1,x2,y2 ; (ÕûÐÍ,ÕûÐÍ,ÕûÐÍ,ÕûÐÍ) (1.1»òÒÔºó°æ±¾)</span><br />
- ¸ø±³¾°ÔªËØÖ¸¶¨Ò»¸öÕÚÕÖ´°¿Ú.Ò»¸öÕÚÕÖ´°¿ÚÊÇÆÁÄ»ÉÏÒ»¸ö°üº¬´ËÍ¼ÏñµÄ¸ÅÄî¾ØÐÎ.<br />
- ÈÎºÎ³¬³öÕâ¸ö¾ØÐÎµÄÍ¼Ïñ²¿·Ö¶¼²»»áÏÔÊ¾³öÀ´.<br />
- x1,y1Ö¸¶¨ÁË´°¿ÚµÄ×óÉÏ½Ç×ø±ê,x2,y2 Ö¸¶¨ÁË´°¿ÚÓÒÏÂ½Ç×ø±ê.´Ë×ø±êÏà¶ÔÓÚÎèÌ¨Ô­µãÖÐÐÄ(ÆÁÄ»µÄ¶¥²¿ÖÐÐÄµã).<br />
-È±Ê¡½«²»Ö´ÐÐ.</p>
-<p><span class="STYLE3">window = x1,y1,x2,y2 ; (ÕûÐÍ,ÕûÐÍ,ÕûÐÍ,ÕûÐÍ) (·ÏÆú)</span><br />
-´Ë·ÏÆú²ÎÊýÈÔ¿ÉÓÃ,µ«²»±£Ö¤ÔÚËõ·ÅµÄÊ±ºò×¼È·ÐÔ.<br />
-Ö¸¶¨ÁËÒ»¸öÏà¶ÔÓÚÆÁÄ»ÓÒÉÏ½Ç×ø±êµÄÕÚÕÖ´°¿Ú,¶ËµãÒ²°üº¬ÔÚÄÚ.</p>
-<p><span class="STYLE3">windowdelta = window_dx,window_dy ; (¸¡µãÐÍ,¸¡µãÐÍ)</span><br />
-Ö¸¶¨ÕÚÕÖ´°¿ÚµÄdeltaÔË¶¯.ÔËÐÐ·½Ê½ºÍ±³¾°ÔªËØ×ÔÉíµÄdelta²ÎÊý²î²»¶à.Ä¬ÈÏÎª0,0.</p>
-<p><span class="STYLE3">scalestart = scale_x, scale_y ; (¸¡µãÐÍ,¸¡µãÐÍ)</span><br />
-  ³õÊ¼Ëõ·ÅÖµ.Ä¬ÈÏÎª1,1.<br />
-</p>
-<p><span class="STYLE3">scaledelta = scale_dx, scale_dy ; (¸¡µãÐÍ,¸¡µãÐÍ)</span><br />
-  ºÍdelta²ÎÊýÏàËÆ,ÕâÊÇÉãÏñ»úÃ¿ÒÆ¶¯1¸öµ¥Î»ÔªËØËõ·ÅÁ¿.Ä¬ÈÏÎª0,0.</p>
-<p><span class="STYLE3">velocity = vel_x, vel_y ; (¸¡µãÐÍ,¸¡µãÐÍ)</span><br />
-  Ö¸¶¨±³¾°ÔªËØ³õÊ¼x,y·½ÏòËÙ¶È.(Ä¬ÈÏÎª0)<br />
-  ´Ë¹¦ÄÜÔÚ±³¾°¿ØÖÆÆ÷VelSetÖÐÒ²°üº¬.<br />
-</p>
-<p><span class="STYLE3">zoomdelta = dzoom ; (¸¡µãÐÍ)</span><br />
-Ö¸¶¨ÉãÏñ»úËõ·ÅÓ°ÏìÔªËØËõ·ÅµÄÁ¿.0±íÊ¾ÔªËØÔÚËõ·ÅÊ±²»¸Ä±ä³ß´ç,1±íÊ¾ÔªËØÔÚËõ·ÅÊ±ºÍÉãÏñ»úËõ·ÅÏµÊýÏàÍ¬.Ä¬ÈÏÎª1.</p>
-<p><span class="STYLE3">sin.x = amplitude, period, phase ; (¸¡µãÐÍ,¸¡µãÐÍ,¸¡µãÐÍ)</span><br />
-  Ö¸¶¨ÔªËØÔÚx·½ÏòµÄÕýÏÒÔË¶¯.<br />
-  µÚ1¸ö²ÎÊýÊÇÕñ·ù,µÚ2¸ö²ÎÊýÊÇÔË¶¯ÖÜÆÚ(Ö¡Êý),µÚ3¸ö²ÎÊýÖ¸¶¨³õÊ¼ÕýÏÒÔË¶¯µÄÏàÎ»Æ«ÒÆ.(Ä¬ÈÏÊÇ0,ÀýÈç,ÔªËØ½«ÕýÏÒ·¶Î§ÕýÖÐÊ±¿ªÊ¼ÔË¶¯)<br />
-  Õâ²ÎÊý»ù±¾ÉÏ±»SinX±³¾°¿ØÖÆÆ÷È¡´úÁË.<br />
-</p>
-<p><span class="STYLE3">sin.y = amplitude, period, phase ; (¸¡µãÐÍ,¸¡µãÐÍ,¸¡µãÐÍ)</span><br />
-  ÔËÐÐ·½Ê½ºÍsin.xÏàÍ¬,Ö»ÊÇy·½Ïò.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   èƒŒæ™¯å…ƒç´ é«˜çº§å‚æ•°
+  </p>
+  <p>
+   è¿™äº›å‚æ•°èƒ½ç”¨äºŽä»»ä½•èƒŒæ™¯å…ƒç´ . (å³
+   <a href="é™æ€åž‹èƒŒæ™¯å…ƒç´ .html">
+    é™æ€åž‹èƒŒæ™¯å…ƒç´ 
+   </a>
+   ,
+   <a href="åŠ¨ç”»åž‹èƒŒæ™¯å…ƒç´ .html">
+    åŠ¨ç”»åž‹èƒŒæ™¯å…ƒç´ 
+   </a>
+   ,
+   <a href="è§†å·®åž‹èƒŒæ™¯å…ƒç´ .html">
+    è§†å·®åž‹èƒŒæ™¯å…ƒç´ 
+   </a>
+   ,
+   <a href="å…¶ä»–èƒŒæ™¯å…ƒç´ ç±»åž‹.html">
+    å…¶ä»–èƒŒæ™¯å…ƒç´ ç±»åž‹
+   </a>
+   .)
+  </p>
+  <p>
+   <span class="STYLE3">
+    trans = trans ; (å¯é€‰) (å­—ç¬¦ä¸²åž‹)
+   </span>
+   <br/>
+   æŒ‡å®šå›¾å½¢è¿ç”¨çš„é€æ˜Žæ··åˆæ•ˆæžœ.é€æ˜Žæ¨¡å¼ä¸ºdefault, none, add, sub.
+   <br/>
+   è¿™äº›åˆ†åˆ«è¡¨ç¤º é»˜è®¤ç‰¹å¾,æ²¡æœ‰é€æ˜Žæ•ˆæžœ,é¢œè‰²å åŠ ,é¢œè‰²ç›¸å‡.
+   <br/>
+   defaultå’Œnoneéƒ½ä¼šå¼•èµ·éžåŠ¨ç”»åž‹å…ƒç´ æ²¡æœ‰é€æ˜Žæ··åˆæ•ˆæžœ.
+   <br/>
+   å¯¹äºŽåŠ¨ç”»åž‹èƒŒæ™¯å…ƒç´ ,æŒ‡å®šdefaultå°†ä½¿ç”¨åŠ¨ç”»æŒ‡å®šçš„é€æ˜Žæ··åˆæ•ˆæžœ,è€Œå…¶ä»–çš„é€æ˜Žå€¼å°†è¦†ç›–åŠ¨ç”»ä¸­çš„é€æ˜Žæ ‡ç¤º.
+   <br/>
+   å¦‚æžœæŒ‡å®šäº†add,å¯èƒ½éœ€è¦é€‚ç”¨alphaå‚æ•°æ¥æŽ§åˆ¶æ··åˆæ•ˆæžœ.é»˜è®¤å€¼æ˜¯default.
+  </p>
+  <p>
+   æ³¨æ„:å¦‚æžœmugenç‰ˆæœ¬æ˜¯1.0ä»¥ä¸‹,å¯¹åŠ¨ç”»åž‹å…ƒç´ æ¥è¯´defaultå’Œnoneç‰¹å¾ç›¸åŒ.
+  </p>
+  <p>
+   <span class="STYLE3">
+    alpha = src_alpha,dst_alpha ; (å¯é€‰) (æ•´åž‹,æ•´åž‹)
+   </span>
+   <br/>
+   å‚è§transæŽ§åˆ¶å™¨ç›¸å…³å‚æ•°.
+  </p>
+  <p>
+   <span class="STYLE3">
+    id = id_number ; (æ•´åž‹)
+   </span>
+   <br/>
+   ç»™èƒŒæ™¯å…ƒç´ æŒ‡å®šä¸€ä¸ªIDå·.ä¸åŒçš„å…ƒç´ å¯ä»¥å…±äº«ç›¸åŒID.
+   <br/>
+   IDå·ä½œç”¨æ˜¯å…è®¸èƒŒæ™¯æŽ§åˆ¶å™¨æŒ‡å®šè¦æ“ä½œå“ªä¸ªå…ƒç´ .ç¼ºçœé»˜è®¤æ˜¯0.
+   <br/>
+  </p>
+  <p>
+   <span class="STYLE3">
+    positionlink = link_flag ; (å¸ƒå°”åž‹)
+   </span>
+   <br/>
+   è®¾ç½®positionlinkä¸º1å¯ä»¥å›ºå®šæ­¤å…ƒç´ çš„ä½ç½®åˆ°DEFæ–‡ä»¶ä¸­ç´§æŒ¨ç€å®ƒçš„å¦ä¸€ä¸ªå…ƒç´ çš„ä½ç½®.
+   <br/>
+   å¦‚æžœè®¾ç½®ä¸º1,å½“å‰å…ƒç´ startå‚æ•°å€¼è¢«è§†ä¸ºæ˜¯ä¸Žä¸Šä¸€ä¸ªå…ƒç´ ä½ç½®çš„åç§»é‡.
+   <br/>
+   deltaå‚æ•°åœ¨æ­¤æƒ…å†µä¸‹é™æ— æ•ˆ.ç”¨äºŽä½¿ä¸€å¤§å †å…ƒç´ æ•´é½ä¸€è‡´çš„è¿åŠ¨.
+   <br/>
+   å¦‚æžœä½ ç¼–è¾‘positionlinké“¾ä¸­çš„ç¬¬ä¸€ä¸ªå…ƒç´ çš„startå’Œdeltaå€¼,æ•ˆæžœå°†åœ¨æ•´ä¸ªé“¾ä¸­çš„æ‰€æœ‰å…ƒç´ ä¸­éƒ½ä½“çŽ°å‡ºæ¥.
+   <br/>
+   ç¼ºçœé»˜è®¤ä¸º0.
+   <br/>
+  </p>
+  <p>
+   <span class="STYLE3">
+    maskwindow = x1,y1,x2,y2 ; (æ•´åž‹,æ•´åž‹,æ•´åž‹,æ•´åž‹) (1.1æˆ–ä»¥åŽç‰ˆæœ¬)
+   </span>
+   <br/>
+   ç»™èƒŒæ™¯å…ƒç´ æŒ‡å®šä¸€ä¸ªé®ç½©çª—å£.ä¸€ä¸ªé®ç½©çª—å£æ˜¯å±å¹•ä¸Šä¸€ä¸ªåŒ…å«æ­¤å›¾åƒçš„æ¦‚å¿µçŸ©å½¢.
+   <br/>
+   ä»»ä½•è¶…å‡ºè¿™ä¸ªçŸ©å½¢çš„å›¾åƒéƒ¨åˆ†éƒ½ä¸ä¼šæ˜¾ç¤ºå‡ºæ¥.
+   <br/>
+   x1,y1æŒ‡å®šäº†çª—å£çš„å·¦ä¸Šè§’åæ ‡,x2,y2 æŒ‡å®šäº†çª—å£å³ä¸‹è§’åæ ‡.æ­¤åæ ‡ç›¸å¯¹äºŽèˆžå°åŽŸç‚¹ä¸­å¿ƒ(å±å¹•çš„é¡¶éƒ¨ä¸­å¿ƒç‚¹).
+   <br/>
+   ç¼ºçœå°†ä¸æ‰§è¡Œ.
+  </p>
+  <p>
+   <span class="STYLE3">
+    window = x1,y1,x2,y2 ; (æ•´åž‹,æ•´åž‹,æ•´åž‹,æ•´åž‹) (åºŸå¼ƒ)
+   </span>
+   <br/>
+   æ­¤åºŸå¼ƒå‚æ•°ä»å¯ç”¨,ä½†ä¸ä¿è¯åœ¨ç¼©æ”¾çš„æ—¶å€™å‡†ç¡®æ€§.
+   <br/>
+   æŒ‡å®šäº†ä¸€ä¸ªç›¸å¯¹äºŽå±å¹•å³ä¸Šè§’åæ ‡çš„é®ç½©çª—å£,ç«¯ç‚¹ä¹ŸåŒ…å«åœ¨å†….
+  </p>
+  <p>
+   <span class="STYLE3">
+    windowdelta = window_dx,window_dy ; (æµ®ç‚¹åž‹,æµ®ç‚¹åž‹)
+   </span>
+   <br/>
+   æŒ‡å®šé®ç½©çª—å£çš„deltaè¿åŠ¨.è¿è¡Œæ–¹å¼å’ŒèƒŒæ™¯å…ƒç´ è‡ªèº«çš„deltaå‚æ•°å·®ä¸å¤š.é»˜è®¤ä¸º0,0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    scalestart = scale_x, scale_y ; (æµ®ç‚¹åž‹,æµ®ç‚¹åž‹)
+   </span>
+   <br/>
+   åˆå§‹ç¼©æ”¾å€¼.é»˜è®¤ä¸º1,1.
+   <br/>
+  </p>
+  <p>
+   <span class="STYLE3">
+    scaledelta = scale_dx, scale_dy ; (æµ®ç‚¹åž‹,æµ®ç‚¹åž‹)
+   </span>
+   <br/>
+   å’Œdeltaå‚æ•°ç›¸ä¼¼,è¿™æ˜¯æ‘„åƒæœºæ¯ç§»åŠ¨1ä¸ªå•ä½å…ƒç´ ç¼©æ”¾é‡.é»˜è®¤ä¸º0,0.
+  </p>
+  <p>
+   <span class="STYLE3">
+    velocity = vel_x, vel_y ; (æµ®ç‚¹åž‹,æµ®ç‚¹åž‹)
+   </span>
+   <br/>
+   æŒ‡å®šèƒŒæ™¯å…ƒç´ åˆå§‹x,yæ–¹å‘é€Ÿåº¦.(é»˜è®¤ä¸º0)
+   <br/>
+   æ­¤åŠŸèƒ½åœ¨èƒŒæ™¯æŽ§åˆ¶å™¨VelSetä¸­ä¹ŸåŒ…å«.
+   <br/>
+  </p>
+  <p>
+   <span class="STYLE3">
+    zoomdelta = dzoom ; (æµ®ç‚¹åž‹)
+   </span>
+   <br/>
+   æŒ‡å®šæ‘„åƒæœºç¼©æ”¾å½±å“å…ƒç´ ç¼©æ”¾çš„é‡.0è¡¨ç¤ºå…ƒç´ åœ¨ç¼©æ”¾æ—¶ä¸æ”¹å˜å°ºå¯¸,1è¡¨ç¤ºå…ƒç´ åœ¨ç¼©æ”¾æ—¶å’Œæ‘„åƒæœºç¼©æ”¾ç³»æ•°ç›¸åŒ.é»˜è®¤ä¸º1.
+  </p>
+  <p>
+   <span class="STYLE3">
+    sin.x = amplitude, period, phase ; (æµ®ç‚¹åž‹,æµ®ç‚¹åž‹,æµ®ç‚¹åž‹)
+   </span>
+   <br/>
+   æŒ‡å®šå…ƒç´ åœ¨xæ–¹å‘çš„æ­£å¼¦è¿åŠ¨.
+   <br/>
+   ç¬¬1ä¸ªå‚æ•°æ˜¯æŒ¯å¹…,ç¬¬2ä¸ªå‚æ•°æ˜¯è¿åŠ¨å‘¨æœŸ(å¸§æ•°),ç¬¬3ä¸ªå‚æ•°æŒ‡å®šåˆå§‹æ­£å¼¦è¿åŠ¨çš„ç›¸ä½åç§».(é»˜è®¤æ˜¯0,ä¾‹å¦‚,å…ƒç´ å°†æ­£å¼¦èŒƒå›´æ­£ä¸­æ—¶å¼€å§‹è¿åŠ¨)
+   <br/>
+   è¿™å‚æ•°åŸºæœ¬ä¸Šè¢«SinXèƒŒæ™¯æŽ§åˆ¶å™¨å–ä»£äº†.
+   <br/>
+  </p>
+  <p>
+   <span class="STYLE3">
+    sin.y = amplitude, period, phase ; (æµ®ç‚¹åž‹,æµ®ç‚¹åž‹,æµ®ç‚¹åž‹)
+   </span>
+   <br/>
+   è¿è¡Œæ–¹å¼å’Œsin.xç›¸åŒ,åªæ˜¯yæ–¹å‘.
+  </p>
+ </body>
 </html>

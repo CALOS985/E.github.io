@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>����Ԫ��˵��</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   背景元素说明
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,31 +23,58 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">����Ԫ��˵��</p>
-<p>ͨ��һ��������n���������ͼ���ز����,����ͼ���زľ��Ƕ���ͼ���λ��,�ٶ�,��ʽ(ͼƬ��ʽ,������ʽ...)�ȵ�.(ͨ����˵�������Ǻܶ�Ԫ��ƴ��������)</p>
-<p>������̨�ı���Ԫ��,�����������DEF�ļ�ĩβ�½�һ��BGDef��.��ʽ����:</p>
-<ul>
-  <li>[BGDef]<br />
-    spr = stages/my_stage.sff<br />
-    debugbg = 1<br />
-  </li>
-</ul>
-<p>��stages/my_stage.sff���������̨ͼ���زĵ�SFF�ļ�����һ��·����.<br />
-  Ϊ��ȷ�����õ������ٶ�,������̨���ʱ��ס����debugbg = 0.</p>
-<p>һ��BGDef���屻�½�,[BGDef]��������ж���������Ϊ������BGDef�½��е�.<br />
-  ��BGDef�½���,��Ӧ������ָ��1������Ԫ��.<br />
-  ����Ԫ�ذ����ǳ�����DEF�ļ��е�˳�򱻻���(����Ƶ�Ԫ����ʾ���Ȼ��Ƶ�Ԫ���Ϸ�),�������·�(���²�)��Ԫ��Ӧ�����ȱ�����.</p>
-<p>(����˼��:�����Ҫ��һ����,��������һ�Ųݸ�ֽ����д���һ����Ĳ���:<br />
-  1.������ľ<br />
-  2.���ƽγ�<br />
-  3.������Ů<br />
-  ͨ���ݸ�ֽ�ϵ�1.2.3˳������ͼ,�Ȼ���ľ,�ٻ��γ�,�ٻ���Ů.�����׾�����Ϊʲô����˵DEF�ȳ��ֵı���Ԫ�ػ����ں���ֵı���Ԫ���·�.<br />
-  ��Ȼ,����������1.2.3ÿһ����������һ����ȫ͸��ֽ��,������ľ������͸��ֽ��,Ȼ������ڻ�����,�γ���������һ��͸��ֽ��,��ŮҲ��,���հ������˳�������һ������ڻ�����.<br />
-  ����ȥ��Ч����û����͸��ֽʱ��һ����,��������͸��ֽ,�ҿ�����ʱ��ÿ��͸��ֽ�����޸�ͬʱ����Ӱ������͸��ֽ�ϵĶ���.<br />
-  ������Ҫ�ڽγ��ϼ��Ϸ�������־,���û��͸��ֽ,�ұ�־���ڵ�λ�ñ���Ů��ס��һ��,�ͺ��ѻ���,�������͸��ֽ,���ܵ����ѽγ������������,�������ٰ�͸��ֽ����ԭ���ĵط�,�������Ըı�͸��ֽ���ӵ�˳��.<br />
-  ����Ԫ�ػ��ƴ�����ʽ��͸��ֽ������,��Ȼ˵��Щ��ֻ��Ϊ�������ڶԻ���˳�������,��������ͼ������,͸��ֽ��������'ͼ��'.)</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   背景元素说明
+  </p>
+  <p>
+   通常一个背景有n个被定义的图像素材组成,定义图像素材就是定义图像的位置,速度,形式(图片形式,动画形式...)等等.(通俗来说背景就是很多元素拼接起来的)
+  </p>
+  <p>
+   定义舞台的背景元素,你必须首先在DEF文件末尾新建一个BGDef组.格式如下:
+  </p>
+  <ul>
+   <li>
+    [BGDef]
+    <br/>
+    spr = stages/my_stage.sff
+    <br/>
+    debugbg = 1
+    <br/>
+   </li>
+  </ul>
+  <p>
+   把stages/my_stage.sff与包含你舞台图像素材的SFF文件放在一个路径中.
+   <br/>
+   为了确保良好的运行速度,当你舞台完成时记住设置debugbg = 0.
+  </p>
+  <p>
+   一旦BGDef定义被新建,[BGDef]下面的所有东西都被认为是属于BGDef章节中的.
+   <br/>
+   在BGDef章节中,你应该最少指定1个背景元素.
+   <br/>
+   背景元素按它们出现在DEF文件中的顺序被绘制(后绘制的元素显示在先绘制的元素上方),所以最下方(最下层)的元素应该最先被定义.
+  </p>
+  <p>
+   (形象思考:如果我要画一幅画,首先我在一张草稿纸上先写上我画画的步骤:
+   <br/>
+   1.绘制树木
+   <br/>
+   2.绘制轿车
+   <br/>
+   3.绘制美女
+   <br/>
+   通过草稿纸上的1.2.3顺序来绘图,先画树木,再画轿车,再画美女.很容易就明白为什么上面说DEF先出现的背景元素绘制在后出现的背景元素下方.
+   <br/>
+   当然,如果你把上述1.2.3每一步都绘制在一张完全透明纸上,即将树木绘制在透明纸上,然后放置在画布上,轿车绘制在另一张透明纸上,美女也是,最终按照这个顺序叠加在一起放置在画布上.
+   <br/>
+   看上去的效果和没有用透明纸时是一样的,但是用了透明纸,我可以随时对每张透明纸进行修改同时不会影响其他透明纸上的东西.
+   <br/>
+   比如我要在轿车上加上法拉利标志,如果没用透明纸,且标志所在的位置被美女挡住了一半,就很难绘制,如果用了透明纸,就能单独把轿车分离出来绘制,绘制完再把透明纸塞到原来的地方,甚至可以改变透明纸叠加的顺序.
+   <br/>
+   背景元素绘制处理方式和透明纸很类似,当然说这些话只是为了有助于对绘制顺序的理解,在其他绘图软件中,透明纸就类似于'图层'.)
+  </p>
+ </body>
 </html>

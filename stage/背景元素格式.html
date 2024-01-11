@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>����Ԫ�ظ�ʽ</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   背景元素格式
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,24 +23,43 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">����Ԫ�ظ�ʽ</p>
-<p>������һ��ָ����̬����Ԫ�ص�����:</p>
-<ul>
-  <li>[BG my_element_name]<br />
-    type = normal<br />
-    spriteno = 0,0<br />
-    start = 0,0<br />
-    delta = .5, .5<br />
-    mask = 0<br />
-  </li>
-</ul>
-<p>����������SFF�ļ��е�0,0ͼ���ز���ʾ��0,0�����ʼλ����.<br />
-�����ÿ�ƶ�1��λ,ͼ����ƶ�0.5����̨��λ.</p>
-<p>ÿ������Ԫ����[BG my_element_name]��ͷ��һ���鶨��.<br />
-my_element_name��Ҫ��һ������˼������������,������ʱ�򽫻���ʾ�������.</p>
-<p>���潫�������.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   背景元素格式
+  </p>
+  <p>
+   下面是一个指定静态背景元素的例子:
+  </p>
+  <ul>
+   <li>
+    [BG my_element_name]
+    <br/>
+    type = normal
+    <br/>
+    spriteno = 0,0
+    <br/>
+    start = 0,0
+    <br/>
+    delta = .5, .5
+    <br/>
+    mask = 0
+    <br/>
+   </li>
+  </ul>
+  <p>
+   此例将背景SFF文件中的0,0图像素材显示在0,0这个初始位置上.
+   <br/>
+   摄像机每移动1单位,图像就移动0.5个舞台单位.
+  </p>
+  <p>
+   每个背景元素由[BG my_element_name]开头的一个组定义.
+   <br/>
+   my_element_name需要用一个顾名思义的名字来替代,报错的时候将会显示这个名字.
+  </p>
+  <p>
+   下面将定义参数.
+  </p>
+ </body>
 </html>

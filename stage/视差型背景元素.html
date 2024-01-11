@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>�Ӳ��ͱ���Ԫ��</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   视差型背景元素
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,66 +23,150 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">�Ӳ��ͱ���Ԫ��</p>
-<p>�Ӳ��ͱ���Ԫ�ظ�����Ԫ����ʾ����Ȼþ�,����ȥ���������ϻ���.<br />
-�Ӳ��ͱ���Ԫ��Ӧ��ָ��spriteno�����ĵ���ͼƬ���.<br />
-��1.1����߰汾��,�Ӳ��ͱ���Ԫ��Ҳ��ʹ��ָ��actionno�����Ķ���,������ͨ�Ķ����ͱ���Ԫ��.<br />
-�������Ӳ��Ԫ��Ҳ������ʹ��xscale����.</p>
-<p>��ʽ����:</p>
-<ul>
-  <li>[BG my_parallax_element];1.1֮��<br />
-    type = parallax<br />
-    spriteno = 10, 0<br />
-    width = 300, 600<br />
-    scalestart = 1,1<br />
-    scaledelta = 0,.001</li>
-</ul>
-<p>��һ������:</p>
-<ul>
-  <li>[BG my_parallax_element];1.1֮ǰ<br />
-    type = parallax<br />
-    spriteno = 10, 0<br />
-    xscale = 1,1.5<br />
-    yscalestart = 100;����<br />
-    yscaledelta = 1.2;����<br />
-  </li>
-</ul>
-<p><span class="STYLE3">width = top_width, bottom_width ; (����, ����)</span><br />
-  top_width��bottom_width�ֱ�ָ����������ζ���/�ײ��Ŀ���,�߶Ⱥ�ͼ��ĸ߶���һ����.<br />
-  ͼ��ͨ��������ƥ��������εĳߴ�.<br />
-  ��������ƶ�ʱ��top_width��bottom_width�ı仯������Ӱ���б���.<br />
-  ��������ͼ��͸�ӱ���Ԥ������ʹ��width.<br />
-������ʷԭ��,SFF��ָ����x���걻������(��ͼ�ε�ˮƽ������Ϊ���ĵ�).</p>
-<p><span class="STYLE3">xscale = top_xscale, bottom_xscale ; (������, ������) (����)</span><br />
-  top_xscale��bottom_xscale�ֱ����ű���Ԫ�ض���/�ײ���Ե��ˮƽdeltaЧ��,����һ��ˮƽ�б�Ч��.<br />
-  delta = .75, .75��xscale = 1, 2ָ���������ÿ�ƶ�1��λ,ͼ�񶥲��ƶ�.75 * 1 = .75��̨��λ,ͼ��ײ��ƶ�.75 * 2 = 1.5��̨��λ.<br />
-�����ٶ�ͼ��������Ϊͼ��Ķ���.</p>
-<p>Ҫôָ��xscaleҪôָ��width,������ͬʱָ��.<br />
-���ͼ���Ѿ�͸�ӱ���Ԥ�����˾�ʹ��xscale.<br />
-Ӳ��������Ⱦ���ڼ����б���ϲ����Ӿ�����.</p>
-<p>ʹ��xscale�����󶯻����Ӳ��Ҳ������Ч.</p>
-<p><span class="STYLE3">yscalestart = yscalestart ; (������) (����)</span><br />
-  �˷����Ĳ��������ŵ��������ֱ�ƶ�ʱԪ�صĴ�ֱ���ű仯.<br />
-  ���Ĺ��ܱ�����;��scalestart��scaledelta�߼��������.</p>
-<p>yscalestart�ǵ�������ڵ�ƽ����ʱͼ��ֱ������,�ðٷֱȱ�ʾ.<br />
-  ����,ֵ100��Ӧ����ϵ����1,50��Ӧ����ϵ��Ϊ2.Ĭ��ֵ��100.</p>
-<p><span class="STYLE3">yscaledelta = yscaledelta ; (������) (����)</span><br />
-  ����������˶�ÿ���������λʱ,��������ϵ�����ӵ�ָ����,����Ϊ�ٷֱ�.<br />
-���ռ������ϵ��������Ĺ�ʽ:</p>
-<ul>
-  <li>scale = 1 / (yscalestart/100 + yscaledelta/100 * camera_y)<br />
-  </li>
-</ul>
-<p>���������,�������������ƶ�1��λ,����ϵ������1 / (1.00 + .012 * -1) = 1.012,������ƶ���1��λ,���Ž���1 / (1.00 + .012 * -2) = 1.025�ȵ�.</p>
-<p>yscalestart��yscaledelta������ֱ�۵�������������ʷԭ����ɵ�.</p>
-<p><span class="STYLE2">ע��:</span><br />
-  ������̬Ԫ�صĲ������Ӳ���Ԫ��Ҳ��Ч,����tilespacing.<br />
-  ����,y_tileǿ��Ϊ0.</p>
-<p>�ڶ������Ӳ��Ԫ����ָ��һ���ǶȽ�����undefined.</p>
-<p>�������Ӳ����֧��������Ⱦ.</p>
-<p>������������� <a href="�߼�����.html">����Ԫ�ظ߼�����</a>.</p>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   视差型背景元素
+  </p>
+  <p>
+   视差型背景元素给出了元素显示的深度幻觉,看上去像是脸朝上或朝下.
+   <br/>
+   视差型背景元素应由指定spriteno参数的单张图片组成.
+   <br/>
+   在1.1或更高版本中,视差型背景元素也能使用指定actionno参数的动画,就像普通的动画型背景元素.
+   <br/>
+   动画型视差背景元素也许不能使用xscale参数.
+  </p>
+  <p>
+   格式如下:
+  </p>
+  <ul>
+   <li>
+    [BG my_parallax_element];1.1之后
+    <br/>
+    type = parallax
+    <br/>
+    spriteno = 10, 0
+    <br/>
+    width = 300, 600
+    <br/>
+    scalestart = 1,1
+    <br/>
+    scaledelta = 0,.001
+   </li>
+  </ul>
+  <p>
+   另一个例子:
+  </p>
+  <ul>
+   <li>
+    [BG my_parallax_element];1.1之前
+    <br/>
+    type = parallax
+    <br/>
+    spriteno = 10, 0
+    <br/>
+    xscale = 1,1.5
+    <br/>
+    yscalestart = 100;废弃
+    <br/>
+    yscaledelta = 1.2;废弃
+    <br/>
+   </li>
+  </ul>
+  <p>
+   <span class="STYLE3">
+    width = top_width, bottom_width ; (整型, 整型)
+   </span>
+   <br/>
+   top_width和bottom_width分别指定了这个梯形顶部/底部的宽度,高度和图像的高度是一样的.
+   <br/>
+   图像将通过变形来匹配这个梯形的尺寸.
+   <br/>
+   当摄像机移动时从top_width到bottom_width的变化比例将影响切变量.
+   <br/>
+   如果不想对图像透视变形预处理就使用width.
+   <br/>
+   由于历史原因,SFF中指定的x坐标被忽略了(用图形的水平中心作为中心点).
+  </p>
+  <p>
+   <span class="STYLE3">
+    xscale = top_xscale, bottom_xscale ; (浮点型, 浮点型) (废弃)
+   </span>
+   <br/>
+   top_xscale和bottom_xscale分别缩放背景元素顶部/底部边缘的水平delta效果,创建一个水平切变效果.
+   <br/>
+   delta = .75, .75和xscale = 1, 2指定了摄像机每移动1单位,图像顶部移动.75 * 1 = .75舞台单位,图像底部移动.75 * 2 = 1.5舞台单位.
+   <br/>
+   此例假定图像坐标轴为图像的顶部.
+  </p>
+  <p>
+   要么指定xscale要么指定width,但不能同时指定.
+   <br/>
+   如果图像已经透视变形预处理了就使用xscale.
+   <br/>
+   硬件加速渲染将在极端切变角上产生视觉假象.
+  </p>
+  <p>
+   使用xscale参数后动画型视差背景也许会无效.
+  </p>
+  <p>
+   <span class="STYLE3">
+    yscalestart = yscalestart ; (浮点型) (废弃)
+   </span>
+   <br/>
+   此废弃的参数控制着当摄像机垂直移动时元素的垂直缩放变化.
+   <br/>
+   他的功能被多用途的scalestart和scaledelta高级参数替代.
+  </p>
+  <p>
+   yscalestart是当摄像机在地平线上时图像垂直逆缩放,用百分比表示.
+   <br/>
+   例如,值100对应缩放系数是1,50对应缩放系数为2.默认值是100.
+  </p>
+  <p>
+   <span class="STYLE3">
+    yscaledelta = yscaledelta ; (浮点型) (废弃)
+   </span>
+   <br/>
+   摄像机向下运动每个摄像机单位时,反向缩放系数增加的指定量,体现为百分比.
+   <br/>
+   最终计算出的系数看下面的公式:
+  </p>
+  <ul>
+   <li>
+    scale = 1 / (yscalestart/100 + yscaledelta/100 * camera_y)
+    <br/>
+   </li>
+  </ul>
+  <p>
+   上面的例子,如果摄像机向上移动1单位,缩放系数将是1 / (1.00 + .012 * -1) = 1.012,如果又移动了1单位,缩放将是1 / (1.00 + .012 * -2) = 1.025等等.
+  </p>
+  <p>
+   yscalestart和yscaledelta参数非直观的特征是由于历史原因造成的.
+  </p>
+  <p>
+   <span class="STYLE2">
+    注意:
+   </span>
+   <br/>
+   其他静态元素的参数对视差型元素也有效,除了tilespacing.
+   <br/>
+   此外,y_tile强制为0.
+  </p>
+  <p>
+   在动画型视差背景元素中指定一个角度将导致undefined.
+  </p>
+  <p>
+   动画型视差背景不支持软件渲染.
+  </p>
+  <p>
+   其他参数请参阅
+   <a href="高级参数.html">
+    背景元素高级参数
+   </a>
+   .
+  </p>
+ </body>
 </html>

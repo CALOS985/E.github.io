@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>����������</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   背景控制器
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,107 +23,230 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">����������</p>
-<p>��������������һ���ڲ���ʱ��.��ʱ����ÿ�غϿ�ʼʱ��0��ʼ��ʱ.ÿ����Ϸ֡����1,<br />
-  ����ʱ�������������ʼ��ʱ��.���������Ϊ����״̬,<br />
-  ����ʱ�����������������ʱ��.�������ͣ��,<br />
-���������ָ����һ������ѭ��ʱ��.��ѭ��ʱ�䵽��ʱ���������ڲ���ʱ������λ��0,</p>
-<p>���������������������ʽд�ڸ���BGCtrlDef��,����ʹ�ö�� BGCtrlDef���������ֳɼ�����,<br />
-  ÿ��BGCtrlDef�ͱ���������ģ����Է�����DEF�ļ�[BGDef]֮�ڵ��κ�λ��,<br />
-  ��Щģ���һ���ʽ��: (��ʽ����StateDef)</p>
-<ul>
-  <li>[BGCtrlDef my_controller_name]<br />
-    looptime = GLOBAL_LOOPTIME<br />
-    ctrlID = DEFAULTID_1, DEFAULTID_2, ...<br />
-    <br />
-    [BGCtrl my_controller_1]<br />
-  type = CONTROLLER_TYPE<br />
-  time = START_TIME, END_TIME, LOOPTIME<br />
-  ctrlID = ID_1, ID_2, ...<br />
-  (controller-specific parameters here)<br />
-  <br />
-  [BGCtrl my_controller_2]<br />
-  (�ȵ�)</li>
-</ul>
-<p>GLOBAL_LOOPTIMEָ��һ��ʱ��֡��.�����ʱ��֮��BGCtrlDef����λ�����ڲ���ʱ��.�Լ�������������BGCtrl�ڲ���ʱ��,<br />
-  Ҫ��ֹѭ��ʱ��.����Ϊ-1����ȱʡ,</p>
-<p>DEFAULTID_1, DEFAULTID_2, �ȵ�, ָ������ û��ָ������ctrlID�б���BGCtrl Ӱ��� ����Ԫ��ID��,<br />
-  ����Ϊ�˲����г����10��ID��,�������ȱʡ.��Ĭ�Ͻ�Ӱ�����б���Ԫ��,</p>
-<p>START_TIME, END_TIME, LOOPTIME��ָ����ʱ��.�����ʱ��㱳��������Ӧ�ֱ�ʼ����.ֹͣ����.��λ�����ڲ���ʱ��,<br />
-  ���LOOPTIMEȱʡ������Ϊ-1.�򱳾������������Ḵλ���ļ�ʱ��,(���ļ�ʱ����Ȼ���Ա�������BGCtrlDef��λ.ֻҪGLOBAL_LOOPTIME��ָ��)<br />
-  ��������������START_TIME��END_TIME�б���������,<br />
-  START_TIME�Ǳ�Ҫ����.�����ȱʡEND_TIME�򽫻�Ĭ��Ϊ��START_TIME��ֵһ��,(��˿���������������1֡)</p>
-<p>ID_1, ID_2, �ȵ�, ָ���˿����������ڵı���Ԫ��ID��,����б�.���ָ��.������BGCtrlDef��ָ����Ĭ���б�,<br />
-  ID�����ָ��10��,</p>
-<p>������BGCtrl���ͺ�������ز������б�:(�������������״̬����������)</p>
-<ul>
-  <li><span class="STYLE3">null</span><br />
-    ������.�˿�����ʲôҲ����,��Ҫ���ڵ�����.�������ʱ��ʹһ����������Чͬʱ�ֲ���ɾ����Щ����.����null.��������ÿ�д���ǰ��&quot;;&quot;,<br />
-    ��ԭ���Ŀ��������ƻ���nullͬʱ��ԭ��������ǰ��&quot;;&quot;,�˿�����û����������,<br />
-    </li>
-  <li><span class="STYLE3">Visible</span><br />
-    value = visible_flag <br />
-    ����Ԫ�صĿɼ���״̬,����ʱ.�˿��������ñ���Ԫ�ز��ɼ�(=0)��ɼ�(=1),���ɼ���Ԫ����.��ʱ������ֹͣ,<br />
-    (Ҳ����˵.�ڶ�����Ԫ����.��ʹ�ڲ��ɼ���״̬.�����Խ���������)<br />
-  </li>
-  <li><span class="STYLE3">Enabled</span><br />
-    value = enabled_flag <br />
-    ����Ԫ���Ƿ�'�ر�'(��ʱ��������ʰ�,,,)<br />
-    �˿�����Ҫô�ر�(��ֹ)(=0)Ҫô����(���)(=1)����Ԫ�ص�Ч��,<br />
-    ��һ��Ԫ�ر��ر�.���ǲ��ɼ��������ļ�ʱ��ֹͣ(����.�ڶ�����Ԫ�ص������.�κζ�����ֹͣ),<br />
-    </li>
-  <li><span class="STYLE3">VelSet</span><br />
-    x = vel_x <br />
-    ����Ԫ��x�����ٶ�,<br />
-    y = vel_y <br />
-    ����Ԫ��y�����ٶ�,<br />
-    �˿����������� ��Ӱ��ı���Ԫ�� x/y�����ٶ� Ϊָ����ֵ,<br />
-    �ٶȵ�λ�� ����/��Ϸ֡,������x,y������ָ��1����2����ֵ,<br />
-    ȱʡ�κ�һ��.Ԫ���ڴ˷�����ٶȽ�����,<br />
-    </li>
-  <li><span class="STYLE3">VelAdd</span><br />
-    x = vel_incr_x <br />
-    �ı�Ԫ��x�����ٶ�, <br />
-    y = vel_incr_y <br />
-    �ı�Ԫ��y�����ٶ�,<br />
-    �˿����������� ��Ӱ��ı���Ԫ�� x/y�����ٶ� ָ����ֵ,<br />
-    ������x,y������ָ��1����2����ֵ,<br />
-    ȱʡ�κ�һ��.Ԫ���ڴ˷�����ٶȽ�����,<br />
-    </li>
-  <li><span class="STYLE3">PosSet</span><br />
-    x = pos_x <br />
-    ����Ԫ��x����λ��,<br />
-    y = pos_y <br />
-    ����Ԫ��y����λ��,<br />
-    �˿����������� ��Ӱ��ı���Ԫ�� x/y�������� ָ����ֵ,<br />
-    ������x,y������ָ��1����2����ֵ,<br />
-    ȱʡ�κ�һ��.Ԫ���ڴ����귽���λ�ý�����,<br />
-    </li>
-  <li><span class="STYLE3">PosAdd</span><br />
-    x = x_displacement <br />
-    �滻Ԫ��x����λ��,<br />
-    y = y_displacement <br />
-    �滻Ԫ��y����λ��,<br />
-    �˿��������滻 ��Ӱ��ı���Ԫ�� x/y�������� ָ����ֵ,<br />
-    ������x,y������ָ��1����2����ֵ,<br />
-    ȱʡ�κ�һ��.Ԫ���ڴ����귽���λ�ý�����,<br />
-    </li>
-  <li><span class="STYLE3">Anim</span><br />
-    value = action_no <br />
-    �ı� ��Ӱ��Ԫ�� ��ʾ�Ķ�����ָ��������,<br />
-    </li>
-  <li><span class="STYLE3">SinX</span><br />
-    value = amplitude, period, offset <br />
-    �ı���Ӱ��Ԫ�������˶�x��������.���ں���λƫ��,<br />
-    �˲���Ч���ͱ���Ԫ�ز����е�sin.x��ͬ,<br />
-    </li>
-  <li><span class="STYLE3">SinY</span><br />
-    value = amplitude, period, offset <br />
-    �ı���Ӱ��Ԫ�������˶�y��������.���ں���λƫ��,<br />
-    �˲���Ч���ͱ���Ԫ�ز����е�sin.y��ͬ,</li>
-</ul>
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   背景控制器
+  </p>
+  <p>
+   背景控制器操作一个内部计时器.计时器在每回合开始时从0开始计时.每个游戏帧增加1,
+   <br/>
+   当计时器到达控制器起始的时间.则控制器变为激活状态,
+   <br/>
+   当计时器到达控制器结束的时间.则控制器停用,
+   <br/>
+   如果控制器指定了一个正的循环时间.则当循环时间到达时控制器的内部计时器将复位到0,
+  </p>
+  <p>
+   背景控制器必须以组的形式写在父级BGCtrlDef下,你能使用多个 BGCtrlDef将控制器分成几个组,
+   <br/>
+   每个BGCtrlDef和背景控制器模块可以放置在DEF文件[BGDef]之内的任何位置,
+   <br/>
+   这些模块的一般格式是: (格式类似StateDef)
+  </p>
+  <ul>
+   <li>
+    [BGCtrlDef my_controller_name]
+    <br/>
+    looptime = GLOBAL_LOOPTIME
+    <br/>
+    ctrlID = DEFAULTID_1, DEFAULTID_2, ...
+    <br/>
+    <br/>
+    [BGCtrl my_controller_1]
+    <br/>
+    type = CONTROLLER_TYPE
+    <br/>
+    time = START_TIME, END_TIME, LOOPTIME
+    <br/>
+    ctrlID = ID_1, ID_2, ...
+    <br/>
+    (controller-specific parameters here)
+    <br/>
+    <br/>
+    [BGCtrl my_controller_2]
+    <br/>
+    (等等)
+   </li>
+  </ul>
+  <p>
+   GLOBAL_LOOPTIME指定一个时间帧数.在这个时间之后BGCtrlDef将复位它的内部计时器.以及他包含的所有BGCtrl内部计时器,
+   <br/>
+   要禁止循环时间.设置为-1或者缺省,
+  </p>
+  <p>
+   DEFAULTID_1, DEFAULTID_2, 等等, 指定将被 没有指定自身ctrlID列表的BGCtrl 影响的 背景元素ID号,
+   <br/>
+   你能为此参数列出最多10个ID号,如果此行缺省.则默认将影响所有背景元素,
+  </p>
+  <p>
+   START_TIME, END_TIME, LOOPTIME是指定的时间.在这个时间点背景控制器应分别开始激活.停止激活.复位它的内部计时器,
+   <br/>
+   如果LOOPTIME缺省或设置为-1.则背景控制器将不会复位它的计时器,(他的计时器仍然可以被他父级BGCtrlDef复位.只要GLOBAL_LOOPTIME被指定)
+   <br/>
+   背景控制器将在START_TIME和END_TIME中被连续激活,
+   <br/>
+   START_TIME是必要参数.但如果缺省END_TIME则将会默认为和START_TIME的值一样,(因此控制器将仅被触发1帧)
+  </p>
+  <p>
+   ID_1, ID_2, 等等, 指定此控制器作用于的背景元素ID号,这个列表.如果指定.将覆盖BGCtrlDef中指定的默认列表,
+   <br/>
+   ID最多能指定10个,
+  </p>
+  <p>
+   下面是BGCtrl类型和它们相关参数的列表:(大多数控制器和状态控制器相似)
+  </p>
+  <ul>
+   <li>
+    <span class="STYLE3">
+     null
+    </span>
+    <br/>
+    如其名.此控制器什么也不做,主要用在调试中.当你想短时间使一个控制器无效同时又不想删掉这些代码.就用null.而不必在每行代码前加";",
+    <br/>
+    把原来的控制器名称换成null同时在原来的名字前加";",此控制器没有其他参数,
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     Visible
+    </span>
+    <br/>
+    value = visible_flag
+    <br/>
+    设置元素的可见度状态,激活时.此控制器设置背景元素不可见(=0)或可见(=1),不可见的元素中.计时将不会停止,
+    <br/>
+    (也就是说.在动画型元素中.即使在不可见的状态.动画仍将持续播放)
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     Enabled
+    </span>
+    <br/>
+    value = enabled_flag
+    <br/>
+    设置元素是否被'关闭'(暂时先用这个词吧,,,)
+    <br/>
+    此控制器要么关闭(禁止)(=0)要么开启(解禁)(=1)背景元素的效果,
+    <br/>
+    当一个元素被关闭.将是不可见的且它的计时间停止(所以.在动画型元素的情况下.任何动画将停止),
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     VelSet
+    </span>
+    <br/>
+    x = vel_x
+    <br/>
+    设置元素x方向速度,
+    <br/>
+    y = vel_y
+    <br/>
+    设置元素y方向速度,
+    <br/>
+    此控制器将设置 被影响的背景元素 x/y方向速度 为指定的值,
+    <br/>
+    速度单位是 像素/游戏帧,你能在x,y参数中指定1个或2个数值,
+    <br/>
+    缺省任何一个.元素在此方向的速度将不变,
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     VelAdd
+    </span>
+    <br/>
+    x = vel_incr_x
+    <br/>
+    改变元素x方向速度,
+    <br/>
+    y = vel_incr_y
+    <br/>
+    改变元素y方向速度,
+    <br/>
+    此控制器将增加 被影响的背景元素 x/y方向速度 指定的值,
+    <br/>
+    你能在x,y参数中指定1个或2个数值,
+    <br/>
+    缺省任何一个.元素在此方向的速度将不变,
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     PosSet
+    </span>
+    <br/>
+    x = pos_x
+    <br/>
+    设置元素x方向位置,
+    <br/>
+    y = pos_y
+    <br/>
+    设置元素y方向位置,
+    <br/>
+    此控制器将设置 被影响的背景元素 x/y方向坐标 指定的值,
+    <br/>
+    你能在x,y参数中指定1个或2个数值,
+    <br/>
+    缺省任何一个.元素在此坐标方向的位置将不变,
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     PosAdd
+    </span>
+    <br/>
+    x = x_displacement
+    <br/>
+    替换元素x方向位置,
+    <br/>
+    y = y_displacement
+    <br/>
+    替换元素y方向位置,
+    <br/>
+    此控制器将替换 被影响的背景元素 x/y方向坐标 指定的值,
+    <br/>
+    你能在x,y参数中指定1个或2个数值,
+    <br/>
+    缺省任何一个.元素在此坐标方向的位置将不变,
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     Anim
+    </span>
+    <br/>
+    value = action_no
+    <br/>
+    改变 受影响元素 显示的动画到指定动画号,
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     SinX
+    </span>
+    <br/>
+    value = amplitude, period, offset
+    <br/>
+    改变受影响元素正弦运动x方向的振幅.周期和相位偏移,
+    <br/>
+    此参数效果和背景元素参数中的sin.x相同,
+    <br/>
+   </li>
+   <li>
+    <span class="STYLE3">
+     SinY
+    </span>
+    <br/>
+    value = amplitude, period, offset
+    <br/>
+    改变受影响元素正弦运动y方向的振幅.周期和相位偏移,
+    <br/>
+    此参数效果和背景元素参数中的sin.y相同,
+   </li>
+  </ul>
+ </body>
 </html>

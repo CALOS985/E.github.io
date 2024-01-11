@@ -1,10 +1,12 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta content="text/html; charset=gb2312" http-equiv="content-type" />
-<title>StageInfo ��</title>
-<style type="text/css">
-<!--
+ <head>
+  <meta content="text/html; charset=utf-8" http-equiv="content-type"/>
+  <title>
+   StageInfo 组
+  </title>
+  <style type="text/css">
+   <!--
 body,td,th {
 	font-family: Verdana, Arial, Helvetica, sans-serif;
 }
@@ -21,32 +23,78 @@ body,td,th {
 	color: #0000FF
 }
 -->
-</style></head>
-
-<body>
-<p class="STYLE1">StageInfo ��</p>
-<p><span class="STYLE3">zoffset = v_dist </span><br />
-  v_dist�ǵ�ƽ������Ļ������ֱ����,��λ������.<br />
-zoffset�����ǲ��ʵ�������,��Ϊ�˼���������û�Ĺ���.</p>
-<p><span class="STYLE3">zoffsetlink = elem_ID </span><br />
-  ���ָ���������,��ʹ��zoffset��ֵ��ָ��ID�ŵı���Ԫ��y����λ�ò�������.<br />
-����,����ʹ��sin.y�������Ӵ�ֵ���ض���Ԫ��(����������Ԫ������)ʹ�����������ҷ�ʽ���°ڶ�.</p>
-<p><span class="STYLE3">autoturn = turn_flag </span><br />
-  ����Ϊ1ʹ�������Զ�����Է�.<br />
-��Ϊ����ֵ����ֹ��������.</p>
-<p><span class="STYLE3">resetBG = reset_flag </span><br />
-�������Ϊ1,��������ÿ�غ�֮�䱻����.�������Ϊ0,�����������ϻغ�״̬����������.</p>
-<p><span class="STYLE3">localcoord = width, height </span><br />
-��̨����ռ�ĳߴ�.ȱʡĬ��Ϊ320,240.</p>
-<p><span class="STYLE3">xscale = xscale </span><br class="STYLE3" />
-ƫ����,�ٶ�,ͼƬ�زĺͶ��� ˮƽ���������ϵ��.</p>
-<p><span class="STYLE3">yscale = yscale </span><br />
-ƫ����,�ٶ�,ͼƬ�زĺͶ��� ��ֱ���������ϵ��.</p>
-<p><span class="STYLE3">hires = hi_flag </span><br />
-��Winmugen Plus�����ӵ�ѡ��(����mugen 1.x), ʹ���ֵͷָ߷ֳ�����Ϊ����.<br />
-hi_flag����Ϊ1ʱ��������ϵ��Ϊ0.5��(��xscale=0.5 yscale=0.5), ����Ϊ0ʱ���Ų���.<br />
-ע��: ��ͬʱ������xscale��yscaleʱ, hires�ᱻ����.<br />
-</p>
-
-</body>
+  </style>
+ </head>
+ <body>
+  <p class="STYLE1">
+   StageInfo 组
+  </p>
+  <p>
+   <span class="STYLE3">
+    zoffset = v_dist
+   </span>
+   <br/>
+   v_dist是地平线与屏幕顶部垂直距离,单位是像素.
+   <br/>
+   zoffset参数是不适当的命名,但为了兼容性所以没改过来.
+  </p>
+  <p>
+   <span class="STYLE3">
+    zoffsetlink = elem_ID
+   </span>
+   <br/>
+   如果指定这个参数,便使得zoffset的值与指定ID号的背景元素y方向位置产生链接.
+   <br/>
+   例如,你能使用sin.y参数链接此值到特定的元素(见其他背景元素类型)使得人物以正弦方式上下摆动.
+  </p>
+  <p>
+   <span class="STYLE3">
+    autoturn = turn_flag
+   </span>
+   <br/>
+   设置为1使得人物自动面向对方.
+   <br/>
+   设为其他值将禁止这种特性.
+  </p>
+  <p>
+   <span class="STYLE3">
+    resetBG = reset_flag
+   </span>
+   <br/>
+   如果设置为1,背景将在每回合之间被重置.如果设置为0,背景将保持上回合状态并继续播放.
+  </p>
+  <p>
+   <span class="STYLE3">
+    localcoord = width, height
+   </span>
+   <br/>
+   舞台坐标空间的尺寸.缺省默认为320,240.
+  </p>
+  <p>
+   <span class="STYLE3">
+    xscale = xscale
+   </span>
+   <br class="STYLE3"/>
+   偏移量,速度,图片素材和动画 水平方向的缩放系数.
+  </p>
+  <p>
+   <span class="STYLE3">
+    yscale = yscale
+   </span>
+   <br/>
+   偏移量,速度,图片素材和动画 垂直方向的缩放系数.
+  </p>
+  <p>
+   <span class="STYLE3">
+    hires = hi_flag
+   </span>
+   <br/>
+   是Winmugen Plus新添加的选项(兼容mugen 1.x), 使区分低分高分场景成为可能.
+   <br/>
+   hi_flag设置为1时场景缩放系数为0.5倍(即xscale=0.5 yscale=0.5), 设置为0时缩放不变.
+   <br/>
+   注意: 当同时设置了xscale和yscale时, hires会被忽略.
+   <br/>
+  </p>
+ </body>
 </html>
