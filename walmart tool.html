@@ -1,2 +1,830 @@
-<!DOCTYPE html><html lang=zh-CN><head><meta charset=UTF-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Walmart 库存查询工具 - 官方下载页</title><style>body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";margin:0;padding:0;background-color:#f5f5f7;color:#1d1d1f;line-height:1.5}.navbar{background-color:#2c3e50;color:#fff;padding:15px 0;text-align:center;box-shadow:0 2px 4px rgba(0,0,0,.1)}.navbar h1{margin:0;font-size:20px;font-weight:600}.container{max-width:1000px;margin:0 auto;padding:40px 20px}.hero{display:flex;align-items:center;gap:40px;background-color:#fff;padding:40px;border-radius:18px;box-shadow:0 4px 20px rgba(0,0,0,.05);margin-bottom:30px}.hero-screenshot{flex:1;text-align:center}.hero-screenshot img{max-width:100%;height:auto;border-radius:12px;box-shadow:0 8px 30px rgba(0,0,0,.15);border:1px solid #eaeaea}.hero-download{flex:1;display:flex;flex-direction:column;align-items:flex-start}.app-version{background-color:#e1f5fe;color:#0277bd;padding:4px 10px;border-radius:20px;font-size:12px;font-weight:700;margin-bottom:10px}.app-title{font-size:32px;font-weight:700;margin:0 0 15px 0;color:#1d1d1f}.app-desc{font-size:16px;color:#86868b;margin-bottom:30px;max-width:400px}.download-btn{display:inline-block;background-color:#0071e3;color:#fff;text-decoration:none;padding:12px 30px;font-size:16px;font-weight:600;border-radius:25px;transition:background-color .2s,transform .2s;box-shadow:0 4px 15px rgba(0,113,227,.3)}.download-btn:hover{background-color:#0077ed;transform:translateY(-2px)}.download-btn:active{transform:translateY(1px)}.download-sub-tip{font-size:12px;color:#a1a1a6;margin-top:10px;margin-left:10px}.features{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:30px}.feature-card{background-color:#fff;padding:30px;border-radius:18px;box-shadow:0 2px 10px rgba(0,0,0,.03);text-align:center}.feature-icon{font-size:40px;margin-bottom:15px}.feature-card h3{font-size:18px;margin:0 0 10px 0;color:#1d1d1f}.feature-card p{font-size:14px;color:#86868b;margin:0}.footer{text-align:center;padding:40px 0;color:#a1a1a6;font-size:12px}@media (max-width:768px){.hero{flex-direction:column;text-align:center;padding:30px}.hero-download{align-items:center}.app-title{font-size:24px}}</style><body><div class=navbar><h1>Walmart Inventory Tool</h1></div><div class=container><div class=hero><div class=hero-screenshot><img src=https://pic1.imgdb.cn/item/69c71b7eebec5f101554f5f9.png alt=Walmart库存查询工具界面截图></div><div class=hero-download><span class=app-version>v2.3.作者卡洛斯</span><h2 class=app-title>Walmart 库存自动查询工具</h2><p class=app-desc>批量获取 Walmart 商品实时库存与主图，自动化处理 Excel 任务，专为沃尔玛运营设计。</p><a href=https://wwbvl.lanzoul.com/i3AvG3ms38fa
- class=download-btn id=downloadBtn>🚀 立即下载 (Windows版)</a> <span class=download-sub-tip>绿色免安装，解压即用</span></div></div><div class=features><div class=feature-card><div class=feature-icon>📊</div><h3>Excel 批量处理</h3><p>一键导入 Item ID 列表，全自动抓取，直接结果写入原表格。</p></div><div class=feature-card><div class=feature-icon>🖼️</div><h3>高清主图抓取</h3><p>自动识别并下载商品大图，自动调整列宽存入 Excel。</p></div><div class=feature-card><div class=feature-icon>🔒</div><h3>运行稳定</h3><p>内置 Session 管理和 User-Agent 伪装，减少被 Walmart 反爬封锁的风险。</p></div></div><div class=features style=margin-top:20px;grid-template-columns:1fr><div class=feature-card style="text-align:left;padding:20px 30px"><h3 style=margin-bottom:5px>⚠️ 运行环境与注意事项</h3><p style=font-size:13px>• 仅支持 Windows 操作系统。<br>• 必须使用**美国节点全局代理**以确保能正常访问 Walmart 官网。<br>• 软件启动前请**务必关闭**待处理的 Excel 文件，防止读写冲突。</p></div></div></div><div class=footer><p>© 2026 卡洛斯. All rights reserved.</p><p>本工具仅供学习交流使用，请勿用于非法用途。</p></div>
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Walmart 库存自动查询工具 v4.0 下载与更新说明。支持 Excel 批量处理、库存查询及主图按需下载。">
+  <meta name="theme-color" content="#07182d">
+  <title>Walmart 库存查询工具 v4.0｜下载与更新说明</title>
+  <style>
+    :root {
+      --navy-950: #061426;
+      --navy-900: #0a1d34;
+      --navy-800: #102b4c;
+      --blue-700: #075bb5;
+      --blue-600: #0875e1;
+      --blue-500: #138cf3;
+      --yellow-500: #ffc220;
+      --ink: #142235;
+      --muted: #607087;
+      --surface: #ffffff;
+      --surface-soft: #f4f7fb;
+      --line: #dce5f0;
+      --success: #137a55;
+      --warning-bg: #fff9e8;
+      --warning-line: #f0cf68;
+      --shadow: 0 22px 60px rgba(8, 30, 56, 0.12);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--surface-soft);
+      font-family: "Segoe UI", "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      color: #ffffff;
+      background: rgba(6, 20, 38, 0.94);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      width: min(1120px, calc(100% - 40px));
+      min-height: 68px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 750;
+      letter-spacing: 0.01em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      color: var(--navy-950);
+      background: var(--yellow-500);
+      border-radius: 11px;
+      font-size: 19px;
+      box-shadow: 0 8px 22px rgba(255, 194, 32, 0.23);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      font-size: 14px;
+      color: #c9d7e8;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: #ffffff;
+    }
+
+    .hero-shell {
+      position: relative;
+      overflow: hidden;
+      color: #ffffff;
+      background:
+        radial-gradient(circle at 86% 14%, rgba(19, 140, 243, 0.34), transparent 32%),
+        linear-gradient(145deg, var(--navy-950), var(--navy-800));
+    }
+
+    .hero-shell::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      opacity: 0.17;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+      background-size: 46px 46px;
+      mask-image: linear-gradient(to bottom, #000, transparent 90%);
+    }
+
+    .hero {
+      position: relative;
+      z-index: 1;
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 74px 0 86px;
+      display: grid;
+      grid-template-columns: minmax(0, 0.92fr) minmax(420px, 1.08fr);
+      align-items: center;
+      gap: 64px;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      margin: 0 0 20px;
+      padding: 7px 12px;
+      color: #ffdc72;
+      background: rgba(255, 194, 32, 0.12);
+      border: 1px solid rgba(255, 194, 32, 0.28);
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+
+    h1 {
+      max-width: 650px;
+      margin: 0;
+      font-size: clamp(2.35rem, 5vw, 4.35rem);
+      line-height: 1.08;
+      letter-spacing: -0.045em;
+    }
+
+    .hero-lead {
+      max-width: 610px;
+      margin: 24px 0 30px;
+      color: #cfdded;
+      font-size: 1.08rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .download-btn,
+    .secondary-btn {
+      min-height: 50px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 13px;
+      font-weight: 750;
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .download-btn {
+      color: var(--navy-950);
+      background: var(--yellow-500);
+      box-shadow: 0 12px 30px rgba(255, 194, 32, 0.24);
+    }
+
+    .secondary-btn {
+      color: #ffffff;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .download-btn:hover,
+    .secondary-btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .download-btn:hover {
+      background: #ffd155;
+      box-shadow: 0 16px 36px rgba(255, 194, 32, 0.3);
+    }
+
+    .secondary-btn:hover {
+      background: rgba(255, 255, 255, 0.14);
+    }
+
+    .download-btn:focus-visible,
+    .secondary-btn:focus-visible,
+    .nav-links a:focus-visible {
+      outline: 3px solid rgba(255, 194, 32, 0.72);
+      outline-offset: 4px;
+    }
+
+    .download-note {
+      margin: 14px 0 0;
+      color: #91a8c1;
+      font-size: 14px;
+    }
+
+    .app-preview {
+      position: relative;
+      padding: 14px;
+      background: rgba(255, 255, 255, 0.09);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 24px;
+      box-shadow: 0 32px 74px rgba(0, 0, 0, 0.31);
+      transform: rotate(1deg);
+    }
+
+    .app-preview::before {
+      content: "当前版本 · v4.0";
+      position: absolute;
+      top: -18px;
+      right: 24px;
+      z-index: 2;
+      padding: 8px 13px;
+      color: #ffffff;
+      background: var(--blue-600);
+      border: 3px solid var(--navy-800);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 750;
+      box-shadow: 0 10px 24px rgba(8, 117, 225, 0.35);
+    }
+
+    .app-preview img {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      background: #ffffff;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 72px 0 86px;
+    }
+
+    .section {
+      scroll-margin-top: 90px;
+      margin-bottom: 72px;
+    }
+
+    .section-heading {
+      max-width: 700px;
+      margin-bottom: 28px;
+    }
+
+    .section-kicker {
+      margin: 0 0 6px;
+      color: var(--blue-700);
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(1.75rem, 3vw, 2.45rem);
+      line-height: 1.25;
+      letter-spacing: -0.025em;
+    }
+
+    .section-intro {
+      margin: 10px 0 0;
+      color: var(--muted);
+    }
+
+    .release-panel {
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow);
+    }
+
+    .release-meta {
+      padding: 32px;
+      color: #ffffff;
+      background: var(--navy-900);
+    }
+
+    .release-version {
+      display: block;
+      margin-bottom: 12px;
+      color: var(--yellow-500);
+      font-size: 2.4rem;
+      font-weight: 850;
+      line-height: 1;
+    }
+
+    .release-label {
+      display: block;
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .release-date {
+      display: block;
+      margin-top: 8px;
+      color: #9eb2c9;
+      font-size: 14px;
+    }
+
+    .release-state {
+      width: fit-content;
+      margin-top: 28px;
+      padding: 6px 10px;
+      color: #bdebd8;
+      background: rgba(35, 174, 121, 0.14);
+      border: 1px solid rgba(92, 218, 168, 0.22);
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    .release-list {
+      margin: 0;
+      padding: 30px 34px;
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px 30px;
+    }
+
+    .release-list li {
+      position: relative;
+      min-height: 72px;
+      padding: 10px 0 10px 34px;
+      border-bottom: 1px solid #edf1f6;
+    }
+
+    .release-list li::before {
+      content: "✓";
+      position: absolute;
+      top: 11px;
+      left: 0;
+      width: 22px;
+      height: 22px;
+      display: grid;
+      place-items: center;
+      color: var(--success);
+      background: #e4f6ee;
+      border-radius: 50%;
+      font-size: 13px;
+      font-weight: 850;
+    }
+
+    .release-list strong {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--ink);
+      font-size: 15px;
+    }
+
+    .release-list span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
+    }
+
+    .feature-card {
+      position: relative;
+      padding: 28px;
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: 0 10px 30px rgba(8, 30, 56, 0.055);
+    }
+
+    .feature-number {
+      display: block;
+      margin-bottom: 30px;
+      color: var(--blue-600);
+      font-size: 13px;
+      font-weight: 850;
+      letter-spacing: 0.12em;
+    }
+
+    .feature-card h3 {
+      margin: 0 0 10px;
+      font-size: 1.15rem;
+      line-height: 1.35;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .notice {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 20px;
+      padding: 28px;
+      background: var(--warning-bg);
+      border: 1px solid var(--warning-line);
+      border-radius: var(--radius-lg);
+    }
+
+    .notice-icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      color: #6f4f00;
+      background: var(--yellow-500);
+      border-radius: 16px;
+      font-size: 25px;
+      font-weight: 850;
+    }
+
+    .notice h2 {
+      font-size: 1.32rem;
+    }
+
+    .notice ul {
+      margin: 12px 0 0;
+      padding-left: 1.25rem;
+      color: #5d5134;
+    }
+
+    .notice li + li {
+      margin-top: 5px;
+    }
+
+    .bottom-cta {
+      margin-bottom: 0;
+      padding: 38px 42px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 28px;
+      color: #ffffff;
+      background: var(--blue-700);
+      border-radius: var(--radius-xl);
+      box-shadow: 0 22px 50px rgba(7, 91, 181, 0.22);
+    }
+
+    .bottom-cta h2 {
+      font-size: clamp(1.55rem, 3vw, 2.2rem);
+    }
+
+    .bottom-cta p {
+      margin: 8px 0 0;
+      color: #d8eaff;
+    }
+
+    .bottom-cta .download-btn {
+      flex: 0 0 auto;
+    }
+
+    .site-footer {
+      color: #c2d0e0;
+      background: var(--navy-950);
+    }
+
+    .footer-inner {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 56px 0 30px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 56px;
+    }
+
+    .footer-copy h2 {
+      color: #ffffff;
+      font-size: 1.5rem;
+    }
+
+    .footer-copy p {
+      max-width: 600px;
+      margin: 12px 0 0;
+      color: #91a8c1;
+      font-size: 14px;
+    }
+
+    .owner {
+      margin-top: 22px !important;
+      color: #ffffff !important;
+      font-size: 16px !important;
+      font-weight: 750;
+    }
+
+    .qr-card {
+      width: 236px;
+      padding: 17px;
+      color: var(--ink);
+      text-align: center;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0 18px 42px rgba(0, 0, 0, 0.22);
+    }
+
+    .qr-card img {
+      width: 200px;
+      height: 200px;
+      object-fit: contain;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 10px;
+    }
+
+    .qr-card p {
+      margin: 11px 0 0;
+      color: #40526a;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .copyright {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 20px 0 26px;
+      color: #6f87a2;
+      border-top: 1px solid rgba(255, 255, 255, 0.09);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 52px;
+        padding-top: 58px;
+      }
+
+      .hero-copy {
+        max-width: 680px;
+      }
+
+      .app-preview {
+        max-width: 720px;
+        transform: none;
+      }
+
+      .release-panel {
+        grid-template-columns: 1fr;
+      }
+
+      .release-meta {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        column-gap: 18px;
+        align-items: end;
+      }
+
+      .release-version {
+        grid-row: span 2;
+        margin: 0;
+      }
+
+      .release-state {
+        grid-column: 1 / -1;
+        margin-top: 18px;
+      }
+
+      .feature-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 680px) {
+      .nav {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .hero,
+      main,
+      .footer-inner,
+      .copyright {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .hero {
+        padding: 48px 0 66px;
+      }
+
+      h1 {
+        font-size: clamp(2.15rem, 12vw, 3.2rem);
+      }
+
+      .hero-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .download-btn,
+      .secondary-btn {
+        width: 100%;
+      }
+
+      main {
+        padding: 56px 0 64px;
+      }
+
+      .section {
+        margin-bottom: 56px;
+      }
+
+      .release-meta {
+        padding: 26px;
+      }
+
+      .release-list {
+        grid-template-columns: 1fr;
+        padding: 20px 24px 24px;
+      }
+
+      .feature-card {
+        padding: 24px;
+      }
+
+      .notice {
+        grid-template-columns: 1fr;
+      }
+
+      .bottom-cta {
+        padding: 30px 26px;
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .footer-inner {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .owner {
+        margin-top: 18px !important;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav" aria-label="主导航">
+      <a class="brand" href="#top" aria-label="返回页面顶部">
+        <span class="brand-mark" aria-hidden="true">✦</span>
+        <span>Walmart Inventory Tool</span>
+      </a>
+      <div class="nav-links">
+        <a href="#updates">本次更新</a>
+        <a href="#features">核心功能</a>
+        <a href="#guide">使用说明</a>
+        <a href="#download">软件下载</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="hero-shell" id="top">
+    <section class="hero" aria-labelledby="page-title">
+      <div class="hero-copy">
+        <p class="eyebrow">v4.0 · 保守稳定版 · 作者卡洛斯</p>
+        <h1 id="page-title">Walmart 库存自动查询工具</h1>
+        <p class="hero-lead">批量获取商品库存并按需下载主图，自动回写 Excel。新版重点加强风控保护和文件保存安全，适合日常分时段查询。</p>
+        <div class="hero-actions">
+          <a class="download-btn" href="https://wwbvl.lanzoul.com/i3AvG3ms38fa" target="_blank" rel="noopener noreferrer">立即下载 Windows 版 <span aria-hidden="true">→</span></a>
+          <a class="secondary-btn" href="#updates">查看更新内容</a>
+        </div>
+        <p class="download-note">绿色免安装，解压即用 · 使用前请先阅读页面下方注意事项</p>
+      </div>
+
+      <div class="app-preview">
+        <img src="https://pic1.imgdb.cn/item/69c71b7eebec5f101554f5f9.png" alt="Walmart 库存查询工具 v4.0 软件界面" width="1280" height="768">
+      </div>
+    </section>
+  </div>
+
+  <main>
+    <section class="section" id="updates" aria-labelledby="updates-title">
+      <div class="section-heading">
+        <p class="section-kicker">Release notes</p>
+        <h2 id="updates-title">本次更新：更稳妥地查询与保存</h2>
+        <p class="section-intro">围绕频繁触发人机验证和 Excel 文件安全进行了针对性优化。</p>
+      </div>
+
+      <div class="release-panel">
+        <div class="release-meta">
+          <span class="release-version">v4.0</span>
+          <span class="release-label">保守稳定版</span>
+          <span class="release-date">更新日期：2026-09-10</span>
+          <span class="release-state">当前推荐版本</span>
+        </div>
+        <ul class="release-list">
+          <li><strong>保守请求节奏</strong><span>随机间隔 10–18 秒，每批最多处理 12 个新请求。</span></li>
+          <li><strong>小时级缓存</strong><span>只复用同一自然小时的数据，跨小时自动重新查询。</span></li>
+          <li><strong>主图按需下载</strong><span>主图列已有文字或图片时跳过，空白时才下载。</span></li>
+          <li><strong>风控自动停机</strong><span>检测到 403、429、人机验证或拦截页时立即停止。</span></li>
+          <li><strong>Excel 安全保存</strong><span>先写入临时文件并校验，再替换原表，降低文件损坏风险。</span></li>
+          <li><strong>图片写入更稳定</strong><span>优化图片数据复用，避免重复保存时出现文件流错误。</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="section" id="features" aria-labelledby="features-title">
+      <div class="section-heading">
+        <p class="section-kicker">Core features</p>
+        <h2 id="features-title">为 Walmart 运营整理的实用流程</h2>
+      </div>
+
+      <div class="feature-grid">
+        <article class="feature-card">
+          <span class="feature-number">01 / EXCEL</span>
+          <h3>Excel 批量处理</h3>
+          <p>导入包含 Item ID 的任务表后自动逐行查询，并把库存结果写回原有表格结构。</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-number">02 / IMAGE</span>
+          <h3>主图智能跳过</h3>
+          <p>主图下载默认开启；已有数据或嵌入图片的单元格自动跳过，仅补齐空白位置。</p>
+        </article>
+        <article class="feature-card">
+          <span class="feature-number">03 / SAFETY</span>
+          <h3>验证保护与停止按钮</h3>
+          <p>出现风控信号时停止继续请求，减少连续触发验证；运行过程中也可随时手动停止。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="guide" aria-labelledby="guide-title">
+      <div class="notice">
+        <div class="notice-icon" aria-hidden="true">!</div>
+        <div>
+          <h2 id="guide-title">运行环境与注意事项</h2>
+          <ul>
+            <li>仅支持 Windows 操作系统。</li>
+            <li>运行前请确保当前网络可以正常访问 Walmart 官网；请遵守网站条款并控制查询频率。</li>
+            <li>软件启动前请务必关闭待处理的 Excel 文件，避免文件占用造成读写冲突。</li>
+            <li>若出现 403、人机验证或拦截提示，请按软件提示停止操作，完成验证后再继续。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bottom-cta" id="download" aria-labelledby="download-title">
+      <div>
+        <h2 id="download-title">下载 Walmart 库存查询工具 v4.0</h2>
+        <p>Windows 绿色免安装版，解压后即可使用。</p>
+      </div>
+      <a class="download-btn" href="https://wwbvl.lanzoul.com/i3AvG3ms38fa" target="_blank" rel="noopener noreferrer">前往下载 <span aria-hidden="true">→</span></a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-copy">
+        <h2>使用中遇到问题？</h2>
+        <p>可扫描右侧二维码联系站长。反馈问题时建议一并说明软件版本、提示内容和操作步骤，便于定位。</p>
+        <p class="owner">站长：卡洛斯</p>
+        <p>本工具仅供学习交流使用，请勿用于非法用途。请合理控制查询频率，并遵守相关网站的服务条款。</p>
+      </div>
+      <div class="qr-card">
+        <img src="https://pic1.imgdb.cn/item/67d5976e88c538a9b5bed54b.png" alt="联系站长卡洛斯的二维码" width="200" height="200" loading="lazy">
+        <p>扫码联系站长</p>
+      </div>
+    </div>
+    <div class="copyright">© 2026 卡洛斯. All rights reserved. · 本工具为第三方辅助工具</div>
+  </footer>
+</body>
+</html>
